@@ -1,0 +1,1697 @@
+{
+    "name": "hcloud",
+    "description": "A Pulumi package for creating and managing hcloud cloud resources.",
+    "keywords": [
+        "pulumi",
+        "hcloud"
+    ],
+    "homepage": "https://pulumi.io",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`hcloud` Terraform Provider](https://github.com/terraform-providers/terraform-provider-hcloud).",
+    "repository": "https://github.com/pulumi/pulumi-hcloud",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "config": {
+        "variables": {
+            "endpoint": {
+                "type": "string"
+            },
+            "token": {
+                "type": "string",
+                "description": "The API token to access the Hetzner cloud.\n"
+            }
+        },
+        "defaults": [
+            "token"
+        ]
+    },
+    "types": {
+        "hcloud:/getSshKeysSshKey:getSshKeysSshKey": {
+            "properties": {
+                "fingerprint": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "publicKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "fingerprint",
+                "id",
+                "labels",
+                "name",
+                "publicKey"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        }
+    },
+    "provider": {
+        "description": "The provider type for the hcloud package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "inputProperties": {
+            "endpoint": {
+                "type": "string"
+            },
+            "token": {
+                "type": "string",
+                "description": "The API token to access the Hetzner cloud.\n"
+            }
+        },
+        "requiredInputs": [
+            "token"
+        ]
+    },
+    "resources": {
+        "hcloud:index/floatingIp:FloatingIp": {
+            "description": "Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.FloatingIp(\"master\", {\n    serverId: node1.id.apply(id =\u003e Number.parseFloat(id)),\n    type: \"ipv4\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.FloatingIp(\"master\",\n    server_id=node1.id,\n    type=\"ipv4\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.FloatingIp(\"master\", new HCloud.FloatingIpArgs\n        {\n            ServerId = node1.Id,\n            Type = \"ipv4\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "homeLocation": {
+                    "type": "string"
+                },
+                "ipAddress": {
+                    "type": "string"
+                },
+                "ipNetwork": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverId": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "homeLocation",
+                "ipAddress",
+                "ipNetwork",
+                "name",
+                "serverId",
+                "type"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "homeLocation": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverId": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FloatingIp resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "homeLocation": {
+                        "type": "string"
+                    },
+                    "ipAddress": {
+                        "type": "string"
+                    },
+                    "ipNetwork": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "serverId": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/floatingIpAssignment:FloatingIpAssignment": {
+            "description": "Provides a Hetzner Cloud Floating IP Assignment to assign a Floating IP to a Hetzner Cloud Server. Deleting a Floating IP Assignment will unassign the Floating IP from the Server.\\n\\n{{% examples %}}\\n## Example Usage\\n{{% example %}}\\n\\n```typescript\\nimport * as pulumi from \\\"@pulumi/pulumi\\\";\\nimport * as hcloud from \\\"@pulumi/hcloud\\\";\\n\\nconst node1 = new hcloud.Server(\\\"node1\\\", {\\n    datacenter: \\\"fsn1-dc8\\\",\\n    image: \\\"debian-9\\\",\\n    serverType: \\\"cx11\\\",\\n});\\nconst master = new hcloud.FloatingIp(\\\"master\\\", {\\n    homeLocation: \\\"nbg1\\\",\\n    type: \\\"ipv4\\\",\\n});\\nconst main = new hcloud.FloatingIpAssignment(\\\"main\\\", {\\n    floatingIpId: master.id.apply(id =\\u003e Number.parseFloat(id)),\\n    serverId: node1.id.apply(id =\\u003e Number.parseFloat(id)),\\n});\\n```\\n```python\\nimport pulumi\\nimport pulumi_hcloud as hcloud\\n\\nnode1 = hcloud.Server(\\\"node1\\\",\\n    datacenter=\\\"fsn1-dc8\\\",\\n    image=\\\"debian-9\\\",\\n    server_type=\\\"cx11\\\")\\nmaster = hcloud.FloatingIp(\\\"master\\\",\\n    home_location=\\\"nbg1\\\",\\n    type=\\\"ipv4\\\")\\nmain = hcloud.FloatingIpAssignment(\\\"main\\\",\\n    floating_ip_id=master.id,\\n    server_id=node1.id)\\n```\\n```csharp\\nusing Pulumi;\\nusing HCloud = Pulumi.HCloud;\\n\\nclass MyStack : Stack\\n{\\n    public MyStack()\\n    {\\n        var node1 = new HCloud.Server(\\\"node1\\\", new HCloud.ServerArgs\\n        {\\n            Datacenter = \\\"fsn1-dc8\\\",\\n            Image = \\\"debian-9\\\",\\n            ServerType = \\\"cx11\\\",\\n        });\\n        var master = new HCloud.FloatingIp(\\\"master\\\", new HCloud.FloatingIpArgs\\n        {\\n            HomeLocation = \\\"nbg1\\\",\\n            Type = \\\"ipv4\\\",\\n        });\\n        var main = new HCloud.FloatingIpAssignment(\\\"main\\\", new HCloud.FloatingIpAssignmentArgs\\n        {\\n            FloatingIpId = master.Id,\\n            ServerId = node1.Id,\\n        });\\n    }\\n\\n}\\n```\\n{{% /example %}}\\n{{% /examples %}}",
+            "properties": {
+                "floatingIpId": {
+                    "type": "integer"
+                },
+                "serverId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "floatingIpId",
+                "serverId"
+            ],
+            "inputProperties": {
+                "floatingIpId": {
+                    "type": "integer"
+                },
+                "serverId": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "floatingIpId",
+                "serverId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FloatingIpAssignment resources.\n",
+                "properties": {
+                    "floatingIpId": {
+                        "type": "integer"
+                    },
+                    "serverId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/network:Network": {
+            "description": "Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst privNet = new hcloud.Network(\"privNet\", {\n    ipRange: \"10.0.1.0/24\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\npriv_net = hcloud.Network(\"privNet\", ip_range=\"10.0.1.0/24\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var privNet = new HCloud.Network(\"privNet\", new HCloud.NetworkArgs\n        {\n            IpRange = \"10.0.1.0/24\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "ipRange": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ipRange",
+                "name"
+            ],
+            "inputProperties": {
+                "ipRange": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "ipRange"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Network resources.\n",
+                "properties": {
+                    "ipRange": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/networkRoute:NetworkRoute": {
+            "description": "Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.\\n\\n{{% examples %}}\\n## Example Usage\\n{{% example %}}\\n\\n```typescript\\nimport * as pulumi from \\\"@pulumi/pulumi\\\";\\nimport * as hcloud from \\\"@pulumi/hcloud\\\";\\n\\nconst mynet = new hcloud.Network(\\\"mynet\\\", {\\n    ipRange: \\\"10.0.0.0/8\\\",\\n});\\nconst privNet = new hcloud.NetworkRoute(\\\"privNet\\\", {\\n    destination: \\\"10.100.1.0/24\\\",\\n    gateway: \\\"10.0.1.1\\\",\\n    networkId: mynet.id,\\n});\\n```\\n```python\\nimport pulumi\\nimport pulumi_hcloud as hcloud\\n\\nmynet = hcloud.Network(\\\"mynet\\\", ip_range=\\\"10.0.0.0/8\\\")\\npriv_net = hcloud.NetworkRoute(\\\"privNet\\\",\\n    destination=\\\"10.100.1.0/24\\\",\\n    gateway=\\\"10.0.1.1\\\",\\n    network_id=mynet.id)\\n```\\n```csharp\\nusing Pulumi;\\nusing HCloud = Pulumi.HCloud;\\n\\nclass MyStack : Stack\\n{\\n    public MyStack()\\n    {\\n        var mynet = new HCloud.Network(\\\"mynet\\\", new HCloud.NetworkArgs\\n        {\\n            IpRange = \\\"10.0.0.0/8\\\",\\n        });\\n        var privNet = new HCloud.NetworkRoute(\\\"privNet\\\", new HCloud.NetworkRouteArgs\\n        {\\n            Destination = \\\"10.100.1.0/24\\\",\\n            Gateway = \\\"10.0.1.1\\\",\\n            NetworkId = mynet.Id,\\n        });\\n    }\\n\\n}\\n```\\n{{% /example %}}\\n{{% /examples %}}",
+            "properties": {
+                "destination": {
+                    "type": "string"
+                },
+                "gateway": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "destination",
+                "gateway",
+                "networkId"
+            ],
+            "inputProperties": {
+                "destination": {
+                    "type": "string"
+                },
+                "gateway": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "destination",
+                "gateway",
+                "networkId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkRoute resources.\n",
+                "properties": {
+                    "destination": {
+                        "type": "string"
+                    },
+                    "gateway": {
+                        "type": "string"
+                    },
+                    "networkId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/networkSubnet:NetworkSubnet": {
+            "description": "Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.\\n\\n{{% examples %}}\\n## Example Usage\\n{{% example %}}\\n\\n```typescript\\nimport * as pulumi from \\\"@pulumi/pulumi\\\";\\nimport * as hcloud from \\\"@pulumi/hcloud\\\";\\n\\nconst mynet = new hcloud.Network(\\\"mynet\\\", {\\n    ipRange: \\\"10.0.0.0/8\\\",\\n});\\nconst foonet = new hcloud.NetworkSubnet(\\\"foonet\\\", {\\n    ipRange: \\\"10.0.1.0/24\\\",\\n    networkId: mynet.id.apply(id =\\u003e Number.parseFloat(id)),\\n    networkZone: \\\"eu-central\\\",\\n    type: \\\"server\\\",\\n});\\n```\\n```python\\nimport pulumi\\nimport pulumi_hcloud as hcloud\\n\\nmynet = hcloud.Network(\\\"mynet\\\", ip_range=\\\"10.0.0.0/8\\\")\\nfoonet = hcloud.NetworkSubnet(\\\"foonet\\\",\\n    ip_range=\\\"10.0.1.0/24\\\",\\n    network_id=mynet.id,\\n    network_zone=\\\"eu-central\\\",\\n    type=\\\"server\\\")\\n```\\n```csharp\\nusing Pulumi;\\nusing HCloud = Pulumi.HCloud;\\n\\nclass MyStack : Stack\\n{\\n    public MyStack()\\n    {\\n        var mynet = new HCloud.Network(\\\"mynet\\\", new HCloud.NetworkArgs\\n        {\\n            IpRange = \\\"10.0.0.0/8\\\",\\n        });\\n        var foonet = new HCloud.NetworkSubnet(\\\"foonet\\\", new HCloud.NetworkSubnetArgs\\n        {\\n            IpRange = \\\"10.0.1.0/24\\\",\\n            NetworkId = mynet.Id,\\n            NetworkZone = \\\"eu-central\\\",\\n            Type = \\\"server\\\",\\n        });\\n    }\\n\\n}\\n```\\n{{% /example %}}\\n{{% /examples %}}",
+            "properties": {
+                "gateway": {
+                    "type": "string"
+                },
+                "ipRange": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                },
+                "networkZone": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "gateway",
+                "ipRange",
+                "networkId",
+                "networkZone",
+                "type"
+            ],
+            "inputProperties": {
+                "ipRange": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                },
+                "networkZone": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "ipRange",
+                "networkId",
+                "networkZone",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkSubnet resources.\n",
+                "properties": {
+                    "gateway": {
+                        "type": "string"
+                    },
+                    "ipRange": {
+                        "type": "string"
+                    },
+                    "networkId": {
+                        "type": "integer"
+                    },
+                    "networkZone": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/rdns:Rdns": {
+            "description": "Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nFor servers:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Rdns(\"master\", {\n    dnsPtr: \"example.com\",\n    ipAddress: node1.ipv4Address,\n    serverId: node1.id.apply(id =\u003e Number.parseFloat(id)),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Rdns(\"master\",\n    dns_ptr=\"example.com\",\n    ip_address=node1.ipv4_address,\n    server_id=node1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Rdns(\"master\", new HCloud.RdnsArgs\n        {\n            DnsPtr = \"example.com\",\n            IpAddress = node1.Ipv4Address,\n            ServerId = node1.Id,\n        });\n    }\n\n}\n```\n\nFor Floating IPs:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst floating1 = new hcloud.FloatingIp(\"floating1\", {\n    homeLocation: \"nbg1\",\n    type: \"ipv4\",\n});\nconst floatingMaster = new hcloud.Rdns(\"floating_master\", {\n    dnsPtr: \"example.com\",\n    floatingIpId: floating1.id.apply(id =\u003e Number.parseFloat(id)),\n    ipAddress: floating1.ipAddress,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nfloating1 = hcloud.FloatingIp(\"floating1\",\n    home_location=\"nbg1\",\n    type=\"ipv4\")\nfloating_master = hcloud.Rdns(\"floatingMaster\",\n    dns_ptr=\"example.com\",\n    floating_ip_id=floating1.id,\n    ip_address=floating1.ip_address)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var floating1 = new HCloud.FloatingIp(\"floating1\", new HCloud.FloatingIpArgs\n        {\n            HomeLocation = \"nbg1\",\n            Type = \"ipv4\",\n        });\n        var floatingMaster = new HCloud.Rdns(\"floatingMaster\", new HCloud.RdnsArgs\n        {\n            DnsPtr = \"example.com\",\n            FloatingIpId = floating1.Id,\n            IpAddress = floating1.IpAddress,\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "dnsPtr": {
+                    "type": "string"
+                },
+                "floatingIpId": {
+                    "type": "integer"
+                },
+                "ipAddress": {
+                    "type": "string"
+                },
+                "serverId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "dnsPtr",
+                "ipAddress"
+            ],
+            "inputProperties": {
+                "dnsPtr": {
+                    "type": "string"
+                },
+                "floatingIpId": {
+                    "type": "integer"
+                },
+                "ipAddress": {
+                    "type": "string"
+                },
+                "serverId": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "dnsPtr",
+                "ipAddress"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Rdns resources.\n",
+                "properties": {
+                    "dnsPtr": {
+                        "type": "string"
+                    },
+                    "floatingIpId": {
+                        "type": "integer"
+                    },
+                    "ipAddress": {
+                        "type": "string"
+                    },
+                    "serverId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/server:Server": {
+            "properties": {
+                "backupWindow": {
+                    "type": "string",
+                    "deprecationMessage": "You should remove this property from your terraform configuration."
+                },
+                "backups": {
+                    "type": "boolean"
+                },
+                "datacenter": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "ipv4Address": {
+                    "type": "string"
+                },
+                "ipv6Address": {
+                    "type": "string"
+                },
+                "ipv6Network": {
+                    "type": "string"
+                },
+                "iso": {
+                    "type": "string"
+                },
+                "keepDisk": {
+                    "type": "boolean"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "location": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "rescue": {
+                    "type": "string"
+                },
+                "serverType": {
+                    "type": "string"
+                },
+                "sshKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                },
+                "userData": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "backupWindow",
+                "datacenter",
+                "image",
+                "ipv4Address",
+                "ipv6Address",
+                "ipv6Network",
+                "location",
+                "name",
+                "serverType",
+                "status"
+            ],
+            "inputProperties": {
+                "backups": {
+                    "type": "boolean"
+                },
+                "datacenter": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "iso": {
+                    "type": "string"
+                },
+                "keepDisk": {
+                    "type": "boolean"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "location": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "rescue": {
+                    "type": "string"
+                },
+                "serverType": {
+                    "type": "string"
+                },
+                "sshKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "userData": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "image",
+                "serverType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Server resources.\n",
+                "properties": {
+                    "backupWindow": {
+                        "type": "string",
+                        "deprecationMessage": "You should remove this property from your terraform configuration."
+                    },
+                    "backups": {
+                        "type": "boolean"
+                    },
+                    "datacenter": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "ipv4Address": {
+                        "type": "string"
+                    },
+                    "ipv6Address": {
+                        "type": "string"
+                    },
+                    "ipv6Network": {
+                        "type": "string"
+                    },
+                    "iso": {
+                        "type": "string"
+                    },
+                    "keepDisk": {
+                        "type": "boolean"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "rescue": {
+                        "type": "string"
+                    },
+                    "serverType": {
+                        "type": "string"
+                    },
+                    "sshKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "userData": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/serverNetwork:ServerNetwork": {
+            "description": "Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst mynet = new hcloud.Network(\"mynet\", {\n    ipRange: \"10.0.0.0/8\",\n});\nconst foonet = new hcloud.NetworkSubnet(\"foonet\", {\n    ipRange: \"10.0.1.0/24\",\n    networkId: mynet.id.apply(id =\u003e Number.parseFloat(id)),\n    networkZone: \"eu-central\",\n    type: \"server\",\n});\nconst srvnetwork = new hcloud.ServerNetwork(\"srvnetwork\", {\n    ip: \"10.0.1.5\",\n    networkId: mynet.id.apply(id =\u003e Number.parseFloat(id)),\n    serverId: node1.id.apply(id =\u003e Number.parseFloat(id)),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmynet = hcloud.Network(\"mynet\", ip_range=\"10.0.0.0/8\")\nfoonet = hcloud.NetworkSubnet(\"foonet\",\n    ip_range=\"10.0.1.0/24\",\n    network_id=mynet.id,\n    network_zone=\"eu-central\",\n    type=\"server\")\nsrvnetwork = hcloud.ServerNetwork(\"srvnetwork\",\n    ip=\"10.0.1.5\",\n    network_id=mynet.id,\n    server_id=node1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var mynet = new HCloud.Network(\"mynet\", new HCloud.NetworkArgs\n        {\n            IpRange = \"10.0.0.0/8\",\n        });\n        var foonet = new HCloud.NetworkSubnet(\"foonet\", new HCloud.NetworkSubnetArgs\n        {\n            IpRange = \"10.0.1.0/24\",\n            NetworkId = mynet.Id,\n            NetworkZone = \"eu-central\",\n            Type = \"server\",\n        });\n        var srvnetwork = new HCloud.ServerNetwork(\"srvnetwork\", new HCloud.ServerNetworkArgs\n        {\n            Ip = \"10.0.1.5\",\n            NetworkId = mynet.Id,\n            ServerId = node1.Id,\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "aliasIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ip": {
+                    "type": "string"
+                },
+                "macAddress": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                },
+                "serverId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "ip",
+                "macAddress",
+                "networkId",
+                "serverId"
+            ],
+            "inputProperties": {
+                "aliasIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ip": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                },
+                "serverId": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "networkId",
+                "serverId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServerNetwork resources.\n",
+                "properties": {
+                    "aliasIps": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "ip": {
+                        "type": "string"
+                    },
+                    "macAddress": {
+                        "type": "string"
+                    },
+                    "networkId": {
+                        "type": "integer"
+                    },
+                    "serverId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/sshKey:SshKey": {
+            "description": "Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as fs from \"fs\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\n// Create a new SSH key\nconst defaultSshKey = new hcloud.SshKey(\"default\", {\n    publicKey: fs.readFileSync(\"~/.ssh/id_rsa.pub\", \"utf-8\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\n# Create a new SSH key\ndefault = hcloud.SshKey(\"default\", public_key=(lambda path: open(path).read())(\"~/.ssh/id_rsa.pub\"))\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new SSH key\n        var @default = new HCloud.SshKey(\"default\", new HCloud.SshKeyArgs\n        {\n            PublicKey = File.ReadAllText(\"~/.ssh/id_rsa.pub\"),\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "fingerprint": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "publicKey": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "fingerprint",
+                "name",
+                "publicKey"
+            ],
+            "inputProperties": {
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "publicKey": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "publicKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SshKey resources.\n",
+                "properties": {
+                    "fingerprint": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "publicKey": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/volume:Volume": {
+            "description": "Provides a Hetzner Cloud volume resource to manage volumes.\\n\\n{{% examples %}}\\n## Example Usage\\n{{% example %}}\\n\\n```typescript\\nimport * as pulumi from \\\"@pulumi/pulumi\\\";\\nimport * as hcloud from \\\"@pulumi/hcloud\\\";\\n\\nconst node1 = new hcloud.Server(\\\"node1\\\", {\\n    image: \\\"debian-9\\\",\\n    serverType: \\\"cx11\\\",\\n});\\nconst master = new hcloud.Volume(\\\"master\\\", {\\n    automount: true,\\n    serverId: node1.id,\\n    size: 50,\\n});\\n```\\n```python\\nimport pulumi\\nimport pulumi_hcloud as hcloud\\n\\nnode1 = hcloud.Server(\\\"node1\\\",\\n    image=\\\"debian-9\\\",\\n    server_type=\\\"cx11\\\")\\nmaster = hcloud.Volume(\\\"master\\\",\\n    automount=True,\\n    server_id=node1.id,\\n    size=50)\\n```\\n```csharp\\nusing Pulumi;\\nusing HCloud = Pulumi.HCloud;\\n\\nclass MyStack : Stack\\n{\\n    public MyStack()\\n    {\\n        var node1 = new HCloud.Server(\\\"node1\\\", new HCloud.ServerArgs\\n        {\\n            Image = \\\"debian-9\\\",\\n            ServerType = \\\"cx11\\\",\\n        });\\n        var master = new HCloud.Volume(\\\"master\\\", new HCloud.VolumeArgs\\n        {\\n            Automount = true,\\n            ServerId = node1.Id,\\n            Size = 50,\\n        });\\n    }\\n\\n}\\n```\\n{{% /example %}}\\n{{% /examples %}}",
+            "properties": {
+                "automount": {
+                    "type": "boolean"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "linuxDevice": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverId": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "linuxDevice",
+                "location",
+                "name",
+                "serverId",
+                "size"
+            ],
+            "inputProperties": {
+                "automount": {
+                    "type": "boolean"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "location": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverId": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "size"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Volume resources.\n",
+                "properties": {
+                    "automount": {
+                        "type": "boolean"
+                    },
+                    "format": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "linuxDevice": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "serverId": {
+                        "type": "integer"
+                    },
+                    "size": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/volumeAttachment:VolumeAttachment": {
+            "description": "Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.\\n\\n{{% examples %}}\\n## Example Usage\\n{{% example %}}\\n\\n```typescript\\nimport * as pulumi from \\\"@pulumi/pulumi\\\";\\nimport * as hcloud from \\\"@pulumi/hcloud\\\";\\n\\nconst node1 = new hcloud.Server(\\\"node1\\\", {\\n    datacenter: \\\"nbg1-dc3\\\",\\n    image: \\\"debian-9\\\",\\n    serverType: \\\"cx11\\\",\\n});\\nconst master = new hcloud.Volume(\\\"master\\\", {\\n    location: \\\"nbg1\\\",\\n    size: 10,\\n});\\nconst main = new hcloud.VolumeAttachment(\\\"main\\\", {\\n    automount: true,\\n    serverId: node1.id.apply(id =\\u003e Number.parseFloat(id)),\\n    volumeId: master.id.apply(id =\\u003e Number.parseFloat(id)),\\n});\\n```\\n```python\\nimport pulumi\\nimport pulumi_hcloud as hcloud\\n\\nnode1 = hcloud.Server(\\\"node1\\\",\\n    datacenter=\\\"nbg1-dc3\\\",\\n    image=\\\"debian-9\\\",\\n    server_type=\\\"cx11\\\")\\nmaster = hcloud.Volume(\\\"master\\\",\\n    location=\\\"nbg1\\\",\\n    size=10)\\nmain = hcloud.VolumeAttachment(\\\"main\\\",\\n    automount=True,\\n    server_id=node1.id,\\n    volume_id=master.id)\\n```\\n```csharp\\nusing Pulumi;\\nusing HCloud = Pulumi.HCloud;\\n\\nclass MyStack : Stack\\n{\\n    public MyStack()\\n    {\\n        var node1 = new HCloud.Server(\\\"node1\\\", new HCloud.ServerArgs\\n        {\\n            Datacenter = \\\"nbg1-dc3\\\",\\n            Image = \\\"debian-9\\\",\\n            ServerType = \\\"cx11\\\",\\n        });\\n        var master = new HCloud.Volume(\\\"master\\\", new HCloud.VolumeArgs\\n        {\\n            Location = \\\"nbg1\\\",\\n            Size = 10,\\n        });\\n        var main = new HCloud.VolumeAttachment(\\\"main\\\", new HCloud.VolumeAttachmentArgs\\n        {\\n            Automount = true,\\n            ServerId = node1.Id,\\n            VolumeId = master.Id,\\n        });\\n    }\\n\\n}\\n```\\n{{% /example %}}\\n{{% /examples %}}",
+            "properties": {
+                "automount": {
+                    "type": "boolean"
+                },
+                "serverId": {
+                    "type": "integer"
+                },
+                "volumeId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "automount",
+                "serverId",
+                "volumeId"
+            ],
+            "inputProperties": {
+                "automount": {
+                    "type": "boolean"
+                },
+                "serverId": {
+                    "type": "integer"
+                },
+                "volumeId": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "serverId",
+                "volumeId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VolumeAttachment resources.\n",
+                "properties": {
+                    "automount": {
+                        "type": "boolean"
+                    },
+                    "serverId": {
+                        "type": "integer"
+                    },
+                    "volumeId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "hcloud:index/getDatacenter:getDatacenter": {
+            "description": "Provides details about a specific Hetzner Cloud Datacenter.\nUse this resource to get detailed information about specific datacenter.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ds1 = pulumi.output(hcloud.getDatacenter({\n    name: \"fsn1-dc8\",\n}, { async: true }));\nconst ds2 = pulumi.output(hcloud.getDatacenter({\n    id: 4,\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nds1 = hcloud.get_datacenter(name=\"fsn1-dc8\")\nds2 = hcloud.get_datacenter(id=4)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ds1 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs\n        {\n            Name = \"fsn1-dc8\",\n        }));\n        var ds2 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs\n        {\n            Id = 4,\n        }));\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDatacenter.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDatacenter.\n",
+                "properties": {
+                    "availableServerTypeIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "location": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "supportedServerTypeIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "availableServerTypeIds",
+                    "description",
+                    "id",
+                    "location",
+                    "name",
+                    "supportedServerTypeIds"
+                ]
+            }
+        },
+        "hcloud:index/getDatacenters:getDatacenters": {
+            "description": "Provides a list of available Hetzner Cloud Datacenters.\nThis resource may be useful to create highly available infrastructure, distributed across several datacenters.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ds = pulumi.output(hcloud.getDatacenters({ async: true }));\nconst workers: hcloud.Server[] = [];\nfor (let i = 0; i \u003c 3; i++) {\n    workers.push(new hcloud.Server(`workers-${i}`, {\n        datacenter: ds.apply(ds =\u003e ds.names[i]),\n        image: \"debian-9\",\n        serverType: \"cx31\",\n    }));\n}\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nds = hcloud.get_datacenters()\nworkers = []\nfor range in [{\"value\": i} for i in range(0, 3)]:\n    workers.append(hcloud.Server(f\"workers-{range['value']}\",\n        datacenter=ds.names[range[\"value\"]],\n        image=\"debian-9\",\n        server_type=\"cx31\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ds = Output.Create(HCloud.GetDatacenters.InvokeAsync());\n        var workers = new List\u003cHCloud.Server\u003e();\n        for (var rangeIndex = 0; rangeIndex \u003c 3; rangeIndex++)\n        {\n            var range = new { Value = rangeIndex };\n            workers.Add(new HCloud.Server($\"workers-{range.Value}\", new HCloud.ServerArgs\n            {\n                Datacenter = ds.Apply(ds =\u003e ds.Names)[range.Value],\n                Image = \"debian-9\",\n                ServerType = \"cx31\",\n            }));\n        }\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDatacenters.\n",
+                "properties": {
+                    "datacenterIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDatacenters.\n",
+                "properties": {
+                    "datacenterIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "descriptions",
+                    "names",
+                    "id"
+                ]
+            }
+        },
+        "hcloud:index/getFloatingIp:getFloatingIp": {
+            "description": "Provides details about a Hetzner Cloud Floating IP.\n\nThis resource can be useful when you need to determine a Floating IP ID based on the IP address.\n\n{{% examples %}}\n## Example Usage\n\n# Data Source: hcloud.FloatingIp\nProvides details about a Hetzner Cloud Floating IP.\nThis resource can be useful when you need to determine a Floating IP ID based on the IP address.\n\n{{% example %}}\n### Additional Examples\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ip1 = pulumi.output(hcloud.getFloatingIp({\n    ipAddress: \"1.2.3.4\",\n}, { async: true }));\nconst image2 = pulumi.output(hcloud.getFloatingIp({\n    withSelector: \"key=value\",\n}, { async: true }));\nconst main: hcloud.FloatingIpAssignment[] = [];\nfor (let i = 0; i \u003c var_counter; i++) {\n    main.push(new hcloud.FloatingIpAssignment(`main-${i}`, {\n        floatingIpId: ip1.id!,\n        serverId: hcloud_server_main.id,\n    }));\n}\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nip1 = hcloud.get_floating_ip(ip_address=\"1.2.3.4\")\nimage2 = hcloud.get_floating_ip(with_selector=\"key=value\")\nmain = []\nfor range in [{\"value\": i} for i in range(0, var.counter)]:\n    main.append(hcloud.FloatingIpAssignment(f\"main-{range['value']}\",\n        floating_ip_id=ip1.id,\n        server_id=hcloud_server[\"main\"][\"id\"]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ip1 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs\n        {\n            IpAddress = \"1.2.3.4\",\n        }));\n        var image2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n        var main = new List\u003cHCloud.FloatingIpAssignment\u003e();\n        for (var rangeIndex = 0; rangeIndex \u003c @var.Counter; rangeIndex++)\n        {\n            var range = new { Value = rangeIndex };\n            main.Add(new HCloud.FloatingIpAssignment($\"main-{range.Value}\", new HCloud.FloatingIpAssignmentArgs\n            {\n                FloatingIpId = ip1.Apply(ip1 =\u003e ip1.Id),\n                ServerId = hcloud_server.Main.Id,\n            }));\n        }\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFloatingIp.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "ipAddress": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFloatingIp.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "homeLocation": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "ipAddress": {
+                        "type": "string"
+                    },
+                    "ipNetwork": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "serverId": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "homeLocation",
+                    "ipAddress",
+                    "ipNetwork",
+                    "labels",
+                    "serverId",
+                    "type"
+                ]
+            }
+        },
+        "hcloud:index/getImage:getImage": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getImage.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getImage.\n",
+                "properties": {
+                    "created": {
+                        "type": "string"
+                    },
+                    "deprecated": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "osFlavor": {
+                        "type": "string"
+                    },
+                    "osVersion": {
+                        "type": "string"
+                    },
+                    "rapidDeploy": {
+                        "type": "boolean"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "created",
+                    "deprecated",
+                    "description",
+                    "labels",
+                    "name",
+                    "osFlavor",
+                    "osVersion",
+                    "rapidDeploy",
+                    "type"
+                ]
+            }
+        },
+        "hcloud:index/getLocation:getLocation": {
+            "description": "Provides details about a specific Hetzner Cloud Location.\nUse this resource to get detailed information about specific location.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst l1 = pulumi.output(hcloud.getLocation({\n    name: \"fsn1\",\n}, { async: true }));\nconst l2 = pulumi.output(hcloud.getLocation({\n    id: 1,\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nl1 = hcloud.get_location(name=\"fsn1\")\nl2 = hcloud.get_location(id=1)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var l1 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs\n        {\n            Name = \"fsn1\",\n        }));\n        var l2 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs\n        {\n            Id = 1,\n        }));\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocation.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocation.\n",
+                "properties": {
+                    "city": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "latitude": {
+                        "type": "number"
+                    },
+                    "longitude": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "city",
+                    "country",
+                    "description",
+                    "id",
+                    "latitude",
+                    "longitude",
+                    "name"
+                ]
+            }
+        },
+        "hcloud:index/getLocations:getLocations": {
+            "description": "Provides a list of available Hetzner Cloud Locations.\nThis resource may be useful to create highly available infrastructure, distributed across several locations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ds = pulumi.output(hcloud.getLocations({ async: true }));\nconst workers: hcloud.Server[] = [];\nfor (let i = 0; i \u003c 3; i++) {\n    workers.push(new hcloud.Server(`workers-${i}`, {\n        image: \"debian-9\",\n        location: ds.apply(ds =\u003e ds.names[i]),\n        serverType: \"cx31\",\n    }));\n}\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nds = hcloud.get_locations()\nworkers = []\nfor range in [{\"value\": i} for i in range(0, 3)]:\n    workers.append(hcloud.Server(f\"workers-{range['value']}\",\n        image=\"debian-9\",\n        location=ds.names[range[\"value\"]],\n        server_type=\"cx31\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ds = Output.Create(HCloud.GetLocations.InvokeAsync());\n        var workers = new List\u003cHCloud.Server\u003e();\n        for (var rangeIndex = 0; rangeIndex \u003c 3; rangeIndex++)\n        {\n            var range = new { Value = rangeIndex };\n            workers.Add(new HCloud.Server($\"workers-{range.Value}\", new HCloud.ServerArgs\n            {\n                Image = \"debian-9\",\n                Location = ds.Apply(ds =\u003e ds.Names)[range.Value],\n                ServerType = \"cx31\",\n            }));\n        }\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocations.\n",
+                "properties": {
+                    "locationIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocations.\n",
+                "properties": {
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "locationIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "descriptions",
+                    "names",
+                    "id"
+                ]
+            }
+        },
+        "hcloud:index/getNetwork:getNetwork": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getNetwork.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "ipRange": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNetwork.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "ipRange": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/getServer:getServer": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getServer.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServer.\n",
+                "properties": {
+                    "backupWindow": {
+                        "type": "string"
+                    },
+                    "backups": {
+                        "type": "boolean"
+                    },
+                    "datacenter": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "ipv4Address": {
+                        "type": "string"
+                    },
+                    "ipv6Address": {
+                        "type": "string"
+                    },
+                    "ipv6Network": {
+                        "type": "string"
+                    },
+                    "iso": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "rescue": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "serverType": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "backupWindow",
+                    "backups",
+                    "datacenter",
+                    "id",
+                    "image",
+                    "ipv4Address",
+                    "ipv6Address",
+                    "ipv6Network",
+                    "iso",
+                    "labels",
+                    "location",
+                    "name",
+                    "rescue",
+                    "serverType",
+                    "status"
+                ]
+            }
+        },
+        "hcloud:index/getSshKey:getSshKey": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSshKey.\n",
+                "properties": {
+                    "fingerprint": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSshKey.\n",
+                "properties": {
+                    "fingerprint": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "publicKey": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "fingerprint",
+                    "labels",
+                    "name",
+                    "publicKey"
+                ]
+            }
+        },
+        "hcloud:index/getSshKeys:getSshKeys": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSshKeys.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSshKeys.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "sshKeys": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:/getSshKeysSshKey:getSshKeysSshKey"
+                        }
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "sshKeys",
+                    "id"
+                ]
+            }
+        },
+        "hcloud:index/getVolume:getVolume": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getVolume.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "server": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getVolume.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "linuxDevice": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "deprecationMessage": "Please use the with_selector property instead."
+                    },
+                    "server": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "integer"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "labels",
+                    "linuxDevice",
+                    "name",
+                    "size"
+                ]
+            }
+        }
+    },
+    "language": {
+        "csharp": {
+            "namespaces": {
+                "hcloud": "HCloud"
+            },
+            "packageReferences": {
+                "Pulumi": "2.*",
+                "System.Collections.Immutable": "1.6.0"
+            }
+        },
+        "nodejs": {
+            "dependencies": {
+                "@pulumi/pulumi": "^2.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^8.0.25"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing hcloud cloud resources.",
+            "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-hcloud` repo](https://github.com/terraform-providers/terraform-provider-hcloud/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-hcloud` repo](https://github.com/terraform-providers/terraform-provider-hcloud/issues).",
+            "requires": {
+                "pulumi": "\u003e=2.0.0,\u003c3.0.0"
+            }
+        }
+    }
+}

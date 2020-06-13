@@ -1,0 +1,25 @@
+{
+    "name": "@pulumi/hcloud",
+    "version": "${VERSION}",
+    "description": "A Pulumi package for creating and managing hcloud cloud resources.",
+    "keywords": [
+        "pulumi",
+        "hcloud"
+    ],
+    "homepage": "https://pulumi.io",
+    "repository": "https://github.com/pulumi/pulumi-hcloud",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^2.0.0"
+    },
+    "devDependencies": {
+        "@types/mime": "^2.0.0",
+        "@types/node": "^8.0.25"
+    },
+    "pulumi": {
+        "resource": true
+    }
+}

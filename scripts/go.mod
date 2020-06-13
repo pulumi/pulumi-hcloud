@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/scripts/
+module github.com/pulumi/pulumi-hcloud/scripts/
 
 go 1.14
 

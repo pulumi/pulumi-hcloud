@@ -4,7 +4,7 @@
 set -o nounset -o errexit -o pipefail
 
 # Update this with the name of the provider
-PROVIDER_NAME="xyz"
+PROVIDER_NAME="hcloud"
 
 ROOT=$(dirname $0)/..
 WORK_PATH=$(mktemp -d)
