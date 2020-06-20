@@ -1,6 +1,7 @@
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GO111MODULE: "on"
+  HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
@@ -66,7 +67,7 @@ jobs:
       with:
         name: ${{ matrix.language  }}-sdk
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}
-    - if: failure()
+    - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
       with:
@@ -128,7 +129,7 @@ jobs:
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Run golangci
       run: make -f Makefile.github lint_provider
-    - if: failure()
+    - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
       with:
@@ -162,7 +163,7 @@ jobs:
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Run golangci
       run: cd sdk/go/hcloud && golangci-lint run -c ../../../.golangci.yml
-    - if: failure()
+    - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
       with:
@@ -199,7 +200,7 @@ jobs:
       with:
         name: pulumi-${{ env.PROVIDER }}
         path: ${{ github.workspace }}/bin
-    - if: failure()
+    - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
       with:
@@ -297,7 +298,7 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       name: Publish SDKs
       run: ./ci-scripts/ci/publish-tfgen-package ${{ github.workspace }}
-    - if: failure()
+    - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
       with:
@@ -356,14 +357,16 @@ jobs:
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}
     - name: Update path
       run: echo ::add-path::${{ github.workspace }}/bin
-    - name: Install pipenv
-      uses: dschep/install-pipenv-action@v1
+    - name: Install Python deps
+      run: |-
+        pip3 install virtualenv==20.0.23
+        pip3 install pipenv
     - name: Install dependencies
       run: make -f Makefile.github install_${{ matrix.language}}_sdk
     - name: Run tests
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
         }} -parallel 4 .
-    - if: failure()
+    - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
       with:
