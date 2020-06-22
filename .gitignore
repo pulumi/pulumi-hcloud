@@ -15,4 +15,5 @@ yarn.lock
 **/schema.go
 **/version.txt
 **/ci-scripts
+**/nuget
 
