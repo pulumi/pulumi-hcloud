@@ -10,34 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// 
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var mynet = new HCloud.Network("mynet", new HCloud.NetworkArgs
-    ///         {
-    ///             IpRange = "10.0.0.0/8",
-    ///         });
-    ///         var privNet = new HCloud.NetworkRoute("privNet", new HCloud.NetworkRouteArgs
-    ///         {
-    ///             Destination = "10.100.1.0/24",
-    ///             Gateway = "10.0.1.1",
-    ///             NetworkId = mynet.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
+    ///  Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
     /// </summary>
     public partial class NetworkRoute : Pulumi.CustomResource
     {

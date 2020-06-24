@@ -18,45 +18,15 @@ namespace Pulumi.HCloud
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
         /// 
-        /// # Data Source: hcloud.FloatingIp
+        /// # Data Source: hcloud..FloatingIp
         /// Provides details about a Hetzner Cloud Floating IP.
         /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
         /// 
-        /// {{% example %}}
-        /// ### Additional Examples
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var ip1 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs
-        ///         {
-        ///             IpAddress = "1.2.3.4",
-        ///         }));
-        ///         var image2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///         var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
-        ///         for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
-        ///         {
-        ///             var range = new { Value = rangeIndex };
-        ///             main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new HCloud.FloatingIpAssignmentArgs
-        ///             {
-        ///                 FloatingIpId = ip1.Apply(ip1 =&gt; ip1.Id),
-        ///                 ServerId = hcloud_server.Main.Id,
-        ///             }));
-        ///         }
-        ///     }
-        /// 
-        /// }
-        /// ```
         /// {{% /example %}}
+        /// {{% /examples %}}
+        /// {{% examples %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFloatingIpResult> InvokeAsync(GetFloatingIpArgs? args = null, InvokeOptions? options = null)

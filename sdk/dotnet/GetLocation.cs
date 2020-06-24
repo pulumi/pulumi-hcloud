@@ -16,30 +16,6 @@ namespace Pulumi.HCloud
         /// Use this resource to get detailed information about specific location.
         /// 
         /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var l1 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs
-        ///         {
-        ///             Name = "fsn1",
-        ///         }));
-        ///         var l2 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs
-        ///         {
-        ///             Id = 1,
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocationResult> InvokeAsync(GetLocationArgs? args = null, InvokeOptions? options = null)

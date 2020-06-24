@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
+//  Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
 type NetworkRoute struct {
 	pulumi.CustomResourceState
 

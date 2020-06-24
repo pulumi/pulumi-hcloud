@@ -10,46 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// 
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///         });
-    ///         var mynet = new HCloud.Network("mynet", new HCloud.NetworkArgs
-    ///         {
-    ///             IpRange = "10.0.0.0/8",
-    ///         });
-    ///         var foonet = new HCloud.NetworkSubnet("foonet", new HCloud.NetworkSubnetArgs
-    ///         {
-    ///             IpRange = "10.0.1.0/24",
-    ///             NetworkId = mynet.Id,
-    ///             NetworkZone = "eu-central",
-    ///             Type = "server",
-    ///         });
-    ///         var srvnetwork = new HCloud.ServerNetwork("srvnetwork", new HCloud.ServerNetworkArgs
-    ///         {
-    ///             Ip = "10.0.1.5",
-    ///             NetworkId = mynet.Id,
-    ///             ServerId = node1.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
+    ///  Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
     /// </summary>
     public partial class ServerNetwork : Pulumi.CustomResource
     {

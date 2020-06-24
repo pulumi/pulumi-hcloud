@@ -9,22 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides details about a specific Hetzner Cloud Location.
  * Use this resource to get detailed information about specific location.
- *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const l1 = pulumi.output(hcloud.getLocation({
- *     name: "fsn1",
- * }, { async: true }));
- * const l2 = pulumi.output(hcloud.getLocation({
- *     id: 1,
- * }, { async: true }));
- * ```
  */
 export function getLocation(args?: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
     args = args || {};

@@ -6,25 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
- *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const node1 = new hcloud.Server("node1", {
- *     image: "debian-9",
- *     serverType: "cx11",
- * });
- * const master = new hcloud.Rdns("master", {
- *     dnsPtr: "example.com",
- *     ipAddress: node1.ipv4Address,
- *     serverId: node1.id,
- * });
- * ```
  */
 export class Rdns extends pulumi.CustomResource {
     /**

@@ -22,22 +22,7 @@ class Volume(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud volume resource to manage volumes.
 
-        ## Example Usage
 
-
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        node1 = hcloud.Server("node1",
-            image="debian-9",
-            server_type="cx11")
-        master = hcloud.Volume("master",
-            automount=True,
-            server_id=node1.id,
-            size=50)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

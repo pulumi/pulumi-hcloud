@@ -15,22 +15,9 @@ class NetworkRoute(pulumi.CustomResource):
     network_id: pulumi.Output[float]
     def __init__(__self__, resource_name, opts=None, destination=None, gateway=None, network_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
-
-        ## Example Usage
+         Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
 
 
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        priv_net = hcloud.NetworkRoute("privNet",
-            destination="10.100.1.0/24",
-            gateway="10.0.1.1",
-            network_id=mynet.id)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

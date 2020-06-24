@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
+//  Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
 type Network struct {
 	pulumi.CustomResourceState
 

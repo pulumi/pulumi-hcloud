@@ -9,25 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a list of available Hetzner Cloud Locations.
  * This resource may be useful to create highly available infrastructure, distributed across several locations.
- *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const ds = pulumi.output(hcloud.getLocations({ async: true }));
- * const workers: hcloud.Server[] = [];
- * for (let i = 0; i < 3; i++) {
- *     workers.push(new hcloud.Server(`workers-${i}`, {
- *         image: "debian-9",
- *         location: ds.apply(ds => ds.names[i]),
- *         serverType: "cx31",
- *     }));
- * }
- * ```
  */
 export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
     args = args || {};

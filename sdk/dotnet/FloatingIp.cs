@@ -11,33 +11,6 @@ namespace Pulumi.HCloud
 {
     /// <summary>
     /// Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// 
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///         });
-    ///         var master = new HCloud.FloatingIp("master", new HCloud.FloatingIpArgs
-    ///         {
-    ///             ServerId = node1.Id,
-    ///             Type = "ipv4",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     public partial class FloatingIp : Pulumi.CustomResource
     {

@@ -44,23 +44,6 @@ def get_datacenters(datacenter_ids=None,opts=None):
     """
     Provides a list of available Hetzner Cloud Datacenters.
     This resource may be useful to create highly available infrastructure, distributed across several datacenters.
-
-    ## Example Usage
-
-
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds = hcloud.get_datacenters()
-    workers = []
-    for range in [{"value": i} for i in range(0, 3)]:
-        workers.append(hcloud.Server(f"workers-{range['value']}",
-            datacenter=ds.names[range["value"]],
-            image="debian-9",
-            server_type="cx31"))
-    ```
     """
     __args__ = dict()
 

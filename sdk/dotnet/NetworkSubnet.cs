@@ -10,35 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// 
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var mynet = new HCloud.Network("mynet", new HCloud.NetworkArgs
-    ///         {
-    ///             IpRange = "10.0.0.0/8",
-    ///         });
-    ///         var foonet = new HCloud.NetworkSubnet("foonet", new HCloud.NetworkSubnetArgs
-    ///         {
-    ///             IpRange = "10.0.1.0/24",
-    ///             NetworkId = mynet.Id,
-    ///             NetworkZone = "eu-central",
-    ///             Type = "server",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
+    ///  Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
     /// </summary>
     public partial class NetworkSubnet : Pulumi.CustomResource
     {

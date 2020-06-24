@@ -17,30 +17,9 @@ class ServerNetwork(pulumi.CustomResource):
     server_id: pulumi.Output[float]
     def __init__(__self__, resource_name, opts=None, alias_ips=None, ip=None, network_id=None, server_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
-
-        ## Example Usage
+         Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
 
 
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        node1 = hcloud.Server("node1",
-            image="debian-9",
-            server_type="cx11")
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        foonet = hcloud.NetworkSubnet("foonet",
-            ip_range="10.0.1.0/24",
-            network_id=mynet.id,
-            network_zone="eu-central",
-            type="server")
-        srvnetwork = hcloud.ServerNetwork("srvnetwork",
-            ip="10.0.1.5",
-            network_id=mynet.id,
-            server_id=node1.id)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

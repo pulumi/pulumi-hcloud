@@ -17,26 +17,7 @@ class VolumeAttachment(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.
 
-        ## Example Usage
 
-
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        node1 = hcloud.Server("node1",
-            datacenter="nbg1-dc3",
-            image="debian-9",
-            server_type="cx11")
-        master = hcloud.Volume("master",
-            location="nbg1",
-            size=10)
-        main = hcloud.VolumeAttachment("main",
-            automount=True,
-            server_id=node1.id,
-            volume_id=master.id)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -49,18 +49,6 @@ def get_datacenter(id=None,name=None,opts=None):
     """
     Provides details about a specific Hetzner Cloud Datacenter.
     Use this resource to get detailed information about specific datacenter.
-
-    ## Example Usage
-
-
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds1 = hcloud.get_datacenter(name="fsn1-dc8")
-    ds2 = hcloud.get_datacenter(id=4)
-    ```
     """
     __args__ = dict()
 

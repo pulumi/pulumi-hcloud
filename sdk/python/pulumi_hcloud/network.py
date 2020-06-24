@@ -15,18 +15,9 @@ class Network(pulumi.CustomResource):
     name: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, ip_range=None, labels=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
-
-        ## Example Usage
+         Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
 
 
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

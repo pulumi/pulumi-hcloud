@@ -17,23 +17,9 @@ class NetworkSubnet(pulumi.CustomResource):
     type: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, ip_range=None, network_id=None, network_zone=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
-
-        ## Example Usage
+         Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
 
 
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        foonet = hcloud.NetworkSubnet("foonet",
-            ip_range="10.0.1.0/24",
-            network_id=mynet.id,
-            network_zone="eu-central",
-            type="server")
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

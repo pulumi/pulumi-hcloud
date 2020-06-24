@@ -18,22 +18,7 @@ class Rdns(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
 
-        ## Example Usage
 
-
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        node1 = hcloud.Server("node1",
-            image="debian-9",
-            server_type="cx11")
-        master = hcloud.Rdns("master",
-            dns_ptr="example.com",
-            ip_address=node1.ipv4_address,
-            server_id=node1.id)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

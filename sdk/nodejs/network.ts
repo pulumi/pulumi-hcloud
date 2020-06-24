@@ -5,20 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
- *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const privNet = new hcloud.Network("privNet", {
- *     ipRange: "10.0.1.0/24",
- * });
- * ```
+ *  Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
  */
 export class Network extends pulumi.CustomResource {
     /**

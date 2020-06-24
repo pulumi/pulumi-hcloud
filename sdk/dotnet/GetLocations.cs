@@ -16,35 +16,6 @@ namespace Pulumi.HCloud
         /// This resource may be useful to create highly available infrastructure, distributed across several locations.
         /// 
         /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var ds = Output.Create(HCloud.GetLocations.InvokeAsync());
-        ///         var workers = new List&lt;HCloud.Server&gt;();
-        ///         for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
-        ///         {
-        ///             var range = new { Value = rangeIndex };
-        ///             workers.Add(new HCloud.Server($"workers-{range.Value}", new HCloud.ServerArgs
-        ///             {
-        ///                 Image = "debian-9",
-        ///                 Location = ds.Apply(ds =&gt; ds.Names)[range.Value],
-        ///                 ServerType = "cx31",
-        ///             }));
-        ///         }
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocationsResult> InvokeAsync(GetLocationsArgs? args = null, InvokeOptions? options = null)

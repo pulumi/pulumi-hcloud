@@ -44,23 +44,6 @@ def get_locations(location_ids=None,opts=None):
     """
     Provides a list of available Hetzner Cloud Locations.
     This resource may be useful to create highly available infrastructure, distributed across several locations.
-
-    ## Example Usage
-
-
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds = hcloud.get_locations()
-    workers = []
-    for range in [{"value": i} for i in range(0, 3)]:
-        workers.append(hcloud.Server(f"workers-{range['value']}",
-            image="debian-9",
-            location=ds.names[range["value"]],
-            server_type="cx31"))
-    ```
     """
     __args__ = dict()
 

@@ -73,23 +73,6 @@ def get_floating_ip(id=None,ip_address=None,name=None,selector=None,with_selecto
     Provides details about a Hetzner Cloud Floating IP.
 
     This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-
-    ## Example Usage
-
-    ### Additional Examples
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ip1 = hcloud.get_floating_ip(ip_address="1.2.3.4")
-    image2 = hcloud.get_floating_ip(with_selector="key=value")
-    main = []
-    for range in [{"value": i} for i in range(0, var.counter)]:
-        main.append(hcloud.FloatingIpAssignment(f"main-{range['value']}",
-            floating_ip_id=ip1.id,
-            server_id=hcloud_server["main"]["id"]))
-    ```
     """
     __args__ = dict()
 
