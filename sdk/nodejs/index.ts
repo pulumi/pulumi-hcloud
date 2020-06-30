@@ -2,12 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./certificate";
 export * from "./floatingIp";
 export * from "./floatingIpAssignment";
+export * from "./getCertificate";
 export * from "./getDatacenter";
 export * from "./getDatacenters";
 export * from "./getFloatingIp";
 export * from "./getImage";
+export * from "./getLoadBalancer";
 export * from "./getLocation";
 export * from "./getLocations";
 export * from "./getNetwork";
@@ -15,6 +18,10 @@ export * from "./getServer";
 export * from "./getSshKey";
 export * from "./getSshKeys";
 export * from "./getVolume";
+export * from "./loadBalancer";
+export * from "./loadBalancerNetwork";
+export * from "./loadBalancerService";
+export * from "./loadBalancerTarget";
 export * from "./network";
 export * from "./networkRoute";
 export * from "./networkSubnet";

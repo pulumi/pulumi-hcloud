@@ -27,6 +27,551 @@
         ]
     },
     "types": {
+        "hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "type"
+                    ]
+                }
+            }
+        },
+        "hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck": {
+            "properties": {
+                "http": {
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheckHttp:LoadBalancerServiceHealthCheckHttp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "retries": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeout": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "interval",
+                "port",
+                "protocol",
+                "timeout"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "http",
+                        "interval",
+                        "port",
+                        "protocol",
+                        "retries",
+                        "timeout"
+                    ]
+                }
+            }
+        },
+        "hcloud:/LoadBalancerServiceHealthCheckHttp:LoadBalancerServiceHealthCheckHttp": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "response": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "statusCodes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tls": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "statusCodes"
+            ]
+        },
+        "hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp": {
+            "properties": {
+                "certificates": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieLifetime": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "redirectHttp": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stickySessions": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cookieLifetime",
+                        "cookieName",
+                        "redirectHttp",
+                        "stickySessions"
+                    ]
+                }
+            }
+        },
+        "hcloud:/LoadBalancerTarget:LoadBalancerTarget": {
+            "properties": {
+                "serverId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "usePrivateIp": {
+                    "type": "boolean",
+                    "deprecationMessage": "Does not work. Use the hcloud_load_balancer_target resource instead.",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "hcloud:/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:/getLoadBalancerService:getLoadBalancerService": {
+            "properties": {
+                "destinationPort": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "healthCheck": {
+                    "$ref": "#/types/hcloud:/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "http": {
+                    "$ref": "#/types/hcloud:/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "listenPort": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "proxyprotocol": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destinationPort",
+                "healthCheck",
+                "http",
+                "listenPort",
+                "protocol",
+                "proxyprotocol"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck": {
+            "properties": {
+                "http": {
+                    "$ref": "#/types/hcloud:/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "retries": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeout": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "http",
+                "interval",
+                "port",
+                "protocol",
+                "retries",
+                "timeout"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "response": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "statusCodes": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tls": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "path",
+                "response",
+                "statusCodes",
+                "tls"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp": {
+            "properties": {
+                "certificates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieLifetime": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "redirectHttp": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stickySessions": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "certificates",
+                "cookieLifetime",
+                "cookieName",
+                "redirectHttp",
+                "stickySessions"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:/getLoadBalancerTarget:getLoadBalancerTarget": {
+            "properties": {
+                "labelSelector": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "labelSelector",
+                "serverId",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "hcloud:/getSshKeysSshKey:getSshKeysSshKey": {
             "properties": {
                 "fingerprint": {
@@ -104,6 +649,129 @@
         ]
     },
     "resources": {
+        "hcloud:index/certificate:Certificate": {
+            "description": "Provides a Hetzner Clould Certificate to represent a TLS certificate in the Hetzner Cloud.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "properties": {
+                "certificate": {
+                    "type": "string",
+                    "language": {
+                        "csharp": {
+                            "name": "CertificateContents"
+                        }
+                    }
+                },
+                "created": {
+                    "type": "string"
+                },
+                "domainNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "fingerprint": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notValidAfter": {
+                    "type": "string"
+                },
+                "notValidBefore": {
+                    "type": "string"
+                },
+                "privateKey": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "certificate",
+                "created",
+                "domainNames",
+                "fingerprint",
+                "name",
+                "notValidAfter",
+                "notValidBefore",
+                "privateKey"
+            ],
+            "inputProperties": {
+                "certificate": {
+                    "type": "string",
+                    "language": {
+                        "csharp": {
+                            "name": "CertificateContents"
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "privateKey": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "certificate",
+                "privateKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Certificate resources.\n",
+                "properties": {
+                    "certificate": {
+                        "type": "string",
+                        "language": {
+                            "csharp": {
+                                "name": "CertificateContents"
+                            }
+                        }
+                    },
+                    "created": {
+                        "type": "string"
+                    },
+                    "domainNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "fingerprint": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notValidAfter": {
+                        "type": "string"
+                    },
+                    "notValidBefore": {
+                        "type": "string"
+                    },
+                    "privateKey": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "hcloud:index/floatingIp:FloatingIp": {
             "description": "Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.\n\n{{% examples %}}\n{{% /examples %}}\n",
             "properties": {
@@ -237,6 +905,344 @@
                     },
                     "serverId": {
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/loadBalancer:LoadBalancer": {
+            "description": "  Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "properties": {
+                "algorithm": {
+                    "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm"
+                },
+                "ipv4": {
+                    "type": "string"
+                },
+                "ipv6": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "loadBalancerType": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                },
+                "networkIp": {
+                    "type": "string"
+                },
+                "networkZone": {
+                    "type": "string"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
+                    }
+                }
+            },
+            "required": [
+                "algorithm",
+                "ipv4",
+                "ipv6",
+                "labels",
+                "loadBalancerType",
+                "location",
+                "name",
+                "networkId",
+                "networkIp",
+                "networkZone",
+                "targets"
+            ],
+            "inputProperties": {
+                "algorithm": {
+                    "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "loadBalancerType": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkZone": {
+                    "type": "string"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "loadBalancerType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LoadBalancer resources.\n",
+                "properties": {
+                    "algorithm": {
+                        "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm"
+                    },
+                    "ipv4": {
+                        "type": "string"
+                    },
+                    "ipv6": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "loadBalancerType": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "networkId": {
+                        "type": "integer"
+                    },
+                    "networkIp": {
+                        "type": "string"
+                    },
+                    "networkZone": {
+                        "type": "string"
+                    },
+                    "targets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork": {
+            "description": " Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "properties": {
+                "enablePublicInterface": {
+                    "type": "boolean"
+                },
+                "ip": {
+                    "type": "string"
+                },
+                "loadBalancerId": {
+                    "type": "integer"
+                },
+                "networkId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "ip",
+                "loadBalancerId",
+                "networkId"
+            ],
+            "inputProperties": {
+                "enablePublicInterface": {
+                    "type": "boolean"
+                },
+                "ip": {
+                    "type": "string"
+                },
+                "loadBalancerId": {
+                    "type": "integer"
+                },
+                "networkId": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "loadBalancerId",
+                "networkId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LoadBalancerNetwork resources.\n",
+                "properties": {
+                    "enablePublicInterface": {
+                        "type": "boolean"
+                    },
+                    "ip": {
+                        "type": "string"
+                    },
+                    "loadBalancerId": {
+                        "type": "integer"
+                    },
+                    "networkId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/loadBalancerService:LoadBalancerService": {
+            "description": "  Define services for Hetzner Cloud Load Balancers.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "properties": {
+                "destinationPort": {
+                    "type": "integer"
+                },
+                "healthCheck": {
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck"
+                },
+                "http": {
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp"
+                },
+                "listenPort": {
+                    "type": "integer"
+                },
+                "loadBalancerId": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "proxyprotocol": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "destinationPort",
+                "healthCheck",
+                "listenPort",
+                "loadBalancerId",
+                "protocol",
+                "proxyprotocol"
+            ],
+            "inputProperties": {
+                "destinationPort": {
+                    "type": "integer"
+                },
+                "healthCheck": {
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck"
+                },
+                "http": {
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp"
+                },
+                "listenPort": {
+                    "type": "integer"
+                },
+                "loadBalancerId": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "proxyprotocol": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "loadBalancerId",
+                "protocol"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LoadBalancerService resources.\n",
+                "properties": {
+                    "destinationPort": {
+                        "type": "integer"
+                    },
+                    "healthCheck": {
+                        "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck"
+                    },
+                    "http": {
+                        "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp"
+                    },
+                    "listenPort": {
+                        "type": "integer"
+                    },
+                    "loadBalancerId": {
+                        "type": "string"
+                    },
+                    "protocol": {
+                        "type": "string"
+                    },
+                    "proxyprotocol": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/loadBalancerTarget:LoadBalancerTarget": {
+            "description": "Adds a target to a Hetzner Cloud Load Balancer.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "properties": {
+                "loadBalancerId": {
+                    "type": "integer"
+                },
+                "serverId": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "usePrivateIp": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "loadBalancerId",
+                "type",
+                "usePrivateIp"
+            ],
+            "inputProperties": {
+                "loadBalancerId": {
+                    "type": "integer"
+                },
+                "serverId": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "usePrivateIp": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "loadBalancerId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LoadBalancerTarget resources.\n",
+                "properties": {
+                    "loadBalancerId": {
+                        "type": "integer"
+                    },
+                    "serverId": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "usePrivateIp": {
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -948,6 +1954,75 @@
         }
     },
     "functions": {
+        "hcloud:index/getCertificate:getCertificate": {
+            "description": "Provides details about a specific Hetzner Cloud Certificate.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCertificate.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCertificate.\n",
+                "properties": {
+                    "certificate": {
+                        "type": "string"
+                    },
+                    "created": {
+                        "type": "string"
+                    },
+                    "domainNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "fingerprint": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notValidAfter": {
+                        "type": "string"
+                    },
+                    "notValidBefore": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "certificate",
+                    "created",
+                    "domainNames",
+                    "fingerprint",
+                    "labels",
+                    "notValidAfter",
+                    "notValidBefore"
+                ]
+            }
+        },
         "hcloud:index/getDatacenter:getDatacenter": {
             "description": "Provides details about a specific Hetzner Cloud Datacenter.\nUse this resource to get detailed information about specific datacenter.\n\n{{% examples %}}\n{{% /examples %}}\n",
             "inputs": {
@@ -1222,6 +2297,86 @@
                     "osVersion",
                     "rapidDeploy",
                     "type"
+                ]
+            }
+        },
+        "hcloud:index/getLoadBalancer:getLoadBalancer": {
+            "description": "    Provides details about a specific Hetzner Cloud Server.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLoadBalancer.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLoadBalancer.\n",
+                "properties": {
+                    "algorithm": {
+                        "$ref": "#/types/hcloud:/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "ipv4": {
+                        "type": "string"
+                    },
+                    "ipv6": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "loadBalancerType": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "networkZone": {
+                        "type": "string"
+                    },
+                    "services": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:/getLoadBalancerService:getLoadBalancerService"
+                        }
+                    },
+                    "targets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:/getLoadBalancerTarget:getLoadBalancerTarget"
+                        }
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "algorithm",
+                    "ipv4",
+                    "ipv6",
+                    "labels",
+                    "loadBalancerType",
+                    "location",
+                    "networkZone",
+                    "services",
+                    "targets"
                 ]
             }
         },
