@@ -5,10 +5,92 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface GetLoadBalancerAlgorithm {
+    type: string;
+}
+
+export interface GetLoadBalancerService {
+    destinationPort: number;
+    healthCheck: outputs.GetLoadBalancerServiceHealthCheck;
+    http: outputs.GetLoadBalancerServiceHttp;
+    listenPort: number;
+    protocol: string;
+    proxyprotocol: boolean;
+}
+
+export interface GetLoadBalancerServiceHealthCheck {
+    http: outputs.GetLoadBalancerServiceHealthCheckHttp;
+    interval: number;
+    port: number;
+    protocol: string;
+    retries: number;
+    timeout: number;
+}
+
+export interface GetLoadBalancerServiceHealthCheckHttp {
+    domain: string;
+    path: string;
+    response: string;
+    statusCodes: number[];
+    tls: boolean;
+}
+
+export interface GetLoadBalancerServiceHttp {
+    certificates: string[];
+    cookieLifetime: number;
+    cookieName: string;
+    redirectHttp: boolean;
+    stickySessions: boolean;
+}
+
+export interface GetLoadBalancerTarget {
+    labelSelector: string;
+    serverId: number;
+    type: string;
+}
+
 export interface GetSshKeysSshKey {
     fingerprint: string;
     id: number;
     labels: {[key: string]: any};
     name: string;
     publicKey: string;
+}
+
+export interface LoadBalancerAlgorithm {
+    type: string;
+}
+
+export interface LoadBalancerServiceHealthCheck {
+    http: outputs.LoadBalancerServiceHealthCheckHttp;
+    interval: number;
+    port: number;
+    protocol: string;
+    retries: number;
+    timeout: number;
+}
+
+export interface LoadBalancerServiceHealthCheckHttp {
+    domain?: string;
+    path?: string;
+    response?: string;
+    statusCodes: string[];
+    tls?: boolean;
+}
+
+export interface LoadBalancerServiceHttp {
+    certificates?: number[];
+    cookieLifetime: number;
+    cookieName: string;
+    redirectHttp: boolean;
+    stickySessions: boolean;
+}
+
+export interface LoadBalancerTarget {
+    serverId?: number;
+    type: string;
+    /**
+     * @deprecated Does not work. Use the hcloud_load_balancer_target resource instead.
+     */
+    usePrivateIp?: boolean;
 }

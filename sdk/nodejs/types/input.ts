@@ -5,3 +5,40 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface LoadBalancerAlgorithm {
+    type?: pulumi.Input<string>;
+}
+
+export interface LoadBalancerServiceHealthCheck {
+    http?: pulumi.Input<inputs.LoadBalancerServiceHealthCheckHttp>;
+    interval: pulumi.Input<number>;
+    port: pulumi.Input<number>;
+    protocol: pulumi.Input<string>;
+    retries?: pulumi.Input<number>;
+    timeout: pulumi.Input<number>;
+}
+
+export interface LoadBalancerServiceHealthCheckHttp {
+    domain?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
+    response?: pulumi.Input<string>;
+    statusCodes: pulumi.Input<pulumi.Input<string>[]>;
+    tls?: pulumi.Input<boolean>;
+}
+
+export interface LoadBalancerServiceHttp {
+    certificates?: pulumi.Input<pulumi.Input<number>[]>;
+    cookieLifetime?: pulumi.Input<number>;
+    cookieName?: pulumi.Input<string>;
+    redirectHttp?: pulumi.Input<boolean>;
+    stickySessions?: pulumi.Input<boolean>;
+}
+
+export interface LoadBalancerTarget {
+    serverId?: pulumi.Input<number>;
+    type: pulumi.Input<string>;
+    /**
+     * @deprecated Does not work. Use the hcloud_load_balancer_target resource instead.
+     */
+    usePrivateIp?: pulumi.Input<boolean>;
+}

@@ -10,6 +10,1336 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type LoadBalancerAlgorithm struct {
+	Type *string `pulumi:"type"`
+}
+
+// LoadBalancerAlgorithmInput is an input type that accepts LoadBalancerAlgorithmArgs and LoadBalancerAlgorithmOutput values.
+// You can construct a concrete instance of `LoadBalancerAlgorithmInput` via:
+//
+// 		 LoadBalancerAlgorithmArgs{...}
+//
+type LoadBalancerAlgorithmInput interface {
+	pulumi.Input
+
+	ToLoadBalancerAlgorithmOutput() LoadBalancerAlgorithmOutput
+	ToLoadBalancerAlgorithmOutputWithContext(context.Context) LoadBalancerAlgorithmOutput
+}
+
+type LoadBalancerAlgorithmArgs struct {
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LoadBalancerAlgorithmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerAlgorithm)(nil)).Elem()
+}
+
+func (i LoadBalancerAlgorithmArgs) ToLoadBalancerAlgorithmOutput() LoadBalancerAlgorithmOutput {
+	return i.ToLoadBalancerAlgorithmOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerAlgorithmArgs) ToLoadBalancerAlgorithmOutputWithContext(ctx context.Context) LoadBalancerAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAlgorithmOutput)
+}
+
+func (i LoadBalancerAlgorithmArgs) ToLoadBalancerAlgorithmPtrOutput() LoadBalancerAlgorithmPtrOutput {
+	return i.ToLoadBalancerAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerAlgorithmArgs) ToLoadBalancerAlgorithmPtrOutputWithContext(ctx context.Context) LoadBalancerAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAlgorithmOutput).ToLoadBalancerAlgorithmPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerAlgorithmPtrInput is an input type that accepts LoadBalancerAlgorithmArgs, LoadBalancerAlgorithmPtr and LoadBalancerAlgorithmPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerAlgorithmPtrInput` via:
+//
+// 		 LoadBalancerAlgorithmArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type LoadBalancerAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerAlgorithmPtrOutput() LoadBalancerAlgorithmPtrOutput
+	ToLoadBalancerAlgorithmPtrOutputWithContext(context.Context) LoadBalancerAlgorithmPtrOutput
+}
+
+type loadBalancerAlgorithmPtrType LoadBalancerAlgorithmArgs
+
+func LoadBalancerAlgorithmPtr(v *LoadBalancerAlgorithmArgs) LoadBalancerAlgorithmPtrInput {
+	return (*loadBalancerAlgorithmPtrType)(v)
+}
+
+func (*loadBalancerAlgorithmPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerAlgorithm)(nil)).Elem()
+}
+
+func (i *loadBalancerAlgorithmPtrType) ToLoadBalancerAlgorithmPtrOutput() LoadBalancerAlgorithmPtrOutput {
+	return i.ToLoadBalancerAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerAlgorithmPtrType) ToLoadBalancerAlgorithmPtrOutputWithContext(ctx context.Context) LoadBalancerAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAlgorithmPtrOutput)
+}
+
+type LoadBalancerAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerAlgorithm)(nil)).Elem()
+}
+
+func (o LoadBalancerAlgorithmOutput) ToLoadBalancerAlgorithmOutput() LoadBalancerAlgorithmOutput {
+	return o
+}
+
+func (o LoadBalancerAlgorithmOutput) ToLoadBalancerAlgorithmOutputWithContext(ctx context.Context) LoadBalancerAlgorithmOutput {
+	return o
+}
+
+func (o LoadBalancerAlgorithmOutput) ToLoadBalancerAlgorithmPtrOutput() LoadBalancerAlgorithmPtrOutput {
+	return o.ToLoadBalancerAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerAlgorithmOutput) ToLoadBalancerAlgorithmPtrOutputWithContext(ctx context.Context) LoadBalancerAlgorithmPtrOutput {
+	return o.ApplyT(func(v LoadBalancerAlgorithm) *LoadBalancerAlgorithm {
+		return &v
+	}).(LoadBalancerAlgorithmPtrOutput)
+}
+func (o LoadBalancerAlgorithmOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerAlgorithm) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerAlgorithm)(nil)).Elem()
+}
+
+func (o LoadBalancerAlgorithmPtrOutput) ToLoadBalancerAlgorithmPtrOutput() LoadBalancerAlgorithmPtrOutput {
+	return o
+}
+
+func (o LoadBalancerAlgorithmPtrOutput) ToLoadBalancerAlgorithmPtrOutputWithContext(ctx context.Context) LoadBalancerAlgorithmPtrOutput {
+	return o
+}
+
+func (o LoadBalancerAlgorithmPtrOutput) Elem() LoadBalancerAlgorithmOutput {
+	return o.ApplyT(func(v *LoadBalancerAlgorithm) LoadBalancerAlgorithm { return *v }).(LoadBalancerAlgorithmOutput)
+}
+
+func (o LoadBalancerAlgorithmPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerAlgorithm) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerServiceHealthCheck struct {
+	Http     *LoadBalancerServiceHealthCheckHttp `pulumi:"http"`
+	Interval int                                 `pulumi:"interval"`
+	Port     int                                 `pulumi:"port"`
+	Protocol string                              `pulumi:"protocol"`
+	Retries  *int                                `pulumi:"retries"`
+	Timeout  int                                 `pulumi:"timeout"`
+}
+
+// LoadBalancerServiceHealthCheckInput is an input type that accepts LoadBalancerServiceHealthCheckArgs and LoadBalancerServiceHealthCheckOutput values.
+// You can construct a concrete instance of `LoadBalancerServiceHealthCheckInput` via:
+//
+// 		 LoadBalancerServiceHealthCheckArgs{...}
+//
+type LoadBalancerServiceHealthCheckInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceHealthCheckOutput() LoadBalancerServiceHealthCheckOutput
+	ToLoadBalancerServiceHealthCheckOutputWithContext(context.Context) LoadBalancerServiceHealthCheckOutput
+}
+
+type LoadBalancerServiceHealthCheckArgs struct {
+	Http     LoadBalancerServiceHealthCheckHttpPtrInput `pulumi:"http"`
+	Interval pulumi.IntInput                            `pulumi:"interval"`
+	Port     pulumi.IntInput                            `pulumi:"port"`
+	Protocol pulumi.StringInput                         `pulumi:"protocol"`
+	Retries  pulumi.IntPtrInput                         `pulumi:"retries"`
+	Timeout  pulumi.IntInput                            `pulumi:"timeout"`
+}
+
+func (LoadBalancerServiceHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerServiceHealthCheck)(nil)).Elem()
+}
+
+func (i LoadBalancerServiceHealthCheckArgs) ToLoadBalancerServiceHealthCheckOutput() LoadBalancerServiceHealthCheckOutput {
+	return i.ToLoadBalancerServiceHealthCheckOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerServiceHealthCheckArgs) ToLoadBalancerServiceHealthCheckOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHealthCheckOutput)
+}
+
+func (i LoadBalancerServiceHealthCheckArgs) ToLoadBalancerServiceHealthCheckPtrOutput() LoadBalancerServiceHealthCheckPtrOutput {
+	return i.ToLoadBalancerServiceHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerServiceHealthCheckArgs) ToLoadBalancerServiceHealthCheckPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHealthCheckOutput).ToLoadBalancerServiceHealthCheckPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerServiceHealthCheckPtrInput is an input type that accepts LoadBalancerServiceHealthCheckArgs, LoadBalancerServiceHealthCheckPtr and LoadBalancerServiceHealthCheckPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerServiceHealthCheckPtrInput` via:
+//
+// 		 LoadBalancerServiceHealthCheckArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type LoadBalancerServiceHealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceHealthCheckPtrOutput() LoadBalancerServiceHealthCheckPtrOutput
+	ToLoadBalancerServiceHealthCheckPtrOutputWithContext(context.Context) LoadBalancerServiceHealthCheckPtrOutput
+}
+
+type loadBalancerServiceHealthCheckPtrType LoadBalancerServiceHealthCheckArgs
+
+func LoadBalancerServiceHealthCheckPtr(v *LoadBalancerServiceHealthCheckArgs) LoadBalancerServiceHealthCheckPtrInput {
+	return (*loadBalancerServiceHealthCheckPtrType)(v)
+}
+
+func (*loadBalancerServiceHealthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerServiceHealthCheck)(nil)).Elem()
+}
+
+func (i *loadBalancerServiceHealthCheckPtrType) ToLoadBalancerServiceHealthCheckPtrOutput() LoadBalancerServiceHealthCheckPtrOutput {
+	return i.ToLoadBalancerServiceHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerServiceHealthCheckPtrType) ToLoadBalancerServiceHealthCheckPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHealthCheckPtrOutput)
+}
+
+type LoadBalancerServiceHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerServiceHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerServiceHealthCheck)(nil)).Elem()
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) ToLoadBalancerServiceHealthCheckOutput() LoadBalancerServiceHealthCheckOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) ToLoadBalancerServiceHealthCheckOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) ToLoadBalancerServiceHealthCheckPtrOutput() LoadBalancerServiceHealthCheckPtrOutput {
+	return o.ToLoadBalancerServiceHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) ToLoadBalancerServiceHealthCheckPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheck {
+		return &v
+	}).(LoadBalancerServiceHealthCheckPtrOutput)
+}
+func (o LoadBalancerServiceHealthCheckOutput) Http() LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheckHttp { return v.Http }).(LoadBalancerServiceHealthCheckHttpPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) Retries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *int { return v.Retries }).(pulumi.IntPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+type LoadBalancerServiceHealthCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerServiceHealthCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerServiceHealthCheck)(nil)).Elem()
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) ToLoadBalancerServiceHealthCheckPtrOutput() LoadBalancerServiceHealthCheckPtrOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) ToLoadBalancerServiceHealthCheckPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckPtrOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) Elem() LoadBalancerServiceHealthCheckOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) LoadBalancerServiceHealthCheck { return *v }).(LoadBalancerServiceHealthCheckOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) Http() LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheckHttp {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(LoadBalancerServiceHealthCheckHttpPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Retries
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
+type LoadBalancerServiceHealthCheckHttp struct {
+	Domain      *string  `pulumi:"domain"`
+	Path        *string  `pulumi:"path"`
+	Response    *string  `pulumi:"response"`
+	StatusCodes []string `pulumi:"statusCodes"`
+	Tls         *bool    `pulumi:"tls"`
+}
+
+// LoadBalancerServiceHealthCheckHttpInput is an input type that accepts LoadBalancerServiceHealthCheckHttpArgs and LoadBalancerServiceHealthCheckHttpOutput values.
+// You can construct a concrete instance of `LoadBalancerServiceHealthCheckHttpInput` via:
+//
+// 		 LoadBalancerServiceHealthCheckHttpArgs{...}
+//
+type LoadBalancerServiceHealthCheckHttpInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceHealthCheckHttpOutput() LoadBalancerServiceHealthCheckHttpOutput
+	ToLoadBalancerServiceHealthCheckHttpOutputWithContext(context.Context) LoadBalancerServiceHealthCheckHttpOutput
+}
+
+type LoadBalancerServiceHealthCheckHttpArgs struct {
+	Domain      pulumi.StringPtrInput   `pulumi:"domain"`
+	Path        pulumi.StringPtrInput   `pulumi:"path"`
+	Response    pulumi.StringPtrInput   `pulumi:"response"`
+	StatusCodes pulumi.StringArrayInput `pulumi:"statusCodes"`
+	Tls         pulumi.BoolPtrInput     `pulumi:"tls"`
+}
+
+func (LoadBalancerServiceHealthCheckHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerServiceHealthCheckHttp)(nil)).Elem()
+}
+
+func (i LoadBalancerServiceHealthCheckHttpArgs) ToLoadBalancerServiceHealthCheckHttpOutput() LoadBalancerServiceHealthCheckHttpOutput {
+	return i.ToLoadBalancerServiceHealthCheckHttpOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerServiceHealthCheckHttpArgs) ToLoadBalancerServiceHealthCheckHttpOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHealthCheckHttpOutput)
+}
+
+func (i LoadBalancerServiceHealthCheckHttpArgs) ToLoadBalancerServiceHealthCheckHttpPtrOutput() LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return i.ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerServiceHealthCheckHttpArgs) ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHealthCheckHttpOutput).ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerServiceHealthCheckHttpPtrInput is an input type that accepts LoadBalancerServiceHealthCheckHttpArgs, LoadBalancerServiceHealthCheckHttpPtr and LoadBalancerServiceHealthCheckHttpPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerServiceHealthCheckHttpPtrInput` via:
+//
+// 		 LoadBalancerServiceHealthCheckHttpArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type LoadBalancerServiceHealthCheckHttpPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceHealthCheckHttpPtrOutput() LoadBalancerServiceHealthCheckHttpPtrOutput
+	ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(context.Context) LoadBalancerServiceHealthCheckHttpPtrOutput
+}
+
+type loadBalancerServiceHealthCheckHttpPtrType LoadBalancerServiceHealthCheckHttpArgs
+
+func LoadBalancerServiceHealthCheckHttpPtr(v *LoadBalancerServiceHealthCheckHttpArgs) LoadBalancerServiceHealthCheckHttpPtrInput {
+	return (*loadBalancerServiceHealthCheckHttpPtrType)(v)
+}
+
+func (*loadBalancerServiceHealthCheckHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerServiceHealthCheckHttp)(nil)).Elem()
+}
+
+func (i *loadBalancerServiceHealthCheckHttpPtrType) ToLoadBalancerServiceHealthCheckHttpPtrOutput() LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return i.ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerServiceHealthCheckHttpPtrType) ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHealthCheckHttpPtrOutput)
+}
+
+type LoadBalancerServiceHealthCheckHttpOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerServiceHealthCheckHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerServiceHealthCheckHttp)(nil)).Elem()
+}
+
+func (o LoadBalancerServiceHealthCheckHttpOutput) ToLoadBalancerServiceHealthCheckHttpOutput() LoadBalancerServiceHealthCheckHttpOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHealthCheckHttpOutput) ToLoadBalancerServiceHealthCheckHttpOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckHttpOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHealthCheckHttpOutput) ToLoadBalancerServiceHealthCheckHttpPtrOutput() LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return o.ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerServiceHealthCheckHttpOutput) ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *LoadBalancerServiceHealthCheckHttp {
+		return &v
+	}).(LoadBalancerServiceHealthCheckHttpPtrOutput)
+}
+func (o LoadBalancerServiceHealthCheckHttpOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpOutput) Response() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *string { return v.Response }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpOutput) StatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) []string { return v.StatusCodes }).(pulumi.StringArrayOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpOutput) Tls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *bool { return v.Tls }).(pulumi.BoolPtrOutput)
+}
+
+type LoadBalancerServiceHealthCheckHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerServiceHealthCheckHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerServiceHealthCheckHttp)(nil)).Elem()
+}
+
+func (o LoadBalancerServiceHealthCheckHttpPtrOutput) ToLoadBalancerServiceHealthCheckHttpPtrOutput() LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHealthCheckHttpPtrOutput) ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckHttpPtrOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Elem() LoadBalancerServiceHealthCheckHttpOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) LoadBalancerServiceHealthCheckHttp { return *v }).(LoadBalancerServiceHealthCheckHttpOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Response() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Response
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpPtrOutput) StatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCodes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Tls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Tls
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LoadBalancerServiceHttp struct {
+	Certificates   []int   `pulumi:"certificates"`
+	CookieLifetime *int    `pulumi:"cookieLifetime"`
+	CookieName     *string `pulumi:"cookieName"`
+	RedirectHttp   *bool   `pulumi:"redirectHttp"`
+	StickySessions *bool   `pulumi:"stickySessions"`
+}
+
+// LoadBalancerServiceHttpInput is an input type that accepts LoadBalancerServiceHttpArgs and LoadBalancerServiceHttpOutput values.
+// You can construct a concrete instance of `LoadBalancerServiceHttpInput` via:
+//
+// 		 LoadBalancerServiceHttpArgs{...}
+//
+type LoadBalancerServiceHttpInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceHttpOutput() LoadBalancerServiceHttpOutput
+	ToLoadBalancerServiceHttpOutputWithContext(context.Context) LoadBalancerServiceHttpOutput
+}
+
+type LoadBalancerServiceHttpArgs struct {
+	Certificates   pulumi.IntArrayInput  `pulumi:"certificates"`
+	CookieLifetime pulumi.IntPtrInput    `pulumi:"cookieLifetime"`
+	CookieName     pulumi.StringPtrInput `pulumi:"cookieName"`
+	RedirectHttp   pulumi.BoolPtrInput   `pulumi:"redirectHttp"`
+	StickySessions pulumi.BoolPtrInput   `pulumi:"stickySessions"`
+}
+
+func (LoadBalancerServiceHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerServiceHttp)(nil)).Elem()
+}
+
+func (i LoadBalancerServiceHttpArgs) ToLoadBalancerServiceHttpOutput() LoadBalancerServiceHttpOutput {
+	return i.ToLoadBalancerServiceHttpOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerServiceHttpArgs) ToLoadBalancerServiceHttpOutputWithContext(ctx context.Context) LoadBalancerServiceHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHttpOutput)
+}
+
+func (i LoadBalancerServiceHttpArgs) ToLoadBalancerServiceHttpPtrOutput() LoadBalancerServiceHttpPtrOutput {
+	return i.ToLoadBalancerServiceHttpPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerServiceHttpArgs) ToLoadBalancerServiceHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHttpOutput).ToLoadBalancerServiceHttpPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerServiceHttpPtrInput is an input type that accepts LoadBalancerServiceHttpArgs, LoadBalancerServiceHttpPtr and LoadBalancerServiceHttpPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerServiceHttpPtrInput` via:
+//
+// 		 LoadBalancerServiceHttpArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type LoadBalancerServiceHttpPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceHttpPtrOutput() LoadBalancerServiceHttpPtrOutput
+	ToLoadBalancerServiceHttpPtrOutputWithContext(context.Context) LoadBalancerServiceHttpPtrOutput
+}
+
+type loadBalancerServiceHttpPtrType LoadBalancerServiceHttpArgs
+
+func LoadBalancerServiceHttpPtr(v *LoadBalancerServiceHttpArgs) LoadBalancerServiceHttpPtrInput {
+	return (*loadBalancerServiceHttpPtrType)(v)
+}
+
+func (*loadBalancerServiceHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerServiceHttp)(nil)).Elem()
+}
+
+func (i *loadBalancerServiceHttpPtrType) ToLoadBalancerServiceHttpPtrOutput() LoadBalancerServiceHttpPtrOutput {
+	return i.ToLoadBalancerServiceHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerServiceHttpPtrType) ToLoadBalancerServiceHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceHttpPtrOutput)
+}
+
+type LoadBalancerServiceHttpOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerServiceHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerServiceHttp)(nil)).Elem()
+}
+
+func (o LoadBalancerServiceHttpOutput) ToLoadBalancerServiceHttpOutput() LoadBalancerServiceHttpOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHttpOutput) ToLoadBalancerServiceHttpOutputWithContext(ctx context.Context) LoadBalancerServiceHttpOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHttpOutput) ToLoadBalancerServiceHttpPtrOutput() LoadBalancerServiceHttpPtrOutput {
+	return o.ToLoadBalancerServiceHttpPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerServiceHttpOutput) ToLoadBalancerServiceHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHttpPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHttp) *LoadBalancerServiceHttp {
+		return &v
+	}).(LoadBalancerServiceHttpPtrOutput)
+}
+func (o LoadBalancerServiceHttpOutput) Certificates() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHttp) []int { return v.Certificates }).(pulumi.IntArrayOutput)
+}
+
+func (o LoadBalancerServiceHttpOutput) CookieLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHttp) *int { return v.CookieLifetime }).(pulumi.IntPtrOutput)
+}
+
+func (o LoadBalancerServiceHttpOutput) CookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHttp) *string { return v.CookieName }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHttpOutput) RedirectHttp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHttp) *bool { return v.RedirectHttp }).(pulumi.BoolPtrOutput)
+}
+
+func (o LoadBalancerServiceHttpOutput) StickySessions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHttp) *bool { return v.StickySessions }).(pulumi.BoolPtrOutput)
+}
+
+type LoadBalancerServiceHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerServiceHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerServiceHttp)(nil)).Elem()
+}
+
+func (o LoadBalancerServiceHttpPtrOutput) ToLoadBalancerServiceHttpPtrOutput() LoadBalancerServiceHttpPtrOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHttpPtrOutput) ToLoadBalancerServiceHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHttpPtrOutput {
+	return o
+}
+
+func (o LoadBalancerServiceHttpPtrOutput) Elem() LoadBalancerServiceHttpOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHttp) LoadBalancerServiceHttp { return *v }).(LoadBalancerServiceHttpOutput)
+}
+
+func (o LoadBalancerServiceHttpPtrOutput) Certificates() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHttp) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Certificates
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o LoadBalancerServiceHttpPtrOutput) CookieLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHttp) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CookieLifetime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LoadBalancerServiceHttpPtrOutput) CookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CookieName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerServiceHttpPtrOutput) RedirectHttp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHttp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectHttp
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LoadBalancerServiceHttpPtrOutput) StickySessions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHttp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StickySessions
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LoadBalancerTargetType struct {
+	ServerId *int   `pulumi:"serverId"`
+	Type     string `pulumi:"type"`
+	// Deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.
+	UsePrivateIp *bool `pulumi:"usePrivateIp"`
+}
+
+// LoadBalancerTargetTypeInput is an input type that accepts LoadBalancerTargetTypeArgs and LoadBalancerTargetTypeOutput values.
+// You can construct a concrete instance of `LoadBalancerTargetTypeInput` via:
+//
+// 		 LoadBalancerTargetTypeArgs{...}
+//
+type LoadBalancerTargetTypeInput interface {
+	pulumi.Input
+
+	ToLoadBalancerTargetTypeOutput() LoadBalancerTargetTypeOutput
+	ToLoadBalancerTargetTypeOutputWithContext(context.Context) LoadBalancerTargetTypeOutput
+}
+
+type LoadBalancerTargetTypeArgs struct {
+	ServerId pulumi.IntPtrInput `pulumi:"serverId"`
+	Type     pulumi.StringInput `pulumi:"type"`
+	// Deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.
+	UsePrivateIp pulumi.BoolPtrInput `pulumi:"usePrivateIp"`
+}
+
+func (LoadBalancerTargetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerTargetType)(nil)).Elem()
+}
+
+func (i LoadBalancerTargetTypeArgs) ToLoadBalancerTargetTypeOutput() LoadBalancerTargetTypeOutput {
+	return i.ToLoadBalancerTargetTypeOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerTargetTypeArgs) ToLoadBalancerTargetTypeOutputWithContext(ctx context.Context) LoadBalancerTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTargetTypeOutput)
+}
+
+// LoadBalancerTargetTypeArrayInput is an input type that accepts LoadBalancerTargetTypeArray and LoadBalancerTargetTypeArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerTargetTypeArrayInput` via:
+//
+// 		 LoadBalancerTargetTypeArray{ LoadBalancerTargetTypeArgs{...} }
+//
+type LoadBalancerTargetTypeArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerTargetTypeArrayOutput() LoadBalancerTargetTypeArrayOutput
+	ToLoadBalancerTargetTypeArrayOutputWithContext(context.Context) LoadBalancerTargetTypeArrayOutput
+}
+
+type LoadBalancerTargetTypeArray []LoadBalancerTargetTypeInput
+
+func (LoadBalancerTargetTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerTargetType)(nil)).Elem()
+}
+
+func (i LoadBalancerTargetTypeArray) ToLoadBalancerTargetTypeArrayOutput() LoadBalancerTargetTypeArrayOutput {
+	return i.ToLoadBalancerTargetTypeArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerTargetTypeArray) ToLoadBalancerTargetTypeArrayOutputWithContext(ctx context.Context) LoadBalancerTargetTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTargetTypeArrayOutput)
+}
+
+type LoadBalancerTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerTargetType)(nil)).Elem()
+}
+
+func (o LoadBalancerTargetTypeOutput) ToLoadBalancerTargetTypeOutput() LoadBalancerTargetTypeOutput {
+	return o
+}
+
+func (o LoadBalancerTargetTypeOutput) ToLoadBalancerTargetTypeOutputWithContext(ctx context.Context) LoadBalancerTargetTypeOutput {
+	return o
+}
+
+func (o LoadBalancerTargetTypeOutput) ServerId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancerTargetType) *int { return v.ServerId }).(pulumi.IntPtrOutput)
+}
+
+func (o LoadBalancerTargetTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerTargetType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.
+func (o LoadBalancerTargetTypeOutput) UsePrivateIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerTargetType) *bool { return v.UsePrivateIp }).(pulumi.BoolPtrOutput)
+}
+
+type LoadBalancerTargetTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerTargetTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerTargetType)(nil)).Elem()
+}
+
+func (o LoadBalancerTargetTypeArrayOutput) ToLoadBalancerTargetTypeArrayOutput() LoadBalancerTargetTypeArrayOutput {
+	return o
+}
+
+func (o LoadBalancerTargetTypeArrayOutput) ToLoadBalancerTargetTypeArrayOutputWithContext(ctx context.Context) LoadBalancerTargetTypeArrayOutput {
+	return o
+}
+
+func (o LoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) LoadBalancerTargetTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerTargetType {
+		return vs[0].([]LoadBalancerTargetType)[vs[1].(int)]
+	}).(LoadBalancerTargetTypeOutput)
+}
+
+type GetLoadBalancerAlgorithm struct {
+	Type string `pulumi:"type"`
+}
+
+// GetLoadBalancerAlgorithmInput is an input type that accepts GetLoadBalancerAlgorithmArgs and GetLoadBalancerAlgorithmOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAlgorithmInput` via:
+//
+// 		 GetLoadBalancerAlgorithmArgs{...}
+//
+type GetLoadBalancerAlgorithmInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerAlgorithmOutput() GetLoadBalancerAlgorithmOutput
+	ToGetLoadBalancerAlgorithmOutputWithContext(context.Context) GetLoadBalancerAlgorithmOutput
+}
+
+type GetLoadBalancerAlgorithmArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetLoadBalancerAlgorithmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerAlgorithm)(nil)).Elem()
+}
+
+func (i GetLoadBalancerAlgorithmArgs) ToGetLoadBalancerAlgorithmOutput() GetLoadBalancerAlgorithmOutput {
+	return i.ToGetLoadBalancerAlgorithmOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerAlgorithmArgs) ToGetLoadBalancerAlgorithmOutputWithContext(ctx context.Context) GetLoadBalancerAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAlgorithmOutput)
+}
+
+type GetLoadBalancerAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerAlgorithm)(nil)).Elem()
+}
+
+func (o GetLoadBalancerAlgorithmOutput) ToGetLoadBalancerAlgorithmOutput() GetLoadBalancerAlgorithmOutput {
+	return o
+}
+
+func (o GetLoadBalancerAlgorithmOutput) ToGetLoadBalancerAlgorithmOutputWithContext(ctx context.Context) GetLoadBalancerAlgorithmOutput {
+	return o
+}
+
+func (o GetLoadBalancerAlgorithmOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerAlgorithm) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerServiceType struct {
+	DestinationPort int                               `pulumi:"destinationPort"`
+	HealthCheck     GetLoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
+	Http            GetLoadBalancerServiceHttp        `pulumi:"http"`
+	ListenPort      int                               `pulumi:"listenPort"`
+	Protocol        string                            `pulumi:"protocol"`
+	Proxyprotocol   bool                              `pulumi:"proxyprotocol"`
+}
+
+// GetLoadBalancerServiceTypeInput is an input type that accepts GetLoadBalancerServiceTypeArgs and GetLoadBalancerServiceTypeOutput values.
+// You can construct a concrete instance of `GetLoadBalancerServiceTypeInput` via:
+//
+// 		 GetLoadBalancerServiceTypeArgs{...}
+//
+type GetLoadBalancerServiceTypeInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerServiceTypeOutput() GetLoadBalancerServiceTypeOutput
+	ToGetLoadBalancerServiceTypeOutputWithContext(context.Context) GetLoadBalancerServiceTypeOutput
+}
+
+type GetLoadBalancerServiceTypeArgs struct {
+	DestinationPort pulumi.IntInput                        `pulumi:"destinationPort"`
+	HealthCheck     GetLoadBalancerServiceHealthCheckInput `pulumi:"healthCheck"`
+	Http            GetLoadBalancerServiceHttpInput        `pulumi:"http"`
+	ListenPort      pulumi.IntInput                        `pulumi:"listenPort"`
+	Protocol        pulumi.StringInput                     `pulumi:"protocol"`
+	Proxyprotocol   pulumi.BoolInput                       `pulumi:"proxyprotocol"`
+}
+
+func (GetLoadBalancerServiceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerServiceType)(nil)).Elem()
+}
+
+func (i GetLoadBalancerServiceTypeArgs) ToGetLoadBalancerServiceTypeOutput() GetLoadBalancerServiceTypeOutput {
+	return i.ToGetLoadBalancerServiceTypeOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerServiceTypeArgs) ToGetLoadBalancerServiceTypeOutputWithContext(ctx context.Context) GetLoadBalancerServiceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceTypeOutput)
+}
+
+// GetLoadBalancerServiceTypeArrayInput is an input type that accepts GetLoadBalancerServiceTypeArray and GetLoadBalancerServiceTypeArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerServiceTypeArrayInput` via:
+//
+// 		 GetLoadBalancerServiceTypeArray{ GetLoadBalancerServiceTypeArgs{...} }
+//
+type GetLoadBalancerServiceTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerServiceTypeArrayOutput() GetLoadBalancerServiceTypeArrayOutput
+	ToGetLoadBalancerServiceTypeArrayOutputWithContext(context.Context) GetLoadBalancerServiceTypeArrayOutput
+}
+
+type GetLoadBalancerServiceTypeArray []GetLoadBalancerServiceTypeInput
+
+func (GetLoadBalancerServiceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerServiceType)(nil)).Elem()
+}
+
+func (i GetLoadBalancerServiceTypeArray) ToGetLoadBalancerServiceTypeArrayOutput() GetLoadBalancerServiceTypeArrayOutput {
+	return i.ToGetLoadBalancerServiceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerServiceTypeArray) ToGetLoadBalancerServiceTypeArrayOutputWithContext(ctx context.Context) GetLoadBalancerServiceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceTypeArrayOutput)
+}
+
+type GetLoadBalancerServiceTypeOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerServiceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerServiceType)(nil)).Elem()
+}
+
+func (o GetLoadBalancerServiceTypeOutput) ToGetLoadBalancerServiceTypeOutput() GetLoadBalancerServiceTypeOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceTypeOutput) ToGetLoadBalancerServiceTypeOutputWithContext(ctx context.Context) GetLoadBalancerServiceTypeOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceTypeOutput) DestinationPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceType) int { return v.DestinationPort }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerServiceTypeOutput) HealthCheck() GetLoadBalancerServiceHealthCheckOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceType) GetLoadBalancerServiceHealthCheck { return v.HealthCheck }).(GetLoadBalancerServiceHealthCheckOutput)
+}
+
+func (o GetLoadBalancerServiceTypeOutput) Http() GetLoadBalancerServiceHttpOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceType) GetLoadBalancerServiceHttp { return v.Http }).(GetLoadBalancerServiceHttpOutput)
+}
+
+func (o GetLoadBalancerServiceTypeOutput) ListenPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceType) int { return v.ListenPort }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerServiceTypeOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceType) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerServiceTypeOutput) Proxyprotocol() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceType) bool { return v.Proxyprotocol }).(pulumi.BoolOutput)
+}
+
+type GetLoadBalancerServiceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerServiceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerServiceType)(nil)).Elem()
+}
+
+func (o GetLoadBalancerServiceTypeArrayOutput) ToGetLoadBalancerServiceTypeArrayOutput() GetLoadBalancerServiceTypeArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceTypeArrayOutput) ToGetLoadBalancerServiceTypeArrayOutputWithContext(ctx context.Context) GetLoadBalancerServiceTypeArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceTypeArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerServiceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerServiceType {
+		return vs[0].([]GetLoadBalancerServiceType)[vs[1].(int)]
+	}).(GetLoadBalancerServiceTypeOutput)
+}
+
+type GetLoadBalancerServiceHealthCheck struct {
+	Http     GetLoadBalancerServiceHealthCheckHttp `pulumi:"http"`
+	Interval int                                   `pulumi:"interval"`
+	Port     int                                   `pulumi:"port"`
+	Protocol string                                `pulumi:"protocol"`
+	Retries  int                                   `pulumi:"retries"`
+	Timeout  int                                   `pulumi:"timeout"`
+}
+
+// GetLoadBalancerServiceHealthCheckInput is an input type that accepts GetLoadBalancerServiceHealthCheckArgs and GetLoadBalancerServiceHealthCheckOutput values.
+// You can construct a concrete instance of `GetLoadBalancerServiceHealthCheckInput` via:
+//
+// 		 GetLoadBalancerServiceHealthCheckArgs{...}
+//
+type GetLoadBalancerServiceHealthCheckInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerServiceHealthCheckOutput() GetLoadBalancerServiceHealthCheckOutput
+	ToGetLoadBalancerServiceHealthCheckOutputWithContext(context.Context) GetLoadBalancerServiceHealthCheckOutput
+}
+
+type GetLoadBalancerServiceHealthCheckArgs struct {
+	Http     GetLoadBalancerServiceHealthCheckHttpInput `pulumi:"http"`
+	Interval pulumi.IntInput                            `pulumi:"interval"`
+	Port     pulumi.IntInput                            `pulumi:"port"`
+	Protocol pulumi.StringInput                         `pulumi:"protocol"`
+	Retries  pulumi.IntInput                            `pulumi:"retries"`
+	Timeout  pulumi.IntInput                            `pulumi:"timeout"`
+}
+
+func (GetLoadBalancerServiceHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerServiceHealthCheck)(nil)).Elem()
+}
+
+func (i GetLoadBalancerServiceHealthCheckArgs) ToGetLoadBalancerServiceHealthCheckOutput() GetLoadBalancerServiceHealthCheckOutput {
+	return i.ToGetLoadBalancerServiceHealthCheckOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerServiceHealthCheckArgs) ToGetLoadBalancerServiceHealthCheckOutputWithContext(ctx context.Context) GetLoadBalancerServiceHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHealthCheckOutput)
+}
+
+type GetLoadBalancerServiceHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerServiceHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerServiceHealthCheck)(nil)).Elem()
+}
+
+func (o GetLoadBalancerServiceHealthCheckOutput) ToGetLoadBalancerServiceHealthCheckOutput() GetLoadBalancerServiceHealthCheckOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHealthCheckOutput) ToGetLoadBalancerServiceHealthCheckOutputWithContext(ctx context.Context) GetLoadBalancerServiceHealthCheckOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHealthCheckOutput) Http() GetLoadBalancerServiceHealthCheckHttpOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) GetLoadBalancerServiceHealthCheckHttp { return v.Http }).(GetLoadBalancerServiceHealthCheckHttpOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckOutput) Retries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Retries }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+type GetLoadBalancerServiceHealthCheckHttp struct {
+	Domain      string `pulumi:"domain"`
+	Path        string `pulumi:"path"`
+	Response    string `pulumi:"response"`
+	StatusCodes []int  `pulumi:"statusCodes"`
+	Tls         bool   `pulumi:"tls"`
+}
+
+// GetLoadBalancerServiceHealthCheckHttpInput is an input type that accepts GetLoadBalancerServiceHealthCheckHttpArgs and GetLoadBalancerServiceHealthCheckHttpOutput values.
+// You can construct a concrete instance of `GetLoadBalancerServiceHealthCheckHttpInput` via:
+//
+// 		 GetLoadBalancerServiceHealthCheckHttpArgs{...}
+//
+type GetLoadBalancerServiceHealthCheckHttpInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerServiceHealthCheckHttpOutput() GetLoadBalancerServiceHealthCheckHttpOutput
+	ToGetLoadBalancerServiceHealthCheckHttpOutputWithContext(context.Context) GetLoadBalancerServiceHealthCheckHttpOutput
+}
+
+type GetLoadBalancerServiceHealthCheckHttpArgs struct {
+	Domain      pulumi.StringInput   `pulumi:"domain"`
+	Path        pulumi.StringInput   `pulumi:"path"`
+	Response    pulumi.StringInput   `pulumi:"response"`
+	StatusCodes pulumi.IntArrayInput `pulumi:"statusCodes"`
+	Tls         pulumi.BoolInput     `pulumi:"tls"`
+}
+
+func (GetLoadBalancerServiceHealthCheckHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerServiceHealthCheckHttp)(nil)).Elem()
+}
+
+func (i GetLoadBalancerServiceHealthCheckHttpArgs) ToGetLoadBalancerServiceHealthCheckHttpOutput() GetLoadBalancerServiceHealthCheckHttpOutput {
+	return i.ToGetLoadBalancerServiceHealthCheckHttpOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerServiceHealthCheckHttpArgs) ToGetLoadBalancerServiceHealthCheckHttpOutputWithContext(ctx context.Context) GetLoadBalancerServiceHealthCheckHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHealthCheckHttpOutput)
+}
+
+type GetLoadBalancerServiceHealthCheckHttpOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerServiceHealthCheckHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerServiceHealthCheckHttp)(nil)).Elem()
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpOutput) ToGetLoadBalancerServiceHealthCheckHttpOutput() GetLoadBalancerServiceHealthCheckHttpOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpOutput) ToGetLoadBalancerServiceHealthCheckHttpOutputWithContext(ctx context.Context) GetLoadBalancerServiceHealthCheckHttpOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpOutput) Response() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) string { return v.Response }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpOutput) StatusCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) []int { return v.StatusCodes }).(pulumi.IntArrayOutput)
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpOutput) Tls() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) bool { return v.Tls }).(pulumi.BoolOutput)
+}
+
+type GetLoadBalancerServiceHttp struct {
+	Certificates   []string `pulumi:"certificates"`
+	CookieLifetime int      `pulumi:"cookieLifetime"`
+	CookieName     string   `pulumi:"cookieName"`
+	RedirectHttp   bool     `pulumi:"redirectHttp"`
+	StickySessions bool     `pulumi:"stickySessions"`
+}
+
+// GetLoadBalancerServiceHttpInput is an input type that accepts GetLoadBalancerServiceHttpArgs and GetLoadBalancerServiceHttpOutput values.
+// You can construct a concrete instance of `GetLoadBalancerServiceHttpInput` via:
+//
+// 		 GetLoadBalancerServiceHttpArgs{...}
+//
+type GetLoadBalancerServiceHttpInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerServiceHttpOutput() GetLoadBalancerServiceHttpOutput
+	ToGetLoadBalancerServiceHttpOutputWithContext(context.Context) GetLoadBalancerServiceHttpOutput
+}
+
+type GetLoadBalancerServiceHttpArgs struct {
+	Certificates   pulumi.StringArrayInput `pulumi:"certificates"`
+	CookieLifetime pulumi.IntInput         `pulumi:"cookieLifetime"`
+	CookieName     pulumi.StringInput      `pulumi:"cookieName"`
+	RedirectHttp   pulumi.BoolInput        `pulumi:"redirectHttp"`
+	StickySessions pulumi.BoolInput        `pulumi:"stickySessions"`
+}
+
+func (GetLoadBalancerServiceHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerServiceHttp)(nil)).Elem()
+}
+
+func (i GetLoadBalancerServiceHttpArgs) ToGetLoadBalancerServiceHttpOutput() GetLoadBalancerServiceHttpOutput {
+	return i.ToGetLoadBalancerServiceHttpOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerServiceHttpArgs) ToGetLoadBalancerServiceHttpOutputWithContext(ctx context.Context) GetLoadBalancerServiceHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHttpOutput)
+}
+
+type GetLoadBalancerServiceHttpOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerServiceHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerServiceHttp)(nil)).Elem()
+}
+
+func (o GetLoadBalancerServiceHttpOutput) ToGetLoadBalancerServiceHttpOutput() GetLoadBalancerServiceHttpOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHttpOutput) ToGetLoadBalancerServiceHttpOutputWithContext(ctx context.Context) GetLoadBalancerServiceHttpOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHttpOutput) Certificates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHttp) []string { return v.Certificates }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLoadBalancerServiceHttpOutput) CookieLifetime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHttp) int { return v.CookieLifetime }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerServiceHttpOutput) CookieName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHttp) string { return v.CookieName }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerServiceHttpOutput) RedirectHttp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHttp) bool { return v.RedirectHttp }).(pulumi.BoolOutput)
+}
+
+func (o GetLoadBalancerServiceHttpOutput) StickySessions() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHttp) bool { return v.StickySessions }).(pulumi.BoolOutput)
+}
+
+type GetLoadBalancerTargetType struct {
+	LabelSelector string `pulumi:"labelSelector"`
+	ServerId      int    `pulumi:"serverId"`
+	Type          string `pulumi:"type"`
+}
+
+// GetLoadBalancerTargetTypeInput is an input type that accepts GetLoadBalancerTargetTypeArgs and GetLoadBalancerTargetTypeOutput values.
+// You can construct a concrete instance of `GetLoadBalancerTargetTypeInput` via:
+//
+// 		 GetLoadBalancerTargetTypeArgs{...}
+//
+type GetLoadBalancerTargetTypeInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerTargetTypeOutput() GetLoadBalancerTargetTypeOutput
+	ToGetLoadBalancerTargetTypeOutputWithContext(context.Context) GetLoadBalancerTargetTypeOutput
+}
+
+type GetLoadBalancerTargetTypeArgs struct {
+	LabelSelector pulumi.StringInput `pulumi:"labelSelector"`
+	ServerId      pulumi.IntInput    `pulumi:"serverId"`
+	Type          pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetLoadBalancerTargetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerTargetType)(nil)).Elem()
+}
+
+func (i GetLoadBalancerTargetTypeArgs) ToGetLoadBalancerTargetTypeOutput() GetLoadBalancerTargetTypeOutput {
+	return i.ToGetLoadBalancerTargetTypeOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerTargetTypeArgs) ToGetLoadBalancerTargetTypeOutputWithContext(ctx context.Context) GetLoadBalancerTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerTargetTypeOutput)
+}
+
+// GetLoadBalancerTargetTypeArrayInput is an input type that accepts GetLoadBalancerTargetTypeArray and GetLoadBalancerTargetTypeArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerTargetTypeArrayInput` via:
+//
+// 		 GetLoadBalancerTargetTypeArray{ GetLoadBalancerTargetTypeArgs{...} }
+//
+type GetLoadBalancerTargetTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerTargetTypeArrayOutput() GetLoadBalancerTargetTypeArrayOutput
+	ToGetLoadBalancerTargetTypeArrayOutputWithContext(context.Context) GetLoadBalancerTargetTypeArrayOutput
+}
+
+type GetLoadBalancerTargetTypeArray []GetLoadBalancerTargetTypeInput
+
+func (GetLoadBalancerTargetTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerTargetType)(nil)).Elem()
+}
+
+func (i GetLoadBalancerTargetTypeArray) ToGetLoadBalancerTargetTypeArrayOutput() GetLoadBalancerTargetTypeArrayOutput {
+	return i.ToGetLoadBalancerTargetTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerTargetTypeArray) ToGetLoadBalancerTargetTypeArrayOutputWithContext(ctx context.Context) GetLoadBalancerTargetTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerTargetTypeArrayOutput)
+}
+
+type GetLoadBalancerTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerTargetType)(nil)).Elem()
+}
+
+func (o GetLoadBalancerTargetTypeOutput) ToGetLoadBalancerTargetTypeOutput() GetLoadBalancerTargetTypeOutput {
+	return o
+}
+
+func (o GetLoadBalancerTargetTypeOutput) ToGetLoadBalancerTargetTypeOutputWithContext(ctx context.Context) GetLoadBalancerTargetTypeOutput {
+	return o
+}
+
+func (o GetLoadBalancerTargetTypeOutput) LabelSelector() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerTargetType) string { return v.LabelSelector }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerTargetTypeOutput) ServerId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerTargetType) int { return v.ServerId }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerTargetTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerTargetType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerTargetTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerTargetTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerTargetType)(nil)).Elem()
+}
+
+func (o GetLoadBalancerTargetTypeArrayOutput) ToGetLoadBalancerTargetTypeArrayOutput() GetLoadBalancerTargetTypeArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerTargetTypeArrayOutput) ToGetLoadBalancerTargetTypeArrayOutputWithContext(ctx context.Context) GetLoadBalancerTargetTypeArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerTargetTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerTargetType {
+		return vs[0].([]GetLoadBalancerTargetType)[vs[1].(int)]
+	}).(GetLoadBalancerTargetTypeOutput)
+}
+
 type GetSshKeysSshKey struct {
 	Fingerprint string                 `pulumi:"fingerprint"`
 	Id          int                    `pulumi:"id"`
@@ -131,6 +1461,24 @@ func (o GetSshKeysSshKeyArrayOutput) Index(i pulumi.IntInput) GetSshKeysSshKeyOu
 }
 
 func init() {
+	pulumi.RegisterOutputType(LoadBalancerAlgorithmOutput{})
+	pulumi.RegisterOutputType(LoadBalancerAlgorithmPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServiceHealthCheckOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServiceHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServiceHealthCheckHttpOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServiceHealthCheckHttpPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServiceHttpOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServiceHttpPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTargetTypeOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTargetTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerAlgorithmOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerServiceTypeOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerServiceTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerServiceHealthCheckOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerServiceHealthCheckHttpOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerServiceHttpOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerTargetTypeOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerTargetTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetSshKeysSshKeyOutput{})
 	pulumi.RegisterOutputType(GetSshKeysSshKeyArrayOutput{})
 }
