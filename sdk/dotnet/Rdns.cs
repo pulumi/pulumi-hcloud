@@ -11,6 +11,60 @@ namespace Pulumi.HCloud
 {
     /// <summary>
     /// Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// For servers:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
+    ///         {
+    ///             Image = "debian-9",
+    ///             ServerType = "cx11",
+    ///         });
+    ///         var master = new HCloud.Rdns("master", new HCloud.RdnsArgs
+    ///         {
+    ///             DnsPtr = "example.com",
+    ///             IpAddress = node1.Ipv4Address,
+    ///             ServerId = node1.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// For Floating IPs:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var floating1 = new HCloud.FloatingIp("floating1", new HCloud.FloatingIpArgs
+    ///         {
+    ///             HomeLocation = "nbg1",
+    ///             Type = "ipv4",
+    ///         });
+    ///         var floatingMaster = new HCloud.Rdns("floatingMaster", new HCloud.RdnsArgs
+    ///         {
+    ///             DnsPtr = "example.com",
+    ///             FloatingIpId = floating1.Id,
+    ///             IpAddress = floating1.IpAddress,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Rdns : Pulumi.CustomResource
     {

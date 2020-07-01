@@ -10,7 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    ///   Define services for Hetzner Cloud Load Balancers.
+    /// Define services for Hetzner Cloud Load Balancers.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new HCloud.LoadBalancerArgs
+    ///         {
+    ///             LoadBalancerType = "lb11",
+    ///             Location = "nbg1",
+    ///         });
+    ///         var loadBalancerService = new HCloud.LoadBalancerService("loadBalancerService", new HCloud.LoadBalancerServiceArgs
+    ///         {
+    ///             LoadBalancerId = hcloud_load_balancer.Test_load_balancer.Id,
+    ///             Protocol = "http",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LoadBalancerService : Pulumi.CustomResource
     {

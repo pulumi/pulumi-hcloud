@@ -11,6 +11,38 @@ import (
 )
 
 // Provides a Hetzner Cloud volume resource to manage volumes.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+// 			Image:      pulumi.String("debian-9"),
+// 			ServerType: pulumi.String("cx11"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewVolume(ctx, "master", &hcloud.VolumeArgs{
+// 			Automount: pulumi.Bool(true),
+// 			ServerId:  node1.ID(),
+// 			Size:      pulumi.Int(50),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Volume struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,46 @@ import (
 )
 
 // Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+// 			Datacenter: pulumi.String("nbg1-dc3"),
+// 			Image:      pulumi.String("debian-9"),
+// 			ServerType: pulumi.String("cx11"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		master, err := hcloud.NewVolume(ctx, "master", &hcloud.VolumeArgs{
+// 			Location: pulumi.String("nbg1"),
+// 			Size:     pulumi.Int(10),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewVolumeAttachment(ctx, "main", &hcloud.VolumeAttachmentArgs{
+// 			Automount: pulumi.Bool(true),
+// 			ServerId:  node1.ID(),
+// 			VolumeId:  master.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VolumeAttachment struct {
 	pulumi.CustomResourceState
 

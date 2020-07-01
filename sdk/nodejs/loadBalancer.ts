@@ -7,7 +7,27 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- *   Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
+ * Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const myserver = new hcloud.Server("myserver", {
+ *     image: "ubuntu-18.04",
+ *     serverType: "cx11",
+ * });
+ * const loadBalancer = new hcloud.LoadBalancer("load_balancer", {
+ *     loadBalancerType: "lb11",
+ *     location: "nbg1",
+ *     targets: [{
+ *         serverId: myserver.id.apply(id => Number.parseFloat(id)),
+ *         type: "server",
+ *     }],
+ * });
+ * ```
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**

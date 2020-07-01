@@ -7,7 +7,23 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- *   Define services for Hetzner Cloud Load Balancers.
+ * Define services for Hetzner Cloud Load Balancers.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const loadBalancer = new hcloud.LoadBalancer("loadBalancer", {
+ *     loadBalancerType: "lb11",
+ *     location: "nbg1",
+ * });
+ * const loadBalancerService = new hcloud.LoadBalancerService("loadBalancerService", {
+ *     loadBalancerId: hcloud_load_balancer.test_load_balancer.id,
+ *     protocol: "http",
+ * });
+ * ```
  */
 export class LoadBalancerService extends pulumi.CustomResource {
     /**

@@ -7,7 +7,24 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- *     Provides details about a specific Hetzner Cloud Server.
+ * Provides details about a specific Hetzner Cloud Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const lb1 = pulumi.output(hcloud.getLoadBalancer({
+ *     name: "my-load-balancer",
+ * }, { async: true }));
+ * const lb2 = pulumi.output(hcloud.getLoadBalancer({
+ *     id: 123,
+ * }, { async: true }));
+ * const lb3 = pulumi.output(hcloud.getLoadBalancer({
+ *     withSelector: "key=value",
+ * }, { async: true }));
+ * ```
  */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     args = args || {};

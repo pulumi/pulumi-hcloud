@@ -9,6 +9,37 @@ import (
 
 // Provides details about a specific Hetzner Cloud Location.
 // Use this resource to get detailed information about specific location.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "fsn1"
+// 		_, err := hcloud.GetLocation(ctx, &hcloud.GetLocationArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := 1
+// 		_, err = hcloud.GetLocation(ctx, &hcloud.GetLocationArgs{
+// 			Id: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.InvokeOption) (*GetLocationResult, error) {
 	var rv GetLocationResult
 	err := ctx.Invoke("hcloud:index/getLocation:getLocation", args, &rv, opts...)
