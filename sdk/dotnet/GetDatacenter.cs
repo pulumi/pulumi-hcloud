@@ -16,6 +16,30 @@ namespace Pulumi.HCloud
         /// Use this resource to get detailed information about specific datacenter.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ds1 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs
+        ///         {
+        ///             Name = "fsn1-dc8",
+        ///         }));
+        ///         var ds2 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs
+        ///         {
+        ///             Id = 4,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatacenterResult> InvokeAsync(GetDatacenterArgs? args = null, InvokeOptions? options = null)

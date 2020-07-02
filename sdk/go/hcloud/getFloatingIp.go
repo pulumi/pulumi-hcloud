@@ -10,6 +10,52 @@ import (
 // Provides details about a Hetzner Cloud Floating IP.
 //
 // This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+//
+// ## Example Usage
+//
+// # Data Source: FloatingIp
+// Provides details about a Hetzner Cloud Floating IP.
+// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+// ### Additional Examples
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "1.2.3.4"
+// 		ip1, err := hcloud.LookupFloatingIp(ctx, &hcloud.LookupFloatingIpArgs{
+// 			IpAddress: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := "key=value"
+// 		_, err = hcloud.LookupFloatingIp(ctx, &hcloud.LookupFloatingIpArgs{
+// 			WithSelector: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		var main []*hcloud.FloatingIpAssignment
+// 		for key0, _ := range _var.Counter {
+// 			__res, err := hcloud.NewFloatingIpAssignment(ctx, fmt.Sprintf("main-%v", key0), &hcloud.FloatingIpAssignmentArgs{
+// 				FloatingIpId: pulumi.Int(ip1.Id),
+// 				ServerId:     pulumi.Any(hcloud_server.Main.Id),
+// 			})
+// 			if err != nil {
+// 				return err
+// 			}
+// 			main = append(main, __res)
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupFloatingIp(ctx *pulumi.Context, args *LookupFloatingIpArgs, opts ...pulumi.InvokeOption) (*LookupFloatingIpResult, error) {
 	var rv LookupFloatingIpResult
 	err := ctx.Invoke("hcloud:index/getFloatingIp:getFloatingIp", args, &rv, opts...)

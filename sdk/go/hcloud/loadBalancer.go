@@ -10,7 +10,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-//   Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
+// Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		myserver, err := hcloud.NewServer(ctx, "myserver", &hcloud.ServerArgs{
+// 			Image:      pulumi.String("ubuntu-18.04"),
+// 			ServerType: pulumi.String("cx11"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
+// 			LoadBalancerType: pulumi.String("lb11"),
+// 			Location:         pulumi.String("nbg1"),
+// 			Targets: hcloud.LoadBalancerTargetArray{
+// 				&hcloud.LoadBalancerTargetArgs{
+// 					ServerId: myserver.ID(),
+// 					Type:     pulumi.String("server"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 

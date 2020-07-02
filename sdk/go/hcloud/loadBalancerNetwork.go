@@ -10,7 +10,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-//  Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+// Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		lb1, err := hcloud.NewLoadBalancer(ctx, "lb1", &hcloud.LoadBalancerArgs{
+// 			LoadBalancerType: pulumi.String("lb11"),
+// 			NetworkZone:      pulumi.String("eu-central"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
+// 			IpRange: pulumi.String("10.0.0.0/8"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
+// 			IpRange:     pulumi.String("10.0.1.0/24"),
+// 			NetworkId:   mynet.ID(),
+// 			NetworkZone: pulumi.String("eu-central"),
+// 			Type:        pulumi.String("cloud"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewLoadBalancerNetwork(ctx, "srvnetwork", &hcloud.LoadBalancerNetworkArgs{
+// 			Ip:             pulumi.String("10.0.1.5"),
+// 			LoadBalancerId: lb1.ID(),
+// 			NetworkId:      mynet.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LoadBalancerNetwork struct {
 	pulumi.CustomResourceState
 

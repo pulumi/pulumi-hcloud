@@ -11,6 +11,32 @@ namespace Pulumi.HCloud
 {
     /// <summary>
     /// Provides a Hetzner Cloud volume resource to manage volumes.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
+    ///         {
+    ///             Image = "debian-9",
+    ///             ServerType = "cx11",
+    ///         });
+    ///         var master = new HCloud.Volume("master", new HCloud.VolumeArgs
+    ///         {
+    ///             Automount = true,
+    ///             ServerId = node1.Id,
+    ///             Size = 50,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {

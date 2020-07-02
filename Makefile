@@ -11,8 +11,6 @@ TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell scripts/get-version)
 PYPI_VERSION    := $(shell cd scripts && ./get-py-version)
-LATEST_RESOURCE_PROVIDER_VERSION := $(shell curl --silent "https://api.github.com/repos/pulumi/pulumi-${PACK}/tags" | jq ".[0]".name -r)
-PROVIDER_VERSION := ${LATEST_RESOURCE_PROVIDER_VERSION:v%=%}
 
 DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
 DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
@@ -62,8 +60,8 @@ provider:: generate_schema
 	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${PROVIDER}
 
 install_plugins::
-	#[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	#pulumi plugin install resource $(PACK) $(PROVIDER_VERSION)
+	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
+
 
 install::
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"

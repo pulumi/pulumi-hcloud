@@ -5,7 +5,33 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- *  Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
+ * Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const node1 = new hcloud.Server("node1", {
+ *     image: "debian-9",
+ *     serverType: "cx11",
+ * });
+ * const mynet = new hcloud.Network("mynet", {
+ *     ipRange: "10.0.0.0/8",
+ * });
+ * const foonet = new hcloud.NetworkSubnet("foonet", {
+ *     ipRange: "10.0.1.0/24",
+ *     networkId: mynet.id.apply(id => Number.parseFloat(id)),
+ *     networkZone: "eu-central",
+ *     type: "cloud",
+ * });
+ * const srvnetwork = new hcloud.ServerNetwork("srvnetwork", {
+ *     ip: "10.0.1.5",
+ *     networkId: mynet.id.apply(id => Number.parseFloat(id)),
+ *     serverId: node1.id.apply(id => Number.parseFloat(id)),
+ * });
+ * ```
  */
 export class ServerNetwork extends pulumi.CustomResource {
     /**

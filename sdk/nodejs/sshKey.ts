@@ -6,6 +6,19 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as fs from "fs";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * // Create a new SSH key
+ * const defaultSshKey = new hcloud.SshKey("default", {
+ *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
+ * });
+ * ```
  */
 export class SshKey extends pulumi.CustomResource {
     /**

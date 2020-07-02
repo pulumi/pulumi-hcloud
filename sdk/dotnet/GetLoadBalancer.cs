@@ -12,9 +12,37 @@ namespace Pulumi.HCloud
     public static class GetLoadBalancer
     {
         /// <summary>
-        ///     Provides details about a specific Hetzner Cloud Server.
+        /// Provides details about a specific Hetzner Cloud Server.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var lb1 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
+        ///         {
+        ///             Name = "my-load-balancer",
+        ///         }));
+        ///         var lb2 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
+        ///         {
+        ///             Id = 123,
+        ///         }));
+        ///         var lb3 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)

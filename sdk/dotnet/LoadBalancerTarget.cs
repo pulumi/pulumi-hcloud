@@ -11,6 +11,37 @@ namespace Pulumi.HCloud
 {
     /// <summary>
     /// Adds a target to a Hetzner Cloud Load Balancer.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myServer = new HCloud.Server("myServer", new HCloud.ServerArgs
+    ///         {
+    ///             Image = "ubuntu-18.04",
+    ///             ServerType = "cx11",
+    ///         });
+    ///         var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new HCloud.LoadBalancerArgs
+    ///         {
+    ///             LoadBalancerType = "lb11",
+    ///             Location = "nbg1",
+    ///         });
+    ///         var loadBalancerTarget = new HCloud.LoadBalancerTarget("loadBalancerTarget", new HCloud.LoadBalancerTargetArgs
+    ///         {
+    ///             LoadBalancerId = hcloud_load_balancer.Load_balcancer.Id,
+    ///             ServerId = myServer.Id,
+    ///             Type = "server",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LoadBalancerTarget : Pulumi.CustomResource
     {

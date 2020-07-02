@@ -10,7 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    ///  Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+    /// Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lb1 = new HCloud.LoadBalancer("lb1", new HCloud.LoadBalancerArgs
+    ///         {
+    ///             LoadBalancerType = "lb11",
+    ///             NetworkZone = "eu-central",
+    ///         });
+    ///         var mynet = new HCloud.Network("mynet", new HCloud.NetworkArgs
+    ///         {
+    ///             IpRange = "10.0.0.0/8",
+    ///         });
+    ///         var foonet = new HCloud.NetworkSubnet("foonet", new HCloud.NetworkSubnetArgs
+    ///         {
+    ///             IpRange = "10.0.1.0/24",
+    ///             NetworkId = mynet.Id,
+    ///             NetworkZone = "eu-central",
+    ///             Type = "cloud",
+    ///         });
+    ///         var srvnetwork = new HCloud.LoadBalancerNetwork("srvnetwork", new HCloud.LoadBalancerNetworkArgs
+    ///         {
+    ///             Ip = "10.0.1.5",
+    ///             LoadBalancerId = lb1.Id,
+    ///             NetworkId = mynet.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LoadBalancerNetwork : Pulumi.CustomResource
     {

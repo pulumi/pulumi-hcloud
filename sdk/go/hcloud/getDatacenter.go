@@ -9,6 +9,37 @@ import (
 
 // Provides details about a specific Hetzner Cloud Datacenter.
 // Use this resource to get detailed information about specific datacenter.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "fsn1-dc8"
+// 		_, err := hcloud.GetDatacenter(ctx, &hcloud.GetDatacenterArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := 4
+// 		_, err = hcloud.GetDatacenter(ctx, &hcloud.GetDatacenterArgs{
+// 			Id: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetDatacenter(ctx *pulumi.Context, args *GetDatacenterArgs, opts ...pulumi.InvokeOption) (*GetDatacenterResult, error) {
 	var rv GetDatacenterResult
 	err := ctx.Invoke("hcloud:index/getDatacenter:getDatacenter", args, &rv, opts...)

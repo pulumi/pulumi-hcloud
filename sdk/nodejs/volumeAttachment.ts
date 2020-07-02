@@ -6,6 +6,28 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const node1 = new hcloud.Server("node1", {
+ *     datacenter: "nbg1-dc3",
+ *     image: "debian-9",
+ *     serverType: "cx11",
+ * });
+ * const master = new hcloud.Volume("master", {
+ *     location: "nbg1",
+ *     size: 10,
+ * });
+ * const main = new hcloud.VolumeAttachment("main", {
+ *     automount: true,
+ *     serverId: node1.id.apply(id => Number.parseFloat(id)),
+ *     volumeId: master.id.apply(id => Number.parseFloat(id)),
+ * });
+ * ```
  */
 export class VolumeAttachment extends pulumi.CustomResource {
     /**

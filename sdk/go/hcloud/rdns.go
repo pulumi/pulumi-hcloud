@@ -11,6 +11,72 @@ import (
 )
 
 // Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
+//
+// ## Example Usage
+//
+// For servers:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+// 			Image:      pulumi.String("debian-9"),
+// 			ServerType: pulumi.String("cx11"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewRdns(ctx, "master", &hcloud.RdnsArgs{
+// 			DnsPtr:    pulumi.String("example.com"),
+// 			IpAddress: node1.Ipv4Address,
+// 			ServerId:  node1.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// For Floating IPs:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		floating1, err := hcloud.NewFloatingIp(ctx, "floating1", &hcloud.FloatingIpArgs{
+// 			HomeLocation: pulumi.String("nbg1"),
+// 			Type:         pulumi.String("ipv4"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewRdns(ctx, "floatingMaster", &hcloud.RdnsArgs{
+// 			DnsPtr:       pulumi.String("example.com"),
+// 			FloatingIpId: floating1.ID(),
+// 			IpAddress:    floating1.IpAddress,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Rdns struct {
 	pulumi.CustomResourceState
 

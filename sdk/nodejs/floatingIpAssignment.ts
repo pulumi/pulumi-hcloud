@@ -6,6 +6,27 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Hetzner Cloud Floating IP Assignment to assign a Floating IP to a Hetzner Cloud Server. Deleting a Floating IP Assignment will unassign the Floating IP from the Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const node1 = new hcloud.Server("node1", {
+ *     datacenter: "fsn1-dc8",
+ *     image: "debian-9",
+ *     serverType: "cx11",
+ * });
+ * const master = new hcloud.FloatingIp("master", {
+ *     homeLocation: "nbg1",
+ *     type: "ipv4",
+ * });
+ * const main = new hcloud.FloatingIpAssignment("main", {
+ *     floatingIpId: master.id.apply(id => Number.parseFloat(id)),
+ *     serverId: node1.id.apply(id => Number.parseFloat(id)),
+ * });
+ * ```
  */
 export class FloatingIpAssignment extends pulumi.CustomResource {
     /**

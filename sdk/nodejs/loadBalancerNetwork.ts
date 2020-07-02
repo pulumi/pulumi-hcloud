@@ -5,7 +5,33 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- *  Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+ * Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const lb1 = new hcloud.LoadBalancer("lb1", {
+ *     loadBalancerType: "lb11",
+ *     networkZone: "eu-central",
+ * });
+ * const mynet = new hcloud.Network("mynet", {
+ *     ipRange: "10.0.0.0/8",
+ * });
+ * const foonet = new hcloud.NetworkSubnet("foonet", {
+ *     ipRange: "10.0.1.0/24",
+ *     networkId: mynet.id.apply(id => Number.parseFloat(id)),
+ *     networkZone: "eu-central",
+ *     type: "cloud",
+ * });
+ * const srvnetwork = new hcloud.LoadBalancerNetwork("srvnetwork", {
+ *     ip: "10.0.1.5",
+ *     loadBalancerId: lb1.id.apply(id => Number.parseFloat(id)),
+ *     networkId: mynet.id.apply(id => Number.parseFloat(id)),
+ * });
+ * ```
  */
 export class LoadBalancerNetwork extends pulumi.CustomResource {
     /**

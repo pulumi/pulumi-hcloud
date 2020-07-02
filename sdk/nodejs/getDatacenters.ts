@@ -9,6 +9,23 @@ import * as utilities from "./utilities";
 /**
  * Provides a list of available Hetzner Cloud Datacenters.
  * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ds = pulumi.output(hcloud.getDatacenters({ async: true }));
+ * const workers: hcloud.Server[] = [];
+ * for (let i = 0; i < 3; i++) {
+ *     workers.push(new hcloud.Server(`workers-${i}`, {
+ *         datacenter: ds.apply(ds => ds.names[i]),
+ *         image: "debian-9",
+ *         serverType: "cx31",
+ *     }));
+ * }
+ * ```
  */
 export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacentersResult> {
     args = args || {};
