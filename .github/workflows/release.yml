@@ -26,7 +26,7 @@ jobs:
         path: ci-scripts
         repository: pulumi/scripts
     - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v2
       with:
@@ -59,7 +59,7 @@ jobs:
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Build SDK
-      run: make -f Makefile.github build_${{ matrix.language }}
+      run: make build_${{ matrix.language }}
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
     - name: Upload artifacts
@@ -78,7 +78,7 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion:
-        - 3.1.201
+        - 3.1.301
         goversion:
         - 1.14.x
         language:
@@ -116,7 +116,7 @@ jobs:
         path: ci-scripts
         repository: pulumi/scripts
     - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v2
       with:
@@ -128,7 +128,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Run golangci
-      run: make -f Makefile.github lint_provider
+      run: make lint_provider
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -150,7 +150,7 @@ jobs:
         path: ci-scripts
         repository: pulumi/scripts
     - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v2
       with:
@@ -182,7 +182,7 @@ jobs:
         path: ci-scripts
         repository: pulumi/scripts
     - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v2
       with:
@@ -194,7 +194,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Build tfgen & provider binaries
-      run: make -f Makefile.github provider
+      run: make provider
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -257,7 +257,7 @@ jobs:
         path: ci-scripts
         repository: pulumi/scripts
     - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v2
       with:
@@ -318,7 +318,7 @@ jobs:
         path: ci-scripts
         repository: pulumi/scripts
     - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v2
       with:
@@ -362,7 +362,7 @@ jobs:
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
     - name: Install dependencies
-      run: make -f Makefile.github install_${{ matrix.language}}_sdk
+      run: make install_${{ matrix.language}}_sdk
     - name: Run tests
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
         }} -parallel 4 .
@@ -377,7 +377,7 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion:
-        - 3.1.201
+        - 3.1.301
         goversion:
         - 1.14.x
         language:
