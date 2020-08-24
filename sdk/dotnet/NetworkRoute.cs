@@ -39,12 +39,21 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class NetworkRoute : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+        /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
 
+        /// <summary>
+        /// Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+        /// </summary>
         [Output("gateway")]
         public Output<string> Gateway { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the Network the route should be added to.
+        /// </summary>
         [Output("networkId")]
         public Output<int> NetworkId { get; private set; } = null!;
 
@@ -94,12 +103,21 @@ namespace Pulumi.HCloud
 
     public sealed class NetworkRouteArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+        /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+        /// </summary>
         [Input("gateway", required: true)]
         public Input<string> Gateway { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the Network the route should be added to.
+        /// </summary>
         [Input("networkId", required: true)]
         public Input<int> NetworkId { get; set; } = null!;
 
@@ -110,12 +128,21 @@ namespace Pulumi.HCloud
 
     public sealed class NetworkRouteState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+        /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
+        /// <summary>
+        /// Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+        /// </summary>
         [Input("gateway")]
         public Input<string>? Gateway { get; set; }
 
+        /// <summary>
+        /// ID of the Network the route should be added to.
+        /// </summary>
         [Input("networkId")]
         public Input<int>? NetworkId { get; set; }
 

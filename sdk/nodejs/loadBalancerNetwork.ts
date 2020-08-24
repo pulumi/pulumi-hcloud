@@ -61,9 +61,21 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancerNetwork.__pulumiType;
     }
 
+    /**
+     * Enable or disable the Load Balancers public interface. Default: `true`
+     */
     public readonly enablePublicInterface!: pulumi.Output<boolean | undefined>;
+    /**
+     * IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+     */
     public readonly ip!: pulumi.Output<string>;
+    /**
+     * ID of the Load Balancer.
+     */
     public readonly loadBalancerId!: pulumi.Output<number>;
+    /**
+     * ID of the network which should be added to the Load Balancer.
+     */
     public readonly networkId!: pulumi.Output<number>;
 
     /**
@@ -110,9 +122,21 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoadBalancerNetwork resources.
  */
 export interface LoadBalancerNetworkState {
+    /**
+     * Enable or disable the Load Balancers public interface. Default: `true`
+     */
     readonly enablePublicInterface?: pulumi.Input<boolean>;
+    /**
+     * IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+     */
     readonly ip?: pulumi.Input<string>;
+    /**
+     * ID of the Load Balancer.
+     */
     readonly loadBalancerId?: pulumi.Input<number>;
+    /**
+     * ID of the network which should be added to the Load Balancer.
+     */
     readonly networkId?: pulumi.Input<number>;
 }
 
@@ -120,8 +144,20 @@ export interface LoadBalancerNetworkState {
  * The set of arguments for constructing a LoadBalancerNetwork resource.
  */
 export interface LoadBalancerNetworkArgs {
+    /**
+     * Enable or disable the Load Balancers public interface. Default: `true`
+     */
     readonly enablePublicInterface?: pulumi.Input<boolean>;
+    /**
+     * IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+     */
     readonly ip?: pulumi.Input<string>;
+    /**
+     * ID of the Load Balancer.
+     */
     readonly loadBalancerId: pulumi.Input<number>;
+    /**
+     * ID of the network which should be added to the Load Balancer.
+     */
     readonly networkId: pulumi.Input<number>;
 }

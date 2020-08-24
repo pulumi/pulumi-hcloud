@@ -56,6 +56,10 @@ namespace Pulumi.HCloud
     {
         [Input("locationIds")]
         private List<string>? _locationIds;
+
+        /// <summary>
+        /// (list) List of unique location identifiers.
+        /// </summary>
         public List<string> LocationIds
         {
             get => _locationIds ?? (_locationIds = new List<string>());
@@ -71,12 +75,21 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetLocationsResult
     {
+        /// <summary>
+        /// (list) List of all location descriptions.
+        /// </summary>
         public readonly ImmutableArray<string> Descriptions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (list) List of unique location identifiers.
+        /// </summary>
         public readonly ImmutableArray<string> LocationIds;
+        /// <summary>
+        /// (list) List of location names.
+        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]

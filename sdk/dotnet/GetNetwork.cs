@@ -18,9 +18,15 @@ namespace Pulumi.HCloud
 
     public sealed class GetNetworkArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the Network.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// IPv4 prefix of the Network.
+        /// </summary>
         [Input("ipRange")]
         public string? IpRange { get; set; }
 
@@ -32,9 +38,15 @@ namespace Pulumi.HCloud
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Network.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
 
@@ -47,9 +59,18 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetNetworkResult
     {
+        /// <summary>
+        /// Unique ID of the Network.
+        /// </summary>
         public readonly int? Id;
+        /// <summary>
+        /// IPv4 prefix of the Network.
+        /// </summary>
         public readonly string? IpRange;
         public readonly ImmutableDictionary<string, object>? Labels;
+        /// <summary>
+        /// Name of the Network.
+        /// </summary>
         public readonly string? Name;
         public readonly string? WithSelector;
 

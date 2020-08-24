@@ -45,14 +45,22 @@ import (
 type FloatingIp struct {
 	pulumi.CustomResourceState
 
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
-	HomeLocation pulumi.StringOutput    `pulumi:"homeLocation"`
-	IpAddress    pulumi.StringOutput    `pulumi:"ipAddress"`
-	IpNetwork    pulumi.StringOutput    `pulumi:"ipNetwork"`
-	Labels       pulumi.MapOutput       `pulumi:"labels"`
-	Name         pulumi.StringOutput    `pulumi:"name"`
-	ServerId     pulumi.IntOutput       `pulumi:"serverId"`
-	Type         pulumi.StringOutput    `pulumi:"type"`
+	// Description of the Floating IP.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+	HomeLocation pulumi.StringOutput `pulumi:"homeLocation"`
+	// (string) IP Address of the Floating IP.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+	IpNetwork pulumi.StringOutput `pulumi:"ipNetwork"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapOutput `pulumi:"labels"`
+	// Name of the Floating IP.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Server to assign the Floating IP to.
+	ServerId pulumi.IntOutput `pulumi:"serverId"`
+	// Type of the Floating IP. `ipv4` `ipv6`
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewFloatingIp registers a new resource with the given unique name, arguments, and options.
@@ -86,25 +94,41 @@ func GetFloatingIp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FloatingIp resources.
 type floatingIpState struct {
-	Description  *string                `pulumi:"description"`
-	HomeLocation *string                `pulumi:"homeLocation"`
-	IpAddress    *string                `pulumi:"ipAddress"`
-	IpNetwork    *string                `pulumi:"ipNetwork"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	Name         *string                `pulumi:"name"`
-	ServerId     *int                   `pulumi:"serverId"`
-	Type         *string                `pulumi:"type"`
+	// Description of the Floating IP.
+	Description *string `pulumi:"description"`
+	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+	HomeLocation *string `pulumi:"homeLocation"`
+	// (string) IP Address of the Floating IP.
+	IpAddress *string `pulumi:"ipAddress"`
+	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+	IpNetwork *string `pulumi:"ipNetwork"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Name of the Floating IP.
+	Name *string `pulumi:"name"`
+	// Server to assign the Floating IP to.
+	ServerId *int `pulumi:"serverId"`
+	// Type of the Floating IP. `ipv4` `ipv6`
+	Type *string `pulumi:"type"`
 }
 
 type FloatingIpState struct {
-	Description  pulumi.StringPtrInput
+	// Description of the Floating IP.
+	Description pulumi.StringPtrInput
+	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation pulumi.StringPtrInput
-	IpAddress    pulumi.StringPtrInput
-	IpNetwork    pulumi.StringPtrInput
-	Labels       pulumi.MapInput
-	Name         pulumi.StringPtrInput
-	ServerId     pulumi.IntPtrInput
-	Type         pulumi.StringPtrInput
+	// (string) IP Address of the Floating IP.
+	IpAddress pulumi.StringPtrInput
+	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+	IpNetwork pulumi.StringPtrInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// Name of the Floating IP.
+	Name pulumi.StringPtrInput
+	// Server to assign the Floating IP to.
+	ServerId pulumi.IntPtrInput
+	// Type of the Floating IP. `ipv4` `ipv6`
+	Type pulumi.StringPtrInput
 }
 
 func (FloatingIpState) ElementType() reflect.Type {
@@ -112,22 +136,34 @@ func (FloatingIpState) ElementType() reflect.Type {
 }
 
 type floatingIpArgs struct {
-	Description  *string                `pulumi:"description"`
-	HomeLocation *string                `pulumi:"homeLocation"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	Name         *string                `pulumi:"name"`
-	ServerId     *int                   `pulumi:"serverId"`
-	Type         string                 `pulumi:"type"`
+	// Description of the Floating IP.
+	Description *string `pulumi:"description"`
+	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+	HomeLocation *string `pulumi:"homeLocation"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Name of the Floating IP.
+	Name *string `pulumi:"name"`
+	// Server to assign the Floating IP to.
+	ServerId *int `pulumi:"serverId"`
+	// Type of the Floating IP. `ipv4` `ipv6`
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a FloatingIp resource.
 type FloatingIpArgs struct {
-	Description  pulumi.StringPtrInput
+	// Description of the Floating IP.
+	Description pulumi.StringPtrInput
+	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation pulumi.StringPtrInput
-	Labels       pulumi.MapInput
-	Name         pulumi.StringPtrInput
-	ServerId     pulumi.IntPtrInput
-	Type         pulumi.StringInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// Name of the Floating IP.
+	Name pulumi.StringPtrInput
+	// Server to assign the Floating IP to.
+	ServerId pulumi.IntPtrInput
+	// Type of the Floating IP. `ipv4` `ipv6`
+	Type pulumi.StringInput
 }
 
 func (FloatingIpArgs) ElementType() reflect.Type {

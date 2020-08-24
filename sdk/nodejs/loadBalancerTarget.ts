@@ -56,9 +56,24 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancerTarget.__pulumiType;
     }
 
+    /**
+     * ID of the Load Balancer to which
+     * the target gets attached.
+     */
     public readonly loadBalancerId!: pulumi.Output<number>;
+    /**
+     * ID of the server which should be a
+     * target for this Load Balancer. Required if `type` is `server`
+     */
     public readonly serverId!: pulumi.Output<number | undefined>;
+    /**
+     * Type of the target. `server`
+     */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * use the private IP to connect to
+     * Load Balancer targets.
+     */
     public readonly usePrivateIp!: pulumi.Output<boolean>;
 
     /**
@@ -105,9 +120,24 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoadBalancerTarget resources.
  */
 export interface LoadBalancerTargetState {
+    /**
+     * ID of the Load Balancer to which
+     * the target gets attached.
+     */
     readonly loadBalancerId?: pulumi.Input<number>;
+    /**
+     * ID of the server which should be a
+     * target for this Load Balancer. Required if `type` is `server`
+     */
     readonly serverId?: pulumi.Input<number>;
+    /**
+     * Type of the target. `server`
+     */
     readonly type?: pulumi.Input<string>;
+    /**
+     * use the private IP to connect to
+     * Load Balancer targets.
+     */
     readonly usePrivateIp?: pulumi.Input<boolean>;
 }
 
@@ -115,8 +145,23 @@ export interface LoadBalancerTargetState {
  * The set of arguments for constructing a LoadBalancerTarget resource.
  */
 export interface LoadBalancerTargetArgs {
+    /**
+     * ID of the Load Balancer to which
+     * the target gets attached.
+     */
     readonly loadBalancerId: pulumi.Input<number>;
+    /**
+     * ID of the server which should be a
+     * target for this Load Balancer. Required if `type` is `server`
+     */
     readonly serverId?: pulumi.Input<number>;
+    /**
+     * Type of the target. `server`
+     */
     readonly type: pulumi.Input<string>;
+    /**
+     * use the private IP to connect to
+     * Load Balancer targets.
+     */
     readonly usePrivateIp?: pulumi.Input<boolean>;
 }

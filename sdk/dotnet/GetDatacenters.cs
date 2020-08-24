@@ -56,6 +56,10 @@ namespace Pulumi.HCloud
     {
         [Input("datacenterIds")]
         private List<string>? _datacenterIds;
+
+        /// <summary>
+        /// (list) List of unique datacenter identifiers.
+        /// </summary>
         public List<string> DatacenterIds
         {
             get => _datacenterIds ?? (_datacenterIds = new List<string>());
@@ -71,12 +75,21 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetDatacentersResult
     {
+        /// <summary>
+        /// (list) List of unique datacenter identifiers.
+        /// </summary>
         public readonly ImmutableArray<string> DatacenterIds;
+        /// <summary>
+        /// (list) List of all datacenter descriptions.
+        /// </summary>
         public readonly ImmutableArray<string> Descriptions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (list) List of datacenter names.
+        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]

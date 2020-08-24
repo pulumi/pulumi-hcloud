@@ -61,10 +61,14 @@ import (
 type LoadBalancerNetwork struct {
 	pulumi.CustomResourceState
 
+	// Enable or disable the Load Balancers public interface. Default: `true`
 	EnablePublicInterface pulumi.BoolPtrOutput `pulumi:"enablePublicInterface"`
-	Ip                    pulumi.StringOutput  `pulumi:"ip"`
-	LoadBalancerId        pulumi.IntOutput     `pulumi:"loadBalancerId"`
-	NetworkId             pulumi.IntOutput     `pulumi:"networkId"`
+	// IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+	Ip pulumi.StringOutput `pulumi:"ip"`
+	// ID of the Load Balancer.
+	LoadBalancerId pulumi.IntOutput `pulumi:"loadBalancerId"`
+	// ID of the network which should be added to the Load Balancer.
+	NetworkId pulumi.IntOutput `pulumi:"networkId"`
 }
 
 // NewLoadBalancerNetwork registers a new resource with the given unique name, arguments, and options.
@@ -101,17 +105,25 @@ func GetLoadBalancerNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancerNetwork resources.
 type loadBalancerNetworkState struct {
-	EnablePublicInterface *bool   `pulumi:"enablePublicInterface"`
-	Ip                    *string `pulumi:"ip"`
-	LoadBalancerId        *int    `pulumi:"loadBalancerId"`
-	NetworkId             *int    `pulumi:"networkId"`
+	// Enable or disable the Load Balancers public interface. Default: `true`
+	EnablePublicInterface *bool `pulumi:"enablePublicInterface"`
+	// IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+	Ip *string `pulumi:"ip"`
+	// ID of the Load Balancer.
+	LoadBalancerId *int `pulumi:"loadBalancerId"`
+	// ID of the network which should be added to the Load Balancer.
+	NetworkId *int `pulumi:"networkId"`
 }
 
 type LoadBalancerNetworkState struct {
+	// Enable or disable the Load Balancers public interface. Default: `true`
 	EnablePublicInterface pulumi.BoolPtrInput
-	Ip                    pulumi.StringPtrInput
-	LoadBalancerId        pulumi.IntPtrInput
-	NetworkId             pulumi.IntPtrInput
+	// IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+	Ip pulumi.StringPtrInput
+	// ID of the Load Balancer.
+	LoadBalancerId pulumi.IntPtrInput
+	// ID of the network which should be added to the Load Balancer.
+	NetworkId pulumi.IntPtrInput
 }
 
 func (LoadBalancerNetworkState) ElementType() reflect.Type {
@@ -119,18 +131,26 @@ func (LoadBalancerNetworkState) ElementType() reflect.Type {
 }
 
 type loadBalancerNetworkArgs struct {
-	EnablePublicInterface *bool   `pulumi:"enablePublicInterface"`
-	Ip                    *string `pulumi:"ip"`
-	LoadBalancerId        int     `pulumi:"loadBalancerId"`
-	NetworkId             int     `pulumi:"networkId"`
+	// Enable or disable the Load Balancers public interface. Default: `true`
+	EnablePublicInterface *bool `pulumi:"enablePublicInterface"`
+	// IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+	Ip *string `pulumi:"ip"`
+	// ID of the Load Balancer.
+	LoadBalancerId int `pulumi:"loadBalancerId"`
+	// ID of the network which should be added to the Load Balancer.
+	NetworkId int `pulumi:"networkId"`
 }
 
 // The set of arguments for constructing a LoadBalancerNetwork resource.
 type LoadBalancerNetworkArgs struct {
+	// Enable or disable the Load Balancers public interface. Default: `true`
 	EnablePublicInterface pulumi.BoolPtrInput
-	Ip                    pulumi.StringPtrInput
-	LoadBalancerId        pulumi.IntInput
-	NetworkId             pulumi.IntInput
+	// IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+	Ip pulumi.StringPtrInput
+	// ID of the Load Balancer.
+	LoadBalancerId pulumi.IntInput
+	// ID of the network which should be added to the Load Balancer.
+	NetworkId pulumi.IntInput
 }
 
 func (LoadBalancerNetworkArgs) ElementType() reflect.Type {

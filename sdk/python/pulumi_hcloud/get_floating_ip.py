@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetFloatingIpResult',
+    'AwaitableGetFloatingIpResult',
+    'get_floating_ip',
+]
+
+@pulumi.output_type
 class GetFloatingIpResult:
     """
     A collection of values returned by getFloatingIp.
@@ -15,41 +22,104 @@ class GetFloatingIpResult:
     def __init__(__self__, description=None, home_location=None, id=None, ip_address=None, ip_network=None, labels=None, name=None, selector=None, server_id=None, type=None, with_selector=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
         if home_location and not isinstance(home_location, str):
             raise TypeError("Expected argument 'home_location' to be a str")
-        __self__.home_location = home_location
+        pulumi.set(__self__, "home_location", home_location)
         if id and not isinstance(id, float):
             raise TypeError("Expected argument 'id' to be a float")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
-        __self__.ip_address = ip_address
+        pulumi.set(__self__, "ip_address", ip_address)
         if ip_network and not isinstance(ip_network, str):
             raise TypeError("Expected argument 'ip_network' to be a str")
-        __self__.ip_network = ip_network
+        pulumi.set(__self__, "ip_network", ip_network)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
-        __self__.labels = labels
+        pulumi.set(__self__, "labels", labels)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
         if selector is not None:
             warnings.warn("Please use the with_selector property instead.", DeprecationWarning)
             pulumi.log.warn("selector is deprecated: Please use the with_selector property instead.")
 
-        __self__.selector = selector
+        pulumi.set(__self__, "selector", selector)
         if server_id and not isinstance(server_id, float):
             raise TypeError("Expected argument 'server_id' to be a float")
-        __self__.server_id = server_id
+        pulumi.set(__self__, "server_id", server_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        pulumi.set(__self__, "type", type)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
-        __self__.with_selector = with_selector
+        pulumi.set(__self__, "with_selector", with_selector)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="homeLocation")
+    def home_location(self) -> str:
+        return pulumi.get(self, "home_location")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[float]:
+        """
+        (int) Unique ID of the Floating IP.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        (string) IP address of the Floating IP.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipNetwork")
+    def ip_network(self) -> str:
+        return pulumi.get(self, "ip_network")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> float:
+        return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="withSelector")
+    def with_selector(self) -> Optional[str]:
+        return pulumi.get(self, "with_selector")
+
+
 class AwaitableGetFloatingIpResult(GetFloatingIpResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -68,7 +138,13 @@ class AwaitableGetFloatingIpResult(GetFloatingIpResult):
             type=self.type,
             with_selector=self.with_selector)
 
-def get_floating_ip(id=None,ip_address=None,name=None,selector=None,with_selector=None,opts=None):
+
+def get_floating_ip(id: Optional[float] = None,
+                    ip_address: Optional[str] = None,
+                    name: Optional[str] = None,
+                    selector: Optional[str] = None,
+                    with_selector: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFloatingIpResult:
     """
     Provides details about a Hetzner Cloud Floating IP.
 
@@ -92,10 +168,13 @@ def get_floating_ip(id=None,ip_address=None,name=None,selector=None,with_selecto
             floating_ip_id=ip1.id,
             server_id=hcloud_server["main"]["id"]))
     ```
+
+
+    :param float id: (int) Unique ID of the Floating IP.
+    :param str ip_address: IP address of the Floating IP.
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     __args__['ipAddress'] = ip_address
     __args__['name'] = name
@@ -104,18 +183,18 @@ def get_floating_ip(id=None,ip_address=None,name=None,selector=None,with_selecto
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getFloatingIp:getFloatingIp', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getFloatingIp:getFloatingIp', __args__, opts=opts, typ=GetFloatingIpResult).value
 
     return AwaitableGetFloatingIpResult(
-        description=__ret__.get('description'),
-        home_location=__ret__.get('homeLocation'),
-        id=__ret__.get('id'),
-        ip_address=__ret__.get('ipAddress'),
-        ip_network=__ret__.get('ipNetwork'),
-        labels=__ret__.get('labels'),
-        name=__ret__.get('name'),
-        selector=__ret__.get('selector'),
-        server_id=__ret__.get('serverId'),
-        type=__ret__.get('type'),
-        with_selector=__ret__.get('withSelector'))
+        description=__ret__.description,
+        home_location=__ret__.home_location,
+        id=__ret__.id,
+        ip_address=__ret__.ip_address,
+        ip_network=__ret__.ip_network,
+        labels=__ret__.labels,
+        name=__ret__.name,
+        selector=__ret__.selector,
+        server_id=__ret__.server_id,
+        type=__ret__.type,
+        with_selector=__ret__.with_selector)

@@ -35,14 +35,42 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    /**
+     * PEM encoded TLS certificate.
+     */
     public readonly certificate!: pulumi.Output<string>;
+    /**
+     * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+     */
     public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * (list) Domains and subdomains covered by the certificate.
+     */
     public /*out*/ readonly domainNames!: pulumi.Output<string[]>;
+    /**
+     * (string) Fingerprint of the certificate.
+     */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    /**
+     * User-defined labels (key-value pairs) the
+     * certificate should be created with.
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Name of the Certificate.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+     */
     public /*out*/ readonly notValidAfter!: pulumi.Output<string>;
+    /**
+     * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+     */
     public /*out*/ readonly notValidBefore!: pulumi.Output<string>;
+    /**
+     * PEM encoded private key belonging to the certificate.
+     */
     public readonly privateKey!: pulumi.Output<string>;
 
     /**
@@ -99,14 +127,42 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
+    /**
+     * PEM encoded TLS certificate.
+     */
     readonly certificate?: pulumi.Input<string>;
+    /**
+     * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+     */
     readonly created?: pulumi.Input<string>;
+    /**
+     * (list) Domains and subdomains covered by the certificate.
+     */
     readonly domainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (string) Fingerprint of the certificate.
+     */
     readonly fingerprint?: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) the
+     * certificate should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Certificate.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+     */
     readonly notValidAfter?: pulumi.Input<string>;
+    /**
+     * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+     */
     readonly notValidBefore?: pulumi.Input<string>;
+    /**
+     * PEM encoded private key belonging to the certificate.
+     */
     readonly privateKey?: pulumi.Input<string>;
 }
 
@@ -114,8 +170,21 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
+    /**
+     * PEM encoded TLS certificate.
+     */
     readonly certificate: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) the
+     * certificate should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Certificate.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * PEM encoded private key belonging to the certificate.
+     */
     readonly privateKey: pulumi.Input<string>;
 }

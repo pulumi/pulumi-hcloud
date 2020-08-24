@@ -35,11 +35,13 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        {
             if (!args || args.token === undefined) {
                 throw new Error("Missing required property 'token'");
             }
-        inputs["endpoint"] = args ? args.endpoint : undefined;
-        inputs["token"] = args ? args.token : undefined;
+            inputs["endpoint"] = args ? args.endpoint : undefined;
+            inputs["token"] = args ? args.token : undefined;
+        }
         if (!opts) {
             opts = {}
         }

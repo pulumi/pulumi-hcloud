@@ -21,12 +21,21 @@ namespace Pulumi.HCloud
 
     public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the certificate.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// Name of the certificate.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
 
@@ -39,14 +48,41 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetCertificateResult
     {
+        /// <summary>
+        /// (string) PEM encoded TLS certificate.
+        /// </summary>
         public readonly string Certificate;
+        /// <summary>
+        /// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+        /// </summary>
         public readonly string Created;
+        /// <summary>
+        /// (list) Domains and subdomains covered by the certificate.
+        /// </summary>
         public readonly ImmutableArray<string> DomainNames;
+        /// <summary>
+        /// (string) Fingerprint of the certificate.
+        /// </summary>
         public readonly string Fingerprint;
+        /// <summary>
+        /// (int) Unique ID of the certificate.
+        /// </summary>
         public readonly int? Id;
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs) assigned to the certificate.
+        /// </summary>
         public readonly ImmutableDictionary<string, object> Labels;
+        /// <summary>
+        /// (string) Name of the Certificate.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+        /// </summary>
         public readonly string NotValidAfter;
+        /// <summary>
+        /// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+        /// </summary>
         public readonly string NotValidBefore;
         public readonly string? WithSelector;
 

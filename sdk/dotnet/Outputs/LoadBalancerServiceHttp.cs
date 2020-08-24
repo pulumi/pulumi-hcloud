@@ -13,10 +13,25 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class LoadBalancerServiceHttp
     {
+        /// <summary>
+        /// List of IDs from certificates which the Load Balancer has.
+        /// </summary>
         public readonly ImmutableArray<int> Certificates;
+        /// <summary>
+        /// Lifetime of the cookie for sticky session (in seconds). Default: `300`
+        /// </summary>
         public readonly int? CookieLifetime;
+        /// <summary>
+        /// Name of the cookie for sticky session. Default: `HCLBSTICKY`
+        /// </summary>
         public readonly string? CookieName;
+        /// <summary>
+        /// Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
+        /// </summary>
         public readonly bool? RedirectHttp;
+        /// <summary>
+        /// Enable sticky sessions
+        /// </summary>
         public readonly bool? StickySessions;
 
         [OutputConstructor]

@@ -43,7 +43,13 @@ export function getLocation(args?: GetLocationArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getLocation.
  */
 export interface GetLocationArgs {
+    /**
+     * ID of the location.
+     */
     readonly id?: number;
+    /**
+     * Name of the location.
+     */
     readonly name?: string;
 }
 
@@ -51,11 +57,32 @@ export interface GetLocationArgs {
  * A collection of values returned by getLocation.
  */
 export interface GetLocationResult {
+    /**
+     * (string) City of the location.
+     */
     readonly city: string;
+    /**
+     * (string) Country of the location.
+     */
     readonly country: string;
+    /**
+     * (string) Description of the location.
+     */
     readonly description: string;
+    /**
+     * (int) Unique ID of the location.
+     */
     readonly id: number;
+    /**
+     * (float) Latitude of the city.
+     */
     readonly latitude: number;
+    /**
+     * (float) Longitude of the city.
+     */
     readonly longitude: number;
+    /**
+     * (string) Name of the location.
+     */
     readonly name: string;
 }

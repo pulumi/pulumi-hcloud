@@ -30,15 +30,27 @@ export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getVolume.
  */
 export interface GetVolumeArgs {
+    /**
+     * ID of the volume.
+     */
     readonly id?: number;
     readonly location?: string;
+    /**
+     * Name of the volume.
+     */
     readonly name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
     readonly selector?: string;
     readonly server?: string;
+    /**
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     */
     readonly withSelector?: string;
+    /**
+     * List only volumes with the specified status, could contain `creating` or `available`.
+     */
     readonly withStatuses?: string[];
 }
 
@@ -46,16 +58,25 @@ export interface GetVolumeArgs {
  * A collection of values returned by getVolume.
  */
 export interface GetVolumeResult {
+    /**
+     * Unique ID of the volume.
+     */
     readonly id?: number;
     readonly labels: {[key: string]: any};
     readonly linuxDevice: string;
     readonly location?: string;
+    /**
+     * Name of the volume.
+     */
     readonly name: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
     readonly selector?: string;
     readonly server?: string;
+    /**
+     * Size of the volume.
+     */
     readonly size: number;
     readonly withSelector?: string;
     readonly withStatuses?: string[];

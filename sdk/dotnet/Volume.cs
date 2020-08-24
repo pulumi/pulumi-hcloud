@@ -40,27 +40,51 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Automount the volume upon attaching it (server_id must be provided).
+        /// </summary>
         [Output("automount")]
         public Output<bool?> Automount { get; private set; } = null!;
 
+        /// <summary>
+        /// Format volume after creation. `xfs` or `ext4`
+        /// </summary>
         [Output("format")]
         public Output<string?> Format { get; private set; } = null!;
 
+        /// <summary>
+        /// User-defined labels (key-value pairs).
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// Device path on the file system for the Volume.
+        /// </summary>
         [Output("linuxDevice")]
         public Output<string> LinuxDevice { get; private set; } = null!;
 
+        /// <summary>
+        /// Location of the volume to create, optional if server_id argument is passed.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the volume to create (must be unique per project).
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Server to attach the Volume to, optional if location argument is passed.
+        /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// Size of the volume (in GB).
+        /// </summary>
         [Output("size")]
         public Output<int> Size { get; private set; } = null!;
 
@@ -110,29 +134,51 @@ namespace Pulumi.HCloud
 
     public sealed class VolumeArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Automount the volume upon attaching it (server_id must be provided).
+        /// </summary>
         [Input("automount")]
         public Input<bool>? Automount { get; set; }
 
+        /// <summary>
+        /// Format volume after creation. `xfs` or `ext4`
+        /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs).
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Location of the volume to create, optional if server_id argument is passed.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Name of the volume to create (must be unique per project).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Server to attach the Volume to, optional if location argument is passed.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
+        /// <summary>
+        /// Size of the volume (in GB).
+        /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 
@@ -143,32 +189,57 @@ namespace Pulumi.HCloud
 
     public sealed class VolumeState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Automount the volume upon attaching it (server_id must be provided).
+        /// </summary>
         [Input("automount")]
         public Input<bool>? Automount { get; set; }
 
+        /// <summary>
+        /// Format volume after creation. `xfs` or `ext4`
+        /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs).
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Device path on the file system for the Volume.
+        /// </summary>
         [Input("linuxDevice")]
         public Input<string>? LinuxDevice { get; set; }
 
+        /// <summary>
+        /// Location of the volume to create, optional if server_id argument is passed.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Name of the volume to create (must be unique per project).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Server to attach the Volume to, optional if location argument is passed.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
+        /// <summary>
+        /// Size of the volume (in GB).
+        /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 

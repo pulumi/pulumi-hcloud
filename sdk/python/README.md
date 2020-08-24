@@ -1,3 +1,11 @@
+[![Actions Status](https://github.com/pulumi/pulumi-hcloud/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-hcloud/actions)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Fhcloud.svg)](https://www.npmjs.com/package/@pulumi/hcloud)
+[![Python version](https://badge.fury.io/py/pulumi-hcloud.svg)](https://pypi.org/project/pulumi-hcloud)
+[![NuGet version](https://badge.fury.io/nu/pulumi.hcloud.svg)](https://badge.fury.io/nu/pulumi.hcloud)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-hcloud/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-hcloud/sdk/go)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-hcloud/blob/master/LICENSE)
+
 # HCloud provider
 
 The HCloud resource provider for Pulumi lets you use Hetzner Cloud resources in your infrastructure 

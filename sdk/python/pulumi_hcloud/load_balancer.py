@@ -5,23 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LoadBalancer']
 
 
 class LoadBalancer(pulumi.CustomResource):
-    algorithm: pulumi.Output[dict]
-    ipv4: pulumi.Output[str]
-    ipv6: pulumi.Output[str]
-    labels: pulumi.Output[dict]
-    load_balancer_type: pulumi.Output[str]
-    location: pulumi.Output[str]
-    name: pulumi.Output[str]
-    network_id: pulumi.Output[float]
-    network_ip: pulumi.Output[str]
-    network_zone: pulumi.Output[str]
-    targets: pulumi.Output[list]
-    def __init__(__self__, resource_name, opts=None, algorithm=None, labels=None, load_balancer_type=None, location=None, name=None, network_zone=None, targets=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 algorithm: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 load_balancer_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_zone: Optional[pulumi.Input[str]] = None,
+                 targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
 
@@ -37,24 +42,21 @@ class LoadBalancer(pulumi.CustomResource):
         load_balancer = hcloud.LoadBalancer("loadBalancer",
             load_balancer_type="lb11",
             location="nbg1",
-            targets=[{
-                "server_id": myserver.id,
-                "type": "server",
-            }])
+            targets=[hcloud.LoadBalancerTargetArgs(
+                server_id=myserver.id,
+                type="server",
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        The **algorithm** object supports the following:
-
-          * `type` (`pulumi.Input[str]`)
-
-        The **targets** object supports the following:
-
-          * `server_id` (`pulumi.Input[float]`)
-          * `type` (`pulumi.Input[str]`)
-          * `use_private_ip` (`pulumi.Input[bool]`)
+        :param pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']] algorithm: Configuration of the algorithm the Load Balancer use.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
+        :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
+        :param pulumi.Input[str] name: Name of the Load Balancer.
+        :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,7 +69,7 @@ class LoadBalancer(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -93,24 +95,36 @@ class LoadBalancer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, algorithm=None, ipv4=None, ipv6=None, labels=None, load_balancer_type=None, location=None, name=None, network_id=None, network_ip=None, network_zone=None, targets=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            algorithm: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']]] = None,
+            ipv4: Optional[pulumi.Input[str]] = None,
+            ipv6: Optional[pulumi.Input[str]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            load_balancer_type: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            network_id: Optional[pulumi.Input[float]] = None,
+            network_ip: Optional[pulumi.Input[str]] = None,
+            network_zone: Optional[pulumi.Input[str]] = None,
+            targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]]] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        The **algorithm** object supports the following:
-
-          * `type` (`pulumi.Input[str]`)
-
-        The **targets** object supports the following:
-
-          * `server_id` (`pulumi.Input[float]`)
-          * `type` (`pulumi.Input[str]`)
-          * `use_private_ip` (`pulumi.Input[bool]`)
+        :param pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']] algorithm: Configuration of the algorithm the Load Balancer use.
+        :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
+        :param pulumi.Input[str] ipv6: (string) IPv4 Address of the Load Balancer.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
+        :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
+        :param pulumi.Input[str] name: Name of the Load Balancer.
+        :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -129,8 +143,91 @@ class LoadBalancer(pulumi.CustomResource):
         __props__["targets"] = targets
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def algorithm(self) -> 'outputs.LoadBalancerAlgorithm':
+        """
+        Configuration of the algorithm the Load Balancer use.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter
+    def ipv4(self) -> str:
+        """
+        (string) IPv4 Address of the Load Balancer.
+        """
+        return pulumi.get(self, "ipv4")
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> str:
+        """
+        (string) IPv4 Address of the Load Balancer.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Any]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="loadBalancerType")
+    def load_balancer_type(self) -> str:
+        """
+        Type of the Load Balancer.
+        """
+        return pulumi.get(self, "load_balancer_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the Load Balancer. Require when no network_zone is set.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Load Balancer.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> float:
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="networkIp")
+    def network_ip(self) -> str:
+        return pulumi.get(self, "network_ip")
+
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> str:
+        """
+        Network Zone of the Load Balancer. Require when no location is set.
+        """
+        return pulumi.get(self, "network_zone")
+
+    @property
+    @pulumi.getter
+    def targets(self) -> List['outputs.LoadBalancerTarget']:
+        """
+        List of targets of the Load Balancer.
+        """
+        return pulumi.get(self, "targets")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

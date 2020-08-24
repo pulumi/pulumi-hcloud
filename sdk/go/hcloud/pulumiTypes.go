@@ -11,6 +11,7 @@ import (
 )
 
 type LoadBalancerAlgorithm struct {
+	// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 	Type *string `pulumi:"type"`
 }
 
@@ -26,6 +27,7 @@ type LoadBalancerAlgorithmInput interface {
 }
 
 type LoadBalancerAlgorithmArgs struct {
+	// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -105,6 +107,8 @@ func (o LoadBalancerAlgorithmOutput) ToLoadBalancerAlgorithmPtrOutputWithContext
 		return &v
 	}).(LoadBalancerAlgorithmPtrOutput)
 }
+
+// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 func (o LoadBalancerAlgorithmOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAlgorithm) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -127,6 +131,7 @@ func (o LoadBalancerAlgorithmPtrOutput) Elem() LoadBalancerAlgorithmOutput {
 	return o.ApplyT(func(v *LoadBalancerAlgorithm) LoadBalancerAlgorithm { return *v }).(LoadBalancerAlgorithmOutput)
 }
 
+// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 func (o LoadBalancerAlgorithmPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerAlgorithm) *string {
 		if v == nil {
@@ -137,12 +142,18 @@ func (o LoadBalancerAlgorithmPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type LoadBalancerServiceHealthCheck struct {
-	Http     *LoadBalancerServiceHealthCheckHttp `pulumi:"http"`
-	Interval int                                 `pulumi:"interval"`
-	Port     int                                 `pulumi:"port"`
-	Protocol string                              `pulumi:"protocol"`
-	Retries  *int                                `pulumi:"retries"`
-	Timeout  int                                 `pulumi:"timeout"`
+	// List of http configurations. Required if `protocol` is `http`.
+	Http *LoadBalancerServiceHealthCheckHttp `pulumi:"http"`
+	// Interval how often the health check will be performed, in seconds. Default: `15`
+	Interval int `pulumi:"interval"`
+	// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+	Port int `pulumi:"port"`
+	// Protocol the health check uses. `http` or `tcp`
+	Protocol string `pulumi:"protocol"`
+	// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+	Retries *int `pulumi:"retries"`
+	// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+	Timeout int `pulumi:"timeout"`
 }
 
 // LoadBalancerServiceHealthCheckInput is an input type that accepts LoadBalancerServiceHealthCheckArgs and LoadBalancerServiceHealthCheckOutput values.
@@ -157,12 +168,18 @@ type LoadBalancerServiceHealthCheckInput interface {
 }
 
 type LoadBalancerServiceHealthCheckArgs struct {
-	Http     LoadBalancerServiceHealthCheckHttpPtrInput `pulumi:"http"`
-	Interval pulumi.IntInput                            `pulumi:"interval"`
-	Port     pulumi.IntInput                            `pulumi:"port"`
-	Protocol pulumi.StringInput                         `pulumi:"protocol"`
-	Retries  pulumi.IntPtrInput                         `pulumi:"retries"`
-	Timeout  pulumi.IntInput                            `pulumi:"timeout"`
+	// List of http configurations. Required if `protocol` is `http`.
+	Http LoadBalancerServiceHealthCheckHttpPtrInput `pulumi:"http"`
+	// Interval how often the health check will be performed, in seconds. Default: `15`
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Protocol the health check uses. `http` or `tcp`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+	Retries pulumi.IntPtrInput `pulumi:"retries"`
+	// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+	Timeout pulumi.IntInput `pulumi:"timeout"`
 }
 
 func (LoadBalancerServiceHealthCheckArgs) ElementType() reflect.Type {
@@ -241,26 +258,33 @@ func (o LoadBalancerServiceHealthCheckOutput) ToLoadBalancerServiceHealthCheckPt
 		return &v
 	}).(LoadBalancerServiceHealthCheckPtrOutput)
 }
+
+// List of http configurations. Required if `protocol` is `http`.
 func (o LoadBalancerServiceHealthCheckOutput) Http() LoadBalancerServiceHealthCheckHttpPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheckHttp { return v.Http }).(LoadBalancerServiceHealthCheckHttpPtrOutput)
 }
 
+// Interval how often the health check will be performed, in seconds. Default: `15`
 func (o LoadBalancerServiceHealthCheckOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
 }
 
+// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 func (o LoadBalancerServiceHealthCheckOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// Protocol the health check uses. `http` or `tcp`
 func (o LoadBalancerServiceHealthCheckOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
 func (o LoadBalancerServiceHealthCheckOutput) Retries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *int { return v.Retries }).(pulumi.IntPtrOutput)
 }
 
+// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
 func (o LoadBalancerServiceHealthCheckOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
 }
@@ -283,6 +307,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Elem() LoadBalancerServiceHealt
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) LoadBalancerServiceHealthCheck { return *v }).(LoadBalancerServiceHealthCheckOutput)
 }
 
+// List of http configurations. Required if `protocol` is `http`.
 func (o LoadBalancerServiceHealthCheckPtrOutput) Http() LoadBalancerServiceHealthCheckHttpPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheckHttp {
 		if v == nil {
@@ -292,6 +317,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Http() LoadBalancerServiceHealt
 	}).(LoadBalancerServiceHealthCheckHttpPtrOutput)
 }
 
+// Interval how often the health check will be performed, in seconds. Default: `15`
 func (o LoadBalancerServiceHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
 		if v == nil {
@@ -301,6 +327,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 func (o LoadBalancerServiceHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
 		if v == nil {
@@ -310,6 +337,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Protocol the health check uses. `http` or `tcp`
 func (o LoadBalancerServiceHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *string {
 		if v == nil {
@@ -319,6 +347,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
 func (o LoadBalancerServiceHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
 		if v == nil {
@@ -328,6 +357,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
 func (o LoadBalancerServiceHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
 		if v == nil {
@@ -338,11 +368,16 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 type LoadBalancerServiceHealthCheckHttp struct {
-	Domain      *string  `pulumi:"domain"`
-	Path        *string  `pulumi:"path"`
-	Response    *string  `pulumi:"response"`
+	// Domain we try to access when performing the Health Check.
+	Domain *string `pulumi:"domain"`
+	// Path we try to access when performing the Health Check.
+	Path *string `pulumi:"path"`
+	// Response we expect to be included in the Target response when a Health Check was performed.
+	Response *string `pulumi:"response"`
+	// We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
 	StatusCodes []string `pulumi:"statusCodes"`
-	Tls         *bool    `pulumi:"tls"`
+	// Enable TLS certificate checking.
+	Tls *bool `pulumi:"tls"`
 }
 
 // LoadBalancerServiceHealthCheckHttpInput is an input type that accepts LoadBalancerServiceHealthCheckHttpArgs and LoadBalancerServiceHealthCheckHttpOutput values.
@@ -357,11 +392,16 @@ type LoadBalancerServiceHealthCheckHttpInput interface {
 }
 
 type LoadBalancerServiceHealthCheckHttpArgs struct {
-	Domain      pulumi.StringPtrInput   `pulumi:"domain"`
-	Path        pulumi.StringPtrInput   `pulumi:"path"`
-	Response    pulumi.StringPtrInput   `pulumi:"response"`
+	// Domain we try to access when performing the Health Check.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// Path we try to access when performing the Health Check.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Response we expect to be included in the Target response when a Health Check was performed.
+	Response pulumi.StringPtrInput `pulumi:"response"`
+	// We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
 	StatusCodes pulumi.StringArrayInput `pulumi:"statusCodes"`
-	Tls         pulumi.BoolPtrInput     `pulumi:"tls"`
+	// Enable TLS certificate checking.
+	Tls pulumi.BoolPtrInput `pulumi:"tls"`
 }
 
 func (LoadBalancerServiceHealthCheckHttpArgs) ElementType() reflect.Type {
@@ -440,22 +480,28 @@ func (o LoadBalancerServiceHealthCheckHttpOutput) ToLoadBalancerServiceHealthChe
 		return &v
 	}).(LoadBalancerServiceHealthCheckHttpPtrOutput)
 }
+
+// Domain we try to access when performing the Health Check.
 func (o LoadBalancerServiceHealthCheckHttpOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+// Path we try to access when performing the Health Check.
 func (o LoadBalancerServiceHealthCheckHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// Response we expect to be included in the Target response when a Health Check was performed.
 func (o LoadBalancerServiceHealthCheckHttpOutput) Response() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *string { return v.Response }).(pulumi.StringPtrOutput)
 }
 
+// We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
 func (o LoadBalancerServiceHealthCheckHttpOutput) StatusCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) []string { return v.StatusCodes }).(pulumi.StringArrayOutput)
 }
 
+// Enable TLS certificate checking.
 func (o LoadBalancerServiceHealthCheckHttpOutput) Tls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *bool { return v.Tls }).(pulumi.BoolPtrOutput)
 }
@@ -478,6 +524,7 @@ func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Elem() LoadBalancerServiceH
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) LoadBalancerServiceHealthCheckHttp { return *v }).(LoadBalancerServiceHealthCheckHttpOutput)
 }
 
+// Domain we try to access when performing the Health Check.
 func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) *string {
 		if v == nil {
@@ -487,6 +534,7 @@ func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Domain() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Path we try to access when performing the Health Check.
 func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) *string {
 		if v == nil {
@@ -496,6 +544,7 @@ func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Path() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Response we expect to be included in the Target response when a Health Check was performed.
 func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Response() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) *string {
 		if v == nil {
@@ -505,6 +554,7 @@ func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Response() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
 func (o LoadBalancerServiceHealthCheckHttpPtrOutput) StatusCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) []string {
 		if v == nil {
@@ -514,6 +564,7 @@ func (o LoadBalancerServiceHealthCheckHttpPtrOutput) StatusCodes() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
+// Enable TLS certificate checking.
 func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Tls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) *bool {
 		if v == nil {
@@ -524,11 +575,16 @@ func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Tls() pulumi.BoolPtrOutput 
 }
 
 type LoadBalancerServiceHttp struct {
-	Certificates   []int   `pulumi:"certificates"`
-	CookieLifetime *int    `pulumi:"cookieLifetime"`
-	CookieName     *string `pulumi:"cookieName"`
-	RedirectHttp   *bool   `pulumi:"redirectHttp"`
-	StickySessions *bool   `pulumi:"stickySessions"`
+	// List of IDs from certificates which the Load Balancer has.
+	Certificates []int `pulumi:"certificates"`
+	// Lifetime of the cookie for sticky session (in seconds). Default: `300`
+	CookieLifetime *int `pulumi:"cookieLifetime"`
+	// Name of the cookie for sticky session. Default: `HCLBSTICKY`
+	CookieName *string `pulumi:"cookieName"`
+	// Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
+	RedirectHttp *bool `pulumi:"redirectHttp"`
+	// Enable sticky sessions
+	StickySessions *bool `pulumi:"stickySessions"`
 }
 
 // LoadBalancerServiceHttpInput is an input type that accepts LoadBalancerServiceHttpArgs and LoadBalancerServiceHttpOutput values.
@@ -543,11 +599,16 @@ type LoadBalancerServiceHttpInput interface {
 }
 
 type LoadBalancerServiceHttpArgs struct {
-	Certificates   pulumi.IntArrayInput  `pulumi:"certificates"`
-	CookieLifetime pulumi.IntPtrInput    `pulumi:"cookieLifetime"`
-	CookieName     pulumi.StringPtrInput `pulumi:"cookieName"`
-	RedirectHttp   pulumi.BoolPtrInput   `pulumi:"redirectHttp"`
-	StickySessions pulumi.BoolPtrInput   `pulumi:"stickySessions"`
+	// List of IDs from certificates which the Load Balancer has.
+	Certificates pulumi.IntArrayInput `pulumi:"certificates"`
+	// Lifetime of the cookie for sticky session (in seconds). Default: `300`
+	CookieLifetime pulumi.IntPtrInput `pulumi:"cookieLifetime"`
+	// Name of the cookie for sticky session. Default: `HCLBSTICKY`
+	CookieName pulumi.StringPtrInput `pulumi:"cookieName"`
+	// Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
+	RedirectHttp pulumi.BoolPtrInput `pulumi:"redirectHttp"`
+	// Enable sticky sessions
+	StickySessions pulumi.BoolPtrInput `pulumi:"stickySessions"`
 }
 
 func (LoadBalancerServiceHttpArgs) ElementType() reflect.Type {
@@ -626,22 +687,28 @@ func (o LoadBalancerServiceHttpOutput) ToLoadBalancerServiceHttpPtrOutputWithCon
 		return &v
 	}).(LoadBalancerServiceHttpPtrOutput)
 }
+
+// List of IDs from certificates which the Load Balancer has.
 func (o LoadBalancerServiceHttpOutput) Certificates() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHttp) []int { return v.Certificates }).(pulumi.IntArrayOutput)
 }
 
+// Lifetime of the cookie for sticky session (in seconds). Default: `300`
 func (o LoadBalancerServiceHttpOutput) CookieLifetime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHttp) *int { return v.CookieLifetime }).(pulumi.IntPtrOutput)
 }
 
+// Name of the cookie for sticky session. Default: `HCLBSTICKY`
 func (o LoadBalancerServiceHttpOutput) CookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHttp) *string { return v.CookieName }).(pulumi.StringPtrOutput)
 }
 
+// Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
 func (o LoadBalancerServiceHttpOutput) RedirectHttp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHttp) *bool { return v.RedirectHttp }).(pulumi.BoolPtrOutput)
 }
 
+// Enable sticky sessions
 func (o LoadBalancerServiceHttpOutput) StickySessions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHttp) *bool { return v.StickySessions }).(pulumi.BoolPtrOutput)
 }
@@ -664,6 +731,7 @@ func (o LoadBalancerServiceHttpPtrOutput) Elem() LoadBalancerServiceHttpOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHttp) LoadBalancerServiceHttp { return *v }).(LoadBalancerServiceHttpOutput)
 }
 
+// List of IDs from certificates which the Load Balancer has.
 func (o LoadBalancerServiceHttpPtrOutput) Certificates() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHttp) []int {
 		if v == nil {
@@ -673,6 +741,7 @@ func (o LoadBalancerServiceHttpPtrOutput) Certificates() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
+// Lifetime of the cookie for sticky session (in seconds). Default: `300`
 func (o LoadBalancerServiceHttpPtrOutput) CookieLifetime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHttp) *int {
 		if v == nil {
@@ -682,6 +751,7 @@ func (o LoadBalancerServiceHttpPtrOutput) CookieLifetime() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Name of the cookie for sticky session. Default: `HCLBSTICKY`
 func (o LoadBalancerServiceHttpPtrOutput) CookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHttp) *string {
 		if v == nil {
@@ -691,6 +761,7 @@ func (o LoadBalancerServiceHttpPtrOutput) CookieName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
 func (o LoadBalancerServiceHttpPtrOutput) RedirectHttp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHttp) *bool {
 		if v == nil {
@@ -700,6 +771,7 @@ func (o LoadBalancerServiceHttpPtrOutput) RedirectHttp() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Enable sticky sessions
 func (o LoadBalancerServiceHttpPtrOutput) StickySessions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHttp) *bool {
 		if v == nil {
@@ -710,8 +782,10 @@ func (o LoadBalancerServiceHttpPtrOutput) StickySessions() pulumi.BoolPtrOutput 
 }
 
 type LoadBalancerTargetType struct {
-	ServerId *int   `pulumi:"serverId"`
-	Type     string `pulumi:"type"`
+	// ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
+	ServerId *int `pulumi:"serverId"`
+	// Type of the target. `server`
+	Type string `pulumi:"type"`
 	// Deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.
 	UsePrivateIp *bool `pulumi:"usePrivateIp"`
 }
@@ -728,8 +802,10 @@ type LoadBalancerTargetTypeInput interface {
 }
 
 type LoadBalancerTargetTypeArgs struct {
+	// ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
 	ServerId pulumi.IntPtrInput `pulumi:"serverId"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// Type of the target. `server`
+	Type pulumi.StringInput `pulumi:"type"`
 	// Deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.
 	UsePrivateIp pulumi.BoolPtrInput `pulumi:"usePrivateIp"`
 }
@@ -785,10 +861,12 @@ func (o LoadBalancerTargetTypeOutput) ToLoadBalancerTargetTypeOutputWithContext(
 	return o
 }
 
+// ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
 func (o LoadBalancerTargetTypeOutput) ServerId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancerTargetType) *int { return v.ServerId }).(pulumi.IntPtrOutput)
 }
 
+// Type of the target. `server`
 func (o LoadBalancerTargetTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerTargetType) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -819,6 +897,7 @@ func (o LoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) LoadBalancer
 }
 
 type GetLoadBalancerAlgorithm struct {
+	// (string) Type of the target. `server` or `labelSelector`
 	Type string `pulumi:"type"`
 }
 
@@ -834,6 +913,7 @@ type GetLoadBalancerAlgorithmInput interface {
 }
 
 type GetLoadBalancerAlgorithmArgs struct {
+	// (string) Type of the target. `server` or `labelSelector`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -863,17 +943,24 @@ func (o GetLoadBalancerAlgorithmOutput) ToGetLoadBalancerAlgorithmOutputWithCont
 	return o
 }
 
+// (string) Type of the target. `server` or `labelSelector`
 func (o GetLoadBalancerAlgorithmOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerAlgorithm) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GetLoadBalancerServiceType struct {
-	DestinationPort int                               `pulumi:"destinationPort"`
-	HealthCheck     GetLoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
-	Http            GetLoadBalancerServiceHttp        `pulumi:"http"`
-	ListenPort      int                               `pulumi:"listenPort"`
-	Protocol        string                            `pulumi:"protocol"`
-	Proxyprotocol   bool                              `pulumi:"proxyprotocol"`
+	// (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
+	DestinationPort int `pulumi:"destinationPort"`
+	// (list) List of http configurations when `protocol` is `http` or `https`.
+	HealthCheck GetLoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
+	// (list) List of http configurations when `protocol` is `http` or `https`.
+	Http GetLoadBalancerServiceHttp `pulumi:"http"`
+	// (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
+	ListenPort int `pulumi:"listenPort"`
+	// (string) Protocol the health check uses. `http`, `https` or `tcp`
+	Protocol string `pulumi:"protocol"`
+	// (bool) Enable proxyprotocol.
+	Proxyprotocol bool `pulumi:"proxyprotocol"`
 }
 
 // GetLoadBalancerServiceTypeInput is an input type that accepts GetLoadBalancerServiceTypeArgs and GetLoadBalancerServiceTypeOutput values.
@@ -888,12 +975,18 @@ type GetLoadBalancerServiceTypeInput interface {
 }
 
 type GetLoadBalancerServiceTypeArgs struct {
-	DestinationPort pulumi.IntInput                        `pulumi:"destinationPort"`
-	HealthCheck     GetLoadBalancerServiceHealthCheckInput `pulumi:"healthCheck"`
-	Http            GetLoadBalancerServiceHttpInput        `pulumi:"http"`
-	ListenPort      pulumi.IntInput                        `pulumi:"listenPort"`
-	Protocol        pulumi.StringInput                     `pulumi:"protocol"`
-	Proxyprotocol   pulumi.BoolInput                       `pulumi:"proxyprotocol"`
+	// (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
+	DestinationPort pulumi.IntInput `pulumi:"destinationPort"`
+	// (list) List of http configurations when `protocol` is `http` or `https`.
+	HealthCheck GetLoadBalancerServiceHealthCheckInput `pulumi:"healthCheck"`
+	// (list) List of http configurations when `protocol` is `http` or `https`.
+	Http GetLoadBalancerServiceHttpInput `pulumi:"http"`
+	// (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
+	ListenPort pulumi.IntInput `pulumi:"listenPort"`
+	// (string) Protocol the health check uses. `http`, `https` or `tcp`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// (bool) Enable proxyprotocol.
+	Proxyprotocol pulumi.BoolInput `pulumi:"proxyprotocol"`
 }
 
 func (GetLoadBalancerServiceTypeArgs) ElementType() reflect.Type {
@@ -947,26 +1040,32 @@ func (o GetLoadBalancerServiceTypeOutput) ToGetLoadBalancerServiceTypeOutputWith
 	return o
 }
 
+// (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
 func (o GetLoadBalancerServiceTypeOutput) DestinationPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceType) int { return v.DestinationPort }).(pulumi.IntOutput)
 }
 
+// (list) List of http configurations when `protocol` is `http` or `https`.
 func (o GetLoadBalancerServiceTypeOutput) HealthCheck() GetLoadBalancerServiceHealthCheckOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceType) GetLoadBalancerServiceHealthCheck { return v.HealthCheck }).(GetLoadBalancerServiceHealthCheckOutput)
 }
 
+// (list) List of http configurations when `protocol` is `http` or `https`.
 func (o GetLoadBalancerServiceTypeOutput) Http() GetLoadBalancerServiceHttpOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceType) GetLoadBalancerServiceHttp { return v.Http }).(GetLoadBalancerServiceHttpOutput)
 }
 
+// (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
 func (o GetLoadBalancerServiceTypeOutput) ListenPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceType) int { return v.ListenPort }).(pulumi.IntOutput)
 }
 
+// (string) Protocol the health check uses. `http`, `https` or `tcp`
 func (o GetLoadBalancerServiceTypeOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceType) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// (bool) Enable proxyprotocol.
 func (o GetLoadBalancerServiceTypeOutput) Proxyprotocol() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceType) bool { return v.Proxyprotocol }).(pulumi.BoolOutput)
 }
@@ -992,12 +1091,18 @@ func (o GetLoadBalancerServiceTypeArrayOutput) Index(i pulumi.IntInput) GetLoadB
 }
 
 type GetLoadBalancerServiceHealthCheck struct {
-	Http     GetLoadBalancerServiceHealthCheckHttp `pulumi:"http"`
-	Interval int                                   `pulumi:"interval"`
-	Port     int                                   `pulumi:"port"`
-	Protocol string                                `pulumi:"protocol"`
-	Retries  int                                   `pulumi:"retries"`
-	Timeout  int                                   `pulumi:"timeout"`
+	// (list) List of http configurations when `protocol` is `http` or `https`.
+	Http GetLoadBalancerServiceHealthCheckHttp `pulumi:"http"`
+	// (int) Interval how often the health check will be performed, in seconds.
+	Interval int `pulumi:"interval"`
+	// (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
+	Port int `pulumi:"port"`
+	// (string) Protocol the health check uses. `http`, `https` or `tcp`
+	Protocol string `pulumi:"protocol"`
+	// (int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+	Retries int `pulumi:"retries"`
+	// (int) Timeout when a health check try will be canceled if there is no response, in seconds.
+	Timeout int `pulumi:"timeout"`
 }
 
 // GetLoadBalancerServiceHealthCheckInput is an input type that accepts GetLoadBalancerServiceHealthCheckArgs and GetLoadBalancerServiceHealthCheckOutput values.
@@ -1012,12 +1117,18 @@ type GetLoadBalancerServiceHealthCheckInput interface {
 }
 
 type GetLoadBalancerServiceHealthCheckArgs struct {
-	Http     GetLoadBalancerServiceHealthCheckHttpInput `pulumi:"http"`
-	Interval pulumi.IntInput                            `pulumi:"interval"`
-	Port     pulumi.IntInput                            `pulumi:"port"`
-	Protocol pulumi.StringInput                         `pulumi:"protocol"`
-	Retries  pulumi.IntInput                            `pulumi:"retries"`
-	Timeout  pulumi.IntInput                            `pulumi:"timeout"`
+	// (list) List of http configurations when `protocol` is `http` or `https`.
+	Http GetLoadBalancerServiceHealthCheckHttpInput `pulumi:"http"`
+	// (int) Interval how often the health check will be performed, in seconds.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
+	Port pulumi.IntInput `pulumi:"port"`
+	// (string) Protocol the health check uses. `http`, `https` or `tcp`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// (int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+	Retries pulumi.IntInput `pulumi:"retries"`
+	// (int) Timeout when a health check try will be canceled if there is no response, in seconds.
+	Timeout pulumi.IntInput `pulumi:"timeout"`
 }
 
 func (GetLoadBalancerServiceHealthCheckArgs) ElementType() reflect.Type {
@@ -1046,36 +1157,47 @@ func (o GetLoadBalancerServiceHealthCheckOutput) ToGetLoadBalancerServiceHealthC
 	return o
 }
 
+// (list) List of http configurations when `protocol` is `http` or `https`.
 func (o GetLoadBalancerServiceHealthCheckOutput) Http() GetLoadBalancerServiceHealthCheckHttpOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) GetLoadBalancerServiceHealthCheckHttp { return v.Http }).(GetLoadBalancerServiceHealthCheckHttpOutput)
 }
 
+// (int) Interval how often the health check will be performed, in seconds.
 func (o GetLoadBalancerServiceHealthCheckOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
 }
 
+// (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
 func (o GetLoadBalancerServiceHealthCheckOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// (string) Protocol the health check uses. `http`, `https` or `tcp`
 func (o GetLoadBalancerServiceHealthCheckOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// (int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.
 func (o GetLoadBalancerServiceHealthCheckOutput) Retries() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Retries }).(pulumi.IntOutput)
 }
 
+// (int) Timeout when a health check try will be canceled if there is no response, in seconds.
 func (o GetLoadBalancerServiceHealthCheckOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
 type GetLoadBalancerServiceHealthCheckHttp struct {
-	Domain      string `pulumi:"domain"`
-	Path        string `pulumi:"path"`
-	Response    string `pulumi:"response"`
-	StatusCodes []int  `pulumi:"statusCodes"`
-	Tls         bool   `pulumi:"tls"`
+	// string) Domain we try to access when performing the Health Check.
+	Domain string `pulumi:"domain"`
+	// (string) Path we try to access when performing the Health Check.
+	Path string `pulumi:"path"`
+	// (string) Response we expect to be included in the Target response when a Health Check was performed.
+	Response string `pulumi:"response"`
+	// (list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+	StatusCodes []int `pulumi:"statusCodes"`
+	// (bool) Enable TLS certificate checking.
+	Tls bool `pulumi:"tls"`
 }
 
 // GetLoadBalancerServiceHealthCheckHttpInput is an input type that accepts GetLoadBalancerServiceHealthCheckHttpArgs and GetLoadBalancerServiceHealthCheckHttpOutput values.
@@ -1090,11 +1212,16 @@ type GetLoadBalancerServiceHealthCheckHttpInput interface {
 }
 
 type GetLoadBalancerServiceHealthCheckHttpArgs struct {
-	Domain      pulumi.StringInput   `pulumi:"domain"`
-	Path        pulumi.StringInput   `pulumi:"path"`
-	Response    pulumi.StringInput   `pulumi:"response"`
+	// string) Domain we try to access when performing the Health Check.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// (string) Path we try to access when performing the Health Check.
+	Path pulumi.StringInput `pulumi:"path"`
+	// (string) Response we expect to be included in the Target response when a Health Check was performed.
+	Response pulumi.StringInput `pulumi:"response"`
+	// (list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
 	StatusCodes pulumi.IntArrayInput `pulumi:"statusCodes"`
-	Tls         pulumi.BoolInput     `pulumi:"tls"`
+	// (bool) Enable TLS certificate checking.
+	Tls pulumi.BoolInput `pulumi:"tls"`
 }
 
 func (GetLoadBalancerServiceHealthCheckHttpArgs) ElementType() reflect.Type {
@@ -1123,32 +1250,42 @@ func (o GetLoadBalancerServiceHealthCheckHttpOutput) ToGetLoadBalancerServiceHea
 	return o
 }
 
+// string) Domain we try to access when performing the Health Check.
 func (o GetLoadBalancerServiceHealthCheckHttpOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// (string) Path we try to access when performing the Health Check.
 func (o GetLoadBalancerServiceHealthCheckHttpOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) string { return v.Path }).(pulumi.StringOutput)
 }
 
+// (string) Response we expect to be included in the Target response when a Health Check was performed.
 func (o GetLoadBalancerServiceHealthCheckHttpOutput) Response() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) string { return v.Response }).(pulumi.StringOutput)
 }
 
+// (list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
 func (o GetLoadBalancerServiceHealthCheckHttpOutput) StatusCodes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) []int { return v.StatusCodes }).(pulumi.IntArrayOutput)
 }
 
+// (bool) Enable TLS certificate checking.
 func (o GetLoadBalancerServiceHealthCheckHttpOutput) Tls() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) bool { return v.Tls }).(pulumi.BoolOutput)
 }
 
 type GetLoadBalancerServiceHttp struct {
-	Certificates   []string `pulumi:"certificates"`
-	CookieLifetime int      `pulumi:"cookieLifetime"`
-	CookieName     string   `pulumi:"cookieName"`
-	RedirectHttp   bool     `pulumi:"redirectHttp"`
-	StickySessions bool     `pulumi:"stickySessions"`
+	// (list[int]) List of IDs from certificates which the Load Balancer has.
+	Certificates []string `pulumi:"certificates"`
+	// (int) Lifetime of the cookie for sticky session (in seconds).
+	CookieLifetime int `pulumi:"cookieLifetime"`
+	// (string) Name of the cookie for sticky session.
+	CookieName string `pulumi:"cookieName"`
+	// (string) Determine if all requests from port 80 should be redirected to port 443.
+	RedirectHttp bool `pulumi:"redirectHttp"`
+	// (string) Determine if sticky sessions are enabled or not.
+	StickySessions bool `pulumi:"stickySessions"`
 }
 
 // GetLoadBalancerServiceHttpInput is an input type that accepts GetLoadBalancerServiceHttpArgs and GetLoadBalancerServiceHttpOutput values.
@@ -1163,11 +1300,16 @@ type GetLoadBalancerServiceHttpInput interface {
 }
 
 type GetLoadBalancerServiceHttpArgs struct {
-	Certificates   pulumi.StringArrayInput `pulumi:"certificates"`
-	CookieLifetime pulumi.IntInput         `pulumi:"cookieLifetime"`
-	CookieName     pulumi.StringInput      `pulumi:"cookieName"`
-	RedirectHttp   pulumi.BoolInput        `pulumi:"redirectHttp"`
-	StickySessions pulumi.BoolInput        `pulumi:"stickySessions"`
+	// (list[int]) List of IDs from certificates which the Load Balancer has.
+	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
+	// (int) Lifetime of the cookie for sticky session (in seconds).
+	CookieLifetime pulumi.IntInput `pulumi:"cookieLifetime"`
+	// (string) Name of the cookie for sticky session.
+	CookieName pulumi.StringInput `pulumi:"cookieName"`
+	// (string) Determine if all requests from port 80 should be redirected to port 443.
+	RedirectHttp pulumi.BoolInput `pulumi:"redirectHttp"`
+	// (string) Determine if sticky sessions are enabled or not.
+	StickySessions pulumi.BoolInput `pulumi:"stickySessions"`
 }
 
 func (GetLoadBalancerServiceHttpArgs) ElementType() reflect.Type {
@@ -1196,30 +1338,38 @@ func (o GetLoadBalancerServiceHttpOutput) ToGetLoadBalancerServiceHttpOutputWith
 	return o
 }
 
+// (list[int]) List of IDs from certificates which the Load Balancer has.
 func (o GetLoadBalancerServiceHttpOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHttp) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
+// (int) Lifetime of the cookie for sticky session (in seconds).
 func (o GetLoadBalancerServiceHttpOutput) CookieLifetime() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHttp) int { return v.CookieLifetime }).(pulumi.IntOutput)
 }
 
+// (string) Name of the cookie for sticky session.
 func (o GetLoadBalancerServiceHttpOutput) CookieName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHttp) string { return v.CookieName }).(pulumi.StringOutput)
 }
 
+// (string) Determine if all requests from port 80 should be redirected to port 443.
 func (o GetLoadBalancerServiceHttpOutput) RedirectHttp() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHttp) bool { return v.RedirectHttp }).(pulumi.BoolOutput)
 }
 
+// (string) Determine if sticky sessions are enabled or not.
 func (o GetLoadBalancerServiceHttpOutput) StickySessions() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHttp) bool { return v.StickySessions }).(pulumi.BoolOutput)
 }
 
 type GetLoadBalancerTargetType struct {
+	// (string) Label Selector to add a group of resources based on the label.
 	LabelSelector string `pulumi:"labelSelector"`
-	ServerId      int    `pulumi:"serverId"`
-	Type          string `pulumi:"type"`
+	// (int) ID of the server which should be a target for this Load Balancer.
+	ServerId int `pulumi:"serverId"`
+	// (string) Type of the target. `server` or `labelSelector`
+	Type string `pulumi:"type"`
 }
 
 // GetLoadBalancerTargetTypeInput is an input type that accepts GetLoadBalancerTargetTypeArgs and GetLoadBalancerTargetTypeOutput values.
@@ -1234,9 +1384,12 @@ type GetLoadBalancerTargetTypeInput interface {
 }
 
 type GetLoadBalancerTargetTypeArgs struct {
+	// (string) Label Selector to add a group of resources based on the label.
 	LabelSelector pulumi.StringInput `pulumi:"labelSelector"`
-	ServerId      pulumi.IntInput    `pulumi:"serverId"`
-	Type          pulumi.StringInput `pulumi:"type"`
+	// (int) ID of the server which should be a target for this Load Balancer.
+	ServerId pulumi.IntInput `pulumi:"serverId"`
+	// (string) Type of the target. `server` or `labelSelector`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetLoadBalancerTargetTypeArgs) ElementType() reflect.Type {
@@ -1290,14 +1443,17 @@ func (o GetLoadBalancerTargetTypeOutput) ToGetLoadBalancerTargetTypeOutputWithCo
 	return o
 }
 
+// (string) Label Selector to add a group of resources based on the label.
 func (o GetLoadBalancerTargetTypeOutput) LabelSelector() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTargetType) string { return v.LabelSelector }).(pulumi.StringOutput)
 }
 
+// (int) ID of the server which should be a target for this Load Balancer.
 func (o GetLoadBalancerTargetTypeOutput) ServerId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTargetType) int { return v.ServerId }).(pulumi.IntOutput)
 }
 
+// (string) Type of the target. `server` or `labelSelector`
 func (o GetLoadBalancerTargetTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTargetType) string { return v.Type }).(pulumi.StringOutput)
 }

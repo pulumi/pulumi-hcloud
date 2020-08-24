@@ -5,20 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['FloatingIp']
 
 
 class FloatingIp(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    home_location: pulumi.Output[str]
-    ip_address: pulumi.Output[str]
-    ip_network: pulumi.Output[str]
-    labels: pulumi.Output[dict]
-    name: pulumi.Output[str]
-    server_id: pulumi.Output[float]
-    type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, description=None, home_location=None, labels=None, name=None, server_id=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 home_location: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[float]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
 
@@ -38,6 +43,12 @@ class FloatingIp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the Floating IP.
+        :param pulumi.Input[str] home_location: Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] name: Name of the Floating IP.
+        :param pulumi.Input[float] server_id: Server to assign the Floating IP to.
+        :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -50,7 +61,7 @@ class FloatingIp(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -73,14 +84,32 @@ class FloatingIp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, home_location=None, ip_address=None, ip_network=None, labels=None, name=None, server_id=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            home_location: Optional[pulumi.Input[str]] = None,
+            ip_address: Optional[pulumi.Input[str]] = None,
+            ip_network: Optional[pulumi.Input[str]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            server_id: Optional[pulumi.Input[float]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'FloatingIp':
         """
         Get an existing FloatingIp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the Floating IP.
+        :param pulumi.Input[str] home_location: Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
+        :param pulumi.Input[str] ip_network: (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] name: Name of the Floating IP.
+        :param pulumi.Input[float] server_id: Server to assign the Floating IP to.
+        :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -96,8 +125,73 @@ class FloatingIp(pulumi.CustomResource):
         __props__["type"] = type
         return FloatingIp(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the Floating IP.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="homeLocation")
+    def home_location(self) -> str:
+        """
+        Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        """
+        return pulumi.get(self, "home_location")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        (string) IP Address of the Floating IP.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipNetwork")
+    def ip_network(self) -> str:
+        """
+        (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+        """
+        return pulumi.get(self, "ip_network")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, Any]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Floating IP.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> float:
+        """
+        Server to assign the Floating IP to.
+        """
+        return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the Floating IP. `ipv4` `ipv6`
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

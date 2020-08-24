@@ -13,11 +13,29 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class LoadBalancerServiceHealthCheck
     {
+        /// <summary>
+        /// List of http configurations. Required if `protocol` is `http`.
+        /// </summary>
         public readonly Outputs.LoadBalancerServiceHealthCheckHttp? Http;
+        /// <summary>
+        /// Interval how often the health check will be performed, in seconds. Default: `15`
+        /// </summary>
         public readonly int Interval;
+        /// <summary>
+        /// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// Protocol the health check uses. `http` or `tcp`
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+        /// </summary>
         public readonly int? Retries;
+        /// <summary>
+        /// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+        /// </summary>
         public readonly int Timeout;
 
         [OutputConstructor]

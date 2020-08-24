@@ -31,6 +31,7 @@
             "properties": {
                 "type": {
                     "type": "string",
+                    "description": "Type of the Load Balancer Algorithm. `round_robin` or `least_connections`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -51,6 +52,7 @@
             "properties": {
                 "http": {
                     "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheckHttp:LoadBalancerServiceHealthCheckHttp",
+                    "description": "List of http configurations. Required if `protocol` is `http`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -59,6 +61,7 @@
                 },
                 "interval": {
                     "type": "integer",
+                    "description": "Interval how often the health check will be performed, in seconds. Default: `15`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -67,6 +70,7 @@
                 },
                 "port": {
                     "type": "integer",
+                    "description": "Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -75,6 +79,7 @@
                 },
                 "protocol": {
                     "type": "string",
+                    "description": "Protocol the health check uses. `http` or `tcp`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -83,6 +88,7 @@
                 },
                 "retries": {
                     "type": "integer",
+                    "description": "Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -91,6 +97,7 @@
                 },
                 "timeout": {
                     "type": "integer",
+                    "description": "Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -122,6 +129,7 @@
             "properties": {
                 "domain": {
                     "type": "string",
+                    "description": "Domain we try to access when performing the Health Check.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -130,6 +138,7 @@
                 },
                 "path": {
                     "type": "string",
+                    "description": "Path we try to access when performing the Health Check.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -138,6 +147,7 @@
                 },
                 "response": {
                     "type": "string",
+                    "description": "Response we expect to be included in the Target response when a Health Check was performed.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -149,6 +159,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -157,6 +168,7 @@
                 },
                 "tls": {
                     "type": "boolean",
+                    "description": "Enable TLS certificate checking.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -176,6 +188,7 @@
                     "items": {
                         "type": "integer"
                     },
+                    "description": "List of IDs from certificates which the Load Balancer has.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -184,6 +197,7 @@
                 },
                 "cookieLifetime": {
                     "type": "integer",
+                    "description": "Lifetime of the cookie for sticky session (in seconds). Default: `300`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -192,6 +206,7 @@
                 },
                 "cookieName": {
                     "type": "string",
+                    "description": "Name of the cookie for sticky session. Default: `HCLBSTICKY`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -200,6 +215,7 @@
                 },
                 "redirectHttp": {
                     "type": "boolean",
+                    "description": "Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -208,6 +224,7 @@
                 },
                 "stickySessions": {
                     "type": "boolean",
+                    "description": "Enable sticky sessions\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -231,6 +248,7 @@
             "properties": {
                 "serverId": {
                     "type": "integer",
+                    "description": "ID of the server which should be a target for this Load Balancer. Required if `type` is `server`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -239,6 +257,7 @@
                 },
                 "type": {
                     "type": "string",
+                    "description": "Type of the target. `server`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -264,6 +283,7 @@
             "properties": {
                 "type": {
                     "type": "string",
+                    "description": "(string) Type of the target. `server` or `label_selector`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -285,6 +305,7 @@
             "properties": {
                 "destinationPort": {
                     "type": "integer",
+                    "description": "(int) Port the service connects to the targets on. Can be everything between `1` and `65535`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -293,6 +314,7 @@
                 },
                 "healthCheck": {
                     "$ref": "#/types/hcloud:/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck",
+                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -301,6 +323,7 @@
                 },
                 "http": {
                     "$ref": "#/types/hcloud:/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp",
+                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -309,6 +332,7 @@
                 },
                 "listenPort": {
                     "type": "integer",
+                    "description": "(int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -317,6 +341,7 @@
                 },
                 "protocol": {
                     "type": "string",
+                    "description": "(string) Protocol the health check uses. `http`, `https` or `tcp`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -325,6 +350,7 @@
                 },
                 "proxyprotocol": {
                     "type": "boolean",
+                    "description": "(bool) Enable proxyprotocol.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -351,6 +377,7 @@
             "properties": {
                 "http": {
                     "$ref": "#/types/hcloud:/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp",
+                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -359,6 +386,7 @@
                 },
                 "interval": {
                     "type": "integer",
+                    "description": "(int) Interval how often the health check will be performed, in seconds.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -367,6 +395,7 @@
                 },
                 "port": {
                     "type": "integer",
+                    "description": "(int) Port the health check tries to connect to. Can be everything between `1` and `65535`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -375,6 +404,7 @@
                 },
                 "protocol": {
                     "type": "string",
+                    "description": "(string) Protocol the health check uses. `http`, `https` or `tcp`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -383,6 +413,7 @@
                 },
                 "retries": {
                     "type": "integer",
+                    "description": "(int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -391,6 +422,7 @@
                 },
                 "timeout": {
                     "type": "integer",
+                    "description": "(int) Timeout when a health check try will be canceled if there is no response, in seconds.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -417,6 +449,7 @@
             "properties": {
                 "domain": {
                     "type": "string",
+                    "description": "string) Domain we try to access when performing the Health Check.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -425,6 +458,7 @@
                 },
                 "path": {
                     "type": "string",
+                    "description": "(string) Path we try to access when performing the Health Check.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -433,6 +467,7 @@
                 },
                 "response": {
                     "type": "string",
+                    "description": "(string) Response we expect to be included in the Target response when a Health Check was performed.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -444,6 +479,7 @@
                     "items": {
                         "type": "integer"
                     },
+                    "description": "(list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -452,6 +488,7 @@
                 },
                 "tls": {
                     "type": "boolean",
+                    "description": "(bool) Enable TLS certificate checking.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -480,6 +517,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "(list[int]) List of IDs from certificates which the Load Balancer has.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -488,6 +526,7 @@
                 },
                 "cookieLifetime": {
                     "type": "integer",
+                    "description": "(int) Lifetime of the cookie for sticky session (in seconds).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -496,6 +535,7 @@
                 },
                 "cookieName": {
                     "type": "string",
+                    "description": "(string) Name of the cookie for sticky session.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -504,6 +544,7 @@
                 },
                 "redirectHttp": {
                     "type": "boolean",
+                    "description": "(string) Determine if all requests from port 80 should be redirected to port 443.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -512,6 +553,7 @@
                 },
                 "stickySessions": {
                     "type": "boolean",
+                    "description": "(string) Determine if sticky sessions are enabled or not.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -537,6 +579,7 @@
             "properties": {
                 "labelSelector": {
                     "type": "string",
+                    "description": "(string) Label Selector to add a group of resources based on the label.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -545,6 +588,7 @@
                 },
                 "serverId": {
                     "type": "integer",
+                    "description": "(int) ID of the server which should be a target for this Load Balancer.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -553,6 +597,7 @@
                 },
                 "type": {
                     "type": "string",
+                    "description": "(string) Type of the target. `server` or `label_selector`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -654,6 +699,7 @@
             "properties": {
                 "certificate": {
                     "type": "string",
+                    "description": "PEM encoded TLS certificate.\n",
                     "language": {
                         "csharp": {
                             "name": "CertificateContents"
@@ -661,34 +707,42 @@
                     }
                 },
                 "created": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
                 },
                 "domainNames": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "(list) Domains and subdomains covered by the certificate.\n"
                 },
                 "fingerprint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) Fingerprint of the certificate.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Certificate.\n"
                 },
                 "notValidAfter": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
                 },
                 "notValidBefore": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
                 },
                 "privateKey": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "PEM encoded private key belonging to the certificate.\n"
                 }
             },
             "required": [
@@ -704,6 +758,7 @@
             "inputProperties": {
                 "certificate": {
                     "type": "string",
+                    "description": "PEM encoded TLS certificate.\n",
                     "language": {
                         "csharp": {
                             "name": "CertificateContents"
@@ -714,13 +769,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Certificate.\n"
                 },
                 "privateKey": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "PEM encoded private key belonging to the certificate.\n"
                 }
             },
             "requiredInputs": [
@@ -732,6 +790,7 @@
                 "properties": {
                     "certificate": {
                         "type": "string",
+                        "description": "PEM encoded TLS certificate.\n",
                         "language": {
                             "csharp": {
                                 "name": "CertificateContents"
@@ -739,34 +798,42 @@
                         }
                     },
                     "created": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
                     },
                     "domainNames": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) Domains and subdomains covered by the certificate.\n"
                     },
                     "fingerprint": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Fingerprint of the certificate.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Certificate.\n"
                     },
                     "notValidAfter": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
                     },
                     "notValidBefore": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
                     },
                     "privateKey": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "PEM encoded private key belonging to the certificate.\n"
                     }
                 },
                 "type": "object"
@@ -776,31 +843,39 @@
             "description": "Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.FloatingIp(\"master\", {\n    serverId: node1.id.apply(id =\u003e Number.parseFloat(id)),\n    type: \"ipv4\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.FloatingIp(\"master\",\n    server_id=node1.id,\n    type=\"ipv4\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.FloatingIp(\"master\", new HCloud.FloatingIpArgs\n        {\n            ServerId = node1.Id,\n            Type = \"ipv4\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFloatingIp(ctx, \"master\", \u0026hcloud.FloatingIpArgs{\n\t\t\tServerId: node1.ID(),\n\t\t\tType:     pulumi.String(\"ipv4\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Description of the Floating IP.\n"
                 },
                 "homeLocation": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Home location (routing is optimized for that location). Optional if server_id argument is passed.\n"
                 },
                 "ipAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) IP Address of the Floating IP.\n"
                 },
                 "ipNetwork": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) IPv6 subnet. (Only set if `type` is `ipv6`)\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Floating IP.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Server to assign the Floating IP to.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the Floating IP. `ipv4` `ipv6`\n"
                 }
             },
             "required": [
@@ -813,25 +888,31 @@
             ],
             "inputProperties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Description of the Floating IP.\n"
                 },
                 "homeLocation": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Home location (routing is optimized for that location). Optional if server_id argument is passed.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Floating IP.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Server to assign the Floating IP to.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the Floating IP. `ipv4` `ipv6`\n"
                 }
             },
             "requiredInputs": [
@@ -841,31 +922,39 @@
                 "description": "Input properties used for looking up and filtering FloatingIp resources.\n",
                 "properties": {
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Description of the Floating IP.\n"
                     },
                     "homeLocation": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Home location (routing is optimized for that location). Optional if server_id argument is passed.\n"
                     },
                     "ipAddress": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) IP Address of the Floating IP.\n"
                     },
                     "ipNetwork": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) IPv6 subnet. (Only set if `type` is `ipv6`)\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "User-defined labels (key-value pairs) should be created with.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Floating IP.\n"
                     },
                     "serverId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Server to assign the Floating IP to.\n"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of the Floating IP. `ipv4` `ipv6`\n"
                     }
                 },
                 "type": "object"
@@ -875,10 +964,12 @@
             "description": "Provides a Hetzner Cloud Floating IP Assignment to assign a Floating IP to a Hetzner Cloud Server. Deleting a Floating IP Assignment will unassign the Floating IP from the Server.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    datacenter: \"fsn1-dc8\",\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.FloatingIp(\"master\", {\n    homeLocation: \"nbg1\",\n    type: \"ipv4\",\n});\nconst main = new hcloud.FloatingIpAssignment(\"main\", {\n    floatingIpId: master.id.apply(id =\u003e Number.parseFloat(id)),\n    serverId: node1.id.apply(id =\u003e Number.parseFloat(id)),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    datacenter=\"fsn1-dc8\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.FloatingIp(\"master\",\n    home_location=\"nbg1\",\n    type=\"ipv4\")\nmain = hcloud.FloatingIpAssignment(\"main\",\n    floating_ip_id=master.id,\n    server_id=node1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Datacenter = \"fsn1-dc8\",\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.FloatingIp(\"master\", new HCloud.FloatingIpArgs\n        {\n            HomeLocation = \"nbg1\",\n            Type = \"ipv4\",\n        });\n        var main = new HCloud.FloatingIpAssignment(\"main\", new HCloud.FloatingIpAssignmentArgs\n        {\n            FloatingIpId = master.Id,\n            ServerId = node1.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tDatacenter: pulumi.String(\"fsn1-dc8\"),\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tmaster, err := hcloud.NewFloatingIp(ctx, \"master\", \u0026hcloud.FloatingIpArgs{\n\t\t\tHomeLocation: pulumi.String(\"nbg1\"),\n\t\t\tType:         pulumi.String(\"ipv4\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFloatingIpAssignment(ctx, \"main\", \u0026hcloud.FloatingIpAssignmentArgs{\n\t\t\tFloatingIpId: master.ID(),\n\t\t\tServerId:     node1.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "floatingIpId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Floating IP.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Server to assign the Floating IP to.\n"
                 }
             },
             "required": [
@@ -887,10 +978,12 @@
             ],
             "inputProperties": {
                 "floatingIpId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Floating IP.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Server to assign the Floating IP to.\n"
                 }
             },
             "requiredInputs": [
@@ -901,41 +994,50 @@
                 "description": "Input properties used for looking up and filtering FloatingIpAssignment resources.\n",
                 "properties": {
                     "floatingIpId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Floating IP.\n"
                     },
                     "serverId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Server to assign the Floating IP to.\n"
                     }
                 },
                 "type": "object"
             }
         },
         "hcloud:index/loadBalancer:LoadBalancer": {
-            "description": "Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myserver = new hcloud.Server(\"myserver\", {\n    image: \"ubuntu-18.04\",\n    serverType: \"cx11\",\n});\nconst loadBalancer = new hcloud.LoadBalancer(\"load_balancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n    targets: [{\n        serverId: myserver.id.apply(id =\u003e Number.parseFloat(id)),\n        type: \"server\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmyserver = hcloud.Server(\"myserver\",\n    image=\"ubuntu-18.04\",\n    server_type=\"cx11\")\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\",\n    targets=[{\n        \"server_id\": myserver.id,\n        \"type\": \"server\",\n    }])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myserver = new HCloud.Server(\"myserver\", new HCloud.ServerArgs\n        {\n            Image = \"ubuntu-18.04\",\n            ServerType = \"cx11\",\n        });\n        var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            Location = \"nbg1\",\n            Targets = \n            {\n                new HCloud.Inputs.LoadBalancerTargetArgs\n                {\n                    ServerId = myserver.Id,\n                    Type = \"server\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyserver, err := hcloud.NewServer(ctx, \"myserver\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"ubuntu-18.04\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t\tTargets: hcloud.LoadBalancerTargetArray{\n\t\t\t\t\u0026hcloud.LoadBalancerTargetArgs{\n\t\t\t\t\tServerId: myserver.ID(),\n\t\t\t\t\tType:     pulumi.String(\"server\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myserver = new hcloud.Server(\"myserver\", {\n    image: \"ubuntu-18.04\",\n    serverType: \"cx11\",\n});\nconst loadBalancer = new hcloud.LoadBalancer(\"load_balancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n    targets: [{\n        serverId: myserver.id.apply(id =\u003e Number.parseFloat(id)),\n        type: \"server\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmyserver = hcloud.Server(\"myserver\",\n    image=\"ubuntu-18.04\",\n    server_type=\"cx11\")\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\",\n    targets=[hcloud.LoadBalancerTargetArgs(\n        server_id=myserver.id,\n        type=\"server\",\n    )])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myserver = new HCloud.Server(\"myserver\", new HCloud.ServerArgs\n        {\n            Image = \"ubuntu-18.04\",\n            ServerType = \"cx11\",\n        });\n        var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            Location = \"nbg1\",\n            Targets = \n            {\n                new HCloud.Inputs.LoadBalancerTargetArgs\n                {\n                    ServerId = myserver.Id,\n                    Type = \"server\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyserver, err := hcloud.NewServer(ctx, \"myserver\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"ubuntu-18.04\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t\tTargets: hcloud.LoadBalancerTargetArray{\n\t\t\t\t\u0026hcloud.LoadBalancerTargetArgs{\n\t\t\t\t\tServerId: myserver.ID(),\n\t\t\t\t\tType:     pulumi.String(\"server\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "algorithm": {
-                    "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm"
+                    "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
+                    "description": "Configuration of the algorithm the Load Balancer use.\n"
                 },
                 "ipv4": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) IPv4 Address of the Load Balancer.\n"
                 },
                 "ipv6": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) IPv4 Address of the Load Balancer.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "loadBalancerType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the Load Balancer.\n"
                 },
                 "location": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Location of the Load Balancer. Require when no network_zone is set.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Load Balancer.\n"
                 },
                 "networkId": {
                     "type": "integer"
@@ -944,13 +1046,15 @@
                     "type": "string"
                 },
                 "networkZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Network Zone of the Load Balancer. Require when no location is set.\n"
                 },
                 "targets": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
-                    }
+                    },
+                    "description": "List of targets of the Load Balancer.\n"
                 }
             },
             "required": [
@@ -968,31 +1072,38 @@
             ],
             "inputProperties": {
                 "algorithm": {
-                    "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm"
+                    "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
+                    "description": "Configuration of the algorithm the Load Balancer use.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "loadBalancerType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the Load Balancer.\n"
                 },
                 "location": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Location of the Load Balancer. Require when no network_zone is set.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Load Balancer.\n"
                 },
                 "networkZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Network Zone of the Load Balancer. Require when no location is set.\n"
                 },
                 "targets": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
-                    }
+                    },
+                    "description": "List of targets of the Load Balancer.\n"
                 }
             },
             "requiredInputs": [
@@ -1002,28 +1113,35 @@
                 "description": "Input properties used for looking up and filtering LoadBalancer resources.\n",
                 "properties": {
                     "algorithm": {
-                        "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm"
+                        "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
+                        "description": "Configuration of the algorithm the Load Balancer use.\n"
                     },
                     "ipv4": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) IPv4 Address of the Load Balancer.\n"
                     },
                     "ipv6": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) IPv4 Address of the Load Balancer.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "User-defined labels (key-value pairs) should be created with.\n"
                     },
                     "loadBalancerType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of the Load Balancer.\n"
                     },
                     "location": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Location of the Load Balancer. Require when no network_zone is set.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Load Balancer.\n"
                     },
                     "networkId": {
                         "type": "integer"
@@ -1032,13 +1150,15 @@
                         "type": "string"
                     },
                     "networkZone": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Network Zone of the Load Balancer. Require when no location is set.\n"
                     },
                     "targets": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
-                        }
+                        },
+                        "description": "List of targets of the Load Balancer.\n"
                     }
                 },
                 "type": "object"
@@ -1048,16 +1168,20 @@
             "description": "Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst lb1 = new hcloud.LoadBalancer(\"lb1\", {\n    loadBalancerType: \"lb11\",\n    networkZone: \"eu-central\",\n});\nconst mynet = new hcloud.Network(\"mynet\", {\n    ipRange: \"10.0.0.0/8\",\n});\nconst foonet = new hcloud.NetworkSubnet(\"foonet\", {\n    ipRange: \"10.0.1.0/24\",\n    networkId: mynet.id.apply(id =\u003e Number.parseFloat(id)),\n    networkZone: \"eu-central\",\n    type: \"cloud\",\n});\nconst srvnetwork = new hcloud.LoadBalancerNetwork(\"srvnetwork\", {\n    ip: \"10.0.1.5\",\n    loadBalancerId: lb1.id.apply(id =\u003e Number.parseFloat(id)),\n    networkId: mynet.id.apply(id =\u003e Number.parseFloat(id)),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nlb1 = hcloud.LoadBalancer(\"lb1\",\n    load_balancer_type=\"lb11\",\n    network_zone=\"eu-central\")\nmynet = hcloud.Network(\"mynet\", ip_range=\"10.0.0.0/8\")\nfoonet = hcloud.NetworkSubnet(\"foonet\",\n    ip_range=\"10.0.1.0/24\",\n    network_id=mynet.id,\n    network_zone=\"eu-central\",\n    type=\"cloud\")\nsrvnetwork = hcloud.LoadBalancerNetwork(\"srvnetwork\",\n    ip=\"10.0.1.5\",\n    load_balancer_id=lb1.id,\n    network_id=mynet.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var lb1 = new HCloud.LoadBalancer(\"lb1\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            NetworkZone = \"eu-central\",\n        });\n        var mynet = new HCloud.Network(\"mynet\", new HCloud.NetworkArgs\n        {\n            IpRange = \"10.0.0.0/8\",\n        });\n        var foonet = new HCloud.NetworkSubnet(\"foonet\", new HCloud.NetworkSubnetArgs\n        {\n            IpRange = \"10.0.1.0/24\",\n            NetworkId = mynet.Id,\n            NetworkZone = \"eu-central\",\n            Type = \"cloud\",\n        });\n        var srvnetwork = new HCloud.LoadBalancerNetwork(\"srvnetwork\", new HCloud.LoadBalancerNetworkArgs\n        {\n            Ip = \"10.0.1.5\",\n            LoadBalancerId = lb1.Id,\n            NetworkId = mynet.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tlb1, err := hcloud.NewLoadBalancer(ctx, \"lb1\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tNetworkZone:      pulumi.String(\"eu-central\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tmynet, err := hcloud.NewNetwork(ctx, \"mynet\", \u0026hcloud.NetworkArgs{\n\t\t\tIpRange: pulumi.String(\"10.0.0.0/8\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewNetworkSubnet(ctx, \"foonet\", \u0026hcloud.NetworkSubnetArgs{\n\t\t\tIpRange:     pulumi.String(\"10.0.1.0/24\"),\n\t\t\tNetworkId:   mynet.ID(),\n\t\t\tNetworkZone: pulumi.String(\"eu-central\"),\n\t\t\tType:        pulumi.String(\"cloud\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancerNetwork(ctx, \"srvnetwork\", \u0026hcloud.LoadBalancerNetworkArgs{\n\t\t\tIp:             pulumi.String(\"10.0.1.5\"),\n\t\t\tLoadBalancerId: lb1.ID(),\n\t\t\tNetworkId:      mynet.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "enablePublicInterface": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable or disable the Load Balancers public interface. Default: `true`\n"
                 },
                 "ip": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.\n"
                 },
                 "loadBalancerId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Load Balancer.\n"
                 },
                 "networkId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the network which should be added to the Load Balancer.\n"
                 }
             },
             "required": [
@@ -1067,16 +1191,20 @@
             ],
             "inputProperties": {
                 "enablePublicInterface": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable or disable the Load Balancers public interface. Default: `true`\n"
                 },
                 "ip": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.\n"
                 },
                 "loadBalancerId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Load Balancer.\n"
                 },
                 "networkId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the network which should be added to the Load Balancer.\n"
                 }
             },
             "requiredInputs": [
@@ -1087,16 +1215,20 @@
                 "description": "Input properties used for looking up and filtering LoadBalancerNetwork resources.\n",
                 "properties": {
                     "enablePublicInterface": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable or disable the Load Balancers public interface. Default: `true`\n"
                     },
                     "ip": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.\n"
                     },
                     "loadBalancerId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Load Balancer.\n"
                     },
                     "networkId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the network which should be added to the Load Balancer.\n"
                     }
                 },
                 "type": "object"
@@ -1106,25 +1238,32 @@
             "description": "Define services for Hetzner Cloud Load Balancers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst loadBalancer = new hcloud.LoadBalancer(\"loadBalancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n});\nconst loadBalancerService = new hcloud.LoadBalancerService(\"loadBalancerService\", {\n    loadBalancerId: hcloud_load_balancer.test_load_balancer.id,\n    protocol: \"http\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\")\nload_balancer_service = hcloud.LoadBalancerService(\"loadBalancerService\",\n    load_balancer_id=hcloud_load_balancer[\"test_load_balancer\"][\"id\"],\n    protocol=\"http\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            Location = \"nbg1\",\n        });\n        var loadBalancerService = new HCloud.LoadBalancerService(\"loadBalancerService\", new HCloud.LoadBalancerServiceArgs\n        {\n            LoadBalancerId = hcloud_load_balancer.Test_load_balancer.Id,\n            Protocol = \"http\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancerService(ctx, \"loadBalancerService\", \u0026hcloud.LoadBalancerServiceArgs{\n\t\t\tLoadBalancerId: pulumi.Any(hcloud_load_balancer.Test_load_balancer.Id),\n\t\t\tProtocol:       pulumi.String(\"http\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "destinationPort": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.\n"
                 },
                 "healthCheck": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck"
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
+                    "description": "List of health check configurations when `protocol` is `http` or `https`.\n"
                 },
                 "http": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp"
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
+                    "description": "List of http configurations when `protocol` is `http` or `https`.\n"
                 },
                 "listenPort": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n"
                 },
                 "loadBalancerId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Id of the load balancer this service belongs to.\n"
                 },
                 "protocol": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Protocol of the service. `http`, `https` or `tcp`\n"
                 },
                 "proxyprotocol": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable proxyprotocol.\n"
                 }
             },
             "required": [
@@ -1137,25 +1276,32 @@
             ],
             "inputProperties": {
                 "destinationPort": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.\n"
                 },
                 "healthCheck": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck"
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
+                    "description": "List of health check configurations when `protocol` is `http` or `https`.\n"
                 },
                 "http": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp"
+                    "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
+                    "description": "List of http configurations when `protocol` is `http` or `https`.\n"
                 },
                 "listenPort": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n"
                 },
                 "loadBalancerId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Id of the load balancer this service belongs to.\n"
                 },
                 "protocol": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Protocol of the service. `http`, `https` or `tcp`\n"
                 },
                 "proxyprotocol": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable proxyprotocol.\n"
                 }
             },
             "requiredInputs": [
@@ -1166,25 +1312,32 @@
                 "description": "Input properties used for looking up and filtering LoadBalancerService resources.\n",
                 "properties": {
                     "destinationPort": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.\n"
                     },
                     "healthCheck": {
-                        "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck"
+                        "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
+                        "description": "List of health check configurations when `protocol` is `http` or `https`.\n"
                     },
                     "http": {
-                        "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp"
+                        "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
+                        "description": "List of http configurations when `protocol` is `http` or `https`.\n"
                     },
                     "listenPort": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n"
                     },
                     "loadBalancerId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Id of the load balancer this service belongs to.\n"
                     },
                     "protocol": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Protocol of the service. `http`, `https` or `tcp`\n"
                     },
                     "proxyprotocol": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable proxyprotocol.\n"
                     }
                 },
                 "type": "object"
@@ -1194,16 +1347,20 @@
             "description": "Adds a target to a Hetzner Cloud Load Balancer.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myServer = new hcloud.Server(\"my_server\", {\n    image: \"ubuntu-18.04\",\n    serverType: \"cx11\",\n});\nconst loadBalancer = new hcloud.LoadBalancer(\"load_balancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n});\nconst loadBalancerTarget = new hcloud.LoadBalancerTarget(\"load_balancer_target\", {\n    loadBalancerId: hcloud_load_balancer_load_balcancer.id,\n    serverId: myServer.id.apply(id =\u003e Number.parseFloat(id)),\n    type: \"server\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmy_server = hcloud.Server(\"myServer\",\n    image=\"ubuntu-18.04\",\n    server_type=\"cx11\")\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\")\nload_balancer_target = hcloud.LoadBalancerTarget(\"loadBalancerTarget\",\n    load_balancer_id=hcloud_load_balancer[\"load_balcancer\"][\"id\"],\n    server_id=my_server.id,\n    type=\"server\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myServer = new HCloud.Server(\"myServer\", new HCloud.ServerArgs\n        {\n            Image = \"ubuntu-18.04\",\n            ServerType = \"cx11\",\n        });\n        var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            Location = \"nbg1\",\n        });\n        var loadBalancerTarget = new HCloud.LoadBalancerTarget(\"loadBalancerTarget\", new HCloud.LoadBalancerTargetArgs\n        {\n            LoadBalancerId = hcloud_load_balancer.Load_balcancer.Id,\n            ServerId = myServer.Id,\n            Type = \"server\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyServer, err := hcloud.NewServer(ctx, \"myServer\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"ubuntu-18.04\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancerTarget(ctx, \"loadBalancerTarget\", \u0026hcloud.LoadBalancerTargetArgs{\n\t\t\tLoadBalancerId: pulumi.Any(hcloud_load_balancer.Load_balcancer.Id),\n\t\t\tServerId:       myServer.ID(),\n\t\t\tType:           pulumi.String(\"server\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "loadBalancerId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Load Balancer to which\nthe target gets attached.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the server which should be a\ntarget for this Load Balancer. Required if `type` is `server`\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the target. `server`\n"
                 },
                 "usePrivateIp": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "use the private IP to connect to\nLoad Balancer targets.\n"
                 }
             },
             "required": [
@@ -1213,16 +1370,20 @@
             ],
             "inputProperties": {
                 "loadBalancerId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Load Balancer to which\nthe target gets attached.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the server which should be a\ntarget for this Load Balancer. Required if `type` is `server`\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the target. `server`\n"
                 },
                 "usePrivateIp": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "use the private IP to connect to\nLoad Balancer targets.\n"
                 }
             },
             "requiredInputs": [
@@ -1233,16 +1394,20 @@
                 "description": "Input properties used for looking up and filtering LoadBalancerTarget resources.\n",
                 "properties": {
                     "loadBalancerId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Load Balancer to which\nthe target gets attached.\n"
                     },
                     "serverId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the server which should be a\ntarget for this Load Balancer. Required if `type` is `server`\n"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of the target. `server`\n"
                     },
                     "usePrivateIp": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "use the private IP to connect to\nLoad Balancer targets.\n"
                     }
                 },
                 "type": "object"
@@ -1252,16 +1417,19 @@
             "description": "Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst privNet = new hcloud.Network(\"privNet\", {\n    ipRange: \"10.0.1.0/24\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\npriv_net = hcloud.Network(\"privNet\", ip_range=\"10.0.1.0/24\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var privNet = new HCloud.Network(\"privNet\", new HCloud.NetworkArgs\n        {\n            IpRange = \"10.0.1.0/24\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewNetwork(ctx, \"privNet\", \u0026hcloud.NetworkArgs{\n\t\t\tIpRange: pulumi.String(\"10.0.1.0/24\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "ipRange": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Network to create (must be unique per project).\n"
                 }
             },
             "required": [
@@ -1270,16 +1438,19 @@
             ],
             "inputProperties": {
                 "ipRange": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Network to create (must be unique per project).\n"
                 }
             },
             "requiredInputs": [
@@ -1289,16 +1460,19 @@
                 "description": "Input properties used for looking up and filtering Network resources.\n",
                 "properties": {
                     "ipRange": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "User-defined labels (key-value pairs) should be created with.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Network to create (must be unique per project).\n"
                     }
                 },
                 "type": "object"
@@ -1308,13 +1482,16 @@
             "description": "Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst mynet = new hcloud.Network(\"mynet\", {\n    ipRange: \"10.0.0.0/8\",\n});\nconst privNet = new hcloud.NetworkRoute(\"privNet\", {\n    destination: \"10.100.1.0/24\",\n    gateway: \"10.0.1.1\",\n    networkId: mynet.id.apply(id =\u003e Number.parseFloat(id)),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmynet = hcloud.Network(\"mynet\", ip_range=\"10.0.0.0/8\")\npriv_net = hcloud.NetworkRoute(\"privNet\",\n    destination=\"10.100.1.0/24\",\n    gateway=\"10.0.1.1\",\n    network_id=mynet.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var mynet = new HCloud.Network(\"mynet\", new HCloud.NetworkArgs\n        {\n            IpRange = \"10.0.0.0/8\",\n        });\n        var privNet = new HCloud.NetworkRoute(\"privNet\", new HCloud.NetworkRouteArgs\n        {\n            Destination = \"10.100.1.0/24\",\n            Gateway = \"10.0.1.1\",\n            NetworkId = mynet.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmynet, err := hcloud.NewNetwork(ctx, \"mynet\", \u0026hcloud.NetworkArgs{\n\t\t\tIpRange: pulumi.String(\"10.0.0.0/8\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewNetworkRoute(ctx, \"privNet\", \u0026hcloud.NetworkRouteArgs{\n\t\t\tDestination: pulumi.String(\"10.100.1.0/24\"),\n\t\t\tGateway:     pulumi.String(\"10.0.1.1\"),\n\t\t\tNetworkId:   mynet.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "destination": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.\n"
                 },
                 "gateway": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.\n"
                 },
                 "networkId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Network the route should be added to.\n"
                 }
             },
             "required": [
@@ -1324,13 +1501,16 @@
             ],
             "inputProperties": {
                 "destination": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.\n"
                 },
                 "gateway": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.\n"
                 },
                 "networkId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Network the route should be added to.\n"
                 }
             },
             "requiredInputs": [
@@ -1342,13 +1522,16 @@
                 "description": "Input properties used for looking up and filtering NetworkRoute resources.\n",
                 "properties": {
                     "destination": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.\n"
                     },
                     "gateway": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.\n"
                     },
                     "networkId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Network the route should be added to.\n"
                     }
                 },
                 "type": "object"
@@ -1361,16 +1544,20 @@
                     "type": "string"
                 },
                 "ipRange": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.\n"
                 },
                 "networkId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Network the subnet should be added to.\n"
                 },
                 "networkZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of network zone.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of subnet. `server`\n"
                 }
             },
             "required": [
@@ -1382,16 +1569,20 @@
             ],
             "inputProperties": {
                 "ipRange": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.\n"
                 },
                 "networkId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Network the subnet should be added to.\n"
                 },
                 "networkZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of network zone.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of subnet. `server`\n"
                 }
             },
             "requiredInputs": [
@@ -1407,16 +1598,20 @@
                         "type": "string"
                     },
                     "ipRange": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.\n"
                     },
                     "networkId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Network the subnet should be added to.\n"
                     },
                     "networkZone": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of network zone.\n"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of subnet. `server`\n"
                     }
                 },
                 "type": "object"
@@ -1426,16 +1621,20 @@
             "description": "Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nFor servers:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Rdns(\"master\", {\n    dnsPtr: \"example.com\",\n    ipAddress: node1.ipv4Address,\n    serverId: node1.id.apply(id =\u003e Number.parseFloat(id)),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Rdns(\"master\",\n    dns_ptr=\"example.com\",\n    ip_address=node1.ipv4_address,\n    server_id=node1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Rdns(\"master\", new HCloud.RdnsArgs\n        {\n            DnsPtr = \"example.com\",\n            IpAddress = node1.Ipv4Address,\n            ServerId = node1.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewRdns(ctx, \"master\", \u0026hcloud.RdnsArgs{\n\t\t\tDnsPtr:    pulumi.String(\"example.com\"),\n\t\t\tIpAddress: node1.Ipv4Address,\n\t\t\tServerId:  node1.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nFor Floating IPs:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst floating1 = new hcloud.FloatingIp(\"floating1\", {\n    homeLocation: \"nbg1\",\n    type: \"ipv4\",\n});\nconst floatingMaster = new hcloud.Rdns(\"floating_master\", {\n    dnsPtr: \"example.com\",\n    floatingIpId: floating1.id.apply(id =\u003e Number.parseFloat(id)),\n    ipAddress: floating1.ipAddress,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nfloating1 = hcloud.FloatingIp(\"floating1\",\n    home_location=\"nbg1\",\n    type=\"ipv4\")\nfloating_master = hcloud.Rdns(\"floatingMaster\",\n    dns_ptr=\"example.com\",\n    floating_ip_id=floating1.id,\n    ip_address=floating1.ip_address)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var floating1 = new HCloud.FloatingIp(\"floating1\", new HCloud.FloatingIpArgs\n        {\n            HomeLocation = \"nbg1\",\n            Type = \"ipv4\",\n        });\n        var floatingMaster = new HCloud.Rdns(\"floatingMaster\", new HCloud.RdnsArgs\n        {\n            DnsPtr = \"example.com\",\n            FloatingIpId = floating1.Id,\n            IpAddress = floating1.IpAddress,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfloating1, err := hcloud.NewFloatingIp(ctx, \"floating1\", \u0026hcloud.FloatingIpArgs{\n\t\t\tHomeLocation: pulumi.String(\"nbg1\"),\n\t\t\tType:         pulumi.String(\"ipv4\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewRdns(ctx, \"floatingMaster\", \u0026hcloud.RdnsArgs{\n\t\t\tDnsPtr:       pulumi.String(\"example.com\"),\n\t\t\tFloatingIpId: floating1.ID(),\n\t\t\tIpAddress:    floating1.IpAddress,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "dnsPtr": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The DNS address the `ip_address` should resolve to.\n"
                 },
                 "floatingIpId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The Floating IP the `ip_address` belongs to.\n"
                 },
                 "ipAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The IP address that should point to `dns_ptr`.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The server the `ip_address` belongs to.\n"
                 }
             },
             "required": [
@@ -1444,16 +1643,20 @@
             ],
             "inputProperties": {
                 "dnsPtr": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The DNS address the `ip_address` should resolve to.\n"
                 },
                 "floatingIpId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The Floating IP the `ip_address` belongs to.\n"
                 },
                 "ipAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The IP address that should point to `dns_ptr`.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The server the `ip_address` belongs to.\n"
                 }
             },
             "requiredInputs": [
@@ -1464,16 +1667,20 @@
                 "description": "Input properties used for looking up and filtering Rdns resources.\n",
                 "properties": {
                     "dnsPtr": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The DNS address the `ip_address` should resolve to.\n"
                     },
                     "floatingIpId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The Floating IP the `ip_address` belongs to.\n"
                     },
                     "ipAddress": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The IP address that should point to `dns_ptr`.\n"
                     },
                     "serverId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The server the `ip_address` belongs to.\n"
                     }
                 },
                 "type": "object"
@@ -1483,61 +1690,78 @@
             "properties": {
                 "backupWindow": {
                     "type": "string",
+                    "description": "(string) The backup window of the server, if enabled.\n",
                     "deprecationMessage": "You should remove this property from your terraform configuration."
                 },
                 "backups": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable or disable backups.\n"
                 },
                 "datacenter": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The datacenter name to create the server in.\n"
                 },
                 "image": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name or ID of the image the server is created from.\n"
                 },
                 "ipv4Address": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) The IPv4 address.\n"
                 },
                 "ipv6Address": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) The first IPv6 address of the assigned network.\n"
                 },
                 "ipv6Network": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) The IPv6 network.\n"
                 },
                 "iso": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "ID or Name of an ISO image to mount.\n"
                 },
                 "keepDisk": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If true, do not upgrade the disk. This allows downgrading the server type later.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "location": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The location name to create the server in. `nbg1`, `fsn1` or `hel1`\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).\n"
                 },
                 "rescue": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`\n"
                 },
                 "serverType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the server type this server should be created with.\n"
                 },
                 "sshKeys": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "SSH key IDs or names which should be injected into the server at creation time\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) The status of the server.\n"
                 },
                 "userData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Cloud-Init user data to use during server creation\n"
                 }
             },
             "required": [
@@ -1554,46 +1778,58 @@
             ],
             "inputProperties": {
                 "backups": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable or disable backups.\n"
                 },
                 "datacenter": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The datacenter name to create the server in.\n"
                 },
                 "image": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name or ID of the image the server is created from.\n"
                 },
                 "iso": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "ID or Name of an ISO image to mount.\n"
                 },
                 "keepDisk": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If true, do not upgrade the disk. This allows downgrading the server type later.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "location": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The location name to create the server in. `nbg1`, `fsn1` or `hel1`\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).\n"
                 },
                 "rescue": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`\n"
                 },
                 "serverType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the server type this server should be created with.\n"
                 },
                 "sshKeys": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "SSH key IDs or names which should be injected into the server at creation time\n"
                 },
                 "userData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Cloud-Init user data to use during server creation\n"
                 }
             },
             "requiredInputs": [
@@ -1605,61 +1841,78 @@
                 "properties": {
                     "backupWindow": {
                         "type": "string",
+                        "description": "(string) The backup window of the server, if enabled.\n",
                         "deprecationMessage": "You should remove this property from your terraform configuration."
                     },
                     "backups": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable or disable backups.\n"
                     },
                     "datacenter": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The datacenter name to create the server in.\n"
                     },
                     "image": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name or ID of the image the server is created from.\n"
                     },
                     "ipv4Address": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The IPv4 address.\n"
                     },
                     "ipv6Address": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The first IPv6 address of the assigned network.\n"
                     },
                     "ipv6Network": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The IPv6 network.\n"
                     },
                     "iso": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "ID or Name of an ISO image to mount.\n"
                     },
                     "keepDisk": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "If true, do not upgrade the disk. This allows downgrading the server type later.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "User-defined labels (key-value pairs) should be created with.\n"
                     },
                     "location": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The location name to create the server in. `nbg1`, `fsn1` or `hel1`\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).\n"
                     },
                     "rescue": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`\n"
                     },
                     "serverType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the server type this server should be created with.\n"
                     },
                     "sshKeys": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "SSH key IDs or names which should be injected into the server at creation time\n"
                     },
                     "status": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The status of the server.\n"
                     },
                     "userData": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Cloud-Init user data to use during server creation\n"
                     }
                 },
                 "type": "object"
@@ -1672,19 +1925,23 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Additional IPs to be assigned to this server.\n"
                 },
                 "ip": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.\n"
                 },
                 "macAddress": {
                     "type": "string"
                 },
                 "networkId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the network which should be added to the server.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the server.\n"
                 }
             },
             "required": [
@@ -1698,16 +1955,20 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Additional IPs to be assigned to this server.\n"
                 },
                 "ip": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.\n"
                 },
                 "networkId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the network which should be added to the server.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the server.\n"
                 }
             },
             "requiredInputs": [
@@ -1721,19 +1982,23 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Additional IPs to be assigned to this server.\n"
                     },
                     "ip": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.\n"
                     },
                     "macAddress": {
                         "type": "string"
                     },
                     "networkId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the network which should be added to the server.\n"
                     },
                     "serverId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the server.\n"
                     }
                 },
                 "type": "object"
@@ -1743,19 +2008,23 @@
             "description": "Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as fs from \"fs\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\n// Create a new SSH key\nconst defaultSshKey = new hcloud.SshKey(\"default\", {\n    publicKey: fs.readFileSync(\"~/.ssh/id_rsa.pub\", \"utf-8\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\n# Create a new SSH key\ndefault = hcloud.SshKey(\"default\", public_key=(lambda path: open(path).read())(\"~/.ssh/id_rsa.pub\"))\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new SSH key\n        var @default = new HCloud.SshKey(\"default\", new HCloud.SshKeyArgs\n        {\n            PublicKey = File.ReadAllText(\"~/.ssh/id_rsa.pub\"),\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "fingerprint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(string) The fingerprint of the SSH key\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "(map) User-defined labels (key-value pairs)\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the SSH key.\n"
                 },
                 "publicKey": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The public key. If this is a file, it can be read using the file interpolation function\n"
                 }
             },
             "required": [
@@ -1768,13 +2037,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "(map) User-defined labels (key-value pairs)\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the SSH key.\n"
                 },
                 "publicKey": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The public key. If this is a file, it can be read using the file interpolation function\n"
                 }
             },
             "requiredInputs": [
@@ -1784,19 +2056,23 @@
                 "description": "Input properties used for looking up and filtering SshKey resources.\n",
                 "properties": {
                     "fingerprint": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The fingerprint of the SSH key\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) User-defined labels (key-value pairs)\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the SSH key.\n"
                     },
                     "publicKey": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The public key. If this is a file, it can be read using the file interpolation function\n"
                     }
                 },
                 "type": "object"
@@ -1806,31 +2082,39 @@
             "description": "Provides a Hetzner Cloud volume resource to manage volumes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Volume(\"master\", {\n    automount: true,\n    serverId: node1.id.apply(id =\u003e Number.parseFloat(id)),\n    size: 50,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Volume(\"master\",\n    automount=True,\n    server_id=node1.id,\n    size=50)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Volume(\"master\", new HCloud.VolumeArgs\n        {\n            Automount = true,\n            ServerId = node1.Id,\n            Size = 50,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewVolume(ctx, \"master\", \u0026hcloud.VolumeArgs{\n\t\t\tAutomount: pulumi.Bool(true),\n\t\t\tServerId:  node1.ID(),\n\t\t\tSize:      pulumi.Int(50),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "automount": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Automount the volume upon attaching it (server_id must be provided).\n"
                 },
                 "format": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Format volume after creation. `xfs` or `ext4`\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs).\n"
                 },
                 "linuxDevice": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Device path on the file system for the Volume.\n"
                 },
                 "location": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Location of the volume to create, optional if server_id argument is passed.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the volume to create (must be unique per project).\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Server to attach the Volume to, optional if location argument is passed.\n"
                 },
                 "size": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Size of the volume (in GB).\n"
                 }
             },
             "required": [
@@ -1842,28 +2126,35 @@
             ],
             "inputProperties": {
                 "automount": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Automount the volume upon attaching it (server_id must be provided).\n"
                 },
                 "format": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Format volume after creation. `xfs` or `ext4`\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs).\n"
                 },
                 "location": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Location of the volume to create, optional if server_id argument is passed.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the volume to create (must be unique per project).\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Server to attach the Volume to, optional if location argument is passed.\n"
                 },
                 "size": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Size of the volume (in GB).\n"
                 }
             },
             "requiredInputs": [
@@ -1873,31 +2164,39 @@
                 "description": "Input properties used for looking up and filtering Volume resources.\n",
                 "properties": {
                     "automount": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Automount the volume upon attaching it (server_id must be provided).\n"
                     },
                     "format": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Format volume after creation. `xfs` or `ext4`\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "User-defined labels (key-value pairs).\n"
                     },
                     "linuxDevice": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Device path on the file system for the Volume.\n"
                     },
                     "location": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Location of the volume to create, optional if server_id argument is passed.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the volume to create (must be unique per project).\n"
                     },
                     "serverId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Server to attach the Volume to, optional if location argument is passed.\n"
                     },
                     "size": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Size of the volume (in GB).\n"
                     }
                 },
                 "type": "object"
@@ -1907,13 +2206,16 @@
             "description": "Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    datacenter: \"nbg1-dc3\",\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Volume(\"master\", {\n    location: \"nbg1\",\n    size: 10,\n});\nconst main = new hcloud.VolumeAttachment(\"main\", {\n    automount: true,\n    serverId: node1.id.apply(id =\u003e Number.parseFloat(id)),\n    volumeId: master.id.apply(id =\u003e Number.parseFloat(id)),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    datacenter=\"nbg1-dc3\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Volume(\"master\",\n    location=\"nbg1\",\n    size=10)\nmain = hcloud.VolumeAttachment(\"main\",\n    automount=True,\n    server_id=node1.id,\n    volume_id=master.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Datacenter = \"nbg1-dc3\",\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Volume(\"master\", new HCloud.VolumeArgs\n        {\n            Location = \"nbg1\",\n            Size = 10,\n        });\n        var main = new HCloud.VolumeAttachment(\"main\", new HCloud.VolumeAttachmentArgs\n        {\n            Automount = true,\n            ServerId = node1.Id,\n            VolumeId = master.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tDatacenter: pulumi.String(\"nbg1-dc3\"),\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tmaster, err := hcloud.NewVolume(ctx, \"master\", \u0026hcloud.VolumeArgs{\n\t\t\tLocation: pulumi.String(\"nbg1\"),\n\t\t\tSize:     pulumi.Int(10),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewVolumeAttachment(ctx, \"main\", \u0026hcloud.VolumeAttachmentArgs{\n\t\t\tAutomount: pulumi.Bool(true),\n\t\t\tServerId:  node1.ID(),\n\t\t\tVolumeId:  master.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "automount": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Automount the volume upon attaching it.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Server to attach the Volume to.\n"
                 },
                 "volumeId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Volume.\n"
                 }
             },
             "required": [
@@ -1923,13 +2225,16 @@
             ],
             "inputProperties": {
                 "automount": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Automount the volume upon attaching it.\n"
                 },
                 "serverId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Server to attach the Volume to.\n"
                 },
                 "volumeId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Volume.\n"
                 }
             },
             "requiredInputs": [
@@ -1940,13 +2245,16 @@
                 "description": "Input properties used for looking up and filtering VolumeAttachment resources.\n",
                 "properties": {
                     "automount": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Automount the volume upon attaching it.\n"
                     },
                     "serverId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Server to attach the Volume to.\n"
                     },
                     "volumeId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Volume.\n"
                     }
                 },
                 "type": "object"
@@ -1960,13 +2268,16 @@
                 "description": "A collection of arguments for invoking getCertificate.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the certificate.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the certificate.\n"
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -1975,37 +2286,46 @@
                 "description": "A collection of values returned by getCertificate.\n",
                 "properties": {
                     "certificate": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) PEM encoded TLS certificate.\n"
                     },
                     "created": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
                     },
                     "domainNames": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) Domains and subdomains covered by the certificate.\n"
                     },
                     "fingerprint": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Fingerprint of the certificate.\n"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the certificate.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) User-defined labels (key-value pairs) assigned to the certificate.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the Certificate.\n"
                     },
                     "notValidAfter": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
                     },
                     "notValidBefore": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -2029,10 +2349,12 @@
                 "description": "A collection of arguments for invoking getDatacenter.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the datacenter.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the datacenter.\n"
                     }
                 },
                 "type": "object"
@@ -2044,28 +2366,34 @@
                         "type": "array",
                         "items": {
                             "type": "integer"
-                        }
+                        },
+                        "description": "(list) List of available server types.\n"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Description of the datacenter.\n"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the datacenter.\n"
                     },
                     "location": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) Physical datacenter location.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the datacenter.\n"
                     },
                     "supportedServerTypeIds": {
                         "type": "array",
                         "items": {
                             "type": "integer"
-                        }
+                        },
+                        "description": "(list) List of server types supported by the datacenter.\n"
                     }
                 },
                 "type": "object",
@@ -2088,7 +2416,8 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) List of unique datacenter identifiers.\n"
                     }
                 },
                 "type": "object"
@@ -2100,13 +2429,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) List of unique datacenter identifiers.\n"
                     },
                     "descriptions": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) List of all datacenter descriptions.\n"
                     },
                     "id": {
                         "type": "string",
@@ -2116,7 +2447,8 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) List of datacenter names.\n"
                     }
                 },
                 "type": "object",
@@ -2133,10 +2465,12 @@
                 "description": "A collection of arguments for invoking getFloatingIp.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the Floating IP.\n"
                     },
                     "ipAddress": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "IP address of the Floating IP.\n"
                     },
                     "name": {
                         "type": "string"
@@ -2146,7 +2480,8 @@
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -2161,10 +2496,12 @@
                         "type": "string"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the Floating IP.\n"
                     },
                     "ipAddress": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) IP address of the Floating IP.\n"
                     },
                     "ipNetwork": {
                         "type": "string"
@@ -2209,26 +2546,31 @@
                 "description": "A collection of arguments for invoking getImage.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Image.\n"
                     },
                     "mostRecent": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "If more than one result is returned, use the most recent Image.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Image.\n"
                     },
                     "selector": {
                         "type": "string",
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
                     },
                     "withStatuses": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "List only images with the specified status, could contain `creating` or `available`.\n"
                     }
                 },
                 "type": "object"
@@ -2237,16 +2579,20 @@
                 "description": "A collection of values returned by getImage.\n",
                 "properties": {
                     "created": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Date when the Image was created (in ISO-8601 format).\n"
                     },
                     "deprecated": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Point in time when the image is considered to be deprecated (in ISO-8601 format).\n"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Description of the Image.\n"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the Image.\n"
                     },
                     "labels": {
                         "type": "object",
@@ -2258,23 +2604,28 @@
                         "type": "boolean"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the Image, only present when the Image is of type `system`.\n"
                     },
                     "osFlavor": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.\n"
                     },
                     "osVersion": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Operating system version.\n"
                     },
                     "rapidDeploy": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "(bool) Indicates that rapid deploy of the image is available.\n"
                     },
                     "selector": {
                         "type": "string",
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Type of the Image, could be `system`, `backup` or `snapshot`.\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -2301,18 +2652,21 @@
             }
         },
         "hcloud:index/getLoadBalancer:getLoadBalancer": {
-            "description": "Provides details about a specific Hetzner Cloud Server.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst lb1 = pulumi.output(hcloud.getLoadBalancer({\n    name: \"my-load-balancer\",\n}, { async: true }));\nconst lb2 = pulumi.output(hcloud.getLoadBalancer({\n    id: 123,\n}, { async: true }));\nconst lb3 = pulumi.output(hcloud.getLoadBalancer({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nlb1 = hcloud.get_load_balancer(name=\"my-load-balancer\")\nlb2 = hcloud.get_load_balancer(id=\"123\")\nlb3 = hcloud.get_load_balancer(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var lb1 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            Name = \"my-load-balancer\",\n        }));\n        var lb2 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            Id = 123,\n        }));\n        var lb3 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"my-load-balancer\"\n\t\t_, err := hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 123\n\t\t_, err = hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt2 := \"key=value\"\n\t\t_, err = hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tWithSelector: \u0026opt2,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides details about a specific Hetzner Cloud Server.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst lb1 = pulumi.output(hcloud.getLoadBalancer({\n    name: \"my-load-balancer\",\n}, { async: true }));\nconst lb2 = pulumi.output(hcloud.getLoadBalancer({\n    id: 123,\n}, { async: true }));\nconst lb3 = pulumi.output(hcloud.getLoadBalancer({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nlb1 = hcloud.get_load_balancer(name=\"my-load-balancer\")\nlb2 = hcloud.get_load_balancer(id=123)\nlb3 = hcloud.get_load_balancer(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var lb1 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            Name = \"my-load-balancer\",\n        }));\n        var lb2 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            Id = 123,\n        }));\n        var lb3 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"my-load-balancer\"\n\t\t_, err := hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 123\n\t\t_, err = hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt2 := \"key=value\"\n\t\t_, err = hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tWithSelector: \u0026opt2,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getLoadBalancer.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Load Balancer.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Load Balancer.\n"
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
                     }
                 },
                 "type": "object"
@@ -2321,31 +2675,39 @@
                 "description": "A collection of values returned by getLoadBalancer.\n",
                 "properties": {
                     "algorithm": {
-                        "$ref": "#/types/hcloud:/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm"
+                        "$ref": "#/types/hcloud:/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm",
+                        "description": "(Optional) Configuration of the algorithm the Load Balancer use.\n"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the Load Balancer.\n"
                     },
                     "ipv4": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) IPv4 Address of the Load Balancer.\n"
                     },
                     "ipv6": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) IPv4 Address of the Load Balancer.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) User-defined labels (key-value pairs) .\n"
                     },
                     "loadBalancerType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the Type of the Load Balancer.\n"
                     },
                     "location": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the location the Load Balancer is in.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the Load Balancer.\n"
                     },
                     "networkZone": {
                         "type": "string"
@@ -2354,13 +2716,15 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/hcloud:/getLoadBalancerService:getLoadBalancerService"
-                        }
+                        },
+                        "description": "(list) List of services a Load Balancer provides.\n"
                     },
                     "targets": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/hcloud:/getLoadBalancerTarget:getLoadBalancerTarget"
-                        }
+                        },
+                        "description": "(list) List of targets of the Load Balancer.\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -2386,10 +2750,12 @@
                 "description": "A collection of arguments for invoking getLocation.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the location.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the location.\n"
                     }
                 },
                 "type": "object"
@@ -2398,25 +2764,32 @@
                 "description": "A collection of values returned by getLocation.\n",
                 "properties": {
                     "city": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) City of the location.\n"
                     },
                     "country": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Country of the location.\n"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Description of the location.\n"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the location.\n"
                     },
                     "latitude": {
-                        "type": "number"
+                        "type": "number",
+                        "description": "(float) Latitude of the city.\n"
                     },
                     "longitude": {
-                        "type": "number"
+                        "type": "number",
+                        "description": "(float) Longitude of the city.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the location.\n"
                     }
                 },
                 "type": "object",
@@ -2440,7 +2813,8 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) List of unique location identifiers.\n"
                     }
                 },
                 "type": "object"
@@ -2452,7 +2826,8 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) List of all location descriptions.\n"
                     },
                     "id": {
                         "type": "string",
@@ -2462,13 +2837,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) List of unique location identifiers.\n"
                     },
                     "names": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(list) List of location names.\n"
                     }
                 },
                 "type": "object",
@@ -2484,10 +2861,12 @@
                 "description": "A collection of arguments for invoking getNetwork.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the Network.\n"
                     },
                     "ipRange": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "IPv4 prefix of the Network.\n"
                     },
                     "labels": {
                         "type": "object",
@@ -2496,10 +2875,12 @@
                         }
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Network.\n"
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
                     }
                 },
                 "type": "object"
@@ -2508,10 +2889,12 @@
                 "description": "A collection of values returned by getNetwork.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Unique ID of the Network.\n"
                     },
                     "ipRange": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "IPv4 prefix of the Network.\n"
                     },
                     "labels": {
                         "type": "object",
@@ -2520,7 +2903,8 @@
                         }
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Network.\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -2534,23 +2918,27 @@
                 "description": "A collection of arguments for invoking getServer.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the server.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the server.\n"
                     },
                     "selector": {
                         "type": "string",
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
                     },
                     "withStatuses": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.\n"
                     }
                 },
                 "type": "object"
@@ -2559,43 +2947,55 @@
                 "description": "A collection of values returned by getServer.\n",
                 "properties": {
                     "backupWindow": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The backup window of the server, if enabled.\n"
                     },
                     "backups": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "(boolean) Whether backups are enabled.\n"
                     },
                     "datacenter": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The datacenter name.\n"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the server.\n"
                     },
                     "image": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name or ID of the image the server was created from.\n"
                     },
                     "ipv4Address": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The IPv4 address.\n"
                     },
                     "ipv6Address": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The first IPv6 address of the assigned network.\n"
                     },
                     "ipv6Network": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The IPv6 network.\n"
                     },
                     "iso": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) ID or Name of the mounted ISO image.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) User-defined labels (key-value pairs)\n"
                     },
                     "location": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The location name.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the server.\n"
                     },
                     "rescue": {
                         "type": "string"
@@ -2605,10 +3005,12 @@
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
                     "serverType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the server type.\n"
                     },
                     "status": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The status of the server.\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -2645,20 +3047,24 @@
                 "description": "A collection of arguments for invoking getSshKey.\n",
                 "properties": {
                     "fingerprint": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Fingerprint of the SSH Key.\n"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the SSH Key.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the SSH Key.\n"
                     },
                     "selector": {
                         "type": "string",
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -2667,10 +3073,12 @@
                 "description": "A collection of values returned by getSshKey.\n",
                 "properties": {
                     "fingerprint": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Fingerprint of the SSH Key.\n"
                     },
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the SSH Key.\n"
                     },
                     "labels": {
                         "type": "object",
@@ -2679,10 +3087,12 @@
                         }
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the SSH Key.\n"
                     },
                     "publicKey": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Public Key of the SSH Key.\n"
                     },
                     "selector": {
                         "type": "string",
@@ -2706,7 +3116,8 @@
                 "description": "A collection of arguments for invoking getSshKeys.\n",
                 "properties": {
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -2722,7 +3133,8 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/hcloud:/getSshKeysSshKey:getSshKeysSshKey"
-                        }
+                        },
+                        "description": "(list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -2740,13 +3152,15 @@
                 "description": "A collection of arguments for invoking getVolume.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the volume.\n"
                     },
                     "location": {
                         "type": "string"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the volume.\n"
                     },
                     "selector": {
                         "type": "string",
@@ -2756,13 +3170,15 @@
                         "type": "string"
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
                     },
                     "withStatuses": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "List only volumes with the specified status, could contain `creating` or `available`.\n"
                     }
                 },
                 "type": "object"
@@ -2771,7 +3187,8 @@
                 "description": "A collection of values returned by getVolume.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Unique ID of the volume.\n"
                     },
                     "labels": {
                         "type": "object",
@@ -2786,7 +3203,8 @@
                         "type": "string"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the volume.\n"
                     },
                     "selector": {
                         "type": "string",
@@ -2796,7 +3214,8 @@
                         "type": "string"
                     },
                     "size": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Size of the volume.\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -2845,8 +3264,9 @@
         "python": {
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-hcloud` repo](https://github.com/terraform-providers/terraform-provider-hcloud/issues).",
             "requires": {
-                "pulumi": "\u003e=2.0.0,\u003c3.0.0"
-            }
+                "pulumi": "\u003e=2.9.0,\u003c3.0.0"
+            },
+            "usesIOClasses": true
         }
     }
 }

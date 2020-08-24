@@ -47,24 +47,45 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class LoadBalancer : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration of the algorithm the Load Balancer use.
+        /// </summary>
         [Output("algorithm")]
         public Output<Outputs.LoadBalancerAlgorithm> Algorithm { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) IPv4 Address of the Load Balancer.
+        /// </summary>
         [Output("ipv4")]
         public Output<string> Ipv4 { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) IPv4 Address of the Load Balancer.
+        /// </summary>
         [Output("ipv6")]
         public Output<string> Ipv6 { get; private set; } = null!;
 
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the Load Balancer.
+        /// </summary>
         [Output("loadBalancerType")]
         public Output<string> LoadBalancerType { get; private set; } = null!;
 
+        /// <summary>
+        /// Location of the Load Balancer. Require when no network_zone is set.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Load Balancer.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -74,9 +95,15 @@ namespace Pulumi.HCloud
         [Output("networkIp")]
         public Output<string> NetworkIp { get; private set; } = null!;
 
+        /// <summary>
+        /// Network Zone of the Load Balancer. Require when no location is set.
+        /// </summary>
         [Output("networkZone")]
         public Output<string> NetworkZone { get; private set; } = null!;
 
+        /// <summary>
+        /// List of targets of the Load Balancer.
+        /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.LoadBalancerTarget>> Targets { get; private set; } = null!;
 
@@ -126,31 +153,54 @@ namespace Pulumi.HCloud
 
     public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration of the algorithm the Load Balancer use.
+        /// </summary>
         [Input("algorithm")]
         public Input<Inputs.LoadBalancerAlgorithmArgs>? Algorithm { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Type of the Load Balancer.
+        /// </summary>
         [Input("loadBalancerType", required: true)]
         public Input<string> LoadBalancerType { get; set; } = null!;
 
+        /// <summary>
+        /// Location of the Load Balancer. Require when no network_zone is set.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Name of the Load Balancer.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Network Zone of the Load Balancer. Require when no location is set.
+        /// </summary>
         [Input("networkZone")]
         public Input<string>? NetworkZone { get; set; }
 
         [Input("targets")]
         private InputList<Inputs.LoadBalancerTargetArgs>? _targets;
+
+        /// <summary>
+        /// List of targets of the Load Balancer.
+        /// </summary>
         public InputList<Inputs.LoadBalancerTargetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.LoadBalancerTargetArgs>());
@@ -164,29 +214,51 @@ namespace Pulumi.HCloud
 
     public sealed class LoadBalancerState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration of the algorithm the Load Balancer use.
+        /// </summary>
         [Input("algorithm")]
         public Input<Inputs.LoadBalancerAlgorithmGetArgs>? Algorithm { get; set; }
 
+        /// <summary>
+        /// (string) IPv4 Address of the Load Balancer.
+        /// </summary>
         [Input("ipv4")]
         public Input<string>? Ipv4 { get; set; }
 
+        /// <summary>
+        /// (string) IPv4 Address of the Load Balancer.
+        /// </summary>
         [Input("ipv6")]
         public Input<string>? Ipv6 { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Type of the Load Balancer.
+        /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }
 
+        /// <summary>
+        /// Location of the Load Balancer. Require when no network_zone is set.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Name of the Load Balancer.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -196,11 +268,18 @@ namespace Pulumi.HCloud
         [Input("networkIp")]
         public Input<string>? NetworkIp { get; set; }
 
+        /// <summary>
+        /// Network Zone of the Load Balancer. Require when no location is set.
+        /// </summary>
         [Input("networkZone")]
         public Input<string>? NetworkZone { get; set; }
 
         [Input("targets")]
         private InputList<Inputs.LoadBalancerTargetGetArgs>? _targets;
+
+        /// <summary>
+        /// List of targets of the Load Balancer.
+        /// </summary>
         public InputList<Inputs.LoadBalancerTargetGetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.LoadBalancerTargetGetArgs>());

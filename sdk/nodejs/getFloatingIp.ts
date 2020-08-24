@@ -58,13 +58,22 @@ export function getFloatingIp(args?: GetFloatingIpArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getFloatingIp.
  */
 export interface GetFloatingIpArgs {
+    /**
+     * (int) Unique ID of the Floating IP.
+     */
     readonly id?: number;
+    /**
+     * IP address of the Floating IP.
+     */
     readonly ipAddress?: string;
     readonly name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
     readonly selector?: string;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
     readonly withSelector?: string;
 }
 
@@ -74,7 +83,13 @@ export interface GetFloatingIpArgs {
 export interface GetFloatingIpResult {
     readonly description: string;
     readonly homeLocation: string;
+    /**
+     * (int) Unique ID of the Floating IP.
+     */
     readonly id?: number;
+    /**
+     * (string) IP address of the Floating IP.
+     */
     readonly ipAddress: string;
     readonly ipNetwork: string;
     readonly labels: {[key: string]: any};

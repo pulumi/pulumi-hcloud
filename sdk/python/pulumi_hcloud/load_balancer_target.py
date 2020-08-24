@@ -5,16 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['LoadBalancerTarget']
 
 
 class LoadBalancerTarget(pulumi.CustomResource):
-    load_balancer_id: pulumi.Output[float]
-    server_id: pulumi.Output[float]
-    type: pulumi.Output[str]
-    use_private_ip: pulumi.Output[bool]
-    def __init__(__self__, resource_name, opts=None, load_balancer_id=None, server_id=None, type=None, use_private_ip=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 load_balancer_id: Optional[pulumi.Input[float]] = None,
+                 server_id: Optional[pulumi.Input[float]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 use_private_ip: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Adds a target to a Hetzner Cloud Load Balancer.
 
@@ -38,6 +45,13 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] load_balancer_id: ID of the Load Balancer to which
+               the target gets attached.
+        :param pulumi.Input[float] server_id: ID of the server which should be a
+               target for this Load Balancer. Required if `type` is `server`
+        :param pulumi.Input[str] type: Type of the target. `server`
+        :param pulumi.Input[bool] use_private_ip: use the private IP to connect to
+               Load Balancer targets.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -50,7 +64,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -71,14 +85,27 @@ class LoadBalancerTarget(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, load_balancer_id=None, server_id=None, type=None, use_private_ip=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            load_balancer_id: Optional[pulumi.Input[float]] = None,
+            server_id: Optional[pulumi.Input[float]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            use_private_ip: Optional[pulumi.Input[bool]] = None) -> 'LoadBalancerTarget':
         """
         Get an existing LoadBalancerTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] load_balancer_id: ID of the Load Balancer to which
+               the target gets attached.
+        :param pulumi.Input[float] server_id: ID of the server which should be a
+               target for this Load Balancer. Required if `type` is `server`
+        :param pulumi.Input[str] type: Type of the target. `server`
+        :param pulumi.Input[bool] use_private_ip: use the private IP to connect to
+               Load Balancer targets.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -90,8 +117,44 @@ class LoadBalancerTarget(pulumi.CustomResource):
         __props__["use_private_ip"] = use_private_ip
         return LoadBalancerTarget(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> float:
+        """
+        ID of the Load Balancer to which
+        the target gets attached.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[float]:
+        """
+        ID of the server which should be a
+        target for this Load Balancer. Required if `type` is `server`
+        """
+        return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the target. `server`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usePrivateIp")
+    def use_private_ip(self) -> bool:
+        """
+        use the private IP to connect to
+        Load Balancer targets.
+        """
+        return pulumi.get(self, "use_private_ip")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -45,13 +45,20 @@ import (
 type LoadBalancerService struct {
 	pulumi.CustomResourceState
 
-	DestinationPort pulumi.IntOutput                     `pulumi:"destinationPort"`
-	HealthCheck     LoadBalancerServiceHealthCheckOutput `pulumi:"healthCheck"`
-	Http            LoadBalancerServiceHttpPtrOutput     `pulumi:"http"`
-	ListenPort      pulumi.IntOutput                     `pulumi:"listenPort"`
-	LoadBalancerId  pulumi.StringOutput                  `pulumi:"loadBalancerId"`
-	Protocol        pulumi.StringOutput                  `pulumi:"protocol"`
-	Proxyprotocol   pulumi.BoolOutput                    `pulumi:"proxyprotocol"`
+	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
+	DestinationPort pulumi.IntOutput `pulumi:"destinationPort"`
+	// List of health check configurations when `protocol` is `http` or `https`.
+	HealthCheck LoadBalancerServiceHealthCheckOutput `pulumi:"healthCheck"`
+	// List of http configurations when `protocol` is `http` or `https`.
+	Http LoadBalancerServiceHttpPtrOutput `pulumi:"http"`
+	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+	ListenPort pulumi.IntOutput `pulumi:"listenPort"`
+	// Id of the load balancer this service belongs to.
+	LoadBalancerId pulumi.StringOutput `pulumi:"loadBalancerId"`
+	// Protocol of the service. `http`, `https` or `tcp`
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// Enable proxyprotocol.
+	Proxyprotocol pulumi.BoolOutput `pulumi:"proxyprotocol"`
 }
 
 // NewLoadBalancerService registers a new resource with the given unique name, arguments, and options.
@@ -88,23 +95,37 @@ func GetLoadBalancerService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancerService resources.
 type loadBalancerServiceState struct {
-	DestinationPort *int                            `pulumi:"destinationPort"`
-	HealthCheck     *LoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
-	Http            *LoadBalancerServiceHttp        `pulumi:"http"`
-	ListenPort      *int                            `pulumi:"listenPort"`
-	LoadBalancerId  *string                         `pulumi:"loadBalancerId"`
-	Protocol        *string                         `pulumi:"protocol"`
-	Proxyprotocol   *bool                           `pulumi:"proxyprotocol"`
+	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
+	DestinationPort *int `pulumi:"destinationPort"`
+	// List of health check configurations when `protocol` is `http` or `https`.
+	HealthCheck *LoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
+	// List of http configurations when `protocol` is `http` or `https`.
+	Http *LoadBalancerServiceHttp `pulumi:"http"`
+	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+	ListenPort *int `pulumi:"listenPort"`
+	// Id of the load balancer this service belongs to.
+	LoadBalancerId *string `pulumi:"loadBalancerId"`
+	// Protocol of the service. `http`, `https` or `tcp`
+	Protocol *string `pulumi:"protocol"`
+	// Enable proxyprotocol.
+	Proxyprotocol *bool `pulumi:"proxyprotocol"`
 }
 
 type LoadBalancerServiceState struct {
+	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
 	DestinationPort pulumi.IntPtrInput
-	HealthCheck     LoadBalancerServiceHealthCheckPtrInput
-	Http            LoadBalancerServiceHttpPtrInput
-	ListenPort      pulumi.IntPtrInput
-	LoadBalancerId  pulumi.StringPtrInput
-	Protocol        pulumi.StringPtrInput
-	Proxyprotocol   pulumi.BoolPtrInput
+	// List of health check configurations when `protocol` is `http` or `https`.
+	HealthCheck LoadBalancerServiceHealthCheckPtrInput
+	// List of http configurations when `protocol` is `http` or `https`.
+	Http LoadBalancerServiceHttpPtrInput
+	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+	ListenPort pulumi.IntPtrInput
+	// Id of the load balancer this service belongs to.
+	LoadBalancerId pulumi.StringPtrInput
+	// Protocol of the service. `http`, `https` or `tcp`
+	Protocol pulumi.StringPtrInput
+	// Enable proxyprotocol.
+	Proxyprotocol pulumi.BoolPtrInput
 }
 
 func (LoadBalancerServiceState) ElementType() reflect.Type {
@@ -112,24 +133,38 @@ func (LoadBalancerServiceState) ElementType() reflect.Type {
 }
 
 type loadBalancerServiceArgs struct {
-	DestinationPort *int                            `pulumi:"destinationPort"`
-	HealthCheck     *LoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
-	Http            *LoadBalancerServiceHttp        `pulumi:"http"`
-	ListenPort      *int                            `pulumi:"listenPort"`
-	LoadBalancerId  string                          `pulumi:"loadBalancerId"`
-	Protocol        string                          `pulumi:"protocol"`
-	Proxyprotocol   *bool                           `pulumi:"proxyprotocol"`
+	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
+	DestinationPort *int `pulumi:"destinationPort"`
+	// List of health check configurations when `protocol` is `http` or `https`.
+	HealthCheck *LoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
+	// List of http configurations when `protocol` is `http` or `https`.
+	Http *LoadBalancerServiceHttp `pulumi:"http"`
+	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+	ListenPort *int `pulumi:"listenPort"`
+	// Id of the load balancer this service belongs to.
+	LoadBalancerId string `pulumi:"loadBalancerId"`
+	// Protocol of the service. `http`, `https` or `tcp`
+	Protocol string `pulumi:"protocol"`
+	// Enable proxyprotocol.
+	Proxyprotocol *bool `pulumi:"proxyprotocol"`
 }
 
 // The set of arguments for constructing a LoadBalancerService resource.
 type LoadBalancerServiceArgs struct {
+	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
 	DestinationPort pulumi.IntPtrInput
-	HealthCheck     LoadBalancerServiceHealthCheckPtrInput
-	Http            LoadBalancerServiceHttpPtrInput
-	ListenPort      pulumi.IntPtrInput
-	LoadBalancerId  pulumi.StringInput
-	Protocol        pulumi.StringInput
-	Proxyprotocol   pulumi.BoolPtrInput
+	// List of health check configurations when `protocol` is `http` or `https`.
+	HealthCheck LoadBalancerServiceHealthCheckPtrInput
+	// List of http configurations when `protocol` is `http` or `https`.
+	Http LoadBalancerServiceHttpPtrInput
+	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+	ListenPort pulumi.IntPtrInput
+	// Id of the load balancer this service belongs to.
+	LoadBalancerId pulumi.StringInput
+	// Protocol of the service. `http`, `https` or `tcp`
+	Protocol pulumi.StringInput
+	// Enable proxyprotocol.
+	Proxyprotocol pulumi.BoolPtrInput
 }
 
 func (LoadBalancerServiceArgs) ElementType() reflect.Type {

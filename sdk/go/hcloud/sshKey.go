@@ -14,10 +14,14 @@ import (
 type SshKey struct {
 	pulumi.CustomResourceState
 
+	// (string) The fingerprint of the SSH key
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	Labels      pulumi.MapOutput    `pulumi:"labels"`
-	Name        pulumi.StringOutput `pulumi:"name"`
-	PublicKey   pulumi.StringOutput `pulumi:"publicKey"`
+	// (map) User-defined labels (key-value pairs)
+	Labels pulumi.MapOutput `pulumi:"labels"`
+	// Name of the SSH key.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The public key. If this is a file, it can be read using the file interpolation function
+	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 }
 
 // NewSshKey registers a new resource with the given unique name, arguments, and options.
@@ -51,17 +55,25 @@ func GetSshKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SshKey resources.
 type sshKeyState struct {
-	Fingerprint *string                `pulumi:"fingerprint"`
-	Labels      map[string]interface{} `pulumi:"labels"`
-	Name        *string                `pulumi:"name"`
-	PublicKey   *string                `pulumi:"publicKey"`
+	// (string) The fingerprint of the SSH key
+	Fingerprint *string `pulumi:"fingerprint"`
+	// (map) User-defined labels (key-value pairs)
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Name of the SSH key.
+	Name *string `pulumi:"name"`
+	// The public key. If this is a file, it can be read using the file interpolation function
+	PublicKey *string `pulumi:"publicKey"`
 }
 
 type SshKeyState struct {
+	// (string) The fingerprint of the SSH key
 	Fingerprint pulumi.StringPtrInput
-	Labels      pulumi.MapInput
-	Name        pulumi.StringPtrInput
-	PublicKey   pulumi.StringPtrInput
+	// (map) User-defined labels (key-value pairs)
+	Labels pulumi.MapInput
+	// Name of the SSH key.
+	Name pulumi.StringPtrInput
+	// The public key. If this is a file, it can be read using the file interpolation function
+	PublicKey pulumi.StringPtrInput
 }
 
 func (SshKeyState) ElementType() reflect.Type {
@@ -69,15 +81,21 @@ func (SshKeyState) ElementType() reflect.Type {
 }
 
 type sshKeyArgs struct {
-	Labels    map[string]interface{} `pulumi:"labels"`
-	Name      *string                `pulumi:"name"`
-	PublicKey string                 `pulumi:"publicKey"`
+	// (map) User-defined labels (key-value pairs)
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Name of the SSH key.
+	Name *string `pulumi:"name"`
+	// The public key. If this is a file, it can be read using the file interpolation function
+	PublicKey string `pulumi:"publicKey"`
 }
 
 // The set of arguments for constructing a SshKey resource.
 type SshKeyArgs struct {
-	Labels    pulumi.MapInput
-	Name      pulumi.StringPtrInput
+	// (map) User-defined labels (key-value pairs)
+	Labels pulumi.MapInput
+	// Name of the SSH key.
+	Name pulumi.StringPtrInput
+	// The public key. If this is a file, it can be read using the file interpolation function
 	PublicKey pulumi.StringInput
 }
 

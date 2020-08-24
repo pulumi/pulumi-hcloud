@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetLoadBalancerResult',
+    'AwaitableGetLoadBalancerResult',
+    'get_load_balancer',
+]
+
+@pulumi.output_type
 class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
@@ -15,40 +23,132 @@ class GetLoadBalancerResult:
     def __init__(__self__, algorithm=None, id=None, ipv4=None, ipv6=None, labels=None, load_balancer_type=None, location=None, name=None, network_zone=None, services=None, targets=None, with_selector=None):
         if algorithm and not isinstance(algorithm, dict):
             raise TypeError("Expected argument 'algorithm' to be a dict")
-        __self__.algorithm = algorithm
+        pulumi.set(__self__, "algorithm", algorithm)
         if id and not isinstance(id, float):
             raise TypeError("Expected argument 'id' to be a float")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
         if ipv4 and not isinstance(ipv4, str):
             raise TypeError("Expected argument 'ipv4' to be a str")
-        __self__.ipv4 = ipv4
+        pulumi.set(__self__, "ipv4", ipv4)
         if ipv6 and not isinstance(ipv6, str):
             raise TypeError("Expected argument 'ipv6' to be a str")
-        __self__.ipv6 = ipv6
+        pulumi.set(__self__, "ipv6", ipv6)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
-        __self__.labels = labels
+        pulumi.set(__self__, "labels", labels)
         if load_balancer_type and not isinstance(load_balancer_type, str):
             raise TypeError("Expected argument 'load_balancer_type' to be a str")
-        __self__.load_balancer_type = load_balancer_type
+        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
         if network_zone and not isinstance(network_zone, str):
             raise TypeError("Expected argument 'network_zone' to be a str")
-        __self__.network_zone = network_zone
+        pulumi.set(__self__, "network_zone", network_zone)
         if services and not isinstance(services, list):
             raise TypeError("Expected argument 'services' to be a list")
-        __self__.services = services
+        pulumi.set(__self__, "services", services)
         if targets and not isinstance(targets, list):
             raise TypeError("Expected argument 'targets' to be a list")
-        __self__.targets = targets
+        pulumi.set(__self__, "targets", targets)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
-        __self__.with_selector = with_selector
+        pulumi.set(__self__, "with_selector", with_selector)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> 'outputs.GetLoadBalancerAlgorithmResult':
+        """
+        (Optional) Configuration of the algorithm the Load Balancer use.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[float]:
+        """
+        (int) Unique ID of the Load Balancer.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def ipv4(self) -> str:
+        """
+        (string) IPv4 Address of the Load Balancer.
+        """
+        return pulumi.get(self, "ipv4")
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> str:
+        """
+        (string) IPv4 Address of the Load Balancer.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Any]:
+        """
+        (map) User-defined labels (key-value pairs) .
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="loadBalancerType")
+    def load_balancer_type(self) -> str:
+        """
+        (string) Name of the Type of the Load Balancer.
+        """
+        return pulumi.get(self, "load_balancer_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        (string) Name of the location the Load Balancer is in.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (string) Name of the Load Balancer.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> str:
+        return pulumi.get(self, "network_zone")
+
+    @property
+    @pulumi.getter
+    def services(self) -> List['outputs.GetLoadBalancerServiceResult']:
+        """
+        (list) List of services a Load Balancer provides.
+        """
+        return pulumi.get(self, "services")
+
+    @property
+    @pulumi.getter
+    def targets(self) -> List['outputs.GetLoadBalancerTargetResult']:
+        """
+        (list) List of targets of the Load Balancer.
+        """
+        return pulumi.get(self, "targets")
+
+    @property
+    @pulumi.getter(name="withSelector")
+    def with_selector(self) -> Optional[str]:
+        return pulumi.get(self, "with_selector")
+
+
 class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -68,7 +168,11 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             targets=self.targets,
             with_selector=self.with_selector)
 
-def get_load_balancer(id=None,name=None,with_selector=None,opts=None):
+
+def get_load_balancer(id: Optional[float] = None,
+                      name: Optional[str] = None,
+                      with_selector: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
     Provides details about a specific Hetzner Cloud Server.
 
@@ -79,32 +183,35 @@ def get_load_balancer(id=None,name=None,with_selector=None,opts=None):
     import pulumi_hcloud as hcloud
 
     lb1 = hcloud.get_load_balancer(name="my-load-balancer")
-    lb2 = hcloud.get_load_balancer(id="123")
+    lb2 = hcloud.get_load_balancer(id=123)
     lb3 = hcloud.get_load_balancer(with_selector="key=value")
     ```
+
+
+    :param float id: ID of the Load Balancer.
+    :param str name: Name of the Load Balancer.
+    :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     __args__['name'] = name
     __args__['withSelector'] = with_selector
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getLoadBalancer:getLoadBalancer', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
 
     return AwaitableGetLoadBalancerResult(
-        algorithm=__ret__.get('algorithm'),
-        id=__ret__.get('id'),
-        ipv4=__ret__.get('ipv4'),
-        ipv6=__ret__.get('ipv6'),
-        labels=__ret__.get('labels'),
-        load_balancer_type=__ret__.get('loadBalancerType'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        network_zone=__ret__.get('networkZone'),
-        services=__ret__.get('services'),
-        targets=__ret__.get('targets'),
-        with_selector=__ret__.get('withSelector'))
+        algorithm=__ret__.algorithm,
+        id=__ret__.id,
+        ipv4=__ret__.ipv4,
+        ipv6=__ret__.ipv6,
+        labels=__ret__.labels,
+        load_balancer_type=__ret__.load_balancer_type,
+        location=__ret__.location,
+        name=__ret__.name,
+        network_zone=__ret__.network_zone,
+        services=__ret__.services,
+        targets=__ret__.targets,
+        with_selector=__ret__.with_selector)

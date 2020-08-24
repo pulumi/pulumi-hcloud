@@ -12,21 +12,39 @@ namespace Pulumi.HCloud.Inputs
 
     public sealed class LoadBalancerServiceHealthCheckArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// List of http configurations. Required if `protocol` is `http`.
+        /// </summary>
         [Input("http")]
         public Input<Inputs.LoadBalancerServiceHealthCheckHttpArgs>? Http { get; set; }
 
+        /// <summary>
+        /// Interval how often the health check will be performed, in seconds. Default: `15`
+        /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
 
+        /// <summary>
+        /// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// Protocol the health check uses. `http` or `tcp`
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+        /// </summary>
         [Input("retries")]
         public Input<int>? Retries { get; set; }
 
+        /// <summary>
+        /// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+        /// </summary>
         [Input("timeout", required: true)]
         public Input<int> Timeout { get; set; } = null!;
 

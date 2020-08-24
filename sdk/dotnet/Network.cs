@@ -33,12 +33,21 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class Network : Pulumi.CustomResource
     {
+        /// <summary>
+        /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+        /// </summary>
         [Output("ipRange")]
         public Output<string> IpRange { get; private set; } = null!;
 
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Network to create (must be unique per project).
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -88,17 +97,27 @@ namespace Pulumi.HCloud
 
     public sealed class NetworkArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+        /// </summary>
         [Input("ipRange", required: true)]
         public Input<string> IpRange { get; set; } = null!;
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Network to create (must be unique per project).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -109,17 +128,27 @@ namespace Pulumi.HCloud
 
     public sealed class NetworkState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+        /// </summary>
         [Input("ipRange")]
         public Input<string>? IpRange { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Network to create (must be unique per project).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -51,15 +51,27 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class LoadBalancerNetwork : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Enable or disable the Load Balancers public interface. Default: `true`
+        /// </summary>
         [Output("enablePublicInterface")]
         public Output<bool?> EnablePublicInterface { get; private set; } = null!;
 
+        /// <summary>
+        /// IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        /// </summary>
         [Output("ip")]
         public Output<string> Ip { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the Load Balancer.
+        /// </summary>
         [Output("loadBalancerId")]
         public Output<int> LoadBalancerId { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the network which should be added to the Load Balancer.
+        /// </summary>
         [Output("networkId")]
         public Output<int> NetworkId { get; private set; } = null!;
 
@@ -109,15 +121,27 @@ namespace Pulumi.HCloud
 
     public sealed class LoadBalancerNetworkArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable or disable the Load Balancers public interface. Default: `true`
+        /// </summary>
         [Input("enablePublicInterface")]
         public Input<bool>? EnablePublicInterface { get; set; }
 
+        /// <summary>
+        /// IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
+        /// <summary>
+        /// ID of the Load Balancer.
+        /// </summary>
         [Input("loadBalancerId", required: true)]
         public Input<int> LoadBalancerId { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the network which should be added to the Load Balancer.
+        /// </summary>
         [Input("networkId", required: true)]
         public Input<int> NetworkId { get; set; } = null!;
 
@@ -128,15 +152,27 @@ namespace Pulumi.HCloud
 
     public sealed class LoadBalancerNetworkState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable or disable the Load Balancers public interface. Default: `true`
+        /// </summary>
         [Input("enablePublicInterface")]
         public Input<bool>? EnablePublicInterface { get; set; }
 
+        /// <summary>
+        /// IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
+        /// <summary>
+        /// ID of the Load Balancer.
+        /// </summary>
         [Input("loadBalancerId")]
         public Input<int>? LoadBalancerId { get; set; }
 
+        /// <summary>
+        /// ID of the network which should be added to the Load Balancer.
+        /// </summary>
         [Input("networkId")]
         public Input<int>? NetworkId { get; set; }
 

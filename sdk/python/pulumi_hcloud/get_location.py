@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetLocationResult',
+    'AwaitableGetLocationResult',
+    'get_location',
+]
+
+@pulumi.output_type
 class GetLocationResult:
     """
     A collection of values returned by getLocation.
@@ -15,25 +22,83 @@ class GetLocationResult:
     def __init__(__self__, city=None, country=None, description=None, id=None, latitude=None, longitude=None, name=None):
         if city and not isinstance(city, str):
             raise TypeError("Expected argument 'city' to be a str")
-        __self__.city = city
+        pulumi.set(__self__, "city", city)
         if country and not isinstance(country, str):
             raise TypeError("Expected argument 'country' to be a str")
-        __self__.country = country
+        pulumi.set(__self__, "country", country)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, float):
             raise TypeError("Expected argument 'id' to be a float")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
         if latitude and not isinstance(latitude, float):
             raise TypeError("Expected argument 'latitude' to be a float")
-        __self__.latitude = latitude
+        pulumi.set(__self__, "latitude", latitude)
         if longitude and not isinstance(longitude, float):
             raise TypeError("Expected argument 'longitude' to be a float")
-        __self__.longitude = longitude
+        pulumi.set(__self__, "longitude", longitude)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def city(self) -> str:
+        """
+        (string) City of the location.
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter
+    def country(self) -> str:
+        """
+        (string) Country of the location.
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        (string) Description of the location.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> float:
+        """
+        (int) Unique ID of the location.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> float:
+        """
+        (float) Latitude of the city.
+        """
+        return pulumi.get(self, "latitude")
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> float:
+        """
+        (float) Longitude of the city.
+        """
+        return pulumi.get(self, "longitude")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        (string) Name of the location.
+        """
+        return pulumi.get(self, "name")
+
+
 class AwaitableGetLocationResult(GetLocationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -48,7 +113,10 @@ class AwaitableGetLocationResult(GetLocationResult):
             longitude=self.longitude,
             name=self.name)
 
-def get_location(id=None,name=None,opts=None):
+
+def get_location(id: Optional[float] = None,
+                 name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationResult:
     """
     Provides details about a specific Hetzner Cloud Location.
     Use this resource to get detailed information about specific location.
@@ -62,23 +130,25 @@ def get_location(id=None,name=None,opts=None):
     l1 = hcloud.get_location(name="fsn1")
     l2 = hcloud.get_location(id=1)
     ```
+
+
+    :param float id: ID of the location.
+    :param str name: Name of the location.
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getLocation:getLocation', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult).value
 
     return AwaitableGetLocationResult(
-        city=__ret__.get('city'),
-        country=__ret__.get('country'),
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        latitude=__ret__.get('latitude'),
-        longitude=__ret__.get('longitude'),
-        name=__ret__.get('name'))
+        city=__ret__.city,
+        country=__ret__.country,
+        description=__ret__.description,
+        id=__ret__.id,
+        latitude=__ret__.latitude,
+        longitude=__ret__.longitude,
+        name=__ret__.name)

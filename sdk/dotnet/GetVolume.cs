@@ -18,12 +18,18 @@ namespace Pulumi.HCloud
 
     public sealed class GetVolumeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the volume.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
         [Input("location")]
         public string? Location { get; set; }
 
+        /// <summary>
+        /// Name of the volume.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -33,11 +39,18 @@ namespace Pulumi.HCloud
         [Input("server")]
         public string? Server { get; set; }
 
+        /// <summary>
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
 
         [Input("withStatuses")]
         private List<string>? _withStatuses;
+
+        /// <summary>
+        /// List only volumes with the specified status, could contain `creating` or `available`.
+        /// </summary>
         public List<string> WithStatuses
         {
             get => _withStatuses ?? (_withStatuses = new List<string>());
@@ -53,13 +66,22 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetVolumeResult
     {
+        /// <summary>
+        /// Unique ID of the volume.
+        /// </summary>
         public readonly int? Id;
         public readonly ImmutableDictionary<string, object> Labels;
         public readonly string LinuxDevice;
         public readonly string? Location;
+        /// <summary>
+        /// Name of the volume.
+        /// </summary>
         public readonly string Name;
         public readonly string? Selector;
         public readonly string? Server;
+        /// <summary>
+        /// Size of the volume.
+        /// </summary>
         public readonly int Size;
         public readonly string? WithSelector;
         public readonly ImmutableArray<string> WithStatuses;

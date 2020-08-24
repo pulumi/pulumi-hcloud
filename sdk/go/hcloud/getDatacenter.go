@@ -51,16 +51,24 @@ func GetDatacenter(ctx *pulumi.Context, args *GetDatacenterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getDatacenter.
 type GetDatacenterArgs struct {
-	Id   *int    `pulumi:"id"`
+	// ID of the datacenter.
+	Id *int `pulumi:"id"`
+	// Name of the datacenter.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getDatacenter.
 type GetDatacenterResult struct {
-	AvailableServerTypeIds []int                  `pulumi:"availableServerTypeIds"`
-	Description            string                 `pulumi:"description"`
-	Id                     int                    `pulumi:"id"`
-	Location               map[string]interface{} `pulumi:"location"`
-	Name                   string                 `pulumi:"name"`
-	SupportedServerTypeIds []int                  `pulumi:"supportedServerTypeIds"`
+	// (list) List of available server types.
+	AvailableServerTypeIds []int `pulumi:"availableServerTypeIds"`
+	// (string) Description of the datacenter.
+	Description string `pulumi:"description"`
+	// (int) Unique ID of the datacenter.
+	Id int `pulumi:"id"`
+	// (map) Physical datacenter location.
+	Location map[string]interface{} `pulumi:"location"`
+	// (string) Name of the datacenter.
+	Name string `pulumi:"name"`
+	// (list) List of server types supported by the datacenter.
+	SupportedServerTypeIds []int `pulumi:"supportedServerTypeIds"`
 }

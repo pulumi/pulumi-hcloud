@@ -49,9 +49,15 @@ namespace Pulumi.HCloud
 
     public sealed class GetDatacenterArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the datacenter.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// Name of the datacenter.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -64,11 +70,29 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetDatacenterResult
     {
+        /// <summary>
+        /// (list) List of available server types.
+        /// </summary>
         public readonly ImmutableArray<int> AvailableServerTypeIds;
+        /// <summary>
+        /// (string) Description of the datacenter.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// (int) Unique ID of the datacenter.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// (map) Physical datacenter location.
+        /// </summary>
         public readonly ImmutableDictionary<string, object> Location;
+        /// <summary>
+        /// (string) Name of the datacenter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// (list) List of server types supported by the datacenter.
+        /// </summary>
         public readonly ImmutableArray<int> SupportedServerTypeIds;
 
         [OutputConstructor]

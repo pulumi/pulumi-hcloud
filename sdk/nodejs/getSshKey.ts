@@ -28,13 +28,25 @@ export function getSshKey(args?: GetSshKeyArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getSshKey.
  */
 export interface GetSshKeyArgs {
+    /**
+     * Fingerprint of the SSH Key.
+     */
     readonly fingerprint?: string;
+    /**
+     * ID of the SSH Key.
+     */
     readonly id?: number;
+    /**
+     * Name of the SSH Key.
+     */
     readonly name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
     readonly selector?: string;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
     readonly withSelector?: string;
 }
 
@@ -42,10 +54,22 @@ export interface GetSshKeyArgs {
  * A collection of values returned by getSshKey.
  */
 export interface GetSshKeyResult {
+    /**
+     * (string) Fingerprint of the SSH Key.
+     */
     readonly fingerprint: string;
+    /**
+     * (int) Unique ID of the SSH Key.
+     */
     readonly id?: number;
     readonly labels: {[key: string]: any};
+    /**
+     * (string) Name of the SSH Key.
+     */
     readonly name: string;
+    /**
+     * (string) Public Key of the SSH Key.
+     */
     readonly publicKey: string;
     /**
      * @deprecated Please use the with_selector property instead.

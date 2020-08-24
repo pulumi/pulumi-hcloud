@@ -54,9 +54,12 @@ import (
 type VolumeAttachment struct {
 	pulumi.CustomResourceState
 
+	// Automount the volume upon attaching it.
 	Automount pulumi.BoolOutput `pulumi:"automount"`
-	ServerId  pulumi.IntOutput  `pulumi:"serverId"`
-	VolumeId  pulumi.IntOutput  `pulumi:"volumeId"`
+	// Server to attach the Volume to.
+	ServerId pulumi.IntOutput `pulumi:"serverId"`
+	// ID of the Volume.
+	VolumeId pulumi.IntOutput `pulumi:"volumeId"`
 }
 
 // NewVolumeAttachment registers a new resource with the given unique name, arguments, and options.
@@ -93,15 +96,21 @@ func GetVolumeAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VolumeAttachment resources.
 type volumeAttachmentState struct {
+	// Automount the volume upon attaching it.
 	Automount *bool `pulumi:"automount"`
-	ServerId  *int  `pulumi:"serverId"`
-	VolumeId  *int  `pulumi:"volumeId"`
+	// Server to attach the Volume to.
+	ServerId *int `pulumi:"serverId"`
+	// ID of the Volume.
+	VolumeId *int `pulumi:"volumeId"`
 }
 
 type VolumeAttachmentState struct {
+	// Automount the volume upon attaching it.
 	Automount pulumi.BoolPtrInput
-	ServerId  pulumi.IntPtrInput
-	VolumeId  pulumi.IntPtrInput
+	// Server to attach the Volume to.
+	ServerId pulumi.IntPtrInput
+	// ID of the Volume.
+	VolumeId pulumi.IntPtrInput
 }
 
 func (VolumeAttachmentState) ElementType() reflect.Type {
@@ -109,16 +118,22 @@ func (VolumeAttachmentState) ElementType() reflect.Type {
 }
 
 type volumeAttachmentArgs struct {
+	// Automount the volume upon attaching it.
 	Automount *bool `pulumi:"automount"`
-	ServerId  int   `pulumi:"serverId"`
-	VolumeId  int   `pulumi:"volumeId"`
+	// Server to attach the Volume to.
+	ServerId int `pulumi:"serverId"`
+	// ID of the Volume.
+	VolumeId int `pulumi:"volumeId"`
 }
 
 // The set of arguments for constructing a VolumeAttachment resource.
 type VolumeAttachmentArgs struct {
+	// Automount the volume upon attaching it.
 	Automount pulumi.BoolPtrInput
-	ServerId  pulumi.IntInput
-	VolumeId  pulumi.IntInput
+	// Server to attach the Volume to.
+	ServerId pulumi.IntInput
+	// ID of the Volume.
+	VolumeId pulumi.IntInput
 }
 
 func (VolumeAttachmentArgs) ElementType() reflect.Type {

@@ -14,30 +14,58 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
+        /// <summary>
+        /// PEM encoded TLS certificate.
+        /// </summary>
         [Output("certificate")]
         public Output<string> CertificateContents { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+        /// </summary>
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
 
+        /// <summary>
+        /// (list) Domains and subdomains covered by the certificate.
+        /// </summary>
         [Output("domainNames")]
         public Output<ImmutableArray<string>> DomainNames { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) Fingerprint of the certificate.
+        /// </summary>
         [Output("fingerprint")]
         public Output<string> Fingerprint { get; private set; } = null!;
 
+        /// <summary>
+        /// User-defined labels (key-value pairs) the
+        /// certificate should be created with.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Certificate.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+        /// </summary>
         [Output("notValidAfter")]
         public Output<string> NotValidAfter { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+        /// </summary>
         [Output("notValidBefore")]
         public Output<string> NotValidBefore { get; private set; } = null!;
 
+        /// <summary>
+        /// PEM encoded private key belonging to the certificate.
+        /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
 
@@ -87,20 +115,34 @@ namespace Pulumi.HCloud
 
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// PEM encoded TLS certificate.
+        /// </summary>
         [Input("certificate", required: true)]
         public Input<string> CertificateContents { get; set; } = null!;
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) the
+        /// certificate should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Certificate.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// PEM encoded private key belonging to the certificate.
+        /// </summary>
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
@@ -111,40 +153,70 @@ namespace Pulumi.HCloud
 
     public sealed class CertificateState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// PEM encoded TLS certificate.
+        /// </summary>
         [Input("certificate")]
         public Input<string>? CertificateContents { get; set; }
 
+        /// <summary>
+        /// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+        /// </summary>
         [Input("created")]
         public Input<string>? Created { get; set; }
 
         [Input("domainNames")]
         private InputList<string>? _domainNames;
+
+        /// <summary>
+        /// (list) Domains and subdomains covered by the certificate.
+        /// </summary>
         public InputList<string> DomainNames
         {
             get => _domainNames ?? (_domainNames = new InputList<string>());
             set => _domainNames = value;
         }
 
+        /// <summary>
+        /// (string) Fingerprint of the certificate.
+        /// </summary>
         [Input("fingerprint")]
         public Input<string>? Fingerprint { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) the
+        /// certificate should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Certificate.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+        /// </summary>
         [Input("notValidAfter")]
         public Input<string>? NotValidAfter { get; set; }
 
+        /// <summary>
+        /// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+        /// </summary>
         [Input("notValidBefore")]
         public Input<string>? NotValidBefore { get; set; }
 
+        /// <summary>
+        /// PEM encoded private key belonging to the certificate.
+        /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
