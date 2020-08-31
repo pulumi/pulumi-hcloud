@@ -67,23 +67,28 @@ func LookupFloatingIp(ctx *pulumi.Context, args *LookupFloatingIpArgs, opts ...p
 
 // A collection of arguments for invoking getFloatingIp.
 type LookupFloatingIpArgs struct {
-	Id        *int    `pulumi:"id"`
+	// (int) Unique ID of the Floating IP.
+	Id *int `pulumi:"id"`
+	// IP address of the Floating IP.
 	IpAddress *string `pulumi:"ipAddress"`
 	Name      *string `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
-	Selector     *string `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
 // A collection of values returned by getFloatingIp.
 type LookupFloatingIpResult struct {
-	Description  string                 `pulumi:"description"`
-	HomeLocation string                 `pulumi:"homeLocation"`
-	Id           *int                   `pulumi:"id"`
-	IpAddress    string                 `pulumi:"ipAddress"`
-	IpNetwork    string                 `pulumi:"ipNetwork"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	Name         *string                `pulumi:"name"`
+	Description  string `pulumi:"description"`
+	HomeLocation string `pulumi:"homeLocation"`
+	// (int) Unique ID of the Floating IP.
+	Id *int `pulumi:"id"`
+	// (string) IP address of the Floating IP.
+	IpAddress string                 `pulumi:"ipAddress"`
+	IpNetwork string                 `pulumi:"ipNetwork"`
+	Labels    map[string]interface{} `pulumi:"labels"`
+	Name      *string                `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector     *string `pulumi:"selector"`
 	ServerId     int     `pulumi:"serverId"`

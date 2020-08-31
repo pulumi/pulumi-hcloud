@@ -29,8 +29,17 @@ export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateArgs {
+    /**
+     * ID of the certificate.
+     */
     readonly id?: number;
+    /**
+     * Name of the certificate.
+     */
     readonly name?: string;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
     readonly withSelector?: string;
 }
 
@@ -38,14 +47,41 @@ export interface GetCertificateArgs {
  * A collection of values returned by getCertificate.
  */
 export interface GetCertificateResult {
+    /**
+     * (string) PEM encoded TLS certificate.
+     */
     readonly certificate: string;
+    /**
+     * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+     */
     readonly created: string;
+    /**
+     * (list) Domains and subdomains covered by the certificate.
+     */
     readonly domainNames: string[];
+    /**
+     * (string) Fingerprint of the certificate.
+     */
     readonly fingerprint: string;
+    /**
+     * (int) Unique ID of the certificate.
+     */
     readonly id?: number;
+    /**
+     * (map) User-defined labels (key-value pairs) assigned to the certificate.
+     */
     readonly labels: {[key: string]: any};
+    /**
+     * (string) Name of the Certificate.
+     */
     readonly name?: string;
+    /**
+     * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+     */
     readonly notValidAfter: string;
+    /**
+     * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+     */
     readonly notValidBefore: string;
     readonly withSelector?: string;
 }

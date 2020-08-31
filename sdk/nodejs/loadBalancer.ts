@@ -57,16 +57,43 @@ export class LoadBalancer extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancer.__pulumiType;
     }
 
+    /**
+     * Configuration of the algorithm the Load Balancer use.
+     */
     public readonly algorithm!: pulumi.Output<outputs.LoadBalancerAlgorithm>;
+    /**
+     * (string) IPv4 Address of the Load Balancer.
+     */
     public /*out*/ readonly ipv4!: pulumi.Output<string>;
+    /**
+     * (string) IPv4 Address of the Load Balancer.
+     */
     public /*out*/ readonly ipv6!: pulumi.Output<string>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Type of the Load Balancer.
+     */
     public readonly loadBalancerType!: pulumi.Output<string>;
+    /**
+     * Location of the Load Balancer. Require when no networkZone is set.
+     */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Name of the Load Balancer.
+     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly networkId!: pulumi.Output<number>;
     public /*out*/ readonly networkIp!: pulumi.Output<string>;
+    /**
+     * Network Zone of the Load Balancer. Require when no location is set.
+     */
     public readonly networkZone!: pulumi.Output<string>;
+    /**
+     * List of targets of the Load Balancer.
+     */
     public readonly targets!: pulumi.Output<outputs.LoadBalancerTarget[]>;
 
     /**
@@ -124,16 +151,43 @@ export class LoadBalancer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoadBalancer resources.
  */
 export interface LoadBalancerState {
+    /**
+     * Configuration of the algorithm the Load Balancer use.
+     */
     readonly algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm>;
+    /**
+     * (string) IPv4 Address of the Load Balancer.
+     */
     readonly ipv4?: pulumi.Input<string>;
+    /**
+     * (string) IPv4 Address of the Load Balancer.
+     */
     readonly ipv6?: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Type of the Load Balancer.
+     */
     readonly loadBalancerType?: pulumi.Input<string>;
+    /**
+     * Location of the Load Balancer. Require when no networkZone is set.
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Name of the Load Balancer.
+     */
     readonly name?: pulumi.Input<string>;
     readonly networkId?: pulumi.Input<number>;
     readonly networkIp?: pulumi.Input<string>;
+    /**
+     * Network Zone of the Load Balancer. Require when no location is set.
+     */
     readonly networkZone?: pulumi.Input<string>;
+    /**
+     * List of targets of the Load Balancer.
+     */
     readonly targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[]>;
 }
 
@@ -141,11 +195,32 @@ export interface LoadBalancerState {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
+    /**
+     * Configuration of the algorithm the Load Balancer use.
+     */
     readonly algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Type of the Load Balancer.
+     */
     readonly loadBalancerType: pulumi.Input<string>;
+    /**
+     * Location of the Load Balancer. Require when no networkZone is set.
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Name of the Load Balancer.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Network Zone of the Load Balancer. Require when no location is set.
+     */
     readonly networkZone?: pulumi.Input<string>;
+    /**
+     * List of targets of the Load Balancer.
+     */
     readonly targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[]>;
 }

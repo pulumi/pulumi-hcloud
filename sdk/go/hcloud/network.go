@@ -37,9 +37,12 @@ import (
 type Network struct {
 	pulumi.CustomResourceState
 
+	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringOutput `pulumi:"ipRange"`
-	Labels  pulumi.MapOutput    `pulumi:"labels"`
-	Name    pulumi.StringOutput `pulumi:"name"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapOutput `pulumi:"labels"`
+	// Name of the Network to create (must be unique per project).
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewNetwork registers a new resource with the given unique name, arguments, and options.
@@ -73,15 +76,21 @@ func GetNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Network resources.
 type networkState struct {
-	IpRange *string                `pulumi:"ipRange"`
-	Labels  map[string]interface{} `pulumi:"labels"`
-	Name    *string                `pulumi:"name"`
+	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+	IpRange *string `pulumi:"ipRange"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Name of the Network to create (must be unique per project).
+	Name *string `pulumi:"name"`
 }
 
 type NetworkState struct {
+	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringPtrInput
-	Labels  pulumi.MapInput
-	Name    pulumi.StringPtrInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// Name of the Network to create (must be unique per project).
+	Name pulumi.StringPtrInput
 }
 
 func (NetworkState) ElementType() reflect.Type {
@@ -89,16 +98,22 @@ func (NetworkState) ElementType() reflect.Type {
 }
 
 type networkArgs struct {
-	IpRange string                 `pulumi:"ipRange"`
-	Labels  map[string]interface{} `pulumi:"labels"`
-	Name    *string                `pulumi:"name"`
+	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+	IpRange string `pulumi:"ipRange"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Name of the Network to create (must be unique per project).
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Network resource.
 type NetworkArgs struct {
+	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringInput
-	Labels  pulumi.MapInput
-	Name    pulumi.StringPtrInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// Name of the Network to create (must be unique per project).
+	Name pulumi.StringPtrInput
 }
 
 func (NetworkArgs) ElementType() reflect.Type {

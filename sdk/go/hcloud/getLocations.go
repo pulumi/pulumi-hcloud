@@ -20,14 +20,18 @@ func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsArgs struct {
+	// (list) List of unique location identifiers.
 	LocationIds []string `pulumi:"locationIds"`
 }
 
 // A collection of values returned by getLocations.
 type GetLocationsResult struct {
+	// (list) List of all location descriptions.
 	Descriptions []string `pulumi:"descriptions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// (list) List of unique location identifiers.
 	LocationIds []string `pulumi:"locationIds"`
-	Names       []string `pulumi:"names"`
+	// (list) List of location names.
+	Names []string `pulumi:"names"`
 }

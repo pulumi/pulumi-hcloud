@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetServerResult',
+    'AwaitableGetServerResult',
+    'get_server',
+]
+
+@pulumi.output_type
 class GetServerResult:
     """
     A collection of values returned by getServer.
@@ -15,62 +22,196 @@ class GetServerResult:
     def __init__(__self__, backup_window=None, backups=None, datacenter=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
         if backup_window and not isinstance(backup_window, str):
             raise TypeError("Expected argument 'backup_window' to be a str")
-        __self__.backup_window = backup_window
+        pulumi.set(__self__, "backup_window", backup_window)
         if backups and not isinstance(backups, bool):
             raise TypeError("Expected argument 'backups' to be a bool")
-        __self__.backups = backups
+        pulumi.set(__self__, "backups", backups)
         if datacenter and not isinstance(datacenter, str):
             raise TypeError("Expected argument 'datacenter' to be a str")
-        __self__.datacenter = datacenter
+        pulumi.set(__self__, "datacenter", datacenter)
         if id and not isinstance(id, float):
             raise TypeError("Expected argument 'id' to be a float")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
         if image and not isinstance(image, str):
             raise TypeError("Expected argument 'image' to be a str")
-        __self__.image = image
+        pulumi.set(__self__, "image", image)
         if ipv4_address and not isinstance(ipv4_address, str):
             raise TypeError("Expected argument 'ipv4_address' to be a str")
-        __self__.ipv4_address = ipv4_address
+        pulumi.set(__self__, "ipv4_address", ipv4_address)
         if ipv6_address and not isinstance(ipv6_address, str):
             raise TypeError("Expected argument 'ipv6_address' to be a str")
-        __self__.ipv6_address = ipv6_address
+        pulumi.set(__self__, "ipv6_address", ipv6_address)
         if ipv6_network and not isinstance(ipv6_network, str):
             raise TypeError("Expected argument 'ipv6_network' to be a str")
-        __self__.ipv6_network = ipv6_network
+        pulumi.set(__self__, "ipv6_network", ipv6_network)
         if iso and not isinstance(iso, str):
             raise TypeError("Expected argument 'iso' to be a str")
-        __self__.iso = iso
+        pulumi.set(__self__, "iso", iso)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
-        __self__.labels = labels
+        pulumi.set(__self__, "labels", labels)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
         if rescue and not isinstance(rescue, str):
             raise TypeError("Expected argument 'rescue' to be a str")
-        __self__.rescue = rescue
+        pulumi.set(__self__, "rescue", rescue)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
         if selector is not None:
             warnings.warn("Please use the with_selector property instead.", DeprecationWarning)
             pulumi.log.warn("selector is deprecated: Please use the with_selector property instead.")
 
-        __self__.selector = selector
+        pulumi.set(__self__, "selector", selector)
         if server_type and not isinstance(server_type, str):
             raise TypeError("Expected argument 'server_type' to be a str")
-        __self__.server_type = server_type
+        pulumi.set(__self__, "server_type", server_type)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        pulumi.set(__self__, "status", status)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
-        __self__.with_selector = with_selector
+        pulumi.set(__self__, "with_selector", with_selector)
         if with_statuses and not isinstance(with_statuses, list):
             raise TypeError("Expected argument 'with_statuses' to be a list")
-        __self__.with_statuses = with_statuses
+        pulumi.set(__self__, "with_statuses", with_statuses)
+
+    @property
+    @pulumi.getter(name="backupWindow")
+    def backup_window(self) -> str:
+        """
+        (string) The backup window of the server, if enabled.
+        """
+        return pulumi.get(self, "backup_window")
+
+    @property
+    @pulumi.getter
+    def backups(self) -> bool:
+        """
+        (boolean) Whether backups are enabled.
+        """
+        return pulumi.get(self, "backups")
+
+    @property
+    @pulumi.getter
+    def datacenter(self) -> str:
+        """
+        (string) The datacenter name.
+        """
+        return pulumi.get(self, "datacenter")
+
+    @property
+    @pulumi.getter
+    def id(self) -> float:
+        """
+        (int) Unique ID of the server.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        (string) Name or ID of the image the server was created from.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> str:
+        """
+        (string) The IPv4 address.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> str:
+        """
+        (string) The first IPv6 address of the assigned network.
+        """
+        return pulumi.get(self, "ipv6_address")
+
+    @property
+    @pulumi.getter(name="ipv6Network")
+    def ipv6_network(self) -> str:
+        """
+        (string) The IPv6 network.
+        """
+        return pulumi.get(self, "ipv6_network")
+
+    @property
+    @pulumi.getter
+    def iso(self) -> str:
+        """
+        (string) ID or Name of the mounted ISO image.
+        """
+        return pulumi.get(self, "iso")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Any]:
+        """
+        (map) User-defined labels (key-value pairs)
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        (string) The location name.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        (string) Name of the server.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rescue(self) -> str:
+        return pulumi.get(self, "rescue")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter(name="serverType")
+    def server_type(self) -> str:
+        """
+        (string) Name of the server type.
+        """
+        return pulumi.get(self, "server_type")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        (string) The status of the server.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="withSelector")
+    def with_selector(self) -> Optional[str]:
+        return pulumi.get(self, "with_selector")
+
+    @property
+    @pulumi.getter(name="withStatuses")
+    def with_statuses(self) -> Optional[List[str]]:
+        return pulumi.get(self, "with_statuses")
+
+
 class AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -96,13 +237,22 @@ class AwaitableGetServerResult(GetServerResult):
             with_selector=self.with_selector,
             with_statuses=self.with_statuses)
 
-def get_server(id=None,name=None,selector=None,with_selector=None,with_statuses=None,opts=None):
+
+def get_server(id: Optional[float] = None,
+               name: Optional[str] = None,
+               selector: Optional[str] = None,
+               with_selector: Optional[str] = None,
+               with_statuses: Optional[List[str]] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param float id: ID of the server.
+    :param str name: Name of the server.
+    :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param List[str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     __args__['name'] = name
     __args__['selector'] = selector
@@ -111,25 +261,25 @@ def get_server(id=None,name=None,selector=None,with_selector=None,with_statuses=
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getServer:getServer', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getServer:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        backup_window=__ret__.get('backupWindow'),
-        backups=__ret__.get('backups'),
-        datacenter=__ret__.get('datacenter'),
-        id=__ret__.get('id'),
-        image=__ret__.get('image'),
-        ipv4_address=__ret__.get('ipv4Address'),
-        ipv6_address=__ret__.get('ipv6Address'),
-        ipv6_network=__ret__.get('ipv6Network'),
-        iso=__ret__.get('iso'),
-        labels=__ret__.get('labels'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        rescue=__ret__.get('rescue'),
-        selector=__ret__.get('selector'),
-        server_type=__ret__.get('serverType'),
-        status=__ret__.get('status'),
-        with_selector=__ret__.get('withSelector'),
-        with_statuses=__ret__.get('withStatuses'))
+        backup_window=__ret__.backup_window,
+        backups=__ret__.backups,
+        datacenter=__ret__.datacenter,
+        id=__ret__.id,
+        image=__ret__.image,
+        ipv4_address=__ret__.ipv4_address,
+        ipv6_address=__ret__.ipv6_address,
+        ipv6_network=__ret__.ipv6_network,
+        iso=__ret__.iso,
+        labels=__ret__.labels,
+        location=__ret__.location,
+        name=__ret__.name,
+        rescue=__ret__.rescue,
+        selector=__ret__.selector,
+        server_type=__ret__.server_type,
+        status=__ret__.status,
+        with_selector=__ret__.with_selector,
+        with_statuses=__ret__.with_statuses)

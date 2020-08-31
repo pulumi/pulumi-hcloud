@@ -46,8 +46,17 @@ export class Network extends pulumi.CustomResource {
         return obj['__pulumiType'] === Network.__pulumiType;
     }
 
+    /**
+     * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+     */
     public readonly ipRange!: pulumi.Output<string>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Name of the Network to create (must be unique per project).
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -89,8 +98,17 @@ export class Network extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Network resources.
  */
 export interface NetworkState {
+    /**
+     * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+     */
     readonly ipRange?: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Network to create (must be unique per project).
+     */
     readonly name?: pulumi.Input<string>;
 }
 
@@ -98,7 +116,16 @@ export interface NetworkState {
  * The set of arguments for constructing a Network resource.
  */
 export interface NetworkArgs {
+    /**
+     * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+     */
     readonly ipRange: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Network to create (must be unique per project).
+     */
     readonly name?: pulumi.Input<string>;
 }

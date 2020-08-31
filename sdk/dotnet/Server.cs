@@ -11,54 +11,105 @@ namespace Pulumi.HCloud
 {
     public partial class Server : Pulumi.CustomResource
     {
+        /// <summary>
+        /// (string) The backup window of the server, if enabled.
+        /// </summary>
         [Output("backupWindow")]
         public Output<string> BackupWindow { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable or disable backups.
+        /// </summary>
         [Output("backups")]
         public Output<bool?> Backups { get; private set; } = null!;
 
+        /// <summary>
+        /// The datacenter name to create the server in.
+        /// </summary>
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
 
+        /// <summary>
+        /// Name or ID of the image the server is created from.
+        /// </summary>
         [Output("image")]
         public Output<string> Image { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) The IPv4 address.
+        /// </summary>
         [Output("ipv4Address")]
         public Output<string> Ipv4Address { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) The first IPv6 address of the assigned network.
+        /// </summary>
         [Output("ipv6Address")]
         public Output<string> Ipv6Address { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) The IPv6 network.
+        /// </summary>
         [Output("ipv6Network")]
         public Output<string> Ipv6Network { get; private set; } = null!;
 
+        /// <summary>
+        /// ID or Name of an ISO image to mount.
+        /// </summary>
         [Output("iso")]
         public Output<string?> Iso { get; private set; } = null!;
 
+        /// <summary>
+        /// If true, do not upgrade the disk. This allows downgrading the server type later.
+        /// </summary>
         [Output("keepDisk")]
         public Output<bool?> KeepDisk { get; private set; } = null!;
 
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        /// </summary>
         [Output("rescue")]
         public Output<string?> Rescue { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the server type this server should be created with.
+        /// </summary>
         [Output("serverType")]
         public Output<string> ServerType { get; private set; } = null!;
 
+        /// <summary>
+        /// SSH key IDs or names which should be injected into the server at creation time
+        /// </summary>
         [Output("sshKeys")]
         public Output<ImmutableArray<string>> SshKeys { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) The status of the server.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Cloud-Init user data to use during server creation
+        /// </summary>
         [Output("userData")]
         public Output<string?> UserData { get; private set; } = null!;
 
@@ -108,49 +159,87 @@ namespace Pulumi.HCloud
 
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable or disable backups.
+        /// </summary>
         [Input("backups")]
         public Input<bool>? Backups { get; set; }
 
+        /// <summary>
+        /// The datacenter name to create the server in.
+        /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
+        /// <summary>
+        /// Name or ID of the image the server is created from.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// ID or Name of an ISO image to mount.
+        /// </summary>
         [Input("iso")]
         public Input<string>? Iso { get; set; }
 
+        /// <summary>
+        /// If true, do not upgrade the disk. This allows downgrading the server type later.
+        /// </summary>
         [Input("keepDisk")]
         public Input<bool>? KeepDisk { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        /// </summary>
         [Input("rescue")]
         public Input<string>? Rescue { get; set; }
 
+        /// <summary>
+        /// Name of the server type this server should be created with.
+        /// </summary>
         [Input("serverType", required: true)]
         public Input<string> ServerType { get; set; } = null!;
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// SSH key IDs or names which should be injected into the server at creation time
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// Cloud-Init user data to use during server creation
+        /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
@@ -161,64 +250,117 @@ namespace Pulumi.HCloud
 
     public sealed class ServerState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (string) The backup window of the server, if enabled.
+        /// </summary>
         [Input("backupWindow")]
         public Input<string>? BackupWindow { get; set; }
 
+        /// <summary>
+        /// Enable or disable backups.
+        /// </summary>
         [Input("backups")]
         public Input<bool>? Backups { get; set; }
 
+        /// <summary>
+        /// The datacenter name to create the server in.
+        /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
+        /// <summary>
+        /// Name or ID of the image the server is created from.
+        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 
+        /// <summary>
+        /// (string) The IPv4 address.
+        /// </summary>
         [Input("ipv4Address")]
         public Input<string>? Ipv4Address { get; set; }
 
+        /// <summary>
+        /// (string) The first IPv6 address of the assigned network.
+        /// </summary>
         [Input("ipv6Address")]
         public Input<string>? Ipv6Address { get; set; }
 
+        /// <summary>
+        /// (string) The IPv6 network.
+        /// </summary>
         [Input("ipv6Network")]
         public Input<string>? Ipv6Network { get; set; }
 
+        /// <summary>
+        /// ID or Name of an ISO image to mount.
+        /// </summary>
         [Input("iso")]
         public Input<string>? Iso { get; set; }
 
+        /// <summary>
+        /// If true, do not upgrade the disk. This allows downgrading the server type later.
+        /// </summary>
         [Input("keepDisk")]
         public Input<bool>? KeepDisk { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        /// </summary>
         [Input("rescue")]
         public Input<string>? Rescue { get; set; }
 
+        /// <summary>
+        /// Name of the server type this server should be created with.
+        /// </summary>
         [Input("serverType")]
         public Input<string>? ServerType { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// SSH key IDs or names which should be injected into the server at creation time
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// (string) The status of the server.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// Cloud-Init user data to use during server creation
+        /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 

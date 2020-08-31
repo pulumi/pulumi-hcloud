@@ -57,23 +57,36 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerArgs struct {
-	Id           *int    `pulumi:"id"`
-	Name         *string `pulumi:"name"`
+	// ID of the Load Balancer.
+	Id *int `pulumi:"id"`
+	// Name of the Load Balancer.
+	Name *string `pulumi:"name"`
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 }
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	Algorithm        GetLoadBalancerAlgorithm     `pulumi:"algorithm"`
-	Id               *int                         `pulumi:"id"`
-	Ipv4             string                       `pulumi:"ipv4"`
-	Ipv6             string                       `pulumi:"ipv6"`
-	Labels           map[string]interface{}       `pulumi:"labels"`
-	LoadBalancerType string                       `pulumi:"loadBalancerType"`
-	Location         string                       `pulumi:"location"`
-	Name             *string                      `pulumi:"name"`
-	NetworkZone      string                       `pulumi:"networkZone"`
-	Services         []GetLoadBalancerServiceType `pulumi:"services"`
-	Targets          []GetLoadBalancerTargetType  `pulumi:"targets"`
-	WithSelector     *string                      `pulumi:"withSelector"`
+	// (Optional) Configuration of the algorithm the Load Balancer use.
+	Algorithm GetLoadBalancerAlgorithm `pulumi:"algorithm"`
+	// (int) Unique ID of the Load Balancer.
+	Id *int `pulumi:"id"`
+	// (string) IPv4 Address of the Load Balancer.
+	Ipv4 string `pulumi:"ipv4"`
+	// (string) IPv4 Address of the Load Balancer.
+	Ipv6 string `pulumi:"ipv6"`
+	// (map) User-defined labels (key-value pairs) .
+	Labels map[string]interface{} `pulumi:"labels"`
+	// (string) Name of the Type of the Load Balancer.
+	LoadBalancerType string `pulumi:"loadBalancerType"`
+	// (string) Name of the location the Load Balancer is in.
+	Location string `pulumi:"location"`
+	// (string) Name of the Load Balancer.
+	Name        *string `pulumi:"name"`
+	NetworkZone string  `pulumi:"networkZone"`
+	// (list) List of services a Load Balancer provides.
+	Services []GetLoadBalancerServiceType `pulumi:"services"`
+	// (list) List of targets of the Load Balancer.
+	Targets      []GetLoadBalancerTargetType `pulumi:"targets"`
+	WithSelector *string                     `pulumi:"withSelector"`
 }

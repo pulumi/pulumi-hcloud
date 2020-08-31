@@ -45,9 +45,15 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class FloatingIpAssignment : Pulumi.CustomResource
     {
+        /// <summary>
+        /// ID of the Floating IP.
+        /// </summary>
         [Output("floatingIpId")]
         public Output<int> FloatingIpId { get; private set; } = null!;
 
+        /// <summary>
+        /// Server to assign the Floating IP to.
+        /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
 
@@ -97,9 +103,15 @@ namespace Pulumi.HCloud
 
     public sealed class FloatingIpAssignmentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the Floating IP.
+        /// </summary>
         [Input("floatingIpId", required: true)]
         public Input<int> FloatingIpId { get; set; } = null!;
 
+        /// <summary>
+        /// Server to assign the Floating IP to.
+        /// </summary>
         [Input("serverId", required: true)]
         public Input<int> ServerId { get; set; } = null!;
 
@@ -110,9 +122,15 @@ namespace Pulumi.HCloud
 
     public sealed class FloatingIpAssignmentState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the Floating IP.
+        /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
 
+        /// <summary>
+        /// Server to assign the Floating IP to.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 

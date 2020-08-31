@@ -61,10 +61,22 @@ export class ServerNetwork extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerNetwork.__pulumiType;
     }
 
+    /**
+     * Additional IPs to be assigned to this server.
+     */
     public readonly aliasIps!: pulumi.Output<string[] | undefined>;
+    /**
+     * IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+     */
     public readonly ip!: pulumi.Output<string>;
     public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    /**
+     * ID of the network which should be added to the server.
+     */
     public readonly networkId!: pulumi.Output<number>;
+    /**
+     * ID of the server.
+     */
     public readonly serverId!: pulumi.Output<number>;
 
     /**
@@ -113,10 +125,22 @@ export class ServerNetwork extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServerNetwork resources.
  */
 export interface ServerNetworkState {
+    /**
+     * Additional IPs to be assigned to this server.
+     */
     readonly aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+     */
     readonly ip?: pulumi.Input<string>;
     readonly macAddress?: pulumi.Input<string>;
+    /**
+     * ID of the network which should be added to the server.
+     */
     readonly networkId?: pulumi.Input<number>;
+    /**
+     * ID of the server.
+     */
     readonly serverId?: pulumi.Input<number>;
 }
 
@@ -124,8 +148,20 @@ export interface ServerNetworkState {
  * The set of arguments for constructing a ServerNetwork resource.
  */
 export interface ServerNetworkArgs {
+    /**
+     * Additional IPs to be assigned to this server.
+     */
     readonly aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+     */
     readonly ip?: pulumi.Input<string>;
+    /**
+     * ID of the network which should be added to the server.
+     */
     readonly networkId: pulumi.Input<number>;
+    /**
+     * ID of the server.
+     */
     readonly serverId: pulumi.Input<number>;
 }

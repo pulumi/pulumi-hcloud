@@ -51,18 +51,30 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class ServerNetwork : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional IPs to be assigned to this server.
+        /// </summary>
         [Output("aliasIps")]
         public Output<ImmutableArray<string>> AliasIps { get; private set; } = null!;
 
+        /// <summary>
+        /// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+        /// </summary>
         [Output("ip")]
         public Output<string> Ip { get; private set; } = null!;
 
         [Output("macAddress")]
         public Output<string> MacAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the network which should be added to the server.
+        /// </summary>
         [Output("networkId")]
         public Output<int> NetworkId { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the server.
+        /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
 
@@ -114,18 +126,31 @@ namespace Pulumi.HCloud
     {
         [Input("aliasIps")]
         private InputList<string>? _aliasIps;
+
+        /// <summary>
+        /// Additional IPs to be assigned to this server.
+        /// </summary>
         public InputList<string> AliasIps
         {
             get => _aliasIps ?? (_aliasIps = new InputList<string>());
             set => _aliasIps = value;
         }
 
+        /// <summary>
+        /// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+        /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
+        /// <summary>
+        /// ID of the network which should be added to the server.
+        /// </summary>
         [Input("networkId", required: true)]
         public Input<int> NetworkId { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the server.
+        /// </summary>
         [Input("serverId", required: true)]
         public Input<int> ServerId { get; set; } = null!;
 
@@ -138,21 +163,34 @@ namespace Pulumi.HCloud
     {
         [Input("aliasIps")]
         private InputList<string>? _aliasIps;
+
+        /// <summary>
+        /// Additional IPs to be assigned to this server.
+        /// </summary>
         public InputList<string> AliasIps
         {
             get => _aliasIps ?? (_aliasIps = new InputList<string>());
             set => _aliasIps = value;
         }
 
+        /// <summary>
+        /// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+        /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }
 
+        /// <summary>
+        /// ID of the network which should be added to the server.
+        /// </summary>
         [Input("networkId")]
         public Input<int>? NetworkId { get; set; }
 
+        /// <summary>
+        /// ID of the server.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 

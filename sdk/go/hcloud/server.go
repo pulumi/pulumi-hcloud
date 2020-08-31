@@ -13,24 +13,42 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
+	// (string) The backup window of the server, if enabled.
+	//
 	// Deprecated: You should remove this property from your terraform configuration.
-	BackupWindow pulumi.StringOutput      `pulumi:"backupWindow"`
-	Backups      pulumi.BoolPtrOutput     `pulumi:"backups"`
-	Datacenter   pulumi.StringOutput      `pulumi:"datacenter"`
-	Image        pulumi.StringOutput      `pulumi:"image"`
-	Ipv4Address  pulumi.StringOutput      `pulumi:"ipv4Address"`
-	Ipv6Address  pulumi.StringOutput      `pulumi:"ipv6Address"`
-	Ipv6Network  pulumi.StringOutput      `pulumi:"ipv6Network"`
-	Iso          pulumi.StringPtrOutput   `pulumi:"iso"`
-	KeepDisk     pulumi.BoolPtrOutput     `pulumi:"keepDisk"`
-	Labels       pulumi.MapOutput         `pulumi:"labels"`
-	Location     pulumi.StringOutput      `pulumi:"location"`
-	Name         pulumi.StringOutput      `pulumi:"name"`
-	Rescue       pulumi.StringPtrOutput   `pulumi:"rescue"`
-	ServerType   pulumi.StringOutput      `pulumi:"serverType"`
-	SshKeys      pulumi.StringArrayOutput `pulumi:"sshKeys"`
-	Status       pulumi.StringOutput      `pulumi:"status"`
-	UserData     pulumi.StringPtrOutput   `pulumi:"userData"`
+	BackupWindow pulumi.StringOutput `pulumi:"backupWindow"`
+	// Enable or disable backups.
+	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
+	// The datacenter name to create the server in.
+	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
+	// Name or ID of the image the server is created from.
+	Image pulumi.StringOutput `pulumi:"image"`
+	// (string) The IPv4 address.
+	Ipv4Address pulumi.StringOutput `pulumi:"ipv4Address"`
+	// (string) The first IPv6 address of the assigned network.
+	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
+	// (string) The IPv6 network.
+	Ipv6Network pulumi.StringOutput `pulumi:"ipv6Network"`
+	// ID or Name of an ISO image to mount.
+	Iso pulumi.StringPtrOutput `pulumi:"iso"`
+	// If true, do not upgrade the disk. This allows downgrading the server type later.
+	KeepDisk pulumi.BoolPtrOutput `pulumi:"keepDisk"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapOutput `pulumi:"labels"`
+	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	Location pulumi.StringOutput `pulumi:"location"`
+	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	Rescue pulumi.StringPtrOutput `pulumi:"rescue"`
+	// Name of the server type this server should be created with.
+	ServerType pulumi.StringOutput `pulumi:"serverType"`
+	// SSH key IDs or names which should be injected into the server at creation time
+	SshKeys pulumi.StringArrayOutput `pulumi:"sshKeys"`
+	// (string) The status of the server.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Cloud-Init user data to use during server creation
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -67,45 +85,81 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
+	// (string) The backup window of the server, if enabled.
+	//
 	// Deprecated: You should remove this property from your terraform configuration.
-	BackupWindow *string                `pulumi:"backupWindow"`
-	Backups      *bool                  `pulumi:"backups"`
-	Datacenter   *string                `pulumi:"datacenter"`
-	Image        *string                `pulumi:"image"`
-	Ipv4Address  *string                `pulumi:"ipv4Address"`
-	Ipv6Address  *string                `pulumi:"ipv6Address"`
-	Ipv6Network  *string                `pulumi:"ipv6Network"`
-	Iso          *string                `pulumi:"iso"`
-	KeepDisk     *bool                  `pulumi:"keepDisk"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	Location     *string                `pulumi:"location"`
-	Name         *string                `pulumi:"name"`
-	Rescue       *string                `pulumi:"rescue"`
-	ServerType   *string                `pulumi:"serverType"`
-	SshKeys      []string               `pulumi:"sshKeys"`
-	Status       *string                `pulumi:"status"`
-	UserData     *string                `pulumi:"userData"`
+	BackupWindow *string `pulumi:"backupWindow"`
+	// Enable or disable backups.
+	Backups *bool `pulumi:"backups"`
+	// The datacenter name to create the server in.
+	Datacenter *string `pulumi:"datacenter"`
+	// Name or ID of the image the server is created from.
+	Image *string `pulumi:"image"`
+	// (string) The IPv4 address.
+	Ipv4Address *string `pulumi:"ipv4Address"`
+	// (string) The first IPv6 address of the assigned network.
+	Ipv6Address *string `pulumi:"ipv6Address"`
+	// (string) The IPv6 network.
+	Ipv6Network *string `pulumi:"ipv6Network"`
+	// ID or Name of an ISO image to mount.
+	Iso *string `pulumi:"iso"`
+	// If true, do not upgrade the disk. This allows downgrading the server type later.
+	KeepDisk *bool `pulumi:"keepDisk"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	Location *string `pulumi:"location"`
+	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+	Name *string `pulumi:"name"`
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	Rescue *string `pulumi:"rescue"`
+	// Name of the server type this server should be created with.
+	ServerType *string `pulumi:"serverType"`
+	// SSH key IDs or names which should be injected into the server at creation time
+	SshKeys []string `pulumi:"sshKeys"`
+	// (string) The status of the server.
+	Status *string `pulumi:"status"`
+	// Cloud-Init user data to use during server creation
+	UserData *string `pulumi:"userData"`
 }
 
 type ServerState struct {
+	// (string) The backup window of the server, if enabled.
+	//
 	// Deprecated: You should remove this property from your terraform configuration.
 	BackupWindow pulumi.StringPtrInput
-	Backups      pulumi.BoolPtrInput
-	Datacenter   pulumi.StringPtrInput
-	Image        pulumi.StringPtrInput
-	Ipv4Address  pulumi.StringPtrInput
-	Ipv6Address  pulumi.StringPtrInput
-	Ipv6Network  pulumi.StringPtrInput
-	Iso          pulumi.StringPtrInput
-	KeepDisk     pulumi.BoolPtrInput
-	Labels       pulumi.MapInput
-	Location     pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
-	Rescue       pulumi.StringPtrInput
-	ServerType   pulumi.StringPtrInput
-	SshKeys      pulumi.StringArrayInput
-	Status       pulumi.StringPtrInput
-	UserData     pulumi.StringPtrInput
+	// Enable or disable backups.
+	Backups pulumi.BoolPtrInput
+	// The datacenter name to create the server in.
+	Datacenter pulumi.StringPtrInput
+	// Name or ID of the image the server is created from.
+	Image pulumi.StringPtrInput
+	// (string) The IPv4 address.
+	Ipv4Address pulumi.StringPtrInput
+	// (string) The first IPv6 address of the assigned network.
+	Ipv6Address pulumi.StringPtrInput
+	// (string) The IPv6 network.
+	Ipv6Network pulumi.StringPtrInput
+	// ID or Name of an ISO image to mount.
+	Iso pulumi.StringPtrInput
+	// If true, do not upgrade the disk. This allows downgrading the server type later.
+	KeepDisk pulumi.BoolPtrInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	Location pulumi.StringPtrInput
+	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+	Name pulumi.StringPtrInput
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	Rescue pulumi.StringPtrInput
+	// Name of the server type this server should be created with.
+	ServerType pulumi.StringPtrInput
+	// SSH key IDs or names which should be injected into the server at creation time
+	SshKeys pulumi.StringArrayInput
+	// (string) The status of the server.
+	Status pulumi.StringPtrInput
+	// Cloud-Init user data to use during server creation
+	UserData pulumi.StringPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {
@@ -113,34 +167,58 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	Backups    *bool                  `pulumi:"backups"`
-	Datacenter *string                `pulumi:"datacenter"`
-	Image      string                 `pulumi:"image"`
-	Iso        *string                `pulumi:"iso"`
-	KeepDisk   *bool                  `pulumi:"keepDisk"`
-	Labels     map[string]interface{} `pulumi:"labels"`
-	Location   *string                `pulumi:"location"`
-	Name       *string                `pulumi:"name"`
-	Rescue     *string                `pulumi:"rescue"`
-	ServerType string                 `pulumi:"serverType"`
-	SshKeys    []string               `pulumi:"sshKeys"`
-	UserData   *string                `pulumi:"userData"`
+	// Enable or disable backups.
+	Backups *bool `pulumi:"backups"`
+	// The datacenter name to create the server in.
+	Datacenter *string `pulumi:"datacenter"`
+	// Name or ID of the image the server is created from.
+	Image string `pulumi:"image"`
+	// ID or Name of an ISO image to mount.
+	Iso *string `pulumi:"iso"`
+	// If true, do not upgrade the disk. This allows downgrading the server type later.
+	KeepDisk *bool `pulumi:"keepDisk"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	Location *string `pulumi:"location"`
+	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+	Name *string `pulumi:"name"`
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	Rescue *string `pulumi:"rescue"`
+	// Name of the server type this server should be created with.
+	ServerType string `pulumi:"serverType"`
+	// SSH key IDs or names which should be injected into the server at creation time
+	SshKeys []string `pulumi:"sshKeys"`
+	// Cloud-Init user data to use during server creation
+	UserData *string `pulumi:"userData"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	Backups    pulumi.BoolPtrInput
+	// Enable or disable backups.
+	Backups pulumi.BoolPtrInput
+	// The datacenter name to create the server in.
 	Datacenter pulumi.StringPtrInput
-	Image      pulumi.StringInput
-	Iso        pulumi.StringPtrInput
-	KeepDisk   pulumi.BoolPtrInput
-	Labels     pulumi.MapInput
-	Location   pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
-	Rescue     pulumi.StringPtrInput
+	// Name or ID of the image the server is created from.
+	Image pulumi.StringInput
+	// ID or Name of an ISO image to mount.
+	Iso pulumi.StringPtrInput
+	// If true, do not upgrade the disk. This allows downgrading the server type later.
+	KeepDisk pulumi.BoolPtrInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	Location pulumi.StringPtrInput
+	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+	Name pulumi.StringPtrInput
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	Rescue pulumi.StringPtrInput
+	// Name of the server type this server should be created with.
 	ServerType pulumi.StringInput
-	SshKeys    pulumi.StringArrayInput
-	UserData   pulumi.StringPtrInput
+	// SSH key IDs or names which should be injected into the server at creation time
+	SshKeys pulumi.StringArrayInput
+	// Cloud-Init user data to use during server creation
+	UserData pulumi.StringPtrInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {

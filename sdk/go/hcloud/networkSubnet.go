@@ -46,11 +46,15 @@ import (
 type NetworkSubnet struct {
 	pulumi.CustomResourceState
 
-	Gateway     pulumi.StringOutput `pulumi:"gateway"`
-	IpRange     pulumi.StringOutput `pulumi:"ipRange"`
-	NetworkId   pulumi.IntOutput    `pulumi:"networkId"`
+	Gateway pulumi.StringOutput `pulumi:"gateway"`
+	// Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
+	IpRange pulumi.StringOutput `pulumi:"ipRange"`
+	// ID of the Network the subnet should be added to.
+	NetworkId pulumi.IntOutput `pulumi:"networkId"`
+	// Name of network zone.
 	NetworkZone pulumi.StringOutput `pulumi:"networkZone"`
-	Type        pulumi.StringOutput `pulumi:"type"`
+	// Type of subnet. `server`
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewNetworkSubnet registers a new resource with the given unique name, arguments, and options.
@@ -93,19 +97,27 @@ func GetNetworkSubnet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkSubnet resources.
 type networkSubnetState struct {
-	Gateway     *string `pulumi:"gateway"`
-	IpRange     *string `pulumi:"ipRange"`
-	NetworkId   *int    `pulumi:"networkId"`
+	Gateway *string `pulumi:"gateway"`
+	// Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
+	IpRange *string `pulumi:"ipRange"`
+	// ID of the Network the subnet should be added to.
+	NetworkId *int `pulumi:"networkId"`
+	// Name of network zone.
 	NetworkZone *string `pulumi:"networkZone"`
-	Type        *string `pulumi:"type"`
+	// Type of subnet. `server`
+	Type *string `pulumi:"type"`
 }
 
 type NetworkSubnetState struct {
-	Gateway     pulumi.StringPtrInput
-	IpRange     pulumi.StringPtrInput
-	NetworkId   pulumi.IntPtrInput
+	Gateway pulumi.StringPtrInput
+	// Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
+	IpRange pulumi.StringPtrInput
+	// ID of the Network the subnet should be added to.
+	NetworkId pulumi.IntPtrInput
+	// Name of network zone.
 	NetworkZone pulumi.StringPtrInput
-	Type        pulumi.StringPtrInput
+	// Type of subnet. `server`
+	Type pulumi.StringPtrInput
 }
 
 func (NetworkSubnetState) ElementType() reflect.Type {
@@ -113,18 +125,26 @@ func (NetworkSubnetState) ElementType() reflect.Type {
 }
 
 type networkSubnetArgs struct {
-	IpRange     string `pulumi:"ipRange"`
-	NetworkId   int    `pulumi:"networkId"`
+	// Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
+	IpRange string `pulumi:"ipRange"`
+	// ID of the Network the subnet should be added to.
+	NetworkId int `pulumi:"networkId"`
+	// Name of network zone.
 	NetworkZone string `pulumi:"networkZone"`
-	Type        string `pulumi:"type"`
+	// Type of subnet. `server`
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a NetworkSubnet resource.
 type NetworkSubnetArgs struct {
-	IpRange     pulumi.StringInput
-	NetworkId   pulumi.IntInput
+	// Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
+	IpRange pulumi.StringInput
+	// ID of the Network the subnet should be added to.
+	NetworkId pulumi.IntInput
+	// Name of network zone.
 	NetworkZone pulumi.StringInput
-	Type        pulumi.StringInput
+	// Type of subnet. `server`
+	Type pulumi.StringInput
 }
 
 func (NetworkSubnetArgs) ElementType() reflect.Type {

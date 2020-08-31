@@ -12,23 +12,39 @@ namespace Pulumi.HCloud.Inputs
 
     public sealed class LoadBalancerServiceHealthCheckHttpGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Domain we try to access when performing the Health Check.
+        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
+        /// <summary>
+        /// Path we try to access when performing the Health Check.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// Response we expect to be included in the Target response when a Health Check was performed.
+        /// </summary>
         [Input("response")]
         public Input<string>? Response { get; set; }
 
         [Input("statusCodes", required: true)]
         private InputList<string>? _statusCodes;
+
+        /// <summary>
+        /// We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        /// </summary>
         public InputList<string> StatusCodes
         {
             get => _statusCodes ?? (_statusCodes = new InputList<string>());
             set => _statusCodes = value;
         }
 
+        /// <summary>
+        /// Enable TLS certificate checking.
+        /// </summary>
         [Input("tls")]
         public Input<bool>? Tls { get; set; }
 

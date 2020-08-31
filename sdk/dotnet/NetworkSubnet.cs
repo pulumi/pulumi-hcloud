@@ -43,15 +43,27 @@ namespace Pulumi.HCloud
         [Output("gateway")]
         public Output<string> Gateway { get; private set; } = null!;
 
+        /// <summary>
+        /// Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        /// </summary>
         [Output("ipRange")]
         public Output<string> IpRange { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the Network the subnet should be added to.
+        /// </summary>
         [Output("networkId")]
         public Output<int> NetworkId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of network zone.
+        /// </summary>
         [Output("networkZone")]
         public Output<string> NetworkZone { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of subnet. `server`
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -101,15 +113,27 @@ namespace Pulumi.HCloud
 
     public sealed class NetworkSubnetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        /// </summary>
         [Input("ipRange", required: true)]
         public Input<string> IpRange { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the Network the subnet should be added to.
+        /// </summary>
         [Input("networkId", required: true)]
         public Input<int> NetworkId { get; set; } = null!;
 
+        /// <summary>
+        /// Name of network zone.
+        /// </summary>
         [Input("networkZone", required: true)]
         public Input<string> NetworkZone { get; set; } = null!;
 
+        /// <summary>
+        /// Type of subnet. `server`
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -123,15 +147,27 @@ namespace Pulumi.HCloud
         [Input("gateway")]
         public Input<string>? Gateway { get; set; }
 
+        /// <summary>
+        /// Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        /// </summary>
         [Input("ipRange")]
         public Input<string>? IpRange { get; set; }
 
+        /// <summary>
+        /// ID of the Network the subnet should be added to.
+        /// </summary>
         [Input("networkId")]
         public Input<int>? NetworkId { get; set; }
 
+        /// <summary>
+        /// Name of network zone.
+        /// </summary>
         [Input("networkZone")]
         public Input<string>? NetworkZone { get; set; }
 
+        /// <summary>
+        /// Type of subnet. `server`
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

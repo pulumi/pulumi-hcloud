@@ -45,15 +45,30 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class LoadBalancerTarget : Pulumi.CustomResource
     {
+        /// <summary>
+        /// ID of the Load Balancer to which
+        /// the target gets attached.
+        /// </summary>
         [Output("loadBalancerId")]
         public Output<int> LoadBalancerId { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the server which should be a
+        /// target for this Load Balancer. Required if `type` is `server`
+        /// </summary>
         [Output("serverId")]
         public Output<int?> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the target. `server`
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// use the private IP to connect to
+        /// Load Balancer targets.
+        /// </summary>
         [Output("usePrivateIp")]
         public Output<bool> UsePrivateIp { get; private set; } = null!;
 
@@ -103,15 +118,30 @@ namespace Pulumi.HCloud
 
     public sealed class LoadBalancerTargetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the Load Balancer to which
+        /// the target gets attached.
+        /// </summary>
         [Input("loadBalancerId", required: true)]
         public Input<int> LoadBalancerId { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the server which should be a
+        /// target for this Load Balancer. Required if `type` is `server`
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
+        /// <summary>
+        /// Type of the target. `server`
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// use the private IP to connect to
+        /// Load Balancer targets.
+        /// </summary>
         [Input("usePrivateIp")]
         public Input<bool>? UsePrivateIp { get; set; }
 
@@ -122,15 +152,30 @@ namespace Pulumi.HCloud
 
     public sealed class LoadBalancerTargetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the Load Balancer to which
+        /// the target gets attached.
+        /// </summary>
         [Input("loadBalancerId")]
         public Input<int>? LoadBalancerId { get; set; }
 
+        /// <summary>
+        /// ID of the server which should be a
+        /// target for this Load Balancer. Required if `type` is `server`
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
+        /// <summary>
+        /// Type of the target. `server`
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// use the private IP to connect to
+        /// Load Balancer targets.
+        /// </summary>
         [Input("usePrivateIp")]
         public Input<bool>? UsePrivateIp { get; set; }
 

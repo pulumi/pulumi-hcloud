@@ -28,10 +28,22 @@ export function getNetwork(args?: GetNetworkArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getNetwork.
  */
 export interface GetNetworkArgs {
+    /**
+     * ID of the Network.
+     */
     readonly id?: number;
+    /**
+     * IPv4 prefix of the Network.
+     */
     readonly ipRange?: string;
     readonly labels?: {[key: string]: any};
+    /**
+     * Name of the Network.
+     */
     readonly name?: string;
+    /**
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     */
     readonly withSelector?: string;
 }
 
@@ -39,9 +51,18 @@ export interface GetNetworkArgs {
  * A collection of values returned by getNetwork.
  */
 export interface GetNetworkResult {
+    /**
+     * Unique ID of the Network.
+     */
     readonly id?: number;
+    /**
+     * IPv4 prefix of the Network.
+     */
     readonly ipRange?: string;
     readonly labels?: {[key: string]: any};
+    /**
+     * Name of the Network.
+     */
     readonly name?: string;
     readonly withSelector?: string;
 }

@@ -71,9 +71,21 @@ export class Rdns extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rdns.__pulumiType;
     }
 
+    /**
+     * The DNS address the `ipAddress` should resolve to.
+     */
     public readonly dnsPtr!: pulumi.Output<string>;
+    /**
+     * The Floating IP the `ipAddress` belongs to.
+     */
     public readonly floatingIpId!: pulumi.Output<number | undefined>;
+    /**
+     * The IP address that should point to `dnsPtr`.
+     */
     public readonly ipAddress!: pulumi.Output<string>;
+    /**
+     * The server the `ipAddress` belongs to.
+     */
     public readonly serverId!: pulumi.Output<number | undefined>;
 
     /**
@@ -120,9 +132,21 @@ export class Rdns extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Rdns resources.
  */
 export interface RdnsState {
+    /**
+     * The DNS address the `ipAddress` should resolve to.
+     */
     readonly dnsPtr?: pulumi.Input<string>;
+    /**
+     * The Floating IP the `ipAddress` belongs to.
+     */
     readonly floatingIpId?: pulumi.Input<number>;
+    /**
+     * The IP address that should point to `dnsPtr`.
+     */
     readonly ipAddress?: pulumi.Input<string>;
+    /**
+     * The server the `ipAddress` belongs to.
+     */
     readonly serverId?: pulumi.Input<number>;
 }
 
@@ -130,8 +154,20 @@ export interface RdnsState {
  * The set of arguments for constructing a Rdns resource.
  */
 export interface RdnsArgs {
+    /**
+     * The DNS address the `ipAddress` should resolve to.
+     */
     readonly dnsPtr: pulumi.Input<string>;
+    /**
+     * The Floating IP the `ipAddress` belongs to.
+     */
     readonly floatingIpId?: pulumi.Input<number>;
+    /**
+     * The IP address that should point to `dnsPtr`.
+     */
     readonly ipAddress: pulumi.Input<string>;
+    /**
+     * The server the `ipAddress` belongs to.
+     */
     readonly serverId?: pulumi.Input<number>;
 }

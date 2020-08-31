@@ -53,8 +53,10 @@ import (
 type FloatingIpAssignment struct {
 	pulumi.CustomResourceState
 
+	// ID of the Floating IP.
 	FloatingIpId pulumi.IntOutput `pulumi:"floatingIpId"`
-	ServerId     pulumi.IntOutput `pulumi:"serverId"`
+	// Server to assign the Floating IP to.
+	ServerId pulumi.IntOutput `pulumi:"serverId"`
 }
 
 // NewFloatingIpAssignment registers a new resource with the given unique name, arguments, and options.
@@ -91,13 +93,17 @@ func GetFloatingIpAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FloatingIpAssignment resources.
 type floatingIpAssignmentState struct {
+	// ID of the Floating IP.
 	FloatingIpId *int `pulumi:"floatingIpId"`
-	ServerId     *int `pulumi:"serverId"`
+	// Server to assign the Floating IP to.
+	ServerId *int `pulumi:"serverId"`
 }
 
 type FloatingIpAssignmentState struct {
+	// ID of the Floating IP.
 	FloatingIpId pulumi.IntPtrInput
-	ServerId     pulumi.IntPtrInput
+	// Server to assign the Floating IP to.
+	ServerId pulumi.IntPtrInput
 }
 
 func (FloatingIpAssignmentState) ElementType() reflect.Type {
@@ -105,14 +111,18 @@ func (FloatingIpAssignmentState) ElementType() reflect.Type {
 }
 
 type floatingIpAssignmentArgs struct {
+	// ID of the Floating IP.
 	FloatingIpId int `pulumi:"floatingIpId"`
-	ServerId     int `pulumi:"serverId"`
+	// Server to assign the Floating IP to.
+	ServerId int `pulumi:"serverId"`
 }
 
 // The set of arguments for constructing a FloatingIpAssignment resource.
 type FloatingIpAssignmentArgs struct {
+	// ID of the Floating IP.
 	FloatingIpId pulumi.IntInput
-	ServerId     pulumi.IntInput
+	// Server to assign the Floating IP to.
+	ServerId pulumi.IntInput
 }
 
 func (FloatingIpAssignmentArgs) ElementType() reflect.Type {

@@ -13,10 +13,25 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class LoadBalancerServiceHealthCheckHttp
     {
+        /// <summary>
+        /// Domain we try to access when performing the Health Check.
+        /// </summary>
         public readonly string? Domain;
+        /// <summary>
+        /// Path we try to access when performing the Health Check.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// Response we expect to be included in the Target response when a Health Check was performed.
+        /// </summary>
         public readonly string? Response;
+        /// <summary>
+        /// We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        /// </summary>
         public readonly ImmutableArray<string> StatusCodes;
+        /// <summary>
+        /// Enable TLS certificate checking.
+        /// </summary>
         public readonly bool? Tls;
 
         [OutputConstructor]

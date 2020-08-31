@@ -45,6 +45,9 @@ export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getDatacenters.
  */
 export interface GetDatacentersArgs {
+    /**
+     * (list) List of unique datacenter identifiers.
+     */
     readonly datacenterIds?: string[];
 }
 
@@ -52,11 +55,20 @@ export interface GetDatacentersArgs {
  * A collection of values returned by getDatacenters.
  */
 export interface GetDatacentersResult {
+    /**
+     * (list) List of unique datacenter identifiers.
+     */
     readonly datacenterIds?: string[];
+    /**
+     * (list) List of all datacenter descriptions.
+     */
     readonly descriptions: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * (list) List of datacenter names.
+     */
     readonly names: string[];
 }

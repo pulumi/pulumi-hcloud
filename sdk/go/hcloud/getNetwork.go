@@ -18,18 +18,25 @@ func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getNetwork.
 type LookupNetworkArgs struct {
-	Id           *int                   `pulumi:"id"`
-	IpRange      *string                `pulumi:"ipRange"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	Name         *string                `pulumi:"name"`
-	WithSelector *string                `pulumi:"withSelector"`
+	// ID of the Network.
+	Id *int `pulumi:"id"`
+	// IPv4 prefix of the Network.
+	IpRange *string                `pulumi:"ipRange"`
+	Labels  map[string]interface{} `pulumi:"labels"`
+	// Name of the Network.
+	Name *string `pulumi:"name"`
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	WithSelector *string `pulumi:"withSelector"`
 }
 
 // A collection of values returned by getNetwork.
 type LookupNetworkResult struct {
-	Id           *int                   `pulumi:"id"`
-	IpRange      *string                `pulumi:"ipRange"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	Name         *string                `pulumi:"name"`
-	WithSelector *string                `pulumi:"withSelector"`
+	// Unique ID of the Network.
+	Id *int `pulumi:"id"`
+	// IPv4 prefix of the Network.
+	IpRange *string                `pulumi:"ipRange"`
+	Labels  map[string]interface{} `pulumi:"labels"`
+	// Name of the Network.
+	Name         *string `pulumi:"name"`
+	WithSelector *string `pulumi:"withSelector"`
 }

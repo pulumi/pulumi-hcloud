@@ -20,14 +20,18 @@ func GetDatacenters(ctx *pulumi.Context, args *GetDatacentersArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatacenters.
 type GetDatacentersArgs struct {
+	// (list) List of unique datacenter identifiers.
 	DatacenterIds []string `pulumi:"datacenterIds"`
 }
 
 // A collection of values returned by getDatacenters.
 type GetDatacentersResult struct {
+	// (list) List of unique datacenter identifiers.
 	DatacenterIds []string `pulumi:"datacenterIds"`
-	Descriptions  []string `pulumi:"descriptions"`
+	// (list) List of all datacenter descriptions.
+	Descriptions []string `pulumi:"descriptions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// (list) List of datacenter names.
 	Names []string `pulumi:"names"`
 }

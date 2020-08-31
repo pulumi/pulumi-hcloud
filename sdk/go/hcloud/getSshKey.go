@@ -18,21 +18,29 @@ func LookupSshKey(ctx *pulumi.Context, args *LookupSshKeyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSshKey.
 type LookupSshKeyArgs struct {
+	// Fingerprint of the SSH Key.
 	Fingerprint *string `pulumi:"fingerprint"`
-	Id          *int    `pulumi:"id"`
-	Name        *string `pulumi:"name"`
+	// ID of the SSH Key.
+	Id *int `pulumi:"id"`
+	// Name of the SSH Key.
+	Name *string `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
-	Selector     *string `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
 // A collection of values returned by getSshKey.
 type LookupSshKeyResult struct {
-	Fingerprint string                 `pulumi:"fingerprint"`
-	Id          *int                   `pulumi:"id"`
-	Labels      map[string]interface{} `pulumi:"labels"`
-	Name        string                 `pulumi:"name"`
-	PublicKey   string                 `pulumi:"publicKey"`
+	// (string) Fingerprint of the SSH Key.
+	Fingerprint string `pulumi:"fingerprint"`
+	// (int) Unique ID of the SSH Key.
+	Id     *int                   `pulumi:"id"`
+	Labels map[string]interface{} `pulumi:"labels"`
+	// (string) Name of the SSH Key.
+	Name string `pulumi:"name"`
+	// (string) Public Key of the SSH Key.
+	PublicKey string `pulumi:"publicKey"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector     *string `pulumi:"selector"`
 	WithSelector *string `pulumi:"withSelector"`

@@ -18,18 +18,30 @@ namespace Pulumi.HCloud
 
     public sealed class GetSshKeyArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Fingerprint of the SSH Key.
+        /// </summary>
         [Input("fingerprint")]
         public string? Fingerprint { get; set; }
 
+        /// <summary>
+        /// ID of the SSH Key.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// Name of the SSH Key.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("selector")]
         public string? Selector { get; set; }
 
+        /// <summary>
+        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
 
@@ -42,10 +54,22 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetSshKeyResult
     {
+        /// <summary>
+        /// (string) Fingerprint of the SSH Key.
+        /// </summary>
         public readonly string Fingerprint;
+        /// <summary>
+        /// (int) Unique ID of the SSH Key.
+        /// </summary>
         public readonly int? Id;
         public readonly ImmutableDictionary<string, object> Labels;
+        /// <summary>
+        /// (string) Name of the SSH Key.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// (string) Public Key of the SSH Key.
+        /// </summary>
         public readonly string PublicKey;
         public readonly string? Selector;
         public readonly string? WithSelector;

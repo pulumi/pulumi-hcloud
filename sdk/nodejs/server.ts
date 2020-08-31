@@ -33,24 +33,74 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
+     * (string) The backup window of the server, if enabled.
+     *
      * @deprecated You should remove this property from your terraform configuration.
      */
     public /*out*/ readonly backupWindow!: pulumi.Output<string>;
+    /**
+     * Enable or disable backups.
+     */
     public readonly backups!: pulumi.Output<boolean | undefined>;
+    /**
+     * The datacenter name to create the server in.
+     */
     public readonly datacenter!: pulumi.Output<string>;
+    /**
+     * Name or ID of the image the server is created from.
+     */
     public readonly image!: pulumi.Output<string>;
+    /**
+     * (string) The IPv4 address.
+     */
     public /*out*/ readonly ipv4Address!: pulumi.Output<string>;
+    /**
+     * (string) The first IPv6 address of the assigned network.
+     */
     public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
+    /**
+     * (string) The IPv6 network.
+     */
     public /*out*/ readonly ipv6Network!: pulumi.Output<string>;
+    /**
+     * ID or Name of an ISO image to mount.
+     */
     public readonly iso!: pulumi.Output<string | undefined>;
+    /**
+     * If true, do not upgrade the disk. This allows downgrading the server type later.
+     */
     public readonly keepDisk!: pulumi.Output<boolean | undefined>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+     */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     */
     public readonly rescue!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the server type this server should be created with.
+     */
     public readonly serverType!: pulumi.Output<string>;
+    /**
+     * SSH key IDs or names which should be injected into the server at creation time
+     */
     public readonly sshKeys!: pulumi.Output<string[] | undefined>;
+    /**
+     * (string) The status of the server.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Cloud-Init user data to use during server creation
+     */
     public readonly userData!: pulumi.Output<string | undefined>;
 
     /**
@@ -124,24 +174,74 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
+     * (string) The backup window of the server, if enabled.
+     *
      * @deprecated You should remove this property from your terraform configuration.
      */
     readonly backupWindow?: pulumi.Input<string>;
+    /**
+     * Enable or disable backups.
+     */
     readonly backups?: pulumi.Input<boolean>;
+    /**
+     * The datacenter name to create the server in.
+     */
     readonly datacenter?: pulumi.Input<string>;
+    /**
+     * Name or ID of the image the server is created from.
+     */
     readonly image?: pulumi.Input<string>;
+    /**
+     * (string) The IPv4 address.
+     */
     readonly ipv4Address?: pulumi.Input<string>;
+    /**
+     * (string) The first IPv6 address of the assigned network.
+     */
     readonly ipv6Address?: pulumi.Input<string>;
+    /**
+     * (string) The IPv6 network.
+     */
     readonly ipv6Network?: pulumi.Input<string>;
+    /**
+     * ID or Name of an ISO image to mount.
+     */
     readonly iso?: pulumi.Input<string>;
+    /**
+     * If true, do not upgrade the disk. This allows downgrading the server type later.
+     */
     readonly keepDisk?: pulumi.Input<boolean>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     */
     readonly rescue?: pulumi.Input<string>;
+    /**
+     * Name of the server type this server should be created with.
+     */
     readonly serverType?: pulumi.Input<string>;
+    /**
+     * SSH key IDs or names which should be injected into the server at creation time
+     */
     readonly sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (string) The status of the server.
+     */
     readonly status?: pulumi.Input<string>;
+    /**
+     * Cloud-Init user data to use during server creation
+     */
     readonly userData?: pulumi.Input<string>;
 }
 
@@ -149,16 +249,52 @@ export interface ServerState {
  * The set of arguments for constructing a Server resource.
  */
 export interface ServerArgs {
+    /**
+     * Enable or disable backups.
+     */
     readonly backups?: pulumi.Input<boolean>;
+    /**
+     * The datacenter name to create the server in.
+     */
     readonly datacenter?: pulumi.Input<string>;
+    /**
+     * Name or ID of the image the server is created from.
+     */
     readonly image: pulumi.Input<string>;
+    /**
+     * ID or Name of an ISO image to mount.
+     */
     readonly iso?: pulumi.Input<string>;
+    /**
+     * If true, do not upgrade the disk. This allows downgrading the server type later.
+     */
     readonly keepDisk?: pulumi.Input<boolean>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     */
     readonly rescue?: pulumi.Input<string>;
+    /**
+     * Name of the server type this server should be created with.
+     */
     readonly serverType: pulumi.Input<string>;
+    /**
+     * SSH key IDs or names which should be injected into the server at creation time
+     */
     readonly sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Cloud-Init user data to use during server creation
+     */
     readonly userData?: pulumi.Input<string>;
 }

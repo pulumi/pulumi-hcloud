@@ -13,8 +13,17 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetLoadBalancerTargetResult
     {
+        /// <summary>
+        /// (string) Label Selector to add a group of resources based on the label.
+        /// </summary>
         public readonly string LabelSelector;
+        /// <summary>
+        /// (int) ID of the server which should be a target for this Load Balancer.
+        /// </summary>
         public readonly int ServerId;
+        /// <summary>
+        /// (string) Type of the target. `server` or `label_selector`
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

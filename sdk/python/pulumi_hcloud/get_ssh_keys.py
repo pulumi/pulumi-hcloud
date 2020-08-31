@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetSshKeysResult',
+    'AwaitableGetSshKeysResult',
+    'get_ssh_keys',
+]
+
+@pulumi.output_type
 class GetSshKeysResult:
     """
     A collection of values returned by getSshKeys.
@@ -15,16 +23,36 @@ class GetSshKeysResult:
     def __init__(__self__, id=None, ssh_keys=None, with_selector=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if ssh_keys and not isinstance(ssh_keys, list):
+            raise TypeError("Expected argument 'ssh_keys' to be a list")
+        pulumi.set(__self__, "ssh_keys", ssh_keys)
+        if with_selector and not isinstance(with_selector, str):
+            raise TypeError("Expected argument 'with_selector' to be a str")
+        pulumi.set(__self__, "with_selector", with_selector)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if ssh_keys and not isinstance(ssh_keys, list):
-            raise TypeError("Expected argument 'ssh_keys' to be a list")
-        __self__.ssh_keys = ssh_keys
-        if with_selector and not isinstance(with_selector, str):
-            raise TypeError("Expected argument 'with_selector' to be a str")
-        __self__.with_selector = with_selector
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="sshKeys")
+    def ssh_keys(self) -> List['outputs.GetSshKeysSshKeyResult']:
+        """
+        (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
+        """
+        return pulumi.get(self, "ssh_keys")
+
+    @property
+    @pulumi.getter(name="withSelector")
+    def with_selector(self) -> Optional[str]:
+        return pulumi.get(self, "with_selector")
+
+
 class AwaitableGetSshKeysResult(GetSshKeysResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -35,21 +63,23 @@ class AwaitableGetSshKeysResult(GetSshKeysResult):
             ssh_keys=self.ssh_keys,
             with_selector=self.with_selector)
 
-def get_ssh_keys(with_selector=None,opts=None):
+
+def get_ssh_keys(with_selector: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeysResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
-
-
     __args__['withSelector'] = with_selector
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getSshKeys:getSshKeys', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getSshKeys:getSshKeys', __args__, opts=opts, typ=GetSshKeysResult).value
 
     return AwaitableGetSshKeysResult(
-        id=__ret__.get('id'),
-        ssh_keys=__ret__.get('sshKeys'),
-        with_selector=__ret__.get('withSelector'))
+        id=__ret__.id,
+        ssh_keys=__ret__.ssh_keys,
+        with_selector=__ret__.with_selector)
