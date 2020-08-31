@@ -49,9 +49,15 @@ namespace Pulumi.HCloud
 
     public sealed class GetLocationArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the location.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// Name of the location.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -64,12 +70,33 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetLocationResult
     {
+        /// <summary>
+        /// (string) City of the location.
+        /// </summary>
         public readonly string City;
+        /// <summary>
+        /// (string) Country of the location.
+        /// </summary>
         public readonly string Country;
+        /// <summary>
+        /// (string) Description of the location.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// (int) Unique ID of the location.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// (float) Latitude of the city.
+        /// </summary>
         public readonly double Latitude;
+        /// <summary>
+        /// (float) Longitude of the city.
+        /// </summary>
         public readonly double Longitude;
+        /// <summary>
+        /// (string) Name of the location.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

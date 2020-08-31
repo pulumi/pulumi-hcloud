@@ -68,15 +68,27 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class Rdns : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The DNS address the `ip_address` should resolve to.
+        /// </summary>
         [Output("dnsPtr")]
         public Output<string> DnsPtr { get; private set; } = null!;
 
+        /// <summary>
+        /// The Floating IP the `ip_address` belongs to.
+        /// </summary>
         [Output("floatingIpId")]
         public Output<int?> FloatingIpId { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP address that should point to `dns_ptr`.
+        /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// The server the `ip_address` belongs to.
+        /// </summary>
         [Output("serverId")]
         public Output<int?> ServerId { get; private set; } = null!;
 
@@ -126,15 +138,27 @@ namespace Pulumi.HCloud
 
     public sealed class RdnsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS address the `ip_address` should resolve to.
+        /// </summary>
         [Input("dnsPtr", required: true)]
         public Input<string> DnsPtr { get; set; } = null!;
 
+        /// <summary>
+        /// The Floating IP the `ip_address` belongs to.
+        /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
 
+        /// <summary>
+        /// The IP address that should point to `dns_ptr`.
+        /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
 
+        /// <summary>
+        /// The server the `ip_address` belongs to.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
@@ -145,15 +169,27 @@ namespace Pulumi.HCloud
 
     public sealed class RdnsState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS address the `ip_address` should resolve to.
+        /// </summary>
         [Input("dnsPtr")]
         public Input<string>? DnsPtr { get; set; }
 
+        /// <summary>
+        /// The Floating IP the `ip_address` belongs to.
+        /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
 
+        /// <summary>
+        /// The IP address that should point to `dns_ptr`.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// The server the `ip_address` belongs to.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 

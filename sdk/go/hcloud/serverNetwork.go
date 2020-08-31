@@ -61,11 +61,15 @@ import (
 type ServerNetwork struct {
 	pulumi.CustomResourceState
 
-	AliasIps   pulumi.StringArrayOutput `pulumi:"aliasIps"`
-	Ip         pulumi.StringOutput      `pulumi:"ip"`
-	MacAddress pulumi.StringOutput      `pulumi:"macAddress"`
-	NetworkId  pulumi.IntOutput         `pulumi:"networkId"`
-	ServerId   pulumi.IntOutput         `pulumi:"serverId"`
+	// Additional IPs to be assigned to this server.
+	AliasIps pulumi.StringArrayOutput `pulumi:"aliasIps"`
+	// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+	Ip         pulumi.StringOutput `pulumi:"ip"`
+	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
+	// ID of the network which should be added to the server.
+	NetworkId pulumi.IntOutput `pulumi:"networkId"`
+	// ID of the server.
+	ServerId pulumi.IntOutput `pulumi:"serverId"`
 }
 
 // NewServerNetwork registers a new resource with the given unique name, arguments, and options.
@@ -102,19 +106,27 @@ func GetServerNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerNetwork resources.
 type serverNetworkState struct {
-	AliasIps   []string `pulumi:"aliasIps"`
-	Ip         *string  `pulumi:"ip"`
-	MacAddress *string  `pulumi:"macAddress"`
-	NetworkId  *int     `pulumi:"networkId"`
-	ServerId   *int     `pulumi:"serverId"`
+	// Additional IPs to be assigned to this server.
+	AliasIps []string `pulumi:"aliasIps"`
+	// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+	Ip         *string `pulumi:"ip"`
+	MacAddress *string `pulumi:"macAddress"`
+	// ID of the network which should be added to the server.
+	NetworkId *int `pulumi:"networkId"`
+	// ID of the server.
+	ServerId *int `pulumi:"serverId"`
 }
 
 type ServerNetworkState struct {
-	AliasIps   pulumi.StringArrayInput
+	// Additional IPs to be assigned to this server.
+	AliasIps pulumi.StringArrayInput
+	// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
 	Ip         pulumi.StringPtrInput
 	MacAddress pulumi.StringPtrInput
-	NetworkId  pulumi.IntPtrInput
-	ServerId   pulumi.IntPtrInput
+	// ID of the network which should be added to the server.
+	NetworkId pulumi.IntPtrInput
+	// ID of the server.
+	ServerId pulumi.IntPtrInput
 }
 
 func (ServerNetworkState) ElementType() reflect.Type {
@@ -122,18 +134,26 @@ func (ServerNetworkState) ElementType() reflect.Type {
 }
 
 type serverNetworkArgs struct {
-	AliasIps  []string `pulumi:"aliasIps"`
-	Ip        *string  `pulumi:"ip"`
-	NetworkId int      `pulumi:"networkId"`
-	ServerId  int      `pulumi:"serverId"`
+	// Additional IPs to be assigned to this server.
+	AliasIps []string `pulumi:"aliasIps"`
+	// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+	Ip *string `pulumi:"ip"`
+	// ID of the network which should be added to the server.
+	NetworkId int `pulumi:"networkId"`
+	// ID of the server.
+	ServerId int `pulumi:"serverId"`
 }
 
 // The set of arguments for constructing a ServerNetwork resource.
 type ServerNetworkArgs struct {
-	AliasIps  pulumi.StringArrayInput
-	Ip        pulumi.StringPtrInput
+	// Additional IPs to be assigned to this server.
+	AliasIps pulumi.StringArrayInput
+	// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+	Ip pulumi.StringPtrInput
+	// ID of the network which should be added to the server.
 	NetworkId pulumi.IntInput
-	ServerId  pulumi.IntInput
+	// ID of the server.
+	ServerId pulumi.IntInput
 }
 
 func (ServerNetworkArgs) ElementType() reflect.Type {

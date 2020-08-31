@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetDatacentersResult',
+    'AwaitableGetDatacentersResult',
+    'get_datacenters',
+]
+
+@pulumi.output_type
 class GetDatacentersResult:
     """
     A collection of values returned by getDatacenters.
@@ -15,19 +22,50 @@ class GetDatacentersResult:
     def __init__(__self__, datacenter_ids=None, descriptions=None, id=None, names=None):
         if datacenter_ids and not isinstance(datacenter_ids, list):
             raise TypeError("Expected argument 'datacenter_ids' to be a list")
-        __self__.datacenter_ids = datacenter_ids
+        pulumi.set(__self__, "datacenter_ids", datacenter_ids)
         if descriptions and not isinstance(descriptions, list):
             raise TypeError("Expected argument 'descriptions' to be a list")
-        __self__.descriptions = descriptions
+        pulumi.set(__self__, "descriptions", descriptions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if names and not isinstance(names, list):
+            raise TypeError("Expected argument 'names' to be a list")
+        pulumi.set(__self__, "names", names)
+
+    @property
+    @pulumi.getter(name="datacenterIds")
+    def datacenter_ids(self) -> Optional[List[str]]:
+        """
+        (list) List of unique datacenter identifiers.
+        """
+        return pulumi.get(self, "datacenter_ids")
+
+    @property
+    @pulumi.getter
+    def descriptions(self) -> List[str]:
+        """
+        (list) List of all datacenter descriptions.
+        """
+        return pulumi.get(self, "descriptions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if names and not isinstance(names, list):
-            raise TypeError("Expected argument 'names' to be a list")
-        __self__.names = names
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def names(self) -> List[str]:
+        """
+        (list) List of datacenter names.
+        """
+        return pulumi.get(self, "names")
+
+
 class AwaitableGetDatacentersResult(GetDatacentersResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -39,7 +77,9 @@ class AwaitableGetDatacentersResult(GetDatacentersResult):
             id=self.id,
             names=self.names)
 
-def get_datacenters(datacenter_ids=None,opts=None):
+
+def get_datacenters(datacenter_ids: Optional[List[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatacentersResult:
     """
     Provides a list of available Hetzner Cloud Datacenters.
     This resource may be useful to create highly available infrastructure, distributed across several datacenters.
@@ -58,19 +98,20 @@ def get_datacenters(datacenter_ids=None,opts=None):
             image="debian-9",
             server_type="cx31"))
     ```
+
+
+    :param List[str] datacenter_ids: (list) List of unique datacenter identifiers.
     """
     __args__ = dict()
-
-
     __args__['datacenterIds'] = datacenter_ids
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getDatacenters:getDatacenters', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getDatacenters:getDatacenters', __args__, opts=opts, typ=GetDatacentersResult).value
 
     return AwaitableGetDatacentersResult(
-        datacenter_ids=__ret__.get('datacenterIds'),
-        descriptions=__ret__.get('descriptions'),
-        id=__ret__.get('id'),
-        names=__ret__.get('names'))
+        datacenter_ids=__ret__.datacenter_ids,
+        descriptions=__ret__.descriptions,
+        id=__ret__.id,
+        names=__ret__.names)

@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetVolumeResult',
+    'AwaitableGetVolumeResult',
+    'get_volume',
+]
+
+@pulumi.output_type
 class GetVolumeResult:
     """
     A collection of values returned by getVolume.
@@ -15,38 +22,99 @@ class GetVolumeResult:
     def __init__(__self__, id=None, labels=None, linux_device=None, location=None, name=None, selector=None, server=None, size=None, with_selector=None, with_statuses=None):
         if id and not isinstance(id, float):
             raise TypeError("Expected argument 'id' to be a float")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
-        __self__.labels = labels
+        pulumi.set(__self__, "labels", labels)
         if linux_device and not isinstance(linux_device, str):
             raise TypeError("Expected argument 'linux_device' to be a str")
-        __self__.linux_device = linux_device
+        pulumi.set(__self__, "linux_device", linux_device)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
         if selector is not None:
             warnings.warn("Please use the with_selector property instead.", DeprecationWarning)
             pulumi.log.warn("selector is deprecated: Please use the with_selector property instead.")
 
-        __self__.selector = selector
+        pulumi.set(__self__, "selector", selector)
         if server and not isinstance(server, str):
             raise TypeError("Expected argument 'server' to be a str")
-        __self__.server = server
+        pulumi.set(__self__, "server", server)
         if size and not isinstance(size, float):
             raise TypeError("Expected argument 'size' to be a float")
-        __self__.size = size
+        pulumi.set(__self__, "size", size)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
-        __self__.with_selector = with_selector
+        pulumi.set(__self__, "with_selector", with_selector)
         if with_statuses and not isinstance(with_statuses, list):
             raise TypeError("Expected argument 'with_statuses' to be a list")
-        __self__.with_statuses = with_statuses
+        pulumi.set(__self__, "with_statuses", with_statuses)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[float]:
+        """
+        Unique ID of the volume.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="linuxDevice")
+    def linux_device(self) -> str:
+        return pulumi.get(self, "linux_device")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[str]:
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def size(self) -> float:
+        """
+        Size of the volume.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="withSelector")
+    def with_selector(self) -> Optional[str]:
+        return pulumi.get(self, "with_selector")
+
+    @property
+    @pulumi.getter(name="withStatuses")
+    def with_statuses(self) -> Optional[List[str]]:
+        return pulumi.get(self, "with_statuses")
+
+
 class AwaitableGetVolumeResult(GetVolumeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -64,13 +132,24 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             with_selector=self.with_selector,
             with_statuses=self.with_statuses)
 
-def get_volume(id=None,location=None,name=None,selector=None,server=None,with_selector=None,with_statuses=None,opts=None):
+
+def get_volume(id: Optional[float] = None,
+               location: Optional[str] = None,
+               name: Optional[str] = None,
+               selector: Optional[str] = None,
+               server: Optional[str] = None,
+               with_selector: Optional[str] = None,
+               with_statuses: Optional[List[str]] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param float id: ID of the volume.
+    :param str name: Name of the volume.
+    :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param List[str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     __args__['location'] = location
     __args__['name'] = name
@@ -81,17 +160,17 @@ def get_volume(id=None,location=None,name=None,selector=None,server=None,with_se
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getVolume:getVolume', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        id=__ret__.get('id'),
-        labels=__ret__.get('labels'),
-        linux_device=__ret__.get('linuxDevice'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        selector=__ret__.get('selector'),
-        server=__ret__.get('server'),
-        size=__ret__.get('size'),
-        with_selector=__ret__.get('withSelector'),
-        with_statuses=__ret__.get('withStatuses'))
+        id=__ret__.id,
+        labels=__ret__.labels,
+        linux_device=__ret__.linux_device,
+        location=__ret__.location,
+        name=__ret__.name,
+        selector=__ret__.selector,
+        server=__ret__.server,
+        size=__ret__.size,
+        with_selector=__ret__.with_selector,
+        with_statuses=__ret__.with_statuses)

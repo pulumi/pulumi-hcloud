@@ -80,10 +80,14 @@ import (
 type Rdns struct {
 	pulumi.CustomResourceState
 
-	DnsPtr       pulumi.StringOutput `pulumi:"dnsPtr"`
+	// The DNS address the `ipAddress` should resolve to.
+	DnsPtr pulumi.StringOutput `pulumi:"dnsPtr"`
+	// The Floating IP the `ipAddress` belongs to.
 	FloatingIpId pulumi.IntPtrOutput `pulumi:"floatingIpId"`
-	IpAddress    pulumi.StringOutput `pulumi:"ipAddress"`
-	ServerId     pulumi.IntPtrOutput `pulumi:"serverId"`
+	// The IP address that should point to `dnsPtr`.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// The server the `ipAddress` belongs to.
+	ServerId pulumi.IntPtrOutput `pulumi:"serverId"`
 }
 
 // NewRdns registers a new resource with the given unique name, arguments, and options.
@@ -120,17 +124,25 @@ func GetRdns(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rdns resources.
 type rdnsState struct {
-	DnsPtr       *string `pulumi:"dnsPtr"`
-	FloatingIpId *int    `pulumi:"floatingIpId"`
-	IpAddress    *string `pulumi:"ipAddress"`
-	ServerId     *int    `pulumi:"serverId"`
+	// The DNS address the `ipAddress` should resolve to.
+	DnsPtr *string `pulumi:"dnsPtr"`
+	// The Floating IP the `ipAddress` belongs to.
+	FloatingIpId *int `pulumi:"floatingIpId"`
+	// The IP address that should point to `dnsPtr`.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The server the `ipAddress` belongs to.
+	ServerId *int `pulumi:"serverId"`
 }
 
 type RdnsState struct {
-	DnsPtr       pulumi.StringPtrInput
+	// The DNS address the `ipAddress` should resolve to.
+	DnsPtr pulumi.StringPtrInput
+	// The Floating IP the `ipAddress` belongs to.
 	FloatingIpId pulumi.IntPtrInput
-	IpAddress    pulumi.StringPtrInput
-	ServerId     pulumi.IntPtrInput
+	// The IP address that should point to `dnsPtr`.
+	IpAddress pulumi.StringPtrInput
+	// The server the `ipAddress` belongs to.
+	ServerId pulumi.IntPtrInput
 }
 
 func (RdnsState) ElementType() reflect.Type {
@@ -138,18 +150,26 @@ func (RdnsState) ElementType() reflect.Type {
 }
 
 type rdnsArgs struct {
-	DnsPtr       string `pulumi:"dnsPtr"`
-	FloatingIpId *int   `pulumi:"floatingIpId"`
-	IpAddress    string `pulumi:"ipAddress"`
-	ServerId     *int   `pulumi:"serverId"`
+	// The DNS address the `ipAddress` should resolve to.
+	DnsPtr string `pulumi:"dnsPtr"`
+	// The Floating IP the `ipAddress` belongs to.
+	FloatingIpId *int `pulumi:"floatingIpId"`
+	// The IP address that should point to `dnsPtr`.
+	IpAddress string `pulumi:"ipAddress"`
+	// The server the `ipAddress` belongs to.
+	ServerId *int `pulumi:"serverId"`
 }
 
 // The set of arguments for constructing a Rdns resource.
 type RdnsArgs struct {
-	DnsPtr       pulumi.StringInput
+	// The DNS address the `ipAddress` should resolve to.
+	DnsPtr pulumi.StringInput
+	// The Floating IP the `ipAddress` belongs to.
 	FloatingIpId pulumi.IntPtrInput
-	IpAddress    pulumi.StringInput
-	ServerId     pulumi.IntPtrInput
+	// The IP address that should point to `dnsPtr`.
+	IpAddress pulumi.StringInput
+	// The server the `ipAddress` belongs to.
+	ServerId pulumi.IntPtrInput
 }
 
 func (RdnsArgs) ElementType() reflect.Type {

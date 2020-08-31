@@ -5,16 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['LoadBalancerNetwork']
 
 
 class LoadBalancerNetwork(pulumi.CustomResource):
-    enable_public_interface: pulumi.Output[bool]
-    ip: pulumi.Output[str]
-    load_balancer_id: pulumi.Output[float]
-    network_id: pulumi.Output[float]
-    def __init__(__self__, resource_name, opts=None, enable_public_interface=None, ip=None, load_balancer_id=None, network_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_public_interface: Optional[pulumi.Input[bool]] = None,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 load_balancer_id: Optional[pulumi.Input[float]] = None,
+                 network_id: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
 
@@ -41,6 +48,10 @@ class LoadBalancerNetwork(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_public_interface: Enable or disable the Load Balancers public interface. Default: `true`
+        :param pulumi.Input[str] ip: IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        :param pulumi.Input[float] load_balancer_id: ID of the Load Balancer.
+        :param pulumi.Input[float] network_id: ID of the network which should be added to the Load Balancer.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,7 +64,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -74,14 +85,24 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enable_public_interface=None, ip=None, load_balancer_id=None, network_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enable_public_interface: Optional[pulumi.Input[bool]] = None,
+            ip: Optional[pulumi.Input[str]] = None,
+            load_balancer_id: Optional[pulumi.Input[float]] = None,
+            network_id: Optional[pulumi.Input[float]] = None) -> 'LoadBalancerNetwork':
         """
         Get an existing LoadBalancerNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_public_interface: Enable or disable the Load Balancers public interface. Default: `true`
+        :param pulumi.Input[str] ip: IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        :param pulumi.Input[float] load_balancer_id: ID of the Load Balancer.
+        :param pulumi.Input[float] network_id: ID of the network which should be added to the Load Balancer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -93,8 +114,41 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         __props__["network_id"] = network_id
         return LoadBalancerNetwork(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="enablePublicInterface")
+    def enable_public_interface(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable the Load Balancers public interface. Default: `true`
+        """
+        return pulumi.get(self, "enable_public_interface")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> pulumi.Output[str]:
+        """
+        IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> pulumi.Output[float]:
+        """
+        ID of the Load Balancer.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> pulumi.Output[float]:
+        """
+        ID of the network which should be added to the Load Balancer.
+        """
+        return pulumi.get(self, "network_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

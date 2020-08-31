@@ -39,27 +39,51 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class FloatingIp : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Description of the Floating IP.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// </summary>
         [Output("homeLocation")]
         public Output<string> HomeLocation { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) IP Address of the Floating IP.
+        /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+        /// </summary>
         [Output("ipNetwork")]
         public Output<string> IpNetwork { get; private set; } = null!;
 
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Floating IP.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Server to assign the Floating IP to.
+        /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the Floating IP. `ipv4` `ipv6`
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -109,26 +133,45 @@ namespace Pulumi.HCloud
 
     public sealed class FloatingIpArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the Floating IP.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// </summary>
         [Input("homeLocation")]
         public Input<string>? HomeLocation { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Floating IP.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Server to assign the Floating IP to.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
+        /// <summary>
+        /// Type of the Floating IP. `ipv4` `ipv6`
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -139,32 +182,57 @@ namespace Pulumi.HCloud
 
     public sealed class FloatingIpState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the Floating IP.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// </summary>
         [Input("homeLocation")]
         public Input<string>? HomeLocation { get; set; }
 
+        /// <summary>
+        /// (string) IP Address of the Floating IP.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+        /// </summary>
         [Input("ipNetwork")]
         public Input<string>? IpNetwork { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Floating IP.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Server to assign the Floating IP to.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
+        /// <summary>
+        /// Type of the Floating IP. `ipv4` `ipv6`
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

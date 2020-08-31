@@ -52,12 +52,21 @@ namespace Pulumi.HCloud
 
     public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the Load Balancer.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// Name of the Load Balancer.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
 
@@ -70,16 +79,46 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
+        /// <summary>
+        /// (Optional) Configuration of the algorithm the Load Balancer use.
+        /// </summary>
         public readonly Outputs.GetLoadBalancerAlgorithmResult Algorithm;
+        /// <summary>
+        /// (int) Unique ID of the Load Balancer.
+        /// </summary>
         public readonly int? Id;
+        /// <summary>
+        /// (string) IPv4 Address of the Load Balancer.
+        /// </summary>
         public readonly string Ipv4;
+        /// <summary>
+        /// (string) IPv4 Address of the Load Balancer.
+        /// </summary>
         public readonly string Ipv6;
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs) .
+        /// </summary>
         public readonly ImmutableDictionary<string, object> Labels;
+        /// <summary>
+        /// (string) Name of the Type of the Load Balancer.
+        /// </summary>
         public readonly string LoadBalancerType;
+        /// <summary>
+        /// (string) Name of the location the Load Balancer is in.
+        /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// (string) Name of the Load Balancer.
+        /// </summary>
         public readonly string? Name;
         public readonly string NetworkZone;
+        /// <summary>
+        /// (list) List of services a Load Balancer provides.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetLoadBalancerServiceResult> Services;
+        /// <summary>
+        /// (list) List of targets of the Load Balancer.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetLoadBalancerTargetResult> Targets;
         public readonly string? WithSelector;
 

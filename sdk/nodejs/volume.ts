@@ -52,13 +52,37 @@ export class Volume extends pulumi.CustomResource {
         return obj['__pulumiType'] === Volume.__pulumiType;
     }
 
+    /**
+     * Automount the volume upon attaching it (server_id must be provided).
+     */
     public readonly automount!: pulumi.Output<boolean | undefined>;
+    /**
+     * Format volume after creation. `xfs` or `ext4`
+     */
     public readonly format!: pulumi.Output<string | undefined>;
+    /**
+     * User-defined labels (key-value pairs).
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Device path on the file system for the Volume.
+     */
     public /*out*/ readonly linuxDevice!: pulumi.Output<string>;
+    /**
+     * Location of the volume to create, optional if serverId argument is passed.
+     */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Name of the volume to create (must be unique per project).
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Server to attach the Volume to, optional if location argument is passed.
+     */
     public readonly serverId!: pulumi.Output<number>;
+    /**
+     * Size of the volume (in GB).
+     */
     public readonly size!: pulumi.Output<number>;
 
     /**
@@ -110,13 +134,37 @@ export class Volume extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Volume resources.
  */
 export interface VolumeState {
+    /**
+     * Automount the volume upon attaching it (server_id must be provided).
+     */
     readonly automount?: pulumi.Input<boolean>;
+    /**
+     * Format volume after creation. `xfs` or `ext4`
+     */
     readonly format?: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs).
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Device path on the file system for the Volume.
+     */
     readonly linuxDevice?: pulumi.Input<string>;
+    /**
+     * Location of the volume to create, optional if serverId argument is passed.
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Name of the volume to create (must be unique per project).
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Server to attach the Volume to, optional if location argument is passed.
+     */
     readonly serverId?: pulumi.Input<number>;
+    /**
+     * Size of the volume (in GB).
+     */
     readonly size?: pulumi.Input<number>;
 }
 
@@ -124,11 +172,32 @@ export interface VolumeState {
  * The set of arguments for constructing a Volume resource.
  */
 export interface VolumeArgs {
+    /**
+     * Automount the volume upon attaching it (server_id must be provided).
+     */
     readonly automount?: pulumi.Input<boolean>;
+    /**
+     * Format volume after creation. `xfs` or `ext4`
+     */
     readonly format?: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs).
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Location of the volume to create, optional if serverId argument is passed.
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Name of the volume to create (must be unique per project).
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Server to attach the Volume to, optional if location argument is passed.
+     */
     readonly serverId?: pulumi.Input<number>;
+    /**
+     * Size of the volume (in GB).
+     */
     readonly size: pulumi.Input<number>;
 }

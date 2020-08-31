@@ -46,8 +46,17 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getLoadBalancer.
  */
 export interface GetLoadBalancerArgs {
+    /**
+     * ID of the Load Balancer.
+     */
     readonly id?: number;
+    /**
+     * Name of the Load Balancer.
+     */
     readonly name?: string;
+    /**
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     */
     readonly withSelector?: string;
 }
 
@@ -55,16 +64,46 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
+    /**
+     * (Optional) Configuration of the algorithm the Load Balancer use.
+     */
     readonly algorithm: outputs.GetLoadBalancerAlgorithm;
+    /**
+     * (int) Unique ID of the Load Balancer.
+     */
     readonly id?: number;
+    /**
+     * (string) IPv4 Address of the Load Balancer.
+     */
     readonly ipv4: string;
+    /**
+     * (string) IPv4 Address of the Load Balancer.
+     */
     readonly ipv6: string;
+    /**
+     * (map) User-defined labels (key-value pairs) .
+     */
     readonly labels: {[key: string]: any};
+    /**
+     * (string) Name of the Type of the Load Balancer.
+     */
     readonly loadBalancerType: string;
+    /**
+     * (string) Name of the location the Load Balancer is in.
+     */
     readonly location: string;
+    /**
+     * (string) Name of the Load Balancer.
+     */
     readonly name?: string;
     readonly networkZone: string;
+    /**
+     * (list) List of services a Load Balancer provides.
+     */
     readonly services: outputs.GetLoadBalancerService[];
+    /**
+     * (list) List of targets of the Load Balancer.
+     */
     readonly targets: outputs.GetLoadBalancerTarget[];
     readonly withSelector?: string;
 }

@@ -39,24 +39,45 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class LoadBalancerService : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
+        /// </summary>
         [Output("destinationPort")]
         public Output<int> DestinationPort { get; private set; } = null!;
 
+        /// <summary>
+        /// List of health check configurations when `protocol` is `http` or `https`.
+        /// </summary>
         [Output("healthCheck")]
         public Output<Outputs.LoadBalancerServiceHealthCheck> HealthCheck { get; private set; } = null!;
 
+        /// <summary>
+        /// List of http configurations when `protocol` is `http` or `https`.
+        /// </summary>
         [Output("http")]
         public Output<Outputs.LoadBalancerServiceHttp?> Http { get; private set; } = null!;
 
+        /// <summary>
+        /// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        /// </summary>
         [Output("listenPort")]
         public Output<int> ListenPort { get; private set; } = null!;
 
+        /// <summary>
+        /// Id of the load balancer this service belongs to.
+        /// </summary>
         [Output("loadBalancerId")]
         public Output<string> LoadBalancerId { get; private set; } = null!;
 
+        /// <summary>
+        /// Protocol of the service. `http`, `https` or `tcp`
+        /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable proxyprotocol.
+        /// </summary>
         [Output("proxyprotocol")]
         public Output<bool> Proxyprotocol { get; private set; } = null!;
 
@@ -106,24 +127,45 @@ namespace Pulumi.HCloud
 
     public sealed class LoadBalancerServiceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
+        /// </summary>
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
 
+        /// <summary>
+        /// List of health check configurations when `protocol` is `http` or `https`.
+        /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.LoadBalancerServiceHealthCheckArgs>? HealthCheck { get; set; }
 
+        /// <summary>
+        /// List of http configurations when `protocol` is `http` or `https`.
+        /// </summary>
         [Input("http")]
         public Input<Inputs.LoadBalancerServiceHttpArgs>? Http { get; set; }
 
+        /// <summary>
+        /// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        /// </summary>
         [Input("listenPort")]
         public Input<int>? ListenPort { get; set; }
 
+        /// <summary>
+        /// Id of the load balancer this service belongs to.
+        /// </summary>
         [Input("loadBalancerId", required: true)]
         public Input<string> LoadBalancerId { get; set; } = null!;
 
+        /// <summary>
+        /// Protocol of the service. `http`, `https` or `tcp`
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// Enable proxyprotocol.
+        /// </summary>
         [Input("proxyprotocol")]
         public Input<bool>? Proxyprotocol { get; set; }
 
@@ -134,24 +176,45 @@ namespace Pulumi.HCloud
 
     public sealed class LoadBalancerServiceState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
+        /// </summary>
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
 
+        /// <summary>
+        /// List of health check configurations when `protocol` is `http` or `https`.
+        /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.LoadBalancerServiceHealthCheckGetArgs>? HealthCheck { get; set; }
 
+        /// <summary>
+        /// List of http configurations when `protocol` is `http` or `https`.
+        /// </summary>
         [Input("http")]
         public Input<Inputs.LoadBalancerServiceHttpGetArgs>? Http { get; set; }
 
+        /// <summary>
+        /// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        /// </summary>
         [Input("listenPort")]
         public Input<int>? ListenPort { get; set; }
 
+        /// <summary>
+        /// Id of the load balancer this service belongs to.
+        /// </summary>
         [Input("loadBalancerId")]
         public Input<string>? LoadBalancerId { get; set; }
 
+        /// <summary>
+        /// Protocol of the service. `http`, `https` or `tcp`
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
+        /// <summary>
+        /// Enable proxyprotocol.
+        /// </summary>
         [Input("proxyprotocol")]
         public Input<bool>? Proxyprotocol { get; set; }
 

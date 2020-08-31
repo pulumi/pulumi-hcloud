@@ -56,7 +56,13 @@ export class FloatingIpAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === FloatingIpAssignment.__pulumiType;
     }
 
+    /**
+     * ID of the Floating IP.
+     */
     public readonly floatingIpId!: pulumi.Output<number>;
+    /**
+     * Server to assign the Floating IP to.
+     */
     public readonly serverId!: pulumi.Output<number>;
 
     /**
@@ -99,7 +105,13 @@ export class FloatingIpAssignment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FloatingIpAssignment resources.
  */
 export interface FloatingIpAssignmentState {
+    /**
+     * ID of the Floating IP.
+     */
     readonly floatingIpId?: pulumi.Input<number>;
+    /**
+     * Server to assign the Floating IP to.
+     */
     readonly serverId?: pulumi.Input<number>;
 }
 
@@ -107,6 +119,12 @@ export interface FloatingIpAssignmentState {
  * The set of arguments for constructing a FloatingIpAssignment resource.
  */
 export interface FloatingIpAssignmentArgs {
+    /**
+     * ID of the Floating IP.
+     */
     readonly floatingIpId: pulumi.Input<number>;
+    /**
+     * Server to assign the Floating IP to.
+     */
     readonly serverId: pulumi.Input<number>;
 }

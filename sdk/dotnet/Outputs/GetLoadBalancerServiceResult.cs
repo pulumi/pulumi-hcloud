@@ -13,11 +13,29 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetLoadBalancerServiceResult
     {
+        /// <summary>
+        /// (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
+        /// </summary>
         public readonly int DestinationPort;
+        /// <summary>
+        /// (list) List of http configurations when `protocol` is `http` or `https`.
+        /// </summary>
         public readonly Outputs.GetLoadBalancerServiceHealthCheckResult HealthCheck;
+        /// <summary>
+        /// (list) List of http configurations when `protocol` is `http` or `https`.
+        /// </summary>
         public readonly Outputs.GetLoadBalancerServiceHttpResult Http;
+        /// <summary>
+        /// (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        /// </summary>
         public readonly int ListenPort;
+        /// <summary>
+        /// (string) Protocol the health check uses. `http`, `https` or `tcp`
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// (bool) Enable proxyprotocol.
+        /// </summary>
         public readonly bool Proxyprotocol;
 
         [OutputConstructor]

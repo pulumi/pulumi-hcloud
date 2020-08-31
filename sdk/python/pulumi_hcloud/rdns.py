@@ -5,16 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['Rdns']
 
 
 class Rdns(pulumi.CustomResource):
-    dns_ptr: pulumi.Output[str]
-    floating_ip_id: pulumi.Output[float]
-    ip_address: pulumi.Output[str]
-    server_id: pulumi.Output[float]
-    def __init__(__self__, resource_name, opts=None, dns_ptr=None, floating_ip_id=None, ip_address=None, server_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_ptr: Optional[pulumi.Input[str]] = None,
+                 floating_ip_id: Optional[pulumi.Input[float]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
 
@@ -52,6 +59,10 @@ class Rdns(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
+        :param pulumi.Input[float] floating_ip_id: The Floating IP the `ip_address` belongs to.
+        :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
+        :param pulumi.Input[float] server_id: The server the `ip_address` belongs to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,7 +75,7 @@ class Rdns(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -85,14 +96,24 @@ class Rdns(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dns_ptr=None, floating_ip_id=None, ip_address=None, server_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dns_ptr: Optional[pulumi.Input[str]] = None,
+            floating_ip_id: Optional[pulumi.Input[float]] = None,
+            ip_address: Optional[pulumi.Input[str]] = None,
+            server_id: Optional[pulumi.Input[float]] = None) -> 'Rdns':
         """
         Get an existing Rdns resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
+        :param pulumi.Input[float] floating_ip_id: The Floating IP the `ip_address` belongs to.
+        :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
+        :param pulumi.Input[float] server_id: The server the `ip_address` belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -104,8 +125,41 @@ class Rdns(pulumi.CustomResource):
         __props__["server_id"] = server_id
         return Rdns(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dnsPtr")
+    def dns_ptr(self) -> pulumi.Output[str]:
+        """
+        The DNS address the `ip_address` should resolve to.
+        """
+        return pulumi.get(self, "dns_ptr")
+
+    @property
+    @pulumi.getter(name="floatingIpId")
+    def floating_ip_id(self) -> pulumi.Output[Optional[float]]:
+        """
+        The Floating IP the `ip_address` belongs to.
+        """
+        return pulumi.get(self, "floating_ip_id")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Output[str]:
+        """
+        The IP address that should point to `dns_ptr`.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> pulumi.Output[Optional[float]]:
+        """
+        The server the `ip_address` belongs to.
+        """
+        return pulumi.get(self, "server_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

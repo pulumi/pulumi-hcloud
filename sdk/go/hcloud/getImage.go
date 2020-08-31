@@ -18,29 +18,43 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
-	Id         *int    `pulumi:"id"`
-	MostRecent *bool   `pulumi:"mostRecent"`
-	Name       *string `pulumi:"name"`
+	// ID of the Image.
+	Id *int `pulumi:"id"`
+	// If more than one result is returned, use the most recent Image.
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Name of the Image.
+	Name *string `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
-	Selector     *string  `pulumi:"selector"`
-	WithSelector *string  `pulumi:"withSelector"`
+	Selector *string `pulumi:"selector"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector *string `pulumi:"withSelector"`
+	// List only images with the specified status, could contain `creating` or `available`.
 	WithStatuses []string `pulumi:"withStatuses"`
 }
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
-	Created     string                 `pulumi:"created"`
-	Deprecated  string                 `pulumi:"deprecated"`
-	Description string                 `pulumi:"description"`
-	Id          *int                   `pulumi:"id"`
-	Labels      map[string]interface{} `pulumi:"labels"`
-	MostRecent  *bool                  `pulumi:"mostRecent"`
-	Name        string                 `pulumi:"name"`
-	OsFlavor    string                 `pulumi:"osFlavor"`
-	OsVersion   string                 `pulumi:"osVersion"`
-	RapidDeploy bool                   `pulumi:"rapidDeploy"`
+	// (string) Date when the Image was created (in ISO-8601 format).
+	Created string `pulumi:"created"`
+	// (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
+	Deprecated string `pulumi:"deprecated"`
+	// (string) Description of the Image.
+	Description string `pulumi:"description"`
+	// (int) Unique ID of the Image.
+	Id         *int                   `pulumi:"id"`
+	Labels     map[string]interface{} `pulumi:"labels"`
+	MostRecent *bool                  `pulumi:"mostRecent"`
+	// (string) Name of the Image, only present when the Image is of type `system`.
+	Name string `pulumi:"name"`
+	// (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
+	OsFlavor string `pulumi:"osFlavor"`
+	// (string) Operating system version.
+	OsVersion string `pulumi:"osVersion"`
+	// (bool) Indicates that rapid deploy of the image is available.
+	RapidDeploy bool `pulumi:"rapidDeploy"`
 	// Deprecated: Please use the with_selector property instead.
-	Selector     *string  `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
+	// (string) Type of the Image, could be `system`, `backup` or `snapshot`.
 	Type         string   `pulumi:"type"`
 	WithSelector *string  `pulumi:"withSelector"`
 	WithStatuses []string `pulumi:"withStatuses"`

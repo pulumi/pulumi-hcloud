@@ -43,7 +43,13 @@ export function getDatacenter(args?: GetDatacenterArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getDatacenter.
  */
 export interface GetDatacenterArgs {
+    /**
+     * ID of the datacenter.
+     */
     readonly id?: number;
+    /**
+     * Name of the datacenter.
+     */
     readonly name?: string;
 }
 
@@ -51,10 +57,28 @@ export interface GetDatacenterArgs {
  * A collection of values returned by getDatacenter.
  */
 export interface GetDatacenterResult {
+    /**
+     * (list) List of available server types.
+     */
     readonly availableServerTypeIds: number[];
+    /**
+     * (string) Description of the datacenter.
+     */
     readonly description: string;
+    /**
+     * (int) Unique ID of the datacenter.
+     */
     readonly id: number;
+    /**
+     * (map) Physical datacenter location.
+     */
     readonly location: {[key: string]: any};
+    /**
+     * (string) Name of the datacenter.
+     */
     readonly name: string;
+    /**
+     * (list) List of server types supported by the datacenter.
+     */
     readonly supportedServerTypeIds: number[];
 }

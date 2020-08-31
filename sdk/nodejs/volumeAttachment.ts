@@ -57,8 +57,17 @@ export class VolumeAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === VolumeAttachment.__pulumiType;
     }
 
+    /**
+     * Automount the volume upon attaching it.
+     */
     public readonly automount!: pulumi.Output<boolean>;
+    /**
+     * Server to attach the Volume to.
+     */
     public readonly serverId!: pulumi.Output<number>;
+    /**
+     * ID of the Volume.
+     */
     public readonly volumeId!: pulumi.Output<number>;
 
     /**
@@ -103,8 +112,17 @@ export class VolumeAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VolumeAttachment resources.
  */
 export interface VolumeAttachmentState {
+    /**
+     * Automount the volume upon attaching it.
+     */
     readonly automount?: pulumi.Input<boolean>;
+    /**
+     * Server to attach the Volume to.
+     */
     readonly serverId?: pulumi.Input<number>;
+    /**
+     * ID of the Volume.
+     */
     readonly volumeId?: pulumi.Input<number>;
 }
 
@@ -112,7 +130,16 @@ export interface VolumeAttachmentState {
  * The set of arguments for constructing a VolumeAttachment resource.
  */
 export interface VolumeAttachmentArgs {
+    /**
+     * Automount the volume upon attaching it.
+     */
     readonly automount?: pulumi.Input<boolean>;
+    /**
+     * Server to attach the Volume to.
+     */
     readonly serverId: pulumi.Input<number>;
+    /**
+     * ID of the Volume.
+     */
     readonly volumeId: pulumi.Input<number>;
 }

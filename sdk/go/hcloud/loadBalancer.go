@@ -51,17 +51,26 @@ import (
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
-	Algorithm        LoadBalancerAlgorithmOutput       `pulumi:"algorithm"`
-	Ipv4             pulumi.StringOutput               `pulumi:"ipv4"`
-	Ipv6             pulumi.StringOutput               `pulumi:"ipv6"`
-	Labels           pulumi.MapOutput                  `pulumi:"labels"`
-	LoadBalancerType pulumi.StringOutput               `pulumi:"loadBalancerType"`
-	Location         pulumi.StringOutput               `pulumi:"location"`
-	Name             pulumi.StringOutput               `pulumi:"name"`
-	NetworkId        pulumi.IntOutput                  `pulumi:"networkId"`
-	NetworkIp        pulumi.StringOutput               `pulumi:"networkIp"`
-	NetworkZone      pulumi.StringOutput               `pulumi:"networkZone"`
-	Targets          LoadBalancerTargetTypeArrayOutput `pulumi:"targets"`
+	// Configuration of the algorithm the Load Balancer use.
+	Algorithm LoadBalancerAlgorithmOutput `pulumi:"algorithm"`
+	// (string) IPv4 Address of the Load Balancer.
+	Ipv4 pulumi.StringOutput `pulumi:"ipv4"`
+	// (string) IPv4 Address of the Load Balancer.
+	Ipv6 pulumi.StringOutput `pulumi:"ipv6"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapOutput `pulumi:"labels"`
+	// Type of the Load Balancer.
+	LoadBalancerType pulumi.StringOutput `pulumi:"loadBalancerType"`
+	// Location of the Load Balancer. Require when no networkZone is set.
+	Location pulumi.StringOutput `pulumi:"location"`
+	// Name of the Load Balancer.
+	Name      pulumi.StringOutput `pulumi:"name"`
+	NetworkId pulumi.IntOutput    `pulumi:"networkId"`
+	NetworkIp pulumi.StringOutput `pulumi:"networkIp"`
+	// Network Zone of the Load Balancer. Require when no location is set.
+	NetworkZone pulumi.StringOutput `pulumi:"networkZone"`
+	// List of targets of the Load Balancer.
+	Targets LoadBalancerTargetTypeArrayOutput `pulumi:"targets"`
 }
 
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
@@ -95,31 +104,49 @@ func GetLoadBalancer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type loadBalancerState struct {
-	Algorithm        *LoadBalancerAlgorithm   `pulumi:"algorithm"`
-	Ipv4             *string                  `pulumi:"ipv4"`
-	Ipv6             *string                  `pulumi:"ipv6"`
-	Labels           map[string]interface{}   `pulumi:"labels"`
-	LoadBalancerType *string                  `pulumi:"loadBalancerType"`
-	Location         *string                  `pulumi:"location"`
-	Name             *string                  `pulumi:"name"`
-	NetworkId        *int                     `pulumi:"networkId"`
-	NetworkIp        *string                  `pulumi:"networkIp"`
-	NetworkZone      *string                  `pulumi:"networkZone"`
-	Targets          []LoadBalancerTargetType `pulumi:"targets"`
+	// Configuration of the algorithm the Load Balancer use.
+	Algorithm *LoadBalancerAlgorithm `pulumi:"algorithm"`
+	// (string) IPv4 Address of the Load Balancer.
+	Ipv4 *string `pulumi:"ipv4"`
+	// (string) IPv4 Address of the Load Balancer.
+	Ipv6 *string `pulumi:"ipv6"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Type of the Load Balancer.
+	LoadBalancerType *string `pulumi:"loadBalancerType"`
+	// Location of the Load Balancer. Require when no networkZone is set.
+	Location *string `pulumi:"location"`
+	// Name of the Load Balancer.
+	Name      *string `pulumi:"name"`
+	NetworkId *int    `pulumi:"networkId"`
+	NetworkIp *string `pulumi:"networkIp"`
+	// Network Zone of the Load Balancer. Require when no location is set.
+	NetworkZone *string `pulumi:"networkZone"`
+	// List of targets of the Load Balancer.
+	Targets []LoadBalancerTargetType `pulumi:"targets"`
 }
 
 type LoadBalancerState struct {
-	Algorithm        LoadBalancerAlgorithmPtrInput
-	Ipv4             pulumi.StringPtrInput
-	Ipv6             pulumi.StringPtrInput
-	Labels           pulumi.MapInput
+	// Configuration of the algorithm the Load Balancer use.
+	Algorithm LoadBalancerAlgorithmPtrInput
+	// (string) IPv4 Address of the Load Balancer.
+	Ipv4 pulumi.StringPtrInput
+	// (string) IPv4 Address of the Load Balancer.
+	Ipv6 pulumi.StringPtrInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringPtrInput
-	Location         pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	NetworkId        pulumi.IntPtrInput
-	NetworkIp        pulumi.StringPtrInput
-	NetworkZone      pulumi.StringPtrInput
-	Targets          LoadBalancerTargetTypeArrayInput
+	// Location of the Load Balancer. Require when no networkZone is set.
+	Location pulumi.StringPtrInput
+	// Name of the Load Balancer.
+	Name      pulumi.StringPtrInput
+	NetworkId pulumi.IntPtrInput
+	NetworkIp pulumi.StringPtrInput
+	// Network Zone of the Load Balancer. Require when no location is set.
+	NetworkZone pulumi.StringPtrInput
+	// List of targets of the Load Balancer.
+	Targets LoadBalancerTargetTypeArrayInput
 }
 
 func (LoadBalancerState) ElementType() reflect.Type {
@@ -127,24 +154,38 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
-	Algorithm        *LoadBalancerAlgorithm   `pulumi:"algorithm"`
-	Labels           map[string]interface{}   `pulumi:"labels"`
-	LoadBalancerType string                   `pulumi:"loadBalancerType"`
-	Location         *string                  `pulumi:"location"`
-	Name             *string                  `pulumi:"name"`
-	NetworkZone      *string                  `pulumi:"networkZone"`
-	Targets          []LoadBalancerTargetType `pulumi:"targets"`
+	// Configuration of the algorithm the Load Balancer use.
+	Algorithm *LoadBalancerAlgorithm `pulumi:"algorithm"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Type of the Load Balancer.
+	LoadBalancerType string `pulumi:"loadBalancerType"`
+	// Location of the Load Balancer. Require when no networkZone is set.
+	Location *string `pulumi:"location"`
+	// Name of the Load Balancer.
+	Name *string `pulumi:"name"`
+	// Network Zone of the Load Balancer. Require when no location is set.
+	NetworkZone *string `pulumi:"networkZone"`
+	// List of targets of the Load Balancer.
+	Targets []LoadBalancerTargetType `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	Algorithm        LoadBalancerAlgorithmPtrInput
-	Labels           pulumi.MapInput
+	// Configuration of the algorithm the Load Balancer use.
+	Algorithm LoadBalancerAlgorithmPtrInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringInput
-	Location         pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	NetworkZone      pulumi.StringPtrInput
-	Targets          LoadBalancerTargetTypeArrayInput
+	// Location of the Load Balancer. Require when no networkZone is set.
+	Location pulumi.StringPtrInput
+	// Name of the Load Balancer.
+	Name pulumi.StringPtrInput
+	// Network Zone of the Load Balancer. Require when no location is set.
+	NetworkZone pulumi.StringPtrInput
+	// List of targets of the Load Balancer.
+	Targets LoadBalancerTargetTypeArrayInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {

@@ -66,9 +66,15 @@ namespace Pulumi.HCloud
 
     public sealed class GetFloatingIpArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// (int) Unique ID of the Floating IP.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// IP address of the Floating IP.
+        /// </summary>
         [Input("ipAddress")]
         public string? IpAddress { get; set; }
 
@@ -78,6 +84,9 @@ namespace Pulumi.HCloud
         [Input("selector")]
         public string? Selector { get; set; }
 
+        /// <summary>
+        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
 
@@ -92,7 +101,13 @@ namespace Pulumi.HCloud
     {
         public readonly string Description;
         public readonly string HomeLocation;
+        /// <summary>
+        /// (int) Unique ID of the Floating IP.
+        /// </summary>
         public readonly int? Id;
+        /// <summary>
+        /// (string) IP address of the Floating IP.
+        /// </summary>
         public readonly string IpAddress;
         public readonly string IpNetwork;
         public readonly ImmutableDictionary<string, object> Labels;

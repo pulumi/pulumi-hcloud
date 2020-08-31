@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetSshKeyResult',
+    'AwaitableGetSshKeyResult',
+    'get_ssh_key',
+]
+
+@pulumi.output_type
 class GetSshKeyResult:
     """
     A collection of values returned by getSshKey.
@@ -15,29 +22,78 @@ class GetSshKeyResult:
     def __init__(__self__, fingerprint=None, id=None, labels=None, name=None, public_key=None, selector=None, with_selector=None):
         if fingerprint and not isinstance(fingerprint, str):
             raise TypeError("Expected argument 'fingerprint' to be a str")
-        __self__.fingerprint = fingerprint
+        pulumi.set(__self__, "fingerprint", fingerprint)
         if id and not isinstance(id, float):
             raise TypeError("Expected argument 'id' to be a float")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
-        __self__.labels = labels
+        pulumi.set(__self__, "labels", labels)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
         if public_key and not isinstance(public_key, str):
             raise TypeError("Expected argument 'public_key' to be a str")
-        __self__.public_key = public_key
+        pulumi.set(__self__, "public_key", public_key)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
         if selector is not None:
             warnings.warn("Please use the with_selector property instead.", DeprecationWarning)
             pulumi.log.warn("selector is deprecated: Please use the with_selector property instead.")
 
-        __self__.selector = selector
+        pulumi.set(__self__, "selector", selector)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
-        __self__.with_selector = with_selector
+        pulumi.set(__self__, "with_selector", with_selector)
+
+    @property
+    @pulumi.getter
+    def fingerprint(self) -> str:
+        """
+        (string) Fingerprint of the SSH Key.
+        """
+        return pulumi.get(self, "fingerprint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[float]:
+        """
+        (int) Unique ID of the SSH Key.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        (string) Name of the SSH Key.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> str:
+        """
+        (string) Public Key of the SSH Key.
+        """
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter(name="withSelector")
+    def with_selector(self) -> Optional[str]:
+        return pulumi.get(self, "with_selector")
+
+
 class AwaitableGetSshKeyResult(GetSshKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -52,13 +108,22 @@ class AwaitableGetSshKeyResult(GetSshKeyResult):
             selector=self.selector,
             with_selector=self.with_selector)
 
-def get_ssh_key(fingerprint=None,id=None,name=None,selector=None,with_selector=None,opts=None):
+
+def get_ssh_key(fingerprint: Optional[str] = None,
+                id: Optional[float] = None,
+                name: Optional[str] = None,
+                selector: Optional[str] = None,
+                with_selector: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeyResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param str fingerprint: Fingerprint of the SSH Key.
+    :param float id: ID of the SSH Key.
+    :param str name: Name of the SSH Key.
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
-
-
     __args__['fingerprint'] = fingerprint
     __args__['id'] = id
     __args__['name'] = name
@@ -67,14 +132,14 @@ def get_ssh_key(fingerprint=None,id=None,name=None,selector=None,with_selector=N
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getSshKey:getSshKey', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getSshKey:getSshKey', __args__, opts=opts, typ=GetSshKeyResult).value
 
     return AwaitableGetSshKeyResult(
-        fingerprint=__ret__.get('fingerprint'),
-        id=__ret__.get('id'),
-        labels=__ret__.get('labels'),
-        name=__ret__.get('name'),
-        public_key=__ret__.get('publicKey'),
-        selector=__ret__.get('selector'),
-        with_selector=__ret__.get('withSelector'))
+        fingerprint=__ret__.fingerprint,
+        id=__ret__.id,
+        labels=__ret__.labels,
+        name=__ret__.name,
+        public_key=__ret__.public_key,
+        selector=__ret__.selector,
+        with_selector=__ret__.with_selector)

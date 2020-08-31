@@ -53,9 +53,21 @@ export class NetworkSubnet extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly gateway!: pulumi.Output<string>;
+    /**
+     * Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
+     */
     public readonly ipRange!: pulumi.Output<string>;
+    /**
+     * ID of the Network the subnet should be added to.
+     */
     public readonly networkId!: pulumi.Output<number>;
+    /**
+     * Name of network zone.
+     */
     public readonly networkZone!: pulumi.Output<string>;
+    /**
+     * Type of subnet. `server`
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -111,9 +123,21 @@ export class NetworkSubnet extends pulumi.CustomResource {
  */
 export interface NetworkSubnetState {
     readonly gateway?: pulumi.Input<string>;
+    /**
+     * Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
+     */
     readonly ipRange?: pulumi.Input<string>;
+    /**
+     * ID of the Network the subnet should be added to.
+     */
     readonly networkId?: pulumi.Input<number>;
+    /**
+     * Name of network zone.
+     */
     readonly networkZone?: pulumi.Input<string>;
+    /**
+     * Type of subnet. `server`
+     */
     readonly type?: pulumi.Input<string>;
 }
 
@@ -121,8 +145,20 @@ export interface NetworkSubnetState {
  * The set of arguments for constructing a NetworkSubnet resource.
  */
 export interface NetworkSubnetArgs {
+    /**
+     * Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
+     */
     readonly ipRange: pulumi.Input<string>;
+    /**
+     * ID of the Network the subnet should be added to.
+     */
     readonly networkId: pulumi.Input<number>;
+    /**
+     * Name of network zone.
+     */
     readonly networkZone: pulumi.Input<string>;
+    /**
+     * Type of subnet. `server`
+     */
     readonly type: pulumi.Input<string>;
 }

@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetDatacenterResult',
+    'AwaitableGetDatacenterResult',
+    'get_datacenter',
+]
+
+@pulumi.output_type
 class GetDatacenterResult:
     """
     A collection of values returned by getDatacenter.
@@ -15,22 +22,72 @@ class GetDatacenterResult:
     def __init__(__self__, available_server_type_ids=None, description=None, id=None, location=None, name=None, supported_server_type_ids=None):
         if available_server_type_ids and not isinstance(available_server_type_ids, list):
             raise TypeError("Expected argument 'available_server_type_ids' to be a list")
-        __self__.available_server_type_ids = available_server_type_ids
+        pulumi.set(__self__, "available_server_type_ids", available_server_type_ids)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, float):
             raise TypeError("Expected argument 'id' to be a float")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, dict):
             raise TypeError("Expected argument 'location' to be a dict")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
         if supported_server_type_ids and not isinstance(supported_server_type_ids, list):
             raise TypeError("Expected argument 'supported_server_type_ids' to be a list")
-        __self__.supported_server_type_ids = supported_server_type_ids
+        pulumi.set(__self__, "supported_server_type_ids", supported_server_type_ids)
+
+    @property
+    @pulumi.getter(name="availableServerTypeIds")
+    def available_server_type_ids(self) -> List[float]:
+        """
+        (list) List of available server types.
+        """
+        return pulumi.get(self, "available_server_type_ids")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        (string) Description of the datacenter.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> float:
+        """
+        (int) Unique ID of the datacenter.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Mapping[str, Any]:
+        """
+        (map) Physical datacenter location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        (string) Name of the datacenter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="supportedServerTypeIds")
+    def supported_server_type_ids(self) -> List[float]:
+        """
+        (list) List of server types supported by the datacenter.
+        """
+        return pulumi.get(self, "supported_server_type_ids")
+
+
 class AwaitableGetDatacenterResult(GetDatacenterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -44,7 +101,10 @@ class AwaitableGetDatacenterResult(GetDatacenterResult):
             name=self.name,
             supported_server_type_ids=self.supported_server_type_ids)
 
-def get_datacenter(id=None,name=None,opts=None):
+
+def get_datacenter(id: Optional[float] = None,
+                   name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatacenterResult:
     """
     Provides details about a specific Hetzner Cloud Datacenter.
     Use this resource to get detailed information about specific datacenter.
@@ -58,22 +118,24 @@ def get_datacenter(id=None,name=None,opts=None):
     ds1 = hcloud.get_datacenter(name="fsn1-dc8")
     ds2 = hcloud.get_datacenter(id=4)
     ```
+
+
+    :param float id: ID of the datacenter.
+    :param str name: Name of the datacenter.
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('hcloud:index/getDatacenter:getDatacenter', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('hcloud:index/getDatacenter:getDatacenter', __args__, opts=opts, typ=GetDatacenterResult).value
 
     return AwaitableGetDatacenterResult(
-        available_server_type_ids=__ret__.get('availableServerTypeIds'),
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        supported_server_type_ids=__ret__.get('supportedServerTypeIds'))
+        available_server_type_ids=__ret__.available_server_type_ids,
+        description=__ret__.description,
+        id=__ret__.id,
+        location=__ret__.location,
+        name=__ret__.name,
+        supported_server_type_ids=__ret__.supported_server_type_ids)

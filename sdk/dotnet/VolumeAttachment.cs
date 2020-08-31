@@ -46,12 +46,21 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class VolumeAttachment : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Automount the volume upon attaching it.
+        /// </summary>
         [Output("automount")]
         public Output<bool> Automount { get; private set; } = null!;
 
+        /// <summary>
+        /// Server to attach the Volume to.
+        /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the Volume.
+        /// </summary>
         [Output("volumeId")]
         public Output<int> VolumeId { get; private set; } = null!;
 
@@ -101,12 +110,21 @@ namespace Pulumi.HCloud
 
     public sealed class VolumeAttachmentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Automount the volume upon attaching it.
+        /// </summary>
         [Input("automount")]
         public Input<bool>? Automount { get; set; }
 
+        /// <summary>
+        /// Server to attach the Volume to.
+        /// </summary>
         [Input("serverId", required: true)]
         public Input<int> ServerId { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the Volume.
+        /// </summary>
         [Input("volumeId", required: true)]
         public Input<int> VolumeId { get; set; } = null!;
 
@@ -117,12 +135,21 @@ namespace Pulumi.HCloud
 
     public sealed class VolumeAttachmentState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Automount the volume upon attaching it.
+        /// </summary>
         [Input("automount")]
         public Input<bool>? Automount { get; set; }
 
+        /// <summary>
+        /// Server to attach the Volume to.
+        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
+        /// <summary>
+        /// ID of the Volume.
+        /// </summary>
         [Input("volumeId")]
         public Input<int>? VolumeId { get; set; }
 

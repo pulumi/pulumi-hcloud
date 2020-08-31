@@ -24,6 +24,9 @@ export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getSshKeys.
  */
 export interface GetSshKeysArgs {
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
     readonly withSelector?: string;
 }
 
@@ -35,6 +38,9 @@ export interface GetSshKeysResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
+     */
     readonly sshKeys: outputs.GetSshKeysSshKey[];
     readonly withSelector?: string;
 }

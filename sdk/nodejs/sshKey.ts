@@ -48,9 +48,21 @@ export class SshKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === SshKey.__pulumiType;
     }
 
+    /**
+     * (string) The fingerprint of the SSH key
+     */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    /**
+     * (map) User-defined labels (key-value pairs)
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Name of the SSH key.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The public key. If this is a file, it can be read using the file interpolation function
+     */
     public readonly publicKey!: pulumi.Output<string>;
 
     /**
@@ -94,9 +106,21 @@ export class SshKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SshKey resources.
  */
 export interface SshKeyState {
+    /**
+     * (string) The fingerprint of the SSH key
+     */
     readonly fingerprint?: pulumi.Input<string>;
+    /**
+     * (map) User-defined labels (key-value pairs)
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the SSH key.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The public key. If this is a file, it can be read using the file interpolation function
+     */
     readonly publicKey?: pulumi.Input<string>;
 }
 
@@ -104,7 +128,16 @@ export interface SshKeyState {
  * The set of arguments for constructing a SshKey resource.
  */
 export interface SshKeyArgs {
+    /**
+     * (map) User-defined labels (key-value pairs)
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the SSH key.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The public key. If this is a file, it can be read using the file interpolation function
+     */
     readonly publicKey: pulumi.Input<string>;
 }

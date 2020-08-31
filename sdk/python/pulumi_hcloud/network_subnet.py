@@ -5,17 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['NetworkSubnet']
 
 
 class NetworkSubnet(pulumi.CustomResource):
-    gateway: pulumi.Output[str]
-    ip_range: pulumi.Output[str]
-    network_id: pulumi.Output[float]
-    network_zone: pulumi.Output[str]
-    type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, ip_range=None, network_id=None, network_zone=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 ip_range: Optional[pulumi.Input[str]] = None,
+                 network_id: Optional[pulumi.Input[float]] = None,
+                 network_zone: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
 
@@ -35,6 +41,10 @@ class NetworkSubnet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        :param pulumi.Input[float] network_id: ID of the Network the subnet should be added to.
+        :param pulumi.Input[str] network_zone: Name of network zone.
+        :param pulumi.Input[str] type: Type of subnet. `server`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -47,7 +57,7 @@ class NetworkSubnet(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -73,14 +83,25 @@ class NetworkSubnet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, gateway=None, ip_range=None, network_id=None, network_zone=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            gateway: Optional[pulumi.Input[str]] = None,
+            ip_range: Optional[pulumi.Input[str]] = None,
+            network_id: Optional[pulumi.Input[float]] = None,
+            network_zone: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'NetworkSubnet':
         """
         Get an existing NetworkSubnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        :param pulumi.Input[float] network_id: ID of the Network the subnet should be added to.
+        :param pulumi.Input[str] network_zone: Name of network zone.
+        :param pulumi.Input[str] type: Type of subnet. `server`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -93,8 +114,46 @@ class NetworkSubnet(pulumi.CustomResource):
         __props__["type"] = type
         return NetworkSubnet(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def gateway(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "gateway")
+
+    @property
+    @pulumi.getter(name="ipRange")
+    def ip_range(self) -> pulumi.Output[str]:
+        """
+        Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        """
+        return pulumi.get(self, "ip_range")
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> pulumi.Output[float]:
+        """
+        ID of the Network the subnet should be added to.
+        """
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> pulumi.Output[str]:
+        """
+        Name of network zone.
+        """
+        return pulumi.get(self, "network_zone")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[str]:
+        """
+        Type of subnet. `server`
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

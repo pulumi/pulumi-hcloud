@@ -18,20 +18,33 @@ namespace Pulumi.HCloud
 
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the server.
+        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// Name of the server.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("selector")]
         public string? Selector { get; set; }
 
+        /// <summary>
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
 
         [Input("withStatuses")]
         private List<string>? _withStatuses;
+
+        /// <summary>
+        /// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+        /// </summary>
         public List<string> WithStatuses
         {
             get => _withStatuses ?? (_withStatuses = new List<string>());
@@ -47,21 +60,63 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetServerResult
     {
+        /// <summary>
+        /// (string) The backup window of the server, if enabled.
+        /// </summary>
         public readonly string BackupWindow;
+        /// <summary>
+        /// (boolean) Whether backups are enabled.
+        /// </summary>
         public readonly bool Backups;
+        /// <summary>
+        /// (string) The datacenter name.
+        /// </summary>
         public readonly string Datacenter;
+        /// <summary>
+        /// (int) Unique ID of the server.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// (string) Name or ID of the image the server was created from.
+        /// </summary>
         public readonly string Image;
+        /// <summary>
+        /// (string) The IPv4 address.
+        /// </summary>
         public readonly string Ipv4Address;
+        /// <summary>
+        /// (string) The first IPv6 address of the assigned network.
+        /// </summary>
         public readonly string Ipv6Address;
+        /// <summary>
+        /// (string) The IPv6 network.
+        /// </summary>
         public readonly string Ipv6Network;
+        /// <summary>
+        /// (string) ID or Name of the mounted ISO image.
+        /// </summary>
         public readonly string Iso;
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs)
+        /// </summary>
         public readonly ImmutableDictionary<string, object> Labels;
+        /// <summary>
+        /// (string) The location name.
+        /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// (string) Name of the server.
+        /// </summary>
         public readonly string Name;
         public readonly string Rescue;
         public readonly string? Selector;
+        /// <summary>
+        /// (string) Name of the server type.
+        /// </summary>
         public readonly string ServerType;
+        /// <summary>
+        /// (string) The status of the server.
+        /// </summary>
         public readonly string Status;
         public readonly string? WithSelector;
         public readonly ImmutableArray<string> WithStatuses;

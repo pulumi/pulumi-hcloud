@@ -13,10 +13,25 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetLoadBalancerServiceHttpResult
     {
+        /// <summary>
+        /// (list[int]) List of IDs from certificates which the Load Balancer has.
+        /// </summary>
         public readonly ImmutableArray<string> Certificates;
+        /// <summary>
+        /// (int) Lifetime of the cookie for sticky session (in seconds).
+        /// </summary>
         public readonly int CookieLifetime;
+        /// <summary>
+        /// (string) Name of the cookie for sticky session.
+        /// </summary>
         public readonly string CookieName;
+        /// <summary>
+        /// (string) Determine if all requests from port 80 should be redirected to port 443.
+        /// </summary>
         public readonly bool RedirectHttp;
+        /// <summary>
+        /// (string) Determine if sticky sessions are enabled or not.
+        /// </summary>
         public readonly bool StickySessions;
 
         [OutputConstructor]

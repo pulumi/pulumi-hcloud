@@ -5,33 +5,47 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['Server']
 
 
 class Server(pulumi.CustomResource):
-    backup_window: pulumi.Output[str]
-    backups: pulumi.Output[bool]
-    datacenter: pulumi.Output[str]
-    image: pulumi.Output[str]
-    ipv4_address: pulumi.Output[str]
-    ipv6_address: pulumi.Output[str]
-    ipv6_network: pulumi.Output[str]
-    iso: pulumi.Output[str]
-    keep_disk: pulumi.Output[bool]
-    labels: pulumi.Output[dict]
-    location: pulumi.Output[str]
-    name: pulumi.Output[str]
-    rescue: pulumi.Output[str]
-    server_type: pulumi.Output[str]
-    ssh_keys: pulumi.Output[list]
-    status: pulumi.Output[str]
-    user_data: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, backups=None, datacenter=None, image=None, iso=None, keep_disk=None, labels=None, location=None, name=None, rescue=None, server_type=None, ssh_keys=None, user_data=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backups: Optional[pulumi.Input[bool]] = None,
+                 datacenter: Optional[pulumi.Input[str]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 iso: Optional[pulumi.Input[str]] = None,
+                 keep_disk: Optional[pulumi.Input[bool]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rescue: Optional[pulumi.Input[str]] = None,
+                 server_type: Optional[pulumi.Input[str]] = None,
+                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a Server resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] backups: Enable or disable backups.
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[str] image: Name or ID of the image the server is created from.
+        :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
+        :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
+        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -44,7 +58,7 @@ class Server(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -78,14 +92,50 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backup_window=None, backups=None, datacenter=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, keep_disk=None, labels=None, location=None, name=None, rescue=None, server_type=None, ssh_keys=None, status=None, user_data=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_window: Optional[pulumi.Input[str]] = None,
+            backups: Optional[pulumi.Input[bool]] = None,
+            datacenter: Optional[pulumi.Input[str]] = None,
+            image: Optional[pulumi.Input[str]] = None,
+            ipv4_address: Optional[pulumi.Input[str]] = None,
+            ipv6_address: Optional[pulumi.Input[str]] = None,
+            ipv6_network: Optional[pulumi.Input[str]] = None,
+            iso: Optional[pulumi.Input[str]] = None,
+            keep_disk: Optional[pulumi.Input[bool]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            rescue: Optional[pulumi.Input[str]] = None,
+            server_type: Optional[pulumi.Input[str]] = None,
+            ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            status: Optional[pulumi.Input[str]] = None,
+            user_data: Optional[pulumi.Input[str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
+        :param pulumi.Input[bool] backups: Enable or disable backups.
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[str] image: Name or ID of the image the server is created from.
+        :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
+        :param pulumi.Input[str] ipv6_address: (string) The first IPv6 address of the assigned network.
+        :param pulumi.Input[str] ipv6_network: (string) The IPv6 network.
+        :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
+        :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
+        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[str] status: (string) The status of the server.
+        :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -110,8 +160,145 @@ class Server(pulumi.CustomResource):
         __props__["user_data"] = user_data
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="backupWindow")
+    def backup_window(self) -> pulumi.Output[str]:
+        """
+        (string) The backup window of the server, if enabled.
+        """
+        return pulumi.get(self, "backup_window")
+
+    @property
+    @pulumi.getter
+    def backups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable backups.
+        """
+        return pulumi.get(self, "backups")
+
+    @property
+    @pulumi.getter
+    def datacenter(self) -> pulumi.Output[str]:
+        """
+        The datacenter name to create the server in.
+        """
+        return pulumi.get(self, "datacenter")
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Output[str]:
+        """
+        Name or ID of the image the server is created from.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> pulumi.Output[str]:
+        """
+        (string) The IPv4 address.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> pulumi.Output[str]:
+        """
+        (string) The first IPv6 address of the assigned network.
+        """
+        return pulumi.get(self, "ipv6_address")
+
+    @property
+    @pulumi.getter(name="ipv6Network")
+    def ipv6_network(self) -> pulumi.Output[str]:
+        """
+        (string) The IPv6 network.
+        """
+        return pulumi.get(self, "ipv6_network")
+
+    @property
+    @pulumi.getter
+    def iso(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID or Name of an ISO image to mount.
+        """
+        return pulumi.get(self, "iso")
+
+    @property
+    @pulumi.getter(name="keepDisk")
+    def keep_disk(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, do not upgrade the disk. This allows downgrading the server type later.
+        """
+        return pulumi.get(self, "keep_disk")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rescue(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        """
+        return pulumi.get(self, "rescue")
+
+    @property
+    @pulumi.getter(name="serverType")
+    def server_type(self) -> pulumi.Output[str]:
+        """
+        Name of the server type this server should be created with.
+        """
+        return pulumi.get(self, "server_type")
+
+    @property
+    @pulumi.getter(name="sshKeys")
+    def ssh_keys(self) -> pulumi.Output[Optional[List[str]]]:
+        """
+        SSH key IDs or names which should be injected into the server at creation time
+        """
+        return pulumi.get(self, "ssh_keys")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        (string) The status of the server.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        Cloud-Init user data to use during server creation
+        """
+        return pulumi.get(self, "user_data")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -51,13 +51,37 @@ export class FloatingIp extends pulumi.CustomResource {
         return obj['__pulumiType'] === FloatingIp.__pulumiType;
     }
 
+    /**
+     * Description of the Floating IP.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Home location (routing is optimized for that location). Optional if serverId argument is passed.
+     */
     public readonly homeLocation!: pulumi.Output<string>;
+    /**
+     * (string) IP Address of the Floating IP.
+     */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    /**
+     * (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+     */
     public /*out*/ readonly ipNetwork!: pulumi.Output<string>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Name of the Floating IP.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Server to assign the Floating IP to.
+     */
     public readonly serverId!: pulumi.Output<number>;
+    /**
+     * Type of the Floating IP. `ipv4` `ipv6`
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -109,13 +133,37 @@ export class FloatingIp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FloatingIp resources.
  */
 export interface FloatingIpState {
+    /**
+     * Description of the Floating IP.
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Home location (routing is optimized for that location). Optional if serverId argument is passed.
+     */
     readonly homeLocation?: pulumi.Input<string>;
+    /**
+     * (string) IP Address of the Floating IP.
+     */
     readonly ipAddress?: pulumi.Input<string>;
+    /**
+     * (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+     */
     readonly ipNetwork?: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Floating IP.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Server to assign the Floating IP to.
+     */
     readonly serverId?: pulumi.Input<number>;
+    /**
+     * Type of the Floating IP. `ipv4` `ipv6`
+     */
     readonly type?: pulumi.Input<string>;
 }
 
@@ -123,10 +171,28 @@ export interface FloatingIpState {
  * The set of arguments for constructing a FloatingIp resource.
  */
 export interface FloatingIpArgs {
+    /**
+     * Description of the Floating IP.
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Home location (routing is optimized for that location). Optional if serverId argument is passed.
+     */
     readonly homeLocation?: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Floating IP.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Server to assign the Floating IP to.
+     */
     readonly serverId?: pulumi.Input<number>;
+    /**
+     * Type of the Floating IP. `ipv4` `ipv6`
+     */
     readonly type: pulumi.Input<string>;
 }

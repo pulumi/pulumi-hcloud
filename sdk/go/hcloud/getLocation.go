@@ -51,17 +51,26 @@ func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getLocation.
 type GetLocationArgs struct {
-	Id   *int    `pulumi:"id"`
+	// ID of the location.
+	Id *int `pulumi:"id"`
+	// Name of the location.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getLocation.
 type GetLocationResult struct {
-	City        string  `pulumi:"city"`
-	Country     string  `pulumi:"country"`
-	Description string  `pulumi:"description"`
-	Id          int     `pulumi:"id"`
-	Latitude    float64 `pulumi:"latitude"`
-	Longitude   float64 `pulumi:"longitude"`
-	Name        string  `pulumi:"name"`
+	// (string) City of the location.
+	City string `pulumi:"city"`
+	// (string) Country of the location.
+	Country string `pulumi:"country"`
+	// (string) Description of the location.
+	Description string `pulumi:"description"`
+	// (int) Unique ID of the location.
+	Id int `pulumi:"id"`
+	// (float) Latitude of the city.
+	Latitude float64 `pulumi:"latitude"`
+	// (float) Longitude of the city.
+	Longitude float64 `pulumi:"longitude"`
+	// (string) Name of the location.
+	Name string `pulumi:"name"`
 }

@@ -51,8 +51,17 @@ export class NetworkRoute extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkRoute.__pulumiType;
     }
 
+    /**
+     * Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
+     */
     public readonly destination!: pulumi.Output<string>;
+    /**
+     * Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+     */
     public readonly gateway!: pulumi.Output<string>;
+    /**
+     * ID of the Network the route should be added to.
+     */
     public readonly networkId!: pulumi.Output<number>;
 
     /**
@@ -100,8 +109,17 @@ export class NetworkRoute extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkRoute resources.
  */
 export interface NetworkRouteState {
+    /**
+     * Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
+     */
     readonly destination?: pulumi.Input<string>;
+    /**
+     * Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+     */
     readonly gateway?: pulumi.Input<string>;
+    /**
+     * ID of the Network the route should be added to.
+     */
     readonly networkId?: pulumi.Input<number>;
 }
 
@@ -109,7 +127,16 @@ export interface NetworkRouteState {
  * The set of arguments for constructing a NetworkRoute resource.
  */
 export interface NetworkRouteArgs {
+    /**
+     * Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
+     */
     readonly destination: pulumi.Input<string>;
+    /**
+     * Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+     */
     readonly gateway: pulumi.Input<string>;
+    /**
+     * ID of the Network the route should be added to.
+     */
     readonly networkId: pulumi.Input<number>;
 }

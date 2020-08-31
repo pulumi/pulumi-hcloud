@@ -45,9 +45,12 @@ import (
 type NetworkRoute struct {
 	pulumi.CustomResourceState
 
+	// Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
 	Destination pulumi.StringOutput `pulumi:"destination"`
-	Gateway     pulumi.StringOutput `pulumi:"gateway"`
-	NetworkId   pulumi.IntOutput    `pulumi:"networkId"`
+	// Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+	Gateway pulumi.StringOutput `pulumi:"gateway"`
+	// ID of the Network the route should be added to.
+	NetworkId pulumi.IntOutput `pulumi:"networkId"`
 }
 
 // NewNetworkRoute registers a new resource with the given unique name, arguments, and options.
@@ -87,15 +90,21 @@ func GetNetworkRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkRoute resources.
 type networkRouteState struct {
+	// Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
 	Destination *string `pulumi:"destination"`
-	Gateway     *string `pulumi:"gateway"`
-	NetworkId   *int    `pulumi:"networkId"`
+	// Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+	Gateway *string `pulumi:"gateway"`
+	// ID of the Network the route should be added to.
+	NetworkId *int `pulumi:"networkId"`
 }
 
 type NetworkRouteState struct {
+	// Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
 	Destination pulumi.StringPtrInput
-	Gateway     pulumi.StringPtrInput
-	NetworkId   pulumi.IntPtrInput
+	// Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+	Gateway pulumi.StringPtrInput
+	// ID of the Network the route should be added to.
+	NetworkId pulumi.IntPtrInput
 }
 
 func (NetworkRouteState) ElementType() reflect.Type {
@@ -103,16 +112,22 @@ func (NetworkRouteState) ElementType() reflect.Type {
 }
 
 type networkRouteArgs struct {
+	// Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
 	Destination string `pulumi:"destination"`
-	Gateway     string `pulumi:"gateway"`
-	NetworkId   int    `pulumi:"networkId"`
+	// Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+	Gateway string `pulumi:"gateway"`
+	// ID of the Network the route should be added to.
+	NetworkId int `pulumi:"networkId"`
 }
 
 // The set of arguments for constructing a NetworkRoute resource.
 type NetworkRouteArgs struct {
+	// Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
 	Destination pulumi.StringInput
-	Gateway     pulumi.StringInput
-	NetworkId   pulumi.IntInput
+	// Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+	Gateway pulumi.StringInput
+	// ID of the Network the route should be added to.
+	NetworkId pulumi.IntInput
 }
 
 func (NetworkRouteArgs) ElementType() reflect.Type {

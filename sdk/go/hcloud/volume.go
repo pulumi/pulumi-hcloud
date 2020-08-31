@@ -46,14 +46,22 @@ import (
 type Volume struct {
 	pulumi.CustomResourceState
 
-	Automount   pulumi.BoolPtrOutput   `pulumi:"automount"`
-	Format      pulumi.StringPtrOutput `pulumi:"format"`
-	Labels      pulumi.MapOutput       `pulumi:"labels"`
-	LinuxDevice pulumi.StringOutput    `pulumi:"linuxDevice"`
-	Location    pulumi.StringOutput    `pulumi:"location"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	ServerId    pulumi.IntOutput       `pulumi:"serverId"`
-	Size        pulumi.IntOutput       `pulumi:"size"`
+	// Automount the volume upon attaching it (server_id must be provided).
+	Automount pulumi.BoolPtrOutput `pulumi:"automount"`
+	// Format volume after creation. `xfs` or `ext4`
+	Format pulumi.StringPtrOutput `pulumi:"format"`
+	// User-defined labels (key-value pairs).
+	Labels pulumi.MapOutput `pulumi:"labels"`
+	// Device path on the file system for the Volume.
+	LinuxDevice pulumi.StringOutput `pulumi:"linuxDevice"`
+	// Location of the volume to create, optional if serverId argument is passed.
+	Location pulumi.StringOutput `pulumi:"location"`
+	// Name of the volume to create (must be unique per project).
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Server to attach the Volume to, optional if location argument is passed.
+	ServerId pulumi.IntOutput `pulumi:"serverId"`
+	// Size of the volume (in GB).
+	Size pulumi.IntOutput `pulumi:"size"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -87,25 +95,41 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	Automount   *bool                  `pulumi:"automount"`
-	Format      *string                `pulumi:"format"`
-	Labels      map[string]interface{} `pulumi:"labels"`
-	LinuxDevice *string                `pulumi:"linuxDevice"`
-	Location    *string                `pulumi:"location"`
-	Name        *string                `pulumi:"name"`
-	ServerId    *int                   `pulumi:"serverId"`
-	Size        *int                   `pulumi:"size"`
+	// Automount the volume upon attaching it (server_id must be provided).
+	Automount *bool `pulumi:"automount"`
+	// Format volume after creation. `xfs` or `ext4`
+	Format *string `pulumi:"format"`
+	// User-defined labels (key-value pairs).
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Device path on the file system for the Volume.
+	LinuxDevice *string `pulumi:"linuxDevice"`
+	// Location of the volume to create, optional if serverId argument is passed.
+	Location *string `pulumi:"location"`
+	// Name of the volume to create (must be unique per project).
+	Name *string `pulumi:"name"`
+	// Server to attach the Volume to, optional if location argument is passed.
+	ServerId *int `pulumi:"serverId"`
+	// Size of the volume (in GB).
+	Size *int `pulumi:"size"`
 }
 
 type VolumeState struct {
-	Automount   pulumi.BoolPtrInput
-	Format      pulumi.StringPtrInput
-	Labels      pulumi.MapInput
+	// Automount the volume upon attaching it (server_id must be provided).
+	Automount pulumi.BoolPtrInput
+	// Format volume after creation. `xfs` or `ext4`
+	Format pulumi.StringPtrInput
+	// User-defined labels (key-value pairs).
+	Labels pulumi.MapInput
+	// Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringPtrInput
-	Location    pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	ServerId    pulumi.IntPtrInput
-	Size        pulumi.IntPtrInput
+	// Location of the volume to create, optional if serverId argument is passed.
+	Location pulumi.StringPtrInput
+	// Name of the volume to create (must be unique per project).
+	Name pulumi.StringPtrInput
+	// Server to attach the Volume to, optional if location argument is passed.
+	ServerId pulumi.IntPtrInput
+	// Size of the volume (in GB).
+	Size pulumi.IntPtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {
@@ -113,24 +137,38 @@ func (VolumeState) ElementType() reflect.Type {
 }
 
 type volumeArgs struct {
-	Automount *bool                  `pulumi:"automount"`
-	Format    *string                `pulumi:"format"`
-	Labels    map[string]interface{} `pulumi:"labels"`
-	Location  *string                `pulumi:"location"`
-	Name      *string                `pulumi:"name"`
-	ServerId  *int                   `pulumi:"serverId"`
-	Size      int                    `pulumi:"size"`
+	// Automount the volume upon attaching it (server_id must be provided).
+	Automount *bool `pulumi:"automount"`
+	// Format volume after creation. `xfs` or `ext4`
+	Format *string `pulumi:"format"`
+	// User-defined labels (key-value pairs).
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Location of the volume to create, optional if serverId argument is passed.
+	Location *string `pulumi:"location"`
+	// Name of the volume to create (must be unique per project).
+	Name *string `pulumi:"name"`
+	// Server to attach the Volume to, optional if location argument is passed.
+	ServerId *int `pulumi:"serverId"`
+	// Size of the volume (in GB).
+	Size int `pulumi:"size"`
 }
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
+	// Automount the volume upon attaching it (server_id must be provided).
 	Automount pulumi.BoolPtrInput
-	Format    pulumi.StringPtrInput
-	Labels    pulumi.MapInput
-	Location  pulumi.StringPtrInput
-	Name      pulumi.StringPtrInput
-	ServerId  pulumi.IntPtrInput
-	Size      pulumi.IntInput
+	// Format volume after creation. `xfs` or `ext4`
+	Format pulumi.StringPtrInput
+	// User-defined labels (key-value pairs).
+	Labels pulumi.MapInput
+	// Location of the volume to create, optional if serverId argument is passed.
+	Location pulumi.StringPtrInput
+	// Name of the volume to create (must be unique per project).
+	Name pulumi.StringPtrInput
+	// Server to attach the Volume to, optional if location argument is passed.
+	ServerId pulumi.IntPtrInput
+	// Size of the volume (in GB).
+	Size pulumi.IntInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {

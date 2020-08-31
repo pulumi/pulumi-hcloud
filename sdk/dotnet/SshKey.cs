@@ -35,15 +35,27 @@ namespace Pulumi.HCloud
     /// </summary>
     public partial class SshKey : Pulumi.CustomResource
     {
+        /// <summary>
+        /// (string) The fingerprint of the SSH key
+        /// </summary>
         [Output("fingerprint")]
         public Output<string> Fingerprint { get; private set; } = null!;
 
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs)
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the SSH key.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The public key. If this is a file, it can be read using the file interpolation function
+        /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
 
@@ -95,15 +107,25 @@ namespace Pulumi.HCloud
     {
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs)
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the SSH key.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The public key. If this is a file, it can be read using the file interpolation function
+        /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
 
@@ -114,20 +136,33 @@ namespace Pulumi.HCloud
 
     public sealed class SshKeyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (string) The fingerprint of the SSH key
+        /// </summary>
         [Input("fingerprint")]
         public Input<string>? Fingerprint { get; set; }
 
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs)
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the SSH key.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The public key. If this is a file, it can be read using the file interpolation function
+        /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
 

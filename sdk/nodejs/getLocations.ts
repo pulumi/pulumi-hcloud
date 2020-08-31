@@ -45,6 +45,9 @@ export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getLocations.
  */
 export interface GetLocationsArgs {
+    /**
+     * (list) List of unique location identifiers.
+     */
     readonly locationIds?: string[];
 }
 
@@ -52,11 +55,20 @@ export interface GetLocationsArgs {
  * A collection of values returned by getLocations.
  */
 export interface GetLocationsResult {
+    /**
+     * (list) List of all location descriptions.
+     */
     readonly descriptions: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * (list) List of unique location identifiers.
+     */
     readonly locationIds?: string[];
+    /**
+     * (list) List of location names.
+     */
     readonly names: string[];
 }
