@@ -16,13 +16,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ds = pulumi.output(hcloud.getLocations({ async: true }));
- * const workers: hcloud.Server[] = [];
- * for (let i = 0; i < 3; i++) {
- *     workers.push(new hcloud.Server(`workers-${i}`, {
+ * const ds = hcloud.getLocations({});
+ * const workers: hcloud.Server[];
+ * for (const range = {value: 0}; range.value < 3; range.value++) {
+ *     workers.push(new hcloud.Server(`workers-${range.value}`, {
  *         image: "debian-9",
- *         location: ds.apply(ds => ds.names[i]),
  *         serverType: "cx31",
+ *         location: ds.then(ds => ds.names)[range.value],
  *     }));
  * }
  * ```

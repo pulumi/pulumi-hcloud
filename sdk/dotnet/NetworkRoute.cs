@@ -28,9 +28,9 @@ namespace Pulumi.HCloud
     ///         });
     ///         var privNet = new HCloud.NetworkRoute("privNet", new HCloud.NetworkRouteArgs
     ///         {
+    ///             NetworkId = mynet.Id,
     ///             Destination = "10.100.1.0/24",
     ///             Gateway = "10.0.1.1",
-    ///             NetworkId = mynet.Id,
     ///         });
     ///     }
     /// 

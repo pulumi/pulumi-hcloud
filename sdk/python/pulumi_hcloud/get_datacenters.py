@@ -94,9 +94,9 @@ def get_datacenters(datacenter_ids: Optional[List[str]] = None,
     workers = []
     for range in [{"value": i} for i in range(0, 3)]:
         workers.append(hcloud.Server(f"workers-{range['value']}",
-            datacenter=ds.names[range["value"]],
             image="debian-9",
-            server_type="cx31"))
+            server_type="cx31",
+            datacenter=ds.names[range["value"]]))
     ```
 
 

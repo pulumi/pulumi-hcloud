@@ -31,10 +31,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
-// 			IpRange:     pulumi.String("10.0.1.0/24"),
 // 			NetworkId:   mynet.ID(),
-// 			NetworkZone: pulumi.String("eu-central"),
 // 			Type:        pulumi.String("cloud"),
+// 			NetworkZone: pulumi.String("eu-central"),
+// 			IpRange:     pulumi.String("10.0.1.0/24"),
 // 		})
 // 		if err != nil {
 // 			return err

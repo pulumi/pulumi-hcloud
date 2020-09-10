@@ -56,12 +56,12 @@ class LoadBalancerServiceHealthCheck(dict):
                  http: Optional['outputs.LoadBalancerServiceHealthCheckHttp'] = None,
                  retries: Optional[float] = None):
         """
-        :param float interval: Interval how often the health check will be performed, in seconds. Default: `15`
+        :param float interval: Interval how often the health check will be performed, in seconds.
         :param float port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param str protocol: Protocol the health check uses. `http` or `tcp`
-        :param float timeout: Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+        :param float timeout: Timeout when a health check try will be canceled if there is no response, in seconds.
         :param 'LoadBalancerServiceHealthCheckHttpArgs' http: List of http configurations. Required if `protocol` is `http`.
-        :param float retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+        :param float retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "port", port)
@@ -76,7 +76,7 @@ class LoadBalancerServiceHealthCheck(dict):
     @pulumi.getter
     def interval(self) -> float:
         """
-        Interval how often the health check will be performed, in seconds. Default: `15`
+        Interval how often the health check will be performed, in seconds.
         """
         return pulumi.get(self, "interval")
 
@@ -100,7 +100,7 @@ class LoadBalancerServiceHealthCheck(dict):
     @pulumi.getter
     def timeout(self) -> float:
         """
-        Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+        Timeout when a health check try will be canceled if there is no response, in seconds.
         """
         return pulumi.get(self, "timeout")
 
@@ -116,7 +116,7 @@ class LoadBalancerServiceHealthCheck(dict):
     @pulumi.getter
     def retries(self) -> Optional[float]:
         """
-        Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
         return pulumi.get(self, "retries")
 
@@ -127,35 +127,28 @@ class LoadBalancerServiceHealthCheck(dict):
 @pulumi.output_type
 class LoadBalancerServiceHealthCheckHttp(dict):
     def __init__(__self__, *,
-                 status_codes: List[str],
                  domain: Optional[str] = None,
                  path: Optional[str] = None,
                  response: Optional[str] = None,
+                 status_codes: Optional[List[str]] = None,
                  tls: Optional[bool] = None):
         """
-        :param List[str] status_codes: We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         :param str domain: Domain we try to access when performing the Health Check.
         :param str path: Path we try to access when performing the Health Check.
         :param str response: Response we expect to be included in the Target response when a Health Check was performed.
+        :param List[str] status_codes: We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         :param bool tls: Enable TLS certificate checking.
         """
-        pulumi.set(__self__, "status_codes", status_codes)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if response is not None:
             pulumi.set(__self__, "response", response)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
-
-    @property
-    @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> List[str]:
-        """
-        We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
-        """
-        return pulumi.get(self, "status_codes")
 
     @property
     @pulumi.getter
@@ -180,6 +173,14 @@ class LoadBalancerServiceHealthCheckHttp(dict):
         Response we expect to be included in the Target response when a Health Check was performed.
         """
         return pulumi.get(self, "response")
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[List[str]]:
+        """
+        We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        """
+        return pulumi.get(self, "status_codes")
 
     @property
     @pulumi.getter

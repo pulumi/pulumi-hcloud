@@ -95,8 +95,8 @@ def get_locations(location_ids: Optional[List[str]] = None,
     for range in [{"value": i} for i in range(0, 3)]:
         workers.append(hcloud.Server(f"workers-{range['value']}",
             image="debian-9",
-            location=ds.names[range["value"]],
-            server_type="cx31"))
+            server_type="cx31",
+            location=ds.names[range["value"]]))
     ```
 
 

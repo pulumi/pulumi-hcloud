@@ -24,14 +24,14 @@ namespace Pulumi.HCloud
     ///     {
     ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
     ///         {
-    ///             Datacenter = "fsn1-dc8",
     ///             Image = "debian-9",
     ///             ServerType = "cx11",
+    ///             Datacenter = "fsn1-dc8",
     ///         });
     ///         var master = new HCloud.FloatingIp("master", new HCloud.FloatingIpArgs
     ///         {
-    ///             HomeLocation = "nbg1",
     ///             Type = "ipv4",
+    ///             HomeLocation = "nbg1",
     ///         });
     ///         var main = new HCloud.FloatingIpAssignment("main", new HCloud.FloatingIpAssignmentArgs
     ///         {

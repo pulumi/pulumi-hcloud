@@ -19,6 +19,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
                  ip: Optional[pulumi.Input[str]] = None,
                  load_balancer_id: Optional[pulumi.Input[float]] = None,
                  network_id: Optional[pulumi.Input[float]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,22 +37,36 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             network_zone="eu-central")
         mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
-            ip_range="10.0.1.0/24",
             network_id=mynet.id,
+            type="cloud",
             network_zone="eu-central",
-            type="cloud")
+            ip_range="10.0.1.0/24")
         srvnetwork = hcloud.LoadBalancerNetwork("srvnetwork",
-            ip="10.0.1.5",
             load_balancer_id=lb1.id,
-            network_id=mynet.id)
+            network_id=mynet.id,
+            ip="10.0.1.5")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enable_public_interface: Enable or disable the Load Balancers public interface. Default: `true`
-        :param pulumi.Input[str] ip: IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        :param pulumi.Input[bool] enable_public_interface: Enable or disable the
+               Load Balancers public interface. Default: `true`
+        :param pulumi.Input[str] ip: IP to request to be assigned to this Load
+               Balancer. If you do not provide this then you will be auto assigned an
+               IP address.
         :param pulumi.Input[float] load_balancer_id: ID of the Load Balancer.
-        :param pulumi.Input[float] network_id: ID of the network which should be added to the Load Balancer.
+        :param pulumi.Input[float] network_id: ID of the network which should be added
+               to the Load Balancer. Required if `subnet_id` is not set. Successful
+               creation of the resource depends on the existence of a subnet in the
+               Hetzner Cloud Backend. Using `network_id` will not create an explicit
+               dependency between the Load Balancer and the subnet. Therefore
+               `depends_on` may need to be used. Alternatively the `subnet_id`
+               property can be used, which will create an explicit dependency between
+               `LoadBalancerNetwork` and the existence of a subnet.
+        :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
+               added to the Load Balancer. Required if `network_id` is not set.
+               *Note*: if the `ip` property is missing, the Load Balancer is
+               currently added to the last created subnet.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,9 +90,8 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             if load_balancer_id is None:
                 raise TypeError("Missing required property 'load_balancer_id'")
             __props__['load_balancer_id'] = load_balancer_id
-            if network_id is None:
-                raise TypeError("Missing required property 'network_id'")
             __props__['network_id'] = network_id
+            __props__['subnet_id'] = subnet_id
         super(LoadBalancerNetwork, __self__).__init__(
             'hcloud:index/loadBalancerNetwork:LoadBalancerNetwork',
             resource_name,
@@ -91,7 +105,8 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             enable_public_interface: Optional[pulumi.Input[bool]] = None,
             ip: Optional[pulumi.Input[str]] = None,
             load_balancer_id: Optional[pulumi.Input[float]] = None,
-            network_id: Optional[pulumi.Input[float]] = None) -> 'LoadBalancerNetwork':
+            network_id: Optional[pulumi.Input[float]] = None,
+            subnet_id: Optional[pulumi.Input[str]] = None) -> 'LoadBalancerNetwork':
         """
         Get an existing LoadBalancerNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,10 +114,24 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enable_public_interface: Enable or disable the Load Balancers public interface. Default: `true`
-        :param pulumi.Input[str] ip: IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        :param pulumi.Input[bool] enable_public_interface: Enable or disable the
+               Load Balancers public interface. Default: `true`
+        :param pulumi.Input[str] ip: IP to request to be assigned to this Load
+               Balancer. If you do not provide this then you will be auto assigned an
+               IP address.
         :param pulumi.Input[float] load_balancer_id: ID of the Load Balancer.
-        :param pulumi.Input[float] network_id: ID of the network which should be added to the Load Balancer.
+        :param pulumi.Input[float] network_id: ID of the network which should be added
+               to the Load Balancer. Required if `subnet_id` is not set. Successful
+               creation of the resource depends on the existence of a subnet in the
+               Hetzner Cloud Backend. Using `network_id` will not create an explicit
+               dependency between the Load Balancer and the subnet. Therefore
+               `depends_on` may need to be used. Alternatively the `subnet_id`
+               property can be used, which will create an explicit dependency between
+               `LoadBalancerNetwork` and the existence of a subnet.
+        :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
+               added to the Load Balancer. Required if `network_id` is not set.
+               *Note*: if the `ip` property is missing, the Load Balancer is
+               currently added to the last created subnet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -112,13 +141,15 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         __props__["ip"] = ip
         __props__["load_balancer_id"] = load_balancer_id
         __props__["network_id"] = network_id
+        __props__["subnet_id"] = subnet_id
         return LoadBalancerNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="enablePublicInterface")
     def enable_public_interface(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable or disable the Load Balancers public interface. Default: `true`
+        Enable or disable the
+        Load Balancers public interface. Default: `true`
         """
         return pulumi.get(self, "enable_public_interface")
 
@@ -126,7 +157,9 @@ class LoadBalancerNetwork(pulumi.CustomResource):
     @pulumi.getter
     def ip(self) -> pulumi.Output[str]:
         """
-        IP to request to be assigned to this Load Balancer. If you do not provide this then you will be auto assigned an IP address.
+        IP to request to be assigned to this Load
+        Balancer. If you do not provide this then you will be auto assigned an
+        IP address.
         """
         return pulumi.get(self, "ip")
 
@@ -140,11 +173,29 @@ class LoadBalancerNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> pulumi.Output[float]:
+    def network_id(self) -> pulumi.Output[Optional[float]]:
         """
-        ID of the network which should be added to the Load Balancer.
+        ID of the network which should be added
+        to the Load Balancer. Required if `subnet_id` is not set. Successful
+        creation of the resource depends on the existence of a subnet in the
+        Hetzner Cloud Backend. Using `network_id` will not create an explicit
+        dependency between the Load Balancer and the subnet. Therefore
+        `depends_on` may need to be used. Alternatively the `subnet_id`
+        property can be used, which will create an explicit dependency between
+        `LoadBalancerNetwork` and the existence of a subnet.
         """
         return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of the sub-network which should be
+        added to the Load Balancer. Required if `network_id` is not set.
+        *Note*: if the `ip` property is missing, the Load Balancer is
+        currently added to the last created subnet.
+        """
+        return pulumi.get(self, "subnet_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

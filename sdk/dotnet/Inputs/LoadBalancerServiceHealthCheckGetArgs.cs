@@ -19,7 +19,7 @@ namespace Pulumi.HCloud.Inputs
         public Input<Inputs.LoadBalancerServiceHealthCheckHttpGetArgs>? Http { get; set; }
 
         /// <summary>
-        /// Interval how often the health check will be performed, in seconds. Default: `15`
+        /// Interval how often the health check will be performed, in seconds.
         /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
@@ -37,13 +37,13 @@ namespace Pulumi.HCloud.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+        /// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         /// </summary>
         [Input("retries")]
         public Input<int>? Retries { get; set; }
 
         /// <summary>
-        /// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+        /// Timeout when a health check try will be canceled if there is no response, in seconds.
         /// </summary>
         [Input("timeout", required: true)]
         public Input<int> Timeout { get; set; } = null!;

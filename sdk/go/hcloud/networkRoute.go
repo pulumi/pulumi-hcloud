@@ -31,9 +31,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = hcloud.NewNetworkRoute(ctx, "privNet", &hcloud.NetworkRouteArgs{
+// 			NetworkId:   mynet.ID(),
 // 			Destination: pulumi.String("10.100.1.0/24"),
 // 			Gateway:     pulumi.String("10.0.1.1"),
-// 			NetworkId:   mynet.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

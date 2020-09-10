@@ -33,10 +33,10 @@ class NetworkSubnet(pulumi.CustomResource):
 
         mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
-            ip_range="10.0.1.0/24",
             network_id=mynet.id,
+            type="cloud",
             network_zone="eu-central",
-            type="cloud")
+            ip_range="10.0.1.0/24")
         ```
 
         :param str resource_name: The name of the resource.

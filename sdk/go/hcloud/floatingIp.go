@@ -32,8 +32,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
-// 			ServerId: node1.ID(),
 // 			Type:     pulumi.String("ipv4"),
+// 			ServerId: node1.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

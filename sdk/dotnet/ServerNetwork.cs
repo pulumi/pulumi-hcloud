@@ -33,16 +33,16 @@ namespace Pulumi.HCloud
     ///         });
     ///         var foonet = new HCloud.NetworkSubnet("foonet", new HCloud.NetworkSubnetArgs
     ///         {
-    ///             IpRange = "10.0.1.0/24",
     ///             NetworkId = mynet.Id,
-    ///             NetworkZone = "eu-central",
     ///             Type = "cloud",
+    ///             NetworkZone = "eu-central",
+    ///             IpRange = "10.0.1.0/24",
     ///         });
     ///         var srvnetwork = new HCloud.ServerNetwork("srvnetwork", new HCloud.ServerNetworkArgs
     ///         {
-    ///             Ip = "10.0.1.5",
-    ///             NetworkId = mynet.Id,
     ///             ServerId = node1.Id,
+    ///             NetworkId = mynet.Id,
+    ///             Ip = "10.0.1.5",
     ///         });
     ///     }
     /// 
@@ -52,13 +52,16 @@ namespace Pulumi.HCloud
     public partial class ServerNetwork : Pulumi.CustomResource
     {
         /// <summary>
-        /// Additional IPs to be assigned to this server.
+        /// Additional IPs to be assigned
+        /// to this server.
         /// </summary>
         [Output("aliasIps")]
         public Output<ImmutableArray<string>> AliasIps { get; private set; } = null!;
 
         /// <summary>
-        /// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+        /// IP to request to be assigned to this server.
+        /// If you do not provide this then you will be auto assigned an IP
+        /// address.
         /// </summary>
         [Output("ip")]
         public Output<string> Ip { get; private set; } = null!;
@@ -67,16 +70,32 @@ namespace Pulumi.HCloud
         public Output<string> MacAddress { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the network which should be added to the server.
+        /// ID of the network which should be added
+        /// to the server. Required if `subnet_id` is not set. Successful creation
+        /// of the resource depends on the existence of a subnet in the Hetzner
+        /// Cloud Backend. Using `network_id` will not create an explicit
+        /// dependency between server and subnet. Therefore `depends_on` may need
+        /// to be used. Alternatively the `subnet_id` property can be used, which
+        /// will create an explicit dependency between `hcloud.ServerNetwork` and
+        /// the existence of a subnet.
         /// </summary>
         [Output("networkId")]
-        public Output<int> NetworkId { get; private set; } = null!;
+        public Output<int?> NetworkId { get; private set; } = null!;
 
         /// <summary>
         /// ID of the server.
         /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the sub-network which should be
+        /// added to the Server. Required if `network_id` is not set.
+        /// *Note*: if the `ip` property is missing, the Server is currently added
+        /// to the last created subnet.
+        /// </summary>
+        [Output("subnetId")]
+        public Output<string?> SubnetId { get; private set; } = null!;
 
 
         /// <summary>
@@ -128,7 +147,8 @@ namespace Pulumi.HCloud
         private InputList<string>? _aliasIps;
 
         /// <summary>
-        /// Additional IPs to be assigned to this server.
+        /// Additional IPs to be assigned
+        /// to this server.
         /// </summary>
         public InputList<string> AliasIps
         {
@@ -137,22 +157,40 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+        /// IP to request to be assigned to this server.
+        /// If you do not provide this then you will be auto assigned an IP
+        /// address.
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
         /// <summary>
-        /// ID of the network which should be added to the server.
+        /// ID of the network which should be added
+        /// to the server. Required if `subnet_id` is not set. Successful creation
+        /// of the resource depends on the existence of a subnet in the Hetzner
+        /// Cloud Backend. Using `network_id` will not create an explicit
+        /// dependency between server and subnet. Therefore `depends_on` may need
+        /// to be used. Alternatively the `subnet_id` property can be used, which
+        /// will create an explicit dependency between `hcloud.ServerNetwork` and
+        /// the existence of a subnet.
         /// </summary>
-        [Input("networkId", required: true)]
-        public Input<int> NetworkId { get; set; } = null!;
+        [Input("networkId")]
+        public Input<int>? NetworkId { get; set; }
 
         /// <summary>
         /// ID of the server.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<int> ServerId { get; set; } = null!;
+
+        /// <summary>
+        /// ID of the sub-network which should be
+        /// added to the Server. Required if `network_id` is not set.
+        /// *Note*: if the `ip` property is missing, the Server is currently added
+        /// to the last created subnet.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         public ServerNetworkArgs()
         {
@@ -165,7 +203,8 @@ namespace Pulumi.HCloud
         private InputList<string>? _aliasIps;
 
         /// <summary>
-        /// Additional IPs to be assigned to this server.
+        /// Additional IPs to be assigned
+        /// to this server.
         /// </summary>
         public InputList<string> AliasIps
         {
@@ -174,7 +213,9 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+        /// IP to request to be assigned to this server.
+        /// If you do not provide this then you will be auto assigned an IP
+        /// address.
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
@@ -183,7 +224,14 @@ namespace Pulumi.HCloud
         public Input<string>? MacAddress { get; set; }
 
         /// <summary>
-        /// ID of the network which should be added to the server.
+        /// ID of the network which should be added
+        /// to the server. Required if `subnet_id` is not set. Successful creation
+        /// of the resource depends on the existence of a subnet in the Hetzner
+        /// Cloud Backend. Using `network_id` will not create an explicit
+        /// dependency between server and subnet. Therefore `depends_on` may need
+        /// to be used. Alternatively the `subnet_id` property can be used, which
+        /// will create an explicit dependency between `hcloud.ServerNetwork` and
+        /// the existence of a subnet.
         /// </summary>
         [Input("networkId")]
         public Input<int>? NetworkId { get; set; }
@@ -193,6 +241,15 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
+
+        /// <summary>
+        /// ID of the sub-network which should be
+        /// added to the Server. Required if `network_id` is not set.
+        /// *Note*: if the `ip` property is missing, the Server is currently added
+        /// to the last created subnet.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         public ServerNetworkState()
         {

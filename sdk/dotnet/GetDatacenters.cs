@@ -35,9 +35,9 @@ namespace Pulumi.HCloud
         ///             var range = new { Value = rangeIndex };
         ///             workers.Add(new HCloud.Server($"workers-{range.Value}", new HCloud.ServerArgs
         ///             {
-        ///                 Datacenter = ds.Apply(ds =&gt; ds.Names)[range.Value],
         ///                 Image = "debian-9",
         ///                 ServerType = "cx31",
+        ///                 Datacenter = ds.Apply(ds =&gt; ds.Names)[range.Value],
         ///             }));
         ///         }
         ///     }

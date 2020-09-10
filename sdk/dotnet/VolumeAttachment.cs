@@ -24,9 +24,9 @@ namespace Pulumi.HCloud
     ///     {
     ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
     ///         {
-    ///             Datacenter = "nbg1-dc3",
     ///             Image = "debian-9",
     ///             ServerType = "cx11",
+    ///             Datacenter = "nbg1-dc3",
     ///         });
     ///         var master = new HCloud.Volume("master", new HCloud.VolumeArgs
     ///         {
@@ -35,9 +35,9 @@ namespace Pulumi.HCloud
     ///         });
     ///         var main = new HCloud.VolumeAttachment("main", new HCloud.VolumeAttachmentArgs
     ///         {
-    ///             Automount = true,
-    ///             ServerId = node1.Id,
     ///             VolumeId = master.Id,
+    ///             ServerId = node1.Id,
+    ///             Automount = true,
     ///         });
     ///     }
     /// 

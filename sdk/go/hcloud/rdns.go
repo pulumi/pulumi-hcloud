@@ -34,9 +34,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = hcloud.NewRdns(ctx, "master", &hcloud.RdnsArgs{
-// 			DnsPtr:    pulumi.String("example.com"),
-// 			IpAddress: node1.Ipv4Address,
 // 			ServerId:  node1.ID(),
+// 			IpAddress: node1.Ipv4Address,
+// 			DnsPtr:    pulumi.String("example.com"),
 // 		})
 // 		if err != nil {
 // 			return err

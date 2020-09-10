@@ -11,13 +11,11 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
  * import * as hcloud from "@pulumi/hcloud";
+ * import * from "fs";
  *
  * // Create a new SSH key
- * const defaultSshKey = new hcloud.SshKey("default", {
- *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
- * });
+ * const _default = new hcloud.SshKey("default", {publicKey: fs.readFileSync("~/.ssh/id_rsa.pub")});
  * ```
  */
 export class SshKey extends pulumi.CustomResource {

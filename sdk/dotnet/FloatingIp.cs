@@ -29,8 +29,8 @@ namespace Pulumi.HCloud
     ///         });
     ///         var master = new HCloud.FloatingIp("master", new HCloud.FloatingIpArgs
     ///         {
-    ///             ServerId = node1.Id,
     ///             Type = "ipv4",
+    ///             ServerId = node1.Id,
     ///         });
     ///     }
     /// 

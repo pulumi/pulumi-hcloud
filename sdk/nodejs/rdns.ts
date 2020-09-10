@@ -20,9 +20,9 @@ import * as utilities from "./utilities";
  *     serverType: "cx11",
  * });
  * const master = new hcloud.Rdns("master", {
- *     dnsPtr: "example.com",
+ *     serverId: node1.id,
  *     ipAddress: node1.ipv4Address,
- *     serverId: node1.id.apply(id => Number.parseFloat(id)),
+ *     dnsPtr: "example.com",
  * });
  * ```
  *

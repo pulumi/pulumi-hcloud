@@ -28,10 +28,10 @@ namespace Pulumi.HCloud
     ///         });
     ///         var foonet = new HCloud.NetworkSubnet("foonet", new HCloud.NetworkSubnetArgs
     ///         {
-    ///             IpRange = "10.0.1.0/24",
     ///             NetworkId = mynet.Id,
-    ///             NetworkZone = "eu-central",
     ///             Type = "cloud",
+    ///             NetworkZone = "eu-central",
+    ///             IpRange = "10.0.1.0/24",
     ///         });
     ///     }
     /// 
