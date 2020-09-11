@@ -25,8 +25,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		myserver, err := hcloud.NewServer(ctx, "myserver", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("ubuntu-18.04"),
 // 			ServerType: pulumi.String("cx11"),
+// 			Image:      pulumi.String("ubuntu-18.04"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -36,8 +36,8 @@ import (
 // 			Location:         pulumi.String("nbg1"),
 // 			Targets: hcloud.LoadBalancerTargetArray{
 // 				&hcloud.LoadBalancerTargetArgs{
-// 					ServerId: myserver.ID(),
 // 					Type:     pulumi.String("server"),
+// 					ServerId: myserver.ID(),
 // 				},
 // 			},
 // 		})

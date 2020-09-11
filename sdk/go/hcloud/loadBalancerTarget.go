@@ -25,8 +25,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		myServer, err := hcloud.NewServer(ctx, "myServer", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("ubuntu-18.04"),
 // 			ServerType: pulumi.String("cx11"),
+// 			Image:      pulumi.String("ubuntu-18.04"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -39,9 +39,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = hcloud.NewLoadBalancerTarget(ctx, "loadBalancerTarget", &hcloud.LoadBalancerTargetArgs{
+// 			Type:           pulumi.String("server"),
 // 			LoadBalancerId: pulumi.Any(hcloud_load_balancer.Load_balcancer.Id),
 // 			ServerId:       myServer.ID(),
-// 			Type:           pulumi.String("server"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -53,16 +53,24 @@ import (
 type LoadBalancerTarget struct {
 	pulumi.CustomResourceState
 
+	// IP address for an IP Target. Required if
+	// `type` is `ip`.
+	Ip pulumi.StringPtrOutput `pulumi:"ip"`
+	// Label Selector selecting targets
+	// for this Load Balancer. Required if `type` is `labelSelector`.
+	LabelSelector pulumi.StringPtrOutput `pulumi:"labelSelector"`
 	// ID of the Load Balancer to which
 	// the target gets attached.
 	LoadBalancerId pulumi.IntOutput `pulumi:"loadBalancerId"`
 	// ID of the server which should be a
 	// target for this Load Balancer. Required if `type` is `server`
 	ServerId pulumi.IntPtrOutput `pulumi:"serverId"`
-	// Type of the target. `server`
+	// Type of the target. Possible values
+	// `server`, `labelSelector`, `ip`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// use the private IP to connect to
-	// Load Balancer targets.
+	// Load Balancer targets. Only allowed if type is `server` or
+	// `labelSelector`.
 	UsePrivateIp pulumi.BoolOutput `pulumi:"usePrivateIp"`
 }
 
@@ -100,30 +108,46 @@ func GetLoadBalancerTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancerTarget resources.
 type loadBalancerTargetState struct {
+	// IP address for an IP Target. Required if
+	// `type` is `ip`.
+	Ip *string `pulumi:"ip"`
+	// Label Selector selecting targets
+	// for this Load Balancer. Required if `type` is `labelSelector`.
+	LabelSelector *string `pulumi:"labelSelector"`
 	// ID of the Load Balancer to which
 	// the target gets attached.
 	LoadBalancerId *int `pulumi:"loadBalancerId"`
 	// ID of the server which should be a
 	// target for this Load Balancer. Required if `type` is `server`
 	ServerId *int `pulumi:"serverId"`
-	// Type of the target. `server`
+	// Type of the target. Possible values
+	// `server`, `labelSelector`, `ip`.
 	Type *string `pulumi:"type"`
 	// use the private IP to connect to
-	// Load Balancer targets.
+	// Load Balancer targets. Only allowed if type is `server` or
+	// `labelSelector`.
 	UsePrivateIp *bool `pulumi:"usePrivateIp"`
 }
 
 type LoadBalancerTargetState struct {
+	// IP address for an IP Target. Required if
+	// `type` is `ip`.
+	Ip pulumi.StringPtrInput
+	// Label Selector selecting targets
+	// for this Load Balancer. Required if `type` is `labelSelector`.
+	LabelSelector pulumi.StringPtrInput
 	// ID of the Load Balancer to which
 	// the target gets attached.
 	LoadBalancerId pulumi.IntPtrInput
 	// ID of the server which should be a
 	// target for this Load Balancer. Required if `type` is `server`
 	ServerId pulumi.IntPtrInput
-	// Type of the target. `server`
+	// Type of the target. Possible values
+	// `server`, `labelSelector`, `ip`.
 	Type pulumi.StringPtrInput
 	// use the private IP to connect to
-	// Load Balancer targets.
+	// Load Balancer targets. Only allowed if type is `server` or
+	// `labelSelector`.
 	UsePrivateIp pulumi.BoolPtrInput
 }
 
@@ -132,31 +156,47 @@ func (LoadBalancerTargetState) ElementType() reflect.Type {
 }
 
 type loadBalancerTargetArgs struct {
+	// IP address for an IP Target. Required if
+	// `type` is `ip`.
+	Ip *string `pulumi:"ip"`
+	// Label Selector selecting targets
+	// for this Load Balancer. Required if `type` is `labelSelector`.
+	LabelSelector *string `pulumi:"labelSelector"`
 	// ID of the Load Balancer to which
 	// the target gets attached.
 	LoadBalancerId int `pulumi:"loadBalancerId"`
 	// ID of the server which should be a
 	// target for this Load Balancer. Required if `type` is `server`
 	ServerId *int `pulumi:"serverId"`
-	// Type of the target. `server`
+	// Type of the target. Possible values
+	// `server`, `labelSelector`, `ip`.
 	Type string `pulumi:"type"`
 	// use the private IP to connect to
-	// Load Balancer targets.
+	// Load Balancer targets. Only allowed if type is `server` or
+	// `labelSelector`.
 	UsePrivateIp *bool `pulumi:"usePrivateIp"`
 }
 
 // The set of arguments for constructing a LoadBalancerTarget resource.
 type LoadBalancerTargetArgs struct {
+	// IP address for an IP Target. Required if
+	// `type` is `ip`.
+	Ip pulumi.StringPtrInput
+	// Label Selector selecting targets
+	// for this Load Balancer. Required if `type` is `labelSelector`.
+	LabelSelector pulumi.StringPtrInput
 	// ID of the Load Balancer to which
 	// the target gets attached.
 	LoadBalancerId pulumi.IntInput
 	// ID of the server which should be a
 	// target for this Load Balancer. Required if `type` is `server`
 	ServerId pulumi.IntPtrInput
-	// Type of the target. `server`
+	// Type of the target. Possible values
+	// `server`, `labelSelector`, `ip`.
 	Type pulumi.StringInput
 	// use the private IP to connect to
-	// Load Balancer targets.
+	// Load Balancer targets. Only allowed if type is `server` or
+	// `labelSelector`.
 	UsePrivateIp pulumi.BoolPtrInput
 }
 

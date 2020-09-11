@@ -37,8 +37,8 @@ class FloatingIp(pulumi.CustomResource):
             image="debian-9",
             server_type="cx11")
         master = hcloud.FloatingIp("master",
-            server_id=node1.id,
-            type="ipv4")
+            type="ipv4",
+            server_id=node1.id)
         ```
 
         :param str resource_name: The name of the resource.

@@ -21,17 +21,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ip1 = pulumi.output(hcloud.getFloatingIp({
+ * const ip1 = hcloud.getFloatingIp({
  *     ipAddress: "1.2.3.4",
- * }, { async: true }));
- * const image2 = pulumi.output(hcloud.getFloatingIp({
+ * });
+ * const image2 = hcloud.getFloatingIp({
  *     withSelector: "key=value",
- * }, { async: true }));
- * const main: hcloud.FloatingIpAssignment[] = [];
- * for (let i = 0; i < var_counter; i++) {
- *     main.push(new hcloud.FloatingIpAssignment(`main-${i}`, {
- *         floatingIpId: ip1.id!,
- *         serverId: hcloud_server_main.id,
+ * });
+ * const main: hcloud.FloatingIpAssignment[];
+ * for (const range = {value: 0}; range.value < _var.counter; range.value++) {
+ *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
+ *         floatingIpId: ip1.then(ip1 => ip1.id),
+ *         serverId: hcloud_server.main.id,
  *     }));
  * }
  * ```

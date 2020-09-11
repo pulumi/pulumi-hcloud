@@ -18,7 +18,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly Outputs.LoadBalancerServiceHealthCheckHttp? Http;
         /// <summary>
-        /// Interval how often the health check will be performed, in seconds. Default: `15`
+        /// Interval how often the health check will be performed, in seconds.
         /// </summary>
         public readonly int Interval;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+        /// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         /// </summary>
         public readonly int? Retries;
         /// <summary>
-        /// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+        /// Timeout when a health check try will be canceled if there is no response, in seconds.
         /// </summary>
         public readonly int Timeout;
 

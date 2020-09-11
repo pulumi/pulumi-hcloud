@@ -18,7 +18,7 @@ export interface LoadBalancerServiceHealthCheck {
      */
     http?: pulumi.Input<inputs.LoadBalancerServiceHealthCheckHttp>;
     /**
-     * Interval how often the health check will be performed, in seconds. Default: `15`
+     * Interval how often the health check will be performed, in seconds.
      */
     interval: pulumi.Input<number>;
     /**
@@ -30,11 +30,11 @@ export interface LoadBalancerServiceHealthCheck {
      */
     protocol: pulumi.Input<string>;
     /**
-     * Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+     * Number of tries a health check will be performed until a target will be listed as `unhealthy`.
      */
     retries?: pulumi.Input<number>;
     /**
-     * Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+     * Timeout when a health check try will be canceled if there is no response, in seconds.
      */
     timeout: pulumi.Input<number>;
 }
@@ -55,7 +55,7 @@ export interface LoadBalancerServiceHealthCheckHttp {
     /**
      * We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
      */
-    statusCodes: pulumi.Input<pulumi.Input<string>[]>;
+    statusCodes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enable TLS certificate checking.
      */

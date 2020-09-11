@@ -371,6 +371,10 @@ github.com/hetznercloud/hcloud-go v1.18.1 h1:iI0/OrGcg2Cl2f4K7UFInWezcn5YuS+UVdf
 github.com/hetznercloud/hcloud-go v1.18.1/go.mod h1:EhElojlVU1biA5JgBaV8rRU1vE5+iYke402kXC9pooE=
 github.com/hetznercloud/hcloud-go v1.18.2 h1:ZCDJHCqKqfT3SnZ+kESVqmqh8QgoTqjnddt7g3v5Yfs=
 github.com/hetznercloud/hcloud-go v1.18.2/go.mod h1:EhElojlVU1biA5JgBaV8rRU1vE5+iYke402kXC9pooE=
+github.com/hetznercloud/hcloud-go v1.22.0 h1:CC0jwkaBzwP4ObFE0sdJBTvGh5DE9kB/tuDETnRfOik=
+github.com/hetznercloud/hcloud-go v1.22.0/go.mod h1:xng8lbDUg+xM1dgc0yGHX5EeqbwIq7UYlMWMTx3SQVg=
+github.com/hetznercloud/terraform-provider-hcloud v1.21.0 h1:SNU7edW+zA+vu04AQWf5eLuF2dA3aHCoGTYF0iCQoEQ=
+github.com/hetznercloud/terraform-provider-hcloud v1.21.0/go.mod h1:CQA/zzb4SuZrYtEXLwO95+1rv+keDY/FnbqqHtwukKk=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174/go.mod h1:DqJ97dSdRW1W22yXSB90986pcOyQ7r45iio1KN2ez1A=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
@@ -670,6 +674,8 @@ golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550/go.mod h1:yigFU9vqHzYiE8U
 golang.org/x/crypto v0.0.0-20191206172530-e9b2fee46413/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/crypto v0.0.0-20200317142112-1b76d66859c6 h1:TjszyFsQsyZNHwdVdZ5m7bjmreu0znc2kRYsEml9/Ww=
 golang.org/x/crypto v0.0.0-20200317142112-1b76d66859c6/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
+golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a h1:vclmkQCjlDX5OydZ9wv8rBCcS0QyQY66Mpf/7BZbInM=
+golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190306152737-a1d7652674e8/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190510132918-efd6b22b2522/go.mod h1:ZjyILWgesfNpC6sMxTJOJm9Kp84zZh5NQWvqDGG3Qr8=

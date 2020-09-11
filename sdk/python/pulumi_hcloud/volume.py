@@ -38,9 +38,9 @@ class Volume(pulumi.CustomResource):
             image="debian-9",
             server_type="cx11")
         master = hcloud.Volume("master",
-            automount=True,
+            size=50,
             server_id=node1.id,
-            size=50)
+            automount=True)
         ```
 
         :param str resource_name: The name of the resource.

@@ -144,15 +144,15 @@ func (o LoadBalancerAlgorithmPtrOutput) Type() pulumi.StringPtrOutput {
 type LoadBalancerServiceHealthCheck struct {
 	// List of http configurations. Required if `protocol` is `http`.
 	Http *LoadBalancerServiceHealthCheckHttp `pulumi:"http"`
-	// Interval how often the health check will be performed, in seconds. Default: `15`
+	// Interval how often the health check will be performed, in seconds.
 	Interval int `pulumi:"interval"`
 	// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	Port int `pulumi:"port"`
 	// Protocol the health check uses. `http` or `tcp`
 	Protocol string `pulumi:"protocol"`
-	// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+	// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
 	Retries *int `pulumi:"retries"`
-	// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+	// Timeout when a health check try will be canceled if there is no response, in seconds.
 	Timeout int `pulumi:"timeout"`
 }
 
@@ -170,15 +170,15 @@ type LoadBalancerServiceHealthCheckInput interface {
 type LoadBalancerServiceHealthCheckArgs struct {
 	// List of http configurations. Required if `protocol` is `http`.
 	Http LoadBalancerServiceHealthCheckHttpPtrInput `pulumi:"http"`
-	// Interval how often the health check will be performed, in seconds. Default: `15`
+	// Interval how often the health check will be performed, in seconds.
 	Interval pulumi.IntInput `pulumi:"interval"`
 	// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	Port pulumi.IntInput `pulumi:"port"`
 	// Protocol the health check uses. `http` or `tcp`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+	// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
 	Retries pulumi.IntPtrInput `pulumi:"retries"`
-	// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+	// Timeout when a health check try will be canceled if there is no response, in seconds.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
 }
 
@@ -264,7 +264,7 @@ func (o LoadBalancerServiceHealthCheckOutput) Http() LoadBalancerServiceHealthCh
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheckHttp { return v.Http }).(LoadBalancerServiceHealthCheckHttpPtrOutput)
 }
 
-// Interval how often the health check will be performed, in seconds. Default: `15`
+// Interval how often the health check will be performed, in seconds.
 func (o LoadBalancerServiceHealthCheckOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
 }
@@ -279,12 +279,12 @@ func (o LoadBalancerServiceHealthCheckOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
 func (o LoadBalancerServiceHealthCheckOutput) Retries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *int { return v.Retries }).(pulumi.IntPtrOutput)
 }
 
-// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+// Timeout when a health check try will be canceled if there is no response, in seconds.
 func (o LoadBalancerServiceHealthCheckOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
 }
@@ -317,7 +317,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Http() LoadBalancerServiceHealt
 	}).(LoadBalancerServiceHealthCheckHttpPtrOutput)
 }
 
-// Interval how often the health check will be performed, in seconds. Default: `15`
+// Interval how often the health check will be performed, in seconds.
 func (o LoadBalancerServiceHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
 		if v == nil {
@@ -347,7 +347,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of tries a health check will be performed until a target will be listed as `unhealthy`. Default: `3`
+// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
 func (o LoadBalancerServiceHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
 		if v == nil {
@@ -357,7 +357,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Timeout when a health check try will be canceled if there is no response, in seconds. Default: `10`
+// Timeout when a health check try will be canceled if there is no response, in seconds.
 func (o LoadBalancerServiceHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *int {
 		if v == nil {

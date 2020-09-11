@@ -18,9 +18,9 @@ import * as utilities from "./utilities";
  *     serverType: "cx11",
  * });
  * const master = new hcloud.Volume("master", {
- *     automount: true,
- *     serverId: node1.id.apply(id => Number.parseFloat(id)),
  *     size: 50,
+ *     serverId: node1.id,
+ *     automount: true,
  * });
  * ```
  */

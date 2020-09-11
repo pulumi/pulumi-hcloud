@@ -18,8 +18,8 @@ import * as utilities from "./utilities";
  *     serverType: "cx11",
  * });
  * const master = new hcloud.FloatingIp("master", {
- *     serverId: node1.id.apply(id => Number.parseFloat(id)),
  *     type: "ipv4",
+ *     serverId: node1.id,
  * });
  * ```
  */

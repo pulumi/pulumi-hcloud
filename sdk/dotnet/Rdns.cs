@@ -31,9 +31,9 @@ namespace Pulumi.HCloud
     ///         });
     ///         var master = new HCloud.Rdns("master", new HCloud.RdnsArgs
     ///         {
-    ///             DnsPtr = "example.com",
-    ///             IpAddress = node1.Ipv4Address,
     ///             ServerId = node1.Id,
+    ///             IpAddress = node1.Ipv4Address,
+    ///             DnsPtr = "example.com",
     ///         });
     ///     }
     /// 

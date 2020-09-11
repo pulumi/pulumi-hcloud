@@ -32,9 +32,9 @@ class NetworkRoute(pulumi.CustomResource):
 
         mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
         priv_net = hcloud.NetworkRoute("privNet",
+            network_id=mynet.id,
             destination="10.100.1.0/24",
-            gateway="10.0.1.1",
-            network_id=mynet.id)
+            gateway="10.0.1.1")
         ```
 
         :param str resource_name: The name of the resource.

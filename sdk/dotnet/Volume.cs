@@ -29,9 +29,9 @@ namespace Pulumi.HCloud
     ///         });
     ///         var master = new HCloud.Volume("master", new HCloud.VolumeArgs
     ///         {
-    ///             Automount = true,
-    ///             ServerId = node1.Id,
     ///             Size = 50,
+    ///             ServerId = node1.Id,
+    ///             Automount = true,
     ///         });
     ///     }
     /// 

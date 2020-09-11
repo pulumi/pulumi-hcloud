@@ -30,12 +30,12 @@ class FloatingIpAssignment(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
-            datacenter="fsn1-dc8",
             image="debian-9",
-            server_type="cx11")
+            server_type="cx11",
+            datacenter="fsn1-dc8")
         master = hcloud.FloatingIp("master",
-            home_location="nbg1",
-            type="ipv4")
+            type="ipv4",
+            home_location="nbg1")
         main = hcloud.FloatingIpAssignment("main",
             floating_ip_id=master.id,
             server_id=node1.id)

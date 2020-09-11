@@ -31,16 +31,16 @@ class VolumeAttachment(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
-            datacenter="nbg1-dc3",
             image="debian-9",
-            server_type="cx11")
+            server_type="cx11",
+            datacenter="nbg1-dc3")
         master = hcloud.Volume("master",
             location="nbg1",
             size=10)
         main = hcloud.VolumeAttachment("main",
-            automount=True,
+            volume_id=master.id,
             server_id=node1.id,
-            volume_id=master.id)
+            automount=True)
         ```
 
         :param str resource_name: The name of the resource.

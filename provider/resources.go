@@ -19,10 +19,10 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-hcloud/hcloud"
 )
 
 // all of the token components used below.
@@ -81,6 +81,7 @@ func Provider() tfbridge.ProviderInfo {
 		License:              "Apache-2.0",
 		Homepage:             "https://pulumi.io",
 		Repository:           "https://github.com/pulumi/pulumi-hcloud",
+		GitHubOrg:            "hetznercloud",
 		Config:               map[string]*tfbridge.SchemaInfo{},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{

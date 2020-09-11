@@ -13,14 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const mynet = new hcloud.Network("mynet", {
- *     ipRange: "10.0.0.0/8",
- * });
+ * const mynet = new hcloud.Network("mynet", {ipRange: "10.0.0.0/8"});
  * const foonet = new hcloud.NetworkSubnet("foonet", {
- *     ipRange: "10.0.1.0/24",
- *     networkId: mynet.id.apply(id => Number.parseFloat(id)),
- *     networkZone: "eu-central",
+ *     networkId: mynet.id,
  *     type: "cloud",
+ *     networkZone: "eu-central",
+ *     ipRange: "10.0.1.0/24",
  * });
  * ```
  */

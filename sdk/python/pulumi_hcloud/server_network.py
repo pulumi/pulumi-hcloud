@@ -19,6 +19,7 @@ class ServerNetwork(pulumi.CustomResource):
                  ip: Optional[pulumi.Input[str]] = None,
                  network_id: Optional[pulumi.Input[float]] = None,
                  server_id: Optional[pulumi.Input[float]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,22 +37,36 @@ class ServerNetwork(pulumi.CustomResource):
             server_type="cx11")
         mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
-            ip_range="10.0.1.0/24",
             network_id=mynet.id,
+            type="cloud",
             network_zone="eu-central",
-            type="cloud")
+            ip_range="10.0.1.0/24")
         srvnetwork = hcloud.ServerNetwork("srvnetwork",
-            ip="10.0.1.5",
+            server_id=node1.id,
             network_id=mynet.id,
-            server_id=node1.id)
+            ip="10.0.1.5")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned to this server.
-        :param pulumi.Input[str] ip: IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
-        :param pulumi.Input[float] network_id: ID of the network which should be added to the server.
+        :param pulumi.Input[List[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned
+               to this server.
+        :param pulumi.Input[str] ip: IP to request to be assigned to this server.
+               If you do not provide this then you will be auto assigned an IP
+               address.
+        :param pulumi.Input[float] network_id: ID of the network which should be added
+               to the server. Required if `subnet_id` is not set. Successful creation
+               of the resource depends on the existence of a subnet in the Hetzner
+               Cloud Backend. Using `network_id` will not create an explicit
+               dependency between server and subnet. Therefore `depends_on` may need
+               to be used. Alternatively the `subnet_id` property can be used, which
+               will create an explicit dependency between `ServerNetwork` and
+               the existence of a subnet.
         :param pulumi.Input[float] server_id: ID of the server.
+        :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
+               added to the Server. Required if `network_id` is not set.
+               *Note*: if the `ip` property is missing, the Server is currently added
+               to the last created subnet.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,12 +87,11 @@ class ServerNetwork(pulumi.CustomResource):
 
             __props__['alias_ips'] = alias_ips
             __props__['ip'] = ip
-            if network_id is None:
-                raise TypeError("Missing required property 'network_id'")
             __props__['network_id'] = network_id
             if server_id is None:
                 raise TypeError("Missing required property 'server_id'")
             __props__['server_id'] = server_id
+            __props__['subnet_id'] = subnet_id
             __props__['mac_address'] = None
         super(ServerNetwork, __self__).__init__(
             'hcloud:index/serverNetwork:ServerNetwork',
@@ -93,7 +107,8 @@ class ServerNetwork(pulumi.CustomResource):
             ip: Optional[pulumi.Input[str]] = None,
             mac_address: Optional[pulumi.Input[str]] = None,
             network_id: Optional[pulumi.Input[float]] = None,
-            server_id: Optional[pulumi.Input[float]] = None) -> 'ServerNetwork':
+            server_id: Optional[pulumi.Input[float]] = None,
+            subnet_id: Optional[pulumi.Input[str]] = None) -> 'ServerNetwork':
         """
         Get an existing ServerNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -101,10 +116,24 @@ class ServerNetwork(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned to this server.
-        :param pulumi.Input[str] ip: IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
-        :param pulumi.Input[float] network_id: ID of the network which should be added to the server.
+        :param pulumi.Input[List[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned
+               to this server.
+        :param pulumi.Input[str] ip: IP to request to be assigned to this server.
+               If you do not provide this then you will be auto assigned an IP
+               address.
+        :param pulumi.Input[float] network_id: ID of the network which should be added
+               to the server. Required if `subnet_id` is not set. Successful creation
+               of the resource depends on the existence of a subnet in the Hetzner
+               Cloud Backend. Using `network_id` will not create an explicit
+               dependency between server and subnet. Therefore `depends_on` may need
+               to be used. Alternatively the `subnet_id` property can be used, which
+               will create an explicit dependency between `ServerNetwork` and
+               the existence of a subnet.
         :param pulumi.Input[float] server_id: ID of the server.
+        :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
+               added to the Server. Required if `network_id` is not set.
+               *Note*: if the `ip` property is missing, the Server is currently added
+               to the last created subnet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -115,13 +144,15 @@ class ServerNetwork(pulumi.CustomResource):
         __props__["mac_address"] = mac_address
         __props__["network_id"] = network_id
         __props__["server_id"] = server_id
+        __props__["subnet_id"] = subnet_id
         return ServerNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="aliasIps")
     def alias_ips(self) -> pulumi.Output[Optional[List[str]]]:
         """
-        Additional IPs to be assigned to this server.
+        Additional IPs to be assigned
+        to this server.
         """
         return pulumi.get(self, "alias_ips")
 
@@ -129,7 +160,9 @@ class ServerNetwork(pulumi.CustomResource):
     @pulumi.getter
     def ip(self) -> pulumi.Output[str]:
         """
-        IP to request to be assigned to this server. If you do not provide this then you will be auto assigned an IP address.
+        IP to request to be assigned to this server.
+        If you do not provide this then you will be auto assigned an IP
+        address.
         """
         return pulumi.get(self, "ip")
 
@@ -140,9 +173,16 @@ class ServerNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> pulumi.Output[float]:
+    def network_id(self) -> pulumi.Output[Optional[float]]:
         """
-        ID of the network which should be added to the server.
+        ID of the network which should be added
+        to the server. Required if `subnet_id` is not set. Successful creation
+        of the resource depends on the existence of a subnet in the Hetzner
+        Cloud Backend. Using `network_id` will not create an explicit
+        dependency between server and subnet. Therefore `depends_on` may need
+        to be used. Alternatively the `subnet_id` property can be used, which
+        will create an explicit dependency between `ServerNetwork` and
+        the existence of a subnet.
         """
         return pulumi.get(self, "network_id")
 
@@ -153,6 +193,17 @@ class ServerNetwork(pulumi.CustomResource):
         ID of the server.
         """
         return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of the sub-network which should be
+        added to the Server. Required if `network_id` is not set.
+        *Note*: if the `ip` property is missing, the Server is currently added
+        to the last created subnet.
+        """
+        return pulumi.get(self, "subnet_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

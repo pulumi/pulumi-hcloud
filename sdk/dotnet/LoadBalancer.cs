@@ -24,8 +24,8 @@ namespace Pulumi.HCloud
     ///     {
     ///         var myserver = new HCloud.Server("myserver", new HCloud.ServerArgs
     ///         {
-    ///             Image = "ubuntu-18.04",
     ///             ServerType = "cx11",
+    ///             Image = "ubuntu-18.04",
     ///         });
     ///         var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new HCloud.LoadBalancerArgs
     ///         {
@@ -35,8 +35,8 @@ namespace Pulumi.HCloud
     ///             {
     ///                 new HCloud.Inputs.LoadBalancerTargetArgs
     ///                 {
-    ///                     ServerId = myserver.Id,
     ///                     Type = "server",
+    ///                     ServerId = myserver.Id,
     ///                 },
     ///             },
     ///         });

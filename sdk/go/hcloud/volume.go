@@ -32,9 +32,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = hcloud.NewVolume(ctx, "master", &hcloud.VolumeArgs{
-// 			Automount: pulumi.Bool(true),
-// 			ServerId:  node1.ID(),
 // 			Size:      pulumi.Int(50),
+// 			ServerId:  node1.ID(),
+// 			Automount: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -25,16 +25,16 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Datacenter: pulumi.String("fsn1-dc8"),
 // 			Image:      pulumi.String("debian-9"),
 // 			ServerType: pulumi.String("cx11"),
+// 			Datacenter: pulumi.String("fsn1-dc8"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		master, err := hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
-// 			HomeLocation: pulumi.String("nbg1"),
 // 			Type:         pulumi.String("ipv4"),
+// 			HomeLocation: pulumi.String("nbg1"),
 // 		})
 // 		if err != nil {
 // 			return err

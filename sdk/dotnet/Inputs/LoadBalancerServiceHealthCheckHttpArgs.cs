@@ -30,7 +30,7 @@ namespace Pulumi.HCloud.Inputs
         [Input("response")]
         public Input<string>? Response { get; set; }
 
-        [Input("statusCodes", required: true)]
+        [Input("statusCodes")]
         private InputList<string>? _statusCodes;
 
         /// <summary>

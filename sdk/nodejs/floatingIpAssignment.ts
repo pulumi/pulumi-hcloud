@@ -14,17 +14,17 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const node1 = new hcloud.Server("node1", {
- *     datacenter: "fsn1-dc8",
  *     image: "debian-9",
  *     serverType: "cx11",
+ *     datacenter: "fsn1-dc8",
  * });
  * const master = new hcloud.FloatingIp("master", {
- *     homeLocation: "nbg1",
  *     type: "ipv4",
+ *     homeLocation: "nbg1",
  * });
  * const main = new hcloud.FloatingIpAssignment("main", {
- *     floatingIpId: master.id.apply(id => Number.parseFloat(id)),
- *     serverId: node1.id.apply(id => Number.parseFloat(id)),
+ *     floatingIpId: master.id,
+ *     serverId: node1.id,
  * });
  * ```
  */

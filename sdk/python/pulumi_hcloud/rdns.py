@@ -37,9 +37,9 @@ class Rdns(pulumi.CustomResource):
             image="debian-9",
             server_type="cx11")
         master = hcloud.Rdns("master",
-            dns_ptr="example.com",
+            server_id=node1.id,
             ip_address=node1.ipv4_address,
-            server_id=node1.id)
+            dns_ptr="example.com")
         ```
 
         For Floating IPs:
