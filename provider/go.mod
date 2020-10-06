@@ -8,5 +8,5 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk v1.15.0
 	github.com/pulumi/pulumi-terraform-bridge/v2 v2.8.0
 	github.com/pulumi/pulumi/sdk/v2 v2.10.0
-	github.com/hetznercloud/terraform-provider-hcloud v1.21.0
+	github.com/hetznercloud/terraform-provider-hcloud v1.22.0
 )

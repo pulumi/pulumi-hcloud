@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Clould Certificate to represent a TLS certificate in the Hetzner Cloud.
+ * Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
  */
 export class Certificate extends pulumi.CustomResource {
     /**

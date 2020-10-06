@@ -41,7 +41,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
             location="nbg1")
         load_balancer_target = hcloud.LoadBalancerTarget("loadBalancerTarget",
             type="server",
-            load_balancer_id=hcloud_load_balancer["load_balcancer"]["id"],
+            load_balancer_id=load_balancer.id,
             server_id=my_server.id)
         ```
 

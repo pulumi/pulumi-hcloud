@@ -692,7 +692,7 @@
     },
     "resources": {
         "hcloud:index/certificate:Certificate": {
-            "description": "Provides a Hetzner Clould Certificate to represent a TLS certificate in the Hetzner Cloud.\n",
+            "description": "Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.\n",
             "properties": {
                 "certificate": {
                     "type": "string",
@@ -1351,7 +1351,7 @@
             }
         },
         "hcloud:index/loadBalancerTarget:LoadBalancerTarget": {
-            "description": "Adds a target to a Hetzner Cloud Load Balancer.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myServer = new hcloud.Server(\"myServer\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-18.04\",\n});\nconst loadBalancer = new hcloud.LoadBalancer(\"loadBalancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n});\nconst loadBalancerTarget = new hcloud.LoadBalancerTarget(\"loadBalancerTarget\", {\n    type: \"server\",\n    loadBalancerId: hcloud_load_balancer.load_balcancer.id,\n    serverId: myServer.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmy_server = hcloud.Server(\"myServer\",\n    server_type=\"cx11\",\n    image=\"ubuntu-18.04\")\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\")\nload_balancer_target = hcloud.LoadBalancerTarget(\"loadBalancerTarget\",\n    type=\"server\",\n    load_balancer_id=hcloud_load_balancer[\"load_balcancer\"][\"id\"],\n    server_id=my_server.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myServer = new HCloud.Server(\"myServer\", new HCloud.ServerArgs\n        {\n            ServerType = \"cx11\",\n            Image = \"ubuntu-18.04\",\n        });\n        var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            Location = \"nbg1\",\n        });\n        var loadBalancerTarget = new HCloud.LoadBalancerTarget(\"loadBalancerTarget\", new HCloud.LoadBalancerTargetArgs\n        {\n            Type = \"server\",\n            LoadBalancerId = hcloud_load_balancer.Load_balcancer.Id,\n            ServerId = myServer.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyServer, err := hcloud.NewServer(ctx, \"myServer\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-18.04\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancerTarget(ctx, \"loadBalancerTarget\", \u0026hcloud.LoadBalancerTargetArgs{\n\t\t\tType:           pulumi.String(\"server\"),\n\t\t\tLoadBalancerId: pulumi.Any(hcloud_load_balancer.Load_balcancer.Id),\n\t\t\tServerId:       myServer.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Adds a target to a Hetzner Cloud Load Balancer.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myServer = new hcloud.Server(\"myServer\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-18.04\",\n});\nconst loadBalancer = new hcloud.LoadBalancer(\"loadBalancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n});\nconst loadBalancerTarget = new hcloud.LoadBalancerTarget(\"loadBalancerTarget\", {\n    type: \"server\",\n    loadBalancerId: loadBalancer.id,\n    serverId: myServer.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmy_server = hcloud.Server(\"myServer\",\n    server_type=\"cx11\",\n    image=\"ubuntu-18.04\")\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\")\nload_balancer_target = hcloud.LoadBalancerTarget(\"loadBalancerTarget\",\n    type=\"server\",\n    load_balancer_id=load_balancer.id,\n    server_id=my_server.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myServer = new HCloud.Server(\"myServer\", new HCloud.ServerArgs\n        {\n            ServerType = \"cx11\",\n            Image = \"ubuntu-18.04\",\n        });\n        var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            Location = \"nbg1\",\n        });\n        var loadBalancerTarget = new HCloud.LoadBalancerTarget(\"loadBalancerTarget\", new HCloud.LoadBalancerTargetArgs\n        {\n            Type = \"server\",\n            LoadBalancerId = loadBalancer.Id,\n            ServerId = myServer.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyServer, err := hcloud.NewServer(ctx, \"myServer\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-18.04\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tloadBalancer, err := hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancerTarget(ctx, \"loadBalancerTarget\", \u0026hcloud.LoadBalancerTargetArgs{\n\t\t\tType:           pulumi.String(\"server\"),\n\t\t\tLoadBalancerId: loadBalancer.ID(),\n\t\t\tServerId:       myServer.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "ip": {
                     "type": "string",
@@ -2501,20 +2501,21 @@
             }
         },
         "hcloud:index/getFloatingIp:getFloatingIp": {
-            "description": "Provides details about a Hetzner Cloud Floating IP.\n\nThis resource can be useful when you need to determine a Floating IP ID based on the IP address.\n\n{{% examples %}}\n## Example Usage\n\n# Data Source: hcloud.FloatingIp\nProvides details about a Hetzner Cloud Floating IP.\nThis resource can be useful when you need to determine a Floating IP ID based on the IP address.\n\n{{% example %}}\n### Additional Examples\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ip1 = hcloud.getFloatingIp({\n    ipAddress: \"1.2.3.4\",\n});\nconst image2 = hcloud.getFloatingIp({\n    withSelector: \"key=value\",\n});\nconst main: hcloud.FloatingIpAssignment[];\nfor (const range = {value: 0}; range.value \u003c _var.counter; range.value++) {\n    main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {\n        floatingIpId: ip1.then(ip1 =\u003e ip1.id),\n        serverId: hcloud_server.main.id,\n    }));\n}\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nip1 = hcloud.get_floating_ip(ip_address=\"1.2.3.4\")\nimage2 = hcloud.get_floating_ip(with_selector=\"key=value\")\nmain = []\nfor range in [{\"value\": i} for i in range(0, var.counter)]:\n    main.append(hcloud.FloatingIpAssignment(f\"main-{range['value']}\",\n        floating_ip_id=ip1.id,\n        server_id=hcloud_server[\"main\"][\"id\"]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ip1 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs\n        {\n            IpAddress = \"1.2.3.4\",\n        }));\n        var image2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n        var main = new List\u003cHCloud.FloatingIpAssignment\u003e();\n        for (var rangeIndex = 0; rangeIndex \u003c @var.Counter; rangeIndex++)\n        {\n            var range = new { Value = rangeIndex };\n            main.Add(new HCloud.FloatingIpAssignment($\"main-{range.Value}\", new HCloud.FloatingIpAssignmentArgs\n            {\n                FloatingIpId = ip1.Apply(ip1 =\u003e ip1.Id),\n                ServerId = hcloud_server.Main.Id,\n            }));\n        }\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"1.2.3.4\"\n\t\tip1, err := hcloud.LookupFloatingIp(ctx, \u0026hcloud.LookupFloatingIpArgs{\n\t\t\tIpAddress: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := \"key=value\"\n\t\t_, err = hcloud.LookupFloatingIp(ctx, \u0026hcloud.LookupFloatingIpArgs{\n\t\t\tWithSelector: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tvar main []*hcloud.FloatingIpAssignment\n\t\tfor key0, _ := range _var.Counter {\n\t\t\t__res, err := hcloud.NewFloatingIpAssignment(ctx, fmt.Sprintf(\"main-%v\", key0), \u0026hcloud.FloatingIpAssignmentArgs{\n\t\t\t\tFloatingIpId: pulumi.Int(ip1.Id),\n\t\t\t\tServerId:     pulumi.Any(hcloud_server.Main.Id),\n\t\t\t})\n\t\t\tif err != nil {\n\t\t\t\treturn err\n\t\t\t}\n\t\t\tmain = append(main, __res)\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides details about a Hetzner Cloud Floating IP.\n\nThis resource can be useful when you need to determine a Floating IP ID based on the IP address.\n\n{{% examples %}}\n## Example Usage\n\n# Data Source: hcloud.FloatingIp\nProvides details about a Hetzner Cloud Floating IP.\nThis resource can be useful when you need to determine a Floating IP ID based on the IP address.\n\n{{% example %}}\n### Additional Examples\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ip1 = hcloud.getFloatingIp({\n    ipAddress: \"1.2.3.4\",\n});\nconst ip2 = hcloud.getFloatingIp({\n    withSelector: \"key=value\",\n});\nconst main: hcloud.FloatingIpAssignment[];\nfor (const range = {value: 0}; range.value \u003c _var.counter; range.value++) {\n    main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {\n        floatingIpId: ip1.then(ip1 =\u003e ip1.id),\n        serverId: hcloud_server.main.id,\n    }));\n}\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nip1 = hcloud.get_floating_ip(ip_address=\"1.2.3.4\")\nip2 = hcloud.get_floating_ip(with_selector=\"key=value\")\nmain = []\nfor range in [{\"value\": i} for i in range(0, var.counter)]:\n    main.append(hcloud.FloatingIpAssignment(f\"main-{range['value']}\",\n        floating_ip_id=ip1.id,\n        server_id=hcloud_server[\"main\"][\"id\"]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ip1 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs\n        {\n            IpAddress = \"1.2.3.4\",\n        }));\n        var ip2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n        var main = new List\u003cHCloud.FloatingIpAssignment\u003e();\n        for (var rangeIndex = 0; rangeIndex \u003c @var.Counter; rangeIndex++)\n        {\n            var range = new { Value = rangeIndex };\n            main.Add(new HCloud.FloatingIpAssignment($\"main-{range.Value}\", new HCloud.FloatingIpAssignmentArgs\n            {\n                FloatingIpId = ip1.Apply(ip1 =\u003e ip1.Id),\n                ServerId = hcloud_server.Main.Id,\n            }));\n        }\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"1.2.3.4\"\n\t\tip1, err := hcloud.LookupFloatingIp(ctx, \u0026hcloud.LookupFloatingIpArgs{\n\t\t\tIpAddress: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := \"key=value\"\n\t\t_, err = hcloud.LookupFloatingIp(ctx, \u0026hcloud.LookupFloatingIpArgs{\n\t\t\tWithSelector: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tvar main []*hcloud.FloatingIpAssignment\n\t\tfor key0, _ := range _var.Counter {\n\t\t\t__res, err := hcloud.NewFloatingIpAssignment(ctx, fmt.Sprintf(\"main-%v\", key0), \u0026hcloud.FloatingIpAssignmentArgs{\n\t\t\t\tFloatingIpId: pulumi.Int(ip1.Id),\n\t\t\t\tServerId:     pulumi.Any(hcloud_server.Main.Id),\n\t\t\t})\n\t\t\tif err != nil {\n\t\t\t\treturn err\n\t\t\t}\n\t\t\tmain = append(main, __res)\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getFloatingIp.\n",
                 "properties": {
                     "id": {
                         "type": "integer",
-                        "description": "(int) Unique ID of the Floating IP.\n"
+                        "description": "ID of the Floating IP.\n"
                     },
                     "ipAddress": {
                         "type": "string",
                         "description": "IP address of the Floating IP.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Floating IP.\n"
                     },
                     "selector": {
                         "type": "string",
@@ -2531,10 +2532,12 @@
                 "description": "A collection of values returned by getFloatingIp.\n",
                 "properties": {
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Description of the Floating IP.\n"
                     },
                     "homeLocation": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Home location.\n"
                     },
                     "id": {
                         "type": "integer",
@@ -2542,29 +2545,34 @@
                     },
                     "ipAddress": {
                         "type": "string",
-                        "description": "(string) IP address of the Floating IP.\n"
+                        "description": "(string) IP Address of the Floating IP.\n"
                     },
                     "ipNetwork": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) IPv6 subnet. (Only set if `type` is `ipv6`)\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) User-defined labels (key-value pairs).\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the Floating IP.\n"
                     },
                     "selector": {
                         "type": "string",
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
                     "serverId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Server to assign the Floating IP is assigned to.\n"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Type of the Floating IP.\n"
                     },
                     "withSelector": {
                         "type": "string"

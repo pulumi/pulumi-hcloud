@@ -31,7 +31,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
+// 		loadBalancer, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
 // 			LoadBalancerType: pulumi.String("lb11"),
 // 			Location:         pulumi.String("nbg1"),
 // 		})
@@ -40,7 +40,7 @@ import (
 // 		}
 // 		_, err = hcloud.NewLoadBalancerTarget(ctx, "loadBalancerTarget", &hcloud.LoadBalancerTargetArgs{
 // 			Type:           pulumi.String("server"),
-// 			LoadBalancerId: pulumi.Any(hcloud_load_balancer.Load_balcancer.Id),
+// 			LoadBalancerId: loadBalancer.ID(),
 // 			ServerId:       myServer.ID(),
 // 		})
 // 		if err != nil {

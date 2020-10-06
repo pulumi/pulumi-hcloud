@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * const ip1 = hcloud.getFloatingIp({
  *     ipAddress: "1.2.3.4",
  * });
- * const image2 = hcloud.getFloatingIp({
+ * const ip2 = hcloud.getFloatingIp({
  *     withSelector: "key=value",
  * });
  * const main: hcloud.FloatingIpAssignment[];
@@ -59,13 +59,16 @@ export function getFloatingIp(args?: GetFloatingIpArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetFloatingIpArgs {
     /**
-     * (int) Unique ID of the Floating IP.
+     * ID of the Floating IP.
      */
     readonly id?: number;
     /**
      * IP address of the Floating IP.
      */
     readonly ipAddress?: string;
+    /**
+     * Name of the Floating IP.
+     */
     readonly name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
@@ -81,24 +84,45 @@ export interface GetFloatingIpArgs {
  * A collection of values returned by getFloatingIp.
  */
 export interface GetFloatingIpResult {
+    /**
+     * (string) Description of the Floating IP.
+     */
     readonly description: string;
+    /**
+     * (string) Home location.
+     */
     readonly homeLocation: string;
     /**
      * (int) Unique ID of the Floating IP.
      */
     readonly id?: number;
     /**
-     * (string) IP address of the Floating IP.
+     * (string) IP Address of the Floating IP.
      */
     readonly ipAddress: string;
+    /**
+     * (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+     */
     readonly ipNetwork: string;
+    /**
+     * (map) User-defined labels (key-value pairs).
+     */
     readonly labels: {[key: string]: any};
+    /**
+     * (string) Name of the Floating IP.
+     */
     readonly name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
     readonly selector?: string;
+    /**
+     * (int) Server to assign the Floating IP is assigned to.
+     */
     readonly serverId: number;
+    /**
+     * (string) Type of the Floating IP.
+     */
     readonly type: string;
     readonly withSelector?: string;
 }

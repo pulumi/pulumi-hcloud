@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Clould Certificate to represent a TLS certificate in the Hetzner Cloud.
+    /// Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

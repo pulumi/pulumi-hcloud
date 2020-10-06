@@ -38,7 +38,7 @@ namespace Pulumi.HCloud
         ///         {
         ///             IpAddress = "1.2.3.4",
         ///         }));
-        ///         var image2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs
+        ///         var ip2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs
         ///         {
         ///             WithSelector = "key=value",
         ///         }));
@@ -67,7 +67,7 @@ namespace Pulumi.HCloud
     public sealed class GetFloatingIpArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (int) Unique ID of the Floating IP.
+        /// ID of the Floating IP.
         /// </summary>
         [Input("id")]
         public int? Id { get; set; }
@@ -78,6 +78,9 @@ namespace Pulumi.HCloud
         [Input("ipAddress")]
         public string? IpAddress { get; set; }
 
+        /// <summary>
+        /// Name of the Floating IP.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -99,21 +102,42 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetFloatingIpResult
     {
+        /// <summary>
+        /// (string) Description of the Floating IP.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// (string) Home location.
+        /// </summary>
         public readonly string HomeLocation;
         /// <summary>
         /// (int) Unique ID of the Floating IP.
         /// </summary>
         public readonly int? Id;
         /// <summary>
-        /// (string) IP address of the Floating IP.
+        /// (string) IP Address of the Floating IP.
         /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+        /// </summary>
         public readonly string IpNetwork;
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs).
+        /// </summary>
         public readonly ImmutableDictionary<string, object> Labels;
+        /// <summary>
+        /// (string) Name of the Floating IP.
+        /// </summary>
         public readonly string? Name;
         public readonly string? Selector;
+        /// <summary>
+        /// (int) Server to assign the Floating IP is assigned to.
+        /// </summary>
         public readonly int ServerId;
+        /// <summary>
+        /// (string) Type of the Floating IP.
+        /// </summary>
         public readonly string Type;
         public readonly string? WithSelector;
 
