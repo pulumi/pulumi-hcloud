@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  * });
  * const loadBalancerTarget = new hcloud.LoadBalancerTarget("loadBalancerTarget", {
  *     type: "server",
- *     loadBalancerId: hcloud_load_balancer.load_balcancer.id,
+ *     loadBalancerId: loadBalancer.id,
  *     serverId: myServer.id,
  * });
  * ```

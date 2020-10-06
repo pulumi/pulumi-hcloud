@@ -67,11 +67,12 @@ func LookupFloatingIp(ctx *pulumi.Context, args *LookupFloatingIpArgs, opts ...p
 
 // A collection of arguments for invoking getFloatingIp.
 type LookupFloatingIpArgs struct {
-	// (int) Unique ID of the Floating IP.
+	// ID of the Floating IP.
 	Id *int `pulumi:"id"`
 	// IP address of the Floating IP.
 	IpAddress *string `pulumi:"ipAddress"`
-	Name      *string `pulumi:"name"`
+	// Name of the Floating IP.
+	Name *string `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -80,18 +81,25 @@ type LookupFloatingIpArgs struct {
 
 // A collection of values returned by getFloatingIp.
 type LookupFloatingIpResult struct {
-	Description  string `pulumi:"description"`
+	// (string) Description of the Floating IP.
+	Description string `pulumi:"description"`
+	// (string) Home location.
 	HomeLocation string `pulumi:"homeLocation"`
 	// (int) Unique ID of the Floating IP.
 	Id *int `pulumi:"id"`
-	// (string) IP address of the Floating IP.
-	IpAddress string                 `pulumi:"ipAddress"`
-	IpNetwork string                 `pulumi:"ipNetwork"`
-	Labels    map[string]interface{} `pulumi:"labels"`
-	Name      *string                `pulumi:"name"`
+	// (string) IP Address of the Floating IP.
+	IpAddress string `pulumi:"ipAddress"`
+	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+	IpNetwork string `pulumi:"ipNetwork"`
+	// (map) User-defined labels (key-value pairs).
+	Labels map[string]interface{} `pulumi:"labels"`
+	// (string) Name of the Floating IP.
+	Name *string `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
-	Selector     *string `pulumi:"selector"`
-	ServerId     int     `pulumi:"serverId"`
+	Selector *string `pulumi:"selector"`
+	// (int) Server to assign the Floating IP is assigned to.
+	ServerId int `pulumi:"serverId"`
+	// (string) Type of the Floating IP.
 	Type         string  `pulumi:"type"`
 	WithSelector *string `pulumi:"withSelector"`
 }

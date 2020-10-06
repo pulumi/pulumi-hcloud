@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Hetzner Clould Certificate to represent a TLS certificate in the Hetzner Cloud.
+// Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
 type Certificate struct {
 	pulumi.CustomResourceState
 

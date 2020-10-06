@@ -23,7 +23,7 @@ class Certificate(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides a Hetzner Clould Certificate to represent a TLS certificate in the Hetzner Cloud.
+        Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

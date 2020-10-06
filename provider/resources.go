@@ -18,10 +18,8 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 )
 
@@ -59,14 +57,6 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod+"/"+fn, res)
 }
 
-// preConfigureCallback is called before the providerConfigure function of the underlying provider.
-// It should validate that the provider can be configured, and provide actionable errors in the case
-// it cannot be. Configuration variables can be read from `vars` using the `stringValue` function -
-// for example `stringValue(vars, "accessKey")`.
-func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
-	return nil
-}
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
@@ -74,16 +64,15 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:                    p,
-		Name:                 "hcloud",
-		Description:          "A Pulumi package for creating and managing hcloud cloud resources.",
-		Keywords:             []string{"pulumi", "hcloud"},
-		License:              "Apache-2.0",
-		Homepage:             "https://pulumi.io",
-		Repository:           "https://github.com/pulumi/pulumi-hcloud",
-		GitHubOrg:            "hetznercloud",
-		Config:               map[string]*tfbridge.SchemaInfo{},
-		PreConfigureCallback: preConfigureCallback,
+		P:           p,
+		Name:        "hcloud",
+		Description: "A Pulumi package for creating and managing hcloud cloud resources.",
+		Keywords:    []string{"pulumi", "hcloud"},
+		License:     "Apache-2.0",
+		Homepage:    "https://pulumi.io",
+		Repository:  "https://github.com/pulumi/pulumi-hcloud",
+		GitHubOrg:   "hetznercloud",
+		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"hcloud_certificate": {
 				Tok: makeResource(mainMod, "Certificate"),

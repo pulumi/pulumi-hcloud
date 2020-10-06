@@ -61,11 +61,17 @@ class GetFloatingIpResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        (string) Description of the Floating IP.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="homeLocation")
     def home_location(self) -> str:
+        """
+        (string) Home location.
+        """
         return pulumi.get(self, "home_location")
 
     @property
@@ -80,23 +86,32 @@ class GetFloatingIpResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        (string) IP address of the Floating IP.
+        (string) IP Address of the Floating IP.
         """
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter(name="ipNetwork")
     def ip_network(self) -> str:
+        """
+        (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+        """
         return pulumi.get(self, "ip_network")
 
     @property
     @pulumi.getter
     def labels(self) -> Mapping[str, Any]:
+        """
+        (map) User-defined labels (key-value pairs).
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        (string) Name of the Floating IP.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -107,11 +122,17 @@ class GetFloatingIpResult:
     @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> float:
+        """
+        (int) Server to assign the Floating IP is assigned to.
+        """
         return pulumi.get(self, "server_id")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        (string) Type of the Floating IP.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -161,7 +182,7 @@ def get_floating_ip(id: Optional[float] = None,
     import pulumi_hcloud as hcloud
 
     ip1 = hcloud.get_floating_ip(ip_address="1.2.3.4")
-    image2 = hcloud.get_floating_ip(with_selector="key=value")
+    ip2 = hcloud.get_floating_ip(with_selector="key=value")
     main = []
     for range in [{"value": i} for i in range(0, var.counter)]:
         main.append(hcloud.FloatingIpAssignment(f"main-{range['value']}",
@@ -170,8 +191,9 @@ def get_floating_ip(id: Optional[float] = None,
     ```
 
 
-    :param float id: (int) Unique ID of the Floating IP.
+    :param float id: ID of the Floating IP.
     :param str ip_address: IP address of the Floating IP.
+    :param str name: Name of the Floating IP.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
