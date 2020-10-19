@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -41,7 +41,7 @@ class GetSshKeysResult:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> List['outputs.GetSshKeysSshKeyResult']:
+    def ssh_keys(self) -> Sequence['outputs.GetSshKeysSshKeyResult']:
         """
         (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
         """

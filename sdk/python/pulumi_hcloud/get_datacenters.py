@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -35,7 +35,7 @@ class GetDatacentersResult:
 
     @property
     @pulumi.getter(name="datacenterIds")
-    def datacenter_ids(self) -> Optional[List[str]]:
+    def datacenter_ids(self) -> Optional[Sequence[str]]:
         """
         (list) List of unique datacenter identifiers.
         """
@@ -43,7 +43,7 @@ class GetDatacentersResult:
 
     @property
     @pulumi.getter
-    def descriptions(self) -> List[str]:
+    def descriptions(self) -> Sequence[str]:
         """
         (list) List of all datacenter descriptions.
         """
@@ -59,7 +59,7 @@ class GetDatacentersResult:
 
     @property
     @pulumi.getter
-    def names(self) -> List[str]:
+    def names(self) -> Sequence[str]:
         """
         (list) List of datacenter names.
         """
@@ -78,7 +78,7 @@ class AwaitableGetDatacentersResult(GetDatacentersResult):
             names=self.names)
 
 
-def get_datacenters(datacenter_ids: Optional[List[str]] = None,
+def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatacentersResult:
     """
     Provides a list of available Hetzner Cloud Datacenters.
@@ -100,7 +100,7 @@ def get_datacenters(datacenter_ids: Optional[List[str]] = None,
     ```
 
 
-    :param List[str] datacenter_ids: (list) List of unique datacenter identifiers.
+    :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers.
     """
     __args__ = dict()
     __args__['datacenterIds'] = datacenter_ids

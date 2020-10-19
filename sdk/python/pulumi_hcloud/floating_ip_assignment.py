@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['FloatingIpAssignment']
@@ -15,8 +15,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 floating_ip_id: Optional[pulumi.Input[float]] = None,
-                 server_id: Optional[pulumi.Input[float]] = None,
+                 floating_ip_id: Optional[pulumi.Input[int]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -43,8 +43,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] floating_ip_id: ID of the Floating IP.
-        :param pulumi.Input[float] server_id: Server to assign the Floating IP to.
+        :param pulumi.Input[int] floating_ip_id: ID of the Floating IP.
+        :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,8 +79,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            floating_ip_id: Optional[pulumi.Input[float]] = None,
-            server_id: Optional[pulumi.Input[float]] = None) -> 'FloatingIpAssignment':
+            floating_ip_id: Optional[pulumi.Input[int]] = None,
+            server_id: Optional[pulumi.Input[int]] = None) -> 'FloatingIpAssignment':
         """
         Get an existing FloatingIpAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -88,8 +88,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] floating_ip_id: ID of the Floating IP.
-        :param pulumi.Input[float] server_id: Server to assign the Floating IP to.
+        :param pulumi.Input[int] floating_ip_id: ID of the Floating IP.
+        :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -101,7 +101,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="floatingIpId")
-    def floating_ip_id(self) -> pulumi.Output[float]:
+    def floating_ip_id(self) -> pulumi.Output[int]:
         """
         ID of the Floating IP.
         """
@@ -109,7 +109,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> pulumi.Output[float]:
+    def server_id(self) -> pulumi.Output[int]:
         """
         Server to assign the Floating IP to.
         """

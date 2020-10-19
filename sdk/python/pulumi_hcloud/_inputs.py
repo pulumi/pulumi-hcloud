@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -42,19 +42,19 @@ class LoadBalancerAlgorithmArgs:
 @pulumi.input_type
 class LoadBalancerServiceHealthCheckArgs:
     def __init__(__self__, *,
-                 interval: pulumi.Input[float],
-                 port: pulumi.Input[float],
+                 interval: pulumi.Input[int],
+                 port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
-                 timeout: pulumi.Input[float],
+                 timeout: pulumi.Input[int],
                  http: Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']] = None,
-                 retries: Optional[pulumi.Input[float]] = None):
+                 retries: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] interval: Interval how often the health check will be performed, in seconds.
-        :param pulumi.Input[float] port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        :param pulumi.Input[int] interval: Interval how often the health check will be performed, in seconds.
+        :param pulumi.Input[int] port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param pulumi.Input[str] protocol: Protocol the health check uses. `http` or `tcp`
-        :param pulumi.Input[float] timeout: Timeout when a health check try will be canceled if there is no response, in seconds.
+        :param pulumi.Input[int] timeout: Timeout when a health check try will be canceled if there is no response, in seconds.
         :param pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs'] http: List of http configurations. Required if `protocol` is `http`.
-        :param pulumi.Input[float] retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+        :param pulumi.Input[int] retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "port", port)
@@ -67,26 +67,26 @@ class LoadBalancerServiceHealthCheckArgs:
 
     @property
     @pulumi.getter
-    def interval(self) -> pulumi.Input[float]:
+    def interval(self) -> pulumi.Input[int]:
         """
         Interval how often the health check will be performed, in seconds.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: pulumi.Input[float]):
+    def interval(self, value: pulumi.Input[int]):
         pulumi.set(self, "interval", value)
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
@@ -103,14 +103,14 @@ class LoadBalancerServiceHealthCheckArgs:
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Input[float]:
+    def timeout(self) -> pulumi.Input[int]:
         """
         Timeout when a health check try will be canceled if there is no response, in seconds.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: pulumi.Input[float]):
+    def timeout(self, value: pulumi.Input[int]):
         pulumi.set(self, "timeout", value)
 
     @property
@@ -127,14 +127,14 @@ class LoadBalancerServiceHealthCheckArgs:
 
     @property
     @pulumi.getter
-    def retries(self) -> Optional[pulumi.Input[float]]:
+    def retries(self) -> Optional[pulumi.Input[int]]:
         """
         Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
         return pulumi.get(self, "retries")
 
     @retries.setter
-    def retries(self, value: Optional[pulumi.Input[float]]):
+    def retries(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retries", value)
 
 
@@ -144,13 +144,13 @@ class LoadBalancerServiceHealthCheckHttpArgs:
                  domain: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  response: Optional[pulumi.Input[str]] = None,
-                 status_codes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tls: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] domain: Domain we try to access when performing the Health Check.
         :param pulumi.Input[str] path: Path we try to access when performing the Health Check.
         :param pulumi.Input[str] response: Response we expect to be included in the Target response when a Health Check was performed.
-        :param pulumi.Input[List[pulumi.Input[str]]] status_codes: We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] status_codes: We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         :param pulumi.Input[bool] tls: Enable TLS certificate checking.
         """
         if domain is not None:
@@ -202,14 +202,14 @@ class LoadBalancerServiceHealthCheckHttpArgs:
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "status_codes", value)
 
     @property
@@ -228,14 +228,14 @@ class LoadBalancerServiceHealthCheckHttpArgs:
 @pulumi.input_type
 class LoadBalancerServiceHttpArgs:
     def __init__(__self__, *,
-                 certificates: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 cookie_lifetime: Optional[pulumi.Input[float]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 cookie_lifetime: Optional[pulumi.Input[int]] = None,
                  cookie_name: Optional[pulumi.Input[str]] = None,
                  redirect_http: Optional[pulumi.Input[bool]] = None,
                  sticky_sessions: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[float]]] certificates: List of IDs from certificates which the Load Balancer has.
-        :param pulumi.Input[float] cookie_lifetime: Lifetime of the cookie for sticky session (in seconds). Default: `300`
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] certificates: List of IDs from certificates which the Load Balancer has.
+        :param pulumi.Input[int] cookie_lifetime: Lifetime of the cookie for sticky session (in seconds). Default: `300`
         :param pulumi.Input[str] cookie_name: Name of the cookie for sticky session. Default: `HCLBSTICKY`
         :param pulumi.Input[bool] redirect_http: Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
         :param pulumi.Input[bool] sticky_sessions: Enable sticky sessions
@@ -253,26 +253,26 @@ class LoadBalancerServiceHttpArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         List of IDs from certificates which the Load Balancer has.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "certificates", value)
 
     @property
     @pulumi.getter(name="cookieLifetime")
-    def cookie_lifetime(self) -> Optional[pulumi.Input[float]]:
+    def cookie_lifetime(self) -> Optional[pulumi.Input[int]]:
         """
         Lifetime of the cookie for sticky session (in seconds). Default: `300`
         """
         return pulumi.get(self, "cookie_lifetime")
 
     @cookie_lifetime.setter
-    def cookie_lifetime(self, value: Optional[pulumi.Input[float]]):
+    def cookie_lifetime(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cookie_lifetime", value)
 
     @property
@@ -316,11 +316,11 @@ class LoadBalancerServiceHttpArgs:
 class LoadBalancerTargetArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 server_id: Optional[pulumi.Input[float]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
                  use_private_ip: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] type: Type of the target. `server`
-        :param pulumi.Input[float] server_id: ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
+        :param pulumi.Input[int] server_id: ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
         """
         pulumi.set(__self__, "type", type)
         if server_id is not None:
@@ -345,14 +345,14 @@ class LoadBalancerTargetArgs:
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[float]]:
+    def server_id(self) -> Optional[pulumi.Input[int]]:
         """
         ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[float]]):
+    def server_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "server_id", value)
 
     @property

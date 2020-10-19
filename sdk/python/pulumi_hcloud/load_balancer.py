@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class LoadBalancer(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_zone: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -56,7 +56,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,10 +105,10 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_id: Optional[pulumi.Input[float]] = None,
+            network_id: Optional[pulumi.Input[int]] = None,
             network_ip: Optional[pulumi.Input[str]] = None,
             network_zone: Optional[pulumi.Input[str]] = None,
-            targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]]] = None) -> 'LoadBalancer':
+            targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]]] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -124,7 +124,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -201,7 +201,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> pulumi.Output[float]:
+    def network_id(self) -> pulumi.Output[int]:
         return pulumi.get(self, "network_id")
 
     @property
@@ -219,7 +219,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Output[List['outputs.LoadBalancerTarget']]:
+    def targets(self) -> pulumi.Output[Sequence['outputs.LoadBalancerTarget']]:
         """
         List of targets of the Load Balancer.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetLoadBalancerResult:
         if algorithm and not isinstance(algorithm, dict):
             raise TypeError("Expected argument 'algorithm' to be a dict")
         pulumi.set(__self__, "algorithm", algorithm)
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if ipv4 and not isinstance(ipv4, str):
             raise TypeError("Expected argument 'ipv4' to be a str")
@@ -68,7 +68,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[float]:
+    def id(self) -> Optional[int]:
         """
         (int) Unique ID of the Load Balancer.
         """
@@ -129,7 +129,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def services(self) -> List['outputs.GetLoadBalancerServiceResult']:
+    def services(self) -> Sequence['outputs.GetLoadBalancerServiceResult']:
         """
         (list) List of services a Load Balancer provides.
         """
@@ -137,7 +137,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def targets(self) -> List['outputs.GetLoadBalancerTargetResult']:
+    def targets(self) -> Sequence['outputs.GetLoadBalancerTargetResult']:
         """
         (list) List of targets of the Load Balancer.
         """
@@ -169,7 +169,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             with_selector=self.with_selector)
 
 
-def get_load_balancer(id: Optional[float] = None,
+def get_load_balancer(id: Optional[int] = None,
                       name: Optional[str] = None,
                       with_selector: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
@@ -188,7 +188,7 @@ def get_load_balancer(id: Optional[float] = None,
     ```
 
 
-    :param float id: ID of the Load Balancer.
+    :param int id: ID of the Load Balancer.
     :param str name: Name of the Load Balancer.
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     """

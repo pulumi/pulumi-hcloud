@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetServerResult:
         if datacenter and not isinstance(datacenter, str):
             raise TypeError("Expected argument 'datacenter' to be a str")
         pulumi.set(__self__, "datacenter", datacenter)
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if image and not isinstance(image, str):
             raise TypeError("Expected argument 'image' to be a str")
@@ -105,7 +105,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         """
         (int) Unique ID of the server.
         """
@@ -208,7 +208,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="withStatuses")
-    def with_statuses(self) -> Optional[List[str]]:
+    def with_statuses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "with_statuses")
 
 
@@ -238,19 +238,19 @@ class AwaitableGetServerResult(GetServerResult):
             with_statuses=self.with_statuses)
 
 
-def get_server(id: Optional[float] = None,
+def get_server(id: Optional[int] = None,
                name: Optional[str] = None,
                selector: Optional[str] = None,
                with_selector: Optional[str] = None,
-               with_statuses: Optional[List[str]] = None,
+               with_statuses: Optional[Sequence[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param float id: ID of the server.
+    :param int id: ID of the server.
     :param str name: Name of the server.
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
-    :param List[str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+    :param Sequence[str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
     __args__ = dict()
     __args__['id'] = id

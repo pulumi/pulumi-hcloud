@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['ServerNetwork']
@@ -15,10 +15,10 @@ class ServerNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip: Optional[pulumi.Input[str]] = None,
-                 network_id: Optional[pulumi.Input[float]] = None,
-                 server_id: Optional[pulumi.Input[float]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,12 +49,12 @@ class ServerNetwork(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned
                to this server.
         :param pulumi.Input[str] ip: IP to request to be assigned to this server.
                If you do not provide this then you will be auto assigned an IP
                address.
-        :param pulumi.Input[float] network_id: ID of the network which should be added
+        :param pulumi.Input[int] network_id: ID of the network which should be added
                to the server. Required if `subnet_id` is not set. Successful creation
                of the resource depends on the existence of a subnet in the Hetzner
                Cloud Backend. Using `network_id` will not create an explicit
@@ -62,7 +62,7 @@ class ServerNetwork(pulumi.CustomResource):
                to be used. Alternatively the `subnet_id` property can be used, which
                will create an explicit dependency between `ServerNetwork` and
                the existence of a subnet.
-        :param pulumi.Input[float] server_id: ID of the server.
+        :param pulumi.Input[int] server_id: ID of the server.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Server. Required if `network_id` is not set.
                *Note*: if the `ip` property is missing, the Server is currently added
@@ -103,11 +103,11 @@ class ServerNetwork(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ip: Optional[pulumi.Input[str]] = None,
             mac_address: Optional[pulumi.Input[str]] = None,
-            network_id: Optional[pulumi.Input[float]] = None,
-            server_id: Optional[pulumi.Input[float]] = None,
+            network_id: Optional[pulumi.Input[int]] = None,
+            server_id: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None) -> 'ServerNetwork':
         """
         Get an existing ServerNetwork resource's state with the given name, id, and optional extra
@@ -116,12 +116,12 @@ class ServerNetwork(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned
                to this server.
         :param pulumi.Input[str] ip: IP to request to be assigned to this server.
                If you do not provide this then you will be auto assigned an IP
                address.
-        :param pulumi.Input[float] network_id: ID of the network which should be added
+        :param pulumi.Input[int] network_id: ID of the network which should be added
                to the server. Required if `subnet_id` is not set. Successful creation
                of the resource depends on the existence of a subnet in the Hetzner
                Cloud Backend. Using `network_id` will not create an explicit
@@ -129,7 +129,7 @@ class ServerNetwork(pulumi.CustomResource):
                to be used. Alternatively the `subnet_id` property can be used, which
                will create an explicit dependency between `ServerNetwork` and
                the existence of a subnet.
-        :param pulumi.Input[float] server_id: ID of the server.
+        :param pulumi.Input[int] server_id: ID of the server.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Server. Required if `network_id` is not set.
                *Note*: if the `ip` property is missing, the Server is currently added
@@ -149,7 +149,7 @@ class ServerNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aliasIps")
-    def alias_ips(self) -> pulumi.Output[Optional[List[str]]]:
+    def alias_ips(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Additional IPs to be assigned
         to this server.
@@ -173,7 +173,7 @@ class ServerNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> pulumi.Output[Optional[float]]:
+    def network_id(self) -> pulumi.Output[Optional[int]]:
         """
         ID of the network which should be added
         to the server. Required if `subnet_id` is not set. Successful creation
@@ -188,7 +188,7 @@ class ServerNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> pulumi.Output[float]:
+    def server_id(self) -> pulumi.Output[int]:
         """
         ID of the server.
         """

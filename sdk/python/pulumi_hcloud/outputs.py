@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -49,19 +49,19 @@ class LoadBalancerAlgorithm(dict):
 @pulumi.output_type
 class LoadBalancerServiceHealthCheck(dict):
     def __init__(__self__, *,
-                 interval: float,
-                 port: float,
+                 interval: int,
+                 port: int,
                  protocol: str,
-                 timeout: float,
+                 timeout: int,
                  http: Optional['outputs.LoadBalancerServiceHealthCheckHttp'] = None,
-                 retries: Optional[float] = None):
+                 retries: Optional[int] = None):
         """
-        :param float interval: Interval how often the health check will be performed, in seconds.
-        :param float port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        :param int interval: Interval how often the health check will be performed, in seconds.
+        :param int port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param str protocol: Protocol the health check uses. `http` or `tcp`
-        :param float timeout: Timeout when a health check try will be canceled if there is no response, in seconds.
+        :param int timeout: Timeout when a health check try will be canceled if there is no response, in seconds.
         :param 'LoadBalancerServiceHealthCheckHttpArgs' http: List of http configurations. Required if `protocol` is `http`.
-        :param float retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+        :param int retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "port", port)
@@ -74,7 +74,7 @@ class LoadBalancerServiceHealthCheck(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> int:
         """
         Interval how often the health check will be performed, in seconds.
         """
@@ -82,7 +82,7 @@ class LoadBalancerServiceHealthCheck(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         """
@@ -98,7 +98,7 @@ class LoadBalancerServiceHealthCheck(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> float:
+    def timeout(self) -> int:
         """
         Timeout when a health check try will be canceled if there is no response, in seconds.
         """
@@ -114,7 +114,7 @@ class LoadBalancerServiceHealthCheck(dict):
 
     @property
     @pulumi.getter
-    def retries(self) -> Optional[float]:
+    def retries(self) -> Optional[int]:
         """
         Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
@@ -130,13 +130,13 @@ class LoadBalancerServiceHealthCheckHttp(dict):
                  domain: Optional[str] = None,
                  path: Optional[str] = None,
                  response: Optional[str] = None,
-                 status_codes: Optional[List[str]] = None,
+                 status_codes: Optional[Sequence[str]] = None,
                  tls: Optional[bool] = None):
         """
         :param str domain: Domain we try to access when performing the Health Check.
         :param str path: Path we try to access when performing the Health Check.
         :param str response: Response we expect to be included in the Target response when a Health Check was performed.
-        :param List[str] status_codes: We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        :param Sequence[str] status_codes: We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         :param bool tls: Enable TLS certificate checking.
         """
         if domain is not None:
@@ -176,7 +176,7 @@ class LoadBalancerServiceHealthCheckHttp(dict):
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[List[str]]:
+    def status_codes(self) -> Optional[Sequence[str]]:
         """
         We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         """
@@ -197,14 +197,14 @@ class LoadBalancerServiceHealthCheckHttp(dict):
 @pulumi.output_type
 class LoadBalancerServiceHttp(dict):
     def __init__(__self__, *,
-                 certificates: Optional[List[float]] = None,
-                 cookie_lifetime: Optional[float] = None,
+                 certificates: Optional[Sequence[int]] = None,
+                 cookie_lifetime: Optional[int] = None,
                  cookie_name: Optional[str] = None,
                  redirect_http: Optional[bool] = None,
                  sticky_sessions: Optional[bool] = None):
         """
-        :param List[float] certificates: List of IDs from certificates which the Load Balancer has.
-        :param float cookie_lifetime: Lifetime of the cookie for sticky session (in seconds). Default: `300`
+        :param Sequence[int] certificates: List of IDs from certificates which the Load Balancer has.
+        :param int cookie_lifetime: Lifetime of the cookie for sticky session (in seconds). Default: `300`
         :param str cookie_name: Name of the cookie for sticky session. Default: `HCLBSTICKY`
         :param bool redirect_http: Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
         :param bool sticky_sessions: Enable sticky sessions
@@ -222,7 +222,7 @@ class LoadBalancerServiceHttp(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List[float]]:
+    def certificates(self) -> Optional[Sequence[int]]:
         """
         List of IDs from certificates which the Load Balancer has.
         """
@@ -230,7 +230,7 @@ class LoadBalancerServiceHttp(dict):
 
     @property
     @pulumi.getter(name="cookieLifetime")
-    def cookie_lifetime(self) -> Optional[float]:
+    def cookie_lifetime(self) -> Optional[int]:
         """
         Lifetime of the cookie for sticky session (in seconds). Default: `300`
         """
@@ -268,11 +268,11 @@ class LoadBalancerServiceHttp(dict):
 class LoadBalancerTarget(dict):
     def __init__(__self__, *,
                  type: str,
-                 server_id: Optional[float] = None,
+                 server_id: Optional[int] = None,
                  use_private_ip: Optional[bool] = None):
         """
         :param str type: Type of the target. `server`
-        :param float server_id: ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
+        :param int server_id: ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
         """
         pulumi.set(__self__, "type", type)
         if server_id is not None:
@@ -290,7 +290,7 @@ class LoadBalancerTarget(dict):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[float]:
+    def server_id(self) -> Optional[int]:
         """
         ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
         """
@@ -326,17 +326,17 @@ class GetLoadBalancerAlgorithmResult(dict):
 @pulumi.output_type
 class GetLoadBalancerServiceResult(dict):
     def __init__(__self__, *,
-                 destination_port: float,
+                 destination_port: int,
                  health_check: 'outputs.GetLoadBalancerServiceHealthCheckResult',
                  http: 'outputs.GetLoadBalancerServiceHttpResult',
-                 listen_port: float,
+                 listen_port: int,
                  protocol: str,
                  proxyprotocol: bool):
         """
-        :param float destination_port: (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
+        :param int destination_port: (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
         :param 'GetLoadBalancerServiceHealthCheckArgs' health_check: (list) List of http configurations when `protocol` is `http` or `https`.
         :param 'GetLoadBalancerServiceHttpArgs' http: (list) List of http configurations when `protocol` is `http` or `https`.
-        :param float listen_port: (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        :param int listen_port: (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param str protocol: (string) Protocol the health check uses. `http`, `https` or `tcp`
         :param bool proxyprotocol: (bool) Enable proxyprotocol.
         """
@@ -349,7 +349,7 @@ class GetLoadBalancerServiceResult(dict):
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> float:
+    def destination_port(self) -> int:
         """
         (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
         """
@@ -373,7 +373,7 @@ class GetLoadBalancerServiceResult(dict):
 
     @property
     @pulumi.getter(name="listenPort")
-    def listen_port(self) -> float:
+    def listen_port(self) -> int:
         """
         (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         """
@@ -400,18 +400,18 @@ class GetLoadBalancerServiceResult(dict):
 class GetLoadBalancerServiceHealthCheckResult(dict):
     def __init__(__self__, *,
                  http: 'outputs.GetLoadBalancerServiceHealthCheckHttpResult',
-                 interval: float,
-                 port: float,
+                 interval: int,
+                 port: int,
                  protocol: str,
-                 retries: float,
-                 timeout: float):
+                 retries: int,
+                 timeout: int):
         """
         :param 'GetLoadBalancerServiceHealthCheckHttpArgs' http: (list) List of http configurations when `protocol` is `http` or `https`.
-        :param float interval: (int) Interval how often the health check will be performed, in seconds.
-        :param float port: (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
+        :param int interval: (int) Interval how often the health check will be performed, in seconds.
+        :param int port: (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
         :param str protocol: (string) Protocol the health check uses. `http`, `https` or `tcp`
-        :param float retries: (int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.
-        :param float timeout: (int) Timeout when a health check try will be canceled if there is no response, in seconds.
+        :param int retries: (int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+        :param int timeout: (int) Timeout when a health check try will be canceled if there is no response, in seconds.
         """
         pulumi.set(__self__, "http", http)
         pulumi.set(__self__, "interval", interval)
@@ -430,7 +430,7 @@ class GetLoadBalancerServiceHealthCheckResult(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> int:
         """
         (int) Interval how often the health check will be performed, in seconds.
         """
@@ -438,7 +438,7 @@ class GetLoadBalancerServiceHealthCheckResult(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
         """
@@ -454,7 +454,7 @@ class GetLoadBalancerServiceHealthCheckResult(dict):
 
     @property
     @pulumi.getter
-    def retries(self) -> float:
+    def retries(self) -> int:
         """
         (int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
@@ -462,7 +462,7 @@ class GetLoadBalancerServiceHealthCheckResult(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> float:
+    def timeout(self) -> int:
         """
         (int) Timeout when a health check try will be canceled if there is no response, in seconds.
         """
@@ -475,13 +475,13 @@ class GetLoadBalancerServiceHealthCheckHttpResult(dict):
                  domain: str,
                  path: str,
                  response: str,
-                 status_codes: List[float],
+                 status_codes: Sequence[int],
                  tls: bool):
         """
         :param str domain: string) Domain we try to access when performing the Health Check.
         :param str path: (string) Path we try to access when performing the Health Check.
         :param str response: (string) Response we expect to be included in the Target response when a Health Check was performed.
-        :param List[float] status_codes: (list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        :param Sequence[int] status_codes: (list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         :param bool tls: (bool) Enable TLS certificate checking.
         """
         pulumi.set(__self__, "domain", domain)
@@ -516,7 +516,7 @@ class GetLoadBalancerServiceHealthCheckHttpResult(dict):
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> List[float]:
+    def status_codes(self) -> Sequence[int]:
         """
         (list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         """
@@ -534,14 +534,14 @@ class GetLoadBalancerServiceHealthCheckHttpResult(dict):
 @pulumi.output_type
 class GetLoadBalancerServiceHttpResult(dict):
     def __init__(__self__, *,
-                 certificates: List[str],
-                 cookie_lifetime: float,
+                 certificates: Sequence[str],
+                 cookie_lifetime: int,
                  cookie_name: str,
                  redirect_http: bool,
                  sticky_sessions: bool):
         """
-        :param List[str] certificates: (list[int]) List of IDs from certificates which the Load Balancer has.
-        :param float cookie_lifetime: (int) Lifetime of the cookie for sticky session (in seconds).
+        :param Sequence[str] certificates: (list[int]) List of IDs from certificates which the Load Balancer has.
+        :param int cookie_lifetime: (int) Lifetime of the cookie for sticky session (in seconds).
         :param str cookie_name: (string) Name of the cookie for sticky session.
         :param bool redirect_http: (string) Determine if all requests from port 80 should be redirected to port 443.
         :param bool sticky_sessions: (string) Determine if sticky sessions are enabled or not.
@@ -554,7 +554,7 @@ class GetLoadBalancerServiceHttpResult(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> List[str]:
+    def certificates(self) -> Sequence[str]:
         """
         (list[int]) List of IDs from certificates which the Load Balancer has.
         """
@@ -562,7 +562,7 @@ class GetLoadBalancerServiceHttpResult(dict):
 
     @property
     @pulumi.getter(name="cookieLifetime")
-    def cookie_lifetime(self) -> float:
+    def cookie_lifetime(self) -> int:
         """
         (int) Lifetime of the cookie for sticky session (in seconds).
         """
@@ -597,11 +597,11 @@ class GetLoadBalancerServiceHttpResult(dict):
 class GetLoadBalancerTargetResult(dict):
     def __init__(__self__, *,
                  label_selector: str,
-                 server_id: float,
+                 server_id: int,
                  type: str):
         """
         :param str label_selector: (string) Label Selector to add a group of resources based on the label.
-        :param float server_id: (int) ID of the server which should be a target for this Load Balancer.
+        :param int server_id: (int) ID of the server which should be a target for this Load Balancer.
         :param str type: (string) Type of the target. `server` or `label_selector`
         """
         pulumi.set(__self__, "label_selector", label_selector)
@@ -618,7 +618,7 @@ class GetLoadBalancerTargetResult(dict):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> float:
+    def server_id(self) -> int:
         """
         (int) ID of the server which should be a target for this Load Balancer.
         """
@@ -637,7 +637,7 @@ class GetLoadBalancerTargetResult(dict):
 class GetSshKeysSshKeyResult(dict):
     def __init__(__self__, *,
                  fingerprint: str,
-                 id: float,
+                 id: int,
                  labels: Mapping[str, Any],
                  name: str,
                  public_key: str):
@@ -654,7 +654,7 @@ class GetSshKeysSshKeyResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         return pulumi.get(self, "id")
 
     @property

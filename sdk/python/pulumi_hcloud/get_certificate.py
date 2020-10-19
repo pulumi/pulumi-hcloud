@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -32,8 +32,8 @@ class GetCertificateResult:
         if fingerprint and not isinstance(fingerprint, str):
             raise TypeError("Expected argument 'fingerprint' to be a str")
         pulumi.set(__self__, "fingerprint", fingerprint)
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
@@ -69,7 +69,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="domainNames")
-    def domain_names(self) -> List[str]:
+    def domain_names(self) -> Sequence[str]:
         """
         (list) Domains and subdomains covered by the certificate.
         """
@@ -85,7 +85,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[float]:
+    def id(self) -> Optional[int]:
         """
         (int) Unique ID of the certificate.
         """
@@ -147,7 +147,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             with_selector=self.with_selector)
 
 
-def get_certificate(id: Optional[float] = None,
+def get_certificate(id: Optional[int] = None,
                     name: Optional[str] = None,
                     with_selector: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
@@ -155,7 +155,7 @@ def get_certificate(id: Optional[float] = None,
     Provides details about a specific Hetzner Cloud Certificate.
 
 
-    :param float id: ID of the certificate.
+    :param int id: ID of the certificate.
     :param str name: Name of the certificate.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """

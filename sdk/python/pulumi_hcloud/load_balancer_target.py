@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['LoadBalancerTarget']
@@ -17,8 +17,8 @@ class LoadBalancerTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip: Optional[pulumi.Input[str]] = None,
                  label_selector: Optional[pulumi.Input[str]] = None,
-                 load_balancer_id: Optional[pulumi.Input[float]] = None,
-                 server_id: Optional[pulumi.Input[float]] = None,
+                 load_balancer_id: Optional[pulumi.Input[int]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_private_ip: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -51,9 +51,9 @@ class LoadBalancerTarget(pulumi.CustomResource):
                `type` is `ip`.
         :param pulumi.Input[str] label_selector: Label Selector selecting targets
                for this Load Balancer. Required if `type` is `label_selector`.
-        :param pulumi.Input[float] load_balancer_id: ID of the Load Balancer to which
+        :param pulumi.Input[int] load_balancer_id: ID of the Load Balancer to which
                the target gets attached.
-        :param pulumi.Input[float] server_id: ID of the server which should be a
+        :param pulumi.Input[int] server_id: ID of the server which should be a
                target for this Load Balancer. Required if `type` is `server`
         :param pulumi.Input[str] type: Type of the target. Possible values
                `server`, `label_selector`, `ip`.
@@ -100,8 +100,8 @@ class LoadBalancerTarget(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             ip: Optional[pulumi.Input[str]] = None,
             label_selector: Optional[pulumi.Input[str]] = None,
-            load_balancer_id: Optional[pulumi.Input[float]] = None,
-            server_id: Optional[pulumi.Input[float]] = None,
+            load_balancer_id: Optional[pulumi.Input[int]] = None,
+            server_id: Optional[pulumi.Input[int]] = None,
             type: Optional[pulumi.Input[str]] = None,
             use_private_ip: Optional[pulumi.Input[bool]] = None) -> 'LoadBalancerTarget':
         """
@@ -115,9 +115,9 @@ class LoadBalancerTarget(pulumi.CustomResource):
                `type` is `ip`.
         :param pulumi.Input[str] label_selector: Label Selector selecting targets
                for this Load Balancer. Required if `type` is `label_selector`.
-        :param pulumi.Input[float] load_balancer_id: ID of the Load Balancer to which
+        :param pulumi.Input[int] load_balancer_id: ID of the Load Balancer to which
                the target gets attached.
-        :param pulumi.Input[float] server_id: ID of the server which should be a
+        :param pulumi.Input[int] server_id: ID of the server which should be a
                target for this Load Balancer. Required if `type` is `server`
         :param pulumi.Input[str] type: Type of the target. Possible values
                `server`, `label_selector`, `ip`.
@@ -157,7 +157,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerId")
-    def load_balancer_id(self) -> pulumi.Output[float]:
+    def load_balancer_id(self) -> pulumi.Output[int]:
         """
         ID of the Load Balancer to which
         the target gets attached.
@@ -166,7 +166,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> pulumi.Output[Optional[float]]:
+    def server_id(self) -> pulumi.Output[Optional[int]]:
         """
         ID of the server which should be a
         target for this Load Balancer. Required if `type` is `server`

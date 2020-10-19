@@ -27,7 +27,7 @@
         ]
     },
     "types": {
-        "hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm": {
+        "hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm": {
             "properties": {
                 "type": {
                     "type": "string",
@@ -48,10 +48,10 @@
                 }
             }
         },
-        "hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck": {
+        "hcloud:index/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck": {
             "properties": {
                 "http": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheckHttp:LoadBalancerServiceHealthCheckHttp",
+                    "$ref": "#/types/hcloud:index/LoadBalancerServiceHealthCheckHttp:LoadBalancerServiceHealthCheckHttp",
                     "description": "List of http configurations. Required if `protocol` is `http`.\n",
                     "language": {
                         "python": {
@@ -125,7 +125,7 @@
                 }
             }
         },
-        "hcloud:/LoadBalancerServiceHealthCheckHttp:LoadBalancerServiceHealthCheckHttp": {
+        "hcloud:index/LoadBalancerServiceHealthCheckHttp:LoadBalancerServiceHealthCheckHttp": {
             "properties": {
                 "domain": {
                     "type": "string",
@@ -178,7 +178,7 @@
             },
             "type": "object"
         },
-        "hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp": {
+        "hcloud:index/LoadBalancerServiceHttp:LoadBalancerServiceHttp": {
             "properties": {
                 "certificates": {
                     "type": "array",
@@ -241,7 +241,7 @@
                 }
             }
         },
-        "hcloud:/LoadBalancerTarget:LoadBalancerTarget": {
+        "hcloud:index/LoadBalancerTarget:LoadBalancerTarget": {
             "properties": {
                 "serverId": {
                     "type": "integer",
@@ -276,7 +276,7 @@
                 "type"
             ]
         },
-        "hcloud:/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm": {
+        "hcloud:index/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm": {
             "properties": {
                 "type": {
                     "type": "string",
@@ -298,7 +298,7 @@
                 }
             }
         },
-        "hcloud:/getLoadBalancerService:getLoadBalancerService": {
+        "hcloud:index/getLoadBalancerService:getLoadBalancerService": {
             "properties": {
                 "destinationPort": {
                     "type": "integer",
@@ -310,7 +310,7 @@
                     }
                 },
                 "healthCheck": {
-                    "$ref": "#/types/hcloud:/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck",
+                    "$ref": "#/types/hcloud:index/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck",
                     "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
@@ -319,7 +319,7 @@
                     }
                 },
                 "http": {
-                    "$ref": "#/types/hcloud:/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp",
+                    "$ref": "#/types/hcloud:index/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp",
                     "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
@@ -370,10 +370,10 @@
                 }
             }
         },
-        "hcloud:/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck": {
+        "hcloud:index/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck": {
             "properties": {
                 "http": {
-                    "$ref": "#/types/hcloud:/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp",
+                    "$ref": "#/types/hcloud:index/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp",
                     "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
@@ -442,7 +442,7 @@
                 }
             }
         },
-        "hcloud:/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp": {
+        "hcloud:index/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp": {
             "properties": {
                 "domain": {
                     "type": "string",
@@ -507,7 +507,7 @@
                 }
             }
         },
-        "hcloud:/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp": {
+        "hcloud:index/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp": {
             "properties": {
                 "certificates": {
                     "type": "array",
@@ -572,7 +572,7 @@
                 }
             }
         },
-        "hcloud:/getLoadBalancerTarget:getLoadBalancerTarget": {
+        "hcloud:index/getLoadBalancerTarget:getLoadBalancerTarget": {
             "properties": {
                 "labelSelector": {
                     "type": "string",
@@ -614,7 +614,7 @@
                 }
             }
         },
-        "hcloud:/getSshKeysSshKey:getSshKeysSshKey": {
+        "hcloud:index/getSshKeysSshKey:getSshKeysSshKey": {
             "properties": {
                 "fingerprint": {
                     "type": "string",
@@ -1006,7 +1006,7 @@
             "description": "Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myserver = new hcloud.Server(\"myserver\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-18.04\",\n});\nconst loadBalancer = new hcloud.LoadBalancer(\"loadBalancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n    targets: [{\n        type: \"server\",\n        serverId: myserver.id,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmyserver = hcloud.Server(\"myserver\",\n    server_type=\"cx11\",\n    image=\"ubuntu-18.04\")\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\",\n    targets=[hcloud.LoadBalancerTargetArgs(\n        type=\"server\",\n        server_id=myserver.id,\n    )])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myserver = new HCloud.Server(\"myserver\", new HCloud.ServerArgs\n        {\n            ServerType = \"cx11\",\n            Image = \"ubuntu-18.04\",\n        });\n        var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            Location = \"nbg1\",\n            Targets = \n            {\n                new HCloud.Inputs.LoadBalancerTargetArgs\n                {\n                    Type = \"server\",\n                    ServerId = myserver.Id,\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyserver, err := hcloud.NewServer(ctx, \"myserver\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-18.04\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t\tTargets: hcloud.LoadBalancerTargetArray{\n\t\t\t\t\u0026hcloud.LoadBalancerTargetArgs{\n\t\t\t\t\tType:     pulumi.String(\"server\"),\n\t\t\t\t\tServerId: myserver.ID(),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "algorithm": {
-                    "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
+                    "$ref": "#/types/hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
                     "description": "Configuration of the algorithm the Load Balancer use.\n"
                 },
                 "ipv4": {
@@ -1049,7 +1049,7 @@
                 "targets": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
+                        "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                     },
                     "description": "List of targets of the Load Balancer.\n"
                 }
@@ -1069,7 +1069,7 @@
             ],
             "inputProperties": {
                 "algorithm": {
-                    "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
+                    "$ref": "#/types/hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
                     "description": "Configuration of the algorithm the Load Balancer use.\n"
                 },
                 "labels": {
@@ -1098,7 +1098,7 @@
                 "targets": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
+                        "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                     },
                     "description": "List of targets of the Load Balancer.\n"
                 }
@@ -1110,7 +1110,7 @@
                 "description": "Input properties used for looking up and filtering LoadBalancer resources.\n",
                 "properties": {
                     "algorithm": {
-                        "$ref": "#/types/hcloud:/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
+                        "$ref": "#/types/hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
                         "description": "Configuration of the algorithm the Load Balancer use.\n"
                     },
                     "ipv4": {
@@ -1153,7 +1153,7 @@
                     "targets": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/hcloud:/LoadBalancerTarget:LoadBalancerTarget"
+                            "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                         },
                         "description": "List of targets of the Load Balancer.\n"
                     }
@@ -1249,11 +1249,11 @@
                     "description": "Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.\n"
                 },
                 "healthCheck": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
+                    "$ref": "#/types/hcloud:index/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
                     "description": "List of health check configurations when `protocol` is `http` or `https`.\n"
                 },
                 "http": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
+                    "$ref": "#/types/hcloud:index/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
                     "description": "List of http configurations when `protocol` is `http` or `https`.\n"
                 },
                 "listenPort": {
@@ -1287,11 +1287,11 @@
                     "description": "Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.\n"
                 },
                 "healthCheck": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
+                    "$ref": "#/types/hcloud:index/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
                     "description": "List of health check configurations when `protocol` is `http` or `https`.\n"
                 },
                 "http": {
-                    "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
+                    "$ref": "#/types/hcloud:index/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
                     "description": "List of http configurations when `protocol` is `http` or `https`.\n"
                 },
                 "listenPort": {
@@ -1323,11 +1323,11 @@
                         "description": "Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.\n"
                     },
                     "healthCheck": {
-                        "$ref": "#/types/hcloud:/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
+                        "$ref": "#/types/hcloud:index/LoadBalancerServiceHealthCheck:LoadBalancerServiceHealthCheck",
                         "description": "List of health check configurations when `protocol` is `http` or `https`.\n"
                     },
                     "http": {
-                        "$ref": "#/types/hcloud:/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
+                        "$ref": "#/types/hcloud:index/LoadBalancerServiceHttp:LoadBalancerServiceHttp",
                         "description": "List of http configurations when `protocol` is `http` or `https`.\n"
                     },
                     "listenPort": {
@@ -2724,7 +2724,7 @@
                 "description": "A collection of values returned by getLoadBalancer.\n",
                 "properties": {
                     "algorithm": {
-                        "$ref": "#/types/hcloud:/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm",
+                        "$ref": "#/types/hcloud:index/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm",
                         "description": "(Optional) Configuration of the algorithm the Load Balancer use.\n"
                     },
                     "id": {
@@ -2764,14 +2764,14 @@
                     "services": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/hcloud:/getLoadBalancerService:getLoadBalancerService"
+                            "$ref": "#/types/hcloud:index/getLoadBalancerService:getLoadBalancerService"
                         },
                         "description": "(list) List of services a Load Balancer provides.\n"
                     },
                     "targets": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/hcloud:/getLoadBalancerTarget:getLoadBalancerTarget"
+                            "$ref": "#/types/hcloud:index/getLoadBalancerTarget:getLoadBalancerTarget"
                         },
                         "description": "(list) List of targets of the Load Balancer.\n"
                     },
@@ -3181,7 +3181,7 @@
                     "sshKeys": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/hcloud:/getSshKeysSshKey:getSshKeysSshKey"
+                            "$ref": "#/types/hcloud:index/getSshKeysSshKey:getSshKeysSshKey"
                         },
                         "description": "(list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.\n"
                     },
