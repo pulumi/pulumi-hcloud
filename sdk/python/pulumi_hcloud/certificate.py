@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['Certificate']
@@ -75,7 +75,7 @@ class Certificate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate: Optional[pulumi.Input[str]] = None,
             created: Optional[pulumi.Input[str]] = None,
-            domain_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             fingerprint: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: PEM encoded TLS certificate.
         :param pulumi.Input[str] created: (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
-        :param pulumi.Input[List[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
         :param pulumi.Input[str] fingerprint: (string) Fingerprint of the certificate.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
@@ -133,7 +133,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainNames")
-    def domain_names(self) -> pulumi.Output[List[str]]:
+    def domain_names(self) -> pulumi.Output[Sequence[str]]:
         """
         (list) Domains and subdomains covered by the certificate.
         """

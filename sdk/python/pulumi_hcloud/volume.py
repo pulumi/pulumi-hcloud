@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['Volume']
@@ -20,8 +20,8 @@ class Volume(pulumi.CustomResource):
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_id: Optional[pulumi.Input[float]] = None,
-                 size: Optional[pulumi.Input[float]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 size: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,8 +50,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
         :param pulumi.Input[str] location: Location of the volume to create, optional if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
-        :param pulumi.Input[float] server_id: Server to attach the Volume to, optional if location argument is passed.
-        :param pulumi.Input[float] size: Size of the volume (in GB).
+        :param pulumi.Input[int] server_id: Server to attach the Volume to, optional if location argument is passed.
+        :param pulumi.Input[int] size: Size of the volume (in GB).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,8 +96,8 @@ class Volume(pulumi.CustomResource):
             linux_device: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            server_id: Optional[pulumi.Input[float]] = None,
-            size: Optional[pulumi.Input[float]] = None) -> 'Volume':
+            server_id: Optional[pulumi.Input[int]] = None,
+            size: Optional[pulumi.Input[int]] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,8 +111,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] linux_device: Device path on the file system for the Volume.
         :param pulumi.Input[str] location: Location of the volume to create, optional if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
-        :param pulumi.Input[float] server_id: Server to attach the Volume to, optional if location argument is passed.
-        :param pulumi.Input[float] size: Size of the volume (in GB).
+        :param pulumi.Input[int] server_id: Server to attach the Volume to, optional if location argument is passed.
+        :param pulumi.Input[int] size: Size of the volume (in GB).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -178,7 +178,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> pulumi.Output[float]:
+    def server_id(self) -> pulumi.Output[int]:
         """
         Server to attach the Volume to, optional if location argument is passed.
         """
@@ -186,7 +186,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[float]:
+    def size(self) -> pulumi.Output[int]:
         """
         Size of the volume (in GB).
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['NetworkRoute']
@@ -17,7 +17,7 @@ class NetworkRoute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  gateway: Optional[pulumi.Input[str]] = None,
-                 network_id: Optional[pulumi.Input[float]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,7 +41,7 @@ class NetworkRoute(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination: Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
         :param pulumi.Input[str] gateway: Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
-        :param pulumi.Input[float] network_id: ID of the Network the route should be added to.
+        :param pulumi.Input[int] network_id: ID of the Network the route should be added to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,7 +81,7 @@ class NetworkRoute(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             destination: Optional[pulumi.Input[str]] = None,
             gateway: Optional[pulumi.Input[str]] = None,
-            network_id: Optional[pulumi.Input[float]] = None) -> 'NetworkRoute':
+            network_id: Optional[pulumi.Input[int]] = None) -> 'NetworkRoute':
         """
         Get an existing NetworkRoute resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,7 +91,7 @@ class NetworkRoute(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination: Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
         :param pulumi.Input[str] gateway: Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
-        :param pulumi.Input[float] network_id: ID of the Network the route should be added to.
+        :param pulumi.Input[int] network_id: ID of the Network the route should be added to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -120,7 +120,7 @@ class NetworkRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> pulumi.Output[float]:
+    def network_id(self) -> pulumi.Output[int]:
         """
         ID of the Network the route should be added to.
         """

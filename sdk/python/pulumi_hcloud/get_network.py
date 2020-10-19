@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetNetworkResult:
     A collection of values returned by getNetwork.
     """
     def __init__(__self__, id=None, ip_range=None, labels=None, name=None, with_selector=None):
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if ip_range and not isinstance(ip_range, str):
             raise TypeError("Expected argument 'ip_range' to be a str")
@@ -38,7 +38,7 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[float]:
+    def id(self) -> Optional[int]:
         """
         Unique ID of the Network.
         """
@@ -84,7 +84,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             with_selector=self.with_selector)
 
 
-def get_network(id: Optional[float] = None,
+def get_network(id: Optional[int] = None,
                 ip_range: Optional[str] = None,
                 labels: Optional[Mapping[str, Any]] = None,
                 name: Optional[str] = None,
@@ -93,7 +93,7 @@ def get_network(id: Optional[float] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param float id: ID of the Network.
+    :param int id: ID of the Network.
     :param str ip_range: IPv4 prefix of the Network.
     :param str name: Name of the Network.
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).

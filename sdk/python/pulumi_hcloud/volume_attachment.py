@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['VolumeAttachment']
@@ -16,8 +16,8 @@ class VolumeAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automount: Optional[pulumi.Input[bool]] = None,
-                 server_id: Optional[pulumi.Input[float]] = None,
-                 volume_id: Optional[pulumi.Input[float]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 volume_id: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -46,8 +46,8 @@ class VolumeAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it.
-        :param pulumi.Input[float] server_id: Server to attach the Volume to.
-        :param pulumi.Input[float] volume_id: ID of the Volume.
+        :param pulumi.Input[int] server_id: Server to attach the Volume to.
+        :param pulumi.Input[int] volume_id: ID of the Volume.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,8 +84,8 @@ class VolumeAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             automount: Optional[pulumi.Input[bool]] = None,
-            server_id: Optional[pulumi.Input[float]] = None,
-            volume_id: Optional[pulumi.Input[float]] = None) -> 'VolumeAttachment':
+            server_id: Optional[pulumi.Input[int]] = None,
+            volume_id: Optional[pulumi.Input[int]] = None) -> 'VolumeAttachment':
         """
         Get an existing VolumeAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,8 +94,8 @@ class VolumeAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it.
-        :param pulumi.Input[float] server_id: Server to attach the Volume to.
-        :param pulumi.Input[float] volume_id: ID of the Volume.
+        :param pulumi.Input[int] server_id: Server to attach the Volume to.
+        :param pulumi.Input[int] volume_id: ID of the Volume.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -116,7 +116,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> pulumi.Output[float]:
+    def server_id(self) -> pulumi.Output[int]:
         """
         Server to attach the Volume to.
         """
@@ -124,7 +124,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> pulumi.Output[float]:
+    def volume_id(self) -> pulumi.Output[int]:
         """
         ID of the Volume.
         """

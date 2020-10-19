@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetDatacenterResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, dict):
             raise TypeError("Expected argument 'location' to be a dict")
@@ -41,7 +41,7 @@ class GetDatacenterResult:
 
     @property
     @pulumi.getter(name="availableServerTypeIds")
-    def available_server_type_ids(self) -> List[float]:
+    def available_server_type_ids(self) -> Sequence[int]:
         """
         (list) List of available server types.
         """
@@ -57,7 +57,7 @@ class GetDatacenterResult:
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         """
         (int) Unique ID of the datacenter.
         """
@@ -81,7 +81,7 @@ class GetDatacenterResult:
 
     @property
     @pulumi.getter(name="supportedServerTypeIds")
-    def supported_server_type_ids(self) -> List[float]:
+    def supported_server_type_ids(self) -> Sequence[int]:
         """
         (list) List of server types supported by the datacenter.
         """
@@ -102,7 +102,7 @@ class AwaitableGetDatacenterResult(GetDatacenterResult):
             supported_server_type_ids=self.supported_server_type_ids)
 
 
-def get_datacenter(id: Optional[float] = None,
+def get_datacenter(id: Optional[int] = None,
                    name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatacenterResult:
     """
@@ -120,7 +120,7 @@ def get_datacenter(id: Optional[float] = None,
     ```
 
 
-    :param float id: ID of the datacenter.
+    :param int id: ID of the datacenter.
     :param str name: Name of the datacenter.
     """
     __args__ = dict()

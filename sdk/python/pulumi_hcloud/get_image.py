@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetImageResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
@@ -93,7 +93,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[float]:
+    def id(self) -> Optional[int]:
         """
         (int) Unique ID of the Image.
         """
@@ -161,7 +161,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="withStatuses")
-    def with_statuses(self) -> Optional[List[str]]:
+    def with_statuses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "with_statuses")
 
 
@@ -187,21 +187,21 @@ class AwaitableGetImageResult(GetImageResult):
             with_statuses=self.with_statuses)
 
 
-def get_image(id: Optional[float] = None,
+def get_image(id: Optional[int] = None,
               most_recent: Optional[bool] = None,
               name: Optional[str] = None,
               selector: Optional[str] = None,
               with_selector: Optional[str] = None,
-              with_statuses: Optional[List[str]] = None,
+              with_statuses: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param float id: ID of the Image.
+    :param int id: ID of the Image.
     :param bool most_recent: If more than one result is returned, use the most recent Image.
     :param str name: Name of the Image.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
-    :param List[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
+    :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
     __args__['id'] = id

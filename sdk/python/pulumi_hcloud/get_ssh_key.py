@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetSshKeyResult:
         if fingerprint and not isinstance(fingerprint, str):
             raise TypeError("Expected argument 'fingerprint' to be a str")
         pulumi.set(__self__, "fingerprint", fingerprint)
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
@@ -56,7 +56,7 @@ class GetSshKeyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[float]:
+    def id(self) -> Optional[int]:
         """
         (int) Unique ID of the SSH Key.
         """
@@ -110,7 +110,7 @@ class AwaitableGetSshKeyResult(GetSshKeyResult):
 
 
 def get_ssh_key(fingerprint: Optional[str] = None,
-                id: Optional[float] = None,
+                id: Optional[int] = None,
                 name: Optional[str] = None,
                 selector: Optional[str] = None,
                 with_selector: Optional[str] = None,
@@ -119,7 +119,7 @@ def get_ssh_key(fingerprint: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str fingerprint: Fingerprint of the SSH Key.
-    :param float id: ID of the SSH Key.
+    :param int id: ID of the SSH Key.
     :param str name: Name of the SSH Key.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """

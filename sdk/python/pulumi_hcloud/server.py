@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['Server']
@@ -25,7 +25,7 @@ class Server(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -44,7 +44,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
         if __name__ is not None:
@@ -109,7 +109,7 @@ class Server(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             rescue: Optional[pulumi.Input[str]] = None,
             server_type: Optional[pulumi.Input[str]] = None,
-            ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_data: Optional[pulumi.Input[str]] = None) -> 'Server':
         """
@@ -133,7 +133,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] status: (string) The status of the server.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
@@ -274,7 +274,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> pulumi.Output[Optional[List[str]]]:
+    def ssh_keys(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         SSH key IDs or names which should be injected into the server at creation time
         """

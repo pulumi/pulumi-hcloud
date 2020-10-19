@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetLocationResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if latitude and not isinstance(latitude, float):
             raise TypeError("Expected argument 'latitude' to be a float")
@@ -68,7 +68,7 @@ class GetLocationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         """
         (int) Unique ID of the location.
         """
@@ -114,7 +114,7 @@ class AwaitableGetLocationResult(GetLocationResult):
             name=self.name)
 
 
-def get_location(id: Optional[float] = None,
+def get_location(id: Optional[int] = None,
                  name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationResult:
     """
@@ -132,7 +132,7 @@ def get_location(id: Optional[float] = None,
     ```
 
 
-    :param float id: ID of the location.
+    :param int id: ID of the location.
     :param str name: Name of the location.
     """
     __args__ = dict()

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetVolumeResult:
     A collection of values returned by getVolume.
     """
     def __init__(__self__, id=None, labels=None, linux_device=None, location=None, name=None, selector=None, server=None, size=None, with_selector=None, with_statuses=None):
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
@@ -45,8 +45,8 @@ class GetVolumeResult:
         if server and not isinstance(server, str):
             raise TypeError("Expected argument 'server' to be a str")
         pulumi.set(__self__, "server", server)
-        if size and not isinstance(size, float):
-            raise TypeError("Expected argument 'size' to be a float")
+        if size and not isinstance(size, int):
+            raise TypeError("Expected argument 'size' to be a int")
         pulumi.set(__self__, "size", size)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
@@ -57,7 +57,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[float]:
+    def id(self) -> Optional[int]:
         """
         Unique ID of the volume.
         """
@@ -98,7 +98,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> int:
         """
         Size of the volume.
         """
@@ -111,7 +111,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="withStatuses")
-    def with_statuses(self) -> Optional[List[str]]:
+    def with_statuses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "with_statuses")
 
 
@@ -133,21 +133,21 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             with_statuses=self.with_statuses)
 
 
-def get_volume(id: Optional[float] = None,
+def get_volume(id: Optional[int] = None,
                location: Optional[str] = None,
                name: Optional[str] = None,
                selector: Optional[str] = None,
                server: Optional[str] = None,
                with_selector: Optional[str] = None,
-               with_statuses: Optional[List[str]] = None,
+               with_statuses: Optional[Sequence[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param float id: ID of the volume.
+    :param int id: ID of the volume.
     :param str name: Name of the volume.
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
-    :param List[str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
+    :param Sequence[str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
     __args__['id'] = id

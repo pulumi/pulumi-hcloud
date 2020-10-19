@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetFloatingIpResult:
         if home_location and not isinstance(home_location, str):
             raise TypeError("Expected argument 'home_location' to be a str")
         pulumi.set(__self__, "home_location", home_location)
-        if id and not isinstance(id, float):
-            raise TypeError("Expected argument 'id' to be a float")
+        if id and not isinstance(id, int):
+            raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
@@ -48,8 +48,8 @@ class GetFloatingIpResult:
             pulumi.log.warn("selector is deprecated: Please use the with_selector property instead.")
 
         pulumi.set(__self__, "selector", selector)
-        if server_id and not isinstance(server_id, float):
-            raise TypeError("Expected argument 'server_id' to be a float")
+        if server_id and not isinstance(server_id, int):
+            raise TypeError("Expected argument 'server_id' to be a int")
         pulumi.set(__self__, "server_id", server_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -76,7 +76,7 @@ class GetFloatingIpResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[float]:
+    def id(self) -> Optional[int]:
         """
         (int) Unique ID of the Floating IP.
         """
@@ -121,7 +121,7 @@ class GetFloatingIpResult:
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> float:
+    def server_id(self) -> int:
         """
         (int) Server to assign the Floating IP is assigned to.
         """
@@ -160,7 +160,7 @@ class AwaitableGetFloatingIpResult(GetFloatingIpResult):
             with_selector=self.with_selector)
 
 
-def get_floating_ip(id: Optional[float] = None,
+def get_floating_ip(id: Optional[int] = None,
                     ip_address: Optional[str] = None,
                     name: Optional[str] = None,
                     selector: Optional[str] = None,
@@ -191,7 +191,7 @@ def get_floating_ip(id: Optional[float] = None,
     ```
 
 
-    :param float id: ID of the Floating IP.
+    :param int id: ID of the Floating IP.
     :param str ip_address: IP address of the Floating IP.
     :param str name: Name of the Floating IP.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)

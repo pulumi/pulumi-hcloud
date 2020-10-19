@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['NetworkSubnet']
@@ -16,7 +16,7 @@ class NetworkSubnet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
-                 network_id: Optional[pulumi.Input[float]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
                  network_zone: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -42,7 +42,7 @@ class NetworkSubnet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
-        :param pulumi.Input[float] network_id: ID of the Network the subnet should be added to.
+        :param pulumi.Input[int] network_id: ID of the Network the subnet should be added to.
         :param pulumi.Input[str] network_zone: Name of network zone.
         :param pulumi.Input[str] type: Type of subnet. `server`
         """
@@ -88,7 +88,7 @@ class NetworkSubnet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             gateway: Optional[pulumi.Input[str]] = None,
             ip_range: Optional[pulumi.Input[str]] = None,
-            network_id: Optional[pulumi.Input[float]] = None,
+            network_id: Optional[pulumi.Input[int]] = None,
             network_zone: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'NetworkSubnet':
         """
@@ -99,7 +99,7 @@ class NetworkSubnet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
-        :param pulumi.Input[float] network_id: ID of the Network the subnet should be added to.
+        :param pulumi.Input[int] network_id: ID of the Network the subnet should be added to.
         :param pulumi.Input[str] network_zone: Name of network zone.
         :param pulumi.Input[str] type: Type of subnet. `server`
         """
@@ -129,7 +129,7 @@ class NetworkSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> pulumi.Output[float]:
+    def network_id(self) -> pulumi.Output[int]:
         """
         ID of the Network the subnet should be added to.
         """
