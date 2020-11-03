@@ -53,8 +53,10 @@ type NetworkSubnet struct {
 	NetworkId pulumi.IntOutput `pulumi:"networkId"`
 	// Name of network zone.
 	NetworkZone pulumi.StringOutput `pulumi:"networkZone"`
-	// Type of subnet. `server`
+	// Type of subnet. `server`, `cloud` or `vswitch`
 	Type pulumi.StringOutput `pulumi:"type"`
+	// ID of the vswitch, Required if type is `vswitch`
+	VswitchId pulumi.IntPtrOutput `pulumi:"vswitchId"`
 }
 
 // NewNetworkSubnet registers a new resource with the given unique name, arguments, and options.
@@ -104,8 +106,10 @@ type networkSubnetState struct {
 	NetworkId *int `pulumi:"networkId"`
 	// Name of network zone.
 	NetworkZone *string `pulumi:"networkZone"`
-	// Type of subnet. `server`
+	// Type of subnet. `server`, `cloud` or `vswitch`
 	Type *string `pulumi:"type"`
+	// ID of the vswitch, Required if type is `vswitch`
+	VswitchId *int `pulumi:"vswitchId"`
 }
 
 type NetworkSubnetState struct {
@@ -116,8 +120,10 @@ type NetworkSubnetState struct {
 	NetworkId pulumi.IntPtrInput
 	// Name of network zone.
 	NetworkZone pulumi.StringPtrInput
-	// Type of subnet. `server`
+	// Type of subnet. `server`, `cloud` or `vswitch`
 	Type pulumi.StringPtrInput
+	// ID of the vswitch, Required if type is `vswitch`
+	VswitchId pulumi.IntPtrInput
 }
 
 func (NetworkSubnetState) ElementType() reflect.Type {
@@ -131,8 +137,10 @@ type networkSubnetArgs struct {
 	NetworkId int `pulumi:"networkId"`
 	// Name of network zone.
 	NetworkZone string `pulumi:"networkZone"`
-	// Type of subnet. `server`
+	// Type of subnet. `server`, `cloud` or `vswitch`
 	Type string `pulumi:"type"`
+	// ID of the vswitch, Required if type is `vswitch`
+	VswitchId *int `pulumi:"vswitchId"`
 }
 
 // The set of arguments for constructing a NetworkSubnet resource.
@@ -143,8 +151,10 @@ type NetworkSubnetArgs struct {
 	NetworkId pulumi.IntInput
 	// Name of network zone.
 	NetworkZone pulumi.StringInput
-	// Type of subnet. `server`
+	// Type of subnet. `server`, `cloud` or `vswitch`
 	Type pulumi.StringInput
+	// ID of the vswitch, Required if type is `vswitch`
+	VswitchId pulumi.IntPtrInput
 }
 
 func (NetworkSubnetArgs) ElementType() reflect.Type {

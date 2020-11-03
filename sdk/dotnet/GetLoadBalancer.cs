@@ -82,7 +82,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (Optional) Configuration of the algorithm the Load Balancer use.
         /// </summary>
-        public readonly Outputs.GetLoadBalancerAlgorithmResult Algorithm;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerAlgorithmResult> Algorithms;
         /// <summary>
         /// (int) Unique ID of the Load Balancer.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetLoadBalancerResult(
-            Outputs.GetLoadBalancerAlgorithmResult algorithm,
+            ImmutableArray<Outputs.GetLoadBalancerAlgorithmResult> algorithms,
 
             int? id,
 
@@ -148,7 +148,7 @@ namespace Pulumi.HCloud
 
             string? withSelector)
         {
-            Algorithm = algorithm;
+            Algorithms = algorithms;
             Id = id;
             Ipv4 = ipv4;
             Ipv6 = ipv6;

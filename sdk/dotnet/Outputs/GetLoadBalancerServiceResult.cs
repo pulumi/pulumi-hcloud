@@ -20,11 +20,11 @@ namespace Pulumi.HCloud.Outputs
         /// <summary>
         /// (list) List of http configurations when `protocol` is `http` or `https`.
         /// </summary>
-        public readonly Outputs.GetLoadBalancerServiceHealthCheckResult HealthCheck;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerServiceHealthCheckResult> HealthChecks;
         /// <summary>
         /// (list) List of http configurations when `protocol` is `http` or `https`.
         /// </summary>
-        public readonly Outputs.GetLoadBalancerServiceHttpResult Http;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerServiceHttpResult> Https;
         /// <summary>
         /// (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         /// </summary>
@@ -42,9 +42,9 @@ namespace Pulumi.HCloud.Outputs
         private GetLoadBalancerServiceResult(
             int destinationPort,
 
-            Outputs.GetLoadBalancerServiceHealthCheckResult healthCheck,
+            ImmutableArray<Outputs.GetLoadBalancerServiceHealthCheckResult> healthChecks,
 
-            Outputs.GetLoadBalancerServiceHttpResult http,
+            ImmutableArray<Outputs.GetLoadBalancerServiceHttpResult> https,
 
             int listenPort,
 
@@ -53,8 +53,8 @@ namespace Pulumi.HCloud.Outputs
             bool proxyprotocol)
         {
             DestinationPort = destinationPort;
-            HealthCheck = healthCheck;
-            Http = http;
+            HealthChecks = healthChecks;
+            Https = https;
             ListenPort = listenPort;
             Protocol = protocol;
             Proxyprotocol = proxyprotocol;

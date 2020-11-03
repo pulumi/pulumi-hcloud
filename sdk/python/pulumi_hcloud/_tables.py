@@ -39,6 +39,7 @@ SNAKE_TO_CAMEL_CASE_TABLE = {
     "use_private_ip": "usePrivateIp",
     "user_data": "userData",
     "volume_id": "volumeId",
+    "vswitch_id": "vswitchId",
 }
 
 CAMEL_TO_SNAKE_CASE_TABLE = {
@@ -78,4 +79,5 @@ CAMEL_TO_SNAKE_CASE_TABLE = {
     "usePrivateIp": "use_private_ip",
     "userData": "user_data",
     "volumeId": "volume_id",
+    "vswitchId": "vswitch_id",
 }

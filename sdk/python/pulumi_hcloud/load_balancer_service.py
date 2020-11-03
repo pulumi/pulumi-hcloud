@@ -145,7 +145,7 @@ class LoadBalancerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def http(self) -> pulumi.Output[Optional['outputs.LoadBalancerServiceHttp']]:
+    def http(self) -> pulumi.Output['outputs.LoadBalancerServiceHttp']:
         """
         List of http configurations when `protocol` is `http` or `https`.
         """

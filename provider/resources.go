@@ -17,10 +17,9 @@ package hcloud
 import (
 	"unicode"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 )
 
@@ -61,7 +60,7 @@ func makeResource(mod string, res string) tokens.Type {
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv1.NewProvider(hcloud.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(hcloud.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{

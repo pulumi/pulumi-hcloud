@@ -929,6 +929,31 @@ func (i GetLoadBalancerAlgorithmArgs) ToGetLoadBalancerAlgorithmOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAlgorithmOutput)
 }
 
+// GetLoadBalancerAlgorithmArrayInput is an input type that accepts GetLoadBalancerAlgorithmArray and GetLoadBalancerAlgorithmArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAlgorithmArrayInput` via:
+//
+//          GetLoadBalancerAlgorithmArray{ GetLoadBalancerAlgorithmArgs{...} }
+type GetLoadBalancerAlgorithmArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerAlgorithmArrayOutput() GetLoadBalancerAlgorithmArrayOutput
+	ToGetLoadBalancerAlgorithmArrayOutputWithContext(context.Context) GetLoadBalancerAlgorithmArrayOutput
+}
+
+type GetLoadBalancerAlgorithmArray []GetLoadBalancerAlgorithmInput
+
+func (GetLoadBalancerAlgorithmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerAlgorithm)(nil)).Elem()
+}
+
+func (i GetLoadBalancerAlgorithmArray) ToGetLoadBalancerAlgorithmArrayOutput() GetLoadBalancerAlgorithmArrayOutput {
+	return i.ToGetLoadBalancerAlgorithmArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerAlgorithmArray) ToGetLoadBalancerAlgorithmArrayOutputWithContext(ctx context.Context) GetLoadBalancerAlgorithmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAlgorithmArrayOutput)
+}
+
 type GetLoadBalancerAlgorithmOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerAlgorithmOutput) ElementType() reflect.Type {
@@ -948,13 +973,33 @@ func (o GetLoadBalancerAlgorithmOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerAlgorithm) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type GetLoadBalancerAlgorithmArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerAlgorithmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerAlgorithm)(nil)).Elem()
+}
+
+func (o GetLoadBalancerAlgorithmArrayOutput) ToGetLoadBalancerAlgorithmArrayOutput() GetLoadBalancerAlgorithmArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerAlgorithmArrayOutput) ToGetLoadBalancerAlgorithmArrayOutputWithContext(ctx context.Context) GetLoadBalancerAlgorithmArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerAlgorithmArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerAlgorithmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerAlgorithm {
+		return vs[0].([]GetLoadBalancerAlgorithm)[vs[1].(int)]
+	}).(GetLoadBalancerAlgorithmOutput)
+}
+
 type GetLoadBalancerServiceType struct {
 	// (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
 	DestinationPort int `pulumi:"destinationPort"`
 	// (list) List of http configurations when `protocol` is `http` or `https`.
-	HealthCheck GetLoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
+	HealthChecks []GetLoadBalancerServiceHealthCheck `pulumi:"healthChecks"`
 	// (list) List of http configurations when `protocol` is `http` or `https`.
-	Http GetLoadBalancerServiceHttp `pulumi:"http"`
+	Https []GetLoadBalancerServiceHttp `pulumi:"https"`
 	// (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
 	ListenPort int `pulumi:"listenPort"`
 	// (string) Protocol the health check uses. `http`, `https` or `tcp`
@@ -978,9 +1023,9 @@ type GetLoadBalancerServiceTypeArgs struct {
 	// (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
 	DestinationPort pulumi.IntInput `pulumi:"destinationPort"`
 	// (list) List of http configurations when `protocol` is `http` or `https`.
-	HealthCheck GetLoadBalancerServiceHealthCheckInput `pulumi:"healthCheck"`
+	HealthChecks GetLoadBalancerServiceHealthCheckArrayInput `pulumi:"healthChecks"`
 	// (list) List of http configurations when `protocol` is `http` or `https`.
-	Http GetLoadBalancerServiceHttpInput `pulumi:"http"`
+	Https GetLoadBalancerServiceHttpArrayInput `pulumi:"https"`
 	// (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
 	ListenPort pulumi.IntInput `pulumi:"listenPort"`
 	// (string) Protocol the health check uses. `http`, `https` or `tcp`
@@ -1046,13 +1091,13 @@ func (o GetLoadBalancerServiceTypeOutput) DestinationPort() pulumi.IntOutput {
 }
 
 // (list) List of http configurations when `protocol` is `http` or `https`.
-func (o GetLoadBalancerServiceTypeOutput) HealthCheck() GetLoadBalancerServiceHealthCheckOutput {
-	return o.ApplyT(func(v GetLoadBalancerServiceType) GetLoadBalancerServiceHealthCheck { return v.HealthCheck }).(GetLoadBalancerServiceHealthCheckOutput)
+func (o GetLoadBalancerServiceTypeOutput) HealthChecks() GetLoadBalancerServiceHealthCheckArrayOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceType) []GetLoadBalancerServiceHealthCheck { return v.HealthChecks }).(GetLoadBalancerServiceHealthCheckArrayOutput)
 }
 
 // (list) List of http configurations when `protocol` is `http` or `https`.
-func (o GetLoadBalancerServiceTypeOutput) Http() GetLoadBalancerServiceHttpOutput {
-	return o.ApplyT(func(v GetLoadBalancerServiceType) GetLoadBalancerServiceHttp { return v.Http }).(GetLoadBalancerServiceHttpOutput)
+func (o GetLoadBalancerServiceTypeOutput) Https() GetLoadBalancerServiceHttpArrayOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceType) []GetLoadBalancerServiceHttp { return v.Https }).(GetLoadBalancerServiceHttpArrayOutput)
 }
 
 // (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
@@ -1092,7 +1137,7 @@ func (o GetLoadBalancerServiceTypeArrayOutput) Index(i pulumi.IntInput) GetLoadB
 
 type GetLoadBalancerServiceHealthCheck struct {
 	// (list) List of http configurations when `protocol` is `http` or `https`.
-	Http GetLoadBalancerServiceHealthCheckHttp `pulumi:"http"`
+	Https []GetLoadBalancerServiceHealthCheckHttp `pulumi:"https"`
 	// (int) Interval how often the health check will be performed, in seconds.
 	Interval int `pulumi:"interval"`
 	// (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
@@ -1118,7 +1163,7 @@ type GetLoadBalancerServiceHealthCheckInput interface {
 
 type GetLoadBalancerServiceHealthCheckArgs struct {
 	// (list) List of http configurations when `protocol` is `http` or `https`.
-	Http GetLoadBalancerServiceHealthCheckHttpInput `pulumi:"http"`
+	Https GetLoadBalancerServiceHealthCheckHttpArrayInput `pulumi:"https"`
 	// (int) Interval how often the health check will be performed, in seconds.
 	Interval pulumi.IntInput `pulumi:"interval"`
 	// (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
@@ -1143,6 +1188,31 @@ func (i GetLoadBalancerServiceHealthCheckArgs) ToGetLoadBalancerServiceHealthChe
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHealthCheckOutput)
 }
 
+// GetLoadBalancerServiceHealthCheckArrayInput is an input type that accepts GetLoadBalancerServiceHealthCheckArray and GetLoadBalancerServiceHealthCheckArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerServiceHealthCheckArrayInput` via:
+//
+//          GetLoadBalancerServiceHealthCheckArray{ GetLoadBalancerServiceHealthCheckArgs{...} }
+type GetLoadBalancerServiceHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerServiceHealthCheckArrayOutput() GetLoadBalancerServiceHealthCheckArrayOutput
+	ToGetLoadBalancerServiceHealthCheckArrayOutputWithContext(context.Context) GetLoadBalancerServiceHealthCheckArrayOutput
+}
+
+type GetLoadBalancerServiceHealthCheckArray []GetLoadBalancerServiceHealthCheckInput
+
+func (GetLoadBalancerServiceHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerServiceHealthCheck)(nil)).Elem()
+}
+
+func (i GetLoadBalancerServiceHealthCheckArray) ToGetLoadBalancerServiceHealthCheckArrayOutput() GetLoadBalancerServiceHealthCheckArrayOutput {
+	return i.ToGetLoadBalancerServiceHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerServiceHealthCheckArray) ToGetLoadBalancerServiceHealthCheckArrayOutputWithContext(ctx context.Context) GetLoadBalancerServiceHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHealthCheckArrayOutput)
+}
+
 type GetLoadBalancerServiceHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerServiceHealthCheckOutput) ElementType() reflect.Type {
@@ -1158,8 +1228,8 @@ func (o GetLoadBalancerServiceHealthCheckOutput) ToGetLoadBalancerServiceHealthC
 }
 
 // (list) List of http configurations when `protocol` is `http` or `https`.
-func (o GetLoadBalancerServiceHealthCheckOutput) Http() GetLoadBalancerServiceHealthCheckHttpOutput {
-	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) GetLoadBalancerServiceHealthCheckHttp { return v.Http }).(GetLoadBalancerServiceHealthCheckHttpOutput)
+func (o GetLoadBalancerServiceHealthCheckOutput) Https() GetLoadBalancerServiceHealthCheckHttpArrayOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) []GetLoadBalancerServiceHealthCheckHttp { return v.Https }).(GetLoadBalancerServiceHealthCheckHttpArrayOutput)
 }
 
 // (int) Interval how often the health check will be performed, in seconds.
@@ -1185,6 +1255,26 @@ func (o GetLoadBalancerServiceHealthCheckOutput) Retries() pulumi.IntOutput {
 // (int) Timeout when a health check try will be canceled if there is no response, in seconds.
 func (o GetLoadBalancerServiceHealthCheckOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+type GetLoadBalancerServiceHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerServiceHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerServiceHealthCheck)(nil)).Elem()
+}
+
+func (o GetLoadBalancerServiceHealthCheckArrayOutput) ToGetLoadBalancerServiceHealthCheckArrayOutput() GetLoadBalancerServiceHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHealthCheckArrayOutput) ToGetLoadBalancerServiceHealthCheckArrayOutputWithContext(ctx context.Context) GetLoadBalancerServiceHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHealthCheckArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerServiceHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerServiceHealthCheck {
+		return vs[0].([]GetLoadBalancerServiceHealthCheck)[vs[1].(int)]
+	}).(GetLoadBalancerServiceHealthCheckOutput)
 }
 
 type GetLoadBalancerServiceHealthCheckHttp struct {
@@ -1236,6 +1326,31 @@ func (i GetLoadBalancerServiceHealthCheckHttpArgs) ToGetLoadBalancerServiceHealt
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHealthCheckHttpOutput)
 }
 
+// GetLoadBalancerServiceHealthCheckHttpArrayInput is an input type that accepts GetLoadBalancerServiceHealthCheckHttpArray and GetLoadBalancerServiceHealthCheckHttpArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerServiceHealthCheckHttpArrayInput` via:
+//
+//          GetLoadBalancerServiceHealthCheckHttpArray{ GetLoadBalancerServiceHealthCheckHttpArgs{...} }
+type GetLoadBalancerServiceHealthCheckHttpArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerServiceHealthCheckHttpArrayOutput() GetLoadBalancerServiceHealthCheckHttpArrayOutput
+	ToGetLoadBalancerServiceHealthCheckHttpArrayOutputWithContext(context.Context) GetLoadBalancerServiceHealthCheckHttpArrayOutput
+}
+
+type GetLoadBalancerServiceHealthCheckHttpArray []GetLoadBalancerServiceHealthCheckHttpInput
+
+func (GetLoadBalancerServiceHealthCheckHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerServiceHealthCheckHttp)(nil)).Elem()
+}
+
+func (i GetLoadBalancerServiceHealthCheckHttpArray) ToGetLoadBalancerServiceHealthCheckHttpArrayOutput() GetLoadBalancerServiceHealthCheckHttpArrayOutput {
+	return i.ToGetLoadBalancerServiceHealthCheckHttpArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerServiceHealthCheckHttpArray) ToGetLoadBalancerServiceHealthCheckHttpArrayOutputWithContext(ctx context.Context) GetLoadBalancerServiceHealthCheckHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHealthCheckHttpArrayOutput)
+}
+
 type GetLoadBalancerServiceHealthCheckHttpOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerServiceHealthCheckHttpOutput) ElementType() reflect.Type {
@@ -1273,6 +1388,26 @@ func (o GetLoadBalancerServiceHealthCheckHttpOutput) StatusCodes() pulumi.IntArr
 // (bool) Enable TLS certificate checking.
 func (o GetLoadBalancerServiceHealthCheckHttpOutput) Tls() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHealthCheckHttp) bool { return v.Tls }).(pulumi.BoolOutput)
+}
+
+type GetLoadBalancerServiceHealthCheckHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerServiceHealthCheckHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerServiceHealthCheckHttp)(nil)).Elem()
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpArrayOutput) ToGetLoadBalancerServiceHealthCheckHttpArrayOutput() GetLoadBalancerServiceHealthCheckHttpArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpArrayOutput) ToGetLoadBalancerServiceHealthCheckHttpArrayOutputWithContext(ctx context.Context) GetLoadBalancerServiceHealthCheckHttpArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHealthCheckHttpArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerServiceHealthCheckHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerServiceHealthCheckHttp {
+		return vs[0].([]GetLoadBalancerServiceHealthCheckHttp)[vs[1].(int)]
+	}).(GetLoadBalancerServiceHealthCheckHttpOutput)
 }
 
 type GetLoadBalancerServiceHttp struct {
@@ -1324,6 +1459,31 @@ func (i GetLoadBalancerServiceHttpArgs) ToGetLoadBalancerServiceHttpOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHttpOutput)
 }
 
+// GetLoadBalancerServiceHttpArrayInput is an input type that accepts GetLoadBalancerServiceHttpArray and GetLoadBalancerServiceHttpArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerServiceHttpArrayInput` via:
+//
+//          GetLoadBalancerServiceHttpArray{ GetLoadBalancerServiceHttpArgs{...} }
+type GetLoadBalancerServiceHttpArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerServiceHttpArrayOutput() GetLoadBalancerServiceHttpArrayOutput
+	ToGetLoadBalancerServiceHttpArrayOutputWithContext(context.Context) GetLoadBalancerServiceHttpArrayOutput
+}
+
+type GetLoadBalancerServiceHttpArray []GetLoadBalancerServiceHttpInput
+
+func (GetLoadBalancerServiceHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerServiceHttp)(nil)).Elem()
+}
+
+func (i GetLoadBalancerServiceHttpArray) ToGetLoadBalancerServiceHttpArrayOutput() GetLoadBalancerServiceHttpArrayOutput {
+	return i.ToGetLoadBalancerServiceHttpArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerServiceHttpArray) ToGetLoadBalancerServiceHttpArrayOutputWithContext(ctx context.Context) GetLoadBalancerServiceHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerServiceHttpArrayOutput)
+}
+
 type GetLoadBalancerServiceHttpOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerServiceHttpOutput) ElementType() reflect.Type {
@@ -1361,6 +1521,26 @@ func (o GetLoadBalancerServiceHttpOutput) RedirectHttp() pulumi.BoolOutput {
 // (string) Determine if sticky sessions are enabled or not.
 func (o GetLoadBalancerServiceHttpOutput) StickySessions() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHttp) bool { return v.StickySessions }).(pulumi.BoolOutput)
+}
+
+type GetLoadBalancerServiceHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerServiceHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerServiceHttp)(nil)).Elem()
+}
+
+func (o GetLoadBalancerServiceHttpArrayOutput) ToGetLoadBalancerServiceHttpArrayOutput() GetLoadBalancerServiceHttpArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHttpArrayOutput) ToGetLoadBalancerServiceHttpArrayOutputWithContext(ctx context.Context) GetLoadBalancerServiceHttpArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerServiceHttpArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerServiceHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerServiceHttp {
+		return vs[0].([]GetLoadBalancerServiceHttp)[vs[1].(int)]
+	}).(GetLoadBalancerServiceHttpOutput)
 }
 
 type GetLoadBalancerTargetType struct {
@@ -1608,11 +1788,15 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerTargetTypeOutput{})
 	pulumi.RegisterOutputType(LoadBalancerTargetTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAlgorithmOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerAlgorithmArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerServiceTypeOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerServiceTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerServiceHealthCheckOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerServiceHealthCheckArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerServiceHealthCheckHttpOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerServiceHealthCheckHttpArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerServiceHttpOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerServiceHttpArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerTargetTypeOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerTargetTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetSshKeysSshKeyOutput{})

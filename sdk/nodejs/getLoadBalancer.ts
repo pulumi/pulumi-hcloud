@@ -67,7 +67,7 @@ export interface GetLoadBalancerResult {
     /**
      * (Optional) Configuration of the algorithm the Load Balancer use.
      */
-    readonly algorithm: outputs.GetLoadBalancerAlgorithm;
+    readonly algorithms: outputs.GetLoadBalancerAlgorithm[];
     /**
      * (int) Unique ID of the Load Balancer.
      */

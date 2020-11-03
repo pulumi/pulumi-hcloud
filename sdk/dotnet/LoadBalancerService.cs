@@ -55,7 +55,7 @@ namespace Pulumi.HCloud
         /// List of http configurations when `protocol` is `http` or `https`.
         /// </summary>
         [Output("http")]
-        public Output<Outputs.LoadBalancerServiceHttp?> Http { get; private set; } = null!;
+        public Output<Outputs.LoadBalancerServiceHttp> Http { get; private set; } = null!;
 
         /// <summary>
         /// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.

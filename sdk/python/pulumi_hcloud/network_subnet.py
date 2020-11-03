@@ -19,6 +19,7 @@ class NetworkSubnet(pulumi.CustomResource):
                  network_id: Optional[pulumi.Input[int]] = None,
                  network_zone: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 vswitch_id: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,7 +45,8 @@ class NetworkSubnet(pulumi.CustomResource):
         :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
         :param pulumi.Input[int] network_id: ID of the Network the subnet should be added to.
         :param pulumi.Input[str] network_zone: Name of network zone.
-        :param pulumi.Input[str] type: Type of subnet. `server`
+        :param pulumi.Input[str] type: Type of subnet. `server`, `cloud` or `vswitch`
+        :param pulumi.Input[int] vswitch_id: ID of the vswitch, Required if type is `vswitch`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,6 +77,7 @@ class NetworkSubnet(pulumi.CustomResource):
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['vswitch_id'] = vswitch_id
             __props__['gateway'] = None
         super(NetworkSubnet, __self__).__init__(
             'hcloud:index/networkSubnet:NetworkSubnet',
@@ -90,7 +93,8 @@ class NetworkSubnet(pulumi.CustomResource):
             ip_range: Optional[pulumi.Input[str]] = None,
             network_id: Optional[pulumi.Input[int]] = None,
             network_zone: Optional[pulumi.Input[str]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'NetworkSubnet':
+            type: Optional[pulumi.Input[str]] = None,
+            vswitch_id: Optional[pulumi.Input[int]] = None) -> 'NetworkSubnet':
         """
         Get an existing NetworkSubnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -101,7 +105,8 @@ class NetworkSubnet(pulumi.CustomResource):
         :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
         :param pulumi.Input[int] network_id: ID of the Network the subnet should be added to.
         :param pulumi.Input[str] network_zone: Name of network zone.
-        :param pulumi.Input[str] type: Type of subnet. `server`
+        :param pulumi.Input[str] type: Type of subnet. `server`, `cloud` or `vswitch`
+        :param pulumi.Input[int] vswitch_id: ID of the vswitch, Required if type is `vswitch`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -112,6 +117,7 @@ class NetworkSubnet(pulumi.CustomResource):
         __props__["network_id"] = network_id
         __props__["network_zone"] = network_zone
         __props__["type"] = type
+        __props__["vswitch_id"] = vswitch_id
         return NetworkSubnet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -147,9 +153,17 @@ class NetworkSubnet(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of subnet. `server`
+        Type of subnet. `server`, `cloud` or `vswitch`
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vswitchId")
+    def vswitch_id(self) -> pulumi.Output[Optional[int]]:
+        """
+        ID of the vswitch, Required if type is `vswitch`
+        """
+        return pulumi.get(self, "vswitch_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

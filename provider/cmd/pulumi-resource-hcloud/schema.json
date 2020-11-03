@@ -309,8 +309,11 @@
                         }
                     }
                 },
-                "healthCheck": {
-                    "$ref": "#/types/hcloud:index/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck",
+                "healthChecks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck"
+                    },
                     "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
@@ -318,8 +321,11 @@
                         }
                     }
                 },
-                "http": {
-                    "$ref": "#/types/hcloud:index/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp",
+                "https": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp"
+                    },
                     "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
@@ -358,8 +364,8 @@
             "type": "object",
             "required": [
                 "destinationPort",
-                "healthCheck",
-                "http",
+                "healthChecks",
+                "https",
                 "listenPort",
                 "protocol",
                 "proxyprotocol"
@@ -372,8 +378,11 @@
         },
         "hcloud:index/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck": {
             "properties": {
-                "http": {
-                    "$ref": "#/types/hcloud:index/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp",
+                "https": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp"
+                    },
                     "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
                     "language": {
                         "python": {
@@ -429,7 +438,7 @@
             },
             "type": "object",
             "required": [
-                "http",
+                "https",
                 "interval",
                 "port",
                 "protocol",
@@ -1276,6 +1285,7 @@
             "required": [
                 "destinationPort",
                 "healthCheck",
+                "http",
                 "listenPort",
                 "loadBalancerId",
                 "protocol",
@@ -1588,7 +1598,11 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of subnet. `server`\n"
+                    "description": "Type of subnet. `server`, `cloud` or `vswitch`\n"
+                },
+                "vswitchId": {
+                    "type": "integer",
+                    "description": "ID of the vswitch, Required if type is `vswitch`\n"
                 }
             },
             "required": [
@@ -1613,7 +1627,11 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of subnet. `server`\n"
+                    "description": "Type of subnet. `server`, `cloud` or `vswitch`\n"
+                },
+                "vswitchId": {
+                    "type": "integer",
+                    "description": "ID of the vswitch, Required if type is `vswitch`\n"
                 }
             },
             "requiredInputs": [
@@ -1642,7 +1660,11 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Type of subnet. `server`\n"
+                        "description": "Type of subnet. `server`, `cloud` or `vswitch`\n"
+                    },
+                    "vswitchId": {
+                        "type": "integer",
+                        "description": "ID of the vswitch, Required if type is `vswitch`\n"
                     }
                 },
                 "type": "object"
@@ -2723,8 +2745,11 @@
             "outputs": {
                 "description": "A collection of values returned by getLoadBalancer.\n",
                 "properties": {
-                    "algorithm": {
-                        "$ref": "#/types/hcloud:index/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm",
+                    "algorithms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm"
+                        },
                         "description": "(Optional) Configuration of the algorithm the Load Balancer use.\n"
                     },
                     "id": {
@@ -2781,7 +2806,7 @@
                 },
                 "type": "object",
                 "required": [
-                    "algorithm",
+                    "algorithms",
                     "ipv4",
                     "ipv6",
                     "labels",

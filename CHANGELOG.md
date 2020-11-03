@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v1.23.0 of the Hetzner Cloud Terraform Provider
 
 ---
 

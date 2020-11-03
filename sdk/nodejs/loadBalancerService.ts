@@ -64,7 +64,7 @@ export class LoadBalancerService extends pulumi.CustomResource {
     /**
      * List of http configurations when `protocol` is `http` or `https`.
      */
-    public readonly http!: pulumi.Output<outputs.LoadBalancerServiceHttp | undefined>;
+    public readonly http!: pulumi.Output<outputs.LoadBalancerServiceHttp>;
     /**
      * Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      */
