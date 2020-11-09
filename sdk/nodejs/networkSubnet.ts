@@ -64,9 +64,13 @@ export class NetworkSubnet extends pulumi.CustomResource {
      */
     public readonly networkZone!: pulumi.Output<string>;
     /**
-     * Type of subnet. `server`
+     * Type of subnet. `server`, `cloud` or `vswitch`
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * ID of the vswitch, Required if type is `vswitch`
+     */
+    public readonly vswitchId!: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkSubnet resource with the given unique name, arguments, and options.
@@ -85,6 +89,7 @@ export class NetworkSubnet extends pulumi.CustomResource {
             inputs["networkId"] = state ? state.networkId : undefined;
             inputs["networkZone"] = state ? state.networkZone : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["vswitchId"] = state ? state.vswitchId : undefined;
         } else {
             const args = argsOrState as NetworkSubnetArgs | undefined;
             if (!args || args.ipRange === undefined) {
@@ -103,6 +108,7 @@ export class NetworkSubnet extends pulumi.CustomResource {
             inputs["networkId"] = args ? args.networkId : undefined;
             inputs["networkZone"] = args ? args.networkZone : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["vswitchId"] = args ? args.vswitchId : undefined;
             inputs["gateway"] = undefined /*out*/;
         }
         if (!opts) {
@@ -134,9 +140,13 @@ export interface NetworkSubnetState {
      */
     readonly networkZone?: pulumi.Input<string>;
     /**
-     * Type of subnet. `server`
+     * Type of subnet. `server`, `cloud` or `vswitch`
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * ID of the vswitch, Required if type is `vswitch`
+     */
+    readonly vswitchId?: pulumi.Input<number>;
 }
 
 /**
@@ -156,7 +166,11 @@ export interface NetworkSubnetArgs {
      */
     readonly networkZone: pulumi.Input<string>;
     /**
-     * Type of subnet. `server`
+     * Type of subnet. `server`, `cloud` or `vswitch`
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * ID of the vswitch, Required if type is `vswitch`
+     */
+    readonly vswitchId?: pulumi.Input<number>;
 }

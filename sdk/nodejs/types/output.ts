@@ -20,11 +20,11 @@ export interface GetLoadBalancerService {
     /**
      * (list) List of http configurations when `protocol` is `http` or `https`.
      */
-    healthCheck: outputs.GetLoadBalancerServiceHealthCheck;
+    healthChecks: outputs.GetLoadBalancerServiceHealthCheck[];
     /**
      * (list) List of http configurations when `protocol` is `http` or `https`.
      */
-    http: outputs.GetLoadBalancerServiceHttp;
+    https: outputs.GetLoadBalancerServiceHttp[];
     /**
      * (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      */
@@ -43,7 +43,7 @@ export interface GetLoadBalancerServiceHealthCheck {
     /**
      * (list) List of http configurations when `protocol` is `http` or `https`.
      */
-    http: outputs.GetLoadBalancerServiceHealthCheckHttp;
+    https: outputs.GetLoadBalancerServiceHealthCheckHttp[];
     /**
      * (int) Interval how often the health check will be performed, in seconds.
      */

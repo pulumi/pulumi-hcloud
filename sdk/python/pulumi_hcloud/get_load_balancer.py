@@ -20,10 +20,10 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, algorithm=None, id=None, ipv4=None, ipv6=None, labels=None, load_balancer_type=None, location=None, name=None, network_zone=None, services=None, targets=None, with_selector=None):
-        if algorithm and not isinstance(algorithm, dict):
-            raise TypeError("Expected argument 'algorithm' to be a dict")
-        pulumi.set(__self__, "algorithm", algorithm)
+    def __init__(__self__, algorithms=None, id=None, ipv4=None, ipv6=None, labels=None, load_balancer_type=None, location=None, name=None, network_zone=None, services=None, targets=None, with_selector=None):
+        if algorithms and not isinstance(algorithms, list):
+            raise TypeError("Expected argument 'algorithms' to be a list")
+        pulumi.set(__self__, "algorithms", algorithms)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -60,11 +60,11 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def algorithm(self) -> 'outputs.GetLoadBalancerAlgorithmResult':
+    def algorithms(self) -> Sequence['outputs.GetLoadBalancerAlgorithmResult']:
         """
         (Optional) Configuration of the algorithm the Load Balancer use.
         """
-        return pulumi.get(self, "algorithm")
+        return pulumi.get(self, "algorithms")
 
     @property
     @pulumi.getter
@@ -155,7 +155,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
         if False:
             yield self
         return GetLoadBalancerResult(
-            algorithm=self.algorithm,
+            algorithms=self.algorithms,
             id=self.id,
             ipv4=self.ipv4,
             ipv6=self.ipv6,
@@ -203,7 +203,7 @@ def get_load_balancer(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
 
     return AwaitableGetLoadBalancerResult(
-        algorithm=__ret__.algorithm,
+        algorithms=__ret__.algorithms,
         id=__ret__.id,
         ipv4=__ret__.ipv4,
         ipv6=__ret__.ipv6,

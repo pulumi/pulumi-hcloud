@@ -50,7 +50,7 @@ type LoadBalancerService struct {
 	// List of health check configurations when `protocol` is `http` or `https`.
 	HealthCheck LoadBalancerServiceHealthCheckOutput `pulumi:"healthCheck"`
 	// List of http configurations when `protocol` is `http` or `https`.
-	Http LoadBalancerServiceHttpPtrOutput `pulumi:"http"`
+	Http LoadBalancerServiceHttpOutput `pulumi:"http"`
 	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	ListenPort pulumi.IntOutput `pulumi:"listenPort"`
 	// Id of the load balancer this service belongs to.

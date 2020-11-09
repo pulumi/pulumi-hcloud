@@ -62,10 +62,16 @@ namespace Pulumi.HCloud
         public Output<string> NetworkZone { get; private set; } = null!;
 
         /// <summary>
-        /// Type of subnet. `server`
+        /// Type of subnet. `server`, `cloud` or `vswitch`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the vswitch, Required if type is `vswitch`
+        /// </summary>
+        [Output("vswitchId")]
+        public Output<int?> VswitchId { get; private set; } = null!;
 
 
         /// <summary>
@@ -132,10 +138,16 @@ namespace Pulumi.HCloud
         public Input<string> NetworkZone { get; set; } = null!;
 
         /// <summary>
-        /// Type of subnet. `server`
+        /// Type of subnet. `server`, `cloud` or `vswitch`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// ID of the vswitch, Required if type is `vswitch`
+        /// </summary>
+        [Input("vswitchId")]
+        public Input<int>? VswitchId { get; set; }
 
         public NetworkSubnetArgs()
         {
@@ -166,10 +178,16 @@ namespace Pulumi.HCloud
         public Input<string>? NetworkZone { get; set; }
 
         /// <summary>
-        /// Type of subnet. `server`
+        /// Type of subnet. `server`, `cloud` or `vswitch`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// ID of the vswitch, Required if type is `vswitch`
+        /// </summary>
+        [Input("vswitchId")]
+        public Input<int>? VswitchId { get; set; }
 
         public NetworkSubnetState()
         {

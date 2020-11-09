@@ -327,22 +327,22 @@ class GetLoadBalancerAlgorithmResult(dict):
 class GetLoadBalancerServiceResult(dict):
     def __init__(__self__, *,
                  destination_port: int,
-                 health_check: 'outputs.GetLoadBalancerServiceHealthCheckResult',
-                 http: 'outputs.GetLoadBalancerServiceHttpResult',
+                 health_checks: Sequence['outputs.GetLoadBalancerServiceHealthCheckResult'],
+                 https: Sequence['outputs.GetLoadBalancerServiceHttpResult'],
                  listen_port: int,
                  protocol: str,
                  proxyprotocol: bool):
         """
         :param int destination_port: (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
-        :param 'GetLoadBalancerServiceHealthCheckArgs' health_check: (list) List of http configurations when `protocol` is `http` or `https`.
-        :param 'GetLoadBalancerServiceHttpArgs' http: (list) List of http configurations when `protocol` is `http` or `https`.
+        :param Sequence['GetLoadBalancerServiceHealthCheckArgs'] health_checks: (list) List of http configurations when `protocol` is `http` or `https`.
+        :param Sequence['GetLoadBalancerServiceHttpArgs'] https: (list) List of http configurations when `protocol` is `http` or `https`.
         :param int listen_port: (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param str protocol: (string) Protocol the health check uses. `http`, `https` or `tcp`
         :param bool proxyprotocol: (bool) Enable proxyprotocol.
         """
         pulumi.set(__self__, "destination_port", destination_port)
-        pulumi.set(__self__, "health_check", health_check)
-        pulumi.set(__self__, "http", http)
+        pulumi.set(__self__, "health_checks", health_checks)
+        pulumi.set(__self__, "https", https)
         pulumi.set(__self__, "listen_port", listen_port)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "proxyprotocol", proxyprotocol)
@@ -356,20 +356,20 @@ class GetLoadBalancerServiceResult(dict):
         return pulumi.get(self, "destination_port")
 
     @property
-    @pulumi.getter(name="healthCheck")
-    def health_check(self) -> 'outputs.GetLoadBalancerServiceHealthCheckResult':
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> Sequence['outputs.GetLoadBalancerServiceHealthCheckResult']:
         """
         (list) List of http configurations when `protocol` is `http` or `https`.
         """
-        return pulumi.get(self, "health_check")
+        return pulumi.get(self, "health_checks")
 
     @property
     @pulumi.getter
-    def http(self) -> 'outputs.GetLoadBalancerServiceHttpResult':
+    def https(self) -> Sequence['outputs.GetLoadBalancerServiceHttpResult']:
         """
         (list) List of http configurations when `protocol` is `http` or `https`.
         """
-        return pulumi.get(self, "http")
+        return pulumi.get(self, "https")
 
     @property
     @pulumi.getter(name="listenPort")
@@ -399,21 +399,21 @@ class GetLoadBalancerServiceResult(dict):
 @pulumi.output_type
 class GetLoadBalancerServiceHealthCheckResult(dict):
     def __init__(__self__, *,
-                 http: 'outputs.GetLoadBalancerServiceHealthCheckHttpResult',
+                 https: Sequence['outputs.GetLoadBalancerServiceHealthCheckHttpResult'],
                  interval: int,
                  port: int,
                  protocol: str,
                  retries: int,
                  timeout: int):
         """
-        :param 'GetLoadBalancerServiceHealthCheckHttpArgs' http: (list) List of http configurations when `protocol` is `http` or `https`.
+        :param Sequence['GetLoadBalancerServiceHealthCheckHttpArgs'] https: (list) List of http configurations when `protocol` is `http` or `https`.
         :param int interval: (int) Interval how often the health check will be performed, in seconds.
         :param int port: (int) Port the health check tries to connect to. Can be everything between `1` and `65535`.
         :param str protocol: (string) Protocol the health check uses. `http`, `https` or `tcp`
         :param int retries: (int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         :param int timeout: (int) Timeout when a health check try will be canceled if there is no response, in seconds.
         """
-        pulumi.set(__self__, "http", http)
+        pulumi.set(__self__, "https", https)
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
@@ -422,11 +422,11 @@ class GetLoadBalancerServiceHealthCheckResult(dict):
 
     @property
     @pulumi.getter
-    def http(self) -> 'outputs.GetLoadBalancerServiceHealthCheckHttpResult':
+    def https(self) -> Sequence['outputs.GetLoadBalancerServiceHealthCheckHttpResult']:
         """
         (list) List of http configurations when `protocol` is `http` or `https`.
         """
-        return pulumi.get(self, "http")
+        return pulumi.get(self, "https")
 
     @property
     @pulumi.getter

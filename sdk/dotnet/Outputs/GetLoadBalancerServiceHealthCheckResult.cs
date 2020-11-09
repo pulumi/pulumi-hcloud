@@ -16,7 +16,7 @@ namespace Pulumi.HCloud.Outputs
         /// <summary>
         /// (list) List of http configurations when `protocol` is `http` or `https`.
         /// </summary>
-        public readonly Outputs.GetLoadBalancerServiceHealthCheckHttpResult Http;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerServiceHealthCheckHttpResult> Https;
         /// <summary>
         /// (int) Interval how often the health check will be performed, in seconds.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.HCloud.Outputs
 
         [OutputConstructor]
         private GetLoadBalancerServiceHealthCheckResult(
-            Outputs.GetLoadBalancerServiceHealthCheckHttpResult http,
+            ImmutableArray<Outputs.GetLoadBalancerServiceHealthCheckHttpResult> https,
 
             int interval,
 
@@ -52,7 +52,7 @@ namespace Pulumi.HCloud.Outputs
 
             int timeout)
         {
-            Http = http;
+            Https = https;
             Interval = interval;
             Port = port;
             Protocol = protocol;
