@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -23,6 +22,14 @@ import * as utilities from "./utilities";
  *     loadBalancerId: hcloud_load_balancer.test_load_balancer.id,
  *     protocol: "http",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
  * ```
  */
 export class LoadBalancerService extends pulumi.CustomResource {

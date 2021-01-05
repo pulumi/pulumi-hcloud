@@ -17,6 +17,14 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.1.0/24",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Networks can be imported using its `id`
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/network:Network myip <id>
+ * ```
  */
 export class Network extends pulumi.CustomResource {
     /**

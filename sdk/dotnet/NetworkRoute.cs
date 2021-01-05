@@ -36,6 +36,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Network Route entries can be imported using a compound ID with the following format`&lt;network-id&gt;-&lt;destination&gt;`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
+    /// ```
     /// </summary>
     public partial class NetworkRoute : Pulumi.CustomResource
     {

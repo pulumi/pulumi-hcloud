@@ -33,6 +33,14 @@ class Network(pulumi.CustomResource):
         priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
         ```
 
+        ## Import
+
+        Networks can be imported using its `id`
+
+        ```sh
+         $ pulumi import hcloud:index/network:Network myip <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.

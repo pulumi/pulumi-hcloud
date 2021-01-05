@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Floating IPs can be imported using its `id`
+//
+// ```sh
+//  $ pulumi import hcloud:index/floatingIp:FloatingIp myip <id>
 // ```
 type FloatingIp struct {
 	pulumi.CustomResourceState
@@ -168,4 +177,43 @@ type FloatingIpArgs struct {
 
 func (FloatingIpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*floatingIpArgs)(nil)).Elem()
+}
+
+type FloatingIpInput interface {
+	pulumi.Input
+
+	ToFloatingIpOutput() FloatingIpOutput
+	ToFloatingIpOutputWithContext(ctx context.Context) FloatingIpOutput
+}
+
+func (FloatingIp) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIp)(nil)).Elem()
+}
+
+func (i FloatingIp) ToFloatingIpOutput() FloatingIpOutput {
+	return i.ToFloatingIpOutputWithContext(context.Background())
+}
+
+func (i FloatingIp) ToFloatingIpOutputWithContext(ctx context.Context) FloatingIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpOutput)
+}
+
+type FloatingIpOutput struct {
+	*pulumi.OutputState
+}
+
+func (FloatingIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIpOutput)(nil)).Elem()
+}
+
+func (o FloatingIpOutput) ToFloatingIpOutput() FloatingIpOutput {
+	return o
+}
+
+func (o FloatingIpOutput) ToFloatingIpOutputWithContext(ctx context.Context) FloatingIpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FloatingIpOutput{})
 }

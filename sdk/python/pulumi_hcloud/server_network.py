@@ -47,6 +47,14 @@ class ServerNetwork(pulumi.CustomResource):
             ip="10.0.1.5")
         ```
 
+        ## Import
+
+        Server Network entries can be imported using a compound ID with the following format`<server-id>-<network-id>`
+
+        ```sh
+         $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned

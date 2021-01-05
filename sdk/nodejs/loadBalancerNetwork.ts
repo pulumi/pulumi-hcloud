@@ -30,6 +30,14 @@ import * as utilities from "./utilities";
  *     ip: "10.0.1.5",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+ * ```
  */
 export class LoadBalancerNetwork extends pulumi.CustomResource {
     /**

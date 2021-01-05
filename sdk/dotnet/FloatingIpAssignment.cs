@@ -42,6 +42,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Floating IP Assignments can be imported using the `floating_ip_id`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment &lt;floating_ip_id&gt;
+    /// ```
     /// </summary>
     public partial class FloatingIpAssignment : Pulumi.CustomResource
     {

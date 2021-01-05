@@ -48,6 +48,14 @@ class LoadBalancer(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Load Balancers can be imported using its `id`
+
+        ```sh
+         $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']] algorithm: Configuration of the algorithm the Load Balancer use.

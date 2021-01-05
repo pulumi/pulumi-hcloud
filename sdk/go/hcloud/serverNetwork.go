@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Server Network entries can be imported using a compound ID with the following format`<server-id>-<network-id>`
+//
+// ```sh
+//  $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
 // ```
 type ServerNetwork struct {
 	pulumi.CustomResourceState
@@ -230,4 +239,43 @@ type ServerNetworkArgs struct {
 
 func (ServerNetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverNetworkArgs)(nil)).Elem()
+}
+
+type ServerNetworkInput interface {
+	pulumi.Input
+
+	ToServerNetworkOutput() ServerNetworkOutput
+	ToServerNetworkOutputWithContext(ctx context.Context) ServerNetworkOutput
+}
+
+func (ServerNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerNetwork)(nil)).Elem()
+}
+
+func (i ServerNetwork) ToServerNetworkOutput() ServerNetworkOutput {
+	return i.ToServerNetworkOutputWithContext(context.Background())
+}
+
+func (i ServerNetwork) ToServerNetworkOutputWithContext(ctx context.Context) ServerNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkOutput)
+}
+
+type ServerNetworkOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerNetworkOutput)(nil)).Elem()
+}
+
+func (o ServerNetworkOutput) ToServerNetworkOutput() ServerNetworkOutput {
+	return o
+}
+
+func (o ServerNetworkOutput) ToServerNetworkOutputWithContext(ctx context.Context) ServerNetworkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerNetworkOutput{})
 }

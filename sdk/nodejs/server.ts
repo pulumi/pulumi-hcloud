@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * Servers can be imported using the server `id`
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/server:Server myserver <id>
+ * ```
+ */
 export class Server extends pulumi.CustomResource {
     /**
      * Get an existing Server resource's state with the given name, ID, and optional extra

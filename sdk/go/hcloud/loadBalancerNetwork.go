@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`
+//
+// ```sh
+//  $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
 // ```
 type LoadBalancerNetwork struct {
 	pulumi.CustomResourceState
@@ -227,4 +236,43 @@ type LoadBalancerNetworkArgs struct {
 
 func (LoadBalancerNetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerNetworkArgs)(nil)).Elem()
+}
+
+type LoadBalancerNetworkInput interface {
+	pulumi.Input
+
+	ToLoadBalancerNetworkOutput() LoadBalancerNetworkOutput
+	ToLoadBalancerNetworkOutputWithContext(ctx context.Context) LoadBalancerNetworkOutput
+}
+
+func (LoadBalancerNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerNetwork)(nil)).Elem()
+}
+
+func (i LoadBalancerNetwork) ToLoadBalancerNetworkOutput() LoadBalancerNetworkOutput {
+	return i.ToLoadBalancerNetworkOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerNetwork) ToLoadBalancerNetworkOutputWithContext(ctx context.Context) LoadBalancerNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkOutput)
+}
+
+type LoadBalancerNetworkOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerNetworkOutput)(nil)).Elem()
+}
+
+func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkOutput() LoadBalancerNetworkOutput {
+	return o
+}
+
+func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkOutputWithContext(ctx context.Context) LoadBalancerNetworkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerNetworkOutput{})
 }

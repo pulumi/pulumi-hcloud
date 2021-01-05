@@ -30,6 +30,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Networks can be imported using its `id`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/network:Network myip &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class Network : Pulumi.CustomResource
     {

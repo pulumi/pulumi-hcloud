@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Network Route entries can be imported using a compound ID with the following format`<network-id>-<destination>`
+//
+// ```sh
+//  $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
 // ```
 type NetworkRoute struct {
 	pulumi.CustomResourceState
@@ -132,4 +141,43 @@ type NetworkRouteArgs struct {
 
 func (NetworkRouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkRouteArgs)(nil)).Elem()
+}
+
+type NetworkRouteInput interface {
+	pulumi.Input
+
+	ToNetworkRouteOutput() NetworkRouteOutput
+	ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput
+}
+
+func (NetworkRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRoute)(nil)).Elem()
+}
+
+func (i NetworkRoute) ToNetworkRouteOutput() NetworkRouteOutput {
+	return i.ToNetworkRouteOutputWithContext(context.Background())
+}
+
+func (i NetworkRoute) ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRouteOutput)
+}
+
+type NetworkRouteOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRouteOutput)(nil)).Elem()
+}
+
+func (o NetworkRouteOutput) ToNetworkRouteOutput() NetworkRouteOutput {
+	return o
+}
+
+func (o NetworkRouteOutput) ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkRouteOutput{})
 }

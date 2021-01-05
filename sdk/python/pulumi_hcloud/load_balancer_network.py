@@ -47,6 +47,14 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             ip="10.0.1.5")
         ```
 
+        ## Import
+
+        Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`
+
+        ```sh
+         $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_public_interface: Enable or disable the
