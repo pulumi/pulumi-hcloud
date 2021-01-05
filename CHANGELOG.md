@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 0.4.1 (2021-01-05)
 * Upgrade to v1.23.0 of the Hetzner Cloud Terraform Provider
 * Upgrade to pulumi-terraform-bridge v2.13.2
   * This adds support for import specific examples in documentation
-
----
 
 ## 0.4.0 (2020-10-26)
 * Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
