@@ -34,6 +34,14 @@ class SshKey(pulumi.CustomResource):
         default = hcloud.SshKey("default", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
         ```
 
+        ## Import
+
+        SSH keys can be imported using the SSH key `id`
+
+        ```sh
+         $ pulumi import hcloud:index/sshKey:SshKey mykey <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs)

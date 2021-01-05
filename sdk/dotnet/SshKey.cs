@@ -32,6 +32,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SSH keys can be imported using the SSH key `id`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/sshKey:SshKey mykey &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class SshKey : Pulumi.CustomResource
     {

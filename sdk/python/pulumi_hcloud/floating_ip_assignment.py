@@ -41,6 +41,14 @@ class FloatingIpAssignment(pulumi.CustomResource):
             server_id=node1.id)
         ```
 
+        ## Import
+
+        Floating IP Assignments can be imported using the `floating_ip_id`
+
+        ```sh
+         $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment <floating_ip_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] floating_ip_id: ID of the Floating IP.

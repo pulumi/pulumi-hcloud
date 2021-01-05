@@ -6,6 +6,14 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
+ *
+ * ## Import
+ *
+ * Certificates can be imported using their `id`hcl
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/certificate:Certificate sample_certificate <id>
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

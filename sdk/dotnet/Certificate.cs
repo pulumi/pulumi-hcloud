@@ -11,6 +11,14 @@ namespace Pulumi.HCloud
 {
     /// <summary>
     /// Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
+    /// 
+    /// ## Import
+    /// 
+    /// Certificates can be imported using their `id`hcl
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/certificate:Certificate sample_certificate &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

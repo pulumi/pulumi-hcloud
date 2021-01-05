@@ -37,6 +37,14 @@ class NetworkRoute(pulumi.CustomResource):
             gateway="10.0.1.1")
         ```
 
+        ## Import
+
+        Network Route entries can be imported using a compound ID with the following format`<network-id>-<destination>`
+
+        ```sh
+         $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination: Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.

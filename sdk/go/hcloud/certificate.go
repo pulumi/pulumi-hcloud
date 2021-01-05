@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
+//
+// ## Import
+//
+// Certificates can be imported using their `id`hcl
+//
+// ```sh
+//  $ pulumi import hcloud:index/certificate:Certificate sample_certificate <id>
+// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -143,4 +152,43 @@ type CertificateArgs struct {
 
 func (CertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateArgs)(nil)).Elem()
+}
+
+type CertificateInput interface {
+	pulumi.Input
+
+	ToCertificateOutput() CertificateOutput
+	ToCertificateOutputWithContext(ctx context.Context) CertificateOutput
+}
+
+func (Certificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*Certificate)(nil)).Elem()
+}
+
+func (i Certificate) ToCertificateOutput() CertificateOutput {
+	return i.ToCertificateOutputWithContext(context.Background())
+}
+
+func (i Certificate) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
+}
+
+type CertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOutput)(nil)).Elem()
+}
+
+func (o CertificateOutput) ToCertificateOutput() CertificateOutput {
+	return o
+}
+
+func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CertificateOutput{})
 }

@@ -43,6 +43,14 @@ class VolumeAttachment(pulumi.CustomResource):
             automount=True)
         ```
 
+        ## Import
+
+        Volume Attachments can be imported using the `volume_id`
+
+        ```sh
+         $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it.

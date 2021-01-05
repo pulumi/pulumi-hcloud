@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -76,6 +77,20 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip)>-<server or floating ip ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
+//
+// ```sh
+//  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+// ```
+//
+// # import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+//
+// ```sh
+//  $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
 // ```
 type Rdns struct {
 	pulumi.CustomResourceState
@@ -174,4 +189,43 @@ type RdnsArgs struct {
 
 func (RdnsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rdnsArgs)(nil)).Elem()
+}
+
+type RdnsInput interface {
+	pulumi.Input
+
+	ToRdnsOutput() RdnsOutput
+	ToRdnsOutputWithContext(ctx context.Context) RdnsOutput
+}
+
+func (Rdns) ElementType() reflect.Type {
+	return reflect.TypeOf((*Rdns)(nil)).Elem()
+}
+
+func (i Rdns) ToRdnsOutput() RdnsOutput {
+	return i.ToRdnsOutputWithContext(context.Background())
+}
+
+func (i Rdns) ToRdnsOutputWithContext(ctx context.Context) RdnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RdnsOutput)
+}
+
+type RdnsOutput struct {
+	*pulumi.OutputState
+}
+
+func (RdnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RdnsOutput)(nil)).Elem()
+}
+
+func (o RdnsOutput) ToRdnsOutput() RdnsOutput {
+	return o
+}
+
+func (o RdnsOutput) ToRdnsOutputWithContext(ctx context.Context) RdnsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RdnsOutput{})
 }

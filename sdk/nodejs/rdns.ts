@@ -42,6 +42,20 @@ import * as utilities from "./utilities";
  *     ipAddress: floating1.ipAddress,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip)>-<server or floating ip ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+ * ```
+ *
+ * # import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+ * ```
  */
 export class Rdns extends pulumi.CustomResource {
     /**

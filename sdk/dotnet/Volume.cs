@@ -37,6 +37,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Volumes can be imported using their `id`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/volume:Volume myvolume &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {

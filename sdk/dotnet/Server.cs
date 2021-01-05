@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.HCloud
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Servers can be imported using the server `id`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/server:Server myserver &lt;id&gt;
+    /// ```
+    /// </summary>
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

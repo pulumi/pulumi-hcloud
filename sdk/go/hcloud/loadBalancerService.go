@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`
+//
+// ```sh
+//  $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
 // ```
 type LoadBalancerService struct {
 	pulumi.CustomResourceState
@@ -169,4 +178,43 @@ type LoadBalancerServiceArgs struct {
 
 func (LoadBalancerServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerServiceArgs)(nil)).Elem()
+}
+
+type LoadBalancerServiceInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceOutput() LoadBalancerServiceOutput
+	ToLoadBalancerServiceOutputWithContext(ctx context.Context) LoadBalancerServiceOutput
+}
+
+func (LoadBalancerService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerService)(nil)).Elem()
+}
+
+func (i LoadBalancerService) ToLoadBalancerServiceOutput() LoadBalancerServiceOutput {
+	return i.ToLoadBalancerServiceOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerService) ToLoadBalancerServiceOutputWithContext(ctx context.Context) LoadBalancerServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceOutput)
+}
+
+type LoadBalancerServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerServiceOutput)(nil)).Elem()
+}
+
+func (o LoadBalancerServiceOutput) ToLoadBalancerServiceOutput() LoadBalancerServiceOutput {
+	return o
+}
+
+func (o LoadBalancerServiceOutput) ToLoadBalancerServiceOutputWithContext(ctx context.Context) LoadBalancerServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerServiceOutput{})
 }

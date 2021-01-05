@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -202,4 +203,43 @@ type LoadBalancerTargetArgs struct {
 
 func (LoadBalancerTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerTargetArgs)(nil)).Elem()
+}
+
+type LoadBalancerTargetInput interface {
+	pulumi.Input
+
+	ToLoadBalancerTargetOutput() LoadBalancerTargetOutput
+	ToLoadBalancerTargetOutputWithContext(ctx context.Context) LoadBalancerTargetOutput
+}
+
+func (LoadBalancerTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerTarget)(nil)).Elem()
+}
+
+func (i LoadBalancerTarget) ToLoadBalancerTargetOutput() LoadBalancerTargetOutput {
+	return i.ToLoadBalancerTargetOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerTarget) ToLoadBalancerTargetOutputWithContext(ctx context.Context) LoadBalancerTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTargetOutput)
+}
+
+type LoadBalancerTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerTargetOutput)(nil)).Elem()
+}
+
+func (o LoadBalancerTargetOutput) ToLoadBalancerTargetOutput() LoadBalancerTargetOutput {
+	return o
+}
+
+func (o LoadBalancerTargetOutput) ToLoadBalancerTargetOutputWithContext(ctx context.Context) LoadBalancerTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerTargetOutput{})
 }

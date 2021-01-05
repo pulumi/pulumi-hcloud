@@ -44,6 +44,14 @@ class LoadBalancerService(pulumi.CustomResource):
             protocol="http")
         ```
 
+        ## Import
+
+        Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`
+
+        ```sh
+         $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] destination_port: Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.

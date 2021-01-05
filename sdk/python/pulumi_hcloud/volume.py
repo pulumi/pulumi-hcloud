@@ -43,6 +43,14 @@ class Volume(pulumi.CustomResource):
             automount=True)
         ```
 
+        ## Import
+
+        Volumes can be imported using their `id`
+
+        ```sh
+         $ pulumi import hcloud:index/volume:Volume myvolume <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).

@@ -25,6 +25,14 @@ class Certificate(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
 
+        ## Import
+
+        Certificates can be imported using their `id`hcl
+
+        ```sh
+         $ pulumi import hcloud:index/certificate:Certificate sample_certificate <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: PEM encoded TLS certificate.

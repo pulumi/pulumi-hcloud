@@ -48,6 +48,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Load Balancer Network entries can be imported using a compound ID with the following format`&lt;load-balancer-id&gt;-&lt;network-id&gt;`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+    /// ```
     /// </summary>
     public partial class LoadBalancerNetwork : Pulumi.CustomResource
     {

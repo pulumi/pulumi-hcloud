@@ -31,7 +31,14 @@ class Server(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Server resource with the given unique name, props, and options.
+        ## Import
+
+        Servers can be imported using the server `id`
+
+        ```sh
+         $ pulumi import hcloud:index/server:Server myserver <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] backups: Enable or disable backups.

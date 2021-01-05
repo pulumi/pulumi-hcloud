@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
+//
+// ```sh
+//  $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
 // ```
 type NetworkSubnet struct {
 	pulumi.CustomResourceState
@@ -159,4 +168,43 @@ type NetworkSubnetArgs struct {
 
 func (NetworkSubnetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSubnetArgs)(nil)).Elem()
+}
+
+type NetworkSubnetInput interface {
+	pulumi.Input
+
+	ToNetworkSubnetOutput() NetworkSubnetOutput
+	ToNetworkSubnetOutputWithContext(ctx context.Context) NetworkSubnetOutput
+}
+
+func (NetworkSubnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSubnet)(nil)).Elem()
+}
+
+func (i NetworkSubnet) ToNetworkSubnetOutput() NetworkSubnetOutput {
+	return i.ToNetworkSubnetOutputWithContext(context.Background())
+}
+
+func (i NetworkSubnet) ToNetworkSubnetOutputWithContext(ctx context.Context) NetworkSubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSubnetOutput)
+}
+
+type NetworkSubnetOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkSubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSubnetOutput)(nil)).Elem()
+}
+
+func (o NetworkSubnetOutput) ToNetworkSubnetOutput() NetworkSubnetOutput {
+	return o
+}
+
+func (o NetworkSubnetOutput) ToNetworkSubnetOutputWithContext(ctx context.Context) NetworkSubnetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkSubnetOutput{})
 }

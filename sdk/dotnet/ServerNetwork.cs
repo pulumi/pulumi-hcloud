@@ -48,6 +48,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Server Network entries can be imported using a compound ID with the following format`&lt;server-id&gt;-&lt;network-id&gt;`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+    /// ```
     /// </summary>
     public partial class ServerNetwork : Pulumi.CustomResource
     {

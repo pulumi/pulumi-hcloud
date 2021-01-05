@@ -4,6 +4,7 @@
 package hcloud
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Floating IP Assignments can be imported using the `floating_ip_id`
+//
+// ```sh
+//  $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment <floating_ip_id>
 // ```
 type FloatingIpAssignment struct {
 	pulumi.CustomResourceState
@@ -127,4 +136,43 @@ type FloatingIpAssignmentArgs struct {
 
 func (FloatingIpAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*floatingIpAssignmentArgs)(nil)).Elem()
+}
+
+type FloatingIpAssignmentInput interface {
+	pulumi.Input
+
+	ToFloatingIpAssignmentOutput() FloatingIpAssignmentOutput
+	ToFloatingIpAssignmentOutputWithContext(ctx context.Context) FloatingIpAssignmentOutput
+}
+
+func (FloatingIpAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIpAssignment)(nil)).Elem()
+}
+
+func (i FloatingIpAssignment) ToFloatingIpAssignmentOutput() FloatingIpAssignmentOutput {
+	return i.ToFloatingIpAssignmentOutputWithContext(context.Background())
+}
+
+func (i FloatingIpAssignment) ToFloatingIpAssignmentOutputWithContext(ctx context.Context) FloatingIpAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpAssignmentOutput)
+}
+
+type FloatingIpAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (FloatingIpAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIpAssignmentOutput)(nil)).Elem()
+}
+
+func (o FloatingIpAssignmentOutput) ToFloatingIpAssignmentOutput() FloatingIpAssignmentOutput {
+	return o
+}
+
+func (o FloatingIpAssignmentOutput) ToFloatingIpAssignmentOutputWithContext(ctx context.Context) FloatingIpAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FloatingIpAssignmentOutput{})
 }

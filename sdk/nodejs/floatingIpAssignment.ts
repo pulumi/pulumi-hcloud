@@ -27,6 +27,14 @@ import * as utilities from "./utilities";
  *     serverId: node1.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Floating IP Assignments can be imported using the `floating_ip_id`
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment <floating_ip_id>
+ * ```
  */
 export class FloatingIpAssignment extends pulumi.CustomResource {
     /**

@@ -43,6 +43,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Volume Attachments can be imported using the `volume_id`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment &lt;volume_id&gt;
+    /// ```
     /// </summary>
     public partial class VolumeAttachment : Pulumi.CustomResource
     {

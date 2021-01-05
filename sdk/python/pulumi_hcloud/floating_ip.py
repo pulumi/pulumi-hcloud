@@ -41,6 +41,14 @@ class FloatingIp(pulumi.CustomResource):
             server_id=node1.id)
         ```
 
+        ## Import
+
+        Floating IPs can be imported using its `id`
+
+        ```sh
+         $ pulumi import hcloud:index/floatingIp:FloatingIp myip <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Floating IP.

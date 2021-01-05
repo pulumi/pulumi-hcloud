@@ -36,6 +36,14 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Floating IPs can be imported using its `id`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/floatingIp:FloatingIp myip &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class FloatingIp : Pulumi.CustomResource
     {

@@ -40,6 +40,14 @@ class NetworkSubnet(pulumi.CustomResource):
             ip_range="10.0.1.0/24")
         ```
 
+        ## Import
+
+        Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
+
+        ```sh
+         $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
