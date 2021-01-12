@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.24.0 of the Hetzner Cloud Terraform Provider
+_(none)_
 
 ---
+
+## 0.5.0 (2021-01-12)
+* Upgrade to v1.24.0 of the Hetzner Cloud Terraform Provider
 
 ## 0.4.1 (2021-01-05)
 * Upgrade to v1.23.0 of the Hetzner Cloud Terraform Provider
