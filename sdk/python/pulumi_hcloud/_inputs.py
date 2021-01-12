@@ -14,6 +14,7 @@ __all__ = [
     'LoadBalancerServiceHealthCheckHttpArgs',
     'LoadBalancerServiceHttpArgs',
     'LoadBalancerTargetArgs',
+    'ServerNetworkArgs',
 ]
 
 @pulumi.input_type
@@ -363,5 +364,57 @@ class LoadBalancerTargetArgs:
     @use_private_ip.setter
     def use_private_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_private_ip", value)
+
+
+@pulumi.input_type
+class ServerNetworkArgs:
+    def __init__(__self__, *,
+                 network_id: pulumi.Input[int],
+                 alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 mac_address: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "network_id", network_id)
+        if alias_ips is not None:
+            pulumi.set(__self__, "alias_ips", alias_ips)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="aliasIps")
+    def alias_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "alias_ips")
+
+    @alias_ips.setter
+    def alias_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alias_ips", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mac_address")
+
+    @mac_address.setter
+    def mac_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mac_address", value)
 
 

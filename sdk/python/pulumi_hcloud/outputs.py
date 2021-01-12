@@ -15,6 +15,7 @@ __all__ = [
     'LoadBalancerServiceHealthCheckHttp',
     'LoadBalancerServiceHttp',
     'LoadBalancerTarget',
+    'ServerNetwork',
     'GetLoadBalancerAlgorithmResult',
     'GetLoadBalancerServiceResult',
     'GetLoadBalancerServiceHealthCheckResult',
@@ -300,6 +301,45 @@ class LoadBalancerTarget(dict):
     @pulumi.getter(name="usePrivateIp")
     def use_private_ip(self) -> Optional[bool]:
         return pulumi.get(self, "use_private_ip")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServerNetwork(dict):
+    def __init__(__self__, *,
+                 network_id: int,
+                 alias_ips: Optional[Sequence[str]] = None,
+                 ip: Optional[str] = None,
+                 mac_address: Optional[str] = None):
+        pulumi.set(__self__, "network_id", network_id)
+        if alias_ips is not None:
+            pulumi.set(__self__, "alias_ips", alias_ips)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> int:
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="aliasIps")
+    def alias_ips(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alias_ips")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[str]:
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> Optional[str]:
+        return pulumi.get(self, "mac_address")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

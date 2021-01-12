@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -91,6 +92,7 @@ export class Server extends pulumi.CustomResource {
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly networks!: pulumi.Output<outputs.ServerNetwork[] | undefined>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
      */
@@ -136,6 +138,7 @@ export class Server extends pulumi.CustomResource {
             inputs["labels"] = state ? state.labels : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networks"] = state ? state.networks : undefined;
             inputs["rescue"] = state ? state.rescue : undefined;
             inputs["serverType"] = state ? state.serverType : undefined;
             inputs["sshKeys"] = state ? state.sshKeys : undefined;
@@ -157,6 +160,7 @@ export class Server extends pulumi.CustomResource {
             inputs["labels"] = args ? args.labels : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networks"] = args ? args.networks : undefined;
             inputs["rescue"] = args ? args.rescue : undefined;
             inputs["serverType"] = args ? args.serverType : undefined;
             inputs["sshKeys"] = args ? args.sshKeys : undefined;
@@ -232,6 +236,7 @@ export interface ServerState {
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
     readonly name?: pulumi.Input<string>;
+    readonly networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
      */
@@ -290,6 +295,7 @@ export interface ServerArgs {
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
     readonly name?: pulumi.Input<string>;
+    readonly networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
      */

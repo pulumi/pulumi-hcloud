@@ -98,3 +98,10 @@ export interface LoadBalancerTarget {
      */
     usePrivateIp?: pulumi.Input<boolean>;
 }
+
+export interface ServerNetwork {
+    aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    ip?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string>;
+    networkId: pulumi.Input<number>;
+}

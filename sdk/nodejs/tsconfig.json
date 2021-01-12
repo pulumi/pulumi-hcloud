@@ -28,6 +28,8 @@
         "getLocations.ts",
         "getNetwork.ts",
         "getServer.ts",
+        "getServerType.ts",
+        "getServerTypes.ts",
         "getSshKey.ts",
         "getSshKeys.ts",
         "getVolume.ts",

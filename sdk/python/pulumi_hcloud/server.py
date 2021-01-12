@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['Server']
 
@@ -23,6 +25,7 @@ class Server(pulumi.CustomResource):
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -81,6 +84,7 @@ class Server(pulumi.CustomResource):
             __props__['labels'] = labels
             __props__['location'] = location
             __props__['name'] = name
+            __props__['networks'] = networks
             __props__['rescue'] = rescue
             if server_type is None:
                 raise TypeError("Missing required property 'server_type'")
@@ -114,6 +118,7 @@ class Server(pulumi.CustomResource):
             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
             rescue: Optional[pulumi.Input[str]] = None,
             server_type: Optional[pulumi.Input[str]] = None,
             ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -160,6 +165,7 @@ class Server(pulumi.CustomResource):
         __props__["labels"] = labels
         __props__["location"] = location
         __props__["name"] = name
+        __props__["networks"] = networks
         __props__["rescue"] = rescue
         __props__["server_type"] = server_type
         __props__["ssh_keys"] = ssh_keys
@@ -262,6 +268,11 @@ class Server(pulumi.CustomResource):
         Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def networks(self) -> pulumi.Output[Optional[Sequence['outputs.ServerNetwork']]]:
+        return pulumi.get(self, "networks")
 
     @property
     @pulumi.getter
