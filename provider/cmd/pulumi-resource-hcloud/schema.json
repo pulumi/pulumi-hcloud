@@ -276,6 +276,58 @@
                 "type"
             ]
         },
+        "hcloud:index/ServerNetwork:ServerNetwork": {
+            "properties": {
+                "aliasIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "macAddress": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networkId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "networkId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ip",
+                        "macAddress",
+                        "networkId"
+                    ]
+                }
+            }
+        },
         "hcloud:index/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm": {
             "properties": {
                 "type": {
@@ -1794,6 +1846,12 @@
                     "type": "string",
                     "description": "Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).\n"
                 },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/ServerNetwork:ServerNetwork"
+                    }
+                },
                 "rescue": {
                     "type": "string",
                     "description": "Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`\n"
@@ -1865,6 +1923,12 @@
                 "name": {
                     "type": "string",
                     "description": "Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).\n"
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/ServerNetwork:ServerNetwork"
+                    }
                 },
                 "rescue": {
                     "type": "string",
@@ -1944,6 +2008,12 @@
                     "name": {
                         "type": "string",
                         "description": "Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).\n"
+                    },
+                    "networks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/ServerNetwork:ServerNetwork"
+                        }
                     },
                     "rescue": {
                         "type": "string",
@@ -3114,6 +3184,121 @@
                     "rescue",
                     "serverType",
                     "status"
+                ]
+            }
+        },
+        "hcloud:index/getServerType:getServerType": {
+            "description": "Provides details about a specific Hetzner Cloud Server Type.\nUse this resource to get detailed information about specific Server Type.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ds1 = pulumi.output(hcloud.getServerType({\n    name: \"cx11\",\n}, { async: true }));\nconst ds2 = pulumi.output(hcloud.getServerType({\n    id: 1,\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nds1 = hcloud.get_server_type(name=\"cx11\")\nds2 = hcloud.get_server_type(id=1)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ds1 = Output.Create(HCloud.GetServerType.InvokeAsync(new HCloud.GetServerTypeArgs\n        {\n            Name = \"cx11\",\n        }));\n        var ds2 = Output.Create(HCloud.GetServerType.InvokeAsync(new HCloud.GetServerTypeArgs\n        {\n            Id = 1,\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"cx11\"\n\t\t_, err := hcloud.GetServerType(ctx, \u0026hcloud.GetServerTypeArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 1\n\t\t_, err = hcloud.GetServerType(ctx, \u0026hcloud.GetServerTypeArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServerType.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the server_type.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the server_type.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServerType.\n",
+                "properties": {
+                    "cores": {
+                        "type": "integer",
+                        "description": "(int) Number of cpu cores a Server of this type will have.\n"
+                    },
+                    "cpuType": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "(string) Description of the server_type.\n"
+                    },
+                    "disk": {
+                        "type": "integer",
+                        "description": "(int) Disk size a Server of this type will have in GB.\n"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "description": "(int) Unique ID of the server_type.\n"
+                    },
+                    "memory": {
+                        "type": "integer",
+                        "description": "(int) Memory a Server of this type will have in GB.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "(string) Name of the server_type.\n"
+                    },
+                    "storageType": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cores",
+                    "cpuType",
+                    "description",
+                    "disk",
+                    "id",
+                    "memory",
+                    "name",
+                    "storageType"
+                ]
+            }
+        },
+        "hcloud:index/getServerTypes:getServerTypes": {
+            "description": "Provides a list of available Hetzner Cloud Server Types.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ds = hcloud.getServerTypes({});\nconst workers: hcloud.Server[];\nfor (const range = {value: 0}; range.value \u003c 3; range.value++) {\n    workers.push(new hcloud.Server(`workers-${range.value}`, {\n        image: \"debian-9\",\n        serverType: ds.then(ds =\u003e ds.names)[range.value],\n    }));\n}\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nds = hcloud.get_server_types()\nworkers = []\nfor range in [{\"value\": i} for i in range(0, 3)]:\n    workers.append(hcloud.Server(f\"workers-{range['value']}\",\n        image=\"debian-9\",\n        server_type=ds.names[range[\"value\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ds = Output.Create(HCloud.GetServerTypes.InvokeAsync());\n        var workers = new List\u003cHCloud.Server\u003e();\n        for (var rangeIndex = 0; rangeIndex \u003c 3; rangeIndex++)\n        {\n            var range = new { Value = rangeIndex };\n            workers.Add(new HCloud.Server($\"workers-{range.Value}\", new HCloud.ServerArgs\n            {\n                Image = \"debian-9\",\n                ServerType = ds.Apply(ds =\u003e ds.Names)[range.Value],\n            }));\n        }\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServerTypes.\n",
+                "properties": {
+                    "serverTypeIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of unique Server Types identifiers.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServerTypes.\n",
+                "properties": {
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of all Server Types descriptions.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of Server Types names.\n"
+                    },
+                    "serverTypeIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of unique Server Types identifiers.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "descriptions",
+                    "names",
+                    "id"
                 ]
             }
         },

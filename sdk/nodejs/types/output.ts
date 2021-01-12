@@ -228,3 +228,10 @@ export interface LoadBalancerTarget {
      */
     usePrivateIp?: boolean;
 }
+
+export interface ServerNetwork {
+    aliasIps?: string[];
+    ip: string;
+    macAddress: string;
+    networkId: number;
+}

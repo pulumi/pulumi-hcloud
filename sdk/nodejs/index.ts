@@ -15,6 +15,8 @@ export * from "./getLocation";
 export * from "./getLocations";
 export * from "./getNetwork";
 export * from "./getServer";
+export * from "./getServerType";
+export * from "./getServerTypes";
 export * from "./getSshKey";
 export * from "./getSshKeys";
 export * from "./getVolume";

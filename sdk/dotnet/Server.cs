@@ -92,6 +92,9 @@ namespace Pulumi.HCloud
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("networks")]
+        public Output<ImmutableArray<Outputs.ServerNetwork>> Networks { get; private set; } = null!;
+
         /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         /// </summary>
@@ -222,6 +225,14 @@ namespace Pulumi.HCloud
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("networks")]
+        private InputList<Inputs.ServerNetworkArgs>? _networks;
+        public InputList<Inputs.ServerNetworkArgs> Networks
+        {
+            get => _networks ?? (_networks = new InputList<Inputs.ServerNetworkArgs>());
+            set => _networks = value;
+        }
+
         /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         /// </summary>
@@ -336,6 +347,14 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("networks")]
+        private InputList<Inputs.ServerNetworkGetArgs>? _networks;
+        public InputList<Inputs.ServerNetworkGetArgs> Networks
+        {
+            get => _networks ?? (_networks = new InputList<Inputs.ServerNetworkGetArgs>());
+            set => _networks = value;
+        }
 
         /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`

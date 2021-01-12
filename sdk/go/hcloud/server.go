@@ -46,7 +46,8 @@ type Server struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name     pulumi.StringOutput          `pulumi:"name"`
+	Networks ServerNetworkTypeArrayOutput `pulumi:"networks"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrOutput `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -118,7 +119,8 @@ type serverState struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name *string `pulumi:"name"`
+	Name     *string             `pulumi:"name"`
+	Networks []ServerNetworkType `pulumi:"networks"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -157,7 +159,8 @@ type ServerState struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
+	Networks ServerNetworkTypeArrayInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.
@@ -190,7 +193,8 @@ type serverArgs struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name *string `pulumi:"name"`
+	Name     *string             `pulumi:"name"`
+	Networks []ServerNetworkType `pulumi:"networks"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -218,7 +222,8 @@ type ServerArgs struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
+	Networks ServerNetworkTypeArrayInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.

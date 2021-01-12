@@ -112,6 +112,8 @@ func Provider() tfbridge.ProviderInfo {
 			"hcloud_ssh_keys":      {Tok: makeDataSource(mainMod, "getSshKeys")},
 			"hcloud_volume":        {Tok: makeDataSource(mainMod, "getVolume")},
 			"hcloud_load_balancer": {Tok: makeDataSource(mainMod, "getLoadBalancer")},
+			"hcloud_server_type":   {Tok: makeDataSource(mainMod, "getServerType")},
+			"hcloud_server_types":  {Tok: makeDataSource(mainMod, "getServerTypes")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

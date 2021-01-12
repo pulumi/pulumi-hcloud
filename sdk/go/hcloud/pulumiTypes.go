@@ -896,6 +896,118 @@ func (o LoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) LoadBalancer
 	}).(LoadBalancerTargetTypeOutput)
 }
 
+type ServerNetworkType struct {
+	AliasIps   []string `pulumi:"aliasIps"`
+	Ip         *string  `pulumi:"ip"`
+	MacAddress *string  `pulumi:"macAddress"`
+	NetworkId  int      `pulumi:"networkId"`
+}
+
+// ServerNetworkTypeInput is an input type that accepts ServerNetworkTypeArgs and ServerNetworkTypeOutput values.
+// You can construct a concrete instance of `ServerNetworkTypeInput` via:
+//
+//          ServerNetworkTypeArgs{...}
+type ServerNetworkTypeInput interface {
+	pulumi.Input
+
+	ToServerNetworkTypeOutput() ServerNetworkTypeOutput
+	ToServerNetworkTypeOutputWithContext(context.Context) ServerNetworkTypeOutput
+}
+
+type ServerNetworkTypeArgs struct {
+	AliasIps   pulumi.StringArrayInput `pulumi:"aliasIps"`
+	Ip         pulumi.StringPtrInput   `pulumi:"ip"`
+	MacAddress pulumi.StringPtrInput   `pulumi:"macAddress"`
+	NetworkId  pulumi.IntInput         `pulumi:"networkId"`
+}
+
+func (ServerNetworkTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerNetworkType)(nil)).Elem()
+}
+
+func (i ServerNetworkTypeArgs) ToServerNetworkTypeOutput() ServerNetworkTypeOutput {
+	return i.ToServerNetworkTypeOutputWithContext(context.Background())
+}
+
+func (i ServerNetworkTypeArgs) ToServerNetworkTypeOutputWithContext(ctx context.Context) ServerNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkTypeOutput)
+}
+
+// ServerNetworkTypeArrayInput is an input type that accepts ServerNetworkTypeArray and ServerNetworkTypeArrayOutput values.
+// You can construct a concrete instance of `ServerNetworkTypeArrayInput` via:
+//
+//          ServerNetworkTypeArray{ ServerNetworkTypeArgs{...} }
+type ServerNetworkTypeArrayInput interface {
+	pulumi.Input
+
+	ToServerNetworkTypeArrayOutput() ServerNetworkTypeArrayOutput
+	ToServerNetworkTypeArrayOutputWithContext(context.Context) ServerNetworkTypeArrayOutput
+}
+
+type ServerNetworkTypeArray []ServerNetworkTypeInput
+
+func (ServerNetworkTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerNetworkType)(nil)).Elem()
+}
+
+func (i ServerNetworkTypeArray) ToServerNetworkTypeArrayOutput() ServerNetworkTypeArrayOutput {
+	return i.ToServerNetworkTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ServerNetworkTypeArray) ToServerNetworkTypeArrayOutputWithContext(ctx context.Context) ServerNetworkTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkTypeArrayOutput)
+}
+
+type ServerNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerNetworkType)(nil)).Elem()
+}
+
+func (o ServerNetworkTypeOutput) ToServerNetworkTypeOutput() ServerNetworkTypeOutput {
+	return o
+}
+
+func (o ServerNetworkTypeOutput) ToServerNetworkTypeOutputWithContext(ctx context.Context) ServerNetworkTypeOutput {
+	return o
+}
+
+func (o ServerNetworkTypeOutput) AliasIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerNetworkType) []string { return v.AliasIps }).(pulumi.StringArrayOutput)
+}
+
+func (o ServerNetworkTypeOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerNetworkType) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerNetworkTypeOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerNetworkType) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerNetworkTypeOutput) NetworkId() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerNetworkType) int { return v.NetworkId }).(pulumi.IntOutput)
+}
+
+type ServerNetworkTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerNetworkTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerNetworkType)(nil)).Elem()
+}
+
+func (o ServerNetworkTypeArrayOutput) ToServerNetworkTypeArrayOutput() ServerNetworkTypeArrayOutput {
+	return o
+}
+
+func (o ServerNetworkTypeArrayOutput) ToServerNetworkTypeArrayOutputWithContext(ctx context.Context) ServerNetworkTypeArrayOutput {
+	return o
+}
+
+func (o ServerNetworkTypeArrayOutput) Index(i pulumi.IntInput) ServerNetworkTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerNetworkType {
+		return vs[0].([]ServerNetworkType)[vs[1].(int)]
+	}).(ServerNetworkTypeOutput)
+}
+
 type GetLoadBalancerAlgorithm struct {
 	// (string) Type of the target. `server` or `labelSelector`
 	Type string `pulumi:"type"`
@@ -1787,6 +1899,8 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerServiceHttpPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerTargetTypeOutput{})
 	pulumi.RegisterOutputType(LoadBalancerTargetTypeArrayOutput{})
+	pulumi.RegisterOutputType(ServerNetworkTypeOutput{})
+	pulumi.RegisterOutputType(ServerNetworkTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAlgorithmOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAlgorithmArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerServiceTypeOutput{})

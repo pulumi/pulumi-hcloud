@@ -16,6 +16,8 @@ from .get_location import *
 from .get_locations import *
 from .get_network import *
 from .get_server import *
+from .get_server_type import *
+from .get_server_types import *
 from .get_ssh_key import *
 from .get_ssh_keys import *
 from .get_volume import *
