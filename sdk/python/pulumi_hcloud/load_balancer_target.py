@@ -80,11 +80,11 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
             __props__['ip'] = ip
             __props__['label_selector'] = label_selector
-            if load_balancer_id is None:
+            if load_balancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_id'")
             __props__['load_balancer_id'] = load_balancer_id
             __props__['server_id'] = server_id
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['use_private_ip'] = use_private_ip

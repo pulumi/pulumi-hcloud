@@ -122,7 +122,7 @@ export class ServerNetwork extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as ServerNetworkArgs | undefined;
-            if (!args || args.serverId === undefined) {
+            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverId'");
             }
             inputs["aliasIps"] = args ? args.aliasIps : undefined;

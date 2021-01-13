@@ -67,7 +67,7 @@ class SshKey(pulumi.CustomResource):
 
             __props__['labels'] = labels
             __props__['name'] = name
-            if public_key is None:
+            if public_key is None and not opts.urn:
                 raise TypeError("Missing required property 'public_key'")
             __props__['public_key'] = public_key
             __props__['fingerprint'] = None

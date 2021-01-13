@@ -75,10 +75,10 @@ class VolumeAttachment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['automount'] = automount
-            if server_id is None:
+            if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__['server_id'] = server_id
-            if volume_id is None:
+            if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
             __props__['volume_id'] = volume_id
         super(VolumeAttachment, __self__).__init__(

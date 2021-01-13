@@ -83,10 +83,10 @@ class LoadBalancerService(pulumi.CustomResource):
             __props__['health_check'] = health_check
             __props__['http'] = http
             __props__['listen_port'] = listen_port
-            if load_balancer_id is None:
+            if load_balancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_id'")
             __props__['load_balancer_id'] = load_balancer_id
-            if protocol is None:
+            if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
             __props__['proxyprotocol'] = proxyprotocol

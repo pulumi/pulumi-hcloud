@@ -68,13 +68,13 @@ class NetworkRoute(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if destination is None:
+            if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__['destination'] = destination
-            if gateway is None:
+            if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__['gateway'] = gateway
-            if network_id is None:
+            if network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_id'")
             __props__['network_id'] = network_id
         super(NetworkRoute, __self__).__init__(

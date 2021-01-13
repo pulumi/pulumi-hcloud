@@ -48,7 +48,7 @@ class Provider(pulumi.ProviderResource):
             __props__ = dict()
 
             __props__['endpoint'] = endpoint
-            if token is None:
+            if token is None and not opts.urn:
                 raise TypeError("Missing required property 'token'")
             __props__['token'] = token
         super(Provider, __self__).__init__(

@@ -89,10 +89,10 @@ export class FloatingIpAssignment extends pulumi.CustomResource {
             inputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as FloatingIpAssignmentArgs | undefined;
-            if (!args || args.floatingIpId === undefined) {
+            if ((!args || args.floatingIpId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'floatingIpId'");
             }
-            if (!args || args.serverId === undefined) {
+            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverId'");
             }
             inputs["floatingIpId"] = args ? args.floatingIpId : undefined;

@@ -75,11 +75,12 @@ type FloatingIp struct {
 // NewFloatingIp registers a new resource with the given unique name, arguments, and options.
 func NewFloatingIp(ctx *pulumi.Context,
 	name string, args *FloatingIpArgs, opts ...pulumi.ResourceOption) (*FloatingIp, error) {
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &FloatingIpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource FloatingIp
 	err := ctx.RegisterResource("hcloud:index/floatingIp:FloatingIp", name, args, &resource, opts...)

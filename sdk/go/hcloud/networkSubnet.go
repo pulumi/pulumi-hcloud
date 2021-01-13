@@ -71,20 +71,21 @@ type NetworkSubnet struct {
 // NewNetworkSubnet registers a new resource with the given unique name, arguments, and options.
 func NewNetworkSubnet(ctx *pulumi.Context,
 	name string, args *NetworkSubnetArgs, opts ...pulumi.ResourceOption) (*NetworkSubnet, error) {
-	if args == nil || args.IpRange == nil {
-		return nil, errors.New("missing required argument 'IpRange'")
-	}
-	if args == nil || args.NetworkId == nil {
-		return nil, errors.New("missing required argument 'NetworkId'")
-	}
-	if args == nil || args.NetworkZone == nil {
-		return nil, errors.New("missing required argument 'NetworkZone'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &NetworkSubnetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IpRange == nil {
+		return nil, errors.New("invalid value for required argument 'IpRange'")
+	}
+	if args.NetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkId'")
+	}
+	if args.NetworkZone == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkZone'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource NetworkSubnet
 	err := ctx.RegisterResource("hcloud:index/networkSubnet:NetworkSubnet", name, args, &resource, opts...)

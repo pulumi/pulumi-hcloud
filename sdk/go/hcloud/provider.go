@@ -22,11 +22,12 @@ type Provider struct {
 // NewProvider registers a new resource with the given unique name, arguments, and options.
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
-	if args == nil || args.Token == nil {
-		return nil, errors.New("missing required argument 'Token'")
-	}
 	if args == nil {
-		args = &ProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Token == nil {
+		return nil, errors.New("invalid value for required argument 'Token'")
 	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:hcloud", name, args, &resource, opts...)

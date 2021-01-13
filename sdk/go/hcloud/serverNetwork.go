@@ -99,11 +99,12 @@ type ServerNetwork struct {
 // NewServerNetwork registers a new resource with the given unique name, arguments, and options.
 func NewServerNetwork(ctx *pulumi.Context,
 	name string, args *ServerNetworkArgs, opts ...pulumi.ResourceOption) (*ServerNetwork, error) {
-	if args == nil || args.ServerId == nil {
-		return nil, errors.New("missing required argument 'ServerId'")
-	}
 	if args == nil {
-		args = &ServerNetworkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ServerId == nil {
+		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
 	var resource ServerNetwork
 	err := ctx.RegisterResource("hcloud:index/serverNetwork:ServerNetwork", name, args, &resource, opts...)

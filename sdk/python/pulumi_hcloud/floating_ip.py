@@ -80,7 +80,7 @@ class FloatingIp(pulumi.CustomResource):
             __props__['labels'] = labels
             __props__['name'] = name
             __props__['server_id'] = server_id
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['ip_address'] = None

@@ -71,14 +71,15 @@ type FloatingIpAssignment struct {
 // NewFloatingIpAssignment registers a new resource with the given unique name, arguments, and options.
 func NewFloatingIpAssignment(ctx *pulumi.Context,
 	name string, args *FloatingIpAssignmentArgs, opts ...pulumi.ResourceOption) (*FloatingIpAssignment, error) {
-	if args == nil || args.FloatingIpId == nil {
-		return nil, errors.New("missing required argument 'FloatingIpId'")
-	}
-	if args == nil || args.ServerId == nil {
-		return nil, errors.New("missing required argument 'ServerId'")
-	}
 	if args == nil {
-		args = &FloatingIpAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FloatingIpId == nil {
+		return nil, errors.New("invalid value for required argument 'FloatingIpId'")
+	}
+	if args.ServerId == nil {
+		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
 	var resource FloatingIpAssignment
 	err := ctx.RegisterResource("hcloud:index/floatingIpAssignment:FloatingIpAssignment", name, args, &resource, opts...)

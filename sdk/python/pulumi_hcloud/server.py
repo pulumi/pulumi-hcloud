@@ -76,7 +76,7 @@ class Server(pulumi.CustomResource):
 
             __props__['backups'] = backups
             __props__['datacenter'] = datacenter
-            if image is None:
+            if image is None and not opts.urn:
                 raise TypeError("Missing required property 'image'")
             __props__['image'] = image
             __props__['iso'] = iso
@@ -86,7 +86,7 @@ class Server(pulumi.CustomResource):
             __props__['name'] = name
             __props__['networks'] = networks
             __props__['rescue'] = rescue
-            if server_type is None:
+            if server_type is None and not opts.urn:
                 raise TypeError("Missing required property 'server_type'")
             __props__['server_type'] = server_type
             __props__['ssh_keys'] = ssh_keys

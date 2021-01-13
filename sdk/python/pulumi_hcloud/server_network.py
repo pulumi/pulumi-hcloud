@@ -96,7 +96,7 @@ class ServerNetwork(pulumi.CustomResource):
             __props__['alias_ips'] = alias_ips
             __props__['ip'] = ip
             __props__['network_id'] = network_id
-            if server_id is None:
+            if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__['server_id'] = server_id
             __props__['subnet_id'] = subnet_id
