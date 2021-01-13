@@ -87,13 +87,13 @@ export class NetworkRoute extends pulumi.CustomResource {
             inputs["networkId"] = state ? state.networkId : undefined;
         } else {
             const args = argsOrState as NetworkRouteArgs | undefined;
-            if (!args || args.destination === undefined) {
+            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (!args || args.gateway === undefined) {
+            if ((!args || args.gateway === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gateway'");
             }
-            if (!args || args.networkId === undefined) {
+            if ((!args || args.networkId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkId'");
             }
             inputs["destination"] = args ? args.destination : undefined;

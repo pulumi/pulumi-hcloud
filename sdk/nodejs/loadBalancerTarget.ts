@@ -108,10 +108,10 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
             inputs["usePrivateIp"] = state ? state.usePrivateIp : undefined;
         } else {
             const args = argsOrState as LoadBalancerTargetArgs | undefined;
-            if (!args || args.loadBalancerId === undefined) {
+            if ((!args || args.loadBalancerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["ip"] = args ? args.ip : undefined;

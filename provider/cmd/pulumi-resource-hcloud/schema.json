@@ -3509,7 +3509,7 @@
         },
         "nodejs": {
             "dependencies": {
-                "@pulumi/pulumi": "^2.0.0"
+                "@pulumi/pulumi": "^2.15.0"
             },
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -3524,9 +3524,8 @@
         "python": {
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/hetznercloud/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`hetznercloud/terraform-provider-hcloud` repo](https://github.com/hetznercloud/terraform-provider-hcloud/issues).",
             "requires": {
-                "pulumi": "\u003e=2.9.0,\u003c3.0.0"
-            },
-            "usesIOClasses": true
+                "pulumi": "\u003e=2.15.0,\u003c3.0.0"
+            }
         }
     }
 }

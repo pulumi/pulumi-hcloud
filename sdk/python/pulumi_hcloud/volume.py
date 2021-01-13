@@ -84,7 +84,7 @@ class Volume(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['server_id'] = server_id
-            if size is None:
+            if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
             __props__['size'] = size
             __props__['linux_device'] = None

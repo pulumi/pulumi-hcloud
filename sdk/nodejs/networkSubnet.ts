@@ -100,16 +100,16 @@ export class NetworkSubnet extends pulumi.CustomResource {
             inputs["vswitchId"] = state ? state.vswitchId : undefined;
         } else {
             const args = argsOrState as NetworkSubnetArgs | undefined;
-            if (!args || args.ipRange === undefined) {
+            if ((!args || args.ipRange === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipRange'");
             }
-            if (!args || args.networkId === undefined) {
+            if ((!args || args.networkId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkId'");
             }
-            if (!args || args.networkZone === undefined) {
+            if ((!args || args.networkZone === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkZone'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["ipRange"] = args ? args.ipRange : undefined;

@@ -89,7 +89,7 @@ export class SshKey extends pulumi.CustomResource {
             inputs["publicKey"] = state ? state.publicKey : undefined;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
-            if (!args || args.publicKey === undefined) {
+            if ((!args || args.publicKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publicKey'");
             }
             inputs["labels"] = args ? args.labels : undefined;

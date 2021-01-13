@@ -120,10 +120,10 @@ export class Rdns extends pulumi.CustomResource {
             inputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as RdnsArgs | undefined;
-            if (!args || args.dnsPtr === undefined) {
+            if ((!args || args.dnsPtr === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dnsPtr'");
             }
-            if (!args || args.ipAddress === undefined) {
+            if ((!args || args.ipAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipAddress'");
             }
             inputs["dnsPtr"] = args ? args.dnsPtr : undefined;

@@ -36,11 +36,12 @@ type SshKey struct {
 // NewSshKey registers a new resource with the given unique name, arguments, and options.
 func NewSshKey(ctx *pulumi.Context,
 	name string, args *SshKeyArgs, opts ...pulumi.ResourceOption) (*SshKey, error) {
-	if args == nil || args.PublicKey == nil {
-		return nil, errors.New("missing required argument 'PublicKey'")
-	}
 	if args == nil {
-		args = &SshKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PublicKey == nil {
+		return nil, errors.New("invalid value for required argument 'PublicKey'")
 	}
 	var resource SshKey
 	err := ctx.RegisterResource("hcloud:index/sshKey:SshKey", name, args, &resource, opts...)

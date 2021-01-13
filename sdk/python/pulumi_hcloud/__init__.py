@@ -42,3 +42,86 @@ from . import outputs
 from . import (
     config,
 )
+
+def _register_module():
+    import pulumi
+    from . import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "hcloud:index/certificate:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/floatingIp:FloatingIp":
+                return FloatingIp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/floatingIpAssignment:FloatingIpAssignment":
+                return FloatingIpAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/loadBalancer:LoadBalancer":
+                return LoadBalancer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork":
+                return LoadBalancerNetwork(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/loadBalancerService:LoadBalancerService":
+                return LoadBalancerService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/loadBalancerTarget:LoadBalancerTarget":
+                return LoadBalancerTarget(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/network:Network":
+                return Network(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/networkRoute:NetworkRoute":
+                return NetworkRoute(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/networkSubnet:NetworkSubnet":
+                return NetworkSubnet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/rdns:Rdns":
+                return Rdns(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/server:Server":
+                return Server(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/serverNetwork:ServerNetwork":
+                return ServerNetwork(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/sshKey:SshKey":
+                return SshKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/volume:Volume":
+                return Volume(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/volumeAttachment:VolumeAttachment":
+                return VolumeAttachment(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("hcloud", "index/certificate", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/floatingIp", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/floatingIpAssignment", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/loadBalancer", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/loadBalancerNetwork", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/loadBalancerService", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/loadBalancerTarget", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/network", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/networkRoute", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/networkSubnet", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/rdns", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/server", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/serverNetwork", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/sshKey", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/volume", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/volumeAttachment", _module_instance)
+
+
+    class Package(pulumi.runtime.ResourcePackage):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Package._version
+
+        def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+            if typ != "pulumi:providers:hcloud":
+                raise Exception(f"unknown provider type {typ}")
+            return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+    pulumi.runtime.register_resource_package("hcloud", Package())
+
+_register_module()

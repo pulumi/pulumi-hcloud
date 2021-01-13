@@ -85,11 +85,12 @@ type LoadBalancer struct {
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancer(ctx *pulumi.Context,
 	name string, args *LoadBalancerArgs, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
-	if args == nil || args.LoadBalancerType == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerType'")
-	}
 	if args == nil {
-		args = &LoadBalancerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoadBalancerType == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerType'")
 	}
 	var resource LoadBalancer
 	err := ctx.RegisterResource("hcloud:index/loadBalancer:LoadBalancer", name, args, &resource, opts...)

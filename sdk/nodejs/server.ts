@@ -146,10 +146,10 @@ export class Server extends pulumi.CustomResource {
             inputs["userData"] = state ? state.userData : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if (!args || args.image === undefined) {
+            if ((!args || args.image === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'image'");
             }
-            if (!args || args.serverType === undefined) {
+            if ((!args || args.serverType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverType'");
             }
             inputs["backups"] = args ? args.backups : undefined;

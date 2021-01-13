@@ -73,16 +73,16 @@ class NetworkSubnet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if ip_range is None:
+            if ip_range is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_range'")
             __props__['ip_range'] = ip_range
-            if network_id is None:
+            if network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_id'")
             __props__['network_id'] = network_id
-            if network_zone is None:
+            if network_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'network_zone'")
             __props__['network_zone'] = network_zone
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['vswitch_id'] = vswitch_id

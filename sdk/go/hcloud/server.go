@@ -63,14 +63,15 @@ type Server struct {
 // NewServer registers a new resource with the given unique name, arguments, and options.
 func NewServer(ctx *pulumi.Context,
 	name string, args *ServerArgs, opts ...pulumi.ResourceOption) (*Server, error) {
-	if args == nil || args.Image == nil {
-		return nil, errors.New("missing required argument 'Image'")
-	}
-	if args == nil || args.ServerType == nil {
-		return nil, errors.New("missing required argument 'ServerType'")
-	}
 	if args == nil {
-		args = &ServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Image == nil {
+		return nil, errors.New("invalid value for required argument 'Image'")
+	}
+	if args.ServerType == nil {
+		return nil, errors.New("invalid value for required argument 'ServerType'")
 	}
 	var resource Server
 	err := ctx.RegisterResource("hcloud:index/server:Server", name, args, &resource, opts...)

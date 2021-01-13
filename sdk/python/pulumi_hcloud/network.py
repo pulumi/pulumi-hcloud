@@ -64,7 +64,7 @@ class Network(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if ip_range is None:
+            if ip_range is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_range'")
             __props__['ip_range'] = ip_range
             __props__['labels'] = labels

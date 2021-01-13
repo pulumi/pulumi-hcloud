@@ -85,7 +85,7 @@ class LoadBalancer(pulumi.CustomResource):
 
             __props__['algorithm'] = algorithm
             __props__['labels'] = labels
-            if load_balancer_type is None:
+            if load_balancer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_type'")
             __props__['load_balancer_type'] = load_balancer_type
             __props__['location'] = location

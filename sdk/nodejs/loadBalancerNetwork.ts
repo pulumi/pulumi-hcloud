@@ -120,7 +120,7 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as LoadBalancerNetworkArgs | undefined;
-            if (!args || args.loadBalancerId === undefined) {
+            if ((!args || args.loadBalancerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
             inputs["enablePublicInterface"] = args ? args.enablePublicInterface : undefined;

@@ -108,14 +108,15 @@ type Rdns struct {
 // NewRdns registers a new resource with the given unique name, arguments, and options.
 func NewRdns(ctx *pulumi.Context,
 	name string, args *RdnsArgs, opts ...pulumi.ResourceOption) (*Rdns, error) {
-	if args == nil || args.DnsPtr == nil {
-		return nil, errors.New("missing required argument 'DnsPtr'")
-	}
-	if args == nil || args.IpAddress == nil {
-		return nil, errors.New("missing required argument 'IpAddress'")
-	}
 	if args == nil {
-		args = &RdnsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DnsPtr == nil {
+		return nil, errors.New("invalid value for required argument 'DnsPtr'")
+	}
+	if args.IpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'IpAddress'")
 	}
 	var resource Rdns
 	err := ctx.RegisterResource("hcloud:index/rdns:Rdns", name, args, &resource, opts...)

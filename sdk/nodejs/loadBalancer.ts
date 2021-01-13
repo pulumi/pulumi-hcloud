@@ -128,7 +128,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            if (!args || args.loadBalancerType === undefined) {
+            if ((!args || args.loadBalancerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
             inputs["algorithm"] = args ? args.algorithm : undefined;

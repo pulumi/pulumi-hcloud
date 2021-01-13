@@ -65,17 +65,18 @@ type NetworkRoute struct {
 // NewNetworkRoute registers a new resource with the given unique name, arguments, and options.
 func NewNetworkRoute(ctx *pulumi.Context,
 	name string, args *NetworkRouteArgs, opts ...pulumi.ResourceOption) (*NetworkRoute, error) {
-	if args == nil || args.Destination == nil {
-		return nil, errors.New("missing required argument 'Destination'")
-	}
-	if args == nil || args.Gateway == nil {
-		return nil, errors.New("missing required argument 'Gateway'")
-	}
-	if args == nil || args.NetworkId == nil {
-		return nil, errors.New("missing required argument 'NetworkId'")
-	}
 	if args == nil {
-		args = &NetworkRouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Destination == nil {
+		return nil, errors.New("invalid value for required argument 'Destination'")
+	}
+	if args.Gateway == nil {
+		return nil, errors.New("invalid value for required argument 'Gateway'")
+	}
+	if args.NetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkId'")
 	}
 	var resource NetworkRoute
 	err := ctx.RegisterResource("hcloud:index/networkRoute:NetworkRoute", name, args, &resource, opts...)

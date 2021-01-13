@@ -110,10 +110,10 @@ export class LoadBalancerService extends pulumi.CustomResource {
             inputs["proxyprotocol"] = state ? state.proxyprotocol : undefined;
         } else {
             const args = argsOrState as LoadBalancerServiceArgs | undefined;
-            if (!args || args.loadBalancerId === undefined) {
+            if ((!args || args.loadBalancerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
-            if (!args || args.protocol === undefined) {
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
             inputs["destinationPort"] = args ? args.destinationPort : undefined;

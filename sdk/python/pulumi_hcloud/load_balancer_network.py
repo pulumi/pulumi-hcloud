@@ -95,7 +95,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
 
             __props__['enable_public_interface'] = enable_public_interface
             __props__['ip'] = ip
-            if load_balancer_id is None:
+            if load_balancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_id'")
             __props__['load_balancer_id'] = load_balancer_id
             __props__['network_id'] = network_id
