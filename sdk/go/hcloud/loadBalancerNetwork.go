@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -246,15 +246,15 @@ type LoadBalancerNetworkInput interface {
 	ToLoadBalancerNetworkOutputWithContext(ctx context.Context) LoadBalancerNetworkOutput
 }
 
-func (LoadBalancerNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerNetwork)(nil)).Elem()
+func (*LoadBalancerNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerNetwork)(nil))
 }
 
-func (i LoadBalancerNetwork) ToLoadBalancerNetworkOutput() LoadBalancerNetworkOutput {
+func (i *LoadBalancerNetwork) ToLoadBalancerNetworkOutput() LoadBalancerNetworkOutput {
 	return i.ToLoadBalancerNetworkOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerNetwork) ToLoadBalancerNetworkOutputWithContext(ctx context.Context) LoadBalancerNetworkOutput {
+func (i *LoadBalancerNetwork) ToLoadBalancerNetworkOutputWithContext(ctx context.Context) LoadBalancerNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkOutput)
 }
 
@@ -263,7 +263,7 @@ type LoadBalancerNetworkOutput struct {
 }
 
 func (LoadBalancerNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerNetworkOutput)(nil)).Elem()
+	return reflect.TypeOf((*LoadBalancerNetwork)(nil))
 }
 
 func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkOutput() LoadBalancerNetworkOutput {

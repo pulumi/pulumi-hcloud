@@ -51,6 +51,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment &lt;floating_ip_id&gt;
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/floatingIpAssignment:FloatingIpAssignment")]
     public partial class FloatingIpAssignment : Pulumi.CustomResource
     {
         /// <summary>

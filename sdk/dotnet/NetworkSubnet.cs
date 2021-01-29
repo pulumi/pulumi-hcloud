@@ -46,6 +46,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/networkSubnet:NetworkSubnet")]
     public partial class NetworkSubnet : Pulumi.CustomResource
     {
         [Output("gateway")]

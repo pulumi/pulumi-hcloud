@@ -18,6 +18,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/server:Server myserver &lt;id&gt;
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/server:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

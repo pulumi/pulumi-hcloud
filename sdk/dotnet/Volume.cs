@@ -46,6 +46,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/volume:Volume myvolume &lt;id&gt;
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/volume:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>

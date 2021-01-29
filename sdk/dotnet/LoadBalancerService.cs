@@ -45,6 +45,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/loadBalancerService:LoadBalancerService")]
     public partial class LoadBalancerService : Pulumi.CustomResource
     {
         /// <summary>

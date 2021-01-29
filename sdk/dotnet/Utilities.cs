@@ -77,4 +77,11 @@ namespace Pulumi.HCloud
             }
         }
     }
+
+    internal sealed class HCloudResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public HCloudResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

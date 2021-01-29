@@ -39,6 +39,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/network:Network myip &lt;id&gt;
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/network:Network")]
     public partial class Network : Pulumi.CustomResource
     {
         /// <summary>

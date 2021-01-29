@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -151,15 +151,15 @@ type NetworkRouteInput interface {
 	ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput
 }
 
-func (NetworkRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkRoute)(nil)).Elem()
+func (*NetworkRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRoute)(nil))
 }
 
-func (i NetworkRoute) ToNetworkRouteOutput() NetworkRouteOutput {
+func (i *NetworkRoute) ToNetworkRouteOutput() NetworkRouteOutput {
 	return i.ToNetworkRouteOutputWithContext(context.Background())
 }
 
-func (i NetworkRoute) ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput {
+func (i *NetworkRoute) ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRouteOutput)
 }
 
@@ -168,7 +168,7 @@ type NetworkRouteOutput struct {
 }
 
 func (NetworkRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkRouteOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkRoute)(nil))
 }
 
 func (o NetworkRouteOutput) ToNetworkRouteOutput() NetworkRouteOutput {
