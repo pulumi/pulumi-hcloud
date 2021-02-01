@@ -48,7 +48,7 @@ setup(name='pulumi_hcloud',
       packages=find_packages(),
       package_data={
           'pulumi_hcloud': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

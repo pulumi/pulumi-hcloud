@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -178,15 +178,15 @@ type NetworkSubnetInput interface {
 	ToNetworkSubnetOutputWithContext(ctx context.Context) NetworkSubnetOutput
 }
 
-func (NetworkSubnet) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSubnet)(nil)).Elem()
+func (*NetworkSubnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSubnet)(nil))
 }
 
-func (i NetworkSubnet) ToNetworkSubnetOutput() NetworkSubnetOutput {
+func (i *NetworkSubnet) ToNetworkSubnetOutput() NetworkSubnetOutput {
 	return i.ToNetworkSubnetOutputWithContext(context.Background())
 }
 
-func (i NetworkSubnet) ToNetworkSubnetOutputWithContext(ctx context.Context) NetworkSubnetOutput {
+func (i *NetworkSubnet) ToNetworkSubnetOutputWithContext(ctx context.Context) NetworkSubnetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSubnetOutput)
 }
 
@@ -195,7 +195,7 @@ type NetworkSubnetOutput struct {
 }
 
 func (NetworkSubnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSubnetOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkSubnet)(nil))
 }
 
 func (o NetworkSubnetOutput) ToNetworkSubnetOutput() NetworkSubnetOutput {

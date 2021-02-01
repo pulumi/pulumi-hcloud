@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -146,15 +146,15 @@ type FloatingIpAssignmentInput interface {
 	ToFloatingIpAssignmentOutputWithContext(ctx context.Context) FloatingIpAssignmentOutput
 }
 
-func (FloatingIpAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*FloatingIpAssignment)(nil)).Elem()
+func (*FloatingIpAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIpAssignment)(nil))
 }
 
-func (i FloatingIpAssignment) ToFloatingIpAssignmentOutput() FloatingIpAssignmentOutput {
+func (i *FloatingIpAssignment) ToFloatingIpAssignmentOutput() FloatingIpAssignmentOutput {
 	return i.ToFloatingIpAssignmentOutputWithContext(context.Background())
 }
 
-func (i FloatingIpAssignment) ToFloatingIpAssignmentOutputWithContext(ctx context.Context) FloatingIpAssignmentOutput {
+func (i *FloatingIpAssignment) ToFloatingIpAssignmentOutputWithContext(ctx context.Context) FloatingIpAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpAssignmentOutput)
 }
 
@@ -163,7 +163,7 @@ type FloatingIpAssignmentOutput struct {
 }
 
 func (FloatingIpAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FloatingIpAssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*FloatingIpAssignment)(nil))
 }
 
 func (o FloatingIpAssignmentOutput) ToFloatingIpAssignmentOutput() FloatingIpAssignmentOutput {

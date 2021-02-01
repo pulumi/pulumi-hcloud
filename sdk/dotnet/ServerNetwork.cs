@@ -57,6 +57,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/serverNetwork:ServerNetwork")]
     public partial class ServerNetwork : Pulumi.CustomResource
     {
         /// <summary>

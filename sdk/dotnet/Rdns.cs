@@ -80,6 +80,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/rdns:Rdns")]
     public partial class Rdns : Pulumi.CustomResource
     {
         /// <summary>

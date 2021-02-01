@@ -45,6 +45,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/floatingIp:FloatingIp myip &lt;id&gt;
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/floatingIp:FloatingIp")]
     public partial class FloatingIp : Pulumi.CustomResource
     {
         /// <summary>

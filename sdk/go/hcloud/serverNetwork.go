@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -249,15 +249,15 @@ type ServerNetworkInput interface {
 	ToServerNetworkOutputWithContext(ctx context.Context) ServerNetworkOutput
 }
 
-func (ServerNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerNetwork)(nil)).Elem()
+func (*ServerNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerNetwork)(nil))
 }
 
-func (i ServerNetwork) ToServerNetworkOutput() ServerNetworkOutput {
+func (i *ServerNetwork) ToServerNetworkOutput() ServerNetworkOutput {
 	return i.ToServerNetworkOutputWithContext(context.Background())
 }
 
-func (i ServerNetwork) ToServerNetworkOutputWithContext(ctx context.Context) ServerNetworkOutput {
+func (i *ServerNetwork) ToServerNetworkOutputWithContext(ctx context.Context) ServerNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkOutput)
 }
 
@@ -266,7 +266,7 @@ type ServerNetworkOutput struct {
 }
 
 func (ServerNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerNetworkOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerNetwork)(nil))
 }
 
 func (o ServerNetworkOutput) ToServerNetworkOutput() ServerNetworkOutput {

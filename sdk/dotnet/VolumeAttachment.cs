@@ -52,6 +52,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment &lt;volume_id&gt;
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/volumeAttachment:VolumeAttachment")]
     public partial class VolumeAttachment : Pulumi.CustomResource
     {
         /// <summary>

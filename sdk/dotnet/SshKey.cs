@@ -41,6 +41,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/sshKey:SshKey mykey &lt;id&gt;
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/sshKey:SshKey")]
     public partial class SshKey : Pulumi.CustomResource
     {
         /// <summary>

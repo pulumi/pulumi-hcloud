@@ -43,6 +43,7 @@ namespace Pulumi.HCloud
     /// }
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/loadBalancerTarget:LoadBalancerTarget")]
     public partial class LoadBalancerTarget : Pulumi.CustomResource
     {
         /// <summary>

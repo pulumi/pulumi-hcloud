@@ -45,6 +45,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/networkRoute:NetworkRoute")]
     public partial class NetworkRoute : Pulumi.CustomResource
     {
         /// <summary>

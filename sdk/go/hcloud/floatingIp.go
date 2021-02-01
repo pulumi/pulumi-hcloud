@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -187,15 +187,15 @@ type FloatingIpInput interface {
 	ToFloatingIpOutputWithContext(ctx context.Context) FloatingIpOutput
 }
 
-func (FloatingIp) ElementType() reflect.Type {
-	return reflect.TypeOf((*FloatingIp)(nil)).Elem()
+func (*FloatingIp) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIp)(nil))
 }
 
-func (i FloatingIp) ToFloatingIpOutput() FloatingIpOutput {
+func (i *FloatingIp) ToFloatingIpOutput() FloatingIpOutput {
 	return i.ToFloatingIpOutputWithContext(context.Background())
 }
 
-func (i FloatingIp) ToFloatingIpOutputWithContext(ctx context.Context) FloatingIpOutput {
+func (i *FloatingIp) ToFloatingIpOutputWithContext(ctx context.Context) FloatingIpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpOutput)
 }
 
@@ -204,7 +204,7 @@ type FloatingIpOutput struct {
 }
 
 func (FloatingIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FloatingIpOutput)(nil)).Elem()
+	return reflect.TypeOf((*FloatingIp)(nil))
 }
 
 func (o FloatingIpOutput) ToFloatingIpOutput() FloatingIpOutput {

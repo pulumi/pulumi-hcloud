@@ -20,6 +20,7 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/certificate:Certificate sample_certificate &lt;id&gt;
     /// ```
     /// </summary>
+    [HCloudResourceType("hcloud:index/certificate:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
