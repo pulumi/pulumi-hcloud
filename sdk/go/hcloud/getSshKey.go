@@ -35,7 +35,7 @@ type LookupSshKeyResult struct {
 	// (string) Fingerprint of the SSH Key.
 	Fingerprint string `pulumi:"fingerprint"`
 	// (int) Unique ID of the SSH Key.
-	Id     *int                   `pulumi:"id"`
+	Id     int                    `pulumi:"id"`
 	Labels map[string]interface{} `pulumi:"labels"`
 	// (string) Name of the SSH Key.
 	Name string `pulumi:"name"`

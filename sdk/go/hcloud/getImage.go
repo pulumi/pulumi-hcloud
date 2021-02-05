@@ -41,7 +41,7 @@ type GetImageResult struct {
 	// (string) Description of the Image.
 	Description string `pulumi:"description"`
 	// (int) Unique ID of the Image.
-	Id         *int                   `pulumi:"id"`
+	Id         int                    `pulumi:"id"`
 	Labels     map[string]interface{} `pulumi:"labels"`
 	MostRecent *bool                  `pulumi:"mostRecent"`
 	// (string) Name of the Image, only present when the Image is of type `system`.

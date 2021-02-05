@@ -63,11 +63,11 @@ type Volume struct {
 	Labels pulumi.MapOutput `pulumi:"labels"`
 	// Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringOutput `pulumi:"linuxDevice"`
-	// Location of the volume to create, optional if serverId argument is passed.
+	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the volume to create (must be unique per project).
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Server to attach the Volume to, optional if location argument is passed.
+	// Server to attach the Volume to, not allowed if location argument is passed.
 	ServerId pulumi.IntOutput `pulumi:"serverId"`
 	// Size of the volume (in GB).
 	Size pulumi.IntOutput `pulumi:"size"`
@@ -113,11 +113,11 @@ type volumeState struct {
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Device path on the file system for the Volume.
 	LinuxDevice *string `pulumi:"linuxDevice"`
-	// Location of the volume to create, optional if serverId argument is passed.
+	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location *string `pulumi:"location"`
 	// Name of the volume to create (must be unique per project).
 	Name *string `pulumi:"name"`
-	// Server to attach the Volume to, optional if location argument is passed.
+	// Server to attach the Volume to, not allowed if location argument is passed.
 	ServerId *int `pulumi:"serverId"`
 	// Size of the volume (in GB).
 	Size *int `pulumi:"size"`
@@ -132,11 +132,11 @@ type VolumeState struct {
 	Labels pulumi.MapInput
 	// Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringPtrInput
-	// Location of the volume to create, optional if serverId argument is passed.
+	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location pulumi.StringPtrInput
 	// Name of the volume to create (must be unique per project).
 	Name pulumi.StringPtrInput
-	// Server to attach the Volume to, optional if location argument is passed.
+	// Server to attach the Volume to, not allowed if location argument is passed.
 	ServerId pulumi.IntPtrInput
 	// Size of the volume (in GB).
 	Size pulumi.IntPtrInput
@@ -153,11 +153,11 @@ type volumeArgs struct {
 	Format *string `pulumi:"format"`
 	// User-defined labels (key-value pairs).
 	Labels map[string]interface{} `pulumi:"labels"`
-	// Location of the volume to create, optional if serverId argument is passed.
+	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location *string `pulumi:"location"`
 	// Name of the volume to create (must be unique per project).
 	Name *string `pulumi:"name"`
-	// Server to attach the Volume to, optional if location argument is passed.
+	// Server to attach the Volume to, not allowed if location argument is passed.
 	ServerId *int `pulumi:"serverId"`
 	// Size of the volume (in GB).
 	Size int `pulumi:"size"`
@@ -171,11 +171,11 @@ type VolumeArgs struct {
 	Format pulumi.StringPtrInput
 	// User-defined labels (key-value pairs).
 	Labels pulumi.MapInput
-	// Location of the volume to create, optional if serverId argument is passed.
+	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location pulumi.StringPtrInput
 	// Name of the volume to create (must be unique per project).
 	Name pulumi.StringPtrInput
-	// Server to attach the Volume to, optional if location argument is passed.
+	// Server to attach the Volume to, not allowed if location argument is passed.
 	ServerId pulumi.IntPtrInput
 	// Size of the volume (in GB).
 	Size pulumi.IntInput

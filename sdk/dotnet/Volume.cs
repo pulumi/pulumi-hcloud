@@ -74,7 +74,7 @@ namespace Pulumi.HCloud
         public Output<string> LinuxDevice { get; private set; } = null!;
 
         /// <summary>
-        /// Location of the volume to create, optional if server_id argument is passed.
+        /// Location of the volume to create, not allowed if server_id argument is passed.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.HCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Server to attach the Volume to, optional if location argument is passed.
+        /// Server to attach the Volume to, not allowed if location argument is passed.
         /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Location of the volume to create, optional if server_id argument is passed.
+        /// Location of the volume to create, not allowed if server_id argument is passed.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Server to attach the Volume to, optional if location argument is passed.
+        /// Server to attach the Volume to, not allowed if location argument is passed.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.HCloud
         public Input<string>? LinuxDevice { get; set; }
 
         /// <summary>
-        /// Location of the volume to create, optional if server_id argument is passed.
+        /// Location of the volume to create, not allowed if server_id argument is passed.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Server to attach the Volume to, optional if location argument is passed.
+        /// Server to attach the Volume to, not allowed if location argument is passed.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }

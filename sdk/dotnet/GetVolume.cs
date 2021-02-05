@@ -69,7 +69,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Unique ID of the volume.
         /// </summary>
-        public readonly int? Id;
+        public readonly int Id;
         public readonly ImmutableDictionary<string, object> Labels;
         public readonly string LinuxDevice;
         public readonly string? Location;
@@ -88,7 +88,7 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetVolumeResult(
-            int? id,
+            int id,
 
             ImmutableDictionary<string, object> labels,
 

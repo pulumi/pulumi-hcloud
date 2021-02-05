@@ -38,7 +38,7 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> int:
         """
         Unique ID of the Network.
         """

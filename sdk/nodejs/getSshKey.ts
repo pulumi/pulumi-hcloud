@@ -60,7 +60,7 @@ export interface GetSshKeyResult {
     /**
      * (int) Unique ID of the SSH Key.
      */
-    readonly id?: number;
+    readonly id: number;
     readonly labels: {[key: string]: any};
     /**
      * (string) Name of the SSH Key.

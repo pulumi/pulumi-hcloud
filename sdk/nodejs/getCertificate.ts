@@ -65,7 +65,7 @@ export interface GetCertificateResult {
     /**
      * (int) Unique ID of the certificate.
      */
-    readonly id?: number;
+    readonly id: number;
     /**
      * (map) User-defined labels (key-value pairs) assigned to the certificate.
      */

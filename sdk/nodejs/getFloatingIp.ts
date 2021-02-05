@@ -94,7 +94,7 @@ export interface GetFloatingIpResult {
     /**
      * (int) Unique ID of the Floating IP.
      */
-    readonly id?: number;
+    readonly id: number;
     /**
      * (string) IP Address of the Floating IP.
      */

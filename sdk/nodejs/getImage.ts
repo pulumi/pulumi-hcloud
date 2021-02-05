@@ -73,7 +73,7 @@ export interface GetImageResult {
     /**
      * (int) Unique ID of the Image.
      */
-    readonly id?: number;
+    readonly id: number;
     readonly labels: {[key: string]: any};
     readonly mostRecent?: boolean;
     /**

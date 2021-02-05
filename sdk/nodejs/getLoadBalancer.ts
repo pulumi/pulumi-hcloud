@@ -70,7 +70,7 @@ export interface GetLoadBalancerResult {
     /**
      * (int) Unique ID of the Load Balancer.
      */
-    readonly id?: number;
+    readonly id: number;
     /**
      * (string) IPv4 Address of the Load Balancer.
      */

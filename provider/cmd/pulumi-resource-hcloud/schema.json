@@ -2236,7 +2236,7 @@
                 },
                 "location": {
                     "type": "string",
-                    "description": "Location of the volume to create, optional if server_id argument is passed.\n"
+                    "description": "Location of the volume to create, not allowed if server_id argument is passed.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2244,7 +2244,7 @@
                 },
                 "serverId": {
                     "type": "integer",
-                    "description": "Server to attach the Volume to, optional if location argument is passed.\n"
+                    "description": "Server to attach the Volume to, not allowed if location argument is passed.\n"
                 },
                 "size": {
                     "type": "integer",
@@ -2276,7 +2276,7 @@
                 },
                 "location": {
                     "type": "string",
-                    "description": "Location of the volume to create, optional if server_id argument is passed.\n"
+                    "description": "Location of the volume to create, not allowed if server_id argument is passed.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2284,7 +2284,7 @@
                 },
                 "serverId": {
                     "type": "integer",
-                    "description": "Server to attach the Volume to, optional if location argument is passed.\n"
+                    "description": "Server to attach the Volume to, not allowed if location argument is passed.\n"
                 },
                 "size": {
                     "type": "integer",
@@ -2318,7 +2318,7 @@
                     },
                     "location": {
                         "type": "string",
-                        "description": "Location of the volume to create, optional if server_id argument is passed.\n"
+                        "description": "Location of the volume to create, not allowed if server_id argument is passed.\n"
                     },
                     "name": {
                         "type": "string",
@@ -2326,7 +2326,7 @@
                     },
                     "serverId": {
                         "type": "integer",
-                        "description": "Server to attach the Volume to, optional if location argument is passed.\n"
+                        "description": "Server to attach the Volume to, not allowed if location argument is passed.\n"
                     },
                     "size": {
                         "type": "integer",
@@ -2471,6 +2471,7 @@
                     "created",
                     "domainNames",
                     "fingerprint",
+                    "id",
                     "labels",
                     "notValidAfter",
                     "notValidBefore"
@@ -2675,6 +2676,7 @@
                 "required": [
                     "description",
                     "homeLocation",
+                    "id",
                     "ipAddress",
                     "ipNetwork",
                     "labels",
@@ -2784,6 +2786,7 @@
                     "created",
                     "deprecated",
                     "description",
+                    "id",
                     "labels",
                     "name",
                     "osFlavor",
@@ -2878,6 +2881,7 @@
                 "type": "object",
                 "required": [
                     "algorithms",
+                    "id",
                     "ipv4",
                     "ipv6",
                     "labels",
@@ -3055,7 +3059,10 @@
                         "type": "string"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "required": [
+                    "id"
+                ]
             }
         },
         "hcloud:index/getServer:getServer": {
@@ -3365,6 +3372,7 @@
                 "type": "object",
                 "required": [
                     "fingerprint",
+                    "id",
                     "labels",
                     "name",
                     "publicKey"
@@ -3489,6 +3497,7 @@
                 },
                 "type": "object",
                 "required": [
+                    "id",
                     "labels",
                     "linuxDevice",
                     "name",

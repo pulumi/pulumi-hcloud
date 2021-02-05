@@ -62,7 +62,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Unique ID of the Network.
         /// </summary>
-        public readonly int? Id;
+        public readonly int Id;
         /// <summary>
         /// IPv4 prefix of the Network.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetNetworkResult(
-            int? id,
+            int id,
 
             string? ipRange,
 

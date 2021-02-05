@@ -35,7 +35,7 @@ type LookupVolumeArgs struct {
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
 	// Unique ID of the volume.
-	Id          *int                   `pulumi:"id"`
+	Id          int                    `pulumi:"id"`
 	Labels      map[string]interface{} `pulumi:"labels"`
 	LinuxDevice string                 `pulumi:"linuxDevice"`
 	Location    *string                `pulumi:"location"`
