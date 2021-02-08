@@ -61,7 +61,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Unique ID of the SSH Key.
         /// </summary>
-        public readonly int? Id;
+        public readonly int Id;
         public readonly ImmutableDictionary<string, object> Labels;
         /// <summary>
         /// (string) Name of the SSH Key.
@@ -78,7 +78,7 @@ namespace Pulumi.HCloud
         private GetSshKeyResult(
             string fingerprint,
 
-            int? id,
+            int id,
 
             ImmutableDictionary<string, object> labels,
 

@@ -56,9 +56,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
-        :param pulumi.Input[str] location: Location of the volume to create, optional if server_id argument is passed.
+        :param pulumi.Input[str] location: Location of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
-        :param pulumi.Input[int] server_id: Server to attach the Volume to, optional if location argument is passed.
+        :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         :param pulumi.Input[int] size: Size of the volume (in GB).
         """
         if __name__ is not None:
@@ -117,9 +117,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
         :param pulumi.Input[str] linux_device: Device path on the file system for the Volume.
-        :param pulumi.Input[str] location: Location of the volume to create, optional if server_id argument is passed.
+        :param pulumi.Input[str] location: Location of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
-        :param pulumi.Input[int] server_id: Server to attach the Volume to, optional if location argument is passed.
+        :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         :param pulumi.Input[int] size: Size of the volume (in GB).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -172,7 +172,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Location of the volume to create, optional if server_id argument is passed.
+        Location of the volume to create, not allowed if server_id argument is passed.
         """
         return pulumi.get(self, "location")
 
@@ -188,7 +188,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[int]:
         """
-        Server to attach the Volume to, optional if location argument is passed.
+        Server to attach the Volume to, not allowed if location argument is passed.
         """
         return pulumi.get(self, "server_id")
 

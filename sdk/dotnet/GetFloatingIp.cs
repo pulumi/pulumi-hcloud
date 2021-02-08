@@ -113,7 +113,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Unique ID of the Floating IP.
         /// </summary>
-        public readonly int? Id;
+        public readonly int Id;
         /// <summary>
         /// (string) IP Address of the Floating IP.
         /// </summary>
@@ -147,7 +147,7 @@ namespace Pulumi.HCloud
 
             string homeLocation,
 
-            int? id,
+            int id,
 
             string ipAddress,
 

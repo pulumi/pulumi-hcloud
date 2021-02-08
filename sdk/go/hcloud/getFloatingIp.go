@@ -87,7 +87,7 @@ type LookupFloatingIpResult struct {
 	// (string) Home location.
 	HomeLocation string `pulumi:"homeLocation"`
 	// (int) Unique ID of the Floating IP.
-	Id *int `pulumi:"id"`
+	Id int `pulumi:"id"`
 	// (string) IP Address of the Floating IP.
 	IpAddress string `pulumi:"ipAddress"`
 	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)

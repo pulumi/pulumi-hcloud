@@ -53,7 +53,7 @@ export interface GetNetworkResult {
     /**
      * Unique ID of the Network.
      */
-    readonly id?: number;
+    readonly id: number;
     /**
      * IPv4 prefix of the Network.
      */

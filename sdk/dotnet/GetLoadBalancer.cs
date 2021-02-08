@@ -86,7 +86,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Unique ID of the Load Balancer.
         /// </summary>
-        public readonly int? Id;
+        public readonly int Id;
         /// <summary>
         /// (string) IPv4 Address of the Load Balancer.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.HCloud
         private GetLoadBalancerResult(
             ImmutableArray<Outputs.GetLoadBalancerAlgorithmResult> algorithms,
 
-            int? id,
+            int id,
 
             string ipv4,
 

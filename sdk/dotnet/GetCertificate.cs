@@ -67,7 +67,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Unique ID of the certificate.
         /// </summary>
-        public readonly int? Id;
+        public readonly int Id;
         /// <summary>
         /// (map) User-defined labels (key-value pairs) assigned to the certificate.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.HCloud
 
             string fingerprint,
 
-            int? id,
+            int id,
 
             ImmutableDictionary<string, object> labels,
 

@@ -81,7 +81,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Unique ID of the Image.
         /// </summary>
-        public readonly int? Id;
+        public readonly int Id;
         public readonly ImmutableDictionary<string, object> Labels;
         public readonly bool? MostRecent;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.HCloud
 
             string description,
 
-            int? id,
+            int id,
 
             ImmutableDictionary<string, object> labels,
 

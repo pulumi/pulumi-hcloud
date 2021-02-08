@@ -38,7 +38,7 @@ type LookupCertificateResult struct {
 	// (string) Fingerprint of the certificate.
 	Fingerprint string `pulumi:"fingerprint"`
 	// (int) Unique ID of the certificate.
-	Id *int `pulumi:"id"`
+	Id int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs) assigned to the certificate.
 	Labels map[string]interface{} `pulumi:"labels"`
 	// (string) Name of the Certificate.

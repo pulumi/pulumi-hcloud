@@ -60,7 +60,7 @@ export interface GetVolumeResult {
     /**
      * Unique ID of the volume.
      */
-    readonly id?: number;
+    readonly id: number;
     readonly labels: {[key: string]: any};
     readonly linuxDevice: string;
     readonly location?: string;

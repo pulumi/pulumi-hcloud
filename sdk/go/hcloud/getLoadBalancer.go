@@ -71,7 +71,7 @@ type LookupLoadBalancerResult struct {
 	// (Optional) Configuration of the algorithm the Load Balancer use.
 	Algorithms []GetLoadBalancerAlgorithm `pulumi:"algorithms"`
 	// (int) Unique ID of the Load Balancer.
-	Id *int `pulumi:"id"`
+	Id int `pulumi:"id"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 string `pulumi:"ipv4"`
 	// (string) IPv4 Address of the Load Balancer.

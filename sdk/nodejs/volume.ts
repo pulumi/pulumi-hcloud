@@ -77,7 +77,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly linuxDevice!: pulumi.Output<string>;
     /**
-     * Location of the volume to create, optional if serverId argument is passed.
+     * Location of the volume to create, not allowed if serverId argument is passed.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -85,7 +85,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Server to attach the Volume to, optional if location argument is passed.
+     * Server to attach the Volume to, not allowed if location argument is passed.
      */
     public readonly serverId!: pulumi.Output<number>;
     /**
@@ -159,7 +159,7 @@ export interface VolumeState {
      */
     readonly linuxDevice?: pulumi.Input<string>;
     /**
-     * Location of the volume to create, optional if serverId argument is passed.
+     * Location of the volume to create, not allowed if serverId argument is passed.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface VolumeState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Server to attach the Volume to, optional if location argument is passed.
+     * Server to attach the Volume to, not allowed if location argument is passed.
      */
     readonly serverId?: pulumi.Input<number>;
     /**
@@ -193,7 +193,7 @@ export interface VolumeArgs {
      */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Location of the volume to create, optional if serverId argument is passed.
+     * Location of the volume to create, not allowed if serverId argument is passed.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -201,7 +201,7 @@ export interface VolumeArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Server to attach the Volume to, optional if location argument is passed.
+     * Server to attach the Volume to, not allowed if location argument is passed.
      */
     readonly serverId?: pulumi.Input<number>;
     /**

@@ -68,7 +68,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> int:
         """
         (int) Unique ID of the Load Balancer.
         """
