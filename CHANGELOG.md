@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.24.1 of the Hetzner Cloud Terraform Provider
+_(none)_
 
 ---
+
+## 0.6.1 (2021-02-08)
+* Upgrade to v1.24.1 of the Hetzner Cloud Terraform Provider
 
 ## 0.6.0 (2021-02-01)
 * Upgrade to pulumi-terraform-bridge v2.18.1
