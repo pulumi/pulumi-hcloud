@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -199,6 +199,85 @@ func (i *FloatingIp) ToFloatingIpOutputWithContext(ctx context.Context) Floating
 	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpOutput)
 }
 
+func (i *FloatingIp) ToFloatingIpPtrOutput() FloatingIpPtrOutput {
+	return i.ToFloatingIpPtrOutputWithContext(context.Background())
+}
+
+func (i *FloatingIp) ToFloatingIpPtrOutputWithContext(ctx context.Context) FloatingIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpPtrOutput)
+}
+
+type FloatingIpPtrInput interface {
+	pulumi.Input
+
+	ToFloatingIpPtrOutput() FloatingIpPtrOutput
+	ToFloatingIpPtrOutputWithContext(ctx context.Context) FloatingIpPtrOutput
+}
+
+type floatingIpPtrType FloatingIpArgs
+
+func (*floatingIpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FloatingIp)(nil))
+}
+
+func (i *floatingIpPtrType) ToFloatingIpPtrOutput() FloatingIpPtrOutput {
+	return i.ToFloatingIpPtrOutputWithContext(context.Background())
+}
+
+func (i *floatingIpPtrType) ToFloatingIpPtrOutputWithContext(ctx context.Context) FloatingIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpPtrOutput)
+}
+
+// FloatingIpArrayInput is an input type that accepts FloatingIpArray and FloatingIpArrayOutput values.
+// You can construct a concrete instance of `FloatingIpArrayInput` via:
+//
+//          FloatingIpArray{ FloatingIpArgs{...} }
+type FloatingIpArrayInput interface {
+	pulumi.Input
+
+	ToFloatingIpArrayOutput() FloatingIpArrayOutput
+	ToFloatingIpArrayOutputWithContext(context.Context) FloatingIpArrayOutput
+}
+
+type FloatingIpArray []FloatingIpInput
+
+func (FloatingIpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*FloatingIp)(nil))
+}
+
+func (i FloatingIpArray) ToFloatingIpArrayOutput() FloatingIpArrayOutput {
+	return i.ToFloatingIpArrayOutputWithContext(context.Background())
+}
+
+func (i FloatingIpArray) ToFloatingIpArrayOutputWithContext(ctx context.Context) FloatingIpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpArrayOutput)
+}
+
+// FloatingIpMapInput is an input type that accepts FloatingIpMap and FloatingIpMapOutput values.
+// You can construct a concrete instance of `FloatingIpMapInput` via:
+//
+//          FloatingIpMap{ "key": FloatingIpArgs{...} }
+type FloatingIpMapInput interface {
+	pulumi.Input
+
+	ToFloatingIpMapOutput() FloatingIpMapOutput
+	ToFloatingIpMapOutputWithContext(context.Context) FloatingIpMapOutput
+}
+
+type FloatingIpMap map[string]FloatingIpInput
+
+func (FloatingIpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*FloatingIp)(nil))
+}
+
+func (i FloatingIpMap) ToFloatingIpMapOutput() FloatingIpMapOutput {
+	return i.ToFloatingIpMapOutputWithContext(context.Background())
+}
+
+func (i FloatingIpMap) ToFloatingIpMapOutputWithContext(ctx context.Context) FloatingIpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpMapOutput)
+}
+
 type FloatingIpOutput struct {
 	*pulumi.OutputState
 }
@@ -215,6 +294,75 @@ func (o FloatingIpOutput) ToFloatingIpOutputWithContext(ctx context.Context) Flo
 	return o
 }
 
+func (o FloatingIpOutput) ToFloatingIpPtrOutput() FloatingIpPtrOutput {
+	return o.ToFloatingIpPtrOutputWithContext(context.Background())
+}
+
+func (o FloatingIpOutput) ToFloatingIpPtrOutputWithContext(ctx context.Context) FloatingIpPtrOutput {
+	return o.ApplyT(func(v FloatingIp) *FloatingIp {
+		return &v
+	}).(FloatingIpPtrOutput)
+}
+
+type FloatingIpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FloatingIpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FloatingIp)(nil))
+}
+
+func (o FloatingIpPtrOutput) ToFloatingIpPtrOutput() FloatingIpPtrOutput {
+	return o
+}
+
+func (o FloatingIpPtrOutput) ToFloatingIpPtrOutputWithContext(ctx context.Context) FloatingIpPtrOutput {
+	return o
+}
+
+type FloatingIpArrayOutput struct{ *pulumi.OutputState }
+
+func (FloatingIpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FloatingIp)(nil))
+}
+
+func (o FloatingIpArrayOutput) ToFloatingIpArrayOutput() FloatingIpArrayOutput {
+	return o
+}
+
+func (o FloatingIpArrayOutput) ToFloatingIpArrayOutputWithContext(ctx context.Context) FloatingIpArrayOutput {
+	return o
+}
+
+func (o FloatingIpArrayOutput) Index(i pulumi.IntInput) FloatingIpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FloatingIp {
+		return vs[0].([]FloatingIp)[vs[1].(int)]
+	}).(FloatingIpOutput)
+}
+
+type FloatingIpMapOutput struct{ *pulumi.OutputState }
+
+func (FloatingIpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FloatingIp)(nil))
+}
+
+func (o FloatingIpMapOutput) ToFloatingIpMapOutput() FloatingIpMapOutput {
+	return o
+}
+
+func (o FloatingIpMapOutput) ToFloatingIpMapOutputWithContext(ctx context.Context) FloatingIpMapOutput {
+	return o
+}
+
+func (o FloatingIpMapOutput) MapIndex(k pulumi.StringInput) FloatingIpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FloatingIp {
+		return vs[0].(map[string]FloatingIp)[vs[1].(string)]
+	}).(FloatingIpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FloatingIpOutput{})
+	pulumi.RegisterOutputType(FloatingIpPtrOutput{})
+	pulumi.RegisterOutputType(FloatingIpArrayOutput{})
+	pulumi.RegisterOutputType(FloatingIpMapOutput{})
 }

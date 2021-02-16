@@ -112,7 +112,8 @@ export class Rdns extends pulumi.CustomResource {
     constructor(name: string, args: RdnsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RdnsArgs | RdnsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RdnsState | undefined;
             inputs["dnsPtr"] = state ? state.dnsPtr : undefined;
             inputs["floatingIpId"] = state ? state.floatingIpId : undefined;
@@ -120,10 +121,10 @@ export class Rdns extends pulumi.CustomResource {
             inputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as RdnsArgs | undefined;
-            if ((!args || args.dnsPtr === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dnsPtr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dnsPtr'");
             }
-            if ((!args || args.ipAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ipAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipAddress'");
             }
             inputs["dnsPtr"] = args ? args.dnsPtr : undefined;
@@ -131,12 +132,8 @@ export class Rdns extends pulumi.CustomResource {
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Rdns.__pulumiType, name, inputs, opts);
     }

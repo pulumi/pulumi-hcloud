@@ -99,7 +99,8 @@ export class LoadBalancerService extends pulumi.CustomResource {
     constructor(name: string, args: LoadBalancerServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerServiceArgs | LoadBalancerServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoadBalancerServiceState | undefined;
             inputs["destinationPort"] = state ? state.destinationPort : undefined;
             inputs["healthCheck"] = state ? state.healthCheck : undefined;
@@ -110,10 +111,10 @@ export class LoadBalancerService extends pulumi.CustomResource {
             inputs["proxyprotocol"] = state ? state.proxyprotocol : undefined;
         } else {
             const args = argsOrState as LoadBalancerServiceArgs | undefined;
-            if ((!args || args.loadBalancerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
-            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
             inputs["destinationPort"] = args ? args.destinationPort : undefined;
@@ -124,12 +125,8 @@ export class LoadBalancerService extends pulumi.CustomResource {
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["proxyprotocol"] = args ? args.proxyprotocol : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoadBalancerService.__pulumiType, name, inputs, opts);
     }

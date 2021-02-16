@@ -83,27 +83,24 @@ export class FloatingIpAssignment extends pulumi.CustomResource {
     constructor(name: string, args: FloatingIpAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FloatingIpAssignmentArgs | FloatingIpAssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FloatingIpAssignmentState | undefined;
             inputs["floatingIpId"] = state ? state.floatingIpId : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as FloatingIpAssignmentArgs | undefined;
-            if ((!args || args.floatingIpId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.floatingIpId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'floatingIpId'");
             }
-            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
             inputs["floatingIpId"] = args ? args.floatingIpId : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FloatingIpAssignment.__pulumiType, name, inputs, opts);
     }

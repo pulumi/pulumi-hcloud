@@ -112,7 +112,8 @@ export class ServerNetwork extends pulumi.CustomResource {
     constructor(name: string, args: ServerNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerNetworkArgs | ServerNetworkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerNetworkState | undefined;
             inputs["aliasIps"] = state ? state.aliasIps : undefined;
             inputs["ip"] = state ? state.ip : undefined;
@@ -122,7 +123,7 @@ export class ServerNetwork extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as ServerNetworkArgs | undefined;
-            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
             inputs["aliasIps"] = args ? args.aliasIps : undefined;
@@ -132,12 +133,8 @@ export class ServerNetwork extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["macAddress"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServerNetwork.__pulumiType, name, inputs, opts);
     }

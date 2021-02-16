@@ -80,32 +80,29 @@ export class NetworkRoute extends pulumi.CustomResource {
     constructor(name: string, args: NetworkRouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkRouteArgs | NetworkRouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkRouteState | undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["gateway"] = state ? state.gateway : undefined;
             inputs["networkId"] = state ? state.networkId : undefined;
         } else {
             const args = argsOrState as NetworkRouteArgs | undefined;
-            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.gateway === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gateway === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gateway'");
             }
-            if ((!args || args.networkId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkId'");
             }
             inputs["destination"] = args ? args.destination : undefined;
             inputs["gateway"] = args ? args.gateway : undefined;
             inputs["networkId"] = args ? args.networkId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkRoute.__pulumiType, name, inputs, opts);
     }

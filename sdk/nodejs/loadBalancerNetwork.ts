@@ -111,7 +111,8 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
     constructor(name: string, args: LoadBalancerNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerNetworkArgs | LoadBalancerNetworkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoadBalancerNetworkState | undefined;
             inputs["enablePublicInterface"] = state ? state.enablePublicInterface : undefined;
             inputs["ip"] = state ? state.ip : undefined;
@@ -120,7 +121,7 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as LoadBalancerNetworkArgs | undefined;
-            if ((!args || args.loadBalancerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
             inputs["enablePublicInterface"] = args ? args.enablePublicInterface : undefined;
@@ -129,12 +130,8 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
             inputs["networkId"] = args ? args.networkId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoadBalancerNetwork.__pulumiType, name, inputs, opts);
     }

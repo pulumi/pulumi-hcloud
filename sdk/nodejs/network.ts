@@ -77,26 +77,23 @@ export class Network extends pulumi.CustomResource {
     constructor(name: string, args: NetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkArgs | NetworkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkState | undefined;
             inputs["ipRange"] = state ? state.ipRange : undefined;
             inputs["labels"] = state ? state.labels : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as NetworkArgs | undefined;
-            if ((!args || args.ipRange === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ipRange === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipRange'");
             }
             inputs["ipRange"] = args ? args.ipRange : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Network.__pulumiType, name, inputs, opts);
     }

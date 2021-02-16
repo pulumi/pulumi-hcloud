@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -258,6 +258,85 @@ func (i *LoadBalancerNetwork) ToLoadBalancerNetworkOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkOutput)
 }
 
+func (i *LoadBalancerNetwork) ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput {
+	return i.ToLoadBalancerNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *LoadBalancerNetwork) ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkPtrOutput)
+}
+
+type LoadBalancerNetworkPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput
+	ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput
+}
+
+type loadBalancerNetworkPtrType LoadBalancerNetworkArgs
+
+func (*loadBalancerNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerNetwork)(nil))
+}
+
+func (i *loadBalancerNetworkPtrType) ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput {
+	return i.ToLoadBalancerNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerNetworkPtrType) ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkPtrOutput)
+}
+
+// LoadBalancerNetworkArrayInput is an input type that accepts LoadBalancerNetworkArray and LoadBalancerNetworkArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerNetworkArrayInput` via:
+//
+//          LoadBalancerNetworkArray{ LoadBalancerNetworkArgs{...} }
+type LoadBalancerNetworkArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerNetworkArrayOutput() LoadBalancerNetworkArrayOutput
+	ToLoadBalancerNetworkArrayOutputWithContext(context.Context) LoadBalancerNetworkArrayOutput
+}
+
+type LoadBalancerNetworkArray []LoadBalancerNetworkInput
+
+func (LoadBalancerNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LoadBalancerNetwork)(nil))
+}
+
+func (i LoadBalancerNetworkArray) ToLoadBalancerNetworkArrayOutput() LoadBalancerNetworkArrayOutput {
+	return i.ToLoadBalancerNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerNetworkArray) ToLoadBalancerNetworkArrayOutputWithContext(ctx context.Context) LoadBalancerNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkArrayOutput)
+}
+
+// LoadBalancerNetworkMapInput is an input type that accepts LoadBalancerNetworkMap and LoadBalancerNetworkMapOutput values.
+// You can construct a concrete instance of `LoadBalancerNetworkMapInput` via:
+//
+//          LoadBalancerNetworkMap{ "key": LoadBalancerNetworkArgs{...} }
+type LoadBalancerNetworkMapInput interface {
+	pulumi.Input
+
+	ToLoadBalancerNetworkMapOutput() LoadBalancerNetworkMapOutput
+	ToLoadBalancerNetworkMapOutputWithContext(context.Context) LoadBalancerNetworkMapOutput
+}
+
+type LoadBalancerNetworkMap map[string]LoadBalancerNetworkInput
+
+func (LoadBalancerNetworkMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LoadBalancerNetwork)(nil))
+}
+
+func (i LoadBalancerNetworkMap) ToLoadBalancerNetworkMapOutput() LoadBalancerNetworkMapOutput {
+	return i.ToLoadBalancerNetworkMapOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerNetworkMap) ToLoadBalancerNetworkMapOutputWithContext(ctx context.Context) LoadBalancerNetworkMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkMapOutput)
+}
+
 type LoadBalancerNetworkOutput struct {
 	*pulumi.OutputState
 }
@@ -274,6 +353,75 @@ func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkOutputWithContext(ctx co
 	return o
 }
 
+func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput {
+	return o.ToLoadBalancerNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput {
+	return o.ApplyT(func(v LoadBalancerNetwork) *LoadBalancerNetwork {
+		return &v
+	}).(LoadBalancerNetworkPtrOutput)
+}
+
+type LoadBalancerNetworkPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerNetwork)(nil))
+}
+
+func (o LoadBalancerNetworkPtrOutput) ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput {
+	return o
+}
+
+func (o LoadBalancerNetworkPtrOutput) ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput {
+	return o
+}
+
+type LoadBalancerNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerNetwork)(nil))
+}
+
+func (o LoadBalancerNetworkArrayOutput) ToLoadBalancerNetworkArrayOutput() LoadBalancerNetworkArrayOutput {
+	return o
+}
+
+func (o LoadBalancerNetworkArrayOutput) ToLoadBalancerNetworkArrayOutputWithContext(ctx context.Context) LoadBalancerNetworkArrayOutput {
+	return o
+}
+
+func (o LoadBalancerNetworkArrayOutput) Index(i pulumi.IntInput) LoadBalancerNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerNetwork {
+		return vs[0].([]LoadBalancerNetwork)[vs[1].(int)]
+	}).(LoadBalancerNetworkOutput)
+}
+
+type LoadBalancerNetworkMapOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerNetworkMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LoadBalancerNetwork)(nil))
+}
+
+func (o LoadBalancerNetworkMapOutput) ToLoadBalancerNetworkMapOutput() LoadBalancerNetworkMapOutput {
+	return o
+}
+
+func (o LoadBalancerNetworkMapOutput) ToLoadBalancerNetworkMapOutputWithContext(ctx context.Context) LoadBalancerNetworkMapOutput {
+	return o
+}
+
+func (o LoadBalancerNetworkMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerNetworkOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LoadBalancerNetwork {
+		return vs[0].(map[string]LoadBalancerNetwork)[vs[1].(string)]
+	}).(LoadBalancerNetworkOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LoadBalancerNetworkOutput{})
+	pulumi.RegisterOutputType(LoadBalancerNetworkPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerNetworkArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerNetworkMapOutput{})
 }
