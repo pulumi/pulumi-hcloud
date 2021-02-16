@@ -124,7 +124,8 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerState | undefined;
             inputs["backupWindow"] = state ? state.backupWindow : undefined;
             inputs["backups"] = state ? state.backups : undefined;
@@ -146,10 +147,10 @@ export class Server extends pulumi.CustomResource {
             inputs["userData"] = state ? state.userData : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.image === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.image === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.serverType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverType'");
             }
             inputs["backups"] = args ? args.backups : undefined;
@@ -171,12 +172,8 @@ export class Server extends pulumi.CustomResource {
             inputs["ipv6Network"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Server.__pulumiType, name, inputs, opts);
     }

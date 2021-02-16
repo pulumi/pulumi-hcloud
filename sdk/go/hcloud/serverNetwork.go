@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -261,6 +261,85 @@ func (i *ServerNetwork) ToServerNetworkOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkOutput)
 }
 
+func (i *ServerNetwork) ToServerNetworkPtrOutput() ServerNetworkPtrOutput {
+	return i.ToServerNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *ServerNetwork) ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkPtrOutput)
+}
+
+type ServerNetworkPtrInput interface {
+	pulumi.Input
+
+	ToServerNetworkPtrOutput() ServerNetworkPtrOutput
+	ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput
+}
+
+type serverNetworkPtrType ServerNetworkArgs
+
+func (*serverNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerNetwork)(nil))
+}
+
+func (i *serverNetworkPtrType) ToServerNetworkPtrOutput() ServerNetworkPtrOutput {
+	return i.ToServerNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *serverNetworkPtrType) ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkPtrOutput)
+}
+
+// ServerNetworkArrayInput is an input type that accepts ServerNetworkArray and ServerNetworkArrayOutput values.
+// You can construct a concrete instance of `ServerNetworkArrayInput` via:
+//
+//          ServerNetworkArray{ ServerNetworkArgs{...} }
+type ServerNetworkArrayInput interface {
+	pulumi.Input
+
+	ToServerNetworkArrayOutput() ServerNetworkArrayOutput
+	ToServerNetworkArrayOutputWithContext(context.Context) ServerNetworkArrayOutput
+}
+
+type ServerNetworkArray []ServerNetworkInput
+
+func (ServerNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServerNetwork)(nil))
+}
+
+func (i ServerNetworkArray) ToServerNetworkArrayOutput() ServerNetworkArrayOutput {
+	return i.ToServerNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i ServerNetworkArray) ToServerNetworkArrayOutputWithContext(ctx context.Context) ServerNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkArrayOutput)
+}
+
+// ServerNetworkMapInput is an input type that accepts ServerNetworkMap and ServerNetworkMapOutput values.
+// You can construct a concrete instance of `ServerNetworkMapInput` via:
+//
+//          ServerNetworkMap{ "key": ServerNetworkArgs{...} }
+type ServerNetworkMapInput interface {
+	pulumi.Input
+
+	ToServerNetworkMapOutput() ServerNetworkMapOutput
+	ToServerNetworkMapOutputWithContext(context.Context) ServerNetworkMapOutput
+}
+
+type ServerNetworkMap map[string]ServerNetworkInput
+
+func (ServerNetworkMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServerNetwork)(nil))
+}
+
+func (i ServerNetworkMap) ToServerNetworkMapOutput() ServerNetworkMapOutput {
+	return i.ToServerNetworkMapOutputWithContext(context.Background())
+}
+
+func (i ServerNetworkMap) ToServerNetworkMapOutputWithContext(ctx context.Context) ServerNetworkMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkMapOutput)
+}
+
 type ServerNetworkOutput struct {
 	*pulumi.OutputState
 }
@@ -277,6 +356,75 @@ func (o ServerNetworkOutput) ToServerNetworkOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ServerNetworkOutput) ToServerNetworkPtrOutput() ServerNetworkPtrOutput {
+	return o.ToServerNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o ServerNetworkOutput) ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput {
+	return o.ApplyT(func(v ServerNetwork) *ServerNetwork {
+		return &v
+	}).(ServerNetworkPtrOutput)
+}
+
+type ServerNetworkPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerNetwork)(nil))
+}
+
+func (o ServerNetworkPtrOutput) ToServerNetworkPtrOutput() ServerNetworkPtrOutput {
+	return o
+}
+
+func (o ServerNetworkPtrOutput) ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput {
+	return o
+}
+
+type ServerNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerNetwork)(nil))
+}
+
+func (o ServerNetworkArrayOutput) ToServerNetworkArrayOutput() ServerNetworkArrayOutput {
+	return o
+}
+
+func (o ServerNetworkArrayOutput) ToServerNetworkArrayOutputWithContext(ctx context.Context) ServerNetworkArrayOutput {
+	return o
+}
+
+func (o ServerNetworkArrayOutput) Index(i pulumi.IntInput) ServerNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerNetwork {
+		return vs[0].([]ServerNetwork)[vs[1].(int)]
+	}).(ServerNetworkOutput)
+}
+
+type ServerNetworkMapOutput struct{ *pulumi.OutputState }
+
+func (ServerNetworkMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServerNetwork)(nil))
+}
+
+func (o ServerNetworkMapOutput) ToServerNetworkMapOutput() ServerNetworkMapOutput {
+	return o
+}
+
+func (o ServerNetworkMapOutput) ToServerNetworkMapOutputWithContext(ctx context.Context) ServerNetworkMapOutput {
+	return o
+}
+
+func (o ServerNetworkMapOutput) MapIndex(k pulumi.StringInput) ServerNetworkOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerNetwork {
+		return vs[0].(map[string]ServerNetwork)[vs[1].(string)]
+	}).(ServerNetworkOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerNetworkOutput{})
+	pulumi.RegisterOutputType(ServerNetworkPtrOutput{})
+	pulumi.RegisterOutputType(ServerNetworkArrayOutput{})
+	pulumi.RegisterOutputType(ServerNetworkMapOutput{})
 }

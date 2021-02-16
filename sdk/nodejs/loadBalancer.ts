@@ -113,7 +113,8 @@ export class LoadBalancer extends pulumi.CustomResource {
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
             inputs["algorithm"] = state ? state.algorithm : undefined;
             inputs["ipv4"] = state ? state.ipv4 : undefined;
@@ -128,7 +129,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            if ((!args || args.loadBalancerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
             inputs["algorithm"] = args ? args.algorithm : undefined;
@@ -143,12 +144,8 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["networkId"] = undefined /*out*/;
             inputs["networkIp"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }

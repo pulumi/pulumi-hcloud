@@ -90,7 +90,8 @@ export class NetworkSubnet extends pulumi.CustomResource {
     constructor(name: string, args: NetworkSubnetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkSubnetArgs | NetworkSubnetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkSubnetState | undefined;
             inputs["gateway"] = state ? state.gateway : undefined;
             inputs["ipRange"] = state ? state.ipRange : undefined;
@@ -100,16 +101,16 @@ export class NetworkSubnet extends pulumi.CustomResource {
             inputs["vswitchId"] = state ? state.vswitchId : undefined;
         } else {
             const args = argsOrState as NetworkSubnetArgs | undefined;
-            if ((!args || args.ipRange === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ipRange === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipRange'");
             }
-            if ((!args || args.networkId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkId'");
             }
-            if ((!args || args.networkZone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkZone'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["ipRange"] = args ? args.ipRange : undefined;
@@ -119,12 +120,8 @@ export class NetworkSubnet extends pulumi.CustomResource {
             inputs["vswitchId"] = args ? args.vswitchId : undefined;
             inputs["gateway"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkSubnet.__pulumiType, name, inputs, opts);
     }

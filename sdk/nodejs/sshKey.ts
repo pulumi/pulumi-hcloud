@@ -81,7 +81,8 @@ export class SshKey extends pulumi.CustomResource {
     constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SshKeyState | undefined;
             inputs["fingerprint"] = state ? state.fingerprint : undefined;
             inputs["labels"] = state ? state.labels : undefined;
@@ -89,7 +90,7 @@ export class SshKey extends pulumi.CustomResource {
             inputs["publicKey"] = state ? state.publicKey : undefined;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
-            if ((!args || args.publicKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publicKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
             inputs["labels"] = args ? args.labels : undefined;
@@ -97,12 +98,8 @@ export class SshKey extends pulumi.CustomResource {
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["fingerprint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SshKey.__pulumiType, name, inputs, opts);
     }

@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/"
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -200,6 +200,85 @@ func (i *LoadBalancerService) ToLoadBalancerServiceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceOutput)
 }
 
+func (i *LoadBalancerService) ToLoadBalancerServicePtrOutput() LoadBalancerServicePtrOutput {
+	return i.ToLoadBalancerServicePtrOutputWithContext(context.Background())
+}
+
+func (i *LoadBalancerService) ToLoadBalancerServicePtrOutputWithContext(ctx context.Context) LoadBalancerServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServicePtrOutput)
+}
+
+type LoadBalancerServicePtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServicePtrOutput() LoadBalancerServicePtrOutput
+	ToLoadBalancerServicePtrOutputWithContext(ctx context.Context) LoadBalancerServicePtrOutput
+}
+
+type loadBalancerServicePtrType LoadBalancerServiceArgs
+
+func (*loadBalancerServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerService)(nil))
+}
+
+func (i *loadBalancerServicePtrType) ToLoadBalancerServicePtrOutput() LoadBalancerServicePtrOutput {
+	return i.ToLoadBalancerServicePtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerServicePtrType) ToLoadBalancerServicePtrOutputWithContext(ctx context.Context) LoadBalancerServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServicePtrOutput)
+}
+
+// LoadBalancerServiceArrayInput is an input type that accepts LoadBalancerServiceArray and LoadBalancerServiceArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerServiceArrayInput` via:
+//
+//          LoadBalancerServiceArray{ LoadBalancerServiceArgs{...} }
+type LoadBalancerServiceArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceArrayOutput() LoadBalancerServiceArrayOutput
+	ToLoadBalancerServiceArrayOutputWithContext(context.Context) LoadBalancerServiceArrayOutput
+}
+
+type LoadBalancerServiceArray []LoadBalancerServiceInput
+
+func (LoadBalancerServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LoadBalancerService)(nil))
+}
+
+func (i LoadBalancerServiceArray) ToLoadBalancerServiceArrayOutput() LoadBalancerServiceArrayOutput {
+	return i.ToLoadBalancerServiceArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerServiceArray) ToLoadBalancerServiceArrayOutputWithContext(ctx context.Context) LoadBalancerServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceArrayOutput)
+}
+
+// LoadBalancerServiceMapInput is an input type that accepts LoadBalancerServiceMap and LoadBalancerServiceMapOutput values.
+// You can construct a concrete instance of `LoadBalancerServiceMapInput` via:
+//
+//          LoadBalancerServiceMap{ "key": LoadBalancerServiceArgs{...} }
+type LoadBalancerServiceMapInput interface {
+	pulumi.Input
+
+	ToLoadBalancerServiceMapOutput() LoadBalancerServiceMapOutput
+	ToLoadBalancerServiceMapOutputWithContext(context.Context) LoadBalancerServiceMapOutput
+}
+
+type LoadBalancerServiceMap map[string]LoadBalancerServiceInput
+
+func (LoadBalancerServiceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LoadBalancerService)(nil))
+}
+
+func (i LoadBalancerServiceMap) ToLoadBalancerServiceMapOutput() LoadBalancerServiceMapOutput {
+	return i.ToLoadBalancerServiceMapOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerServiceMap) ToLoadBalancerServiceMapOutputWithContext(ctx context.Context) LoadBalancerServiceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceMapOutput)
+}
+
 type LoadBalancerServiceOutput struct {
 	*pulumi.OutputState
 }
@@ -216,6 +295,75 @@ func (o LoadBalancerServiceOutput) ToLoadBalancerServiceOutputWithContext(ctx co
 	return o
 }
 
+func (o LoadBalancerServiceOutput) ToLoadBalancerServicePtrOutput() LoadBalancerServicePtrOutput {
+	return o.ToLoadBalancerServicePtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerServiceOutput) ToLoadBalancerServicePtrOutputWithContext(ctx context.Context) LoadBalancerServicePtrOutput {
+	return o.ApplyT(func(v LoadBalancerService) *LoadBalancerService {
+		return &v
+	}).(LoadBalancerServicePtrOutput)
+}
+
+type LoadBalancerServicePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerService)(nil))
+}
+
+func (o LoadBalancerServicePtrOutput) ToLoadBalancerServicePtrOutput() LoadBalancerServicePtrOutput {
+	return o
+}
+
+func (o LoadBalancerServicePtrOutput) ToLoadBalancerServicePtrOutputWithContext(ctx context.Context) LoadBalancerServicePtrOutput {
+	return o
+}
+
+type LoadBalancerServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerService)(nil))
+}
+
+func (o LoadBalancerServiceArrayOutput) ToLoadBalancerServiceArrayOutput() LoadBalancerServiceArrayOutput {
+	return o
+}
+
+func (o LoadBalancerServiceArrayOutput) ToLoadBalancerServiceArrayOutputWithContext(ctx context.Context) LoadBalancerServiceArrayOutput {
+	return o
+}
+
+func (o LoadBalancerServiceArrayOutput) Index(i pulumi.IntInput) LoadBalancerServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerService {
+		return vs[0].([]LoadBalancerService)[vs[1].(int)]
+	}).(LoadBalancerServiceOutput)
+}
+
+type LoadBalancerServiceMapOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerServiceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LoadBalancerService)(nil))
+}
+
+func (o LoadBalancerServiceMapOutput) ToLoadBalancerServiceMapOutput() LoadBalancerServiceMapOutput {
+	return o
+}
+
+func (o LoadBalancerServiceMapOutput) ToLoadBalancerServiceMapOutputWithContext(ctx context.Context) LoadBalancerServiceMapOutput {
+	return o
+}
+
+func (o LoadBalancerServiceMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerServiceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LoadBalancerService {
+		return vs[0].(map[string]LoadBalancerService)[vs[1].(string)]
+	}).(LoadBalancerServiceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LoadBalancerServiceOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServicePtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServiceArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerServiceMapOutput{})
 }

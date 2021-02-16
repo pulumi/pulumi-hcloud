@@ -102,7 +102,8 @@ export class FloatingIp extends pulumi.CustomResource {
     constructor(name: string, args: FloatingIpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FloatingIpArgs | FloatingIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FloatingIpState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["homeLocation"] = state ? state.homeLocation : undefined;
@@ -114,7 +115,7 @@ export class FloatingIp extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as FloatingIpArgs | undefined;
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -126,12 +127,8 @@ export class FloatingIp extends pulumi.CustomResource {
             inputs["ipAddress"] = undefined /*out*/;
             inputs["ipNetwork"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FloatingIp.__pulumiType, name, inputs, opts);
     }

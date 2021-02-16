@@ -98,7 +98,8 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
     constructor(name: string, args: LoadBalancerTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerTargetArgs | LoadBalancerTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoadBalancerTargetState | undefined;
             inputs["ip"] = state ? state.ip : undefined;
             inputs["labelSelector"] = state ? state.labelSelector : undefined;
@@ -108,10 +109,10 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
             inputs["usePrivateIp"] = state ? state.usePrivateIp : undefined;
         } else {
             const args = argsOrState as LoadBalancerTargetArgs | undefined;
-            if ((!args || args.loadBalancerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["ip"] = args ? args.ip : undefined;
@@ -121,12 +122,8 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["usePrivateIp"] = args ? args.usePrivateIp : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoadBalancerTarget.__pulumiType, name, inputs, opts);
     }
