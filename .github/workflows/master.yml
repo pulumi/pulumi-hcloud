@@ -30,7 +30,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.15.x
+        go-version: 1.16.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.1.0
       with:
@@ -86,7 +86,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.15.x
+        - 1.16.x
         language:
         - nodejs
         - python
@@ -113,7 +113,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.15.x
+        go-version: 1.16.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.1.0
       with:
@@ -149,7 +149,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.15.x
+        go-version: 1.16.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.1.0
       with:
@@ -183,7 +183,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.15.x
+        go-version: 1.16.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.1.0
       with:
@@ -237,7 +237,7 @@ jobs:
     - name: Setup Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.15.x
+        go-version: 1.16.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.1.0
       with:
@@ -269,7 +269,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.15.x
+        go-version: 1.16.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.1.0
       with:
@@ -338,7 +338,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.15.x
+        go-version: 1.16.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.1.0
       with:
@@ -401,7 +401,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.15.x
+        - 1.16.x
         language:
         - nodejs
         - python
