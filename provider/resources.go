@@ -100,6 +100,8 @@ func Provider() tfbridge.ProviderInfo {
 			"hcloud_load_balancer_network":  {Tok: makeResource(mainMod, "LoadBalancerNetwork")},
 			"hcloud_load_balancer_service":  {Tok: makeResource(mainMod, "LoadBalancerService")},
 			"hcloud_load_balancer_target":   {Tok: makeResource(mainMod, "LoadBalancerTarget")},
+			"hcloud_snapshot":               {Tok: makeResource(mainMod, "Snapshot")},
+			"hcloud_firewall":               {Tok: makeResource(mainMod, "Firewall")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"hcloud_certificate":   {Tok: makeDataSource(mainMod, "getCertificate")},
@@ -117,6 +119,7 @@ func Provider() tfbridge.ProviderInfo {
 			"hcloud_load_balancer": {Tok: makeDataSource(mainMod, "getLoadBalancer")},
 			"hcloud_server_type":   {Tok: makeDataSource(mainMod, "getServerType")},
 			"hcloud_server_types":  {Tok: makeDataSource(mainMod, "getServerTypes")},
+			"hcloud_firewall":      {Tok: makeDataSource(mainMod, "getFirewall")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

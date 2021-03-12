@@ -56,6 +56,7 @@ export class Server extends pulumi.CustomResource {
      * The datacenter name to create the server in.
      */
     public readonly datacenter!: pulumi.Output<string>;
+    public readonly firewallIds!: pulumi.Output<number[] | undefined>;
     /**
      * Name or ID of the image the server is created from.
      */
@@ -130,6 +131,7 @@ export class Server extends pulumi.CustomResource {
             inputs["backupWindow"] = state ? state.backupWindow : undefined;
             inputs["backups"] = state ? state.backups : undefined;
             inputs["datacenter"] = state ? state.datacenter : undefined;
+            inputs["firewallIds"] = state ? state.firewallIds : undefined;
             inputs["image"] = state ? state.image : undefined;
             inputs["ipv4Address"] = state ? state.ipv4Address : undefined;
             inputs["ipv6Address"] = state ? state.ipv6Address : undefined;
@@ -155,6 +157,7 @@ export class Server extends pulumi.CustomResource {
             }
             inputs["backups"] = args ? args.backups : undefined;
             inputs["datacenter"] = args ? args.datacenter : undefined;
+            inputs["firewallIds"] = args ? args.firewallIds : undefined;
             inputs["image"] = args ? args.image : undefined;
             inputs["iso"] = args ? args.iso : undefined;
             inputs["keepDisk"] = args ? args.keepDisk : undefined;
@@ -197,6 +200,7 @@ export interface ServerState {
      * The datacenter name to create the server in.
      */
     readonly datacenter?: pulumi.Input<string>;
+    readonly firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Name or ID of the image the server is created from.
      */
@@ -268,6 +272,7 @@ export interface ServerArgs {
      * The datacenter name to create the server in.
      */
     readonly datacenter?: pulumi.Input<string>;
+    readonly firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Name or ID of the image the server is created from.
      */

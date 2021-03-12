@@ -37,7 +37,8 @@ type LookupServerResult struct {
 	// (boolean) Whether backups are enabled.
 	Backups bool `pulumi:"backups"`
 	// (string) The datacenter name.
-	Datacenter string `pulumi:"datacenter"`
+	Datacenter  string `pulumi:"datacenter"`
+	FirewallIds []int  `pulumi:"firewallIds"`
 	// (int) Unique ID of the server.
 	Id int `pulumi:"id"`
 	// (string) Name or ID of the image the server was created from.

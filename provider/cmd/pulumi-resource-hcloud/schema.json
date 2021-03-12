@@ -27,6 +27,65 @@
         ]
     },
     "types": {
+        "hcloud:index/FirewallRule:FirewallRule": {
+            "properties": {
+                "destinationIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "direction": {
+                    "type": "string",
+                    "description": "Direction of the Firewall Rule. `in`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "string",
+                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourceIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of CIDRs that are allowed within this Firewall Rule\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "direction",
+                "protocol"
+            ]
+        },
         "hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm": {
             "properties": {
                 "type": {
@@ -327,6 +386,53 @@
                     ]
                 }
             }
+        },
+        "hcloud:index/getFirewallRule:getFirewallRule": {
+            "properties": {
+                "direction": {
+                    "type": "string",
+                    "description": "(Required, string) Direction of the Firewall Rule. `in`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "string",
+                    "description": "(Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "(Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourceIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "direction"
+            ]
         },
         "hcloud:index/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm": {
             "properties": {
@@ -892,6 +998,76 @@
                     "privateKey": {
                         "type": "string",
                         "description": "PEM encoded private key belonging to the certificate.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/firewall:Firewall": {
+            "description": "Provides a Hetzner Cloud Firewall to represent a Load Balancer in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myfirewall = new hcloud.Firewall(\"myfirewall\", {rules: [{\n    direction: \"in\",\n    protocol: \"icmp\",\n    sourceIps: [\n        \"0.0.0.0/0\",\n        \"::/0\",\n    ],\n}]});\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n    firewallIds: [myfirewall.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmyfirewall = hcloud.Firewall(\"myfirewall\", rules=[hcloud.FirewallRuleArgs(\n    direction=\"in\",\n    protocol=\"icmp\",\n    source_ips=[\n        \"0.0.0.0/0\",\n        \"::/0\",\n    ],\n)])\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\",\n    firewall_ids=[myfirewall.id])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myfirewall = new HCloud.Firewall(\"myfirewall\", new HCloud.FirewallArgs\n        {\n            Rules = \n            {\n                new HCloud.Inputs.FirewallRuleArgs\n                {\n                    Direction = \"in\",\n                    Protocol = \"icmp\",\n                    SourceIps = \n                    {\n                        \"0.0.0.0/0\",\n                        \"::/0\",\n                    },\n                },\n            },\n        });\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n            FirewallIds = \n            {\n                myfirewall.Id,\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nFirewalls can be imported using its `id`\n\n```sh\n $ pulumi import hcloud:index/firewall:Firewall myfw \u003cid\u003e\n```\n\n ",
+            "properties": {
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Firewall.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/FirewallRule:FirewallRule"
+                    },
+                    "description": "Configuration of a Rule from this Firewall.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Firewall.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/FirewallRule:FirewallRule"
+                    },
+                    "description": "Configuration of a Rule from this Firewall.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Firewall resources.\n",
+                "properties": {
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "User-defined labels (key-value pairs) should be created with.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Firewall.\n"
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/FirewallRule:FirewallRule"
+                        },
+                        "description": "Configuration of a Rule from this Firewall.\n"
                     }
                 },
                 "type": "object"
@@ -1807,6 +1983,12 @@
                     "type": "string",
                     "description": "The datacenter name to create the server in.\n"
                 },
+                "firewallIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "image": {
                     "type": "string",
                     "description": "Name or ID of the image the server is created from.\n"
@@ -1897,6 +2079,12 @@
                     "type": "string",
                     "description": "The datacenter name to create the server in.\n"
                 },
+                "firewallIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "image": {
                     "type": "string",
                     "description": "Name or ID of the image the server is created from.\n"
@@ -1969,6 +2157,12 @@
                     "datacenter": {
                         "type": "string",
                         "description": "The datacenter name to create the server in.\n"
+                    },
+                    "firewallIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
                     },
                     "image": {
                         "type": "string",
@@ -2133,6 +2327,70 @@
                     "subnetId": {
                         "type": "string",
                         "description": "ID of the sub-network which should be\nadded to the Server. Required if `network_id` is not set.\n*Note*: if the `ip` property is missing, the Server is currently added\nto the last created subnet.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/snapshot:Snapshot": {
+            "description": "Provides a Hetzner Cloud snapshot to represent a image with type snapshot in the Hetzner Cloud. This resource makes it easy to create \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst my_snapshot = new hcloud.Snapshot(\"my-snapshot\", {serverId: node1.id});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmy_snapshot = hcloud.Snapshot(\"my-snapshot\", server_id=node1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var my_snapshot = new HCloud.Snapshot(\"my-snapshot\", new HCloud.SnapshotArgs\n        {\n            ServerId = node1.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewSnapshot(ctx, \"my_snapshot\", \u0026hcloud.SnapshotArgs{\n\t\t\tServerId: node1.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSnapshots can be imported using its image `id`\n\n```sh\n $ pulumi import hcloud:index/snapshot:Snapshot myip \u003cid\u003e\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Floating IP.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
+                },
+                "serverId": {
+                    "type": "integer",
+                    "description": "Server to the snapshot should be created from.\n"
+                }
+            },
+            "required": [
+                "serverId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Floating IP.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
+                },
+                "serverId": {
+                    "type": "integer",
+                    "description": "Server to the snapshot should be created from.\n"
+                }
+            },
+            "requiredInputs": [
+                "serverId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Snapshot resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the Floating IP.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "User-defined labels (key-value pairs) should be created with.\n"
+                    },
+                    "serverId": {
+                        "type": "integer",
+                        "description": "Server to the snapshot should be created from.\n"
                     }
                 },
                 "type": "object"
@@ -2591,6 +2849,81 @@
                     "descriptions",
                     "names",
                     "id"
+                ]
+            }
+        },
+        "hcloud:index/getFirewall:getFirewall": {
+            "description": "Provides details about a specific Hetzner Cloud Firewall.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFirewall.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the firewall.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "(map) User-defined labels (key-value pairs)\n"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the firewall.\n"
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getFirewallRule:getFirewallRule"
+                        },
+                        "description": "(string)  Configuration of a Rule from this Firewall.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFirewall.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "(int) Unique ID of the Firewall.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "(map) User-defined labels (key-value pairs)\n"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "(string) Name of the Firewall.\n"
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getFirewallRule:getFirewallRule"
+                        },
+                        "description": "(string)  Configuration of a Rule from this Firewall.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
                 ]
             }
         },
@@ -3110,6 +3443,12 @@
                         "type": "string",
                         "description": "(string) The datacenter name.\n"
                     },
+                    "firewallIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
                     "id": {
                         "type": "integer",
                         "description": "(int) Unique ID of the server.\n"
@@ -3179,6 +3518,7 @@
                     "backupWindow",
                     "backups",
                     "datacenter",
+                    "firewallIds",
                     "id",
                     "image",
                     "ipv4Address",

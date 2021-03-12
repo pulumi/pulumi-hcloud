@@ -4,11 +4,13 @@
 
 # Export this package's modules as members:
 from .certificate import *
+from .firewall import *
 from .floating_ip import *
 from .floating_ip_assignment import *
 from .get_certificate import *
 from .get_datacenter import *
 from .get_datacenters import *
+from .get_firewall import *
 from .get_floating_ip import *
 from .get_image import *
 from .get_load_balancer import *
@@ -32,6 +34,7 @@ from .provider import *
 from .rdns import *
 from .server import *
 from .server_network import *
+from .snapshot import *
 from .ssh_key import *
 from .volume import *
 from .volume_attachment import *
@@ -57,6 +60,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "hcloud:index/certificate:Certificate":
                 return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/firewall:Firewall":
+                return Firewall(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/floatingIp:FloatingIp":
                 return FloatingIp(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/floatingIpAssignment:FloatingIpAssignment":
@@ -81,6 +86,8 @@ def _register_module():
                 return Server(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/serverNetwork:ServerNetwork":
                 return ServerNetwork(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/snapshot:Snapshot":
+                return Snapshot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/sshKey:SshKey":
                 return SshKey(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/volume:Volume":
@@ -93,6 +100,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("hcloud", "index/certificate", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/firewall", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/floatingIp", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/floatingIpAssignment", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/loadBalancer", _module_instance)
@@ -105,6 +113,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("hcloud", "index/rdns", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/server", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/serverNetwork", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/snapshot", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/sshKey", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/volume", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/volumeAttachment", _module_instance)

@@ -10,6 +10,136 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type FirewallRule struct {
+	DestinationIps []string `pulumi:"destinationIps"`
+	// Direction of the Firewall Rule. `in`
+	Direction string `pulumi:"direction"`
+	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+	Port *string `pulumi:"port"`
+	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+	Protocol string `pulumi:"protocol"`
+	// List of CIDRs that are allowed within this Firewall Rule
+	SourceIps []string `pulumi:"sourceIps"`
+}
+
+// FirewallRuleInput is an input type that accepts FirewallRuleArgs and FirewallRuleOutput values.
+// You can construct a concrete instance of `FirewallRuleInput` via:
+//
+//          FirewallRuleArgs{...}
+type FirewallRuleInput interface {
+	pulumi.Input
+
+	ToFirewallRuleOutput() FirewallRuleOutput
+	ToFirewallRuleOutputWithContext(context.Context) FirewallRuleOutput
+}
+
+type FirewallRuleArgs struct {
+	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
+	// Direction of the Firewall Rule. `in`
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// List of CIDRs that are allowed within this Firewall Rule
+	SourceIps pulumi.StringArrayInput `pulumi:"sourceIps"`
+}
+
+func (FirewallRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRule)(nil)).Elem()
+}
+
+func (i FirewallRuleArgs) ToFirewallRuleOutput() FirewallRuleOutput {
+	return i.ToFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleArgs) ToFirewallRuleOutputWithContext(ctx context.Context) FirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleOutput)
+}
+
+// FirewallRuleArrayInput is an input type that accepts FirewallRuleArray and FirewallRuleArrayOutput values.
+// You can construct a concrete instance of `FirewallRuleArrayInput` via:
+//
+//          FirewallRuleArray{ FirewallRuleArgs{...} }
+type FirewallRuleArrayInput interface {
+	pulumi.Input
+
+	ToFirewallRuleArrayOutput() FirewallRuleArrayOutput
+	ToFirewallRuleArrayOutputWithContext(context.Context) FirewallRuleArrayOutput
+}
+
+type FirewallRuleArray []FirewallRuleInput
+
+func (FirewallRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRule)(nil)).Elem()
+}
+
+func (i FirewallRuleArray) ToFirewallRuleArrayOutput() FirewallRuleArrayOutput {
+	return i.ToFirewallRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleArray) ToFirewallRuleArrayOutputWithContext(ctx context.Context) FirewallRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleArrayOutput)
+}
+
+type FirewallRuleOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRule)(nil)).Elem()
+}
+
+func (o FirewallRuleOutput) ToFirewallRuleOutput() FirewallRuleOutput {
+	return o
+}
+
+func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context) FirewallRuleOutput {
+	return o
+}
+
+func (o FirewallRuleOutput) DestinationIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallRule) []string { return v.DestinationIps }).(pulumi.StringArrayOutput)
+}
+
+// Direction of the Firewall Rule. `in`
+func (o FirewallRuleOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRule) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+func (o FirewallRuleOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallRule) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+func (o FirewallRuleOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRule) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// List of CIDRs that are allowed within this Firewall Rule
+func (o FirewallRuleOutput) SourceIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallRule) []string { return v.SourceIps }).(pulumi.StringArrayOutput)
+}
+
+type FirewallRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRule)(nil)).Elem()
+}
+
+func (o FirewallRuleArrayOutput) ToFirewallRuleArrayOutput() FirewallRuleArrayOutput {
+	return o
+}
+
+func (o FirewallRuleArrayOutput) ToFirewallRuleArrayOutputWithContext(ctx context.Context) FirewallRuleArrayOutput {
+	return o
+}
+
+func (o FirewallRuleArrayOutput) Index(i pulumi.IntInput) FirewallRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRule {
+		return vs[0].([]FirewallRule)[vs[1].(int)]
+	}).(FirewallRuleOutput)
+}
+
 type LoadBalancerAlgorithm struct {
 	// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 	Type *string `pulumi:"type"`
@@ -1008,6 +1138,130 @@ func (o ServerNetworkTypeArrayOutput) Index(i pulumi.IntInput) ServerNetworkType
 	}).(ServerNetworkTypeOutput)
 }
 
+type GetFirewallRule struct {
+	// (Required, string) Direction of the Firewall Rule. `in`
+	Direction string `pulumi:"direction"`
+	// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+	Port *string `pulumi:"port"`
+	// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+	Protocol *string `pulumi:"protocol"`
+	// (Required, List) List of CIDRs that are allowed within this Firewall Rule
+	SourceIps []string `pulumi:"sourceIps"`
+}
+
+// GetFirewallRuleInput is an input type that accepts GetFirewallRuleArgs and GetFirewallRuleOutput values.
+// You can construct a concrete instance of `GetFirewallRuleInput` via:
+//
+//          GetFirewallRuleArgs{...}
+type GetFirewallRuleInput interface {
+	pulumi.Input
+
+	ToGetFirewallRuleOutput() GetFirewallRuleOutput
+	ToGetFirewallRuleOutputWithContext(context.Context) GetFirewallRuleOutput
+}
+
+type GetFirewallRuleArgs struct {
+	// (Required, string) Direction of the Firewall Rule. `in`
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// (Required, List) List of CIDRs that are allowed within this Firewall Rule
+	SourceIps pulumi.StringArrayInput `pulumi:"sourceIps"`
+}
+
+func (GetFirewallRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallRule)(nil)).Elem()
+}
+
+func (i GetFirewallRuleArgs) ToGetFirewallRuleOutput() GetFirewallRuleOutput {
+	return i.ToGetFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i GetFirewallRuleArgs) ToGetFirewallRuleOutputWithContext(ctx context.Context) GetFirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallRuleOutput)
+}
+
+// GetFirewallRuleArrayInput is an input type that accepts GetFirewallRuleArray and GetFirewallRuleArrayOutput values.
+// You can construct a concrete instance of `GetFirewallRuleArrayInput` via:
+//
+//          GetFirewallRuleArray{ GetFirewallRuleArgs{...} }
+type GetFirewallRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallRuleArrayOutput() GetFirewallRuleArrayOutput
+	ToGetFirewallRuleArrayOutputWithContext(context.Context) GetFirewallRuleArrayOutput
+}
+
+type GetFirewallRuleArray []GetFirewallRuleInput
+
+func (GetFirewallRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallRule)(nil)).Elem()
+}
+
+func (i GetFirewallRuleArray) ToGetFirewallRuleArrayOutput() GetFirewallRuleArrayOutput {
+	return i.ToGetFirewallRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallRuleArray) ToGetFirewallRuleArrayOutputWithContext(ctx context.Context) GetFirewallRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallRuleArrayOutput)
+}
+
+type GetFirewallRuleOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallRule)(nil)).Elem()
+}
+
+func (o GetFirewallRuleOutput) ToGetFirewallRuleOutput() GetFirewallRuleOutput {
+	return o
+}
+
+func (o GetFirewallRuleOutput) ToGetFirewallRuleOutputWithContext(ctx context.Context) GetFirewallRuleOutput {
+	return o
+}
+
+// (Required, string) Direction of the Firewall Rule. `in`
+func (o GetFirewallRuleOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallRule) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+func (o GetFirewallRuleOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallRule) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+func (o GetFirewallRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// (Required, List) List of CIDRs that are allowed within this Firewall Rule
+func (o GetFirewallRuleOutput) SourceIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallRule) []string { return v.SourceIps }).(pulumi.StringArrayOutput)
+}
+
+type GetFirewallRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallRule)(nil)).Elem()
+}
+
+func (o GetFirewallRuleArrayOutput) ToGetFirewallRuleArrayOutput() GetFirewallRuleArrayOutput {
+	return o
+}
+
+func (o GetFirewallRuleArrayOutput) ToGetFirewallRuleArrayOutputWithContext(ctx context.Context) GetFirewallRuleArrayOutput {
+	return o
+}
+
+func (o GetFirewallRuleArrayOutput) Index(i pulumi.IntInput) GetFirewallRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallRule {
+		return vs[0].([]GetFirewallRule)[vs[1].(int)]
+	}).(GetFirewallRuleOutput)
+}
+
 type GetLoadBalancerAlgorithm struct {
 	// (string) Type of the target. `server` or `labelSelector`
 	Type string `pulumi:"type"`
@@ -1889,6 +2143,8 @@ func (o GetSshKeysSshKeyArrayOutput) Index(i pulumi.IntInput) GetSshKeysSshKeyOu
 }
 
 func init() {
+	pulumi.RegisterOutputType(FirewallRuleOutput{})
+	pulumi.RegisterOutputType(FirewallRuleArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAlgorithmOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerServiceHealthCheckOutput{})
@@ -1901,6 +2157,8 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerTargetTypeArrayOutput{})
 	pulumi.RegisterOutputType(ServerNetworkTypeOutput{})
 	pulumi.RegisterOutputType(ServerNetworkTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallRuleOutput{})
+	pulumi.RegisterOutputType(GetFirewallRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAlgorithmOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAlgorithmArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerServiceTypeOutput{})

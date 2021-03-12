@@ -28,7 +28,8 @@ type Server struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
 	// The datacenter name to create the server in.
-	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
+	Datacenter  pulumi.StringOutput   `pulumi:"datacenter"`
+	FirewallIds pulumi.IntArrayOutput `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
 	Image pulumi.StringOutput `pulumi:"image"`
 	// (string) The IPv4 address.
@@ -102,7 +103,8 @@ type serverState struct {
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in.
-	Datacenter *string `pulumi:"datacenter"`
+	Datacenter  *string `pulumi:"datacenter"`
+	FirewallIds []int   `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
 	Image *string `pulumi:"image"`
 	// (string) The IPv4 address.
@@ -142,7 +144,8 @@ type ServerState struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in.
-	Datacenter pulumi.StringPtrInput
+	Datacenter  pulumi.StringPtrInput
+	FirewallIds pulumi.IntArrayInput
 	// Name or ID of the image the server is created from.
 	Image pulumi.StringPtrInput
 	// (string) The IPv4 address.
@@ -182,7 +185,8 @@ type serverArgs struct {
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in.
-	Datacenter *string `pulumi:"datacenter"`
+	Datacenter  *string `pulumi:"datacenter"`
+	FirewallIds []int   `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
 	Image string `pulumi:"image"`
 	// ID or Name of an ISO image to mount.
@@ -211,7 +215,8 @@ type ServerArgs struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in.
-	Datacenter pulumi.StringPtrInput
+	Datacenter  pulumi.StringPtrInput
+	FirewallIds pulumi.IntArrayInput
 	// Name or ID of the image the server is created from.
 	Image pulumi.StringInput
 	// ID or Name of an ISO image to mount.

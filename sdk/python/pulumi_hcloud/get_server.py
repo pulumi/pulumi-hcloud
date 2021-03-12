@@ -19,7 +19,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, backup_window=None, backups=None, datacenter=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, backup_window=None, backups=None, datacenter=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
         if backup_window and not isinstance(backup_window, str):
             raise TypeError("Expected argument 'backup_window' to be a str")
         pulumi.set(__self__, "backup_window", backup_window)
@@ -29,6 +29,9 @@ class GetServerResult:
         if datacenter and not isinstance(datacenter, str):
             raise TypeError("Expected argument 'datacenter' to be a str")
         pulumi.set(__self__, "datacenter", datacenter)
+        if firewall_ids and not isinstance(firewall_ids, list):
+            raise TypeError("Expected argument 'firewall_ids' to be a list")
+        pulumi.set(__self__, "firewall_ids", firewall_ids)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -102,6 +105,11 @@ class GetServerResult:
         (string) The datacenter name.
         """
         return pulumi.get(self, "datacenter")
+
+    @property
+    @pulumi.getter(name="firewallIds")
+    def firewall_ids(self) -> Sequence[int]:
+        return pulumi.get(self, "firewall_ids")
 
     @property
     @pulumi.getter
@@ -221,6 +229,7 @@ class AwaitableGetServerResult(GetServerResult):
             backup_window=self.backup_window,
             backups=self.backups,
             datacenter=self.datacenter,
+            firewall_ids=self.firewall_ids,
             id=self.id,
             image=self.image,
             ipv4_address=self.ipv4_address,
@@ -268,6 +277,7 @@ def get_server(id: Optional[int] = None,
         backup_window=__ret__.backup_window,
         backups=__ret__.backups,
         datacenter=__ret__.datacenter,
+        firewall_ids=__ret__.firewall_ids,
         id=__ret__.id,
         image=__ret__.image,
         ipv4_address=__ret__.ipv4_address,

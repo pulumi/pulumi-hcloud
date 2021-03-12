@@ -4,6 +4,45 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface FirewallRule {
+    destinationIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Direction of the Firewall Rule. `in`
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+     */
+    port?: pulumi.Input<string>;
+    /**
+     * Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+     */
+    protocol: pulumi.Input<string>;
+    /**
+     * List of CIDRs that are allowed within this Firewall Rule
+     */
+    sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetFirewallRule {
+    /**
+     * (Required, string) Direction of the Firewall Rule. `in`
+     */
+    direction: string;
+    /**
+     * (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+     */
+    port?: string;
+    /**
+     * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+     */
+    protocol?: string;
+    /**
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule
+     */
+    sourceIps?: string[];
+}
+
 export interface LoadBalancerAlgorithm {
     /**
      * Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
