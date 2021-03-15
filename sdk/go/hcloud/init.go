@@ -22,6 +22,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "hcloud:index/certificate:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+	case "hcloud:index/firewall:Firewall":
+		r, err = NewFirewall(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/floatingIp:FloatingIp":
 		r, err = NewFloatingIp(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/floatingIpAssignment:FloatingIpAssignment":
@@ -46,6 +48,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/serverNetwork:ServerNetwork":
 		r, err = NewServerNetwork(ctx, name, nil, pulumi.URN_(urn))
+	case "hcloud:index/snapshot:Snapshot":
+		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/sshKey:SshKey":
 		r, err = NewSshKey(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/volume:Volume":
@@ -83,6 +87,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"hcloud",
 		"index/certificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/firewall",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -143,6 +152,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"hcloud",
 		"index/serverNetwork",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/snapshot",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

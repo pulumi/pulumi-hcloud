@@ -19,6 +19,7 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backups: Optional[pulumi.Input[bool]] = None,
                  datacenter: Optional[pulumi.Input[str]] = None,
+                 firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  iso: Optional[pulumi.Input[str]] = None,
                  keep_disk: Optional[pulumi.Input[bool]] = None,
@@ -76,6 +77,7 @@ class Server(pulumi.CustomResource):
 
             __props__['backups'] = backups
             __props__['datacenter'] = datacenter
+            __props__['firewall_ids'] = firewall_ids
             if image is None and not opts.urn:
                 raise TypeError("Missing required property 'image'")
             __props__['image'] = image
@@ -109,6 +111,7 @@ class Server(pulumi.CustomResource):
             backup_window: Optional[pulumi.Input[str]] = None,
             backups: Optional[pulumi.Input[bool]] = None,
             datacenter: Optional[pulumi.Input[str]] = None,
+            firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             image: Optional[pulumi.Input[str]] = None,
             ipv4_address: Optional[pulumi.Input[str]] = None,
             ipv6_address: Optional[pulumi.Input[str]] = None,
@@ -156,6 +159,7 @@ class Server(pulumi.CustomResource):
         __props__["backup_window"] = backup_window
         __props__["backups"] = backups
         __props__["datacenter"] = datacenter
+        __props__["firewall_ids"] = firewall_ids
         __props__["image"] = image
         __props__["ipv4_address"] = ipv4_address
         __props__["ipv6_address"] = ipv6_address
@@ -196,6 +200,11 @@ class Server(pulumi.CustomResource):
         The datacenter name to create the server in.
         """
         return pulumi.get(self, "datacenter")
+
+    @property
+    @pulumi.getter(name="firewallIds")
+    def firewall_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        return pulumi.get(self, "firewall_ids")
 
     @property
     @pulumi.getter

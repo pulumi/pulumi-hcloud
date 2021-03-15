@@ -9,13 +9,96 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
+    'FirewallRuleArgs',
     'LoadBalancerAlgorithmArgs',
     'LoadBalancerServiceHealthCheckArgs',
     'LoadBalancerServiceHealthCheckHttpArgs',
     'LoadBalancerServiceHttpArgs',
     'LoadBalancerTargetArgs',
     'ServerNetworkArgs',
+    'GetFirewallRuleArgs',
 ]
+
+@pulumi.input_type
+class FirewallRuleArgs:
+    def __init__(__self__, *,
+                 direction: pulumi.Input[str],
+                 protocol: pulumi.Input[str],
+                 destination_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 port: Optional[pulumi.Input[str]] = None,
+                 source_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] direction: Direction of the Firewall Rule. `in`
+        :param pulumi.Input[str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of CIDRs that are allowed within this Firewall Rule
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "protocol", protocol)
+        if destination_ips is not None:
+            pulumi.set(__self__, "destination_ips", destination_ips)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if source_ips is not None:
+            pulumi.set(__self__, "source_ips", source_ips)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> pulumi.Input[str]:
+        """
+        Direction of the Firewall Rule. `in`
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: pulumi.Input[str]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="destinationIps")
+    def destination_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_ips")
+
+    @destination_ips.setter
+    def destination_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_ips", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="sourceIps")
+    def source_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of CIDRs that are allowed within this Firewall Rule
+        """
+        return pulumi.get(self, "source_ips")
+
+    @source_ips.setter
+    def source_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_ips", value)
+
 
 @pulumi.input_type
 class LoadBalancerAlgorithmArgs:
@@ -416,5 +499,75 @@ class ServerNetworkArgs:
     @mac_address.setter
     def mac_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mac_address", value)
+
+
+@pulumi.input_type
+class GetFirewallRuleArgs:
+    def __init__(__self__, *,
+                 direction: str,
+                 port: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 source_ips: Optional[Sequence[str]] = None):
+        """
+        :param str direction: (Required, string) Direction of the Firewall Rule. `in`
+        :param str port: (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        :param Sequence[str] source_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule
+        """
+        pulumi.set(__self__, "direction", direction)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_ips is not None:
+            pulumi.set(__self__, "source_ips", source_ips)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required, string) Direction of the Firewall Rule. `in`
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: str):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[str]:
+        """
+        (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[str]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="sourceIps")
+    def source_ips(self) -> Optional[Sequence[str]]:
+        """
+        (Required, List) List of CIDRs that are allowed within this Firewall Rule
+        """
+        return pulumi.get(self, "source_ips")
+
+    @source_ips.setter
+    def source_ips(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "source_ips", value)
 
 

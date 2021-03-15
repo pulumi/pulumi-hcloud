@@ -72,6 +72,7 @@ namespace Pulumi.HCloud
         /// (string) The datacenter name.
         /// </summary>
         public readonly string Datacenter;
+        public readonly ImmutableArray<int> FirewallIds;
         /// <summary>
         /// (int) Unique ID of the server.
         /// </summary>
@@ -129,6 +130,8 @@ namespace Pulumi.HCloud
 
             string datacenter,
 
+            ImmutableArray<int> firewallIds,
+
             int id,
 
             string image,
@@ -162,6 +165,7 @@ namespace Pulumi.HCloud
             BackupWindow = backupWindow;
             Backups = backups;
             Datacenter = datacenter;
+            FirewallIds = firewallIds;
             Id = id;
             Image = image;
             Ipv4Address = ipv4Address;

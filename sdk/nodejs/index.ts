@@ -6,11 +6,13 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./certificate";
+export * from "./firewall";
 export * from "./floatingIp";
 export * from "./floatingIpAssignment";
 export * from "./getCertificate";
 export * from "./getDatacenter";
 export * from "./getDatacenters";
+export * from "./getFirewall";
 export * from "./getFloatingIp";
 export * from "./getImage";
 export * from "./getLoadBalancer";
@@ -34,6 +36,7 @@ export * from "./provider";
 export * from "./rdns";
 export * from "./server";
 export * from "./serverNetwork";
+export * from "./snapshot";
 export * from "./sshKey";
 export * from "./volume";
 export * from "./volumeAttachment";
@@ -49,6 +52,7 @@ export {
 
 // Import resources to register:
 import { Certificate } from "./certificate";
+import { Firewall } from "./firewall";
 import { FloatingIp } from "./floatingIp";
 import { FloatingIpAssignment } from "./floatingIpAssignment";
 import { LoadBalancer } from "./loadBalancer";
@@ -61,6 +65,7 @@ import { NetworkSubnet } from "./networkSubnet";
 import { Rdns } from "./rdns";
 import { Server } from "./server";
 import { ServerNetwork } from "./serverNetwork";
+import { Snapshot } from "./snapshot";
 import { SshKey } from "./sshKey";
 import { Volume } from "./volume";
 import { VolumeAttachment } from "./volumeAttachment";
@@ -71,6 +76,8 @@ const _module = {
         switch (type) {
             case "hcloud:index/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "hcloud:index/firewall:Firewall":
+                return new Firewall(name, <any>undefined, { urn })
             case "hcloud:index/floatingIp:FloatingIp":
                 return new FloatingIp(name, <any>undefined, { urn })
             case "hcloud:index/floatingIpAssignment:FloatingIpAssignment":
@@ -95,6 +102,8 @@ const _module = {
                 return new Server(name, <any>undefined, { urn })
             case "hcloud:index/serverNetwork:ServerNetwork":
                 return new ServerNetwork(name, <any>undefined, { urn })
+            case "hcloud:index/snapshot:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "hcloud:index/sshKey:SshKey":
                 return new SshKey(name, <any>undefined, { urn })
             case "hcloud:index/volume:Volume":
@@ -107,6 +116,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("hcloud", "index/certificate", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/firewall", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/floatingIp", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/floatingIpAssignment", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/loadBalancer", _module)
@@ -119,6 +129,7 @@ pulumi.runtime.registerResourceModule("hcloud", "index/networkSubnet", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/rdns", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/server", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/serverNetwork", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/snapshot", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/sshKey", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volume", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volumeAttachment", _module)

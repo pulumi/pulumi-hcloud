@@ -39,6 +39,9 @@ namespace Pulumi.HCloud
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
 
+        [Output("firewallIds")]
+        public Output<ImmutableArray<int>> FirewallIds { get; private set; } = null!;
+
         /// <summary>
         /// Name or ID of the image the server is created from.
         /// </summary>
@@ -184,6 +187,14 @@ namespace Pulumi.HCloud
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
+        [Input("firewallIds")]
+        private InputList<int>? _firewallIds;
+        public InputList<int> FirewallIds
+        {
+            get => _firewallIds ?? (_firewallIds = new InputList<int>());
+            set => _firewallIds = value;
+        }
+
         /// <summary>
         /// Name or ID of the image the server is created from.
         /// </summary>
@@ -288,6 +299,14 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
+
+        [Input("firewallIds")]
+        private InputList<int>? _firewallIds;
+        public InputList<int> FirewallIds
+        {
+            get => _firewallIds ?? (_firewallIds = new InputList<int>());
+            set => _firewallIds = value;
+        }
 
         /// <summary>
         /// Name or ID of the image the server is created from.
