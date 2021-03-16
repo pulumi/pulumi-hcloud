@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 0.7.0 (2021-03-16)
 * Upgrade to v1.25.1 of the Hetzner Cloud Terraform Provider
 * Upgrade to pulumi-terraform-bridge v2.21.0
 * Release macOS arm64 binary
-
----
 
 ## 0.6.2 (2021-02-16)
 * Upgrade to pulumi-terraform-bridge v2.19.0  
