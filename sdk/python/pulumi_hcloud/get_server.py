@@ -66,7 +66,7 @@ class GetServerResult:
             raise TypeError("Expected argument 'selector' to be a str")
         if selector is not None:
             warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
-            pulumi.log.warn("selector is deprecated: Please use the with_selector property instead.")
+            pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
 
         pulumi.set(__self__, "selector", selector)
         if server_type and not isinstance(server_type, str):
