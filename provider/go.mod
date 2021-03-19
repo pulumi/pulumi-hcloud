@@ -10,7 +10,7 @@ replace (
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.15.0 // indirect
-	github.com/hetznercloud/terraform-provider-hcloud v1.25.1
+	github.com/hetznercloud/terraform-provider-hcloud v1.25.2
 	github.com/pulumi/pulumi-terraform-bridge/v2 v2.21.0
 	github.com/pulumi/pulumi/sdk/v2 v2.22.1-0.20210310211618-1f16423ede4c
 )
