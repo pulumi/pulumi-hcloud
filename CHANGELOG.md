@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v1.25.2 of the Hetzner Cloud Terraform Provider
+* Upgrade to pulumi-terraform-bridge v2.22.1  
+  **Please Note:** This includes a bug fix to the refresh operation regarding arrays
 
 ---
 
