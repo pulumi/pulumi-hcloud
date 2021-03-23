@@ -24,7 +24,7 @@ class Firewall(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides a Hetzner Cloud Firewall to represent a Load Balancer in the Hetzner Cloud.
+        Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
 
         ## Example Usage
 

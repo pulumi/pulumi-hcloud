@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Hetzner Cloud Firewall to represent a Load Balancer in the Hetzner Cloud.
+// Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
 //
 // ## Import
 //
