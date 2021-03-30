@@ -19,7 +19,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, certificate=None, created=None, domain_names=None, fingerprint=None, id=None, labels=None, name=None, not_valid_after=None, not_valid_before=None, with_selector=None):
+    def __init__(__self__, certificate=None, created=None, domain_names=None, fingerprint=None, id=None, labels=None, name=None, not_valid_after=None, not_valid_before=None, type=None, with_selector=None):
         if certificate and not isinstance(certificate, str):
             raise TypeError("Expected argument 'certificate' to be a str")
         pulumi.set(__self__, "certificate", certificate)
@@ -47,6 +47,9 @@ class GetCertificateResult:
         if not_valid_before and not isinstance(not_valid_before, str):
             raise TypeError("Expected argument 'not_valid_before' to be a str")
         pulumi.set(__self__, "not_valid_before", not_valid_before)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
@@ -124,6 +127,11 @@ class GetCertificateResult:
         return pulumi.get(self, "not_valid_before")
 
     @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[str]:
         return pulumi.get(self, "with_selector")
@@ -144,6 +152,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             name=self.name,
             not_valid_after=self.not_valid_after,
             not_valid_before=self.not_valid_before,
+            type=self.type,
             with_selector=self.with_selector)
 
 
@@ -179,4 +188,5 @@ def get_certificate(id: Optional[int] = None,
         name=__ret__.name,
         not_valid_after=__ret__.not_valid_after,
         not_valid_before=__ret__.not_valid_before,
+        type=__ret__.type,
         with_selector=__ret__.with_selector)

@@ -40,6 +40,7 @@
         "loadBalancerNetwork.ts",
         "loadBalancerService.ts",
         "loadBalancerTarget.ts",
+        "managedCertificate.ts",
         "network.ts",
         "networkRoute.ts",
         "networkSubnet.ts",
@@ -52,6 +53,7 @@
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",
+        "uploadedCertificate.ts",
         "utilities.ts",
         "volume.ts",
         "volumeAttachment.ts"

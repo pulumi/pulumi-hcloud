@@ -11,37 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.
-//
-// ## Import
-//
-// Certificates can be imported using their `id`hcl
-//
-// ```sh
-//  $ pulumi import hcloud:index/certificate:Certificate sample_certificate <id>
-// ```
+// Alias for `UploadedCertificate` to remain backwards compatible.
+// Deprecated.
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// PEM encoded TLS certificate.
-	Certificate pulumi.StringOutput `pulumi:"certificate"`
-	// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
-	Created pulumi.StringOutput `pulumi:"created"`
-	// (list) Domains and subdomains covered by the certificate.
-	DomainNames pulumi.StringArrayOutput `pulumi:"domainNames"`
-	// (string) Fingerprint of the certificate.
-	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// User-defined labels (key-value pairs) the
-	// certificate should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
-	// Name of the Certificate.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
-	NotValidAfter pulumi.StringOutput `pulumi:"notValidAfter"`
-	// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
-	NotValidBefore pulumi.StringOutput `pulumi:"notValidBefore"`
-	// PEM encoded private key belonging to the certificate.
-	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
+	Certificate    pulumi.StringOutput      `pulumi:"certificate"`
+	Created        pulumi.StringOutput      `pulumi:"created"`
+	DomainNames    pulumi.StringArrayOutput `pulumi:"domainNames"`
+	Fingerprint    pulumi.StringOutput      `pulumi:"fingerprint"`
+	Labels         pulumi.MapOutput         `pulumi:"labels"`
+	Name           pulumi.StringOutput      `pulumi:"name"`
+	NotValidAfter  pulumi.StringOutput      `pulumi:"notValidAfter"`
+	NotValidBefore pulumi.StringOutput      `pulumi:"notValidBefore"`
+	PrivateKey     pulumi.StringOutput      `pulumi:"privateKey"`
+	Type           pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -79,47 +63,29 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// PEM encoded TLS certificate.
-	Certificate *string `pulumi:"certificate"`
-	// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
-	Created *string `pulumi:"created"`
-	// (list) Domains and subdomains covered by the certificate.
-	DomainNames []string `pulumi:"domainNames"`
-	// (string) Fingerprint of the certificate.
-	Fingerprint *string `pulumi:"fingerprint"`
-	// User-defined labels (key-value pairs) the
-	// certificate should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
-	// Name of the Certificate.
-	Name *string `pulumi:"name"`
-	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
-	NotValidAfter *string `pulumi:"notValidAfter"`
-	// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
-	NotValidBefore *string `pulumi:"notValidBefore"`
-	// PEM encoded private key belonging to the certificate.
-	PrivateKey *string `pulumi:"privateKey"`
+	Certificate    *string                `pulumi:"certificate"`
+	Created        *string                `pulumi:"created"`
+	DomainNames    []string               `pulumi:"domainNames"`
+	Fingerprint    *string                `pulumi:"fingerprint"`
+	Labels         map[string]interface{} `pulumi:"labels"`
+	Name           *string                `pulumi:"name"`
+	NotValidAfter  *string                `pulumi:"notValidAfter"`
+	NotValidBefore *string                `pulumi:"notValidBefore"`
+	PrivateKey     *string                `pulumi:"privateKey"`
+	Type           *string                `pulumi:"type"`
 }
 
 type CertificateState struct {
-	// PEM encoded TLS certificate.
-	Certificate pulumi.StringPtrInput
-	// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
-	Created pulumi.StringPtrInput
-	// (list) Domains and subdomains covered by the certificate.
-	DomainNames pulumi.StringArrayInput
-	// (string) Fingerprint of the certificate.
-	Fingerprint pulumi.StringPtrInput
-	// User-defined labels (key-value pairs) the
-	// certificate should be created with.
-	Labels pulumi.MapInput
-	// Name of the Certificate.
-	Name pulumi.StringPtrInput
-	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
-	NotValidAfter pulumi.StringPtrInput
-	// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+	Certificate    pulumi.StringPtrInput
+	Created        pulumi.StringPtrInput
+	DomainNames    pulumi.StringArrayInput
+	Fingerprint    pulumi.StringPtrInput
+	Labels         pulumi.MapInput
+	Name           pulumi.StringPtrInput
+	NotValidAfter  pulumi.StringPtrInput
 	NotValidBefore pulumi.StringPtrInput
-	// PEM encoded private key belonging to the certificate.
-	PrivateKey pulumi.StringPtrInput
+	PrivateKey     pulumi.StringPtrInput
+	Type           pulumi.StringPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -127,28 +93,18 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// PEM encoded TLS certificate.
-	Certificate string `pulumi:"certificate"`
-	// User-defined labels (key-value pairs) the
-	// certificate should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
-	// Name of the Certificate.
-	Name *string `pulumi:"name"`
-	// PEM encoded private key belonging to the certificate.
-	PrivateKey string `pulumi:"privateKey"`
+	Certificate string                 `pulumi:"certificate"`
+	Labels      map[string]interface{} `pulumi:"labels"`
+	Name        *string                `pulumi:"name"`
+	PrivateKey  string                 `pulumi:"privateKey"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// PEM encoded TLS certificate.
 	Certificate pulumi.StringInput
-	// User-defined labels (key-value pairs) the
-	// certificate should be created with.
-	Labels pulumi.MapInput
-	// Name of the Certificate.
-	Name pulumi.StringPtrInput
-	// PEM encoded private key belonging to the certificate.
-	PrivateKey pulumi.StringInput
+	Labels      pulumi.MapInput
+	Name        pulumi.StringPtrInput
+	PrivateKey  pulumi.StringInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

@@ -82,5 +82,6 @@ export interface GetCertificateResult {
      * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
      */
     readonly notValidBefore: string;
+    readonly type: string;
     readonly withSelector?: string;
 }

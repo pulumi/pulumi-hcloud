@@ -47,5 +47,6 @@ type LookupCertificateResult struct {
 	NotValidAfter string `pulumi:"notValidAfter"`
 	// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
 	NotValidBefore string  `pulumi:"notValidBefore"`
+	Type           string  `pulumi:"type"`
 	WithSelector   *string `pulumi:"withSelector"`
 }

@@ -84,6 +84,7 @@ namespace Pulumi.HCloud
         /// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
         /// </summary>
         public readonly string NotValidBefore;
+        public readonly string Type;
         public readonly string? WithSelector;
 
         [OutputConstructor]
@@ -106,6 +107,8 @@ namespace Pulumi.HCloud
 
             string notValidBefore,
 
+            string type,
+
             string? withSelector)
         {
             Certificate = certificate;
@@ -117,6 +120,7 @@ namespace Pulumi.HCloud
             Name = name;
             NotValidAfter = notValidAfter;
             NotValidBefore = notValidBefore;
+            Type = type;
             WithSelector = withSelector;
         }
     }

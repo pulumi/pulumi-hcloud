@@ -36,6 +36,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewLoadBalancerService(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/loadBalancerTarget:LoadBalancerTarget":
 		r, err = NewLoadBalancerTarget(ctx, name, nil, pulumi.URN_(urn))
+	case "hcloud:index/managedCertificate:ManagedCertificate":
+		r, err = NewManagedCertificate(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/network:Network":
 		r, err = NewNetwork(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/networkRoute:NetworkRoute":
@@ -52,6 +54,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/sshKey:SshKey":
 		r, err = NewSshKey(ctx, name, nil, pulumi.URN_(urn))
+	case "hcloud:index/uploadedCertificate:UploadedCertificate":
+		r, err = NewUploadedCertificate(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/volume:Volume":
 		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
 	case "hcloud:index/volumeAttachment:VolumeAttachment":
@@ -126,6 +130,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"hcloud",
+		"index/managedCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
 		"index/network",
 		&module{version},
 	)
@@ -162,6 +171,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"hcloud",
 		"index/sshKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/uploadedCertificate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
