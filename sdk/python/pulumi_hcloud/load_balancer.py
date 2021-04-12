@@ -5,15 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LoadBalancer']
+__all__ = ['LoadBalancerArgs', 'LoadBalancer']
+
+@pulumi.input_type
+class LoadBalancerArgs:
+    def __init__(__self__, *,
+                 load_balancer_type: pulumi.Input[str],
+                 algorithm: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_zone: Optional[pulumi.Input[str]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None):
+        """
+        The set of arguments for constructing a LoadBalancer resource.
+        :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
+        :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
+        :param pulumi.Input[str] name: Name of the Load Balancer.
+        :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]] targets: List of targets of the Load Balancer.
+        """
+        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_zone is not None:
+            pulumi.set(__self__, "network_zone", network_zone)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter(name="loadBalancerType")
+    def load_balancer_type(self) -> pulumi.Input[str]:
+        """
+        Type of the Load Balancer.
+        """
+        return pulumi.get(self, "load_balancer_type")
+
+    @load_balancer_type.setter
+    def load_balancer_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "load_balancer_type", value)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[pulumi.Input['LoadBalancerAlgorithmArgs']]:
+        """
+        Configuration of the algorithm the Load Balancer use.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']]):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the Load Balancer. Require when no network_zone is set.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Load Balancer.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network Zone of the Load Balancer. Require when no location is set.
+        """
+        return pulumi.get(self, "network_zone")
+
+    @network_zone.setter
+    def network_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_zone", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
+        """
+        List of targets of the Load Balancer.
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]):
+        pulumi.set(self, "targets", value)
 
 
 class LoadBalancer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +185,66 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LoadBalancerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        myserver = hcloud.Server("myserver",
+            server_type="cx11",
+            image="ubuntu-18.04")
+        load_balancer = hcloud.LoadBalancer("loadBalancer",
+            load_balancer_type="lb11",
+            location="nbg1",
+            targets=[hcloud.LoadBalancerTargetArgs(
+                type="server",
+                server_id=myserver.id,
+            )])
+        ```
+
+        ## Import
+
+        Load Balancers can be imported using its `id`
+
+        ```sh
+         $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer <id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 algorithm: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 load_balancer_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_zone: Optional[pulumi.Input[str]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

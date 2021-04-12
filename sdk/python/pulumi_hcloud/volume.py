@@ -5,13 +5,132 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Volume']
+__all__ = ['VolumeArgs', 'Volume']
+
+@pulumi.input_type
+class VolumeArgs:
+    def __init__(__self__, *,
+                 size: pulumi.Input[int],
+                 automount: Optional[pulumi.Input[bool]] = None,
+                 format: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a Volume resource.
+        :param pulumi.Input[int] size: Size of the volume (in GB).
+        :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
+        :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[str] location: Location of the volume to create, not allowed if server_id argument is passed.
+        :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
+        :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
+        """
+        pulumi.set(__self__, "size", size)
+        if automount is not None:
+            pulumi.set(__self__, "automount", automount)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[int]:
+        """
+        Size of the volume (in GB).
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def automount(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Automount the volume upon attaching it (server_id must be provided).
+        """
+        return pulumi.get(self, "automount")
+
+    @automount.setter
+    def automount(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automount", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Format volume after creation. `xfs` or `ext4`
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs).
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the volume to create, not allowed if server_id argument is passed.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the volume to create (must be unique per project).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Server to attach the Volume to, not allowed if location argument is passed.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server_id", value)
 
 
 class Volume(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +180,63 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         :param pulumi.Input[int] size: Size of the volume (in GB).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VolumeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Hetzner Cloud volume resource to manage volumes.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11")
+        master = hcloud.Volume("master",
+            size=50,
+            server_id=node1.id,
+            automount=True)
+        ```
+
+        ## Import
+
+        Volumes can be imported using their `id`
+
+        ```sh
+         $ pulumi import hcloud:index/volume:Volume myvolume <id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VolumeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VolumeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automount: Optional[pulumi.Input[bool]] = None,
+                 format: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 size: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

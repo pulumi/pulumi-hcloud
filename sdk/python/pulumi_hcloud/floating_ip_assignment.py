@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['FloatingIpAssignment']
+__all__ = ['FloatingIpAssignmentArgs', 'FloatingIpAssignment']
+
+@pulumi.input_type
+class FloatingIpAssignmentArgs:
+    def __init__(__self__, *,
+                 floating_ip_id: pulumi.Input[int],
+                 server_id: pulumi.Input[int]):
+        """
+        The set of arguments for constructing a FloatingIpAssignment resource.
+        :param pulumi.Input[int] floating_ip_id: ID of the Floating IP.
+        :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
+        """
+        pulumi.set(__self__, "floating_ip_id", floating_ip_id)
+        pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter(name="floatingIpId")
+    def floating_ip_id(self) -> pulumi.Input[int]:
+        """
+        ID of the Floating IP.
+        """
+        return pulumi.get(self, "floating_ip_id")
+
+    @floating_ip_id.setter
+    def floating_ip_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "floating_ip_id", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> pulumi.Input[int]:
+        """
+        Server to assign the Floating IP to.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "server_id", value)
 
 
 class FloatingIpAssignment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +92,61 @@ class FloatingIpAssignment(pulumi.CustomResource):
         :param pulumi.Input[int] floating_ip_id: ID of the Floating IP.
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FloatingIpAssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Hetzner Cloud Floating IP Assignment to assign a Floating IP to a Hetzner Cloud Server. Deleting a Floating IP Assignment will unassign the Floating IP from the Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11",
+            datacenter="fsn1-dc8")
+        master = hcloud.FloatingIp("master",
+            type="ipv4",
+            home_location="nbg1")
+        main = hcloud.FloatingIpAssignment("main",
+            floating_ip_id=master.id,
+            server_id=node1.id)
+        ```
+
+        ## Import
+
+        Floating IP Assignments can be imported using the `floating_ip_id`
+
+        ```sh
+         $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment <floating_ip_id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param FloatingIpAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FloatingIpAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 floating_ip_id: Optional[pulumi.Input[int]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

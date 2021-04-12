@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Rdns']
+__all__ = ['RdnsArgs', 'Rdns']
+
+@pulumi.input_type
+class RdnsArgs:
+    def __init__(__self__, *,
+                 dns_ptr: pulumi.Input[str],
+                 ip_address: pulumi.Input[str],
+                 floating_ip_id: Optional[pulumi.Input[int]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a Rdns resource.
+        :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
+        :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to.
+        """
+        pulumi.set(__self__, "dns_ptr", dns_ptr)
+        pulumi.set(__self__, "ip_address", ip_address)
+        if floating_ip_id is not None:
+            pulumi.set(__self__, "floating_ip_id", floating_ip_id)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter(name="dnsPtr")
+    def dns_ptr(self) -> pulumi.Input[str]:
+        """
+        The DNS address the `ip_address` should resolve to.
+        """
+        return pulumi.get(self, "dns_ptr")
+
+    @dns_ptr.setter
+    def dns_ptr(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dns_ptr", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        The IP address that should point to `dns_ptr`.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="floatingIpId")
+    def floating_ip_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Floating IP the `ip_address` belongs to.
+        """
+        return pulumi.get(self, "floating_ip_id")
+
+    @floating_ip_id.setter
+    def floating_ip_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "floating_ip_id", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The server the `ip_address` belongs to.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server_id", value)
 
 
 class Rdns(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -78,6 +148,83 @@ class Rdns(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
         :param pulumi.Input[int] server_id: The server the `ip_address` belongs to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RdnsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
+
+        ## Example Usage
+
+        For servers:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11")
+        master = hcloud.Rdns("master",
+            server_id=node1.id,
+            ip_address=node1.ipv4_address,
+            dns_ptr="example.com")
+        ```
+
+        For Floating IPs:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        floating1 = hcloud.FloatingIp("floating1",
+            home_location="nbg1",
+            type="ipv4")
+        floating_master = hcloud.Rdns("floatingMaster",
+            dns_ptr="example.com",
+            floating_ip_id=floating1.id,
+            ip_address=floating1.ip_address)
+        ```
+
+        ## Import
+
+        Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip)>-<server or floating ip ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
+
+        ```sh
+         $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+        ```
+
+        # import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+
+        ```sh
+         $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RdnsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RdnsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_ptr: Optional[pulumi.Input[str]] = None,
+                 floating_ip_id: Optional[pulumi.Input[int]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

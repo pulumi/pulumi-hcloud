@@ -5,13 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['NetworkSubnet']
+__all__ = ['NetworkSubnetArgs', 'NetworkSubnet']
+
+@pulumi.input_type
+class NetworkSubnetArgs:
+    def __init__(__self__, *,
+                 ip_range: pulumi.Input[str],
+                 network_id: pulumi.Input[int],
+                 network_zone: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 vswitch_id: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a NetworkSubnet resource.
+        :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        :param pulumi.Input[int] network_id: ID of the Network the subnet should be added to.
+        :param pulumi.Input[str] network_zone: Name of network zone.
+        :param pulumi.Input[str] type: Type of subnet. `server`, `cloud` or `vswitch`
+        :param pulumi.Input[int] vswitch_id: ID of the vswitch, Required if type is `vswitch`
+        """
+        pulumi.set(__self__, "ip_range", ip_range)
+        pulumi.set(__self__, "network_id", network_id)
+        pulumi.set(__self__, "network_zone", network_zone)
+        pulumi.set(__self__, "type", type)
+        if vswitch_id is not None:
+            pulumi.set(__self__, "vswitch_id", vswitch_id)
+
+    @property
+    @pulumi.getter(name="ipRange")
+    def ip_range(self) -> pulumi.Input[str]:
+        """
+        Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        """
+        return pulumi.get(self, "ip_range")
+
+    @ip_range.setter
+    def ip_range(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_range", value)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> pulumi.Input[int]:
+        """
+        ID of the Network the subnet should be added to.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> pulumi.Input[str]:
+        """
+        Name of network zone.
+        """
+        return pulumi.get(self, "network_zone")
+
+    @network_zone.setter
+    def network_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_zone", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of subnet. `server`, `cloud` or `vswitch`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="vswitchId")
+    def vswitch_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the vswitch, Required if type is `vswitch`
+        """
+        return pulumi.get(self, "vswitch_id")
+
+    @vswitch_id.setter
+    def vswitch_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vswitch_id", value)
 
 
 class NetworkSubnet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +140,60 @@ class NetworkSubnet(pulumi.CustomResource):
         :param pulumi.Input[str] type: Type of subnet. `server`, `cloud` or `vswitch`
         :param pulumi.Input[int] vswitch_id: ID of the vswitch, Required if type is `vswitch`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkSubnetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        foonet = hcloud.NetworkSubnet("foonet",
+            network_id=mynet.id,
+            type="cloud",
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        ```
+
+        ## Import
+
+        Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
+
+        ```sh
+         $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NetworkSubnetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkSubnetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 ip_range: Optional[pulumi.Input[str]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
+                 network_zone: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vswitch_id: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

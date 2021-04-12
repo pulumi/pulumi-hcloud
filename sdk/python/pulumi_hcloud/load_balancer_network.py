@@ -5,13 +5,126 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['LoadBalancerNetwork']
+__all__ = ['LoadBalancerNetworkArgs', 'LoadBalancerNetwork']
+
+@pulumi.input_type
+class LoadBalancerNetworkArgs:
+    def __init__(__self__, *,
+                 load_balancer_id: pulumi.Input[int],
+                 enable_public_interface: Optional[pulumi.Input[bool]] = None,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a LoadBalancerNetwork resource.
+        :param pulumi.Input[int] load_balancer_id: ID of the Load Balancer.
+        :param pulumi.Input[bool] enable_public_interface: Enable or disable the
+               Load Balancers public interface. Default: `true`
+        :param pulumi.Input[str] ip: IP to request to be assigned to this Load
+               Balancer. If you do not provide this then you will be auto assigned an
+               IP address.
+        :param pulumi.Input[int] network_id: ID of the network which should be added
+               to the Load Balancer. Required if `subnet_id` is not set. Successful
+               creation of the resource depends on the existence of a subnet in the
+               Hetzner Cloud Backend. Using `network_id` will not create an explicit
+               dependency between the Load Balancer and the subnet. Therefore
+               `depends_on` may need to be used. Alternatively the `subnet_id`
+               property can be used, which will create an explicit dependency between
+               `LoadBalancerNetwork` and the existence of a subnet.
+        :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
+               added to the Load Balancer. Required if `network_id` is not set.
+               *Note*: if the `ip` property is missing, the Load Balancer is
+               currently added to the last created subnet.
+        """
+        pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        if enable_public_interface is not None:
+            pulumi.set(__self__, "enable_public_interface", enable_public_interface)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> pulumi.Input[int]:
+        """
+        ID of the Load Balancer.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @load_balancer_id.setter
+    def load_balancer_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "load_balancer_id", value)
+
+    @property
+    @pulumi.getter(name="enablePublicInterface")
+    def enable_public_interface(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable the
+        Load Balancers public interface. Default: `true`
+        """
+        return pulumi.get(self, "enable_public_interface")
+
+    @enable_public_interface.setter
+    def enable_public_interface(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_public_interface", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP to request to be assigned to this Load
+        Balancer. If you do not provide this then you will be auto assigned an
+        IP address.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the network which should be added
+        to the Load Balancer. Required if `subnet_id` is not set. Successful
+        creation of the resource depends on the existence of a subnet in the
+        Hetzner Cloud Backend. Using `network_id` will not create an explicit
+        dependency between the Load Balancer and the subnet. Therefore
+        `depends_on` may need to be used. Alternatively the `subnet_id`
+        property can be used, which will create an explicit dependency between
+        `LoadBalancerNetwork` and the existence of a subnet.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the sub-network which should be
+        added to the Load Balancer. Required if `network_id` is not set.
+        *Note*: if the `ip` property is missing, the Load Balancer is
+        currently added to the last created subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class LoadBalancerNetwork(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -76,6 +189,67 @@ class LoadBalancerNetwork(pulumi.CustomResource):
                *Note*: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LoadBalancerNetworkArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        lb1 = hcloud.LoadBalancer("lb1",
+            load_balancer_type="lb11",
+            network_zone="eu-central")
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        foonet = hcloud.NetworkSubnet("foonet",
+            network_id=mynet.id,
+            type="cloud",
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        srvnetwork = hcloud.LoadBalancerNetwork("srvnetwork",
+            load_balancer_id=lb1.id,
+            network_id=mynet.id,
+            ip="10.0.1.5")
+        ```
+
+        ## Import
+
+        Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`
+
+        ```sh
+         $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LoadBalancerNetworkArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerNetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_public_interface: Optional[pulumi.Input[bool]] = None,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 load_balancer_id: Optional[pulumi.Input[int]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

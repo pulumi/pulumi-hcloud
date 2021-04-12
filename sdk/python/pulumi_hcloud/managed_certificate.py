@@ -5,13 +5,70 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['ManagedCertificate']
+__all__ = ['ManagedCertificateArgs', 'ManagedCertificate']
+
+@pulumi.input_type
+class ManagedCertificateArgs:
+    def __init__(__self__, *,
+                 domain_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ManagedCertificate resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
+               certificate should be created with.
+        :param pulumi.Input[str] name: Name of the Certificate.
+        """
+        pulumi.set(__self__, "domain_names", domain_names)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="domainNames")
+    def domain_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        (list) Domains and subdomains covered by the certificate.
+        """
+        return pulumi.get(self, "domain_names")
+
+    @domain_names.setter
+    def domain_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "domain_names", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) the
+        certificate should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ManagedCertificate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +96,44 @@ class ManagedCertificate(pulumi.CustomResource):
                certificate should be created with.
         :param pulumi.Input[str] name: Name of the Certificate.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ManagedCertificateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Obtain a Hetzner Cloud managed TLS certificate.
+
+        ## Import
+
+        Managed certificates can be imported using their `id`hcl
+
+        ```sh
+         $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate <id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ManagedCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
