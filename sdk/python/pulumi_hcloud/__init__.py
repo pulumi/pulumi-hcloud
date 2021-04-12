@@ -27,6 +27,7 @@ from .load_balancer import *
 from .load_balancer_network import *
 from .load_balancer_service import *
 from .load_balancer_target import *
+from .managed_certificate import *
 from .network import *
 from .network_route import *
 from .network_subnet import *
@@ -36,6 +37,7 @@ from .server import *
 from .server_network import *
 from .snapshot import *
 from .ssh_key import *
+from .uploaded_certificate import *
 from .volume import *
 from .volume_attachment import *
 from ._inputs import *
@@ -74,6 +76,8 @@ def _register_module():
                 return LoadBalancerService(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/loadBalancerTarget:LoadBalancerTarget":
                 return LoadBalancerTarget(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/managedCertificate:ManagedCertificate":
+                return ManagedCertificate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/network:Network":
                 return Network(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/networkRoute:NetworkRoute":
@@ -90,6 +94,8 @@ def _register_module():
                 return Snapshot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/sshKey:SshKey":
                 return SshKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/uploadedCertificate:UploadedCertificate":
+                return UploadedCertificate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/volume:Volume":
                 return Volume(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/volumeAttachment:VolumeAttachment":
@@ -107,6 +113,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("hcloud", "index/loadBalancerNetwork", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/loadBalancerService", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/loadBalancerTarget", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/managedCertificate", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/network", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/networkRoute", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/networkSubnet", _module_instance)
@@ -115,6 +122,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("hcloud", "index/serverNetwork", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/snapshot", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/sshKey", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/uploadedCertificate", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/volume", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/volumeAttachment", _module_instance)
 

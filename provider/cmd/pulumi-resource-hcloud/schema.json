@@ -859,11 +859,10 @@
     },
     "resources": {
         "hcloud:index/certificate:Certificate": {
-            "description": "Provides a Hetzner Cloud Certificate to represent a TLS certificate in the Hetzner Cloud.\n\n\n## Import\n\nCertificates can be imported using their `id`hcl\n\n```sh\n $ pulumi import hcloud:index/certificate:Certificate sample_certificate \u003cid\u003e\n```\n\n ",
+            "description": "Alias for `hcloud.UploadedCertificate` to remain backwards compatible.\nDeprecated.\n",
             "properties": {
                 "certificate": {
                     "type": "string",
-                    "description": "PEM encoded TLS certificate.\n",
                     "language": {
                         "csharp": {
                             "name": "CertificateContents"
@@ -871,42 +870,37 @@
                     }
                 },
                 "created": {
-                    "type": "string",
-                    "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
+                    "type": "string"
                 },
                 "domainNames": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "(list) Domains and subdomains covered by the certificate.\n"
+                    }
                 },
                 "fingerprint": {
-                    "type": "string",
-                    "description": "(string) Fingerprint of the certificate.\n"
+                    "type": "string"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                    }
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of the Certificate.\n"
+                    "type": "string"
                 },
                 "notValidAfter": {
-                    "type": "string",
-                    "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
+                    "type": "string"
                 },
                 "notValidBefore": {
-                    "type": "string",
-                    "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
+                    "type": "string"
                 },
                 "privateKey": {
-                    "type": "string",
-                    "description": "PEM encoded private key belonging to the certificate.\n"
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -917,12 +911,12 @@
                 "name",
                 "notValidAfter",
                 "notValidBefore",
-                "privateKey"
+                "privateKey",
+                "type"
             ],
             "inputProperties": {
                 "certificate": {
                     "type": "string",
-                    "description": "PEM encoded TLS certificate.\n",
                     "language": {
                         "csharp": {
                             "name": "CertificateContents"
@@ -933,16 +927,13 @@
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                    }
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of the Certificate.\n"
+                    "type": "string"
                 },
                 "privateKey": {
-                    "type": "string",
-                    "description": "PEM encoded private key belonging to the certificate.\n"
+                    "type": "string"
                 }
             },
             "requiredInputs": [
@@ -954,7 +945,6 @@
                 "properties": {
                     "certificate": {
                         "type": "string",
-                        "description": "PEM encoded TLS certificate.\n",
                         "language": {
                             "csharp": {
                                 "name": "CertificateContents"
@@ -962,42 +952,37 @@
                         }
                     },
                     "created": {
-                        "type": "string",
-                        "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
+                        "type": "string"
                     },
                     "domainNames": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        },
-                        "description": "(list) Domains and subdomains covered by the certificate.\n"
+                        }
                     },
                     "fingerprint": {
-                        "type": "string",
-                        "description": "(string) Fingerprint of the certificate.\n"
+                        "type": "string"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        },
-                        "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                        }
                     },
                     "name": {
-                        "type": "string",
-                        "description": "Name of the Certificate.\n"
+                        "type": "string"
                     },
                     "notValidAfter": {
-                        "type": "string",
-                        "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
+                        "type": "string"
                     },
                     "notValidBefore": {
-                        "type": "string",
-                        "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
+                        "type": "string"
                     },
                     "privateKey": {
-                        "type": "string",
-                        "description": "PEM encoded private key belonging to the certificate.\n"
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -1677,6 +1662,132 @@
                     "usePrivateIp": {
                         "type": "boolean",
                         "description": "use the private IP to connect to\nLoad Balancer targets. Only allowed if type is `server` or\n`label_selector`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/managedCertificate:ManagedCertificate": {
+            "description": "Obtain a Hetzner Cloud managed TLS certificate.\n\n\n## Import\n\nManaged certificates can be imported using their `id`hcl\n\n```sh\n $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate \u003cid\u003e\n```\n\n ",
+            "properties": {
+                "certificate": {
+                    "type": "string",
+                    "description": "(string) PEM encoded TLS certificate.\n"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
+                },
+                "domainNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(list) Domains and subdomains covered by the certificate.\n"
+                },
+                "fingerprint": {
+                    "type": "string",
+                    "description": "(string) Fingerprint of the certificate.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Certificate.\n"
+                },
+                "notValidAfter": {
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
+                },
+                "notValidBefore": {
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "certificate",
+                "created",
+                "domainNames",
+                "fingerprint",
+                "name",
+                "notValidAfter",
+                "notValidBefore",
+                "type"
+            ],
+            "inputProperties": {
+                "domainNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(list) Domains and subdomains covered by the certificate.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Certificate.\n"
+                }
+            },
+            "requiredInputs": [
+                "domainNames"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ManagedCertificate resources.\n",
+                "properties": {
+                    "certificate": {
+                        "type": "string",
+                        "description": "(string) PEM encoded TLS certificate.\n"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
+                    },
+                    "domainNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) Domains and subdomains covered by the certificate.\n"
+                    },
+                    "fingerprint": {
+                        "type": "string",
+                        "description": "(string) Fingerprint of the certificate.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Certificate.\n"
+                    },
+                    "notValidAfter": {
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
+                    },
+                    "notValidBefore": {
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
+                    },
+                    "type": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -2470,6 +2581,143 @@
                 "type": "object"
             }
         },
+        "hcloud:index/uploadedCertificate:UploadedCertificate": {
+            "description": "Upload a TLS certificate to Hetzner Cloud.\n\n\n## Import\n\nUploaded certificates can be imported using their `id`hcl\n\n```sh\n $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate \u003cid\u003e\n```\n\n ",
+            "properties": {
+                "certificate": {
+                    "type": "string",
+                    "description": "PEM encoded TLS certificate.\n"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
+                },
+                "domainNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(list) Domains and subdomains covered by the certificate.\n"
+                },
+                "fingerprint": {
+                    "type": "string",
+                    "description": "(string) Fingerprint of the certificate.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Certificate.\n"
+                },
+                "notValidAfter": {
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
+                },
+                "notValidBefore": {
+                    "type": "string",
+                    "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "PEM encoded private key belonging to the certificate.\n"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "certificate",
+                "created",
+                "domainNames",
+                "fingerprint",
+                "name",
+                "notValidAfter",
+                "notValidBefore",
+                "privateKey",
+                "type"
+            ],
+            "inputProperties": {
+                "certificate": {
+                    "type": "string",
+                    "description": "PEM encoded TLS certificate.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Certificate.\n"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "PEM encoded private key belonging to the certificate.\n"
+                }
+            },
+            "requiredInputs": [
+                "certificate",
+                "privateKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UploadedCertificate resources.\n",
+                "properties": {
+                    "certificate": {
+                        "type": "string",
+                        "description": "PEM encoded TLS certificate.\n"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).\n"
+                    },
+                    "domainNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) Domains and subdomains covered by the certificate.\n"
+                    },
+                    "fingerprint": {
+                        "type": "string",
+                        "description": "(string) Fingerprint of the certificate.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "User-defined labels (key-value pairs) the\ncertificate should be created with.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Certificate.\n"
+                    },
+                    "notValidAfter": {
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate stops being valid (in ISO-8601 format).\n"
+                    },
+                    "notValidBefore": {
+                        "type": "string",
+                        "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
+                    },
+                    "privateKey": {
+                        "type": "string",
+                        "description": "PEM encoded private key belonging to the certificate.\n"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "hcloud:index/volume:Volume": {
             "description": "Provides a Hetzner Cloud volume resource to manage volumes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Volume(\"master\", {\n    size: 50,\n    serverId: node1.id,\n    automount: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Volume(\"master\",\n    size=50,\n    server_id=node1.id,\n    automount=True)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Volume(\"master\", new HCloud.VolumeArgs\n        {\n            Size = 50,\n            ServerId = node1.Id,\n            Automount = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewVolume(ctx, \"master\", \u0026hcloud.VolumeArgs{\n\t\t\tSize:      pulumi.Int(50),\n\t\t\tServerId:  node1.ID(),\n\t\t\tAutomount: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nVolumes can be imported using their `id`\n\n```sh\n $ pulumi import hcloud:index/volume:Volume myvolume \u003cid\u003e\n```\n\n ",
             "properties": {
@@ -2719,6 +2967,9 @@
                         "type": "string",
                         "description": "(string) Point in time when the Certificate becomes valid (in ISO-8601 format).\n"
                     },
+                    "type": {
+                        "type": "string"
+                    },
                     "withSelector": {
                         "type": "string"
                     }
@@ -2732,7 +2983,8 @@
                     "id",
                     "labels",
                     "notValidAfter",
-                    "notValidBefore"
+                    "notValidBefore",
+                    "type"
                 ]
             }
         },

@@ -5,12 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Alias for `hcloud.UploadedCertificate` to remain backwards compatible.
- * Deprecated.
+ * Upload a TLS certificate to Hetzner Cloud.
+ *
+ * ## Import
+ *
+ * Uploaded certificates can be imported using their `id`hcl
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate <id>
+ * ```
  */
-export class Certificate extends pulumi.CustomResource {
+export class UploadedCertificate extends pulumi.CustomResource {
     /**
-     * Get an existing Certificate resource's state with the given name, ID, and optional extra
+     * Get an existing UploadedCertificate resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -18,48 +25,76 @@ export class Certificate extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CertificateState, opts?: pulumi.CustomResourceOptions): Certificate {
-        return new Certificate(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UploadedCertificateState, opts?: pulumi.CustomResourceOptions): UploadedCertificate {
+        return new UploadedCertificate(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'hcloud:index/certificate:Certificate';
+    public static readonly __pulumiType = 'hcloud:index/uploadedCertificate:UploadedCertificate';
 
     /**
-     * Returns true if the given object is an instance of Certificate.  This is designed to work even
+     * Returns true if the given object is an instance of UploadedCertificate.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Certificate {
+    public static isInstance(obj: any): obj is UploadedCertificate {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Certificate.__pulumiType;
+        return obj['__pulumiType'] === UploadedCertificate.__pulumiType;
     }
 
+    /**
+     * PEM encoded TLS certificate.
+     */
     public readonly certificate!: pulumi.Output<string>;
+    /**
+     * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+     */
     public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * (list) Domains and subdomains covered by the certificate.
+     */
     public /*out*/ readonly domainNames!: pulumi.Output<string[]>;
+    /**
+     * (string) Fingerprint of the certificate.
+     */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    /**
+     * User-defined labels (key-value pairs) the
+     * certificate should be created with.
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Name of the Certificate.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+     */
     public /*out*/ readonly notValidAfter!: pulumi.Output<string>;
+    /**
+     * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+     */
     public /*out*/ readonly notValidBefore!: pulumi.Output<string>;
+    /**
+     * PEM encoded private key belonging to the certificate.
+     */
     public readonly privateKey!: pulumi.Output<string>;
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
-     * Create a Certificate resource with the given unique name, arguments, and options.
+     * Create a UploadedCertificate resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: UploadedCertificateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: UploadedCertificateArgs | UploadedCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as CertificateState | undefined;
+            const state = argsOrState as UploadedCertificateState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["created"] = state ? state.created : undefined;
             inputs["domainNames"] = state ? state.domainNames : undefined;
@@ -71,7 +106,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["privateKey"] = state ? state.privateKey : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
-            const args = argsOrState as CertificateArgs | undefined;
+            const args = argsOrState as UploadedCertificateArgs | undefined;
             if ((!args || args.certificate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
@@ -92,32 +127,73 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        super(UploadedCertificate.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering Certificate resources.
+ * Input properties used for looking up and filtering UploadedCertificate resources.
  */
-export interface CertificateState {
+export interface UploadedCertificateState {
+    /**
+     * PEM encoded TLS certificate.
+     */
     readonly certificate?: pulumi.Input<string>;
+    /**
+     * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+     */
     readonly created?: pulumi.Input<string>;
+    /**
+     * (list) Domains and subdomains covered by the certificate.
+     */
     readonly domainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (string) Fingerprint of the certificate.
+     */
     readonly fingerprint?: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) the
+     * certificate should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Certificate.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+     */
     readonly notValidAfter?: pulumi.Input<string>;
+    /**
+     * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+     */
     readonly notValidBefore?: pulumi.Input<string>;
+    /**
+     * PEM encoded private key belonging to the certificate.
+     */
     readonly privateKey?: pulumi.Input<string>;
     readonly type?: pulumi.Input<string>;
 }
 
 /**
- * The set of arguments for constructing a Certificate resource.
+ * The set of arguments for constructing a UploadedCertificate resource.
  */
-export interface CertificateArgs {
+export interface UploadedCertificateArgs {
+    /**
+     * PEM encoded TLS certificate.
+     */
     readonly certificate: pulumi.Input<string>;
+    /**
+     * User-defined labels (key-value pairs) the
+     * certificate should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Certificate.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * PEM encoded private key belonging to the certificate.
+     */
     readonly privateKey: pulumi.Input<string>;
 }
