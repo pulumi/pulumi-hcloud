@@ -21,49 +21,50 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "hcloud:index/certificate:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "hcloud:index/firewall:Firewall":
-		r, err = NewFirewall(ctx, name, nil, pulumi.URN_(urn))
+		r = &Firewall{}
 	case "hcloud:index/floatingIp:FloatingIp":
-		r, err = NewFloatingIp(ctx, name, nil, pulumi.URN_(urn))
+		r = &FloatingIp{}
 	case "hcloud:index/floatingIpAssignment:FloatingIpAssignment":
-		r, err = NewFloatingIpAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &FloatingIpAssignment{}
 	case "hcloud:index/loadBalancer:LoadBalancer":
-		r, err = NewLoadBalancer(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancer{}
 	case "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork":
-		r, err = NewLoadBalancerNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancerNetwork{}
 	case "hcloud:index/loadBalancerService:LoadBalancerService":
-		r, err = NewLoadBalancerService(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancerService{}
 	case "hcloud:index/loadBalancerTarget:LoadBalancerTarget":
-		r, err = NewLoadBalancerTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancerTarget{}
 	case "hcloud:index/managedCertificate:ManagedCertificate":
-		r, err = NewManagedCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedCertificate{}
 	case "hcloud:index/network:Network":
-		r, err = NewNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &Network{}
 	case "hcloud:index/networkRoute:NetworkRoute":
-		r, err = NewNetworkRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkRoute{}
 	case "hcloud:index/networkSubnet:NetworkSubnet":
-		r, err = NewNetworkSubnet(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkSubnet{}
 	case "hcloud:index/rdns:Rdns":
-		r, err = NewRdns(ctx, name, nil, pulumi.URN_(urn))
+		r = &Rdns{}
 	case "hcloud:index/server:Server":
-		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Server{}
 	case "hcloud:index/serverNetwork:ServerNetwork":
-		r, err = NewServerNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerNetwork{}
 	case "hcloud:index/snapshot:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	case "hcloud:index/sshKey:SshKey":
-		r, err = NewSshKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &SshKey{}
 	case "hcloud:index/uploadedCertificate:UploadedCertificate":
-		r, err = NewUploadedCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &UploadedCertificate{}
 	case "hcloud:index/volume:Volume":
-		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
+		r = &Volume{}
 	case "hcloud:index/volumeAttachment:VolumeAttachment":
-		r, err = NewVolumeAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &VolumeAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -80,7 +81,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {

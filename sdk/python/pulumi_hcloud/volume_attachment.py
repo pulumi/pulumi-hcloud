@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['VolumeAttachment']
+__all__ = ['VolumeAttachmentArgs', 'VolumeAttachment']
+
+@pulumi.input_type
+class VolumeAttachmentArgs:
+    def __init__(__self__, *,
+                 server_id: pulumi.Input[int],
+                 volume_id: pulumi.Input[int],
+                 automount: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a VolumeAttachment resource.
+        :param pulumi.Input[int] server_id: Server to attach the Volume to.
+        :param pulumi.Input[int] volume_id: ID of the Volume.
+        :param pulumi.Input[bool] automount: Automount the volume upon attaching it.
+        """
+        pulumi.set(__self__, "server_id", server_id)
+        pulumi.set(__self__, "volume_id", volume_id)
+        if automount is not None:
+            pulumi.set(__self__, "automount", automount)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> pulumi.Input[int]:
+        """
+        Server to attach the Volume to.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> pulumi.Input[int]:
+        """
+        ID of the Volume.
+        """
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "volume_id", value)
+
+    @property
+    @pulumi.getter
+    def automount(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Automount the volume upon attaching it.
+        """
+        return pulumi.get(self, "automount")
+
+    @automount.setter
+    def automount(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automount", value)
 
 
 class VolumeAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +111,63 @@ class VolumeAttachment(pulumi.CustomResource):
         :param pulumi.Input[int] server_id: Server to attach the Volume to.
         :param pulumi.Input[int] volume_id: ID of the Volume.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VolumeAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11",
+            datacenter="nbg1-dc3")
+        master = hcloud.Volume("master",
+            location="nbg1",
+            size=10)
+        main = hcloud.VolumeAttachment("main",
+            volume_id=master.id,
+            server_id=node1.id,
+            automount=True)
+        ```
+
+        ## Import
+
+        Volume Attachments can be imported using the `volume_id`
+
+        ```sh
+         $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VolumeAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VolumeAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automount: Optional[pulumi.Input[bool]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 volume_id: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

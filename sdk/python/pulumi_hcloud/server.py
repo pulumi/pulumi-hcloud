@@ -5,15 +5,237 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Server']
+__all__ = ['ServerArgs', 'Server']
+
+@pulumi.input_type
+class ServerArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 server_type: pulumi.Input[str],
+                 backups: Optional[pulumi.Input[bool]] = None,
+                 datacenter: Optional[pulumi.Input[str]] = None,
+                 firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 iso: Optional[pulumi.Input[str]] = None,
+                 keep_disk: Optional[pulumi.Input[bool]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
+                 rescue: Optional[pulumi.Input[str]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Server resource.
+        :param pulumi.Input[str] image: Name or ID of the image the server is created from.
+        :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
+        :param pulumi.Input[bool] backups: Enable or disable backups.
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
+        :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "server_type", server_type)
+        if backups is not None:
+            pulumi.set(__self__, "backups", backups)
+        if datacenter is not None:
+            pulumi.set(__self__, "datacenter", datacenter)
+        if firewall_ids is not None:
+            pulumi.set(__self__, "firewall_ids", firewall_ids)
+        if iso is not None:
+            pulumi.set(__self__, "iso", iso)
+        if keep_disk is not None:
+            pulumi.set(__self__, "keep_disk", keep_disk)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if networks is not None:
+            pulumi.set(__self__, "networks", networks)
+        if rescue is not None:
+            pulumi.set(__self__, "rescue", rescue)
+        if ssh_keys is not None:
+            pulumi.set(__self__, "ssh_keys", ssh_keys)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        """
+        Name or ID of the image the server is created from.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="serverType")
+    def server_type(self) -> pulumi.Input[str]:
+        """
+        Name of the server type this server should be created with.
+        """
+        return pulumi.get(self, "server_type")
+
+    @server_type.setter
+    def server_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_type", value)
+
+    @property
+    @pulumi.getter
+    def backups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable backups.
+        """
+        return pulumi.get(self, "backups")
+
+    @backups.setter
+    def backups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "backups", value)
+
+    @property
+    @pulumi.getter
+    def datacenter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The datacenter name to create the server in.
+        """
+        return pulumi.get(self, "datacenter")
+
+    @datacenter.setter
+    def datacenter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datacenter", value)
+
+    @property
+    @pulumi.getter(name="firewallIds")
+    def firewall_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "firewall_ids")
+
+    @firewall_ids.setter
+    def firewall_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "firewall_ids", value)
+
+    @property
+    @pulumi.getter
+    def iso(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID or Name of an ISO image to mount.
+        """
+        return pulumi.get(self, "iso")
+
+    @iso.setter
+    def iso(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iso", value)
+
+    @property
+    @pulumi.getter(name="keepDisk")
+    def keep_disk(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, do not upgrade the disk. This allows downgrading the server type later.
+        """
+        return pulumi.get(self, "keep_disk")
+
+    @keep_disk.setter
+    def keep_disk(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_disk", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]]:
+        return pulumi.get(self, "networks")
+
+    @networks.setter
+    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]]):
+        pulumi.set(self, "networks", value)
+
+    @property
+    @pulumi.getter
+    def rescue(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        """
+        return pulumi.get(self, "rescue")
+
+    @rescue.setter
+    def rescue(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rescue", value)
+
+    @property
+    @pulumi.getter(name="sshKeys")
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        SSH key IDs or names which should be injected into the server at creation time
+        """
+        return pulumi.get(self, "ssh_keys")
+
+    @ssh_keys.setter
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ssh_keys", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cloud-Init user data to use during server creation
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
 
 
 class Server(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +280,53 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Import
+
+        Servers can be imported using the server `id`
+
+        ```sh
+         $ pulumi import hcloud:index/server:Server myserver <id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backups: Optional[pulumi.Input[bool]] = None,
+                 datacenter: Optional[pulumi.Input[str]] = None,
+                 firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 iso: Optional[pulumi.Input[str]] = None,
+                 keep_disk: Optional[pulumi.Input[bool]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
+                 rescue: Optional[pulumi.Input[str]] = None,
+                 server_type: Optional[pulumi.Input[str]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
