@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -20,6 +20,62 @@ class FirewallArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] name: Name of the Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]] rules: Configuration of a Rule from this Firewall.
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Firewall.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]]:
+        """
+        Configuration of a Rule from this Firewall.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class _FirewallState:
+    def __init__(__self__, *,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering Firewall resources.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]] rules: Configuration of a Rule from this Firewall.
@@ -189,11 +245,11 @@ class Firewall(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FirewallArgs.__new__(FirewallArgs)
 
-            __props__['labels'] = labels
-            __props__['name'] = name
-            __props__['rules'] = rules
+            __props__.__dict__["labels"] = labels
+            __props__.__dict__["name"] = name
+            __props__.__dict__["rules"] = rules
         super(Firewall, __self__).__init__(
             'hcloud:index/firewall:Firewall',
             resource_name,
@@ -220,11 +276,11 @@ class Firewall(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FirewallState.__new__(_FirewallState)
 
-        __props__["labels"] = labels
-        __props__["name"] = name
-        __props__["rules"] = rules
+        __props__.__dict__["labels"] = labels
+        __props__.__dict__["name"] = name
+        __props__.__dict__["rules"] = rules
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -250,10 +306,4 @@ class Firewall(pulumi.CustomResource):
         Configuration of a Rule from this Firewall.
         """
         return pulumi.get(self, "rules")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

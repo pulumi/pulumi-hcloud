@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['NetworkRouteArgs', 'NetworkRoute']
 
@@ -60,6 +60,62 @@ class NetworkRouteArgs:
 
     @network_id.setter
     def network_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "network_id", value)
+
+
+@pulumi.input_type
+class _NetworkRouteState:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 gateway: Optional[pulumi.Input[str]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering NetworkRoute resources.
+        :param pulumi.Input[str] destination: Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+        :param pulumi.Input[str] gateway: Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+        :param pulumi.Input[int] network_id: ID of the Network the route should be added to.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway", value)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the Network the route should be added to.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "network_id", value)
 
 
@@ -170,17 +226,17 @@ class NetworkRoute(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkRouteArgs.__new__(NetworkRouteArgs)
 
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
-            __props__['destination'] = destination
+            __props__.__dict__["destination"] = destination
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
-            __props__['gateway'] = gateway
+            __props__.__dict__["gateway"] = gateway
             if network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_id'")
-            __props__['network_id'] = network_id
+            __props__.__dict__["network_id"] = network_id
         super(NetworkRoute, __self__).__init__(
             'hcloud:index/networkRoute:NetworkRoute',
             resource_name,
@@ -207,11 +263,11 @@ class NetworkRoute(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NetworkRouteState.__new__(_NetworkRouteState)
 
-        __props__["destination"] = destination
-        __props__["gateway"] = gateway
-        __props__["network_id"] = network_id
+        __props__.__dict__["destination"] = destination
+        __props__.__dict__["gateway"] = gateway
+        __props__.__dict__["network_id"] = network_id
         return NetworkRoute(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -237,10 +293,4 @@ class NetworkRoute(pulumi.CustomResource):
         ID of the Network the route should be added to.
         """
         return pulumi.get(self, "network_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

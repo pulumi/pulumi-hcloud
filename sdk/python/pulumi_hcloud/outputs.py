@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -29,6 +29,25 @@ __all__ = [
 
 @pulumi.output_type
 class FirewallRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationIps":
+            suggest = "destination_ips"
+        elif key == "sourceIps":
+            suggest = "source_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  direction: str,
                  protocol: str,
@@ -87,9 +106,6 @@ class FirewallRule(dict):
         """
         return pulumi.get(self, "source_ips")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerAlgorithm(dict):
@@ -108,9 +124,6 @@ class LoadBalancerAlgorithm(dict):
         Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -187,12 +200,26 @@ class LoadBalancerServiceHealthCheck(dict):
         """
         return pulumi.get(self, "retries")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerServiceHealthCheckHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCodes":
+            suggest = "status_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerServiceHealthCheckHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerServiceHealthCheckHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerServiceHealthCheckHttp.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain: Optional[str] = None,
                  path: Optional[str] = None,
@@ -257,12 +284,32 @@ class LoadBalancerServiceHealthCheckHttp(dict):
         """
         return pulumi.get(self, "tls")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerServiceHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookieLifetime":
+            suggest = "cookie_lifetime"
+        elif key == "cookieName":
+            suggest = "cookie_name"
+        elif key == "redirectHttp":
+            suggest = "redirect_http"
+        elif key == "stickySessions":
+            suggest = "sticky_sessions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerServiceHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerServiceHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerServiceHttp.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificates: Optional[Sequence[int]] = None,
                  cookie_lifetime: Optional[int] = None,
@@ -327,12 +374,28 @@ class LoadBalancerServiceHttp(dict):
         """
         return pulumi.get(self, "sticky_sessions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverId":
+            suggest = "server_id"
+        elif key == "usePrivateIp":
+            suggest = "use_private_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  server_id: Optional[int] = None,
@@ -368,12 +431,30 @@ class LoadBalancerTarget(dict):
     def use_private_ip(self) -> Optional[bool]:
         return pulumi.get(self, "use_private_ip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkId":
+            suggest = "network_id"
+        elif key == "aliasIps":
+            suggest = "alias_ips"
+        elif key == "macAddress":
+            suggest = "mac_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerNetwork.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_id: int,
                  alias_ips: Optional[Sequence[str]] = None,
@@ -406,9 +487,6 @@ class ServerNetwork(dict):
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> Optional[str]:
         return pulumi.get(self, "mac_address")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

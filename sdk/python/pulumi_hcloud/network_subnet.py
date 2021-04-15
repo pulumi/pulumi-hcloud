@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['NetworkSubnetArgs', 'NetworkSubnet']
 
@@ -79,6 +79,106 @@ class NetworkSubnetArgs:
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="vswitchId")
+    def vswitch_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the vswitch, Required if type is `vswitch`
+        """
+        return pulumi.get(self, "vswitch_id")
+
+    @vswitch_id.setter
+    def vswitch_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vswitch_id", value)
+
+
+@pulumi.input_type
+class _NetworkSubnetState:
+    def __init__(__self__, *,
+                 gateway: Optional[pulumi.Input[str]] = None,
+                 ip_range: Optional[pulumi.Input[str]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
+                 network_zone: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vswitch_id: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering NetworkSubnet resources.
+        :param pulumi.Input[str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        :param pulumi.Input[int] network_id: ID of the Network the subnet should be added to.
+        :param pulumi.Input[str] network_zone: Name of network zone.
+        :param pulumi.Input[str] type: Type of subnet. `server`, `cloud` or `vswitch`
+        :param pulumi.Input[int] vswitch_id: ID of the vswitch, Required if type is `vswitch`
+        """
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if ip_range is not None:
+            pulumi.set(__self__, "ip_range", ip_range)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
+        if network_zone is not None:
+            pulumi.set(__self__, "network_zone", network_zone)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if vswitch_id is not None:
+            pulumi.set(__self__, "vswitch_id", vswitch_id)
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway", value)
+
+    @property
+    @pulumi.getter(name="ipRange")
+    def ip_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        """
+        return pulumi.get(self, "ip_range")
+
+    @ip_range.setter
+    def ip_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_range", value)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the Network the subnet should be added to.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of network zone.
+        """
+        return pulumi.get(self, "network_zone")
+
+    @network_zone.setter
+    def network_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_zone", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of subnet. `server`, `cloud` or `vswitch`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
     @property
@@ -209,22 +309,22 @@ class NetworkSubnet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkSubnetArgs.__new__(NetworkSubnetArgs)
 
             if ip_range is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_range'")
-            __props__['ip_range'] = ip_range
+            __props__.__dict__["ip_range"] = ip_range
             if network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_id'")
-            __props__['network_id'] = network_id
+            __props__.__dict__["network_id"] = network_id
             if network_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'network_zone'")
-            __props__['network_zone'] = network_zone
+            __props__.__dict__["network_zone"] = network_zone
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['vswitch_id'] = vswitch_id
-            __props__['gateway'] = None
+            __props__.__dict__["type"] = type
+            __props__.__dict__["vswitch_id"] = vswitch_id
+            __props__.__dict__["gateway"] = None
         super(NetworkSubnet, __self__).__init__(
             'hcloud:index/networkSubnet:NetworkSubnet',
             resource_name,
@@ -256,14 +356,14 @@ class NetworkSubnet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NetworkSubnetState.__new__(_NetworkSubnetState)
 
-        __props__["gateway"] = gateway
-        __props__["ip_range"] = ip_range
-        __props__["network_id"] = network_id
-        __props__["network_zone"] = network_zone
-        __props__["type"] = type
-        __props__["vswitch_id"] = vswitch_id
+        __props__.__dict__["gateway"] = gateway
+        __props__.__dict__["ip_range"] = ip_range
+        __props__.__dict__["network_id"] = network_id
+        __props__.__dict__["network_zone"] = network_zone
+        __props__.__dict__["type"] = type
+        __props__.__dict__["vswitch_id"] = vswitch_id
         return NetworkSubnet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -310,10 +410,4 @@ class NetworkSubnet(pulumi.CustomResource):
         ID of the vswitch, Required if type is `vswitch`
         """
         return pulumi.get(self, "vswitch_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

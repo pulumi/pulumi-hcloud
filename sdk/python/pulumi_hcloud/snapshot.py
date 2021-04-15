@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['SnapshotArgs', 'Snapshot']
 
@@ -63,6 +63,62 @@ class SnapshotArgs:
     @labels.setter
     def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "labels", value)
+
+
+@pulumi.input_type
+class _SnapshotState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Snapshot resources.
+        :param pulumi.Input[str] description: Description of the Floating IP.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the Floating IP.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Server to the snapshot should be created from.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server_id", value)
 
 
 class Snapshot(pulumi.CustomResource):
@@ -170,13 +226,13 @@ class Snapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
-            __props__['description'] = description
-            __props__['labels'] = labels
+            __props__.__dict__["description"] = description
+            __props__.__dict__["labels"] = labels
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
-            __props__['server_id'] = server_id
+            __props__.__dict__["server_id"] = server_id
         super(Snapshot, __self__).__init__(
             'hcloud:index/snapshot:Snapshot',
             resource_name,
@@ -203,11 +259,11 @@ class Snapshot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SnapshotState.__new__(_SnapshotState)
 
-        __props__["description"] = description
-        __props__["labels"] = labels
-        __props__["server_id"] = server_id
+        __props__.__dict__["description"] = description
+        __props__.__dict__["labels"] = labels
+        __props__.__dict__["server_id"] = server_id
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -233,10 +289,4 @@ class Snapshot(pulumi.CustomResource):
         Server to the snapshot should be created from.
         """
         return pulumi.get(self, "server_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

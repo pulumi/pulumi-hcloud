@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['FloatingIpAssignmentArgs', 'FloatingIpAssignment']
 
@@ -45,6 +45,46 @@ class FloatingIpAssignmentArgs:
 
     @server_id.setter
     def server_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "server_id", value)
+
+
+@pulumi.input_type
+class _FloatingIpAssignmentState:
+    def __init__(__self__, *,
+                 floating_ip_id: Optional[pulumi.Input[int]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering FloatingIpAssignment resources.
+        :param pulumi.Input[int] floating_ip_id: ID of the Floating IP.
+        :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
+        """
+        if floating_ip_id is not None:
+            pulumi.set(__self__, "floating_ip_id", floating_ip_id)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter(name="floatingIpId")
+    def floating_ip_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the Floating IP.
+        """
+        return pulumi.get(self, "floating_ip_id")
+
+    @floating_ip_id.setter
+    def floating_ip_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "floating_ip_id", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Server to assign the Floating IP to.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "server_id", value)
 
 
@@ -162,14 +202,14 @@ class FloatingIpAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FloatingIpAssignmentArgs.__new__(FloatingIpAssignmentArgs)
 
             if floating_ip_id is None and not opts.urn:
                 raise TypeError("Missing required property 'floating_ip_id'")
-            __props__['floating_ip_id'] = floating_ip_id
+            __props__.__dict__["floating_ip_id"] = floating_ip_id
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
-            __props__['server_id'] = server_id
+            __props__.__dict__["server_id"] = server_id
         super(FloatingIpAssignment, __self__).__init__(
             'hcloud:index/floatingIpAssignment:FloatingIpAssignment',
             resource_name,
@@ -194,10 +234,10 @@ class FloatingIpAssignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FloatingIpAssignmentState.__new__(_FloatingIpAssignmentState)
 
-        __props__["floating_ip_id"] = floating_ip_id
-        __props__["server_id"] = server_id
+        __props__.__dict__["floating_ip_id"] = floating_ip_id
+        __props__.__dict__["server_id"] = server_id
         return FloatingIpAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -215,10 +255,4 @@ class FloatingIpAssignment(pulumi.CustomResource):
         Server to assign the Floating IP to.
         """
         return pulumi.get(self, "server_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

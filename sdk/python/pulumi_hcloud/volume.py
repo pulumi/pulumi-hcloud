@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['VolumeArgs', 'Volume']
 
@@ -127,6 +127,142 @@ class VolumeArgs:
     @server_id.setter
     def server_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "server_id", value)
+
+
+@pulumi.input_type
+class _VolumeState:
+    def __init__(__self__, *,
+                 automount: Optional[pulumi.Input[bool]] = None,
+                 format: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 linux_device: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 size: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Volume resources.
+        :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
+        :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[str] linux_device: Device path on the file system for the Volume.
+        :param pulumi.Input[str] location: Location of the volume to create, not allowed if server_id argument is passed.
+        :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
+        :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
+        :param pulumi.Input[int] size: Size of the volume (in GB).
+        """
+        if automount is not None:
+            pulumi.set(__self__, "automount", automount)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if linux_device is not None:
+            pulumi.set(__self__, "linux_device", linux_device)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def automount(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Automount the volume upon attaching it (server_id must be provided).
+        """
+        return pulumi.get(self, "automount")
+
+    @automount.setter
+    def automount(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automount", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Format volume after creation. `xfs` or `ext4`
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs).
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter(name="linuxDevice")
+    def linux_device(self) -> Optional[pulumi.Input[str]]:
+        """
+        Device path on the file system for the Volume.
+        """
+        return pulumi.get(self, "linux_device")
+
+    @linux_device.setter
+    def linux_device(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linux_device", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the volume to create, not allowed if server_id argument is passed.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the volume to create (must be unique per project).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Server to attach the Volume to, not allowed if location argument is passed.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Size of the volume (in GB).
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size", value)
 
 
 class Volume(pulumi.CustomResource):
@@ -252,18 +388,18 @@ class Volume(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VolumeArgs.__new__(VolumeArgs)
 
-            __props__['automount'] = automount
-            __props__['format'] = format
-            __props__['labels'] = labels
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['server_id'] = server_id
+            __props__.__dict__["automount"] = automount
+            __props__.__dict__["format"] = format
+            __props__.__dict__["labels"] = labels
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["server_id"] = server_id
             if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
-            __props__['size'] = size
-            __props__['linux_device'] = None
+            __props__.__dict__["size"] = size
+            __props__.__dict__["linux_device"] = None
         super(Volume, __self__).__init__(
             'hcloud:index/volume:Volume',
             resource_name,
@@ -300,16 +436,16 @@ class Volume(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VolumeState.__new__(_VolumeState)
 
-        __props__["automount"] = automount
-        __props__["format"] = format
-        __props__["labels"] = labels
-        __props__["linux_device"] = linux_device
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["server_id"] = server_id
-        __props__["size"] = size
+        __props__.__dict__["automount"] = automount
+        __props__.__dict__["format"] = format
+        __props__.__dict__["labels"] = labels
+        __props__.__dict__["linux_device"] = linux_device
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["server_id"] = server_id
+        __props__.__dict__["size"] = size
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -375,10 +511,4 @@ class Volume(pulumi.CustomResource):
         Size of the volume (in GB).
         """
         return pulumi.get(self, "size")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
