@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ServerNetworkArgs', 'ServerNetwork']
 
@@ -106,6 +106,132 @@ class ServerNetworkArgs:
     @network_id.setter
     def network_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the sub-network which should be
+        added to the Server. Required if `network_id` is not set.
+        *Note*: if the `ip` property is missing, the Server is currently added
+        to the last created subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class _ServerNetworkState:
+    def __init__(__self__, *,
+                 alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 mac_address: Optional[pulumi.Input[str]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServerNetwork resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_ips: Additional IPs to be assigned
+               to this server.
+        :param pulumi.Input[str] ip: IP to request to be assigned to this server.
+               If you do not provide this then you will be auto assigned an IP
+               address.
+        :param pulumi.Input[int] network_id: ID of the network which should be added
+               to the server. Required if `subnet_id` is not set. Successful creation
+               of the resource depends on the existence of a subnet in the Hetzner
+               Cloud Backend. Using `network_id` will not create an explicit
+               dependency between server and subnet. Therefore `depends_on` may need
+               to be used. Alternatively the `subnet_id` property can be used, which
+               will create an explicit dependency between `ServerNetwork` and
+               the existence of a subnet.
+        :param pulumi.Input[int] server_id: ID of the server.
+        :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
+               added to the Server. Required if `network_id` is not set.
+               *Note*: if the `ip` property is missing, the Server is currently added
+               to the last created subnet.
+        """
+        if alias_ips is not None:
+            pulumi.set(__self__, "alias_ips", alias_ips)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="aliasIps")
+    def alias_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Additional IPs to be assigned
+        to this server.
+        """
+        return pulumi.get(self, "alias_ips")
+
+    @alias_ips.setter
+    def alias_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alias_ips", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP to request to be assigned to this server.
+        If you do not provide this then you will be auto assigned an IP
+        address.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mac_address")
+
+    @mac_address.setter
+    def mac_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mac_address", value)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the network which should be added
+        to the server. Required if `subnet_id` is not set. Successful creation
+        of the resource depends on the existence of a subnet in the Hetzner
+        Cloud Backend. Using `network_id` will not create an explicit
+        dependency between server and subnet. Therefore `depends_on` may need
+        to be used. Alternatively the `subnet_id` property can be used, which
+        will create an explicit dependency between `ServerNetwork` and
+        the existence of a subnet.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the server.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server_id", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -265,16 +391,16 @@ class ServerNetwork(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerNetworkArgs.__new__(ServerNetworkArgs)
 
-            __props__['alias_ips'] = alias_ips
-            __props__['ip'] = ip
-            __props__['network_id'] = network_id
+            __props__.__dict__["alias_ips"] = alias_ips
+            __props__.__dict__["ip"] = ip
+            __props__.__dict__["network_id"] = network_id
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
-            __props__['server_id'] = server_id
-            __props__['subnet_id'] = subnet_id
-            __props__['mac_address'] = None
+            __props__.__dict__["server_id"] = server_id
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["mac_address"] = None
         super(ServerNetwork, __self__).__init__(
             'hcloud:index/serverNetwork:ServerNetwork',
             resource_name,
@@ -319,14 +445,14 @@ class ServerNetwork(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerNetworkState.__new__(_ServerNetworkState)
 
-        __props__["alias_ips"] = alias_ips
-        __props__["ip"] = ip
-        __props__["mac_address"] = mac_address
-        __props__["network_id"] = network_id
-        __props__["server_id"] = server_id
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["alias_ips"] = alias_ips
+        __props__.__dict__["ip"] = ip
+        __props__.__dict__["mac_address"] = mac_address
+        __props__.__dict__["network_id"] = network_id
+        __props__.__dict__["server_id"] = server_id
+        __props__.__dict__["subnet_id"] = subnet_id
         return ServerNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -386,10 +512,4 @@ class ServerNetwork(pulumi.CustomResource):
         to the last created subnet.
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

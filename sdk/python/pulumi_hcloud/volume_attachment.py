@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['VolumeAttachmentArgs', 'VolumeAttachment']
 
@@ -62,6 +62,62 @@ class VolumeAttachmentArgs:
     @automount.setter
     def automount(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "automount", value)
+
+
+@pulumi.input_type
+class _VolumeAttachmentState:
+    def __init__(__self__, *,
+                 automount: Optional[pulumi.Input[bool]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 volume_id: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering VolumeAttachment resources.
+        :param pulumi.Input[bool] automount: Automount the volume upon attaching it.
+        :param pulumi.Input[int] server_id: Server to attach the Volume to.
+        :param pulumi.Input[int] volume_id: ID of the Volume.
+        """
+        if automount is not None:
+            pulumi.set(__self__, "automount", automount)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+        if volume_id is not None:
+            pulumi.set(__self__, "volume_id", volume_id)
+
+    @property
+    @pulumi.getter
+    def automount(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Automount the volume upon attaching it.
+        """
+        return pulumi.get(self, "automount")
+
+    @automount.setter
+    def automount(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automount", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Server to attach the Volume to.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the Volume.
+        """
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_id", value)
 
 
 class VolumeAttachment(pulumi.CustomResource):
@@ -183,15 +239,15 @@ class VolumeAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VolumeAttachmentArgs.__new__(VolumeAttachmentArgs)
 
-            __props__['automount'] = automount
+            __props__.__dict__["automount"] = automount
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
-            __props__['server_id'] = server_id
+            __props__.__dict__["server_id"] = server_id
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
-            __props__['volume_id'] = volume_id
+            __props__.__dict__["volume_id"] = volume_id
         super(VolumeAttachment, __self__).__init__(
             'hcloud:index/volumeAttachment:VolumeAttachment',
             resource_name,
@@ -218,11 +274,11 @@ class VolumeAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VolumeAttachmentState.__new__(_VolumeAttachmentState)
 
-        __props__["automount"] = automount
-        __props__["server_id"] = server_id
-        __props__["volume_id"] = volume_id
+        __props__.__dict__["automount"] = automount
+        __props__.__dict__["server_id"] = server_id
+        __props__.__dict__["volume_id"] = volume_id
         return VolumeAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -248,10 +304,4 @@ class VolumeAttachment(pulumi.CustomResource):
         ID of the Volume.
         """
         return pulumi.get(self, "volume_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 package hcloud
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides details about a specific Hetzner Cloud Location.
@@ -17,7 +17,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

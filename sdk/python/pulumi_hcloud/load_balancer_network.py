@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['LoadBalancerNetworkArgs', 'LoadBalancerNetwork']
 
@@ -87,6 +87,120 @@ class LoadBalancerNetworkArgs:
     @ip.setter
     def ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the network which should be added
+        to the Load Balancer. Required if `subnet_id` is not set. Successful
+        creation of the resource depends on the existence of a subnet in the
+        Hetzner Cloud Backend. Using `network_id` will not create an explicit
+        dependency between the Load Balancer and the subnet. Therefore
+        `depends_on` may need to be used. Alternatively the `subnet_id`
+        property can be used, which will create an explicit dependency between
+        `LoadBalancerNetwork` and the existence of a subnet.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the sub-network which should be
+        added to the Load Balancer. Required if `network_id` is not set.
+        *Note*: if the `ip` property is missing, the Load Balancer is
+        currently added to the last created subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class _LoadBalancerNetworkState:
+    def __init__(__self__, *,
+                 enable_public_interface: Optional[pulumi.Input[bool]] = None,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 load_balancer_id: Optional[pulumi.Input[int]] = None,
+                 network_id: Optional[pulumi.Input[int]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LoadBalancerNetwork resources.
+        :param pulumi.Input[bool] enable_public_interface: Enable or disable the
+               Load Balancers public interface. Default: `true`
+        :param pulumi.Input[str] ip: IP to request to be assigned to this Load
+               Balancer. If you do not provide this then you will be auto assigned an
+               IP address.
+        :param pulumi.Input[int] load_balancer_id: ID of the Load Balancer.
+        :param pulumi.Input[int] network_id: ID of the network which should be added
+               to the Load Balancer. Required if `subnet_id` is not set. Successful
+               creation of the resource depends on the existence of a subnet in the
+               Hetzner Cloud Backend. Using `network_id` will not create an explicit
+               dependency between the Load Balancer and the subnet. Therefore
+               `depends_on` may need to be used. Alternatively the `subnet_id`
+               property can be used, which will create an explicit dependency between
+               `LoadBalancerNetwork` and the existence of a subnet.
+        :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
+               added to the Load Balancer. Required if `network_id` is not set.
+               *Note*: if the `ip` property is missing, the Load Balancer is
+               currently added to the last created subnet.
+        """
+        if enable_public_interface is not None:
+            pulumi.set(__self__, "enable_public_interface", enable_public_interface)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if load_balancer_id is not None:
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="enablePublicInterface")
+    def enable_public_interface(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable the
+        Load Balancers public interface. Default: `true`
+        """
+        return pulumi.get(self, "enable_public_interface")
+
+    @enable_public_interface.setter
+    def enable_public_interface(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_public_interface", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP to request to be assigned to this Load
+        Balancer. If you do not provide this then you will be auto assigned an
+        IP address.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the Load Balancer.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @load_balancer_id.setter
+    def load_balancer_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_balancer_id", value)
 
     @property
     @pulumi.getter(name="networkId")
@@ -265,15 +379,15 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LoadBalancerNetworkArgs.__new__(LoadBalancerNetworkArgs)
 
-            __props__['enable_public_interface'] = enable_public_interface
-            __props__['ip'] = ip
+            __props__.__dict__["enable_public_interface"] = enable_public_interface
+            __props__.__dict__["ip"] = ip
             if load_balancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_id'")
-            __props__['load_balancer_id'] = load_balancer_id
-            __props__['network_id'] = network_id
-            __props__['subnet_id'] = subnet_id
+            __props__.__dict__["load_balancer_id"] = load_balancer_id
+            __props__.__dict__["network_id"] = network_id
+            __props__.__dict__["subnet_id"] = subnet_id
         super(LoadBalancerNetwork, __self__).__init__(
             'hcloud:index/loadBalancerNetwork:LoadBalancerNetwork',
             resource_name,
@@ -317,13 +431,13 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LoadBalancerNetworkState.__new__(_LoadBalancerNetworkState)
 
-        __props__["enable_public_interface"] = enable_public_interface
-        __props__["ip"] = ip
-        __props__["load_balancer_id"] = load_balancer_id
-        __props__["network_id"] = network_id
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["enable_public_interface"] = enable_public_interface
+        __props__.__dict__["ip"] = ip
+        __props__.__dict__["load_balancer_id"] = load_balancer_id
+        __props__.__dict__["network_id"] = network_id
+        __props__.__dict__["subnet_id"] = subnet_id
         return LoadBalancerNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -378,10 +492,4 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         currently added to the last created subnet.
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

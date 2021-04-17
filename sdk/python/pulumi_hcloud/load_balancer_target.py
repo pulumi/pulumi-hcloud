@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['LoadBalancerTargetArgs', 'LoadBalancerTarget']
 
@@ -110,6 +110,124 @@ class LoadBalancerTargetArgs:
     @server_id.setter
     def server_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="usePrivateIp")
+    def use_private_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        use the private IP to connect to
+        Load Balancer targets. Only allowed if type is `server` or
+        `label_selector`.
+        """
+        return pulumi.get(self, "use_private_ip")
+
+    @use_private_ip.setter
+    def use_private_ip(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_private_ip", value)
+
+
+@pulumi.input_type
+class _LoadBalancerTargetState:
+    def __init__(__self__, *,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 label_selector: Optional[pulumi.Input[str]] = None,
+                 load_balancer_id: Optional[pulumi.Input[int]] = None,
+                 server_id: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 use_private_ip: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering LoadBalancerTarget resources.
+        :param pulumi.Input[str] ip: IP address for an IP Target. Required if
+               `type` is `ip`.
+        :param pulumi.Input[str] label_selector: Label Selector selecting targets
+               for this Load Balancer. Required if `type` is `label_selector`.
+        :param pulumi.Input[int] load_balancer_id: ID of the Load Balancer to which
+               the target gets attached.
+        :param pulumi.Input[int] server_id: ID of the server which should be a
+               target for this Load Balancer. Required if `type` is `server`
+        :param pulumi.Input[str] type: Type of the target. Possible values
+               `server`, `label_selector`, `ip`.
+        :param pulumi.Input[bool] use_private_ip: use the private IP to connect to
+               Load Balancer targets. Only allowed if type is `server` or
+               `label_selector`.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if load_balancer_id is not None:
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_private_ip is not None:
+            pulumi.set(__self__, "use_private_ip", use_private_ip)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address for an IP Target. Required if
+        `type` is `ip`.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        Label Selector selecting targets
+        for this Load Balancer. Required if `type` is `label_selector`.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @label_selector.setter
+    def label_selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label_selector", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the Load Balancer to which
+        the target gets attached.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @load_balancer_id.setter
+    def load_balancer_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_balancer_id", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the server which should be a
+        target for this Load Balancer. Required if `type` is `server`
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the target. Possible values
+        `server`, `label_selector`, `ip`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="usePrivateIp")
@@ -243,18 +361,18 @@ class LoadBalancerTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LoadBalancerTargetArgs.__new__(LoadBalancerTargetArgs)
 
-            __props__['ip'] = ip
-            __props__['label_selector'] = label_selector
+            __props__.__dict__["ip"] = ip
+            __props__.__dict__["label_selector"] = label_selector
             if load_balancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_id'")
-            __props__['load_balancer_id'] = load_balancer_id
-            __props__['server_id'] = server_id
+            __props__.__dict__["load_balancer_id"] = load_balancer_id
+            __props__.__dict__["server_id"] = server_id
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['use_private_ip'] = use_private_ip
+            __props__.__dict__["type"] = type
+            __props__.__dict__["use_private_ip"] = use_private_ip
         super(LoadBalancerTarget, __self__).__init__(
             'hcloud:index/loadBalancerTarget:LoadBalancerTarget',
             resource_name,
@@ -294,14 +412,14 @@ class LoadBalancerTarget(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LoadBalancerTargetState.__new__(_LoadBalancerTargetState)
 
-        __props__["ip"] = ip
-        __props__["label_selector"] = label_selector
-        __props__["load_balancer_id"] = load_balancer_id
-        __props__["server_id"] = server_id
-        __props__["type"] = type
-        __props__["use_private_ip"] = use_private_ip
+        __props__.__dict__["ip"] = ip
+        __props__.__dict__["label_selector"] = label_selector
+        __props__.__dict__["load_balancer_id"] = load_balancer_id
+        __props__.__dict__["server_id"] = server_id
+        __props__.__dict__["type"] = type
+        __props__.__dict__["use_private_ip"] = use_private_ip
         return LoadBalancerTarget(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -358,10 +476,4 @@ class LoadBalancerTarget(pulumi.CustomResource):
         `label_selector`.
         """
         return pulumi.get(self, "use_private_ip")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 package hcloud
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a list of available Hetzner Cloud Datacenters.

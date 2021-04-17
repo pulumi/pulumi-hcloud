@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['UploadedCertificateArgs', 'UploadedCertificate']
 
@@ -80,6 +80,172 @@ class UploadedCertificateArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _UploadedCertificateState:
+    def __init__(__self__, *,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 created: Optional[pulumi.Input[str]] = None,
+                 domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 fingerprint: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 not_valid_after: Optional[pulumi.Input[str]] = None,
+                 not_valid_before: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UploadedCertificate resources.
+        :param pulumi.Input[str] certificate: PEM encoded TLS certificate.
+        :param pulumi.Input[str] created: (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
+        :param pulumi.Input[str] fingerprint: (string) Fingerprint of the certificate.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
+               certificate should be created with.
+        :param pulumi.Input[str] name: Name of the Certificate.
+        :param pulumi.Input[str] not_valid_after: (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+        :param pulumi.Input[str] not_valid_before: (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+        :param pulumi.Input[str] private_key: PEM encoded private key belonging to the certificate.
+        """
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if created is not None:
+            pulumi.set(__self__, "created", created)
+        if domain_names is not None:
+            pulumi.set(__self__, "domain_names", domain_names)
+        if fingerprint is not None:
+            pulumi.set(__self__, "fingerprint", fingerprint)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if not_valid_after is not None:
+            pulumi.set(__self__, "not_valid_after", not_valid_after)
+        if not_valid_before is not None:
+            pulumi.set(__self__, "not_valid_before", not_valid_before)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        PEM encoded TLS certificate.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter
+    def created(self) -> Optional[pulumi.Input[str]]:
+        """
+        (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+        """
+        return pulumi.get(self, "created")
+
+    @created.setter
+    def created(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created", value)
+
+    @property
+    @pulumi.getter(name="domainNames")
+    def domain_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (list) Domains and subdomains covered by the certificate.
+        """
+        return pulumi.get(self, "domain_names")
+
+    @domain_names.setter
+    def domain_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "domain_names", value)
+
+    @property
+    @pulumi.getter
+    def fingerprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        (string) Fingerprint of the certificate.
+        """
+        return pulumi.get(self, "fingerprint")
+
+    @fingerprint.setter
+    def fingerprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fingerprint", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) the
+        certificate should be created with.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="notValidAfter")
+    def not_valid_after(self) -> Optional[pulumi.Input[str]]:
+        """
+        (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+        """
+        return pulumi.get(self, "not_valid_after")
+
+    @not_valid_after.setter
+    def not_valid_after(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_valid_after", value)
+
+    @property
+    @pulumi.getter(name="notValidBefore")
+    def not_valid_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+        """
+        return pulumi.get(self, "not_valid_before")
+
+    @not_valid_before.setter
+    def not_valid_before(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_valid_before", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        PEM encoded private key belonging to the certificate.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class UploadedCertificate(pulumi.CustomResource):
@@ -167,22 +333,22 @@ class UploadedCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UploadedCertificateArgs.__new__(UploadedCertificateArgs)
 
             if certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate'")
-            __props__['certificate'] = certificate
-            __props__['labels'] = labels
-            __props__['name'] = name
+            __props__.__dict__["certificate"] = certificate
+            __props__.__dict__["labels"] = labels
+            __props__.__dict__["name"] = name
             if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
-            __props__['private_key'] = private_key
-            __props__['created'] = None
-            __props__['domain_names'] = None
-            __props__['fingerprint'] = None
-            __props__['not_valid_after'] = None
-            __props__['not_valid_before'] = None
-            __props__['type'] = None
+            __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["created"] = None
+            __props__.__dict__["domain_names"] = None
+            __props__.__dict__["fingerprint"] = None
+            __props__.__dict__["not_valid_after"] = None
+            __props__.__dict__["not_valid_before"] = None
+            __props__.__dict__["type"] = None
         super(UploadedCertificate, __self__).__init__(
             'hcloud:index/uploadedCertificate:UploadedCertificate',
             resource_name,
@@ -223,18 +389,18 @@ class UploadedCertificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UploadedCertificateState.__new__(_UploadedCertificateState)
 
-        __props__["certificate"] = certificate
-        __props__["created"] = created
-        __props__["domain_names"] = domain_names
-        __props__["fingerprint"] = fingerprint
-        __props__["labels"] = labels
-        __props__["name"] = name
-        __props__["not_valid_after"] = not_valid_after
-        __props__["not_valid_before"] = not_valid_before
-        __props__["private_key"] = private_key
-        __props__["type"] = type
+        __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["created"] = created
+        __props__.__dict__["domain_names"] = domain_names
+        __props__.__dict__["fingerprint"] = fingerprint
+        __props__.__dict__["labels"] = labels
+        __props__.__dict__["name"] = name
+        __props__.__dict__["not_valid_after"] = not_valid_after
+        __props__.__dict__["not_valid_before"] = not_valid_before
+        __props__.__dict__["private_key"] = private_key
+        __props__.__dict__["type"] = type
         return UploadedCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -314,10 +480,4 @@ class UploadedCertificate(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
