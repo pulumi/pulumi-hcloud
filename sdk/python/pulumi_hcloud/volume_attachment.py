@@ -128,9 +128,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  automount: Optional[pulumi.Input[bool]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.
 
@@ -221,15 +219,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  automount: Optional[pulumi.Input[bool]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
