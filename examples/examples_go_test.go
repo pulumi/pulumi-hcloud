@@ -4,10 +4,20 @@
 package examples
 
 import (
+	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
+
+func TestNetworkGo(t *testing.T) {
+	test := getGoBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "network", "go"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
 
 func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)

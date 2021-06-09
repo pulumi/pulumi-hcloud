@@ -34,6 +34,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -389,9 +390,21 @@
         },
         "hcloud:index/getFirewallRule:getFirewallRule": {
             "properties": {
+                "destinationIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "direction": {
                     "type": "string",
-                    "description": "(Required, string) Direction of the Firewall Rule. `in`\n",
+                    "description": "(Required, string) Direction of the Firewall Rule. `in`, `out`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -421,7 +434,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule\n",
+                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2719,7 +2732,7 @@
             }
         },
         "hcloud:index/volume:Volume": {
-            "description": "Provides a Hetzner Cloud volume resource to manage volumes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Volume(\"master\", {\n    size: 50,\n    serverId: node1.id,\n    automount: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Volume(\"master\",\n    size=50,\n    server_id=node1.id,\n    automount=True)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Volume(\"master\", new HCloud.VolumeArgs\n        {\n            Size = 50,\n            ServerId = node1.Id,\n            Automount = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewVolume(ctx, \"master\", \u0026hcloud.VolumeArgs{\n\t\t\tSize:      pulumi.Int(50),\n\t\t\tServerId:  node1.ID(),\n\t\t\tAutomount: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nVolumes can be imported using their `id`\n\n```sh\n $ pulumi import hcloud:index/volume:Volume myvolume \u003cid\u003e\n```\n\n ",
+            "description": "Provides a Hetzner Cloud volume resource to manage volumes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Volume(\"master\", {\n    size: 50,\n    serverId: node1.id,\n    automount: true,\n    format: \"ext4\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Volume(\"master\",\n    size=50,\n    server_id=node1.id,\n    automount=True,\n    format=\"ext4\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Volume(\"master\", new HCloud.VolumeArgs\n        {\n            Size = 50,\n            ServerId = node1.Id,\n            Automount = true,\n            Format = \"ext4\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewVolume(ctx, \"master\", \u0026hcloud.VolumeArgs{\n\t\t\tSize:      pulumi.Int(50),\n\t\t\tServerId:  node1.ID(),\n\t\t\tAutomount: pulumi.Bool(true),\n\t\t\tFormat:    pulumi.String(\"ext4\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nVolumes can be imported using their `id`\n\n```sh\n $ pulumi import hcloud:index/volume:Volume myvolume \u003cid\u003e\n```\n\n ",
             "properties": {
                 "automount": {
                     "type": "boolean",
@@ -4105,7 +4118,7 @@
                 "hcloud": "HCloud"
             },
             "packageReferences": {
-                "Pulumi": "3.*-*",
+                "Pulumi": "3.*",
                 "System.Collections.Immutable": "1.6.0"
             }
         },
@@ -4116,7 +4129,7 @@
         "nodejs": {
             "compatibility": "tfbridge20",
             "dependencies": {
-                "@pulumi/pulumi": "^3.0.0-alpha.0"
+                "@pulumi/pulumi": "^3.0.0"
             },
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -4132,7 +4145,7 @@
             "compatibility": "tfbridge20",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/hetznercloud/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`hetznercloud/terraform-provider-hcloud` repo](https://github.com/hetznercloud/terraform-provider-hcloud/issues).",
             "requires": {
-                "pulumi": "\u003e=3.0.0a1,\u003c4.0.0"
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
         }
     }

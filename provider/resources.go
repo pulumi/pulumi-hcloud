@@ -126,7 +126,7 @@ func Provider() tfbridge.ProviderInfo {
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^3.0.0-alpha.0",
+				"@pulumi/pulumi": "^3.0.0",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
@@ -136,7 +136,7 @@ func Provider() tfbridge.ProviderInfo {
 		Python: &tfbridge.PythonInfo{
 			// List any Python dependencies and their version ranges
 			Requires: map[string]string{
-				"pulumi": ">=3.0.0a1,<4.0.0",
+				"pulumi": ">=3.0.0,<4.0.0",
 			},
 		},
 		Golang: &tfbridge.GolangInfo{
@@ -151,7 +151,7 @@ func Provider() tfbridge.ProviderInfo {
 
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*-*",
+				"Pulumi":                       "3.*",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Namespaces: map[string]string{

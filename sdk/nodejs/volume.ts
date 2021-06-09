@@ -21,6 +21,7 @@ import * as utilities from "./utilities";
  *     size: 50,
  *     serverId: node1.id,
  *     automount: true,
+ *     format: "ext4",
  * });
  * ```
  *

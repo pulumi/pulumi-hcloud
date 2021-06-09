@@ -12,8 +12,20 @@ namespace Pulumi.HCloud.Inputs
 
     public sealed class GetFirewallRuleArgs : Pulumi.InvokeArgs
     {
+        [Input("destinationIps")]
+        private List<string>? _destinationIps;
+
         /// <summary>
-        /// (Required, string) Direction of the Firewall Rule. `in`
+        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+        /// </summary>
+        public List<string> DestinationIps
+        {
+            get => _destinationIps ?? (_destinationIps = new List<string>());
+            set => _destinationIps = value;
+        }
+
+        /// <summary>
+        /// (Required, string) Direction of the Firewall Rule. `in`, `out`
         /// </summary>
         [Input("direction", required: true)]
         public string Direction { get; set; } = null!;
@@ -34,7 +46,7 @@ namespace Pulumi.HCloud.Inputs
         private List<string>? _sourceIps;
 
         /// <summary>
-        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule
+        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
         /// </summary>
         public List<string> SourceIps
         {

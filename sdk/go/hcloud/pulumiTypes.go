@@ -11,6 +11,7 @@ import (
 )
 
 type FirewallRule struct {
+	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps []string `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
 	Direction string `pulumi:"direction"`
@@ -34,6 +35,7 @@ type FirewallRuleInput interface {
 }
 
 type FirewallRuleArgs struct {
+	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
 	Direction pulumi.StringInput `pulumi:"direction"`
@@ -96,6 +98,7 @@ func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 func (o FirewallRuleOutput) DestinationIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallRule) []string { return v.DestinationIps }).(pulumi.StringArrayOutput)
 }
@@ -1139,13 +1142,15 @@ func (o ServerNetworkTypeArrayOutput) Index(i pulumi.IntInput) ServerNetworkType
 }
 
 type GetFirewallRule struct {
-	// (Required, string) Direction of the Firewall Rule. `in`
+	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+	DestinationIps []string `pulumi:"destinationIps"`
+	// (Required, string) Direction of the Firewall Rule. `in`, `out`
 	Direction string `pulumi:"direction"`
 	// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
 	Port *string `pulumi:"port"`
 	// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
 	Protocol *string `pulumi:"protocol"`
-	// (Required, List) List of CIDRs that are allowed within this Firewall Rule
+	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
 	SourceIps []string `pulumi:"sourceIps"`
 }
 
@@ -1161,13 +1166,15 @@ type GetFirewallRuleInput interface {
 }
 
 type GetFirewallRuleArgs struct {
-	// (Required, string) Direction of the Firewall Rule. `in`
+	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
+	// (Required, string) Direction of the Firewall Rule. `in`, `out`
 	Direction pulumi.StringInput `pulumi:"direction"`
 	// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// (Required, List) List of CIDRs that are allowed within this Firewall Rule
+	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
 	SourceIps pulumi.StringArrayInput `pulumi:"sourceIps"`
 }
 
@@ -1222,7 +1229,12 @@ func (o GetFirewallRuleOutput) ToGetFirewallRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-// (Required, string) Direction of the Firewall Rule. `in`
+// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+func (o GetFirewallRuleOutput) DestinationIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallRule) []string { return v.DestinationIps }).(pulumi.StringArrayOutput)
+}
+
+// (Required, string) Direction of the Firewall Rule. `in`, `out`
 func (o GetFirewallRuleOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallRule) string { return v.Direction }).(pulumi.StringOutput)
 }
@@ -1237,7 +1249,7 @@ func (o GetFirewallRuleOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetFirewallRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// (Required, List) List of CIDRs that are allowed within this Firewall Rule
+// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
 func (o GetFirewallRuleOutput) SourceIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFirewallRule) []string { return v.SourceIps }).(pulumi.StringArrayOutput)
 }

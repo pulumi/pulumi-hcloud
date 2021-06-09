@@ -4,10 +4,20 @@
 package examples
 
 import (
+	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
+
+func TestNetworkCSharp(t *testing.T) {
+	test := getCsharpBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "network", "csharp"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
 
 func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)

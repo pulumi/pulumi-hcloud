@@ -36,6 +36,7 @@ import (
 // 			Size:      pulumi.Int(50),
 // 			ServerId:  node1.ID(),
 // 			Automount: pulumi.Bool(true),
+// 			Format:    pulumi.String("ext4"),
 // 		})
 // 		if err != nil {
 // 			return err
