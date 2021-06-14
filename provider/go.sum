@@ -509,6 +509,8 @@ github.com/hetznercloud/hcloud-go v1.25.0 h1:QAaFKtGKWRxjwjKJWBGMxGYUxVEQmIkb35j
 github.com/hetznercloud/hcloud-go v1.25.0/go.mod h1:2C5uMtBiMoFr3m7lBFPf7wXTdh33CevmZpQIIDPGYJI=
 github.com/hetznercloud/terraform-provider-hcloud v1.26.0 h1:yHIyOUgcQb0ulPJUYwcasroWOMM7JLsGJYewxaUieQ0=
 github.com/hetznercloud/terraform-provider-hcloud v1.26.0/go.mod h1:569f8j0179VmqzS6JafwMBrXj/tOu8dSc0hqJIwa0qQ=
+github.com/hetznercloud/terraform-provider-hcloud v1.26.2 h1:I+SMKvWXRmSdftvFofucK4DwqsmvmGfm9UUHu5oIZDU=
+github.com/hetznercloud/terraform-provider-hcloud v1.26.2/go.mod h1:569f8j0179VmqzS6JafwMBrXj/tOu8dSc0hqJIwa0qQ=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174 h1:WlZsjVhE8Af9IcZDGgJGQpNflI3+MJSBhsgT5PCtzBQ=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174/go.mod h1:DqJ97dSdRW1W22yXSB90986pcOyQ7r45iio1KN2ez1A=
 github.com/hpcloud/tail v1.0.0 h1:nfCOvKYfkgYP8hkirhJocXT2+zOD8yUNjXaWfTlyFKI=

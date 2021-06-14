@@ -32,6 +32,7 @@ namespace Pulumi.HCloud
     ///             Size = 50,
     ///             ServerId = node1.Id,
     ///             Automount = true,
+    ///             Format = "ext4",
     ///         });
     ///     }
     /// 

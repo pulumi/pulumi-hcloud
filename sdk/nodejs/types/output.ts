@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
 export interface FirewallRule {
+    /**
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+     */
     destinationIps?: string[];
     /**
      * Direction of the Firewall Rule. `in`
@@ -26,7 +29,11 @@ export interface FirewallRule {
 
 export interface GetFirewallRule {
     /**
-     * (Required, string) Direction of the Firewall Rule. `in`
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+     */
+    destinationIps?: string[];
+    /**
+     * (Required, string) Direction of the Firewall Rule. `in`, `out`
      */
     direction: string;
     /**
@@ -38,7 +45,7 @@ export interface GetFirewallRule {
      */
     protocol?: string;
     /**
-     * (Required, List) List of CIDRs that are allowed within this Firewall Rule
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
      */
     sourceIps?: string[];
 }

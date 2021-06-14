@@ -14,6 +14,10 @@ namespace Pulumi.HCloud.Inputs
     {
         [Input("destinationIps")]
         private InputList<string>? _destinationIps;
+
+        /// <summary>
+        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+        /// </summary>
         public InputList<string> DestinationIps
         {
             get => _destinationIps ?? (_destinationIps = new InputList<string>());
