@@ -41,6 +41,7 @@ export class Provider extends pulumi.ProviderResource {
                 throw new Error("Missing required property 'token'");
             }
             inputs["endpoint"] = args ? args.endpoint : undefined;
+            inputs["pollInterval"] = args ? args.pollInterval : undefined;
             inputs["token"] = args ? args.token : undefined;
         }
         if (!opts.version) {
@@ -55,6 +56,7 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     readonly endpoint?: pulumi.Input<string>;
+    readonly pollInterval?: pulumi.Input<string>;
     /**
      * The API token to access the Hetzner cloud.
      */

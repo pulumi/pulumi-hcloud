@@ -17,6 +17,9 @@
             "endpoint": {
                 "type": "string"
             },
+            "pollInterval": {
+                "type": "string"
+            },
             "token": {
                 "type": "string",
                 "description": "The API token to access the Hetzner cloud.\n"
@@ -61,7 +64,7 @@
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`\n",
+                    "description": "Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -293,6 +296,7 @@
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
+                        "certificates",
                         "cookieLifetime",
                         "cookieName",
                         "redirectHttp",
@@ -422,7 +426,7 @@
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "(Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`\n",
+                    "description": "(Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -859,6 +863,9 @@
         "description": "The provider type for the hcloud package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
         "inputProperties": {
             "endpoint": {
+                "type": "string"
+            },
+            "pollInterval": {
                 "type": "string"
             },
             "token": {
@@ -2916,7 +2923,7 @@
     },
     "functions": {
         "hcloud:index/getCertificate:getCertificate": {
-            "description": "Provides details about a specific Hetzner Cloud Certificate.\n\n",
+            "description": "Provides details about a specific Hetzner Cloud Certificate.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst sampleCertificate1 = pulumi.output(hcloud.getCertificate({\n    name: \"sample-certificate-1\",\n}, { async: true }));\nconst sampleCertificate2 = pulumi.output(hcloud.getCertificate({\n    id: 4711,\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nsample_certificate1 = hcloud.get_certificate(name=\"sample-certificate-1\")\nsample_certificate2 = hcloud.get_certificate(id=4711)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleCertificate1 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs\n        {\n            Name = \"sample-certificate-1\",\n        }));\n        var sampleCertificate2 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs\n        {\n            Id = 4711,\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"sample-certificate-1\"\n\t\t_, err := hcloud.LookupCertificate(ctx, \u0026hcloud.LookupCertificateArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 4711\n\t\t_, err = hcloud.LookupCertificate(ctx, \u0026hcloud.LookupCertificateArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getCertificate.\n",
                 "properties": {
@@ -3118,7 +3125,7 @@
             }
         },
         "hcloud:index/getFirewall:getFirewall": {
-            "description": "Provides details about a specific Hetzner Cloud Firewall.\n\n",
+            "description": "Provides details about a specific Hetzner Cloud Firewall.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst sampleFirewall1 = pulumi.output(hcloud.getFirewall({\n    name: \"sample-firewall-1\",\n}, { async: true }));\nconst sampleFirewall2 = pulumi.output(hcloud.getFirewall({\n    id: 4711,\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nsample_firewall1 = hcloud.get_firewall(name=\"sample-firewall-1\")\nsample_firewall2 = hcloud.get_firewall(id=4711)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleFirewall1 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs\n        {\n            Name = \"sample-firewall-1\",\n        }));\n        var sampleFirewall2 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs\n        {\n            Id = 4711,\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"sample-firewall-1\"\n\t\t_, err := hcloud.LookupFirewall(ctx, \u0026hcloud.LookupFirewallArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 4711\n\t\t_, err = hcloud.LookupFirewall(ctx, \u0026hcloud.LookupFirewallArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getFirewall.\n",
                 "properties": {
@@ -4118,8 +4125,7 @@
                 "hcloud": "HCloud"
             },
             "packageReferences": {
-                "Pulumi": "3.*",
-                "System.Collections.Immutable": "1.6.0"
+                "Pulumi": "3.*"
             }
         },
         "go": {

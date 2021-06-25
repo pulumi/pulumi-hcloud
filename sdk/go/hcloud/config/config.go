@@ -11,6 +11,9 @@ import (
 func GetEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "hcloud:endpoint")
 }
+func GetPollInterval(ctx *pulumi.Context) string {
+	return config.Get(ctx, "hcloud:pollInterval")
+}
 
 // The API token to access the Hetzner cloud.
 func GetToken(ctx *pulumi.Context) string {

@@ -8,6 +8,35 @@ import (
 )
 
 // Provides details about a specific Hetzner Cloud Firewall.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "sample-firewall-1"
+// 		_, err := hcloud.LookupFirewall(ctx, &hcloud.LookupFirewallArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := 4711
+// 		_, err = hcloud.LookupFirewall(ctx, &hcloud.LookupFirewallArgs{
+// 			Id: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulumi.InvokeOption) (*LookupFirewallResult, error) {
 	var rv LookupFirewallResult
 	err := ctx.Invoke("hcloud:index/getFirewall:getFirewall", args, &rv, opts...)

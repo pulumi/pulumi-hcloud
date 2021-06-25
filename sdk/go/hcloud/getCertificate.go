@@ -8,6 +8,35 @@ import (
 )
 
 // Provides details about a specific Hetzner Cloud Certificate.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "sample-certificate-1"
+// 		_, err := hcloud.LookupCertificate(ctx, &hcloud.LookupCertificateArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := 4711
+// 		_, err = hcloud.LookupCertificate(ctx, &hcloud.LookupCertificateArgs{
+// 			Id: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("hcloud:index/getCertificate:getCertificate", args, &rv, opts...)

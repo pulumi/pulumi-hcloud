@@ -10,12 +10,15 @@ from .. import _utilities
 
 __all__ = [
     'endpoint',
+    'poll_interval',
     'token',
 ]
 
 __config__ = pulumi.Config('hcloud')
 
 endpoint = __config__.get('endpoint')
+
+poll_interval = __config__.get('pollInterval')
 
 token = __config__.get('token')
 """

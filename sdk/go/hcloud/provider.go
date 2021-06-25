@@ -38,14 +38,16 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	Endpoint *string `pulumi:"endpoint"`
+	Endpoint     *string `pulumi:"endpoint"`
+	PollInterval *string `pulumi:"pollInterval"`
 	// The API token to access the Hetzner cloud.
 	Token string `pulumi:"token"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	Endpoint pulumi.StringPtrInput
+	Endpoint     pulumi.StringPtrInput
+	PollInterval pulumi.StringPtrInput
 	// The API token to access the Hetzner cloud.
 	Token pulumi.StringInput
 }

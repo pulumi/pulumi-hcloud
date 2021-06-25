@@ -29,7 +29,7 @@ class FirewallRuleArgs:
                  source_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] direction: Direction of the Firewall Rule. `in`
-        :param pulumi.Input[str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        :param pulumi.Input[str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of CIDRs that are allowed within this Firewall Rule
@@ -59,7 +59,7 @@ class FirewallRuleArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         """
         return pulumi.get(self, "protocol")
 
@@ -517,7 +517,7 @@ class GetFirewallRuleArgs:
         :param str direction: (Required, string) Direction of the Firewall Rule. `in`, `out`
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param str port: (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
-        :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param Sequence[str] source_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
         """
         pulumi.set(__self__, "direction", direction)
@@ -570,7 +570,7 @@ class GetFirewallRuleArgs:
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         """
         return pulumi.get(self, "protocol")
 

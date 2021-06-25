@@ -17,7 +17,7 @@ type FirewallRule struct {
 	Direction string `pulumi:"direction"`
 	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
 	Port *string `pulumi:"port"`
-	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol string `pulumi:"protocol"`
 	// List of CIDRs that are allowed within this Firewall Rule
 	SourceIps []string `pulumi:"sourceIps"`
@@ -41,7 +41,7 @@ type FirewallRuleArgs struct {
 	Direction pulumi.StringInput `pulumi:"direction"`
 	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of CIDRs that are allowed within this Firewall Rule
 	SourceIps pulumi.StringArrayInput `pulumi:"sourceIps"`
@@ -113,7 +113,7 @@ func (o FirewallRuleOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 func (o FirewallRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1148,7 +1148,7 @@ type GetFirewallRule struct {
 	Direction string `pulumi:"direction"`
 	// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
 	Port *string `pulumi:"port"`
-	// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+	// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol *string `pulumi:"protocol"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
 	SourceIps []string `pulumi:"sourceIps"`
@@ -1172,7 +1172,7 @@ type GetFirewallRuleArgs struct {
 	Direction pulumi.StringInput `pulumi:"direction"`
 	// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+	// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
 	SourceIps pulumi.StringArrayInput `pulumi:"sourceIps"`
@@ -1244,7 +1244,7 @@ func (o GetFirewallRuleOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetFirewallRule) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 func (o GetFirewallRuleOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetFirewallRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }

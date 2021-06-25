@@ -56,7 +56,7 @@ class FirewallRule(dict):
                  source_ips: Optional[Sequence[str]] = None):
         """
         :param str direction: Direction of the Firewall Rule. `in`
-        :param str protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        :param str protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param str port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
         :param Sequence[str] source_ips: List of CIDRs that are allowed within this Firewall Rule
@@ -82,7 +82,7 @@ class FirewallRule(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         """
         return pulumi.get(self, "protocol")
 
@@ -505,7 +505,7 @@ class GetFirewallRuleResult(dict):
         :param str direction: (Required, string) Direction of the Firewall Rule. `in`, `out`
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param str port: (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
-        :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param Sequence[str] source_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
         """
         pulumi.set(__self__, "direction", direction)
@@ -546,7 +546,7 @@ class GetFirewallRuleResult(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         """
         return pulumi.get(self, "protocol")
 
