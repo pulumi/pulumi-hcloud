@@ -37,7 +37,7 @@ namespace Pulumi.HCloud.Inputs
         public string? Port { get; set; }
 
         /// <summary>
-        /// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        /// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         /// </summary>
         [Input("protocol")]
         public string? Protocol { get; set; }

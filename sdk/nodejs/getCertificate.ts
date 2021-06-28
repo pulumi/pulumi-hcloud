@@ -7,6 +7,18 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a specific Hetzner Cloud Certificate.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const sampleCertificate1 = pulumi.output(hcloud.getCertificate({
+ *     name: "sample-certificate-1",
+ * }, { async: true }));
+ * const sampleCertificate2 = pulumi.output(hcloud.getCertificate({
+ *     id: 4711,
+ * }, { async: true }));
+ * ```
  */
 export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     args = args || {};

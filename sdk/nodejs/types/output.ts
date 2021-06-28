@@ -18,7 +18,7 @@ export interface FirewallRule {
      */
     port?: string;
     /**
-     * Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+     * Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
      */
     protocol: string;
     /**
@@ -41,7 +41,7 @@ export interface GetFirewallRule {
      */
     port?: string;
     /**
-     * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+     * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
      */
     protocol?: string;
     /**
@@ -241,7 +241,7 @@ export interface LoadBalancerServiceHttp {
     /**
      * List of IDs from certificates which the Load Balancer has.
      */
-    certificates?: number[];
+    certificates: number[];
     /**
      * Lifetime of the cookie for sticky session (in seconds). Default: `300`
      */

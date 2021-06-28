@@ -26,7 +26,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string? Port;
         /// <summary>
-        /// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+        /// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         /// </summary>
         public readonly string Protocol;
         /// <summary>

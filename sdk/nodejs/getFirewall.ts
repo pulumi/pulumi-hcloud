@@ -7,6 +7,18 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a specific Hetzner Cloud Firewall.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const sampleFirewall1 = pulumi.output(hcloud.getFirewall({
+ *     name: "sample-firewall-1",
+ * }, { async: true }));
+ * const sampleFirewall2 = pulumi.output(hcloud.getFirewall({
+ *     id: 4711,
+ * }, { async: true }));
+ * ```
  */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     args = args || {};

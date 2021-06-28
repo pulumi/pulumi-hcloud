@@ -10,6 +10,8 @@ namespace Pulumi.HCloud
         private static readonly Pulumi.Config __config = new Pulumi.Config("hcloud");
         public static string? Endpoint { get; set; } = __config.Get("endpoint");
 
+        public static string? PollInterval { get; set; } = __config.Get("pollInterval");
+
         /// <summary>
         /// The API token to access the Hetzner cloud.
         /// </summary>

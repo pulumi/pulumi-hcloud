@@ -14,7 +14,8 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
-                 endpoint: Optional[pulumi.Input[str]] = None):
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 poll_interval: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] token: The API token to access the Hetzner cloud.
@@ -22,6 +23,8 @@ class ProviderArgs:
         pulumi.set(__self__, "token", token)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if poll_interval is not None:
+            pulumi.set(__self__, "poll_interval", poll_interval)
 
     @property
     @pulumi.getter
@@ -44,6 +47,15 @@ class ProviderArgs:
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
 
+    @property
+    @pulumi.getter(name="pollInterval")
+    def poll_interval(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "poll_interval")
+
+    @poll_interval.setter
+    def poll_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "poll_interval", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -51,6 +63,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 poll_interval: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -91,6 +104,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 poll_interval: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -105,6 +119,7 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             __props__.__dict__["endpoint"] = endpoint
+            __props__.__dict__["poll_interval"] = poll_interval
             if token is None and not opts.urn:
                 raise TypeError("Missing required property 'token'")
             __props__.__dict__["token"] = token

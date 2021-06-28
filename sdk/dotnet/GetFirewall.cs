@@ -13,6 +13,27 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Firewall.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sampleFirewall1 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs
+        ///         {
+        ///             Name = "sample-firewall-1",
+        ///         }));
+        ///         var sampleFirewall2 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs
+        ///         {
+        ///             Id = 4711,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithVersion());

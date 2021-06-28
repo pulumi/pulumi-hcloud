@@ -48,6 +48,9 @@ namespace Pulumi.HCloud
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        [Input("pollInterval")]
+        public Input<string>? PollInterval { get; set; }
+
         /// <summary>
         /// The API token to access the Hetzner cloud.
         /// </summary>

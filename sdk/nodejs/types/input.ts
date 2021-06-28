@@ -18,7 +18,7 @@ export interface FirewallRule {
      */
     port?: pulumi.Input<string>;
     /**
-     * Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+     * Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
      */
     protocol: pulumi.Input<string>;
     /**
@@ -41,7 +41,7 @@ export interface GetFirewallRule {
      */
     port?: string;
     /**
-     * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`
+     * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
      */
     protocol?: string;
     /**

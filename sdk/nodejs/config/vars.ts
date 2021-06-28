@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 let __config = new pulumi.Config("hcloud");
 
 export let endpoint: string | undefined = __config.get("endpoint");
+export let pollInterval: string | undefined = __config.get("pollInterval");
 /**
  * The API token to access the Hetzner cloud.
  */

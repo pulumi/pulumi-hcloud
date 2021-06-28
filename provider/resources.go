@@ -151,8 +151,7 @@ func Provider() tfbridge.ProviderInfo {
 
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 			Namespaces: map[string]string{
 				mainPkg: "HCloud",

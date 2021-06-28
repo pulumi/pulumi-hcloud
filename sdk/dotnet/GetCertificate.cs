@@ -13,6 +13,27 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Certificate.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sampleCertificate1 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs
+        ///         {
+        ///             Name = "sample-certificate-1",
+        ///         }));
+        ///         var sampleCertificate2 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs
+        ///         {
+        ///             Id = 4711,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("hcloud:index/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
