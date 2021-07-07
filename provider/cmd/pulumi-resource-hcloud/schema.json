@@ -55,7 +55,7 @@
                 },
                 "port": {
                     "type": "string",
-                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`\n",
+                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -347,6 +347,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "Alias IPs the server should have in the Network.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -355,6 +356,7 @@
                 },
                 "ip": {
                     "type": "string",
+                    "description": "Specify the IP the server should get in the network\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -363,6 +365,7 @@
                 },
                 "macAddress": {
                     "type": "string",
+                    "description": "(Optional, string) The MAC address the private interface of the server has\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -371,6 +374,7 @@
                 },
                 "networkId": {
                     "type": "integer",
+                    "description": "ID of the network\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2038,7 +2042,7 @@
                 },
                 "floatingIpId": {
                     "type": "integer",
-                    "description": "The Floating IP the `ip_address` belongs to.\n"
+                    "description": "The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.\n"
                 },
                 "ipAddress": {
                     "type": "string",
@@ -2046,7 +2050,7 @@
                 },
                 "serverId": {
                     "type": "integer",
-                    "description": "The server the `ip_address` belongs to.\n"
+                    "description": "The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.\n"
                 }
             },
             "required": [
@@ -2060,7 +2064,7 @@
                 },
                 "floatingIpId": {
                     "type": "integer",
-                    "description": "The Floating IP the `ip_address` belongs to.\n"
+                    "description": "The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.\n"
                 },
                 "ipAddress": {
                     "type": "string",
@@ -2068,7 +2072,7 @@
                 },
                 "serverId": {
                     "type": "integer",
-                    "description": "The server the `ip_address` belongs to.\n"
+                    "description": "The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.\n"
                 }
             },
             "requiredInputs": [
@@ -2084,7 +2088,7 @@
                     },
                     "floatingIpId": {
                         "type": "integer",
-                        "description": "The Floating IP the `ip_address` belongs to.\n"
+                        "description": "The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.\n"
                     },
                     "ipAddress": {
                         "type": "string",
@@ -2092,7 +2096,7 @@
                     },
                     "serverId": {
                         "type": "integer",
-                        "description": "The server the `ip_address` belongs to.\n"
+                        "description": "The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.\n"
                     }
                 },
                 "type": "object"
@@ -2118,7 +2122,8 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "Firewall IDs the server should be attached to on creation.\n"
                 },
                 "image": {
                     "type": "string",
@@ -2163,7 +2168,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/ServerNetwork:ServerNetwork"
-                    }
+                    },
+                    "description": "Network the server should be attached to on creation. (Can be specified multiple times)\n"
                 },
                 "rescue": {
                     "type": "string",
@@ -2214,7 +2220,8 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "Firewall IDs the server should be attached to on creation.\n"
                 },
                 "image": {
                     "type": "string",
@@ -2247,7 +2254,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/ServerNetwork:ServerNetwork"
-                    }
+                    },
+                    "description": "Network the server should be attached to on creation. (Can be specified multiple times)\n"
                 },
                 "rescue": {
                     "type": "string",
@@ -2293,7 +2301,8 @@
                         "type": "array",
                         "items": {
                             "type": "integer"
-                        }
+                        },
+                        "description": "Firewall IDs the server should be attached to on creation.\n"
                     },
                     "image": {
                         "type": "string",
@@ -2338,7 +2347,8 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/hcloud:index/ServerNetwork:ServerNetwork"
-                        }
+                        },
+                        "description": "Network the server should be attached to on creation. (Can be specified multiple times)\n"
                     },
                     "rescue": {
                         "type": "string",
@@ -2464,11 +2474,11 @@
             }
         },
         "hcloud:index/snapshot:Snapshot": {
-            "description": "Provides a Hetzner Cloud snapshot to represent a image with type snapshot in the Hetzner Cloud. This resource makes it easy to create \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst my_snapshot = new hcloud.Snapshot(\"my-snapshot\", {serverId: node1.id});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmy_snapshot = hcloud.Snapshot(\"my-snapshot\", server_id=node1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var my_snapshot = new HCloud.Snapshot(\"my-snapshot\", new HCloud.SnapshotArgs\n        {\n            ServerId = node1.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewSnapshot(ctx, \"my_snapshot\", \u0026hcloud.SnapshotArgs{\n\t\t\tServerId: node1.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSnapshots can be imported using its image `id`\n\n```sh\n $ pulumi import hcloud:index/snapshot:Snapshot myip \u003cid\u003e\n```\n\n ",
+            "description": "Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst my_snapshot = new hcloud.Snapshot(\"my-snapshot\", {serverId: node1.id});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmy_snapshot = hcloud.Snapshot(\"my-snapshot\", server_id=node1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var my_snapshot = new HCloud.Snapshot(\"my-snapshot\", new HCloud.SnapshotArgs\n        {\n            ServerId = node1.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewSnapshot(ctx, \"my_snapshot\", \u0026hcloud.SnapshotArgs{\n\t\t\tServerId: node1.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSnapshots can be imported using its image `id`\n\n```sh\n $ pulumi import hcloud:index/snapshot:Snapshot myimage \u003cid\u003e\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Description of the Floating IP.\n"
+                    "description": "Description of the snapshot.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -2488,7 +2498,7 @@
             "inputProperties": {
                 "description": {
                     "type": "string",
-                    "description": "Description of the Floating IP.\n"
+                    "description": "Description of the snapshot.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -2510,7 +2520,7 @@
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "Description of the Floating IP.\n"
+                        "description": "Description of the snapshot.\n"
                     },
                     "labels": {
                         "type": "object",
@@ -3719,7 +3729,8 @@
                         "type": "array",
                         "items": {
                             "type": "integer"
-                        }
+                        },
+                        "description": "(Optional, list) Firewall IDs the server is attached to.\n"
                     },
                     "id": {
                         "type": "integer",

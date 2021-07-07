@@ -19,7 +19,7 @@ class SnapshotArgs:
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
-        :param pulumi.Input[str] description: Description of the Floating IP.
+        :param pulumi.Input[str] description: Description of the snapshot.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -44,7 +44,7 @@ class SnapshotArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the Floating IP.
+        Description of the snapshot.
         """
         return pulumi.get(self, "description")
 
@@ -73,7 +73,7 @@ class _SnapshotState:
                  server_id: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
-        :param pulumi.Input[str] description: Description of the Floating IP.
+        :param pulumi.Input[str] description: Description of the snapshot.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
         """
@@ -88,7 +88,7 @@ class _SnapshotState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the Floating IP.
+        Description of the snapshot.
         """
         return pulumi.get(self, "description")
 
@@ -131,7 +131,7 @@ class Snapshot(pulumi.CustomResource):
                  server_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides a Hetzner Cloud snapshot to represent a image with type snapshot in the Hetzner Cloud. This resource makes it easy to create
+        Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
 
         ## Example Usage
 
@@ -150,12 +150,12 @@ class Snapshot(pulumi.CustomResource):
         Snapshots can be imported using its image `id`
 
         ```sh
-         $ pulumi import hcloud:index/snapshot:Snapshot myip <id>
+         $ pulumi import hcloud:index/snapshot:Snapshot myimage <id>
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the Floating IP.
+        :param pulumi.Input[str] description: Description of the snapshot.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
         """
@@ -166,7 +166,7 @@ class Snapshot(pulumi.CustomResource):
                  args: SnapshotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Hetzner Cloud snapshot to represent a image with type snapshot in the Hetzner Cloud. This resource makes it easy to create
+        Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
 
         ## Example Usage
 
@@ -185,7 +185,7 @@ class Snapshot(pulumi.CustomResource):
         Snapshots can be imported using its image `id`
 
         ```sh
-         $ pulumi import hcloud:index/snapshot:Snapshot myip <id>
+         $ pulumi import hcloud:index/snapshot:Snapshot myimage <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,7 +243,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the Floating IP.
+        :param pulumi.Input[str] description: Description of the snapshot.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
         """
@@ -260,7 +260,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Floating IP.
+        Description of the snapshot.
         """
         return pulumi.get(self, "description")
 

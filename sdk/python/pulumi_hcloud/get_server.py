@@ -109,6 +109,9 @@ class GetServerResult:
     @property
     @pulumi.getter(name="firewallIds")
     def firewall_ids(self) -> Sequence[int]:
+        """
+        (Optional, list) Firewall IDs the server is attached to.
+        """
         return pulumi.get(self, "firewall_ids")
 
     @property

@@ -21,8 +21,8 @@ class RdnsArgs:
         The set of arguments for constructing a Rdns resource.
         :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
-        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to.
-        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         pulumi.set(__self__, "dns_ptr", dns_ptr)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -59,7 +59,7 @@ class RdnsArgs:
     @pulumi.getter(name="floatingIpId")
     def floating_ip_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The Floating IP the `ip_address` belongs to.
+        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         return pulumi.get(self, "floating_ip_id")
 
@@ -71,7 +71,7 @@ class RdnsArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The server the `ip_address` belongs to.
+        The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         return pulumi.get(self, "server_id")
 
@@ -90,9 +90,9 @@ class _RdnsState:
         """
         Input properties used for looking up and filtering Rdns resources.
         :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
-        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
-        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         if dns_ptr is not None:
             pulumi.set(__self__, "dns_ptr", dns_ptr)
@@ -119,7 +119,7 @@ class _RdnsState:
     @pulumi.getter(name="floatingIpId")
     def floating_ip_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The Floating IP the `ip_address` belongs to.
+        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         return pulumi.get(self, "floating_ip_id")
 
@@ -143,7 +143,7 @@ class _RdnsState:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The server the `ip_address` belongs to.
+        The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         return pulumi.get(self, "server_id")
 
@@ -214,9 +214,9 @@ class Rdns(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
-        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
-        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         ...
     @overload
@@ -334,9 +334,9 @@ class Rdns(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
-        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
-        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -360,7 +360,7 @@ class Rdns(pulumi.CustomResource):
     @pulumi.getter(name="floatingIpId")
     def floating_ip_id(self) -> pulumi.Output[Optional[int]]:
         """
-        The Floating IP the `ip_address` belongs to.
+        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         return pulumi.get(self, "floating_ip_id")
 
@@ -376,7 +376,7 @@ class Rdns(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[Optional[int]]:
         """
-        The server the `ip_address` belongs to.
+        The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         """
         return pulumi.get(self, "server_id")
 

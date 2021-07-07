@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Hetzner Cloud snapshot to represent a image with type snapshot in the Hetzner Cloud. This resource makes it easy to create
+// Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
 //
 // ## Example Usage
 //
@@ -48,12 +48,12 @@ import (
 // Snapshots can be imported using its image `id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/snapshot:Snapshot myip <id>
+//  $ pulumi import hcloud:index/snapshot:Snapshot myimage <id>
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// Description of the Floating IP.
+	// Description of the snapshot.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapOutput `pulumi:"labels"`
@@ -93,7 +93,7 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// Description of the Floating IP.
+	// Description of the snapshot.
 	Description *string `pulumi:"description"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -102,7 +102,7 @@ type snapshotState struct {
 }
 
 type SnapshotState struct {
-	// Description of the Floating IP.
+	// Description of the snapshot.
 	Description pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
@@ -115,7 +115,7 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// Description of the Floating IP.
+	// Description of the snapshot.
 	Description *string `pulumi:"description"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -125,7 +125,7 @@ type snapshotArgs struct {
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// Description of the Floating IP.
+	// Description of the snapshot.
 	Description pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput

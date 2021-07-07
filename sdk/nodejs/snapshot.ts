@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud snapshot to represent a image with type snapshot in the Hetzner Cloud. This resource makes it easy to create
+ * Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
  *
  * ## Example Usage
  *
@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * Snapshots can be imported using its image `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/snapshot:Snapshot myip <id>
+ *  $ pulumi import hcloud:index/snapshot:Snapshot myimage <id>
  * ```
  */
 export class Snapshot extends pulumi.CustomResource {
@@ -57,7 +57,7 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Description of the Floating IP.
+     * Description of the snapshot.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -106,7 +106,7 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotState {
     /**
-     * Description of the Floating IP.
+     * Description of the snapshot.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -124,7 +124,7 @@ export interface SnapshotState {
  */
 export interface SnapshotArgs {
     /**
-     * Description of the Floating IP.
+     * Description of the snapshot.
      */
     readonly description?: pulumi.Input<string>;
     /**

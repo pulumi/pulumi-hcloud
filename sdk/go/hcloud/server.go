@@ -28,7 +28,8 @@ type Server struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
 	// The datacenter name to create the server in.
-	Datacenter  pulumi.StringOutput   `pulumi:"datacenter"`
+	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
+	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayOutput `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
 	Image pulumi.StringOutput `pulumi:"image"`
@@ -47,7 +48,8 @@ type Server struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name     pulumi.StringOutput          `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks ServerNetworkTypeArrayOutput `pulumi:"networks"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrOutput `pulumi:"rescue"`
@@ -103,8 +105,9 @@ type serverState struct {
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in.
-	Datacenter  *string `pulumi:"datacenter"`
-	FirewallIds []int   `pulumi:"firewallIds"`
+	Datacenter *string `pulumi:"datacenter"`
+	// Firewall IDs the server should be attached to on creation.
+	FirewallIds []int `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
 	Image *string `pulumi:"image"`
 	// (string) The IPv4 address.
@@ -122,7 +125,8 @@ type serverState struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name     *string             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue *string `pulumi:"rescue"`
@@ -144,7 +148,8 @@ type ServerState struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in.
-	Datacenter  pulumi.StringPtrInput
+	Datacenter pulumi.StringPtrInput
+	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
 	// Name or ID of the image the server is created from.
 	Image pulumi.StringPtrInput
@@ -163,7 +168,8 @@ type ServerState struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks ServerNetworkTypeArrayInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrInput
@@ -185,8 +191,9 @@ type serverArgs struct {
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in.
-	Datacenter  *string `pulumi:"datacenter"`
-	FirewallIds []int   `pulumi:"firewallIds"`
+	Datacenter *string `pulumi:"datacenter"`
+	// Firewall IDs the server should be attached to on creation.
+	FirewallIds []int `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
 	Image string `pulumi:"image"`
 	// ID or Name of an ISO image to mount.
@@ -198,7 +205,8 @@ type serverArgs struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name     *string             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue *string `pulumi:"rescue"`
@@ -215,7 +223,8 @@ type ServerArgs struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in.
-	Datacenter  pulumi.StringPtrInput
+	Datacenter pulumi.StringPtrInput
+	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
 	// Name or ID of the image the server is created from.
 	Image pulumi.StringInput
@@ -228,7 +237,8 @@ type ServerArgs struct {
 	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks ServerNetworkTypeArrayInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrInput

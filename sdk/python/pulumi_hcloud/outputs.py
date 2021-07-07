@@ -58,7 +58,7 @@ class FirewallRule(dict):
         :param str direction: Direction of the Firewall Rule. `in`
         :param str protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
-        :param str port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        :param str port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
         :param Sequence[str] source_ips: List of CIDRs that are allowed within this Firewall Rule
         """
         pulumi.set(__self__, "direction", direction)
@@ -98,7 +98,7 @@ class FirewallRule(dict):
     @pulumi.getter
     def port(self) -> Optional[str]:
         """
-        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
         """
         return pulumi.get(self, "port")
 
@@ -464,6 +464,12 @@ class ServerNetwork(dict):
                  alias_ips: Optional[Sequence[str]] = None,
                  ip: Optional[str] = None,
                  mac_address: Optional[str] = None):
+        """
+        :param int network_id: ID of the network
+        :param Sequence[str] alias_ips: Alias IPs the server should have in the Network.
+        :param str ip: Specify the IP the server should get in the network
+        :param str mac_address: (Optional, string) The MAC address the private interface of the server has
+        """
         pulumi.set(__self__, "network_id", network_id)
         if alias_ips is not None:
             pulumi.set(__self__, "alias_ips", alias_ips)
@@ -475,21 +481,33 @@ class ServerNetwork(dict):
     @property
     @pulumi.getter(name="networkId")
     def network_id(self) -> int:
+        """
+        ID of the network
+        """
         return pulumi.get(self, "network_id")
 
     @property
     @pulumi.getter(name="aliasIps")
     def alias_ips(self) -> Optional[Sequence[str]]:
+        """
+        Alias IPs the server should have in the Network.
+        """
         return pulumi.get(self, "alias_ips")
 
     @property
     @pulumi.getter
     def ip(self) -> Optional[str]:
+        """
+        Specify the IP the server should get in the network
+        """
         return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> Optional[str]:
+        """
+        (Optional, string) The MAC address the private interface of the server has
+        """
         return pulumi.get(self, "mac_address")
 
 

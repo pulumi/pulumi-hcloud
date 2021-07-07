@@ -31,7 +31,7 @@ class FirewallRuleArgs:
         :param pulumi.Input[str] direction: Direction of the Firewall Rule. `in`
         :param pulumi.Input[str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
-        :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of CIDRs that are allowed within this Firewall Rule
         """
         pulumi.set(__self__, "direction", direction)
@@ -83,7 +83,7 @@ class FirewallRuleArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
-        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
         """
         return pulumi.get(self, "port")
 
@@ -460,6 +460,12 @@ class ServerNetworkArgs:
                  alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] network_id: ID of the network
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_ips: Alias IPs the server should have in the Network.
+        :param pulumi.Input[str] ip: Specify the IP the server should get in the network
+        :param pulumi.Input[str] mac_address: (Optional, string) The MAC address the private interface of the server has
+        """
         pulumi.set(__self__, "network_id", network_id)
         if alias_ips is not None:
             pulumi.set(__self__, "alias_ips", alias_ips)
@@ -471,6 +477,9 @@ class ServerNetworkArgs:
     @property
     @pulumi.getter(name="networkId")
     def network_id(self) -> pulumi.Input[int]:
+        """
+        ID of the network
+        """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
@@ -480,6 +489,9 @@ class ServerNetworkArgs:
     @property
     @pulumi.getter(name="aliasIps")
     def alias_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Alias IPs the server should have in the Network.
+        """
         return pulumi.get(self, "alias_ips")
 
     @alias_ips.setter
@@ -489,6 +501,9 @@ class ServerNetworkArgs:
     @property
     @pulumi.getter
     def ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the IP the server should get in the network
+        """
         return pulumi.get(self, "ip")
 
     @ip.setter
@@ -498,6 +513,9 @@ class ServerNetworkArgs:
     @property
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional, string) The MAC address the private interface of the server has
+        """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
