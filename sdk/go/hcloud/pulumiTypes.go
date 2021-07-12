@@ -15,7 +15,7 @@ type FirewallRule struct {
 	DestinationIps []string `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
 	Direction string `pulumi:"direction"`
-	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
 	Port *string `pulumi:"port"`
 	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol string `pulumi:"protocol"`
@@ -39,7 +39,7 @@ type FirewallRuleArgs struct {
 	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -108,7 +108,7 @@ func (o FirewallRuleOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRule) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
 func (o FirewallRuleOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -1030,10 +1030,14 @@ func (o LoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) LoadBalancer
 }
 
 type ServerNetworkType struct {
-	AliasIps   []string `pulumi:"aliasIps"`
-	Ip         *string  `pulumi:"ip"`
-	MacAddress *string  `pulumi:"macAddress"`
-	NetworkId  int      `pulumi:"networkId"`
+	// Alias IPs the server should have in the Network.
+	AliasIps []string `pulumi:"aliasIps"`
+	// Specify the IP the server should get in the network
+	Ip *string `pulumi:"ip"`
+	// (Optional, string) The MAC address the private interface of the server has
+	MacAddress *string `pulumi:"macAddress"`
+	// ID of the network
+	NetworkId int `pulumi:"networkId"`
 }
 
 // ServerNetworkTypeInput is an input type that accepts ServerNetworkTypeArgs and ServerNetworkTypeOutput values.
@@ -1048,10 +1052,14 @@ type ServerNetworkTypeInput interface {
 }
 
 type ServerNetworkTypeArgs struct {
-	AliasIps   pulumi.StringArrayInput `pulumi:"aliasIps"`
-	Ip         pulumi.StringPtrInput   `pulumi:"ip"`
-	MacAddress pulumi.StringPtrInput   `pulumi:"macAddress"`
-	NetworkId  pulumi.IntInput         `pulumi:"networkId"`
+	// Alias IPs the server should have in the Network.
+	AliasIps pulumi.StringArrayInput `pulumi:"aliasIps"`
+	// Specify the IP the server should get in the network
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// (Optional, string) The MAC address the private interface of the server has
+	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
+	// ID of the network
+	NetworkId pulumi.IntInput `pulumi:"networkId"`
 }
 
 func (ServerNetworkTypeArgs) ElementType() reflect.Type {
@@ -1105,18 +1113,22 @@ func (o ServerNetworkTypeOutput) ToServerNetworkTypeOutputWithContext(ctx contex
 	return o
 }
 
+// Alias IPs the server should have in the Network.
 func (o ServerNetworkTypeOutput) AliasIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerNetworkType) []string { return v.AliasIps }).(pulumi.StringArrayOutput)
 }
 
+// Specify the IP the server should get in the network
 func (o ServerNetworkTypeOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerNetworkType) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
+// (Optional, string) The MAC address the private interface of the server has
 func (o ServerNetworkTypeOutput) MacAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerNetworkType) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
+// ID of the network
 func (o ServerNetworkTypeOutput) NetworkId() pulumi.IntOutput {
 	return o.ApplyT(func(v ServerNetworkType) int { return v.NetworkId }).(pulumi.IntOutput)
 }

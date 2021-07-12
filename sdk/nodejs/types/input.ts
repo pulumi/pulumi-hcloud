@@ -14,7 +14,7 @@ export interface FirewallRule {
      */
     direction: pulumi.Input<string>;
     /**
-     * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+     * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
      */
     port?: pulumi.Input<string>;
     /**
@@ -146,8 +146,20 @@ export interface LoadBalancerTarget {
 }
 
 export interface ServerNetwork {
+    /**
+     * Alias IPs the server should have in the Network.
+     */
     aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specify the IP the server should get in the network
+     */
     ip?: pulumi.Input<string>;
+    /**
+     * (Optional, string) The MAC address the private interface of the server has
+     */
     macAddress?: pulumi.Input<string>;
+    /**
+     * ID of the network
+     */
     networkId: pulumi.Input<number>;
 }

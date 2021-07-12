@@ -14,18 +14,31 @@ namespace Pulumi.HCloud.Inputs
     {
         [Input("aliasIps")]
         private InputList<string>? _aliasIps;
+
+        /// <summary>
+        /// Alias IPs the server should have in the Network.
+        /// </summary>
         public InputList<string> AliasIps
         {
             get => _aliasIps ?? (_aliasIps = new InputList<string>());
             set => _aliasIps = value;
         }
 
+        /// <summary>
+        /// Specify the IP the server should get in the network
+        /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
+        /// <summary>
+        /// (Optional, string) The MAC address the private interface of the server has
+        /// </summary>
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }
 
+        /// <summary>
+        /// ID of the network
+        /// </summary>
         [Input("networkId", required: true)]
         public Input<int> NetworkId { get; set; } = null!;
 

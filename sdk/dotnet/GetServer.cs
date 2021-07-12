@@ -72,6 +72,9 @@ namespace Pulumi.HCloud
         /// (string) The datacenter name.
         /// </summary>
         public readonly string Datacenter;
+        /// <summary>
+        /// (Optional, list) Firewall IDs the server is attached to.
+        /// </summary>
         public readonly ImmutableArray<int> FirewallIds;
         /// <summary>
         /// (int) Unique ID of the server.

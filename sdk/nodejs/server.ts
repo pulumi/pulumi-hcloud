@@ -56,6 +56,9 @@ export class Server extends pulumi.CustomResource {
      * The datacenter name to create the server in.
      */
     public readonly datacenter!: pulumi.Output<string>;
+    /**
+     * Firewall IDs the server should be attached to on creation.
+     */
     public readonly firewallIds!: pulumi.Output<number[] | undefined>;
     /**
      * Name or ID of the image the server is created from.
@@ -93,6 +96,9 @@ export class Server extends pulumi.CustomResource {
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Network the server should be attached to on creation. (Can be specified multiple times)
+     */
     public readonly networks!: pulumi.Output<outputs.ServerNetwork[] | undefined>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
@@ -200,6 +206,9 @@ export interface ServerState {
      * The datacenter name to create the server in.
      */
     readonly datacenter?: pulumi.Input<string>;
+    /**
+     * Firewall IDs the server should be attached to on creation.
+     */
     readonly firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Name or ID of the image the server is created from.
@@ -237,6 +246,9 @@ export interface ServerState {
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Network the server should be attached to on creation. (Can be specified multiple times)
+     */
     readonly networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
@@ -272,6 +284,9 @@ export interface ServerArgs {
      * The datacenter name to create the server in.
      */
     readonly datacenter?: pulumi.Input<string>;
+    /**
+     * Firewall IDs the server should be attached to on creation.
+     */
     readonly firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Name or ID of the image the server is created from.
@@ -297,6 +312,9 @@ export interface ServerArgs {
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Network the server should be attached to on creation. (Can be specified multiple times)
+     */
     readonly networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`

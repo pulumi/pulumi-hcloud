@@ -65,6 +65,9 @@ export interface GetServerResult {
      * (string) The datacenter name.
      */
     readonly datacenter: string;
+    /**
+     * (Optional, list) Firewall IDs the server is attached to.
+     */
     readonly firewallIds: number[];
     /**
      * (int) Unique ID of the server.

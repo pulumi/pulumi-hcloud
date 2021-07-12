@@ -35,11 +35,13 @@ class ServerArgs:
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
@@ -122,6 +124,9 @@ class ServerArgs:
     @property
     @pulumi.getter(name="firewallIds")
     def firewall_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Firewall IDs the server should be attached to on creation.
+        """
         return pulumi.get(self, "firewall_ids")
 
     @firewall_ids.setter
@@ -191,6 +196,9 @@ class ServerArgs:
     @property
     @pulumi.getter
     def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]]:
+        """
+        Network the server should be attached to on creation. (Can be specified multiple times)
+        """
         return pulumi.get(self, "networks")
 
     @networks.setter
@@ -261,6 +269,7 @@ class _ServerState:
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[str] image: Name or ID of the image the server is created from.
         :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
         :param pulumi.Input[str] ipv6_address: (string) The first IPv6 address of the assigned network.
@@ -270,6 +279,7 @@ class _ServerState:
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
@@ -357,6 +367,9 @@ class _ServerState:
     @property
     @pulumi.getter(name="firewallIds")
     def firewall_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Firewall IDs the server should be attached to on creation.
+        """
         return pulumi.get(self, "firewall_ids")
 
     @firewall_ids.setter
@@ -474,6 +487,9 @@ class _ServerState:
     @property
     @pulumi.getter
     def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]]:
+        """
+        Network the server should be attached to on creation. (Can be specified multiple times)
+        """
         return pulumi.get(self, "networks")
 
     @networks.setter
@@ -574,12 +590,14 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[str] image: Name or ID of the image the server is created from.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
@@ -703,6 +721,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[str] image: Name or ID of the image the server is created from.
         :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
         :param pulumi.Input[str] ipv6_address: (string) The first IPv6 address of the assigned network.
@@ -712,6 +731,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
@@ -770,6 +790,9 @@ class Server(pulumi.CustomResource):
     @property
     @pulumi.getter(name="firewallIds")
     def firewall_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        Firewall IDs the server should be attached to on creation.
+        """
         return pulumi.get(self, "firewall_ids")
 
     @property
@@ -847,6 +870,9 @@ class Server(pulumi.CustomResource):
     @property
     @pulumi.getter
     def networks(self) -> pulumi.Output[Optional[Sequence['outputs.ServerNetwork']]]:
+        """
+        Network the server should be attached to on creation. (Can be specified multiple times)
+        """
         return pulumi.get(self, "networks")
 
     @property

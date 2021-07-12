@@ -90,7 +90,7 @@ export class Rdns extends pulumi.CustomResource {
      */
     public readonly dnsPtr!: pulumi.Output<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to.
+     * The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
      */
     public readonly floatingIpId!: pulumi.Output<number | undefined>;
     /**
@@ -98,7 +98,7 @@ export class Rdns extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
-     * The server the `ipAddress` belongs to.
+     * The server the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
      */
     public readonly serverId!: pulumi.Output<number | undefined>;
 
@@ -148,7 +148,7 @@ export interface RdnsState {
      */
     readonly dnsPtr?: pulumi.Input<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to.
+     * The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
      */
     readonly floatingIpId?: pulumi.Input<number>;
     /**
@@ -156,7 +156,7 @@ export interface RdnsState {
      */
     readonly ipAddress?: pulumi.Input<string>;
     /**
-     * The server the `ipAddress` belongs to.
+     * The server the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
      */
     readonly serverId?: pulumi.Input<number>;
 }
@@ -170,7 +170,7 @@ export interface RdnsArgs {
      */
     readonly dnsPtr: pulumi.Input<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to.
+     * The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
      */
     readonly floatingIpId?: pulumi.Input<number>;
     /**
@@ -178,7 +178,7 @@ export interface RdnsArgs {
      */
     readonly ipAddress: pulumi.Input<string>;
     /**
-     * The server the `ipAddress` belongs to.
+     * The server the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
      */
     readonly serverId?: pulumi.Input<number>;
 }

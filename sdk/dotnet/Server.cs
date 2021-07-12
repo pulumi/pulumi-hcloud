@@ -39,6 +39,9 @@ namespace Pulumi.HCloud
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
 
+        /// <summary>
+        /// Firewall IDs the server should be attached to on creation.
+        /// </summary>
         [Output("firewallIds")]
         public Output<ImmutableArray<int>> FirewallIds { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.HCloud
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Network the server should be attached to on creation. (Can be specified multiple times)
+        /// </summary>
         [Output("networks")]
         public Output<ImmutableArray<Outputs.ServerNetwork>> Networks { get; private set; } = null!;
 
@@ -189,6 +195,10 @@ namespace Pulumi.HCloud
 
         [Input("firewallIds")]
         private InputList<int>? _firewallIds;
+
+        /// <summary>
+        /// Firewall IDs the server should be attached to on creation.
+        /// </summary>
         public InputList<int> FirewallIds
         {
             get => _firewallIds ?? (_firewallIds = new InputList<int>());
@@ -239,6 +249,10 @@ namespace Pulumi.HCloud
 
         [Input("networks")]
         private InputList<Inputs.ServerNetworkArgs>? _networks;
+
+        /// <summary>
+        /// Network the server should be attached to on creation. (Can be specified multiple times)
+        /// </summary>
         public InputList<Inputs.ServerNetworkArgs> Networks
         {
             get => _networks ?? (_networks = new InputList<Inputs.ServerNetworkArgs>());
@@ -302,6 +316,10 @@ namespace Pulumi.HCloud
 
         [Input("firewallIds")]
         private InputList<int>? _firewallIds;
+
+        /// <summary>
+        /// Firewall IDs the server should be attached to on creation.
+        /// </summary>
         public InputList<int> FirewallIds
         {
             get => _firewallIds ?? (_firewallIds = new InputList<int>());
@@ -370,6 +388,10 @@ namespace Pulumi.HCloud
 
         [Input("networks")]
         private InputList<Inputs.ServerNetworkGetArgs>? _networks;
+
+        /// <summary>
+        /// Network the server should be attached to on creation. (Can be specified multiple times)
+        /// </summary>
         public InputList<Inputs.ServerNetworkGetArgs> Networks
         {
             get => _networks ?? (_networks = new InputList<Inputs.ServerNetworkGetArgs>());

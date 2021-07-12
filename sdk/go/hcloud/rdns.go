@@ -97,11 +97,11 @@ type Rdns struct {
 
 	// The DNS address the `ipAddress` should resolve to.
 	DnsPtr pulumi.StringOutput `pulumi:"dnsPtr"`
-	// The Floating IP the `ipAddress` belongs to.
+	// The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	FloatingIpId pulumi.IntPtrOutput `pulumi:"floatingIpId"`
 	// The IP address that should point to `dnsPtr`.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// The server the `ipAddress` belongs to.
+	// The server the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	ServerId pulumi.IntPtrOutput `pulumi:"serverId"`
 }
 
@@ -142,22 +142,22 @@ func GetRdns(ctx *pulumi.Context,
 type rdnsState struct {
 	// The DNS address the `ipAddress` should resolve to.
 	DnsPtr *string `pulumi:"dnsPtr"`
-	// The Floating IP the `ipAddress` belongs to.
+	// The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	FloatingIpId *int `pulumi:"floatingIpId"`
 	// The IP address that should point to `dnsPtr`.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The server the `ipAddress` belongs to.
+	// The server the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	ServerId *int `pulumi:"serverId"`
 }
 
 type RdnsState struct {
 	// The DNS address the `ipAddress` should resolve to.
 	DnsPtr pulumi.StringPtrInput
-	// The Floating IP the `ipAddress` belongs to.
+	// The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	FloatingIpId pulumi.IntPtrInput
 	// The IP address that should point to `dnsPtr`.
 	IpAddress pulumi.StringPtrInput
-	// The server the `ipAddress` belongs to.
+	// The server the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	ServerId pulumi.IntPtrInput
 }
 
@@ -168,11 +168,11 @@ func (RdnsState) ElementType() reflect.Type {
 type rdnsArgs struct {
 	// The DNS address the `ipAddress` should resolve to.
 	DnsPtr string `pulumi:"dnsPtr"`
-	// The Floating IP the `ipAddress` belongs to.
+	// The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	FloatingIpId *int `pulumi:"floatingIpId"`
 	// The IP address that should point to `dnsPtr`.
 	IpAddress string `pulumi:"ipAddress"`
-	// The server the `ipAddress` belongs to.
+	// The server the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	ServerId *int `pulumi:"serverId"`
 }
 
@@ -180,11 +180,11 @@ type rdnsArgs struct {
 type RdnsArgs struct {
 	// The DNS address the `ipAddress` should resolve to.
 	DnsPtr pulumi.StringInput
-	// The Floating IP the `ipAddress` belongs to.
+	// The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	FloatingIpId pulumi.IntPtrInput
 	// The IP address that should point to `dnsPtr`.
 	IpAddress pulumi.StringInput
-	// The server the `ipAddress` belongs to.
+	// The server the `ipAddress` belongs to. Specify only one of `serverId`and `floatingIpId`.
 	ServerId pulumi.IntPtrInput
 }
 

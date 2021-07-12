@@ -13,9 +13,21 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class ServerNetwork
     {
+        /// <summary>
+        /// Alias IPs the server should have in the Network.
+        /// </summary>
         public readonly ImmutableArray<string> AliasIps;
+        /// <summary>
+        /// Specify the IP the server should get in the network
+        /// </summary>
         public readonly string? Ip;
+        /// <summary>
+        /// (Optional, string) The MAC address the private interface of the server has
+        /// </summary>
         public readonly string? MacAddress;
+        /// <summary>
+        /// ID of the network
+        /// </summary>
         public readonly int NetworkId;
 
         [OutputConstructor]

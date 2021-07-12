@@ -90,7 +90,7 @@ namespace Pulumi.HCloud
         public Output<string> DnsPtr { get; private set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to.
+        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         /// </summary>
         [Output("floatingIpId")]
         public Output<int?> FloatingIpId { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.HCloud
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The server the `ip_address` belongs to.
+        /// The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         /// </summary>
         [Output("serverId")]
         public Output<int?> ServerId { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.HCloud
         public Input<string> DnsPtr { get; set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to.
+        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.HCloud
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// The server the `ip_address` belongs to.
+        /// The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.HCloud
         public Input<string>? DnsPtr { get; set; }
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to.
+        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
@@ -203,7 +203,7 @@ namespace Pulumi.HCloud
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The server the `ip_address` belongs to.
+        /// The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }

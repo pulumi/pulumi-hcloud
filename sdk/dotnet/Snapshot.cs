@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud snapshot to represent a image with type snapshot in the Hetzner Cloud. This resource makes it easy to create
+    /// Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
     /// 
     /// ## Example Usage
     /// 
@@ -41,14 +41,14 @@ namespace Pulumi.HCloud
     /// Snapshots can be imported using its image `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/snapshot:Snapshot myip &lt;id&gt;
+    ///  $ pulumi import hcloud:index/snapshot:Snapshot myimage &lt;id&gt;
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/snapshot:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>
-        /// Description of the Floating IP.
+        /// Description of the snapshot.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.HCloud
     public sealed class SnapshotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the Floating IP.
+        /// Description of the snapshot.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -143,7 +143,7 @@ namespace Pulumi.HCloud
     public sealed class SnapshotState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the Floating IP.
+        /// Description of the snapshot.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
