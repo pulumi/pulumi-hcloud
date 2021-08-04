@@ -13,6 +13,7 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetFirewallRuleResult
     {
+        public readonly string? Description;
         /// <summary>
         /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         /// </summary>
@@ -36,6 +37,8 @@ namespace Pulumi.HCloud.Outputs
 
         [OutputConstructor]
         private GetFirewallRuleResult(
+            string? description,
+
             ImmutableArray<string> destinationIps,
 
             string direction,
@@ -46,6 +49,7 @@ namespace Pulumi.HCloud.Outputs
 
             ImmutableArray<string> sourceIps)
         {
+            Description = description;
             DestinationIps = destinationIps;
             Direction = direction;
             Port = port;

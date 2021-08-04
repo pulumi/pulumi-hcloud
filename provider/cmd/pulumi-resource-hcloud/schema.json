@@ -32,6 +32,14 @@
     "types": {
         "hcloud:index/FirewallRule:FirewallRule": {
             "properties": {
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "destinationIps": {
                     "type": "array",
                     "items": {
@@ -398,6 +406,14 @@
         },
         "hcloud:index/getFirewallRule:getFirewallRule": {
             "properties": {
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "destinationIps": {
                     "type": "array",
                     "items": {

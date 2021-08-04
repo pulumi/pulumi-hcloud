@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
 export interface FirewallRule {
+    description?: pulumi.Input<string>;
     /**
      * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
      */
@@ -28,6 +29,7 @@ export interface FirewallRule {
 }
 
 export interface GetFirewallRule {
+    description?: string;
     /**
      * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
      */
