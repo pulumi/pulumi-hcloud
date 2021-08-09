@@ -34,6 +34,7 @@
             "properties": {
                 "description": {
                     "type": "string",
+                    "description": "Description of the firewall rule\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -408,6 +409,7 @@
             "properties": {
                 "description": {
                     "type": "string",
+                    "description": "(Optional, string) Description of the firewall rule\n",
                     "language": {
                         "python": {
                             "mapCase": false

@@ -13,6 +13,9 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class FirewallRule
     {
+        /// <summary>
+        /// Description of the firewall rule
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)

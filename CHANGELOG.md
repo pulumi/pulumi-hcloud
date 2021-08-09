@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.28.0 of the Hetzner Cloud Terraform Provider
+* Upgrade to v1.28.1 of the Hetzner Cloud Terraform Provider
 
 ---
 

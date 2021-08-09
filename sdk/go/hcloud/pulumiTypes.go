@@ -11,6 +11,7 @@ import (
 )
 
 type FirewallRule struct {
+	// Description of the firewall rule
 	Description *string `pulumi:"description"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps []string `pulumi:"destinationIps"`
@@ -36,6 +37,7 @@ type FirewallRuleInput interface {
 }
 
 type FirewallRuleArgs struct {
+	// Description of the firewall rule
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
@@ -100,6 +102,7 @@ func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Description of the firewall rule
 func (o FirewallRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1160,6 +1163,7 @@ func (o ServerNetworkTypeArrayOutput) Index(i pulumi.IntInput) ServerNetworkType
 }
 
 type GetFirewallRule struct {
+	// (Optional, string) Description of the firewall rule
 	Description *string `pulumi:"description"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps []string `pulumi:"destinationIps"`
@@ -1185,6 +1189,7 @@ type GetFirewallRuleInput interface {
 }
 
 type GetFirewallRuleArgs struct {
+	// (Optional, string) Description of the firewall rule
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
@@ -1249,6 +1254,7 @@ func (o GetFirewallRuleOutput) ToGetFirewallRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// (Optional, string) Description of the firewall rule
 func (o GetFirewallRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetFirewallRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

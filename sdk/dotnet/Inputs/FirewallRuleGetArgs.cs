@@ -12,6 +12,9 @@ namespace Pulumi.HCloud.Inputs
 
     public sealed class FirewallRuleGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the firewall rule
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

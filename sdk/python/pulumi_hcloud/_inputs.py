@@ -31,6 +31,7 @@ class FirewallRuleArgs:
         """
         :param pulumi.Input[str] direction: Direction of the Firewall Rule. `in`
         :param pulumi.Input[str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+        :param pulumi.Input[str] description: Description of the firewall rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of CIDRs that are allowed within this Firewall Rule
@@ -73,6 +74,9 @@ class FirewallRuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the firewall rule
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -546,6 +550,7 @@ class GetFirewallRuleArgs:
                  source_ips: Optional[Sequence[str]] = None):
         """
         :param str direction: (Required, string) Direction of the Firewall Rule. `in`, `out`
+        :param str description: (Optional, string) Description of the firewall rule
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param str port: (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
         :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
@@ -578,6 +583,9 @@ class GetFirewallRuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        (Optional, string) Description of the firewall rule
+        """
         return pulumi.get(self, "description")
 
     @description.setter
