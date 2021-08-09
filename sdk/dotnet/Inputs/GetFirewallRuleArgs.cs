@@ -12,6 +12,12 @@ namespace Pulumi.HCloud.Inputs
 
     public sealed class GetFirewallRuleArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// (Optional, string) Description of the firewall rule
+        /// </summary>
+        [Input("description")]
+        public string? Description { get; set; }
+
         [Input("destinationIps")]
         private List<string>? _destinationIps;
 

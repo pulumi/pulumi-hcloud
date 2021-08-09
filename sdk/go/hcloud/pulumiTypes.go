@@ -11,6 +11,8 @@ import (
 )
 
 type FirewallRule struct {
+	// Description of the firewall rule
+	Description *string `pulumi:"description"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps []string `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
@@ -35,6 +37,8 @@ type FirewallRuleInput interface {
 }
 
 type FirewallRuleArgs struct {
+	// Description of the firewall rule
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
@@ -96,6 +100,11 @@ func (o FirewallRuleOutput) ToFirewallRuleOutput() FirewallRuleOutput {
 
 func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context) FirewallRuleOutput {
 	return o
+}
+
+// Description of the firewall rule
+func (o FirewallRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
@@ -1154,6 +1163,8 @@ func (o ServerNetworkTypeArrayOutput) Index(i pulumi.IntInput) ServerNetworkType
 }
 
 type GetFirewallRule struct {
+	// (Optional, string) Description of the firewall rule
+	Description *string `pulumi:"description"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps []string `pulumi:"destinationIps"`
 	// (Required, string) Direction of the Firewall Rule. `in`, `out`
@@ -1178,6 +1189,8 @@ type GetFirewallRuleInput interface {
 }
 
 type GetFirewallRuleArgs struct {
+	// (Optional, string) Description of the firewall rule
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
 	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
 	// (Required, string) Direction of the Firewall Rule. `in`, `out`
@@ -1239,6 +1252,11 @@ func (o GetFirewallRuleOutput) ToGetFirewallRuleOutput() GetFirewallRuleOutput {
 
 func (o GetFirewallRuleOutput) ToGetFirewallRuleOutputWithContext(ctx context.Context) GetFirewallRuleOutput {
 	return o
+}
+
+// (Optional, string) Description of the firewall rule
+func (o GetFirewallRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)

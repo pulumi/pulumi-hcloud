@@ -24,18 +24,22 @@ class FirewallRuleArgs:
     def __init__(__self__, *,
                  direction: pulumi.Input[str],
                  protocol: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  destination_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  port: Optional[pulumi.Input[str]] = None,
                  source_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] direction: Direction of the Firewall Rule. `in`
         :param pulumi.Input[str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+        :param pulumi.Input[str] description: Description of the firewall rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of CIDRs that are allowed within this Firewall Rule
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "protocol", protocol)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if destination_ips is not None:
             pulumi.set(__self__, "destination_ips", destination_ips)
         if port is not None:
@@ -66,6 +70,18 @@ class FirewallRuleArgs:
     @protocol.setter
     def protocol(self, value: pulumi.Input[str]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the firewall rule
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="destinationIps")
@@ -527,18 +543,22 @@ class ServerNetworkArgs:
 class GetFirewallRuleArgs:
     def __init__(__self__, *,
                  direction: str,
+                 description: Optional[str] = None,
                  destination_ips: Optional[Sequence[str]] = None,
                  port: Optional[str] = None,
                  protocol: Optional[str] = None,
                  source_ips: Optional[Sequence[str]] = None):
         """
         :param str direction: (Required, string) Direction of the Firewall Rule. `in`, `out`
+        :param str description: (Optional, string) Description of the firewall rule
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param str port: (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
         :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param Sequence[str] source_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
         """
         pulumi.set(__self__, "direction", direction)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if destination_ips is not None:
             pulumi.set(__self__, "destination_ips", destination_ips)
         if port is not None:
@@ -559,6 +579,18 @@ class GetFirewallRuleArgs:
     @direction.setter
     def direction(self, value: str):
         pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        (Optional, string) Description of the firewall rule
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[str]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="destinationIps")

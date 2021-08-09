@@ -51,18 +51,22 @@ class FirewallRule(dict):
     def __init__(__self__, *,
                  direction: str,
                  protocol: str,
+                 description: Optional[str] = None,
                  destination_ips: Optional[Sequence[str]] = None,
                  port: Optional[str] = None,
                  source_ips: Optional[Sequence[str]] = None):
         """
         :param str direction: Direction of the Firewall Rule. `in`
         :param str protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+        :param str description: Description of the firewall rule
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param str port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
         :param Sequence[str] source_ips: List of CIDRs that are allowed within this Firewall Rule
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "protocol", protocol)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if destination_ips is not None:
             pulumi.set(__self__, "destination_ips", destination_ips)
         if port is not None:
@@ -85,6 +89,14 @@ class FirewallRule(dict):
         Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the firewall rule
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="destinationIps")
@@ -515,18 +527,22 @@ class ServerNetwork(dict):
 class GetFirewallRuleResult(dict):
     def __init__(__self__, *,
                  direction: str,
+                 description: Optional[str] = None,
                  destination_ips: Optional[Sequence[str]] = None,
                  port: Optional[str] = None,
                  protocol: Optional[str] = None,
                  source_ips: Optional[Sequence[str]] = None):
         """
         :param str direction: (Required, string) Direction of the Firewall Rule. `in`, `out`
+        :param str description: (Optional, string) Description of the firewall rule
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         :param str port: (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
         :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param Sequence[str] source_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
         """
         pulumi.set(__self__, "direction", direction)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if destination_ips is not None:
             pulumi.set(__self__, "destination_ips", destination_ips)
         if port is not None:
@@ -543,6 +559,14 @@ class GetFirewallRuleResult(dict):
         (Required, string) Direction of the Firewall Rule. `in`, `out`
         """
         return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        (Optional, string) Description of the firewall rule
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="destinationIps")
