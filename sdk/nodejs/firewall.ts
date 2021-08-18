@@ -14,14 +14,25 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const myfirewall = new hcloud.Firewall("myfirewall", {rules: [{
- *     direction: "in",
- *     protocol: "icmp",
- *     sourceIps: [
- *         "0.0.0.0/0",
- *         "::/0",
- *     ],
- * }]});
+ * const myfirewall = new hcloud.Firewall("myfirewall", {rules: [
+ *     {
+ *         direction: "in",
+ *         protocol: "icmp",
+ *         sourceIps: [
+ *             "0.0.0.0/0",
+ *             "::/0",
+ *         ],
+ *     },
+ *     {
+ *         direction: "in",
+ *         protocol: "tcp",
+ *         port: "80-85",
+ *         sourceIps: [
+ *             "0.0.0.0/0",
+ *             "::/0",
+ *         ],
+ *     },
+ * ]});
  * const node1 = new hcloud.Server("node1", {
  *     image: "debian-9",
  *     serverType: "cx11",
@@ -34,7 +45,7 @@ import * as utilities from "./utilities";
  * Firewalls can be imported using its `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/firewall:Firewall myfw <id>
+ *  $ pulumi import hcloud:index/firewall:Firewall myfirewall <id>
  * ```
  */
 export class Firewall extends pulumi.CustomResource {

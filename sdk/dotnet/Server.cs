@@ -106,6 +106,12 @@ namespace Pulumi.HCloud
         public Output<ImmutableArray<Outputs.ServerNetwork>> Networks { get; private set; } = null!;
 
         /// <summary>
+        /// Placement Group ID the server added to on creation.
+        /// </summary>
+        [Output("placementGroupId")]
+        public Output<int?> PlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         /// </summary>
         [Output("rescue")]
@@ -260,6 +266,12 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
+        /// Placement Group ID the server added to on creation.
+        /// </summary>
+        [Input("placementGroupId")]
+        public Input<int>? PlacementGroupId { get; set; }
+
+        /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         /// </summary>
         [Input("rescue")]
@@ -397,6 +409,12 @@ namespace Pulumi.HCloud
             get => _networks ?? (_networks = new InputList<Inputs.ServerNetworkGetArgs>());
             set => _networks = value;
         }
+
+        /// <summary>
+        /// Placement Group ID the server added to on creation.
+        /// </summary>
+        [Input("placementGroupId")]
+        public Input<int>? PlacementGroupId { get; set; }
 
         /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`

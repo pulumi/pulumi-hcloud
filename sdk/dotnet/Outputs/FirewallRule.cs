@@ -26,7 +26,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
+        /// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
         /// </summary>
         public readonly string? Port;
         /// <summary>

@@ -17,6 +17,7 @@ from .get_load_balancer import *
 from .get_location import *
 from .get_locations import *
 from .get_network import *
+from .get_placement_group import *
 from .get_server import *
 from .get_server_type import *
 from .get_server_types import *
@@ -31,6 +32,7 @@ from .managed_certificate import *
 from .network import *
 from .network_route import *
 from .network_subnet import *
+from .placement_group import *
 from .provider import *
 from .rdns import *
 from .server import *
@@ -84,6 +86,8 @@ def _register_module():
                 return NetworkRoute(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/networkSubnet:NetworkSubnet":
                 return NetworkSubnet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "hcloud:index/placementGroup:PlacementGroup":
+                return PlacementGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/rdns:Rdns":
                 return Rdns(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "hcloud:index/server:Server":
@@ -117,6 +121,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("hcloud", "index/network", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/networkRoute", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/networkSubnet", _module_instance)
+    pulumi.runtime.register_resource_module("hcloud", "index/placementGroup", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/rdns", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/server", _module_instance)
     pulumi.runtime.register_resource_module("hcloud", "index/serverNetwork", _module_instance)

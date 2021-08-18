@@ -19,7 +19,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, backup_window=None, backups=None, datacenter=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, backup_window=None, backups=None, datacenter=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, placement_group=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
         if backup_window and not isinstance(backup_window, str):
             raise TypeError("Expected argument 'backup_window' to be a str")
         pulumi.set(__self__, "backup_window", backup_window)
@@ -59,6 +59,9 @@ class GetServerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if placement_group and not isinstance(placement_group, str):
+            raise TypeError("Expected argument 'placement_group' to be a str")
+        pulumi.set(__self__, "placement_group", placement_group)
         if rescue and not isinstance(rescue, str):
             raise TypeError("Expected argument 'rescue' to be a str")
         pulumi.set(__self__, "rescue", rescue)
@@ -187,6 +190,11 @@ class GetServerResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="placementGroup")
+    def placement_group(self) -> Optional[str]:
+        return pulumi.get(self, "placement_group")
+
+    @property
     @pulumi.getter
     def rescue(self) -> str:
         return pulumi.get(self, "rescue")
@@ -242,6 +250,7 @@ class AwaitableGetServerResult(GetServerResult):
             labels=self.labels,
             location=self.location,
             name=self.name,
+            placement_group=self.placement_group,
             rescue=self.rescue,
             selector=self.selector,
             server_type=self.server_type,
@@ -252,6 +261,7 @@ class AwaitableGetServerResult(GetServerResult):
 
 def get_server(id: Optional[int] = None,
                name: Optional[str] = None,
+               placement_group: Optional[str] = None,
                selector: Optional[str] = None,
                with_selector: Optional[str] = None,
                with_statuses: Optional[Sequence[str]] = None,
@@ -267,6 +277,7 @@ def get_server(id: Optional[int] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['placementGroup'] = placement_group
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
@@ -290,6 +301,7 @@ def get_server(id: Optional[int] = None,
         labels=__ret__.labels,
         location=__ret__.location,
         name=__ret__.name,
+        placement_group=__ret__.placement_group,
         rescue=__ret__.rescue,
         selector=__ret__.selector,
         server_type=__ret__.server_type,

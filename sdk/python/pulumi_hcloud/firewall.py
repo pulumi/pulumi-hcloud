@@ -142,14 +142,25 @@ class Firewall(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        myfirewall = hcloud.Firewall("myfirewall", rules=[hcloud.FirewallRuleArgs(
-            direction="in",
-            protocol="icmp",
-            source_ips=[
-                "0.0.0.0/0",
-                "::/0",
-            ],
-        )])
+        myfirewall = hcloud.Firewall("myfirewall", rules=[
+            hcloud.FirewallRuleArgs(
+                direction="in",
+                protocol="icmp",
+                source_ips=[
+                    "0.0.0.0/0",
+                    "::/0",
+                ],
+            ),
+            hcloud.FirewallRuleArgs(
+                direction="in",
+                protocol="tcp",
+                port="80-85",
+                source_ips=[
+                    "0.0.0.0/0",
+                    "::/0",
+                ],
+            ),
+        ])
         node1 = hcloud.Server("node1",
             image="debian-9",
             server_type="cx11",
@@ -161,7 +172,7 @@ class Firewall(pulumi.CustomResource):
         Firewalls can be imported using its `id`
 
         ```sh
-         $ pulumi import hcloud:index/firewall:Firewall myfw <id>
+         $ pulumi import hcloud:index/firewall:Firewall myfirewall <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -185,14 +196,25 @@ class Firewall(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        myfirewall = hcloud.Firewall("myfirewall", rules=[hcloud.FirewallRuleArgs(
-            direction="in",
-            protocol="icmp",
-            source_ips=[
-                "0.0.0.0/0",
-                "::/0",
-            ],
-        )])
+        myfirewall = hcloud.Firewall("myfirewall", rules=[
+            hcloud.FirewallRuleArgs(
+                direction="in",
+                protocol="icmp",
+                source_ips=[
+                    "0.0.0.0/0",
+                    "::/0",
+                ],
+            ),
+            hcloud.FirewallRuleArgs(
+                direction="in",
+                protocol="tcp",
+                port="80-85",
+                source_ips=[
+                    "0.0.0.0/0",
+                    "::/0",
+                ],
+            ),
+        ])
         node1 = hcloud.Server("node1",
             image="debian-9",
             server_type="cx11",
@@ -204,7 +226,7 @@ class Firewall(pulumi.CustomResource):
         Firewalls can be imported using its `id`
 
         ```sh
-         $ pulumi import hcloud:index/firewall:Firewall myfw <id>
+         $ pulumi import hcloud:index/firewall:Firewall myfirewall <id>
         ```
 
         :param str resource_name: The name of the resource.

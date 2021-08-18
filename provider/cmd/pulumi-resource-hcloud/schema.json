@@ -64,7 +64,7 @@
                 },
                 "port": {
                     "type": "string",
-                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.\n",
+                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1031,7 +1031,7 @@
             }
         },
         "hcloud:index/firewall:Firewall": {
-            "description": "Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myfirewall = new hcloud.Firewall(\"myfirewall\", {rules: [{\n    direction: \"in\",\n    protocol: \"icmp\",\n    sourceIps: [\n        \"0.0.0.0/0\",\n        \"::/0\",\n    ],\n}]});\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n    firewallIds: [myfirewall.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmyfirewall = hcloud.Firewall(\"myfirewall\", rules=[hcloud.FirewallRuleArgs(\n    direction=\"in\",\n    protocol=\"icmp\",\n    source_ips=[\n        \"0.0.0.0/0\",\n        \"::/0\",\n    ],\n)])\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\",\n    firewall_ids=[myfirewall.id])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myfirewall = new HCloud.Firewall(\"myfirewall\", new HCloud.FirewallArgs\n        {\n            Rules = \n            {\n                new HCloud.Inputs.FirewallRuleArgs\n                {\n                    Direction = \"in\",\n                    Protocol = \"icmp\",\n                    SourceIps = \n                    {\n                        \"0.0.0.0/0\",\n                        \"::/0\",\n                    },\n                },\n            },\n        });\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n            FirewallIds = \n            {\n                myfirewall.Id,\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nFirewalls can be imported using its `id`\n\n```sh\n $ pulumi import hcloud:index/firewall:Firewall myfw \u003cid\u003e\n```\n\n ",
+            "description": "Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myfirewall = new hcloud.Firewall(\"myfirewall\", {rules: [\n    {\n        direction: \"in\",\n        protocol: \"icmp\",\n        sourceIps: [\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n    },\n    {\n        direction: \"in\",\n        protocol: \"tcp\",\n        port: \"80-85\",\n        sourceIps: [\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n    },\n]});\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n    firewallIds: [myfirewall.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmyfirewall = hcloud.Firewall(\"myfirewall\", rules=[\n    hcloud.FirewallRuleArgs(\n        direction=\"in\",\n        protocol=\"icmp\",\n        source_ips=[\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n    ),\n    hcloud.FirewallRuleArgs(\n        direction=\"in\",\n        protocol=\"tcp\",\n        port=\"80-85\",\n        source_ips=[\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n    ),\n])\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\",\n    firewall_ids=[myfirewall.id])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myfirewall = new HCloud.Firewall(\"myfirewall\", new HCloud.FirewallArgs\n        {\n            Rules = \n            {\n                new HCloud.Inputs.FirewallRuleArgs\n                {\n                    Direction = \"in\",\n                    Protocol = \"icmp\",\n                    SourceIps = \n                    {\n                        \"0.0.0.0/0\",\n                        \"::/0\",\n                    },\n                },\n                new HCloud.Inputs.FirewallRuleArgs\n                {\n                    Direction = \"in\",\n                    Protocol = \"tcp\",\n                    Port = \"80-85\",\n                    SourceIps = \n                    {\n                        \"0.0.0.0/0\",\n                        \"::/0\",\n                    },\n                },\n            },\n        });\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n            FirewallIds = \n            {\n                myfirewall.Id,\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nFirewalls can be imported using its `id`\n\n```sh\n $ pulumi import hcloud:index/firewall:Firewall myfirewall \u003cid\u003e\n```\n\n ",
             "properties": {
                 "labels": {
                     "type": "object",
@@ -2051,6 +2051,74 @@
                 "type": "object"
             }
         },
+        "hcloud:index/placementGroup:PlacementGroup": {
+            "properties": {
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "servers": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "servers",
+                "type"
+            ],
+            "inputProperties": {
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PlacementGroup resources.\n",
+                "properties": {
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "servers": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "hcloud:index/rdns:Rdns": {
             "description": "Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nFor servers:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Rdns(\"master\", {\n    serverId: node1.id,\n    ipAddress: node1.ipv4Address,\n    dnsPtr: \"example.com\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Rdns(\"master\",\n    server_id=node1.id,\n    ip_address=node1.ipv4_address,\n    dns_ptr=\"example.com\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Rdns(\"master\", new HCloud.RdnsArgs\n        {\n            ServerId = node1.Id,\n            IpAddress = node1.Ipv4Address,\n            DnsPtr = \"example.com\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewRdns(ctx, \"master\", \u0026hcloud.RdnsArgs{\n\t\t\tServerId:  node1.ID(),\n\t\t\tIpAddress: node1.Ipv4Address,\n\t\t\tDnsPtr:    pulumi.String(\"example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nFor Floating IPs:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst floating1 = new hcloud.FloatingIp(\"floating1\", {\n    homeLocation: \"nbg1\",\n    type: \"ipv4\",\n});\nconst floatingMaster = new hcloud.Rdns(\"floating_master\", {\n    dnsPtr: \"example.com\",\n    floatingIpId: floating1.id.apply(id =\u003e Number.parseFloat(id)),\n    ipAddress: floating1.ipAddress,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nfloating1 = hcloud.FloatingIp(\"floating1\",\n    home_location=\"nbg1\",\n    type=\"ipv4\")\nfloating_master = hcloud.Rdns(\"floatingMaster\",\n    dns_ptr=\"example.com\",\n    floating_ip_id=floating1.id,\n    ip_address=floating1.ip_address)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var floating1 = new HCloud.FloatingIp(\"floating1\", new HCloud.FloatingIpArgs\n        {\n            HomeLocation = \"nbg1\",\n            Type = \"ipv4\",\n        });\n        var floatingMaster = new HCloud.Rdns(\"floatingMaster\", new HCloud.RdnsArgs\n        {\n            DnsPtr = \"example.com\",\n            FloatingIpId = floating1.Id,\n            IpAddress = floating1.IpAddress,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfloating1, err := hcloud.NewFloatingIp(ctx, \"floating1\", \u0026hcloud.FloatingIpArgs{\n\t\t\tHomeLocation: pulumi.String(\"nbg1\"),\n\t\t\tType:         pulumi.String(\"ipv4\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewRdns(ctx, \"floatingMaster\", \u0026hcloud.RdnsArgs{\n\t\t\tDnsPtr:       pulumi.String(\"example.com\"),\n\t\t\tFloatingIpId: floating1.ID(),\n\t\t\tIpAddress:    floating1.IpAddress,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nReverse DNS entries can be imported using a compound ID with the following format`\u003cprefix (s for server/ f for floating ip)\u003e-\u003cserver or floating ip ID\u003e-\u003cIP address\u003e` # import reverse dns entry on server with id 123, ip 192.168.100.1\n\n```sh\n $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1\n```\n\n # import reverse dns entry on floating ip with id 123, ip 2001:db8::1\n\n```sh\n $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1\n```\n\n ",
             "properties": {
@@ -2189,6 +2257,10 @@
                     },
                     "description": "Network the server should be attached to on creation. (Can be specified multiple times)\n"
                 },
+                "placementGroupId": {
+                    "type": "integer",
+                    "description": "Placement Group ID the server added to on creation.\n"
+                },
                 "rescue": {
                     "type": "string",
                     "description": "Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`\n"
@@ -2274,6 +2346,10 @@
                         "$ref": "#/types/hcloud:index/ServerNetwork:ServerNetwork"
                     },
                     "description": "Network the server should be attached to on creation. (Can be specified multiple times)\n"
+                },
+                "placementGroupId": {
+                    "type": "integer",
+                    "description": "Placement Group ID the server added to on creation.\n"
                 },
                 "rescue": {
                     "type": "string",
@@ -2367,6 +2443,10 @@
                             "$ref": "#/types/hcloud:index/ServerNetwork:ServerNetwork"
                         },
                         "description": "Network the server should be attached to on creation. (Can be specified multiple times)\n"
+                    },
+                    "placementGroupId": {
+                        "type": "integer",
+                        "description": "Placement Group ID the server added to on creation.\n"
                     },
                     "rescue": {
                         "type": "string",
@@ -3698,6 +3778,72 @@
                 ]
             }
         },
+        "hcloud:index/getPlacementGroup:getPlacementGroup": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getPlacementGroup.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPlacementGroup.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "servers": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "servers"
+                ]
+            }
+        },
         "hcloud:index/getServer:getServer": {
             "inputs": {
                 "description": "A collection of arguments for invoking getServer.\n",
@@ -3709,6 +3855,9 @@
                     "name": {
                         "type": "string",
                         "description": "Name of the server.\n"
+                    },
+                    "placementGroup": {
+                        "type": "string"
                     },
                     "selector": {
                         "type": "string",
@@ -3788,6 +3937,9 @@
                     "name": {
                         "type": "string",
                         "description": "(string) Name of the server.\n"
+                    },
+                    "placementGroup": {
+                        "type": "string"
                     },
                     "rescue": {
                         "type": "string"

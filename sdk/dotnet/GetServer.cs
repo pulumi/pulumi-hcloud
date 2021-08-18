@@ -30,6 +30,9 @@ namespace Pulumi.HCloud
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("placementGroup")]
+        public string? PlacementGroup { get; set; }
+
         [Input("selector")]
         public string? Selector { get; set; }
 
@@ -112,6 +115,7 @@ namespace Pulumi.HCloud
         /// (string) Name of the server.
         /// </summary>
         public readonly string Name;
+        public readonly string? PlacementGroup;
         public readonly string Rescue;
         public readonly string? Selector;
         /// <summary>
@@ -153,6 +157,8 @@ namespace Pulumi.HCloud
 
             string name,
 
+            string? placementGroup,
+
             string rescue,
 
             string? selector,
@@ -178,6 +184,7 @@ namespace Pulumi.HCloud
             Labels = labels;
             Location = location;
             Name = name;
+            PlacementGroup = placementGroup;
             Rescue = rescue;
             Selector = selector;
             ServerType = serverType;
