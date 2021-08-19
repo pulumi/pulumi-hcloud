@@ -21,7 +21,8 @@ type LookupServerArgs struct {
 	// ID of the server.
 	Id *int `pulumi:"id"`
 	// Name of the server.
-	Name *string `pulumi:"name"`
+	Name           *string `pulumi:"name"`
+	PlacementGroup *string `pulumi:"placementGroup"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -57,8 +58,9 @@ type LookupServerResult struct {
 	// (string) The location name.
 	Location string `pulumi:"location"`
 	// (string) Name of the server.
-	Name   string `pulumi:"name"`
-	Rescue string `pulumi:"rescue"`
+	Name           string  `pulumi:"name"`
+	PlacementGroup *string `pulumi:"placementGroup"`
+	Rescue         string  `pulumi:"rescue"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// (string) Name of the server type.

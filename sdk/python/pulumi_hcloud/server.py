@@ -26,6 +26,7 @@ class ServerArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
+                 placement_group_id: Optional[pulumi.Input[int]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None):
@@ -42,6 +43,7 @@ class ServerArgs:
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
+        :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
@@ -66,6 +68,8 @@ class ServerArgs:
             pulumi.set(__self__, "name", name)
         if networks is not None:
             pulumi.set(__self__, "networks", networks)
+        if placement_group_id is not None:
+            pulumi.set(__self__, "placement_group_id", placement_group_id)
         if rescue is not None:
             pulumi.set(__self__, "rescue", rescue)
         if ssh_keys is not None:
@@ -206,6 +210,18 @@ class ServerArgs:
         pulumi.set(self, "networks", value)
 
     @property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Placement Group ID the server added to on creation.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @placement_group_id.setter
+    def placement_group_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "placement_group_id", value)
+
+    @property
     @pulumi.getter
     def rescue(self) -> Optional[pulumi.Input[str]]:
         """
@@ -259,6 +275,7 @@ class _ServerState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
+                 placement_group_id: Optional[pulumi.Input[int]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -280,6 +297,7 @@ class _ServerState:
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
+        :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
@@ -317,6 +335,8 @@ class _ServerState:
             pulumi.set(__self__, "name", name)
         if networks is not None:
             pulumi.set(__self__, "networks", networks)
+        if placement_group_id is not None:
+            pulumi.set(__self__, "placement_group_id", placement_group_id)
         if rescue is not None:
             pulumi.set(__self__, "rescue", rescue)
         if server_type is not None:
@@ -497,6 +517,18 @@ class _ServerState:
         pulumi.set(self, "networks", value)
 
     @property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Placement Group ID the server added to on creation.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @placement_group_id.setter
+    def placement_group_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "placement_group_id", value)
+
+    @property
     @pulumi.getter
     def rescue(self) -> Optional[pulumi.Input[str]]:
         """
@@ -572,6 +604,7 @@ class Server(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
+                 placement_group_id: Optional[pulumi.Input[int]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -598,6 +631,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
+        :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
@@ -643,6 +677,7 @@ class Server(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
+                 placement_group_id: Optional[pulumi.Input[int]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -671,6 +706,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["networks"] = networks
+            __props__.__dict__["placement_group_id"] = placement_group_id
             __props__.__dict__["rescue"] = rescue
             if server_type is None and not opts.urn:
                 raise TypeError("Missing required property 'server_type'")
@@ -706,6 +742,7 @@ class Server(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
+            placement_group_id: Optional[pulumi.Input[int]] = None,
             rescue: Optional[pulumi.Input[str]] = None,
             server_type: Optional[pulumi.Input[str]] = None,
             ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -732,6 +769,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
+        :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
@@ -756,6 +794,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["networks"] = networks
+        __props__.__dict__["placement_group_id"] = placement_group_id
         __props__.__dict__["rescue"] = rescue
         __props__.__dict__["server_type"] = server_type
         __props__.__dict__["ssh_keys"] = ssh_keys
@@ -874,6 +913,14 @@ class Server(pulumi.CustomResource):
         Network the server should be attached to on creation. (Can be specified multiple times)
         """
         return pulumi.get(self, "networks")
+
+    @property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> pulumi.Output[Optional[int]]:
+        """
+        Placement Group ID the server added to on creation.
+        """
+        return pulumi.get(self, "placement_group_id")
 
     @property
     @pulumi.getter

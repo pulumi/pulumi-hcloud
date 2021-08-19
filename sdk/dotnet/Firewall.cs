@@ -36,6 +36,17 @@ namespace Pulumi.HCloud
     ///                         "::/0",
     ///                     },
     ///                 },
+    ///                 new HCloud.Inputs.FirewallRuleArgs
+    ///                 {
+    ///                     Direction = "in",
+    ///                     Protocol = "tcp",
+    ///                     Port = "80-85",
+    ///                     SourceIps = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                         "::/0",
+    ///                     },
+    ///                 },
     ///             },
     ///         });
     ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
@@ -57,7 +68,7 @@ namespace Pulumi.HCloud
     /// Firewalls can be imported using its `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/firewall:Firewall myfw &lt;id&gt;
+    ///  $ pulumi import hcloud:index/firewall:Firewall myfirewall &lt;id&gt;
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/firewall:Firewall")]

@@ -17,6 +17,7 @@ export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("hcloud:index/getServer:getServer", {
         "id": args.id,
         "name": args.name,
+        "placementGroup": args.placementGroup,
         "selector": args.selector,
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,
@@ -35,6 +36,7 @@ export interface GetServerArgs {
      * Name of the server.
      */
     readonly name?: string;
+    readonly placementGroup?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
@@ -105,6 +107,7 @@ export interface GetServerResult {
      * (string) Name of the server.
      */
     readonly name: string;
+    readonly placementGroup?: string;
     readonly rescue: string;
     /**
      * @deprecated Please use the with_selector property instead.

@@ -60,7 +60,7 @@ class FirewallRule(dict):
         :param str protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param str description: Description of the firewall rule
         :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
-        :param str port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
+        :param str port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
         :param Sequence[str] source_ips: List of CIDRs that are allowed within this Firewall Rule
         """
         pulumi.set(__self__, "direction", direction)
@@ -110,7 +110,7 @@ class FirewallRule(dict):
     @pulumi.getter
     def port(self) -> Optional[str]:
         """
-        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
+        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
         """
         return pulumi.get(self, "port")
 

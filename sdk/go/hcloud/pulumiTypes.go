@@ -17,7 +17,7 @@ type FirewallRule struct {
 	DestinationIps []string `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
 	Direction string `pulumi:"direction"`
-	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
+	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
 	Port *string `pulumi:"port"`
 	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol string `pulumi:"protocol"`
@@ -43,7 +43,7 @@ type FirewallRuleArgs struct {
 	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
+	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -117,7 +117,7 @@ func (o FirewallRuleOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRule) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80:85` allows all ports between 80 and 85.
+// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
 func (o FirewallRuleOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.Port }).(pulumi.StringPtrOutput)
 }

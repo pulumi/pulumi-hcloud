@@ -51,6 +51,8 @@ type Server struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks ServerNetworkTypeArrayOutput `pulumi:"networks"`
+	// Placement Group ID the server added to on creation.
+	PlacementGroupId pulumi.IntPtrOutput `pulumi:"placementGroupId"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrOutput `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -128,6 +130,8 @@ type serverState struct {
 	Name *string `pulumi:"name"`
 	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks []ServerNetworkType `pulumi:"networks"`
+	// Placement Group ID the server added to on creation.
+	PlacementGroupId *int `pulumi:"placementGroupId"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -171,6 +175,8 @@ type ServerState struct {
 	Name pulumi.StringPtrInput
 	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks ServerNetworkTypeArrayInput
+	// Placement Group ID the server added to on creation.
+	PlacementGroupId pulumi.IntPtrInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.
@@ -208,6 +214,8 @@ type serverArgs struct {
 	Name *string `pulumi:"name"`
 	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks []ServerNetworkType `pulumi:"networks"`
+	// Placement Group ID the server added to on creation.
+	PlacementGroupId *int `pulumi:"placementGroupId"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -240,6 +248,8 @@ type ServerArgs struct {
 	Name pulumi.StringPtrInput
 	// Network the server should be attached to on creation. (Can be specified multiple times)
 	Networks ServerNetworkTypeArrayInput
+	// Placement Group ID the server added to on creation.
+	PlacementGroupId pulumi.IntPtrInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.
