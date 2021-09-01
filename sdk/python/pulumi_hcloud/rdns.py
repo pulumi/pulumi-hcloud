@@ -16,18 +16,22 @@ class RdnsArgs:
                  dns_ptr: pulumi.Input[str],
                  ip_address: pulumi.Input[str],
                  floating_ip_id: Optional[pulumi.Input[int]] = None,
+                 load_balancer_id: Optional[pulumi.Input[int]] = None,
                  server_id: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Rdns resource.
         :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
-        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
-        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        :param pulumi.Input[int] load_balancer_id: The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         pulumi.set(__self__, "dns_ptr", dns_ptr)
         pulumi.set(__self__, "ip_address", ip_address)
         if floating_ip_id is not None:
             pulumi.set(__self__, "floating_ip_id", floating_ip_id)
+        if load_balancer_id is not None:
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
 
@@ -59,7 +63,7 @@ class RdnsArgs:
     @pulumi.getter(name="floatingIpId")
     def floating_ip_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         return pulumi.get(self, "floating_ip_id")
 
@@ -68,10 +72,22 @@ class RdnsArgs:
         pulumi.set(self, "floating_ip_id", value)
 
     @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @load_balancer_id.setter
+    def load_balancer_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_balancer_id", value)
+
+    @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         return pulumi.get(self, "server_id")
 
@@ -86,13 +102,15 @@ class _RdnsState:
                  dns_ptr: Optional[pulumi.Input[str]] = None,
                  floating_ip_id: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
+                 load_balancer_id: Optional[pulumi.Input[int]] = None,
                  server_id: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Rdns resources.
         :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
-        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
-        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        :param pulumi.Input[int] load_balancer_id: The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         if dns_ptr is not None:
             pulumi.set(__self__, "dns_ptr", dns_ptr)
@@ -100,6 +118,8 @@ class _RdnsState:
             pulumi.set(__self__, "floating_ip_id", floating_ip_id)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if load_balancer_id is not None:
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
 
@@ -119,7 +139,7 @@ class _RdnsState:
     @pulumi.getter(name="floatingIpId")
     def floating_ip_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         return pulumi.get(self, "floating_ip_id")
 
@@ -140,10 +160,22 @@ class _RdnsState:
         pulumi.set(self, "ip_address", value)
 
     @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @load_balancer_id.setter
+    def load_balancer_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_balancer_id", value)
+
+    @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         return pulumi.get(self, "server_id")
 
@@ -160,10 +192,11 @@ class Rdns(pulumi.CustomResource):
                  dns_ptr: Optional[pulumi.Input[str]] = None,
                  floating_ip_id: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
+                 load_balancer_id: Optional[pulumi.Input[int]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
+        Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Floating IPs or Load Balancers.
 
         ## Example Usage
 
@@ -197,9 +230,24 @@ class Rdns(pulumi.CustomResource):
             ip_address=floating1.ip_address)
         ```
 
+        For Load Balancers:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        load_balancer1 = hcloud.LoadBalancer("loadBalancer1",
+            load_balancer_type="lb11",
+            location="fsn1")
+        load_balancer_master = hcloud.Rdns("loadBalancerMaster",
+            dns_ptr="example.com",
+            ip_address=load_balancer1.ipv4,
+            load_balancer_id=load_balancer1.id)
+        ```
+
         ## Import
 
-        Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip)>-<server or floating ip ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
+        Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
 
         ```sh
          $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
@@ -211,12 +259,19 @@ class Rdns(pulumi.CustomResource):
          $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
         ```
 
+        # import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+
+        ```sh
+         $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
-        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
-        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        :param pulumi.Input[int] load_balancer_id: The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         ...
     @overload
@@ -225,7 +280,7 @@ class Rdns(pulumi.CustomResource):
                  args: RdnsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
+        Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Floating IPs or Load Balancers.
 
         ## Example Usage
 
@@ -259,9 +314,24 @@ class Rdns(pulumi.CustomResource):
             ip_address=floating1.ip_address)
         ```
 
+        For Load Balancers:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        load_balancer1 = hcloud.LoadBalancer("loadBalancer1",
+            load_balancer_type="lb11",
+            location="fsn1")
+        load_balancer_master = hcloud.Rdns("loadBalancerMaster",
+            dns_ptr="example.com",
+            ip_address=load_balancer1.ipv4,
+            load_balancer_id=load_balancer1.id)
+        ```
+
         ## Import
 
-        Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip)>-<server or floating ip ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
+        Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
 
         ```sh
          $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
@@ -271,6 +341,12 @@ class Rdns(pulumi.CustomResource):
 
         ```sh
          $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+        ```
+
+        # import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+
+        ```sh
+         $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
         ```
 
         :param str resource_name: The name of the resource.
@@ -291,6 +367,7 @@ class Rdns(pulumi.CustomResource):
                  dns_ptr: Optional[pulumi.Input[str]] = None,
                  floating_ip_id: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
+                 load_balancer_id: Optional[pulumi.Input[int]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
@@ -311,6 +388,7 @@ class Rdns(pulumi.CustomResource):
             if ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_address'")
             __props__.__dict__["ip_address"] = ip_address
+            __props__.__dict__["load_balancer_id"] = load_balancer_id
             __props__.__dict__["server_id"] = server_id
         super(Rdns, __self__).__init__(
             'hcloud:index/rdns:Rdns',
@@ -325,6 +403,7 @@ class Rdns(pulumi.CustomResource):
             dns_ptr: Optional[pulumi.Input[str]] = None,
             floating_ip_id: Optional[pulumi.Input[int]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
+            load_balancer_id: Optional[pulumi.Input[int]] = None,
             server_id: Optional[pulumi.Input[int]] = None) -> 'Rdns':
         """
         Get an existing Rdns resource's state with the given name, id, and optional extra
@@ -334,9 +413,10 @@ class Rdns(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_ptr: The DNS address the `ip_address` should resolve to.
-        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        :param pulumi.Input[int] floating_ip_id: The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         :param pulumi.Input[str] ip_address: The IP address that should point to `dns_ptr`.
-        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        :param pulumi.Input[int] load_balancer_id: The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        :param pulumi.Input[int] server_id: The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -345,6 +425,7 @@ class Rdns(pulumi.CustomResource):
         __props__.__dict__["dns_ptr"] = dns_ptr
         __props__.__dict__["floating_ip_id"] = floating_ip_id
         __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["load_balancer_id"] = load_balancer_id
         __props__.__dict__["server_id"] = server_id
         return Rdns(resource_name, opts=opts, __props__=__props__)
 
@@ -360,7 +441,7 @@ class Rdns(pulumi.CustomResource):
     @pulumi.getter(name="floatingIpId")
     def floating_ip_id(self) -> pulumi.Output[Optional[int]]:
         """
-        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         return pulumi.get(self, "floating_ip_id")
 
@@ -373,10 +454,18 @@ class Rdns(pulumi.CustomResource):
         return pulumi.get(self, "ip_address")
 
     @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> pulumi.Output[Optional[int]]:
+        """
+        The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[Optional[int]]:
         """
-        The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         """
         return pulumi.get(self, "server_id")
 

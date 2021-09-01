@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Floating IPs or servers.
+    /// Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Floating IPs or Load Balancers.
     /// 
     /// ## Example Usage
     /// 
@@ -66,9 +66,35 @@ namespace Pulumi.HCloud
     /// }
     /// ```
     /// 
+    /// For Load Balancers:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var loadBalancer1 = new HCloud.LoadBalancer("loadBalancer1", new HCloud.LoadBalancerArgs
+    ///         {
+    ///             LoadBalancerType = "lb11",
+    ///             Location = "fsn1",
+    ///         });
+    ///         var loadBalancerMaster = new HCloud.Rdns("loadBalancerMaster", new HCloud.RdnsArgs
+    ///         {
+    ///             DnsPtr = "example.com",
+    ///             IpAddress = loadBalancer1.Ipv4,
+    ///             LoadBalancerId = loadBalancer1.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Reverse DNS entries can be imported using a compound ID with the following format`&lt;prefix (s for server/ f for floating ip)&gt;-&lt;server or floating ip ID&gt;-&lt;IP address&gt;` # import reverse dns entry on server with id 123, ip 192.168.100.1
+    /// Reverse DNS entries can be imported using a compound ID with the following format`&lt;prefix (s for server/ f for floating ip / l for load balancer)&gt;-&lt;server, floating ip or load balancer ID&gt;-&lt;IP address&gt;` # import reverse dns entry on server with id 123, ip 192.168.100.1
     /// 
     /// ```sh
     ///  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
@@ -78,6 +104,12 @@ namespace Pulumi.HCloud
     /// 
     /// ```sh
     ///  $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+    /// ```
+    /// 
+    /// # import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/rdns:Rdns")]
@@ -90,7 +122,7 @@ namespace Pulumi.HCloud
         public Output<string> DnsPtr { get; private set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Output("floatingIpId")]
         public Output<int?> FloatingIpId { get; private set; } = null!;
@@ -102,7 +134,13 @@ namespace Pulumi.HCloud
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        /// The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// </summary>
+        [Output("loadBalancerId")]
+        public Output<int?> LoadBalancerId { get; private set; } = null!;
+
+        /// <summary>
+        /// The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Output("serverId")]
         public Output<int?> ServerId { get; private set; } = null!;
@@ -160,7 +198,7 @@ namespace Pulumi.HCloud
         public Input<string> DnsPtr { get; set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
@@ -172,7 +210,13 @@ namespace Pulumi.HCloud
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        /// The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// </summary>
+        [Input("loadBalancerId")]
+        public Input<int>? LoadBalancerId { get; set; }
+
+        /// <summary>
+        /// The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
@@ -191,7 +235,7 @@ namespace Pulumi.HCloud
         public Input<string>? DnsPtr { get; set; }
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
@@ -203,7 +247,13 @@ namespace Pulumi.HCloud
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The server the `ip_address` belongs to. Specify only one of `server_id`and `floating_ip_id`.
+        /// The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// </summary>
+        [Input("loadBalancerId")]
+        public Input<int>? LoadBalancerId { get; set; }
+
+        /// <summary>
+        /// The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
