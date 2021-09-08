@@ -24,6 +24,9 @@ namespace Pulumi.HCloud
         [Input("id")]
         public int? Id { get; set; }
 
+        /// <summary>
+        /// (string) The location name.
+        /// </summary>
         [Input("location")]
         public string? Location { get; set; }
 
@@ -36,8 +39,11 @@ namespace Pulumi.HCloud
         [Input("selector")]
         public string? Selector { get; set; }
 
-        [Input("server")]
-        public string? Server { get; set; }
+        /// <summary>
+        /// (Optional, int) Server ID the volume is attached to
+        /// </summary>
+        [Input("serverId")]
+        public int? ServerId { get; set; }
 
         /// <summary>
         /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -67,20 +73,36 @@ namespace Pulumi.HCloud
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// Unique ID of the volume.
+        /// (boolean) Whether delete protection is enabled.
+        /// </summary>
+        public readonly bool DeleteProtection;
+        /// <summary>
+        /// (int) Unique ID of the volume.
         /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs).
+        /// </summary>
         public readonly ImmutableDictionary<string, object> Labels;
+        /// <summary>
+        /// (string) Device path on the file system for the Volume.
+        /// </summary>
         public readonly string LinuxDevice;
+        /// <summary>
+        /// (string) The location name.
+        /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Name of the volume.
+        /// (string) Name of the volume.
         /// </summary>
         public readonly string Name;
         public readonly string? Selector;
-        public readonly string? Server;
         /// <summary>
-        /// Size of the volume.
+        /// (Optional, int) Server ID the volume is attached to
+        /// </summary>
+        public readonly int? ServerId;
+        /// <summary>
+        /// (int) Size of the volume.
         /// </summary>
         public readonly int Size;
         public readonly string? WithSelector;
@@ -88,6 +110,8 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetVolumeResult(
+            bool deleteProtection,
+
             int id,
 
             ImmutableDictionary<string, object> labels,
@@ -100,7 +124,7 @@ namespace Pulumi.HCloud
 
             string? selector,
 
-            string? server,
+            int? serverId,
 
             int size,
 
@@ -108,13 +132,14 @@ namespace Pulumi.HCloud
 
             ImmutableArray<string> withStatuses)
         {
+            DeleteProtection = deleteProtection;
             Id = id;
             Labels = labels;
             LinuxDevice = linuxDevice;
             Location = location;
             Name = name;
             Selector = selector;
-            Server = server;
+            ServerId = serverId;
             Size = size;
             WithSelector = withSelector;
             WithStatuses = withStatuses;

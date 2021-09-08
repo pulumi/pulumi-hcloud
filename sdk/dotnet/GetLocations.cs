@@ -60,6 +60,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (list) List of unique location identifiers.
         /// </summary>
+        [Obsolete(@"Use locations list instead")]
         public List<string> LocationIds
         {
             get => _locationIds ?? (_locationIds = new List<string>());
@@ -88,6 +89,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly ImmutableArray<string> LocationIds;
         /// <summary>
+        /// (list) List of all locations. See `data.hcloud_location` for schema.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLocationsLocationResult> Locations;
+        /// <summary>
         /// (list) List of location names.
         /// </summary>
         public readonly ImmutableArray<string> Names;
@@ -100,11 +105,14 @@ namespace Pulumi.HCloud
 
             ImmutableArray<string> locationIds,
 
+            ImmutableArray<Outputs.GetLocationsLocationResult> locations,
+
             ImmutableArray<string> names)
         {
             Descriptions = descriptions;
             Id = id;
             LocationIds = locationIds;
+            Locations = locations;
             Names = names;
         }
     }

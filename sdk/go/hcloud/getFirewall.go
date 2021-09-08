@@ -48,11 +48,14 @@ func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulum
 
 // A collection of arguments for invoking getFirewall.
 type LookupFirewallArgs struct {
+	// Configuration of the Applied Resources
+	ApplyTos []GetFirewallApplyTo `pulumi:"applyTos"`
 	// ID of the firewall.
 	Id *int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)
-	Labels     map[string]interface{} `pulumi:"labels"`
-	MostRecent *bool                  `pulumi:"mostRecent"`
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Return most recent firewall if multiple are found.
+	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the firewall.
 	Name *string `pulumi:"name"`
 	// (string)  Configuration of a Rule from this Firewall.
@@ -63,6 +66,8 @@ type LookupFirewallArgs struct {
 
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
+	// Configuration of the Applied Resources
+	ApplyTos []GetFirewallApplyTo `pulumi:"applyTos"`
 	// (int) Unique ID of the Firewall.
 	Id *int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)

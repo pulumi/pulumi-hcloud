@@ -60,6 +60,10 @@ export class FloatingIp extends pulumi.CustomResource {
     }
 
     /**
+     * Enable or disable delete protection.
+     */
+    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * Description of the Floating IP.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -105,6 +109,7 @@ export class FloatingIp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FloatingIpState | undefined;
+            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["homeLocation"] = state ? state.homeLocation : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
@@ -118,6 +123,7 @@ export class FloatingIp extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["homeLocation"] = args ? args.homeLocation : undefined;
             inputs["labels"] = args ? args.labels : undefined;
@@ -138,6 +144,10 @@ export class FloatingIp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FloatingIp resources.
  */
 export interface FloatingIpState {
+    /**
+     * Enable or disable delete protection.
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * Description of the Floating IP.
      */
@@ -176,6 +186,10 @@ export interface FloatingIpState {
  * The set of arguments for constructing a FloatingIp resource.
  */
 export interface FloatingIpArgs {
+    /**
+     * Enable or disable delete protection.
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * Description of the Floating IP.
      */

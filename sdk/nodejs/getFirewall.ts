@@ -30,6 +30,7 @@ export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions)
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("hcloud:index/getFirewall:getFirewall", {
+        "applyTos": args.applyTos,
         "id": args.id,
         "labels": args.labels,
         "mostRecent": args.mostRecent,
@@ -44,6 +45,10 @@ export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetFirewallArgs {
     /**
+     * Configuration of the Applied Resources
+     */
+    readonly applyTos?: inputs.GetFirewallApplyTo[];
+    /**
      * ID of the firewall.
      */
     readonly id?: number;
@@ -51,6 +56,9 @@ export interface GetFirewallArgs {
      * (map) User-defined labels (key-value pairs)
      */
     readonly labels?: {[key: string]: any};
+    /**
+     * Return most recent firewall if multiple are found.
+     */
     readonly mostRecent?: boolean;
     /**
      * Name of the firewall.
@@ -70,6 +78,10 @@ export interface GetFirewallArgs {
  * A collection of values returned by getFirewall.
  */
 export interface GetFirewallResult {
+    /**
+     * Configuration of the Applied Resources
+     */
+    readonly applyTos?: outputs.GetFirewallApplyTo[];
     /**
      * (int) Unique ID of the Firewall.
      */

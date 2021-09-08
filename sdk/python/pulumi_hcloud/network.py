@@ -14,15 +14,19 @@ __all__ = ['NetworkArgs', 'Network']
 class NetworkArgs:
     def __init__(__self__, *,
                  ip_range: pulumi.Input[str],
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Network resource.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
         pulumi.set(__self__, "ip_range", ip_range)
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if name is not None:
@@ -39,6 +43,18 @@ class NetworkArgs:
     @ip_range.setter
     def ip_range(self, value: pulumi.Input[str]):
         pulumi.set(self, "ip_range", value)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_protection", value)
 
     @property
     @pulumi.getter
@@ -68,21 +84,37 @@ class NetworkArgs:
 @pulumi.input_type
 class _NetworkState:
     def __init__(__self__, *,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Network resources.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if ip_range is not None:
             pulumi.set(__self__, "ip_range", ip_range)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_protection", value)
 
     @property
     @pulumi.getter(name="ipRange")
@@ -126,6 +158,7 @@ class Network(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,6 +185,7 @@ class Network(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
@@ -197,6 +231,7 @@ class Network(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -212,6 +247,7 @@ class Network(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkArgs.__new__(NetworkArgs)
 
+            __props__.__dict__["delete_protection"] = delete_protection
             if ip_range is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_range'")
             __props__.__dict__["ip_range"] = ip_range
@@ -227,6 +263,7 @@ class Network(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            delete_protection: Optional[pulumi.Input[bool]] = None,
             ip_range: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Network':
@@ -237,6 +274,7 @@ class Network(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
@@ -245,10 +283,19 @@ class Network(pulumi.CustomResource):
 
         __props__ = _NetworkState.__new__(_NetworkState)
 
+        __props__.__dict__["delete_protection"] = delete_protection
         __props__.__dict__["ip_range"] = ip_range
         __props__.__dict__["labels"] = labels
         __props__.__dict__["name"] = name
         return Network(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter(name="ipRange")

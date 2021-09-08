@@ -19,7 +19,7 @@ export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pr
         "location": args.location,
         "name": args.name,
         "selector": args.selector,
-        "server": args.server,
+        "serverId": args.serverId,
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,
     }, opts);
@@ -33,6 +33,9 @@ export interface GetVolumeArgs {
      * ID of the volume.
      */
     readonly id?: number;
+    /**
+     * (string) The location name.
+     */
     readonly location?: string;
     /**
      * Name of the volume.
@@ -42,7 +45,10 @@ export interface GetVolumeArgs {
      * @deprecated Please use the with_selector property instead.
      */
     readonly selector?: string;
-    readonly server?: string;
+    /**
+     * (Optional, int) Server ID the volume is attached to
+     */
+    readonly serverId?: number;
     /**
      * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
      */
@@ -58,23 +64,39 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
-     * Unique ID of the volume.
+     * (boolean) Whether delete protection is enabled.
+     */
+    readonly deleteProtection: boolean;
+    /**
+     * (int) Unique ID of the volume.
      */
     readonly id: number;
+    /**
+     * (map) User-defined labels (key-value pairs).
+     */
     readonly labels: {[key: string]: any};
+    /**
+     * (string) Device path on the file system for the Volume.
+     */
     readonly linuxDevice: string;
+    /**
+     * (string) The location name.
+     */
     readonly location?: string;
     /**
-     * Name of the volume.
+     * (string) Name of the volume.
      */
     readonly name: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
     readonly selector?: string;
-    readonly server?: string;
     /**
-     * Size of the volume.
+     * (Optional, int) Server ID the volume is attached to
+     */
+    readonly serverId?: number;
+    /**
+     * (int) Size of the volume.
      */
     readonly size: number;
     readonly withSelector?: string;

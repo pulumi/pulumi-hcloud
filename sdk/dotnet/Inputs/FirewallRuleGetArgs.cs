@@ -22,7 +22,8 @@ namespace Pulumi.HCloud.Inputs
         private InputList<string>? _destinationIps;
 
         /// <summary>
-        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+        /// is `out`)
         /// </summary>
         public InputList<string> DestinationIps
         {
@@ -37,7 +38,9 @@ namespace Pulumi.HCloud.Inputs
         public Input<string> Direction { get; set; } = null!;
 
         /// <summary>
-        /// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+        /// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
+        /// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
+        /// 85.
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }

@@ -54,10 +54,7 @@ namespace Pulumi.HCloud
     {
         [Input("serverTypeIds")]
         private List<string>? _serverTypeIds;
-
-        /// <summary>
-        /// (list) List of unique Server Types identifiers.
-        /// </summary>
+        [Obsolete(@"Use server_types list instead")]
         public List<string> ServerTypeIds
         {
             get => _serverTypeIds ?? (_serverTypeIds = new List<string>());
@@ -73,22 +70,17 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetServerTypesResult
     {
-        /// <summary>
-        /// (list) List of all Server Types descriptions.
-        /// </summary>
         public readonly ImmutableArray<string> Descriptions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// (list) List of Server Types names.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
-        /// <summary>
-        /// (list) List of unique Server Types identifiers.
-        /// </summary>
         public readonly ImmutableArray<string> ServerTypeIds;
+        /// <summary>
+        /// (list) List of all server types. See `data.hcloud_type` for schema.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServerTypesServerTypeResult> ServerTypes;
 
         [OutputConstructor]
         private GetServerTypesResult(
@@ -98,12 +90,15 @@ namespace Pulumi.HCloud
 
             ImmutableArray<string> names,
 
-            ImmutableArray<string> serverTypeIds)
+            ImmutableArray<string> serverTypeIds,
+
+            ImmutableArray<Outputs.GetServerTypesServerTypeResult> serverTypes)
         {
             Descriptions = descriptions;
             Id = id;
             Names = names;
             ServerTypeIds = serverTypeIds;
+            ServerTypes = serverTypes;
         }
     }
 }

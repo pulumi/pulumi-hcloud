@@ -17,7 +17,7 @@ export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("hcloud:index/getServer:getServer", {
         "id": args.id,
         "name": args.name,
-        "placementGroup": args.placementGroup,
+        "placementGroupId": args.placementGroupId,
         "selector": args.selector,
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,
@@ -36,7 +36,10 @@ export interface GetServerArgs {
      * Name of the server.
      */
     readonly name?: string;
-    readonly placementGroup?: string;
+    /**
+     * (Optional, string) Placement Group ID the server is assigned to.
+     */
+    readonly placementGroupId?: number;
     /**
      * @deprecated Please use the with_selector property instead.
      */
@@ -67,6 +70,10 @@ export interface GetServerResult {
      * (string) The datacenter name.
      */
     readonly datacenter: string;
+    /**
+     * (boolean) Whether delete protection is enabled.
+     */
+    readonly deleteProtection: boolean;
     /**
      * (Optional, list) Firewall IDs the server is attached to.
      */
@@ -107,7 +114,14 @@ export interface GetServerResult {
      * (string) Name of the server.
      */
     readonly name: string;
-    readonly placementGroup?: string;
+    /**
+     * (Optional, string) Placement Group ID the server is assigned to.
+     */
+    readonly placementGroupId?: number;
+    /**
+     * (boolean) Whether rebuild protection is enabled.
+     */
+    readonly rebuildProtection: boolean;
     readonly rescue: string;
     /**
      * @deprecated Please use the with_selector property instead.

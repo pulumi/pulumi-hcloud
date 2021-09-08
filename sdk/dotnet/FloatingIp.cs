@@ -49,6 +49,12 @@ namespace Pulumi.HCloud
     public partial class FloatingIp : Pulumi.CustomResource
     {
         /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Output("deleteProtection")]
+        public Output<bool?> DeleteProtection { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the Floating IP.
         /// </summary>
         [Output("description")]
@@ -143,6 +149,12 @@ namespace Pulumi.HCloud
     public sealed class FloatingIpArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
+
+        /// <summary>
         /// Description of the Floating IP.
         /// </summary>
         [Input("description")]
@@ -191,6 +203,12 @@ namespace Pulumi.HCloud
 
     public sealed class FloatingIpState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
+
         /// <summary>
         /// Description of the Floating IP.
         /// </summary>

@@ -43,6 +43,12 @@ namespace Pulumi.HCloud
     public partial class Network : Pulumi.CustomResource
     {
         /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Output("deleteProtection")]
+        public Output<bool?> DeleteProtection { get; private set; } = null!;
+
+        /// <summary>
         /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         /// </summary>
         [Output("ipRange")]
@@ -107,6 +113,12 @@ namespace Pulumi.HCloud
     public sealed class NetworkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
+
+        /// <summary>
         /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         /// </summary>
         [Input("ipRange", required: true)]
@@ -137,6 +149,12 @@ namespace Pulumi.HCloud
 
     public sealed class NetworkState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
+
         /// <summary>
         /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         /// </summary>

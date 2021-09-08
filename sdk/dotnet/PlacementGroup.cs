@@ -9,18 +9,67 @@ using Pulumi.Serialization;
 
 namespace Pulumi.HCloud
 {
+    /// <summary>
+    /// Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var my_placement_group = new HCloud.PlacementGroup("my-placement-group", new HCloud.PlacementGroupArgs
+    ///         {
+    ///             Type = "spread",
+    ///             Labels = 
+    ///             {
+    ///                 { "key", "value" },
+    ///             },
+    ///         });
+    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
+    ///         {
+    ///             Image = "debian-9",
+    ///             ServerType = "cx11",
+    ///             PlacementGroupId = my_placement_group.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Placement Groups can be imported using its `id`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group &lt;id&gt;
+    /// ```
+    /// </summary>
     [HCloudResourceType("hcloud:index/placementGroup:PlacementGroup")]
     public partial class PlacementGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Placement Group.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("servers")]
         public Output<ImmutableArray<int>> Servers { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the Placement Group.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -72,15 +121,25 @@ namespace Pulumi.HCloud
     {
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Placement Group.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Type of the Placement Group.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -93,12 +152,19 @@ namespace Pulumi.HCloud
     {
         [Input("labels")]
         private InputMap<object>? _labels;
+
+        /// <summary>
+        /// User-defined labels (key-value pairs) should be created with.
+        /// </summary>
         public InputMap<object> Labels
         {
             get => _labels ?? (_labels = new InputMap<object>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Placement Group.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -110,6 +176,9 @@ namespace Pulumi.HCloud
             set => _servers = value;
         }
 
+        /// <summary>
+        /// Type of the Placement Group.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

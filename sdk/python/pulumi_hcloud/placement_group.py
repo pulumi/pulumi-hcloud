@@ -18,6 +18,9 @@ class PlacementGroupArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
+        :param pulumi.Input[str] type: Type of the Placement Group.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] name: Name of the Placement Group.
         """
         pulumi.set(__self__, "type", type)
         if labels is not None:
@@ -28,6 +31,9 @@ class PlacementGroupArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Type of the Placement Group.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -37,6 +43,9 @@ class PlacementGroupArgs:
     @property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -46,6 +55,9 @@ class PlacementGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Placement Group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62,6 +74,9 @@ class _PlacementGroupState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PlacementGroup resources.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] name: Name of the Placement Group.
+        :param pulumi.Input[str] type: Type of the Placement Group.
         """
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
@@ -75,6 +90,9 @@ class _PlacementGroupState:
     @property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -84,6 +102,9 @@ class _PlacementGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Placement Group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,6 +123,9 @@ class _PlacementGroupState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the Placement Group.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -119,9 +143,38 @@ class PlacementGroup(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PlacementGroup resource with the given unique name, props, and options.
+        Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        my_placement_group = hcloud.PlacementGroup("my-placement-group",
+            type="spread",
+            labels={
+                "key": "value",
+            })
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11",
+            placement_group_id=my_placement_group.id)
+        ```
+
+        ## Import
+
+        Placement Groups can be imported using its `id`
+
+        ```sh
+         $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] name: Name of the Placement Group.
+        :param pulumi.Input[str] type: Type of the Placement Group.
         """
         ...
     @overload
@@ -130,7 +183,33 @@ class PlacementGroup(pulumi.CustomResource):
                  args: PlacementGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PlacementGroup resource with the given unique name, props, and options.
+        Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        my_placement_group = hcloud.PlacementGroup("my-placement-group",
+            type="spread",
+            labels={
+                "key": "value",
+            })
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11",
+            placement_group_id=my_placement_group.id)
+        ```
+
+        ## Import
+
+        Placement Groups can be imported using its `id`
+
+        ```sh
+         $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param PlacementGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,6 +267,9 @@ class PlacementGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[str] name: Name of the Placement Group.
+        :param pulumi.Input[str] type: Type of the Placement Group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -202,11 +284,17 @@ class PlacementGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+        """
+        User-defined labels (key-value pairs) should be created with.
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the Placement Group.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -217,5 +305,8 @@ class PlacementGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        Type of the Placement Group.
+        """
         return pulumi.get(self, "type")
 

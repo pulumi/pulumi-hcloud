@@ -30,6 +30,37 @@
         ]
     },
     "types": {
+        "hcloud:index/FirewallApplyTo:FirewallApplyTo": {
+            "properties": {
+                "labelSelector": {
+                    "type": "string",
+                    "description": "Label Selector to select servers the firewall should be applied to (only one\nof `server` and `label_selector`can be applied in one block)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "server": {
+                    "type": "integer",
+                    "description": "ID of the server you want to apply the firewall to (only one of `server`\nand `label_selector`can be applied in one block)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "labelSelector",
+                        "server"
+                    ]
+                }
+            }
+        },
         "hcloud:index/FirewallRule:FirewallRule": {
             "properties": {
                 "description": {
@@ -46,7 +77,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)\n",
+                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`\nis `out`)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -64,7 +95,7 @@
                 },
                 "port": {
                     "type": "string",
-                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.\n",
+                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`\nto allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and\n85.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -318,7 +349,6 @@
             "properties": {
                 "serverId": {
                     "type": "integer",
-                    "description": "ID of the server which should be a target for this Load Balancer. Required if `type` is `server`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -327,7 +357,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of the target. `server`\n",
+                    "description": "Type of the Load Balancer Algorithm. `round_robin` or `least_connections`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -405,6 +435,220 @@
                 }
             }
         },
+        "hcloud:index/getCertificatesCertificate:getCertificatesCertificate": {
+            "properties": {
+                "certificate": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "created": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "domainNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "fingerprint": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "notValidAfter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "notValidBefore": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "certificate",
+                "created",
+                "domainNames",
+                "fingerprint",
+                "id",
+                "labels",
+                "notValidAfter",
+                "notValidBefore",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getDatacentersDatacenter:getDatacentersDatacenter": {
+            "properties": {
+                "availableServerTypeIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "supportedServerTypeIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "availableServerTypeIds",
+                "description",
+                "id",
+                "location",
+                "name",
+                "supportedServerTypeIds"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getFirewallApplyTo:getFirewallApplyTo": {
+            "properties": {
+                "labelSelector": {
+                    "type": "string",
+                    "description": "(string) Label Selector to select servers the firewall is applied to. Empty if a server is directly\nreferenced\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "server": {
+                    "type": "integer",
+                    "description": "(int) ID of a server where the firewall is applied to. `0` if applied to a label_selector\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "labelSelector",
+                "server"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "hcloud:index/getFirewallRule:getFirewallRule": {
             "properties": {
                 "description": {
@@ -472,6 +716,383 @@
             "required": [
                 "direction"
             ]
+        },
+        "hcloud:index/getFirewallsFirewall:getFirewallsFirewall": {
+            "properties": {
+                "applyTos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getFirewallsFirewallApplyTo:getFirewallsFirewallApplyTo"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getFirewallsFirewallRule:getFirewallsFirewallRule"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getFirewallsFirewallApplyTo:getFirewallsFirewallApplyTo": {
+            "properties": {
+                "labelSelector": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "server": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "labelSelector",
+                "server"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getFirewallsFirewallRule:getFirewallsFirewallRule": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "destinationIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "direction": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourceIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "direction"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getFloatingIpsFloatingIp:getFloatingIpsFloatingIp": {
+            "properties": {
+                "deleteProtection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "homeLocation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipNetwork": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "deleteProtection",
+                "description",
+                "homeLocation",
+                "id",
+                "ipAddress",
+                "ipNetwork",
+                "labels",
+                "serverId",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getImagesImage:getImagesImage": {
+            "properties": {
+                "created": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "deprecated": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "osFlavor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "osVersion": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rapidDeploy": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "selector": {
+                    "type": "string",
+                    "deprecationMessage": "Please use the with_selector property instead.",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "created",
+                "deprecated",
+                "description",
+                "id",
+                "labels",
+                "name",
+                "osFlavor",
+                "osVersion",
+                "rapidDeploy",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "hcloud:index/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm": {
             "properties": {
@@ -820,6 +1441,922 @@
                 }
             }
         },
+        "hcloud:index/getLoadBalancersLoadBalancer:getLoadBalancersLoadBalancer": {
+            "properties": {
+                "algorithms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerAlgorithm:getLoadBalancersLoadBalancerAlgorithm"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipv4": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipv6": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "loadBalancerType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networkZone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerService:getLoadBalancersLoadBalancerService"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerTarget:getLoadBalancersLoadBalancerTarget"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "algorithms",
+                "deleteProtection",
+                "id",
+                "ipv4",
+                "ipv6",
+                "labels",
+                "loadBalancerType",
+                "location",
+                "networkZone",
+                "services",
+                "targets"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getLoadBalancersLoadBalancerAlgorithm:getLoadBalancersLoadBalancerAlgorithm": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getLoadBalancersLoadBalancerService:getLoadBalancersLoadBalancerService": {
+            "properties": {
+                "destinationPort": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "healthChecks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerServiceHealthCheck:getLoadBalancersLoadBalancerServiceHealthCheck"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "https": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerServiceHttp:getLoadBalancersLoadBalancerServiceHttp"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "listenPort": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "proxyprotocol": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destinationPort",
+                "healthChecks",
+                "https",
+                "listenPort",
+                "protocol",
+                "proxyprotocol"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getLoadBalancersLoadBalancerServiceHealthCheck:getLoadBalancersLoadBalancerServiceHealthCheck": {
+            "properties": {
+                "https": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerServiceHealthCheckHttp:getLoadBalancersLoadBalancerServiceHealthCheckHttp"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "retries": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeout": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "https",
+                "interval",
+                "port",
+                "protocol",
+                "retries",
+                "timeout"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getLoadBalancersLoadBalancerServiceHealthCheckHttp:getLoadBalancersLoadBalancerServiceHealthCheckHttp": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "response": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "statusCodes": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tls": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "path",
+                "response",
+                "statusCodes",
+                "tls"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getLoadBalancersLoadBalancerServiceHttp:getLoadBalancersLoadBalancerServiceHttp": {
+            "properties": {
+                "certificates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieLifetime": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "redirectHttp": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stickySessions": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "certificates",
+                "cookieLifetime",
+                "cookieName",
+                "redirectHttp",
+                "stickySessions"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getLoadBalancersLoadBalancerTarget:getLoadBalancersLoadBalancerTarget": {
+            "properties": {
+                "labelSelector": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "labelSelector",
+                "serverId",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getLocationsLocation:getLocationsLocation": {
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "country": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "latitude": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "longitude": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "city",
+                "country",
+                "description",
+                "id",
+                "latitude",
+                "longitude",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getNetworksNetwork:getNetworksNetwork": {
+            "properties": {
+                "deleteProtection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipRange": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "deleteProtection",
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getPlacementGroupsPlacementGroup:getPlacementGroupsPlacementGroup": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "servers": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "servers"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getServerTypesServerType:getServerTypesServerType": {
+            "properties": {
+                "cores": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cpuType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "disk": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "memory": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "storageType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "cores",
+                "cpuType",
+                "description",
+                "disk",
+                "id",
+                "memory",
+                "name",
+                "storageType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getServersServer:getServersServer": {
+            "properties": {
+                "backupWindow": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "backups": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "datacenter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "firewallIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "image": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipv4Address": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipv6Address": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipv6Network": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "iso": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "placementGroupId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rebuildProtection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rescue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "backupWindow",
+                "backups",
+                "datacenter",
+                "deleteProtection",
+                "firewallIds",
+                "id",
+                "image",
+                "ipv4Address",
+                "ipv6Address",
+                "ipv6Network",
+                "iso",
+                "labels",
+                "location",
+                "name",
+                "rebuildProtection",
+                "rescue",
+                "serverType",
+                "status"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "hcloud:index/getSshKeysSshKey:getSshKeysSshKey": {
             "properties": {
                 "fingerprint": {
@@ -873,6 +2410,91 @@
                 "labels",
                 "name",
                 "publicKey"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getVolumesVolume:getVolumesVolume": {
+            "properties": {
+                "deleteProtection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "linuxDevice": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "size": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "deleteProtection",
+                "id",
+                "labels",
+                "linuxDevice",
+                "name",
+                "size"
             ],
             "language": {
                 "nodejs": {
@@ -1033,6 +2655,13 @@
         "hcloud:index/firewall:Firewall": {
             "description": "Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myfirewall = new hcloud.Firewall(\"myfirewall\", {rules: [\n    {\n        direction: \"in\",\n        protocol: \"icmp\",\n        sourceIps: [\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n    },\n    {\n        direction: \"in\",\n        protocol: \"tcp\",\n        port: \"80-85\",\n        sourceIps: [\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n    },\n]});\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n    firewallIds: [myfirewall.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmyfirewall = hcloud.Firewall(\"myfirewall\", rules=[\n    hcloud.FirewallRuleArgs(\n        direction=\"in\",\n        protocol=\"icmp\",\n        source_ips=[\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n    ),\n    hcloud.FirewallRuleArgs(\n        direction=\"in\",\n        protocol=\"tcp\",\n        port=\"80-85\",\n        source_ips=[\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n    ),\n])\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\",\n    firewall_ids=[myfirewall.id])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myfirewall = new HCloud.Firewall(\"myfirewall\", new HCloud.FirewallArgs\n        {\n            Rules = \n            {\n                new HCloud.Inputs.FirewallRuleArgs\n                {\n                    Direction = \"in\",\n                    Protocol = \"icmp\",\n                    SourceIps = \n                    {\n                        \"0.0.0.0/0\",\n                        \"::/0\",\n                    },\n                },\n                new HCloud.Inputs.FirewallRuleArgs\n                {\n                    Direction = \"in\",\n                    Protocol = \"tcp\",\n                    Port = \"80-85\",\n                    SourceIps = \n                    {\n                        \"0.0.0.0/0\",\n                        \"::/0\",\n                    },\n                },\n            },\n        });\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n            FirewallIds = \n            {\n                myfirewall.Id,\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nFirewalls can be imported using its `id`\n\n```sh\n $ pulumi import hcloud:index/firewall:Firewall myfirewall \u003cid\u003e\n```\n\n ",
             "properties": {
+                "applyTos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/FirewallApplyTo:FirewallApplyTo"
+                    },
+                    "description": "Resources the firewall should be assigned to\n"
+                },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
@@ -1053,9 +2682,18 @@
                 }
             },
             "required": [
+                "applyTos",
+                "labels",
                 "name"
             ],
             "inputProperties": {
+                "applyTos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/FirewallApplyTo:FirewallApplyTo"
+                    },
+                    "description": "Resources the firewall should be assigned to\n"
+                },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
@@ -1078,6 +2716,13 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Firewall resources.\n",
                 "properties": {
+                    "applyTos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/FirewallApplyTo:FirewallApplyTo"
+                        },
+                        "description": "Resources the firewall should be assigned to\n"
+                    },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
@@ -1103,6 +2748,10 @@
         "hcloud:index/floatingIp:FloatingIp": {
             "description": "Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.FloatingIp(\"master\", {\n    type: \"ipv4\",\n    serverId: node1.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.FloatingIp(\"master\",\n    type=\"ipv4\",\n    server_id=node1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.FloatingIp(\"master\", new HCloud.FloatingIpArgs\n        {\n            Type = \"ipv4\",\n            ServerId = node1.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFloatingIp(ctx, \"master\", \u0026hcloud.FloatingIpArgs{\n\t\t\tType:     pulumi.String(\"ipv4\"),\n\t\t\tServerId: node1.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nFloating IPs can be imported using its `id`\n\n```sh\n $ pulumi import hcloud:index/floatingIp:FloatingIp myip \u003cid\u003e\n```\n\n ",
             "properties": {
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Description of the Floating IP.\n"
@@ -1148,6 +2797,10 @@
                 "type"
             ],
             "inputProperties": {
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Description of the Floating IP.\n"
@@ -1182,6 +2835,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering FloatingIp resources.\n",
                 "properties": {
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "Enable or disable delete protection.\n"
+                    },
                     "description": {
                         "type": "string",
                         "description": "Description of the Floating IP.\n"
@@ -1273,6 +2930,10 @@
                     "$ref": "#/types/hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
                     "description": "Configuration of the algorithm the Load Balancer use.\n"
                 },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection.\n"
+                },
                 "ipv4": {
                     "type": "string",
                     "description": "(string) IPv4 Address of the Load Balancer.\n"
@@ -1315,7 +2976,7 @@
                     "items": {
                         "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                     },
-                    "description": "List of targets of the Load Balancer.\n"
+                    "deprecationMessage": "Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets."
                 }
             },
             "required": [
@@ -1335,6 +2996,10 @@
                 "algorithm": {
                     "$ref": "#/types/hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
                     "description": "Configuration of the algorithm the Load Balancer use.\n"
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -1364,7 +3029,7 @@
                     "items": {
                         "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                     },
-                    "description": "List of targets of the Load Balancer.\n"
+                    "deprecationMessage": "Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets."
                 }
             },
             "requiredInputs": [
@@ -1376,6 +3041,10 @@
                     "algorithm": {
                         "$ref": "#/types/hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
                         "description": "Configuration of the algorithm the Load Balancer use.\n"
+                    },
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "Enable or disable delete protection.\n"
                     },
                     "ipv4": {
                         "type": "string",
@@ -1419,7 +3088,7 @@
                         "items": {
                             "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                         },
-                        "description": "List of targets of the Load Balancer.\n"
+                        "deprecationMessage": "Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets."
                     }
                 },
                 "type": "object"
@@ -1838,6 +3507,10 @@
         "hcloud:index/network:Network": {
             "description": "Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst privNet = new hcloud.Network(\"privNet\", {\n    ipRange: \"10.0.1.0/24\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\npriv_net = hcloud.Network(\"privNet\", ip_range=\"10.0.1.0/24\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var privNet = new HCloud.Network(\"privNet\", new HCloud.NetworkArgs\n        {\n            IpRange = \"10.0.1.0/24\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewNetwork(ctx, \"privNet\", \u0026hcloud.NetworkArgs{\n\t\t\tIpRange: pulumi.String(\"10.0.1.0/24\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nNetworks can be imported using its `id`\n\n```sh\n $ pulumi import hcloud:index/network:Network myip \u003cid\u003e\n```\n\n ",
             "properties": {
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection.\n"
+                },
                 "ipRange": {
                     "type": "string",
                     "description": "IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.\n"
@@ -1859,6 +3532,10 @@
                 "name"
             ],
             "inputProperties": {
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection.\n"
+                },
                 "ipRange": {
                     "type": "string",
                     "description": "IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.\n"
@@ -1881,6 +3558,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Network resources.\n",
                 "properties": {
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "Enable or disable delete protection.\n"
+                    },
                     "ipRange": {
                         "type": "string",
                         "description": "IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.\n"
@@ -2052,15 +3733,18 @@
             }
         },
         "hcloud:index/placementGroup:PlacementGroup": {
+            "description": "Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst my_placement_group = new hcloud.PlacementGroup(\"my-placement-group\", {\n    type: \"spread\",\n    labels: {\n        key: \"value\",\n    },\n});\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n    placementGroupId: my_placement_group.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmy_placement_group = hcloud.PlacementGroup(\"my-placement-group\",\n    type=\"spread\",\n    labels={\n        \"key\": \"value\",\n    })\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\",\n    placement_group_id=my_placement_group.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var my_placement_group = new HCloud.PlacementGroup(\"my-placement-group\", new HCloud.PlacementGroupArgs\n        {\n            Type = \"spread\",\n            Labels = \n            {\n                { \"key\", \"value\" },\n            },\n        });\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n            PlacementGroupId = my_placement_group.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewPlacementGroup(ctx, \"my_placement_group\", \u0026hcloud.PlacementGroupArgs{\n\t\t\tType: pulumi.String(\"spread\"),\n\t\t\tLabels: pulumi.StringMap{\n\t\t\t\t\"key\": pulumi.String(\"value\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:            pulumi.String(\"debian-9\"),\n\t\t\tServerType:       pulumi.String(\"cx11\"),\n\t\t\tPlacementGroupId: my_placement_group.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nPlacement Groups can be imported using its `id`\n\n```sh\n $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group \u003cid\u003e\n```\n\n ",
             "properties": {
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Placement Group.\n"
                 },
                 "servers": {
                     "type": "array",
@@ -2069,7 +3753,8 @@
                     }
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the Placement Group.\n"
                 }
             },
             "required": [
@@ -2082,13 +3767,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Placement Group.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the Placement Group.\n"
                 }
             },
             "requiredInputs": [
@@ -2101,10 +3789,12 @@
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "User-defined labels (key-value pairs) should be created with.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Placement Group.\n"
                     },
                     "servers": {
                         "type": "array",
@@ -2113,7 +3803,8 @@
                         }
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of the Placement Group.\n"
                     }
                 },
                 "type": "object"
@@ -2216,6 +3907,10 @@
                     "type": "string",
                     "description": "The datacenter name to create the server in.\n"
                 },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
+                },
                 "firewallIds": {
                     "type": "array",
                     "items": {
@@ -2273,6 +3968,10 @@
                     "type": "integer",
                     "description": "Placement Group ID the server added to on creation.\n"
                 },
+                "rebuildProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable rebuild protection (Needs to be the same as `delete_protection`).\n"
+                },
                 "rescue": {
                     "type": "string",
                     "description": "Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`\n"
@@ -2300,6 +3999,7 @@
             "required": [
                 "backupWindow",
                 "datacenter",
+                "firewallIds",
                 "image",
                 "ipv4Address",
                 "ipv6Address",
@@ -2317,6 +4017,10 @@
                 "datacenter": {
                     "type": "string",
                     "description": "The datacenter name to create the server in.\n"
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
                 },
                 "firewallIds": {
                     "type": "array",
@@ -2363,6 +4067,10 @@
                     "type": "integer",
                     "description": "Placement Group ID the server added to on creation.\n"
                 },
+                "rebuildProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable rebuild protection (Needs to be the same as `delete_protection`).\n"
+                },
                 "rescue": {
                     "type": "string",
                     "description": "Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`\n"
@@ -2402,6 +4110,10 @@
                     "datacenter": {
                         "type": "string",
                         "description": "The datacenter name to create the server in.\n"
+                    },
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
                     },
                     "firewallIds": {
                         "type": "array",
@@ -2459,6 +4171,10 @@
                     "placementGroupId": {
                         "type": "integer",
                         "description": "Placement Group ID the server added to on creation.\n"
+                    },
+                    "rebuildProtection": {
+                        "type": "boolean",
+                        "description": "Enable or disable rebuild protection (Needs to be the same as `delete_protection`).\n"
                     },
                     "rescue": {
                         "type": "string",
@@ -2865,6 +4581,10 @@
                     "type": "boolean",
                     "description": "Automount the volume upon attaching it (server_id must be provided).\n"
                 },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection.\n"
+                },
                 "format": {
                     "type": "string",
                     "description": "Format volume after creation. `xfs` or `ext4`\n"
@@ -2874,11 +4594,11 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "User-defined labels (key-value pairs).\n"
+                    "description": "(map) User-defined labels (key-value pairs).\n"
                 },
                 "linuxDevice": {
                     "type": "string",
-                    "description": "Device path on the file system for the Volume.\n"
+                    "description": "(string) Device path on the file system for the Volume.\n"
                 },
                 "location": {
                     "type": "string",
@@ -2909,6 +4629,10 @@
                     "type": "boolean",
                     "description": "Automount the volume upon attaching it (server_id must be provided).\n"
                 },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Enable or disable delete protection.\n"
+                },
                 "format": {
                     "type": "string",
                     "description": "Format volume after creation. `xfs` or `ext4`\n"
@@ -2918,7 +4642,7 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "User-defined labels (key-value pairs).\n"
+                    "description": "(map) User-defined labels (key-value pairs).\n"
                 },
                 "location": {
                     "type": "string",
@@ -2947,6 +4671,10 @@
                         "type": "boolean",
                         "description": "Automount the volume upon attaching it (server_id must be provided).\n"
                     },
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "Enable or disable delete protection.\n"
+                    },
                     "format": {
                         "type": "string",
                         "description": "Format volume after creation. `xfs` or `ext4`\n"
@@ -2956,11 +4684,11 @@
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
                         },
-                        "description": "User-defined labels (key-value pairs).\n"
+                        "description": "(map) User-defined labels (key-value pairs).\n"
                     },
                     "linuxDevice": {
                         "type": "string",
-                        "description": "Device path on the file system for the Volume.\n"
+                        "description": "(string) Device path on the file system for the Volume.\n"
                     },
                     "location": {
                         "type": "string",
@@ -3128,6 +4856,43 @@
                 ]
             }
         },
+        "hcloud:index/getCertificates:getCertificates": {
+            "description": "Provides details about multiple Hetzner Cloud Certificates.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst sampleCertificate1 = pulumi.output(hcloud.getCertificates({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nsample_certificate1 = hcloud.get_certificates(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleCertificate1 = Output.Create(HCloud.GetCertificates.InvokeAsync(new HCloud.GetCertificatesArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"key=value\"\n\t\t_, err := hcloud.GetCertificates(ctx, \u0026hcloud.GetCertificatesArgs{\n\t\t\tWithSelector: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCertificates.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCertificates.\n",
+                "properties": {
+                    "certificates": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getCertificatesCertificate:getCertificatesCertificate"
+                        },
+                        "description": "(list) List of all matching certificates. See `data.hcloud_certificate` for schema.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "certificates",
+                    "id"
+                ]
+            }
+        },
         "hcloud:index/getDatacenter:getDatacenter": {
             "description": "Provides details about a specific Hetzner Cloud Datacenter.\nUse this resource to get detailed information about specific datacenter.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ds1 = pulumi.output(hcloud.getDatacenter({\n    name: \"fsn1-dc8\",\n}, { async: true }));\nconst ds2 = pulumi.output(hcloud.getDatacenter({\n    id: 4,\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nds1 = hcloud.get_datacenter(name=\"fsn1-dc8\")\nds2 = hcloud.get_datacenter(id=4)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ds1 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs\n        {\n            Name = \"fsn1-dc8\",\n        }));\n        var ds2 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs\n        {\n            Id = 4,\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"fsn1-dc8\"\n\t\t_, err := hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 4\n\t\t_, err = hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -3202,7 +4967,8 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of unique datacenter identifiers.\n"
+                        "description": "(list) List of unique datacenter identifiers.\n",
+                        "deprecationMessage": "Use datacenters list instead"
                     }
                 },
                 "type": "object"
@@ -3215,14 +4981,23 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of unique datacenter identifiers.\n"
+                        "description": "(list) List of unique datacenter identifiers.\n",
+                        "deprecationMessage": "Use datacenters list instead"
+                    },
+                    "datacenters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getDatacentersDatacenter:getDatacentersDatacenter"
+                        },
+                        "description": "(list) List of all datacenters. See `data.hcloud_datacenter` for schema.\n"
                     },
                     "descriptions": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of all datacenter descriptions.\n"
+                        "description": "(list) List of all datacenter descriptions.\n",
+                        "deprecationMessage": "Use datacenters list instead"
                     },
                     "id": {
                         "type": "string",
@@ -3233,11 +5008,13 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of datacenter names.\n"
+                        "description": "(list) List of datacenter names.\n",
+                        "deprecationMessage": "Use datacenters list instead"
                     }
                 },
                 "type": "object",
                 "required": [
+                    "datacenters",
                     "descriptions",
                     "names",
                     "id"
@@ -3249,6 +5026,13 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getFirewall.\n",
                 "properties": {
+                    "applyTos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getFirewallApplyTo:getFirewallApplyTo"
+                        },
+                        "description": "Configuration of the Applied Resources\n"
+                    },
                     "id": {
                         "type": "integer",
                         "description": "ID of the firewall.\n"
@@ -3261,7 +5045,8 @@
                         "description": "(map) User-defined labels (key-value pairs)\n"
                     },
                     "mostRecent": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Return most recent firewall if multiple are found.\n"
                     },
                     "name": {
                         "type": "string",
@@ -3284,6 +5069,13 @@
             "outputs": {
                 "description": "A collection of values returned by getFirewall.\n",
                 "properties": {
+                    "applyTos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getFirewallApplyTo:getFirewallApplyTo"
+                        },
+                        "description": "Configuration of the Applied Resources\n"
+                    },
                     "id": {
                         "type": "integer",
                         "description": "(int) Unique ID of the Firewall.\n"
@@ -3319,6 +5111,50 @@
                 ]
             }
         },
+        "hcloud:index/getFirewalls:getFirewalls": {
+            "description": "Provides details about multiple Hetzner Cloud Firewall.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst sampleFirewall1 = pulumi.output(hcloud.getFirewalls({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nsample_firewall1 = hcloud.get_firewalls(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleFirewall1 = Output.Create(HCloud.GetFirewalls.InvokeAsync(new HCloud.GetFirewallsArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"key=value\"\n\t\t_, err := hcloud.GetFirewalls(ctx, \u0026hcloud.GetFirewallsArgs{\n\t\t\tWithSelector: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFirewalls.\n",
+                "properties": {
+                    "mostRecent": {
+                        "type": "boolean",
+                        "description": "Sorts list by date.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFirewalls.\n",
+                "properties": {
+                    "firewalls": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getFirewallsFirewall:getFirewallsFirewall"
+                        },
+                        "description": "(list) List of all matching firewalls. See `data.hcloud_firewall` for schema.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "firewalls",
+                    "id"
+                ]
+            }
+        },
         "hcloud:index/getFloatingIp:getFloatingIp": {
             "description": "Provides details about a Hetzner Cloud Floating IP.\n\nThis resource can be useful when you need to determine a Floating IP ID based on the IP address.\n\n{{% examples %}}\n## Example Usage\n\n# Data Source: hcloud.FloatingIp\nProvides details about a Hetzner Cloud Floating IP.\nThis resource can be useful when you need to determine a Floating IP ID based on the IP address.\n\n{{% example %}}\n### Additional Examples\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ip1 = hcloud.getFloatingIp({\n    ipAddress: \"1.2.3.4\",\n});\nconst ip2 = hcloud.getFloatingIp({\n    withSelector: \"key=value\",\n});\nconst main: hcloud.FloatingIpAssignment[];\nfor (const range = {value: 0}; range.value \u003c _var.counter; range.value++) {\n    main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {\n        floatingIpId: ip1.then(ip1 =\u003e ip1.id),\n        serverId: hcloud_server.main.id,\n    }));\n}\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nip1 = hcloud.get_floating_ip(ip_address=\"1.2.3.4\")\nip2 = hcloud.get_floating_ip(with_selector=\"key=value\")\nmain = []\nfor range in [{\"value\": i} for i in range(0, var.counter)]:\n    main.append(hcloud.FloatingIpAssignment(f\"main-{range['value']}\",\n        floating_ip_id=ip1.id,\n        server_id=hcloud_server[\"main\"][\"id\"]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ip1 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs\n        {\n            IpAddress = \"1.2.3.4\",\n        }));\n        var ip2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n        var main = new List\u003cHCloud.FloatingIpAssignment\u003e();\n        for (var rangeIndex = 0; rangeIndex \u003c @var.Counter; rangeIndex++)\n        {\n            var range = new { Value = rangeIndex };\n            main.Add(new HCloud.FloatingIpAssignment($\"main-{range.Value}\", new HCloud.FloatingIpAssignmentArgs\n            {\n                FloatingIpId = ip1.Apply(ip1 =\u003e ip1.Id),\n                ServerId = hcloud_server.Main.Id,\n            }));\n        }\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"1.2.3.4\"\n\t\tip1, err := hcloud.LookupFloatingIp(ctx, \u0026hcloud.LookupFloatingIpArgs{\n\t\t\tIpAddress: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := \"key=value\"\n\t\t_, err = hcloud.LookupFloatingIp(ctx, \u0026hcloud.LookupFloatingIpArgs{\n\t\t\tWithSelector: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tvar main []*hcloud.FloatingIpAssignment\n\t\tfor key0, _ := range _var.Counter {\n\t\t\t__res, err := hcloud.NewFloatingIpAssignment(ctx, fmt.Sprintf(\"main-%v\", key0), \u0026hcloud.FloatingIpAssignmentArgs{\n\t\t\t\tFloatingIpId: pulumi.Int(ip1.Id),\n\t\t\t\tServerId:     pulumi.Any(hcloud_server.Main.Id),\n\t\t\t})\n\t\t\tif err != nil {\n\t\t\t\treturn err\n\t\t\t}\n\t\t\tmain = append(main, __res)\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -3350,6 +5186,10 @@
             "outputs": {
                 "description": "A collection of values returned by getFloatingIp.\n",
                 "properties": {
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "(boolean) Whether delete protection is enabled.\n"
+                    },
                     "description": {
                         "type": "string",
                         "description": "(string) Description of the Floating IP.\n"
@@ -3399,6 +5239,7 @@
                 },
                 "type": "object",
                 "required": [
+                    "deleteProtection",
                     "description",
                     "homeLocation",
                     "id",
@@ -3407,6 +5248,43 @@
                     "labels",
                     "serverId",
                     "type"
+                ]
+            }
+        },
+        "hcloud:index/getFloatingIps:getFloatingIps": {
+            "description": "Provides details about multiple Hetzner Cloud Floating IPs.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ip2 = pulumi.output(hcloud.getFloatingIps({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nip2 = hcloud.get_floating_ips(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ip2 = Output.Create(HCloud.GetFloatingIps.InvokeAsync(new HCloud.GetFloatingIpsArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"key=value\"\n\t\t_, err := hcloud.GetFloatingIps(ctx, \u0026hcloud.GetFloatingIpsArgs{\n\t\t\tWithSelector: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFloatingIps.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFloatingIps.\n",
+                "properties": {
+                    "floatingIps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getFloatingIpsFloatingIp:getFloatingIpsFloatingIp"
+                        },
+                        "description": "(list) List of all matching floating ips. See `data.hcloud_floating_ip` for schema.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "floatingIps",
+                    "id"
                 ]
             }
         },
@@ -3521,8 +5399,65 @@
                 ]
             }
         },
+        "hcloud:index/getImages:getImages": {
+            "description": "Provides details about multiple Hetzner Cloud Images.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst image2 = pulumi.output(hcloud.getImages({ async: true }));\nconst image3 = pulumi.output(hcloud.getImages({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nimage2 = hcloud.get_images()\nimage3 = hcloud.get_images(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var image2 = Output.Create(HCloud.GetImages.InvokeAsync());\n        var image3 = Output.Create(HCloud.GetImages.InvokeAsync(new HCloud.GetImagesArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetImages(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt0 := \"key=value\"\n\t\t_, err = hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithSelector: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getImages.\n",
+                "properties": {
+                    "mostRecent": {
+                        "type": "boolean",
+                        "description": "Sorts list by date.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List only images with the specified status, could contain `creating` or `available`.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getImages.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getImagesImage:getImagesImage"
+                        },
+                        "description": "(list) List of all matching images. See `data.hcloud_image` for schema.\n"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "images",
+                    "id"
+                ]
+            }
+        },
         "hcloud:index/getLoadBalancer:getLoadBalancer": {
-            "description": "Provides details about a specific Hetzner Cloud Server.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst lb1 = pulumi.output(hcloud.getLoadBalancer({\n    name: \"my-load-balancer\",\n}, { async: true }));\nconst lb2 = pulumi.output(hcloud.getLoadBalancer({\n    id: 123,\n}, { async: true }));\nconst lb3 = pulumi.output(hcloud.getLoadBalancer({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nlb1 = hcloud.get_load_balancer(name=\"my-load-balancer\")\nlb2 = hcloud.get_load_balancer(id=123)\nlb3 = hcloud.get_load_balancer(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var lb1 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            Name = \"my-load-balancer\",\n        }));\n        var lb2 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            Id = 123,\n        }));\n        var lb3 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"my-load-balancer\"\n\t\t_, err := hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 123\n\t\t_, err = hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt2 := \"key=value\"\n\t\t_, err = hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tWithSelector: \u0026opt2,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides details about a specific Hetzner Cloud Load Balancer.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst lb1 = pulumi.output(hcloud.getLoadBalancer({\n    name: \"my-load-balancer\",\n}, { async: true }));\nconst lb2 = pulumi.output(hcloud.getLoadBalancer({\n    id: 123,\n}, { async: true }));\nconst lb3 = pulumi.output(hcloud.getLoadBalancer({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nlb1 = hcloud.get_load_balancer(name=\"my-load-balancer\")\nlb2 = hcloud.get_load_balancer(id=123)\nlb3 = hcloud.get_load_balancer(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var lb1 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            Name = \"my-load-balancer\",\n        }));\n        var lb2 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            Id = 123,\n        }));\n        var lb3 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"my-load-balancer\"\n\t\t_, err := hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 123\n\t\t_, err = hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt2 := \"key=value\"\n\t\t_, err = hcloud.LookupLoadBalancer(ctx, \u0026hcloud.LookupLoadBalancerArgs{\n\t\t\tWithSelector: \u0026opt2,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getLoadBalancer.\n",
                 "properties": {
@@ -3550,6 +5485,10 @@
                             "$ref": "#/types/hcloud:index/getLoadBalancerAlgorithm:getLoadBalancerAlgorithm"
                         },
                         "description": "(Optional) Configuration of the algorithm the Load Balancer use.\n"
+                    },
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "(boolean) Whether delete protection is enabled.\n"
                     },
                     "id": {
                         "type": "integer",
@@ -3606,6 +5545,7 @@
                 "type": "object",
                 "required": [
                     "algorithms",
+                    "deleteProtection",
                     "id",
                     "ipv4",
                     "ipv6",
@@ -3615,6 +5555,43 @@
                     "networkZone",
                     "services",
                     "targets"
+                ]
+            }
+        },
+        "hcloud:index/getLoadBalancers:getLoadBalancers": {
+            "description": "Provides details about multiple Hetzner Cloud Load Balancers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst lb2 = pulumi.output(hcloud.getLoadBalancers({ async: true }));\nconst lb3 = pulumi.output(hcloud.getLoadBalancers({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nlb2 = hcloud.get_load_balancers()\nlb3 = hcloud.get_load_balancers(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var lb2 = Output.Create(HCloud.GetLoadBalancers.InvokeAsync());\n        var lb3 = Output.Create(HCloud.GetLoadBalancers.InvokeAsync(new HCloud.GetLoadBalancersArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetLoadBalancers(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt0 := \"key=value\"\n\t\t_, err = hcloud.GetLoadBalancers(ctx, \u0026hcloud.GetLoadBalancersArgs{\n\t\t\tWithSelector: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLoadBalancers.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLoadBalancers.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "loadBalancers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancer:getLoadBalancersLoadBalancer"
+                        },
+                        "description": "(list) List of all matching load balancers. See `data.hcloud_load_balancer` for schema.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loadBalancers",
+                    "id"
                 ]
             }
         },
@@ -3688,7 +5665,8 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of unique location identifiers.\n"
+                        "description": "(list) List of unique location identifiers.\n",
+                        "deprecationMessage": "Use locations list instead"
                     }
                 },
                 "type": "object"
@@ -3701,7 +5679,8 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of all location descriptions.\n"
+                        "description": "(list) List of all location descriptions.\n",
+                        "deprecationMessage": "Use locations list instead"
                     },
                     "id": {
                         "type": "string",
@@ -3712,19 +5691,29 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of unique location identifiers.\n"
+                        "description": "(list) List of unique location identifiers.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    },
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getLocationsLocation:getLocationsLocation"
+                        },
+                        "description": "(list) List of all locations. See `data.hcloud_location` for schema.\n"
                     },
                     "names": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of location names.\n"
+                        "description": "(list) List of location names.\n",
+                        "deprecationMessage": "Use locations list instead"
                     }
                 },
                 "type": "object",
                 "required": [
                     "descriptions",
+                    "locations",
                     "names",
                     "id"
                 ]
@@ -3748,6 +5737,9 @@
                             "$ref": "pulumi.json#/Any"
                         }
                     },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the Network.\n"
@@ -3762,6 +5754,10 @@
             "outputs": {
                 "description": "A collection of values returned by getNetwork.\n",
                 "properties": {
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "(boolean) Whether delete protection is enabled.\n"
+                    },
                     "id": {
                         "type": "integer",
                         "description": "Unique ID of the Network.\n"
@@ -3776,6 +5772,9 @@
                             "$ref": "pulumi.json#/Any"
                         }
                     },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the Network.\n"
@@ -3786,34 +5785,79 @@
                 },
                 "type": "object",
                 "required": [
+                    "deleteProtection",
+                    "id"
+                ]
+            }
+        },
+        "hcloud:index/getNetworks:getNetworks": {
+            "description": "Provides details about multiple Hetzner Cloud Networks.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst network2 = pulumi.output(hcloud.getNetwork({ async: true }));\nconst network3 = pulumi.output(hcloud.getNetwork({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnetwork2 = hcloud.get_network()\nnetwork3 = hcloud.get_network(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var network2 = Output.Create(HCloud.GetNetwork.InvokeAsync());\n        var network3 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.LookupNetwork(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt0 := \"key=value\"\n\t\t_, err = hcloud.LookupNetwork(ctx, \u0026hcloud.LookupNetworkArgs{\n\t\t\tWithSelector: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNetworks.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNetworks.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "networks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getNetworksNetwork:getNetworksNetwork"
+                        },
+                        "description": "(list) List of all matching networks. See `data.hcloud_network` for schema.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "networks",
                     "id"
                 ]
             }
         },
         "hcloud:index/getPlacementGroup:getPlacementGroup": {
+            "description": "Provides details about a specific Hetzner Cloud Placement Group.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst samplePlacementGroup1 = pulumi.output(hcloud.getPlacementGroup({\n    name: \"sample-placement-group-1\",\n}, { async: true }));\nconst samplePlacementGroup2 = pulumi.output(hcloud.getPlacementGroup({\n    id: 4711,\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nsample_placement_group1 = hcloud.get_placement_group(name=\"sample-placement-group-1\")\nsample_placement_group2 = hcloud.get_placement_group(id=4711)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var samplePlacementGroup1 = Output.Create(HCloud.GetPlacementGroup.InvokeAsync(new HCloud.GetPlacementGroupArgs\n        {\n            Name = \"sample-placement-group-1\",\n        }));\n        var samplePlacementGroup2 = Output.Create(HCloud.GetPlacementGroup.InvokeAsync(new HCloud.GetPlacementGroupArgs\n        {\n            Id = 4711,\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"sample-placement-group-1\"\n\t\t_, err := hcloud.LookupPlacementGroup(ctx, \u0026hcloud.LookupPlacementGroupArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt1 := 4711\n\t\t_, err = hcloud.LookupPlacementGroup(ctx, \u0026hcloud.LookupPlacementGroupArgs{\n\t\t\tId: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getPlacementGroup.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "ID of the placement group.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) User-defined labels (key-value pairs)\n"
                     },
                     "mostRecent": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Return most recent placement group if multiple are found.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the placement group.\n"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string)  Type of the Placement Group.\n"
                     },
                     "withSelector": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -3822,19 +5866,22 @@
                 "description": "A collection of values returned by getPlacementGroup.\n",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "(int) Unique ID of the Placement Group.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) User-defined labels (key-value pairs)\n"
                     },
                     "mostRecent": {
                         "type": "boolean"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Name of the Placement Group.\n"
                     },
                     "servers": {
                         "type": "array",
@@ -3843,7 +5890,8 @@
                         }
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string)  Type of the Placement Group.\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -3853,6 +5901,50 @@
                 "required": [
                     "name",
                     "servers"
+                ]
+            }
+        },
+        "hcloud:index/getPlacementGroups:getPlacementGroups": {
+            "description": "Provides details about multiple Hetzner Cloud Placement Groups.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst samplePlacementGroup1 = pulumi.output(hcloud.getPlacementGroups({ async: true }));\nconst samplePlacementGroup2 = pulumi.output(hcloud.getPlacementGroups({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nsample_placement_group1 = hcloud.get_placement_groups()\nsample_placement_group2 = hcloud.get_placement_groups(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var samplePlacementGroup1 = Output.Create(HCloud.GetPlacementGroups.InvokeAsync());\n        var samplePlacementGroup2 = Output.Create(HCloud.GetPlacementGroups.InvokeAsync(new HCloud.GetPlacementGroupsArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetPlacementGroups(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt0 := \"key=value\"\n\t\t_, err = hcloud.GetPlacementGroups(ctx, \u0026hcloud.GetPlacementGroupsArgs{\n\t\t\tWithSelector: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPlacementGroups.\n",
+                "properties": {
+                    "mostRecent": {
+                        "type": "boolean",
+                        "description": "Sorts list by date.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPlacementGroups.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "placementGroups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getPlacementGroupsPlacementGroup:getPlacementGroupsPlacementGroup"
+                        },
+                        "description": "(list) List of all matching placement groups. See `data.hcloud_placement_group` for schema.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "placementGroups",
+                    "id"
                 ]
             }
         },
@@ -3868,8 +5960,9 @@
                         "type": "string",
                         "description": "Name of the server.\n"
                     },
-                    "placementGroup": {
-                        "type": "string"
+                    "placementGroupId": {
+                        "type": "integer",
+                        "description": "(Optional, string) Placement Group ID the server is assigned to.\n"
                     },
                     "selector": {
                         "type": "string",
@@ -3903,6 +5996,10 @@
                     "datacenter": {
                         "type": "string",
                         "description": "(string) The datacenter name.\n"
+                    },
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "(boolean) Whether delete protection is enabled.\n"
                     },
                     "firewallIds": {
                         "type": "array",
@@ -3950,8 +6047,13 @@
                         "type": "string",
                         "description": "(string) Name of the server.\n"
                     },
-                    "placementGroup": {
-                        "type": "string"
+                    "placementGroupId": {
+                        "type": "integer",
+                        "description": "(Optional, string) Placement Group ID the server is assigned to.\n"
+                    },
+                    "rebuildProtection": {
+                        "type": "boolean",
+                        "description": "(boolean) Whether rebuild protection is enabled.\n"
                     },
                     "rescue": {
                         "type": "string"
@@ -3983,6 +6085,7 @@
                     "backupWindow",
                     "backups",
                     "datacenter",
+                    "deleteProtection",
                     "firewallIds",
                     "id",
                     "image",
@@ -3993,6 +6096,7 @@
                     "labels",
                     "location",
                     "name",
+                    "rebuildProtection",
                     "rescue",
                     "serverType",
                     "status"
@@ -4072,7 +6176,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of unique Server Types identifiers.\n"
+                        "deprecationMessage": "Use server_types list instead"
                     }
                 },
                 "type": "object"
@@ -4085,7 +6189,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of all Server Types descriptions.\n"
+                        "deprecationMessage": "Use server_types list instead"
                     },
                     "id": {
                         "type": "string",
@@ -4096,20 +6200,77 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of Server Types names.\n"
+                        "deprecationMessage": "Use server_types list instead"
                     },
                     "serverTypeIds": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "(list) List of unique Server Types identifiers.\n"
+                        "deprecationMessage": "Use server_types list instead"
+                    },
+                    "serverTypes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getServerTypesServerType:getServerTypesServerType"
+                        },
+                        "description": "(list) List of all server types. See `data.hcloud_type` for schema.\n"
                     }
                 },
                 "type": "object",
                 "required": [
                     "descriptions",
                     "names",
+                    "serverTypes",
+                    "id"
+                ]
+            }
+        },
+        "hcloud:index/getServers:getServers": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getServers.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServers.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "servers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getServersServer:getServersServer"
+                        },
+                        "description": "(list) List of all matching servers. See `data.hcloud_server` for schema.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "servers",
                     "id"
                 ]
             }
@@ -4229,7 +6390,8 @@
                         "description": "ID of the volume.\n"
                     },
                     "location": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The location name.\n"
                     },
                     "name": {
                         "type": "string",
@@ -4239,8 +6401,9 @@
                         "type": "string",
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
-                    "server": {
-                        "type": "string"
+                    "serverId": {
+                        "type": "integer",
+                        "description": "(Optional, int) Server ID the volume is attached to\n"
                     },
                     "withSelector": {
                         "type": "string",
@@ -4259,36 +6422,44 @@
             "outputs": {
                 "description": "A collection of values returned by getVolume.\n",
                 "properties": {
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "(boolean) Whether delete protection is enabled.\n"
+                    },
                     "id": {
                         "type": "integer",
-                        "description": "Unique ID of the volume.\n"
+                        "description": "(int) Unique ID of the volume.\n"
                     },
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
-                        }
+                        },
+                        "description": "(map) User-defined labels (key-value pairs).\n"
                     },
                     "linuxDevice": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) Device path on the file system for the Volume.\n"
                     },
                     "location": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(string) The location name.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the volume.\n"
+                        "description": "(string) Name of the volume.\n"
                     },
                     "selector": {
                         "type": "string",
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
-                    "server": {
-                        "type": "string"
+                    "serverId": {
+                        "type": "integer",
+                        "description": "(Optional, int) Server ID the volume is attached to\n"
                     },
                     "size": {
                         "type": "integer",
-                        "description": "Size of the volume.\n"
+                        "description": "(int) Size of the volume.\n"
                     },
                     "withSelector": {
                         "type": "string"
@@ -4302,11 +6473,62 @@
                 },
                 "type": "object",
                 "required": [
+                    "deleteProtection",
                     "id",
                     "labels",
                     "linuxDevice",
                     "name",
                     "size"
+                ]
+            }
+        },
+        "hcloud:index/getVolumes:getVolumes": {
+            "description": "Provides details about multiple Hetzner Cloud volumes.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst volume_ = pulumi.output(hcloud.getVolumes({ async: true }));\nconst volume3 = pulumi.output(hcloud.getVolumes({\n    withSelector: \"key=value\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nvolume_ = hcloud.get_volumes()\nvolume3 = hcloud.get_volumes(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var volume_ = Output.Create(HCloud.GetVolumes.InvokeAsync());\n        var volume3 = Output.Create(HCloud.GetVolumes.InvokeAsync(new HCloud.GetVolumesArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetVolumes(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt0 := \"key=value\"\n\t\t_, err = hcloud.GetVolumes(ctx, \u0026hcloud.GetVolumesArgs{\n\t\t\tWithSelector: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getVolumes.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List only volumes with the specified status, could contain `creating` or `available`.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getVolumes.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "volumes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getVolumesVolume:getVolumesVolume"
+                        },
+                        "description": "(list) List of all matching volumes. See `data.hcloud_volume` for schema.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "volumes",
+                    "id"
                 ]
             }
         }

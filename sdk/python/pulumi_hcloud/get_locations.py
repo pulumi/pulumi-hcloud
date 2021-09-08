@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetLocationsResult',
@@ -19,18 +20,33 @@ class GetLocationsResult:
     """
     A collection of values returned by getLocations.
     """
-    def __init__(__self__, descriptions=None, id=None, location_ids=None, names=None):
+    def __init__(__self__, descriptions=None, id=None, location_ids=None, locations=None, names=None):
         if descriptions and not isinstance(descriptions, list):
             raise TypeError("Expected argument 'descriptions' to be a list")
+        if descriptions is not None:
+            warnings.warn("""Use locations list instead""", DeprecationWarning)
+            pulumi.log.warn("""descriptions is deprecated: Use locations list instead""")
+
         pulumi.set(__self__, "descriptions", descriptions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location_ids and not isinstance(location_ids, list):
             raise TypeError("Expected argument 'location_ids' to be a list")
+        if location_ids is not None:
+            warnings.warn("""Use locations list instead""", DeprecationWarning)
+            pulumi.log.warn("""location_ids is deprecated: Use locations list instead""")
+
         pulumi.set(__self__, "location_ids", location_ids)
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        pulumi.set(__self__, "locations", locations)
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
+        if names is not None:
+            warnings.warn("""Use locations list instead""", DeprecationWarning)
+            pulumi.log.warn("""names is deprecated: Use locations list instead""")
+
         pulumi.set(__self__, "names", names)
 
     @property
@@ -59,6 +75,14 @@ class GetLocationsResult:
 
     @property
     @pulumi.getter
+    def locations(self) -> Sequence['outputs.GetLocationsLocationResult']:
+        """
+        (list) List of all locations. See `data.hcloud_location` for schema.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
     def names(self) -> Sequence[str]:
         """
         (list) List of location names.
@@ -75,6 +99,7 @@ class AwaitableGetLocationsResult(GetLocationsResult):
             descriptions=self.descriptions,
             id=self.id,
             location_ids=self.location_ids,
+            locations=self.locations,
             names=self.names)
 
 
@@ -114,4 +139,5 @@ def get_locations(location_ids: Optional[Sequence[str]] = None,
         descriptions=__ret__.descriptions,
         id=__ret__.id,
         location_ids=__ret__.location_ids,
+        locations=__ret__.locations,
         names=__ret__.names)

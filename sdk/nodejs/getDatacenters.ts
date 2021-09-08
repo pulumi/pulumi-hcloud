@@ -46,6 +46,8 @@ export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOp
 export interface GetDatacentersArgs {
     /**
      * (list) List of unique datacenter identifiers.
+     *
+     * @deprecated Use datacenters list instead
      */
     readonly datacenterIds?: string[];
 }
@@ -56,10 +58,18 @@ export interface GetDatacentersArgs {
 export interface GetDatacentersResult {
     /**
      * (list) List of unique datacenter identifiers.
+     *
+     * @deprecated Use datacenters list instead
      */
     readonly datacenterIds?: string[];
     /**
+     * (list) List of all datacenters. See `data.hcloud_datacenter` for schema.
+     */
+    readonly datacenters: outputs.GetDatacentersDatacenter[];
+    /**
      * (list) List of all datacenter descriptions.
+     *
+     * @deprecated Use datacenters list instead
      */
     readonly descriptions: string[];
     /**
@@ -68,6 +78,8 @@ export interface GetDatacentersResult {
     readonly id: string;
     /**
      * (list) List of datacenter names.
+     *
+     * @deprecated Use datacenters list instead
      */
     readonly names: string[];
 }

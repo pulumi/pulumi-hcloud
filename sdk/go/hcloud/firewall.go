@@ -22,6 +22,8 @@ import (
 type Firewall struct {
 	pulumi.CustomResourceState
 
+	// Resources the firewall should be assigned to
+	ApplyTos FirewallApplyToArrayOutput `pulumi:"applyTos"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapOutput `pulumi:"labels"`
 	// Name of the Firewall.
@@ -59,6 +61,8 @@ func GetFirewall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Firewall resources.
 type firewallState struct {
+	// Resources the firewall should be assigned to
+	ApplyTos []FirewallApplyTo `pulumi:"applyTos"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Name of the Firewall.
@@ -68,6 +72,8 @@ type firewallState struct {
 }
 
 type FirewallState struct {
+	// Resources the firewall should be assigned to
+	ApplyTos FirewallApplyToArrayInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
 	// Name of the Firewall.
@@ -81,6 +87,8 @@ func (FirewallState) ElementType() reflect.Type {
 }
 
 type firewallArgs struct {
+	// Resources the firewall should be assigned to
+	ApplyTos []FirewallApplyTo `pulumi:"applyTos"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Name of the Firewall.
@@ -91,6 +99,8 @@ type firewallArgs struct {
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
+	// Resources the firewall should be assigned to
+	ApplyTos FirewallApplyToArrayInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
 	// Name of the Firewall.

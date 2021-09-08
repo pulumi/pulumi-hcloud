@@ -12,14 +12,11 @@ namespace Pulumi.HCloud.Inputs
 
     public sealed class LoadBalancerTargetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
-        /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
         /// <summary>
-        /// Type of the target. `server`
+        /// Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

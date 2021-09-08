@@ -54,6 +54,8 @@ import (
 type FloatingIp struct {
 	pulumi.CustomResourceState
 
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
@@ -104,6 +106,8 @@ func GetFloatingIp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FloatingIp resources.
 type floatingIpState struct {
+	// Enable or disable delete protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description *string `pulumi:"description"`
 	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
@@ -123,6 +127,8 @@ type floatingIpState struct {
 }
 
 type FloatingIpState struct {
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Floating IP.
 	Description pulumi.StringPtrInput
 	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
@@ -146,6 +152,8 @@ func (FloatingIpState) ElementType() reflect.Type {
 }
 
 type floatingIpArgs struct {
+	// Enable or disable delete protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description *string `pulumi:"description"`
 	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
@@ -162,6 +170,8 @@ type floatingIpArgs struct {
 
 // The set of arguments for constructing a FloatingIp resource.
 type FloatingIpArgs struct {
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Floating IP.
 	Description pulumi.StringPtrInput
 	// Home location (routing is optimized for that location). Optional if serverId argument is passed.

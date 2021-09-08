@@ -21,8 +21,9 @@ type LookupNetworkArgs struct {
 	// ID of the Network.
 	Id *int `pulumi:"id"`
 	// IPv4 prefix of the Network.
-	IpRange *string                `pulumi:"ipRange"`
-	Labels  map[string]interface{} `pulumi:"labels"`
+	IpRange    *string                `pulumi:"ipRange"`
+	Labels     map[string]interface{} `pulumi:"labels"`
+	MostRecent *bool                  `pulumi:"mostRecent"`
 	// Name of the Network.
 	Name *string `pulumi:"name"`
 	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -31,11 +32,14 @@ type LookupNetworkArgs struct {
 
 // A collection of values returned by getNetwork.
 type LookupNetworkResult struct {
+	// (boolean) Whether delete protection is enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
 	// Unique ID of the Network.
 	Id int `pulumi:"id"`
 	// IPv4 prefix of the Network.
-	IpRange *string                `pulumi:"ipRange"`
-	Labels  map[string]interface{} `pulumi:"labels"`
+	IpRange    *string                `pulumi:"ipRange"`
+	Labels     map[string]interface{} `pulumi:"labels"`
+	MostRecent *bool                  `pulumi:"mostRecent"`
 	// Name of the Network.
 	Name         *string `pulumi:"name"`
 	WithSelector *string `pulumi:"withSelector"`

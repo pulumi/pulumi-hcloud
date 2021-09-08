@@ -40,6 +40,12 @@ namespace Pulumi.HCloud
         public Output<string> Datacenter { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        /// </summary>
+        [Output("deleteProtection")]
+        public Output<bool?> DeleteProtection { get; private set; } = null!;
+
+        /// <summary>
         /// Firewall IDs the server should be attached to on creation.
         /// </summary>
         [Output("firewallIds")]
@@ -110,6 +116,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Output("placementGroupId")]
         public Output<int?> PlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+        /// </summary>
+        [Output("rebuildProtection")]
+        public Output<bool?> RebuildProtection { get; private set; } = null!;
 
         /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
@@ -199,6 +211,12 @@ namespace Pulumi.HCloud
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
+        /// <summary>
+        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
+
         [Input("firewallIds")]
         private InputList<int>? _firewallIds;
 
@@ -272,6 +290,12 @@ namespace Pulumi.HCloud
         public Input<int>? PlacementGroupId { get; set; }
 
         /// <summary>
+        /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+        /// </summary>
+        [Input("rebuildProtection")]
+        public Input<bool>? RebuildProtection { get; set; }
+
+        /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         /// </summary>
         [Input("rescue")]
@@ -325,6 +349,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
+
+        /// <summary>
+        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
 
         [Input("firewallIds")]
         private InputList<int>? _firewallIds;
@@ -415,6 +445,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("placementGroupId")]
         public Input<int>? PlacementGroupId { get; set; }
+
+        /// <summary>
+        /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+        /// </summary>
+        [Input("rebuildProtection")]
+        public Input<bool>? RebuildProtection { get; set; }
 
         /// <summary>
         /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`

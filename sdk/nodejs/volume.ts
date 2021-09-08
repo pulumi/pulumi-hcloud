@@ -66,15 +66,19 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly automount!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable or disable delete protection.
+     */
+    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * Format volume after creation. `xfs` or `ext4`
      */
     public readonly format!: pulumi.Output<string | undefined>;
     /**
-     * User-defined labels (key-value pairs).
+     * (map) User-defined labels (key-value pairs).
      */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * Device path on the file system for the Volume.
+     * (string) Device path on the file system for the Volume.
      */
     public /*out*/ readonly linuxDevice!: pulumi.Output<string>;
     /**
@@ -108,6 +112,7 @@ export class Volume extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
             inputs["automount"] = state ? state.automount : undefined;
+            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             inputs["format"] = state ? state.format : undefined;
             inputs["labels"] = state ? state.labels : undefined;
             inputs["linuxDevice"] = state ? state.linuxDevice : undefined;
@@ -121,6 +126,7 @@ export class Volume extends pulumi.CustomResource {
                 throw new Error("Missing required property 'size'");
             }
             inputs["automount"] = args ? args.automount : undefined;
+            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             inputs["format"] = args ? args.format : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -145,15 +151,19 @@ export interface VolumeState {
      */
     readonly automount?: pulumi.Input<boolean>;
     /**
+     * Enable or disable delete protection.
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
+    /**
      * Format volume after creation. `xfs` or `ext4`
      */
     readonly format?: pulumi.Input<string>;
     /**
-     * User-defined labels (key-value pairs).
+     * (map) User-defined labels (key-value pairs).
      */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Device path on the file system for the Volume.
+     * (string) Device path on the file system for the Volume.
      */
     readonly linuxDevice?: pulumi.Input<string>;
     /**
@@ -183,11 +193,15 @@ export interface VolumeArgs {
      */
     readonly automount?: pulumi.Input<boolean>;
     /**
+     * Enable or disable delete protection.
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
+    /**
      * Format volume after creation. `xfs` or `ext4`
      */
     readonly format?: pulumi.Input<string>;
     /**
-     * User-defined labels (key-value pairs).
+     * (map) User-defined labels (key-value pairs).
      */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
     /**

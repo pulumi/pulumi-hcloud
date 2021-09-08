@@ -45,11 +45,17 @@ class GetPlacementGroupResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[int]:
+        """
+        (int) Unique ID of the Placement Group.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def labels(self) -> Optional[Mapping[str, Any]]:
+        """
+        (map) User-defined labels (key-value pairs)
+        """
         return pulumi.get(self, "labels")
 
     @property
@@ -60,6 +66,9 @@ class GetPlacementGroupResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        (string) Name of the Placement Group.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -70,6 +79,9 @@ class GetPlacementGroupResult:
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        (string)  Type of the Placement Group.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -101,7 +113,23 @@ def get_placement_group(id: Optional[int] = None,
                         with_selector: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlacementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Hetzner Cloud Placement Group.
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    sample_placement_group1 = hcloud.get_placement_group(name="sample-placement-group-1")
+    sample_placement_group2 = hcloud.get_placement_group(id=4711)
+    ```
+
+
+    :param int id: ID of the placement group.
+    :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
+    :param bool most_recent: Return most recent placement group if multiple are found.
+    :param str name: Name of the placement group.
+    :param str type: (string)  Type of the Placement Group.
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
     __args__['id'] = id

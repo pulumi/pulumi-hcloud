@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'FirewallApplyToArgs',
     'FirewallRuleArgs',
     'LoadBalancerAlgorithmArgs',
     'LoadBalancerServiceHealthCheckArgs',
@@ -16,8 +17,52 @@ __all__ = [
     'LoadBalancerServiceHttpArgs',
     'LoadBalancerTargetArgs',
     'ServerNetworkArgs',
+    'GetFirewallApplyToArgs',
     'GetFirewallRuleArgs',
 ]
+
+@pulumi.input_type
+class FirewallApplyToArgs:
+    def __init__(__self__, *,
+                 label_selector: Optional[pulumi.Input[str]] = None,
+                 server: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] label_selector: Label Selector to select servers the firewall should be applied to (only one
+               of `server` and `label_selector`can be applied in one block)
+        :param pulumi.Input[int] server: ID of the server you want to apply the firewall to (only one of `server`
+               and `label_selector`can be applied in one block)
+        """
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        Label Selector to select servers the firewall should be applied to (only one
+        of `server` and `label_selector`can be applied in one block)
+        """
+        return pulumi.get(self, "label_selector")
+
+    @label_selector.setter
+    def label_selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label_selector", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the server you want to apply the firewall to (only one of `server`
+        and `label_selector`can be applied in one block)
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server", value)
+
 
 @pulumi.input_type
 class FirewallRuleArgs:
@@ -32,8 +77,11 @@ class FirewallRuleArgs:
         :param pulumi.Input[str] direction: Direction of the Firewall Rule. `in`
         :param pulumi.Input[str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param pulumi.Input[str] description: Description of the firewall rule
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
-        :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+               is `out`)
+        :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
+               to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
+               85.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of CIDRs that are allowed within this Firewall Rule
         """
         pulumi.set(__self__, "direction", direction)
@@ -87,7 +135,8 @@ class FirewallRuleArgs:
     @pulumi.getter(name="destinationIps")
     def destination_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+        (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+        is `out`)
         """
         return pulumi.get(self, "destination_ips")
 
@@ -99,7 +148,9 @@ class FirewallRuleArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
-        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
+        to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
+        85.
         """
         return pulumi.get(self, "port")
 
@@ -423,8 +474,7 @@ class LoadBalancerTargetArgs:
                  server_id: Optional[pulumi.Input[int]] = None,
                  use_private_ip: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] type: Type of the target. `server`
-        :param pulumi.Input[int] server_id: ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
+        :param pulumi.Input[str] type: Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
         pulumi.set(__self__, "type", type)
         if server_id is not None:
@@ -439,7 +489,7 @@ class LoadBalancerTargetArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the target. `server`
+        Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
         return pulumi.get(self, "type")
 
@@ -450,9 +500,6 @@ class LoadBalancerTargetArgs:
     @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[int]]:
-        """
-        ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
-        """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
@@ -537,6 +584,45 @@ class ServerNetworkArgs:
     @mac_address.setter
     def mac_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mac_address", value)
+
+
+@pulumi.input_type
+class GetFirewallApplyToArgs:
+    def __init__(__self__, *,
+                 label_selector: str,
+                 server: int):
+        """
+        :param str label_selector: (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
+               referenced
+        :param int server: (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
+        """
+        pulumi.set(__self__, "label_selector", label_selector)
+        pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> str:
+        """
+        (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
+        referenced
+        """
+        return pulumi.get(self, "label_selector")
+
+    @label_selector.setter
+    def label_selector(self, value: str):
+        pulumi.set(self, "label_selector", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> int:
+        """
+        (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: int):
+        pulumi.set(self, "server", value)
 
 
 @pulumi.input_type

@@ -58,11 +58,13 @@ type Volume struct {
 
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount pulumi.BoolPtrOutput `pulumi:"automount"`
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// User-defined labels (key-value pairs).
+	// (map) User-defined labels (key-value pairs).
 	Labels pulumi.MapOutput `pulumi:"labels"`
-	// Device path on the file system for the Volume.
+	// (string) Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringOutput `pulumi:"linuxDevice"`
 	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -108,11 +110,13 @@ func GetVolume(ctx *pulumi.Context,
 type volumeState struct {
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount *bool `pulumi:"automount"`
+	// Enable or disable delete protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Format volume after creation. `xfs` or `ext4`
 	Format *string `pulumi:"format"`
-	// User-defined labels (key-value pairs).
+	// (map) User-defined labels (key-value pairs).
 	Labels map[string]interface{} `pulumi:"labels"`
-	// Device path on the file system for the Volume.
+	// (string) Device path on the file system for the Volume.
 	LinuxDevice *string `pulumi:"linuxDevice"`
 	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location *string `pulumi:"location"`
@@ -127,11 +131,13 @@ type volumeState struct {
 type VolumeState struct {
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount pulumi.BoolPtrInput
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrInput
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrInput
-	// User-defined labels (key-value pairs).
+	// (map) User-defined labels (key-value pairs).
 	Labels pulumi.MapInput
-	// Device path on the file system for the Volume.
+	// (string) Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringPtrInput
 	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location pulumi.StringPtrInput
@@ -150,9 +156,11 @@ func (VolumeState) ElementType() reflect.Type {
 type volumeArgs struct {
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount *bool `pulumi:"automount"`
+	// Enable or disable delete protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Format volume after creation. `xfs` or `ext4`
 	Format *string `pulumi:"format"`
-	// User-defined labels (key-value pairs).
+	// (map) User-defined labels (key-value pairs).
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location *string `pulumi:"location"`
@@ -168,9 +176,11 @@ type volumeArgs struct {
 type VolumeArgs struct {
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount pulumi.BoolPtrInput
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrInput
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrInput
-	// User-defined labels (key-value pairs).
+	// (map) User-defined labels (key-value pairs).
 	Labels pulumi.MapInput
 	// Location of the volume to create, not allowed if serverId argument is passed.
 	Location pulumi.StringPtrInput

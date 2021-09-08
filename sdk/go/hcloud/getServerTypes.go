@@ -19,18 +19,20 @@ func GetServerTypes(ctx *pulumi.Context, args *GetServerTypesArgs, opts ...pulum
 
 // A collection of arguments for invoking getServerTypes.
 type GetServerTypesArgs struct {
-	// (list) List of unique Server Types identifiers.
+	// Deprecated: Use server_types list instead
 	ServerTypeIds []string `pulumi:"serverTypeIds"`
 }
 
 // A collection of values returned by getServerTypes.
 type GetServerTypesResult struct {
-	// (list) List of all Server Types descriptions.
+	// Deprecated: Use server_types list instead
 	Descriptions []string `pulumi:"descriptions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// (list) List of Server Types names.
+	// Deprecated: Use server_types list instead
 	Names []string `pulumi:"names"`
-	// (list) List of unique Server Types identifiers.
+	// Deprecated: Use server_types list instead
 	ServerTypeIds []string `pulumi:"serverTypeIds"`
+	// (list) List of all server types. See `data.hcloud_type` for schema.
+	ServerTypes []GetServerTypesServerType `pulumi:"serverTypes"`
 }

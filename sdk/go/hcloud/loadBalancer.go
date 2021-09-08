@@ -62,6 +62,8 @@ type LoadBalancer struct {
 
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm LoadBalancerAlgorithmOutput `pulumi:"algorithm"`
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 pulumi.StringOutput `pulumi:"ipv4"`
 	// (string) IPv4 Address of the Load Balancer.
@@ -78,7 +80,7 @@ type LoadBalancer struct {
 	NetworkIp pulumi.StringOutput `pulumi:"networkIp"`
 	// Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringOutput `pulumi:"networkZone"`
-	// List of targets of the Load Balancer.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayOutput `pulumi:"targets"`
 }
 
@@ -116,6 +118,8 @@ func GetLoadBalancer(ctx *pulumi.Context,
 type loadBalancerState struct {
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm *LoadBalancerAlgorithm `pulumi:"algorithm"`
+	// Enable or disable delete protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 *string `pulumi:"ipv4"`
 	// (string) IPv4 Address of the Load Balancer.
@@ -132,13 +136,15 @@ type loadBalancerState struct {
 	NetworkIp *string `pulumi:"networkIp"`
 	// Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone *string `pulumi:"networkZone"`
-	// List of targets of the Load Balancer.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets []LoadBalancerTargetType `pulumi:"targets"`
 }
 
 type LoadBalancerState struct {
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm LoadBalancerAlgorithmPtrInput
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrInput
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 pulumi.StringPtrInput
 	// (string) IPv4 Address of the Load Balancer.
@@ -155,7 +161,7 @@ type LoadBalancerState struct {
 	NetworkIp pulumi.StringPtrInput
 	// Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringPtrInput
-	// List of targets of the Load Balancer.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayInput
 }
 
@@ -166,6 +172,8 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm *LoadBalancerAlgorithm `pulumi:"algorithm"`
+	// Enable or disable delete protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Type of the Load Balancer.
@@ -176,7 +184,7 @@ type loadBalancerArgs struct {
 	Name *string `pulumi:"name"`
 	// Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone *string `pulumi:"networkZone"`
-	// List of targets of the Load Balancer.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets []LoadBalancerTargetType `pulumi:"targets"`
 }
 
@@ -184,6 +192,8 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm LoadBalancerAlgorithmPtrInput
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
 	// Type of the Load Balancer.
@@ -194,7 +204,7 @@ type LoadBalancerArgs struct {
 	Name pulumi.StringPtrInput
 	// Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringPtrInput
-	// List of targets of the Load Balancer.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayInput
 }
 

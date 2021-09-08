@@ -14,6 +14,7 @@ __all__ = ['FloatingIpArgs', 'FloatingIp']
 class FloatingIpArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  home_location: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -22,6 +23,7 @@ class FloatingIpArgs:
         """
         The set of arguments for constructing a FloatingIp resource.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -29,6 +31,8 @@ class FloatingIpArgs:
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         """
         pulumi.set(__self__, "type", type)
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if home_location is not None:
@@ -51,6 +55,18 @@ class FloatingIpArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_protection", value)
 
     @property
     @pulumi.getter
@@ -116,6 +132,7 @@ class FloatingIpArgs:
 @pulumi.input_type
 class _FloatingIpState:
     def __init__(__self__, *,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  home_location: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -126,6 +143,7 @@ class _FloatingIpState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FloatingIp resources.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
@@ -135,6 +153,8 @@ class _FloatingIpState:
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
         """
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if home_location is not None:
@@ -151,6 +171,18 @@ class _FloatingIpState:
             pulumi.set(__self__, "server_id", server_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_protection", value)
 
     @property
     @pulumi.getter
@@ -254,6 +286,7 @@ class FloatingIp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  home_location: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -288,6 +321,7 @@ class FloatingIp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -341,6 +375,7 @@ class FloatingIp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  home_location: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -359,6 +394,7 @@ class FloatingIp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FloatingIpArgs.__new__(FloatingIpArgs)
 
+            __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["description"] = description
             __props__.__dict__["home_location"] = home_location
             __props__.__dict__["labels"] = labels
@@ -379,6 +415,7 @@ class FloatingIp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            delete_protection: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             home_location: Optional[pulumi.Input[str]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
@@ -394,6 +431,7 @@ class FloatingIp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
@@ -407,6 +445,7 @@ class FloatingIp(pulumi.CustomResource):
 
         __props__ = _FloatingIpState.__new__(_FloatingIpState)
 
+        __props__.__dict__["delete_protection"] = delete_protection
         __props__.__dict__["description"] = description
         __props__.__dict__["home_location"] = home_location
         __props__.__dict__["ip_address"] = ip_address
@@ -416,6 +455,14 @@ class FloatingIp(pulumi.CustomResource):
         __props__.__dict__["server_id"] = server_id
         __props__.__dict__["type"] = type
         return FloatingIp(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter

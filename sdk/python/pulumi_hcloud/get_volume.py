@@ -19,7 +19,10 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, id=None, labels=None, linux_device=None, location=None, name=None, selector=None, server=None, size=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, delete_protection=None, id=None, labels=None, linux_device=None, location=None, name=None, selector=None, server_id=None, size=None, with_selector=None, with_statuses=None):
+        if delete_protection and not isinstance(delete_protection, bool):
+            raise TypeError("Expected argument 'delete_protection' to be a bool")
+        pulumi.set(__self__, "delete_protection", delete_protection)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -42,9 +45,9 @@ class GetVolumeResult:
             pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
 
         pulumi.set(__self__, "selector", selector)
-        if server and not isinstance(server, str):
-            raise TypeError("Expected argument 'server' to be a str")
-        pulumi.set(__self__, "server", server)
+        if server_id and not isinstance(server_id, int):
+            raise TypeError("Expected argument 'server_id' to be a int")
+        pulumi.set(__self__, "server_id", server_id)
         if size and not isinstance(size, int):
             raise TypeError("Expected argument 'size' to be a int")
         pulumi.set(__self__, "size", size)
@@ -56,33 +59,50 @@ class GetVolumeResult:
         pulumi.set(__self__, "with_statuses", with_statuses)
 
     @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> bool:
+        """
+        (boolean) Whether delete protection is enabled.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @property
     @pulumi.getter
     def id(self) -> int:
         """
-        Unique ID of the volume.
+        (int) Unique ID of the volume.
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def labels(self) -> Mapping[str, Any]:
+        """
+        (map) User-defined labels (key-value pairs).
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="linuxDevice")
     def linux_device(self) -> str:
+        """
+        (string) Device path on the file system for the Volume.
+        """
         return pulumi.get(self, "linux_device")
 
     @property
     @pulumi.getter
     def location(self) -> Optional[str]:
+        """
+        (string) The location name.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the volume.
+        (string) Name of the volume.
         """
         return pulumi.get(self, "name")
 
@@ -92,15 +112,18 @@ class GetVolumeResult:
         return pulumi.get(self, "selector")
 
     @property
-    @pulumi.getter
-    def server(self) -> Optional[str]:
-        return pulumi.get(self, "server")
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[int]:
+        """
+        (Optional, int) Server ID the volume is attached to
+        """
+        return pulumi.get(self, "server_id")
 
     @property
     @pulumi.getter
     def size(self) -> int:
         """
-        Size of the volume.
+        (int) Size of the volume.
         """
         return pulumi.get(self, "size")
 
@@ -121,13 +144,14 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
+            delete_protection=self.delete_protection,
             id=self.id,
             labels=self.labels,
             linux_device=self.linux_device,
             location=self.location,
             name=self.name,
             selector=self.selector,
-            server=self.server,
+            server_id=self.server_id,
             size=self.size,
             with_selector=self.with_selector,
             with_statuses=self.with_statuses)
@@ -137,7 +161,7 @@ def get_volume(id: Optional[int] = None,
                location: Optional[str] = None,
                name: Optional[str] = None,
                selector: Optional[str] = None,
-               server: Optional[str] = None,
+               server_id: Optional[int] = None,
                with_selector: Optional[str] = None,
                with_statuses: Optional[Sequence[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
@@ -145,7 +169,9 @@ def get_volume(id: Optional[int] = None,
     Use this data source to access information about an existing resource.
 
     :param int id: ID of the volume.
+    :param str location: (string) The location name.
     :param str name: Name of the volume.
+    :param int server_id: (Optional, int) Server ID the volume is attached to
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     :param Sequence[str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
@@ -154,7 +180,7 @@ def get_volume(id: Optional[int] = None,
     __args__['location'] = location
     __args__['name'] = name
     __args__['selector'] = selector
-    __args__['server'] = server
+    __args__['serverId'] = server_id
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
     if opts is None:
@@ -164,13 +190,14 @@ def get_volume(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
+        delete_protection=__ret__.delete_protection,
         id=__ret__.id,
         labels=__ret__.labels,
         linux_device=__ret__.linux_device,
         location=__ret__.location,
         name=__ret__.name,
         selector=__ret__.selector,
-        server=__ret__.server,
+        server_id=__ret__.server_id,
         size=__ret__.size,
         with_selector=__ret__.with_selector,
         with_statuses=__ret__.with_statuses)

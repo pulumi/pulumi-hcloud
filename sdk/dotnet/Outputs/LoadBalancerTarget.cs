@@ -13,12 +13,9 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class LoadBalancerTarget
     {
-        /// <summary>
-        /// ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
-        /// </summary>
         public readonly int? ServerId;
         /// <summary>
-        /// Type of the target. `server`
+        /// Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         /// </summary>
         public readonly string Type;
         public readonly bool? UsePrivateIp;

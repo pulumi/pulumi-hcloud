@@ -12,7 +12,7 @@ namespace Pulumi.HCloud
     public static class GetLoadBalancer
     {
         /// <summary>
-        /// Provides details about a specific Hetzner Cloud Server.
+        /// Provides details about a specific Hetzner Cloud Load Balancer.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -84,6 +84,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLoadBalancerAlgorithmResult> Algorithms;
         /// <summary>
+        /// (boolean) Whether delete protection is enabled.
+        /// </summary>
+        public readonly bool DeleteProtection;
+        /// <summary>
         /// (int) Unique ID of the Load Balancer.
         /// </summary>
         public readonly int Id;
@@ -126,6 +130,8 @@ namespace Pulumi.HCloud
         private GetLoadBalancerResult(
             ImmutableArray<Outputs.GetLoadBalancerAlgorithmResult> algorithms,
 
+            bool deleteProtection,
+
             int id,
 
             string ipv4,
@@ -149,6 +155,7 @@ namespace Pulumi.HCloud
             string? withSelector)
         {
             Algorithms = algorithms;
+            DeleteProtection = deleteProtection;
             Id = id;
             Ipv4 = ipv4;
             Ipv6 = ipv6;

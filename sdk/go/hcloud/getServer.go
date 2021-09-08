@@ -21,8 +21,9 @@ type LookupServerArgs struct {
 	// ID of the server.
 	Id *int `pulumi:"id"`
 	// Name of the server.
-	Name           *string `pulumi:"name"`
-	PlacementGroup *string `pulumi:"placementGroup"`
+	Name *string `pulumi:"name"`
+	// (Optional, string) Placement Group ID the server is assigned to.
+	PlacementGroupId *int `pulumi:"placementGroupId"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -39,6 +40,8 @@ type LookupServerResult struct {
 	Backups bool `pulumi:"backups"`
 	// (string) The datacenter name.
 	Datacenter string `pulumi:"datacenter"`
+	// (boolean) Whether delete protection is enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
 	// (Optional, list) Firewall IDs the server is attached to.
 	FirewallIds []int `pulumi:"firewallIds"`
 	// (int) Unique ID of the server.
@@ -58,9 +61,12 @@ type LookupServerResult struct {
 	// (string) The location name.
 	Location string `pulumi:"location"`
 	// (string) Name of the server.
-	Name           string  `pulumi:"name"`
-	PlacementGroup *string `pulumi:"placementGroup"`
-	Rescue         string  `pulumi:"rescue"`
+	Name string `pulumi:"name"`
+	// (Optional, string) Placement Group ID the server is assigned to.
+	PlacementGroupId *int `pulumi:"placementGroupId"`
+	// (boolean) Whether rebuild protection is enabled.
+	RebuildProtection bool   `pulumi:"rebuildProtection"`
+	Rescue            string `pulumi:"rescue"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// (string) Name of the server type.

@@ -19,7 +19,10 @@ class GetFloatingIpResult:
     """
     A collection of values returned by getFloatingIp.
     """
-    def __init__(__self__, description=None, home_location=None, id=None, ip_address=None, ip_network=None, labels=None, name=None, selector=None, server_id=None, type=None, with_selector=None):
+    def __init__(__self__, delete_protection=None, description=None, home_location=None, id=None, ip_address=None, ip_network=None, labels=None, name=None, selector=None, server_id=None, type=None, with_selector=None):
+        if delete_protection and not isinstance(delete_protection, bool):
+            raise TypeError("Expected argument 'delete_protection' to be a bool")
+        pulumi.set(__self__, "delete_protection", delete_protection)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -57,6 +60,14 @@ class GetFloatingIpResult:
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> bool:
+        """
+        (boolean) Whether delete protection is enabled.
+        """
+        return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter
@@ -147,6 +158,7 @@ class AwaitableGetFloatingIpResult(GetFloatingIpResult):
         if False:
             yield self
         return GetFloatingIpResult(
+            delete_protection=self.delete_protection,
             description=self.description,
             home_location=self.home_location,
             id=self.id,
@@ -209,6 +221,7 @@ def get_floating_ip(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getFloatingIp:getFloatingIp', __args__, opts=opts, typ=GetFloatingIpResult).value
 
     return AwaitableGetFloatingIpResult(
+        delete_protection=__ret__.delete_protection,
         description=__ret__.description,
         home_location=__ret__.home_location,
         id=__ret__.id,

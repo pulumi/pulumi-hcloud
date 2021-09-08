@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * Provides details about a specific Hetzner Cloud Placement Group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const samplePlacementGroup1 = pulumi.output(hcloud.getPlacementGroup({
+ *     name: "sample-placement-group-1",
+ * }, { async: true }));
+ * const samplePlacementGroup2 = pulumi.output(hcloud.getPlacementGroup({
+ *     id: 4711,
+ * }, { async: true }));
+ * ```
+ */
 export function getPlacementGroup(args?: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
     args = args || {};
     if (!opts) {
@@ -28,11 +43,29 @@ export function getPlacementGroup(args?: GetPlacementGroupArgs, opts?: pulumi.In
  * A collection of arguments for invoking getPlacementGroup.
  */
 export interface GetPlacementGroupArgs {
+    /**
+     * ID of the placement group.
+     */
     readonly id?: number;
+    /**
+     * (map) User-defined labels (key-value pairs)
+     */
     readonly labels?: {[key: string]: any};
+    /**
+     * Return most recent placement group if multiple are found.
+     */
     readonly mostRecent?: boolean;
+    /**
+     * Name of the placement group.
+     */
     readonly name?: string;
+    /**
+     * (string)  Type of the Placement Group.
+     */
     readonly type?: string;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
     readonly withSelector?: string;
 }
 
@@ -40,11 +73,23 @@ export interface GetPlacementGroupArgs {
  * A collection of values returned by getPlacementGroup.
  */
 export interface GetPlacementGroupResult {
+    /**
+     * (int) Unique ID of the Placement Group.
+     */
     readonly id?: number;
+    /**
+     * (map) User-defined labels (key-value pairs)
+     */
     readonly labels?: {[key: string]: any};
     readonly mostRecent?: boolean;
+    /**
+     * (string) Name of the Placement Group.
+     */
     readonly name: string;
     readonly servers: number[];
+    /**
+     * (string)  Type of the Placement Group.
+     */
     readonly type?: string;
     readonly withSelector?: string;
 }

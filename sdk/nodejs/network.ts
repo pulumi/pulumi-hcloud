@@ -55,6 +55,10 @@ export class Network extends pulumi.CustomResource {
     }
 
     /**
+     * Enable or disable delete protection.
+     */
+    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */
     public readonly ipRange!: pulumi.Output<string>;
@@ -80,6 +84,7 @@ export class Network extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkState | undefined;
+            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             inputs["ipRange"] = state ? state.ipRange : undefined;
             inputs["labels"] = state ? state.labels : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -88,6 +93,7 @@ export class Network extends pulumi.CustomResource {
             if ((!args || args.ipRange === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipRange'");
             }
+            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             inputs["ipRange"] = args ? args.ipRange : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -103,6 +109,10 @@ export class Network extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Network resources.
  */
 export interface NetworkState {
+    /**
+     * Enable or disable delete protection.
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */
@@ -121,6 +131,10 @@ export interface NetworkState {
  * The set of arguments for constructing a Network resource.
  */
 export interface NetworkArgs {
+    /**
+     * Enable or disable delete protection.
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */

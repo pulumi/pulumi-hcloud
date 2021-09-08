@@ -57,19 +57,25 @@ namespace Pulumi.HCloud
         public Output<bool?> Automount { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Output("deleteProtection")]
+        public Output<bool?> DeleteProtection { get; private set; } = null!;
+
+        /// <summary>
         /// Format volume after creation. `xfs` or `ext4`
         /// </summary>
         [Output("format")]
         public Output<string?> Format { get; private set; } = null!;
 
         /// <summary>
-        /// User-defined labels (key-value pairs).
+        /// (map) User-defined labels (key-value pairs).
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Device path on the file system for the Volume.
+        /// (string) Device path on the file system for the Volume.
         /// </summary>
         [Output("linuxDevice")]
         public Output<string> LinuxDevice { get; private set; } = null!;
@@ -151,6 +157,12 @@ namespace Pulumi.HCloud
         public Input<bool>? Automount { get; set; }
 
         /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
+
+        /// <summary>
         /// Format volume after creation. `xfs` or `ext4`
         /// </summary>
         [Input("format")]
@@ -160,7 +172,7 @@ namespace Pulumi.HCloud
         private InputMap<object>? _labels;
 
         /// <summary>
-        /// User-defined labels (key-value pairs).
+        /// (map) User-defined labels (key-value pairs).
         /// </summary>
         public InputMap<object> Labels
         {
@@ -206,6 +218,12 @@ namespace Pulumi.HCloud
         public Input<bool>? Automount { get; set; }
 
         /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
+
+        /// <summary>
         /// Format volume after creation. `xfs` or `ext4`
         /// </summary>
         [Input("format")]
@@ -215,7 +233,7 @@ namespace Pulumi.HCloud
         private InputMap<object>? _labels;
 
         /// <summary>
-        /// User-defined labels (key-value pairs).
+        /// (map) User-defined labels (key-value pairs).
         /// </summary>
         public InputMap<object> Labels
         {
@@ -224,7 +242,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Device path on the file system for the Volume.
+        /// (string) Device path on the file system for the Volume.
         /// </summary>
         [Input("linuxDevice")]
         public Input<string>? LinuxDevice { get; set; }
