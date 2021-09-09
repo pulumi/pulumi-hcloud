@@ -17,6 +17,7 @@ class LoadBalancerArgs:
     def __init__(__self__, *,
                  load_balancer_type: pulumi.Input[str],
                  algorithm: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -26,15 +27,17 @@ class LoadBalancerArgs:
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]] targets: List of targets of the Load Balancer.
         """
         pulumi.set(__self__, "load_balancer_type", load_balancer_type)
         if algorithm is not None:
             pulumi.set(__self__, "algorithm", algorithm)
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if location is not None:
@@ -43,6 +46,9 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "name", name)
         if network_zone is not None:
             pulumi.set(__self__, "network_zone", network_zone)
+        if targets is not None:
+            warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+            pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
 
@@ -69,6 +75,18 @@ class LoadBalancerArgs:
     @algorithm.setter
     def algorithm(self, value: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']]):
         pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_protection", value)
 
     @property
     @pulumi.getter
@@ -121,9 +139,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
-        """
-        List of targets of the Load Balancer.
-        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -135,6 +150,7 @@ class LoadBalancerArgs:
 class _LoadBalancerState:
     def __init__(__self__, *,
                  algorithm: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  ipv4: Optional[pulumi.Input[str]] = None,
                  ipv6: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -148,6 +164,7 @@ class _LoadBalancerState:
         """
         Input properties used for looking up and filtering LoadBalancer resources.
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
         :param pulumi.Input[str] ipv6: (string) IPv4 Address of the Load Balancer.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -155,10 +172,11 @@ class _LoadBalancerState:
         :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]] targets: List of targets of the Load Balancer.
         """
         if algorithm is not None:
             pulumi.set(__self__, "algorithm", algorithm)
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if ipv4 is not None:
             pulumi.set(__self__, "ipv4", ipv4)
         if ipv6 is not None:
@@ -178,6 +196,9 @@ class _LoadBalancerState:
         if network_zone is not None:
             pulumi.set(__self__, "network_zone", network_zone)
         if targets is not None:
+            warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+            pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
+        if targets is not None:
             pulumi.set(__self__, "targets", targets)
 
     @property
@@ -191,6 +212,18 @@ class _LoadBalancerState:
     @algorithm.setter
     def algorithm(self, value: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']]):
         pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_protection", value)
 
     @property
     @pulumi.getter
@@ -297,9 +330,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
-        """
-        List of targets of the Load Balancer.
-        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -313,6 +343,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']]] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  load_balancer_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -352,12 +383,12 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']] algorithm: Configuration of the algorithm the Load Balancer use.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
         """
         ...
     @overload
@@ -410,6 +441,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']]] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  load_balancer_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -429,6 +461,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
             __props__.__dict__["algorithm"] = algorithm
+            __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["labels"] = labels
             if load_balancer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_type'")
@@ -436,6 +469,9 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["network_zone"] = network_zone
+            if targets is not None and not opts.urn:
+                warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+                pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
             __props__.__dict__["targets"] = targets
             __props__.__dict__["ipv4"] = None
             __props__.__dict__["ipv6"] = None
@@ -452,6 +488,7 @@ class LoadBalancer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             algorithm: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']]] = None,
+            delete_protection: Optional[pulumi.Input[bool]] = None,
             ipv4: Optional[pulumi.Input[str]] = None,
             ipv6: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -470,6 +507,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']] algorithm: Configuration of the algorithm the Load Balancer use.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
         :param pulumi.Input[str] ipv6: (string) IPv4 Address of the Load Balancer.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -477,13 +515,13 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: Network Zone of the Load Balancer. Require when no location is set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTargetArgs']]]] targets: List of targets of the Load Balancer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _LoadBalancerState.__new__(_LoadBalancerState)
 
         __props__.__dict__["algorithm"] = algorithm
+        __props__.__dict__["delete_protection"] = delete_protection
         __props__.__dict__["ipv4"] = ipv4
         __props__.__dict__["ipv6"] = ipv6
         __props__.__dict__["labels"] = labels
@@ -503,6 +541,14 @@ class LoadBalancer(pulumi.CustomResource):
         Configuration of the algorithm the Load Balancer use.
         """
         return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter
@@ -573,8 +619,5 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Sequence['outputs.LoadBalancerTarget']]:
-        """
-        List of targets of the Load Balancer.
-        """
         return pulumi.get(self, "targets")
 

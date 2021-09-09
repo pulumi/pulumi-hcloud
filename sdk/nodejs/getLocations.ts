@@ -46,6 +46,8 @@ export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOption
 export interface GetLocationsArgs {
     /**
      * (list) List of unique location identifiers.
+     *
+     * @deprecated Use locations list instead
      */
     readonly locationIds?: string[];
 }
@@ -56,6 +58,8 @@ export interface GetLocationsArgs {
 export interface GetLocationsResult {
     /**
      * (list) List of all location descriptions.
+     *
+     * @deprecated Use locations list instead
      */
     readonly descriptions: string[];
     /**
@@ -64,10 +68,18 @@ export interface GetLocationsResult {
     readonly id: string;
     /**
      * (list) List of unique location identifiers.
+     *
+     * @deprecated Use locations list instead
      */
     readonly locationIds?: string[];
     /**
+     * (list) List of all locations. See `data.hcloud_location` for schema.
+     */
+    readonly locations: outputs.GetLocationsLocation[];
+    /**
      * (list) List of location names.
+     *
+     * @deprecated Use locations list instead
      */
     readonly names: string[];
 }

@@ -19,7 +19,10 @@ class GetNetworkResult:
     """
     A collection of values returned by getNetwork.
     """
-    def __init__(__self__, id=None, ip_range=None, labels=None, name=None, with_selector=None):
+    def __init__(__self__, delete_protection=None, id=None, ip_range=None, labels=None, most_recent=None, name=None, with_selector=None):
+        if delete_protection and not isinstance(delete_protection, bool):
+            raise TypeError("Expected argument 'delete_protection' to be a bool")
+        pulumi.set(__self__, "delete_protection", delete_protection)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -29,12 +32,23 @@ class GetNetworkResult:
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
         pulumi.set(__self__, "labels", labels)
+        if most_recent and not isinstance(most_recent, bool):
+            raise TypeError("Expected argument 'most_recent' to be a bool")
+        pulumi.set(__self__, "most_recent", most_recent)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> bool:
+        """
+        (boolean) Whether delete protection is enabled.
+        """
+        return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter
@@ -58,6 +72,11 @@ class GetNetworkResult:
         return pulumi.get(self, "labels")
 
     @property
+    @pulumi.getter(name="mostRecent")
+    def most_recent(self) -> Optional[bool]:
+        return pulumi.get(self, "most_recent")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -77,9 +96,11 @@ class AwaitableGetNetworkResult(GetNetworkResult):
         if False:
             yield self
         return GetNetworkResult(
+            delete_protection=self.delete_protection,
             id=self.id,
             ip_range=self.ip_range,
             labels=self.labels,
+            most_recent=self.most_recent,
             name=self.name,
             with_selector=self.with_selector)
 
@@ -87,6 +108,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
 def get_network(id: Optional[int] = None,
                 ip_range: Optional[str] = None,
                 labels: Optional[Mapping[str, Any]] = None,
+                most_recent: Optional[bool] = None,
                 name: Optional[str] = None,
                 with_selector: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkResult:
@@ -102,6 +124,7 @@ def get_network(id: Optional[int] = None,
     __args__['id'] = id
     __args__['ipRange'] = ip_range
     __args__['labels'] = labels
+    __args__['mostRecent'] = most_recent
     __args__['name'] = name
     __args__['withSelector'] = with_selector
     if opts is None:
@@ -111,8 +134,10 @@ def get_network(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult).value
 
     return AwaitableGetNetworkResult(
+        delete_protection=__ret__.delete_protection,
         id=__ret__.id,
         ip_range=__ret__.ip_range,
         labels=__ret__.labels,
+        most_recent=__ret__.most_recent,
         name=__ret__.name,
         with_selector=__ret__.with_selector)

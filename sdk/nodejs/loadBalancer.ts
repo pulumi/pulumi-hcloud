@@ -69,6 +69,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly algorithm!: pulumi.Output<outputs.LoadBalancerAlgorithm>;
     /**
+     * Enable or disable delete protection.
+     */
+    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * (string) IPv4 Address of the Load Balancer.
      */
     public /*out*/ readonly ipv4!: pulumi.Output<string>;
@@ -99,7 +103,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly networkZone!: pulumi.Output<string>;
     /**
-     * List of targets of the Load Balancer.
+     * @deprecated Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
      */
     public readonly targets!: pulumi.Output<outputs.LoadBalancerTarget[]>;
 
@@ -117,6 +121,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
             inputs["algorithm"] = state ? state.algorithm : undefined;
+            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             inputs["ipv4"] = state ? state.ipv4 : undefined;
             inputs["ipv6"] = state ? state.ipv6 : undefined;
             inputs["labels"] = state ? state.labels : undefined;
@@ -133,6 +138,7 @@ export class LoadBalancer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
             inputs["algorithm"] = args ? args.algorithm : undefined;
+            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -159,6 +165,10 @@ export interface LoadBalancerState {
      * Configuration of the algorithm the Load Balancer use.
      */
     readonly algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm>;
+    /**
+     * Enable or disable delete protection.
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * (string) IPv4 Address of the Load Balancer.
      */
@@ -190,7 +200,7 @@ export interface LoadBalancerState {
      */
     readonly networkZone?: pulumi.Input<string>;
     /**
-     * List of targets of the Load Balancer.
+     * @deprecated Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
      */
     readonly targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[]>;
 }
@@ -203,6 +213,10 @@ export interface LoadBalancerArgs {
      * Configuration of the algorithm the Load Balancer use.
      */
     readonly algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm>;
+    /**
+     * Enable or disable delete protection.
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
@@ -224,7 +238,7 @@ export interface LoadBalancerArgs {
      */
     readonly networkZone?: pulumi.Input<string>;
     /**
-     * List of targets of the Load Balancer.
+     * @deprecated Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
      */
     readonly targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[]>;
 }

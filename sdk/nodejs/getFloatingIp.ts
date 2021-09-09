@@ -84,6 +84,10 @@ export interface GetFloatingIpArgs {
  */
 export interface GetFloatingIpResult {
     /**
+     * (boolean) Whether delete protection is enabled.
+     */
+    readonly deleteProtection: boolean;
+    /**
      * (string) Description of the Floating IP.
      */
     readonly description: string;

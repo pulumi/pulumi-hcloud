@@ -43,7 +43,7 @@ export function getServerTypes(args?: GetServerTypesArgs, opts?: pulumi.InvokeOp
  */
 export interface GetServerTypesArgs {
     /**
-     * (list) List of unique Server Types identifiers.
+     * @deprecated Use server_types list instead
      */
     readonly serverTypeIds?: string[];
 }
@@ -53,7 +53,7 @@ export interface GetServerTypesArgs {
  */
 export interface GetServerTypesResult {
     /**
-     * (list) List of all Server Types descriptions.
+     * @deprecated Use server_types list instead
      */
     readonly descriptions: string[];
     /**
@@ -61,11 +61,15 @@ export interface GetServerTypesResult {
      */
     readonly id: string;
     /**
-     * (list) List of Server Types names.
+     * @deprecated Use server_types list instead
      */
     readonly names: string[];
     /**
-     * (list) List of unique Server Types identifiers.
+     * @deprecated Use server_types list instead
      */
     readonly serverTypeIds?: string[];
+    /**
+     * (list) List of all server types. See `data.hcloud_type` for schema.
+     */
+    readonly serverTypes: outputs.GetServerTypesServerType[];
 }

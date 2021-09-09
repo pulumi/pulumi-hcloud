@@ -4,13 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface FirewallApplyTo {
+    /**
+     * Label Selector to select servers the firewall should be applied to (only one
+     * of `server` and `labelSelector`can be applied in one block)
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * ID of the server you want to apply the firewall to (only one of `server`
+     * and `labelSelector`can be applied in one block)
+     */
+    server?: pulumi.Input<number>;
+}
+
 export interface FirewallRule {
     /**
      * Description of the firewall rule
      */
     description?: pulumi.Input<string>;
     /**
-     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+     * is `out`)
      */
     destinationIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -18,7 +32,9 @@ export interface FirewallRule {
      */
     direction: pulumi.Input<string>;
     /**
-     * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+     * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
+     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
+     * 85.
      */
     port?: pulumi.Input<string>;
     /**
@@ -29,6 +45,18 @@ export interface FirewallRule {
      * List of CIDRs that are allowed within this Firewall Rule
      */
     sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetFirewallApplyTo {
+    /**
+     * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
+     * referenced
+     */
+    labelSelector?: string;
+    /**
+     * (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
+     */
+    server?: number;
 }
 
 export interface GetFirewallRule {
@@ -139,12 +167,9 @@ export interface LoadBalancerServiceHttp {
 }
 
 export interface LoadBalancerTarget {
-    /**
-     * ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
-     */
     serverId?: pulumi.Input<number>;
     /**
-     * Type of the target. `server`
+     * Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      */
     type: pulumi.Input<string>;
     /**

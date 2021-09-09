@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Hetzner Cloud Server.
+// Provides details about a specific Hetzner Cloud Load Balancer.
 //
 // ## Example Usage
 //
@@ -69,6 +69,8 @@ type LookupLoadBalancerArgs struct {
 type LookupLoadBalancerResult struct {
 	// (Optional) Configuration of the algorithm the Load Balancer use.
 	Algorithms []GetLoadBalancerAlgorithm `pulumi:"algorithms"`
+	// (boolean) Whether delete protection is enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
 	// (int) Unique ID of the Load Balancer.
 	Id int `pulumi:"id"`
 	// (string) IPv4 Address of the Load Balancer.

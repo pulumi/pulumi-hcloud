@@ -21,17 +21,27 @@ func GetDatacenters(ctx *pulumi.Context, args *GetDatacentersArgs, opts ...pulum
 // A collection of arguments for invoking getDatacenters.
 type GetDatacentersArgs struct {
 	// (list) List of unique datacenter identifiers.
+	//
+	// Deprecated: Use datacenters list instead
 	DatacenterIds []string `pulumi:"datacenterIds"`
 }
 
 // A collection of values returned by getDatacenters.
 type GetDatacentersResult struct {
 	// (list) List of unique datacenter identifiers.
+	//
+	// Deprecated: Use datacenters list instead
 	DatacenterIds []string `pulumi:"datacenterIds"`
+	// (list) List of all datacenters. See `data.hcloud_datacenter` for schema.
+	Datacenters []GetDatacentersDatacenter `pulumi:"datacenters"`
 	// (list) List of all datacenter descriptions.
+	//
+	// Deprecated: Use datacenters list instead
 	Descriptions []string `pulumi:"descriptions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// (list) List of datacenter names.
+	//
+	// Deprecated: Use datacenters list instead
 	Names []string `pulumi:"names"`
 }

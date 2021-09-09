@@ -18,6 +18,7 @@ export function getNetwork(args?: GetNetworkArgs, opts?: pulumi.InvokeOptions): 
         "id": args.id,
         "ipRange": args.ipRange,
         "labels": args.labels,
+        "mostRecent": args.mostRecent,
         "name": args.name,
         "withSelector": args.withSelector,
     }, opts);
@@ -36,6 +37,7 @@ export interface GetNetworkArgs {
      */
     readonly ipRange?: string;
     readonly labels?: {[key: string]: any};
+    readonly mostRecent?: boolean;
     /**
      * Name of the Network.
      */
@@ -51,6 +53,10 @@ export interface GetNetworkArgs {
  */
 export interface GetNetworkResult {
     /**
+     * (boolean) Whether delete protection is enabled.
+     */
+    readonly deleteProtection: boolean;
+    /**
      * Unique ID of the Network.
      */
     readonly id: number;
@@ -59,6 +65,7 @@ export interface GetNetworkResult {
      */
     readonly ipRange?: string;
     readonly labels?: {[key: string]: any};
+    readonly mostRecent?: boolean;
     /**
      * Name of the Network.
      */

@@ -75,10 +75,16 @@ namespace Pulumi.HCloud
     public partial class Firewall : Pulumi.CustomResource
     {
         /// <summary>
+        /// Resources the firewall should be assigned to
+        /// </summary>
+        [Output("applyTos")]
+        public Output<ImmutableArray<Outputs.FirewallApplyTo>> ApplyTos { get; private set; } = null!;
+
+        /// <summary>
         /// User-defined labels (key-value pairs) should be created with.
         /// </summary>
         [Output("labels")]
-        public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>> Labels { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Firewall.
@@ -138,6 +144,18 @@ namespace Pulumi.HCloud
 
     public sealed class FirewallArgs : Pulumi.ResourceArgs
     {
+        [Input("applyTos")]
+        private InputList<Inputs.FirewallApplyToArgs>? _applyTos;
+
+        /// <summary>
+        /// Resources the firewall should be assigned to
+        /// </summary>
+        public InputList<Inputs.FirewallApplyToArgs> ApplyTos
+        {
+            get => _applyTos ?? (_applyTos = new InputList<Inputs.FirewallApplyToArgs>());
+            set => _applyTos = value;
+        }
+
         [Input("labels")]
         private InputMap<object>? _labels;
 
@@ -175,6 +193,18 @@ namespace Pulumi.HCloud
 
     public sealed class FirewallState : Pulumi.ResourceArgs
     {
+        [Input("applyTos")]
+        private InputList<Inputs.FirewallApplyToGetArgs>? _applyTos;
+
+        /// <summary>
+        /// Resources the firewall should be assigned to
+        /// </summary>
+        public InputList<Inputs.FirewallApplyToGetArgs> ApplyTos
+        {
+            get => _applyTos ?? (_applyTos = new InputList<Inputs.FirewallApplyToGetArgs>());
+            set => _applyTos = value;
+        }
+
         [Input("labels")]
         private InputMap<object>? _labels;
 

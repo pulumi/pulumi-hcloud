@@ -7,6 +7,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific Hetzner Cloud Placement Group.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "sample-placement-group-1"
+// 		_, err := hcloud.LookupPlacementGroup(ctx, &hcloud.LookupPlacementGroupArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := 4711
+// 		_, err = hcloud.LookupPlacementGroup(ctx, &hcloud.LookupPlacementGroupArgs{
+// 			Id: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupPlacementGroup(ctx *pulumi.Context, args *LookupPlacementGroupArgs, opts ...pulumi.InvokeOption) (*LookupPlacementGroupResult, error) {
 	var rv LookupPlacementGroupResult
 	err := ctx.Invoke("hcloud:index/getPlacementGroup:getPlacementGroup", args, &rv, opts...)
@@ -18,21 +48,31 @@ func LookupPlacementGroup(ctx *pulumi.Context, args *LookupPlacementGroupArgs, o
 
 // A collection of arguments for invoking getPlacementGroup.
 type LookupPlacementGroupArgs struct {
-	Id           *int                   `pulumi:"id"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	MostRecent   *bool                  `pulumi:"mostRecent"`
-	Name         *string                `pulumi:"name"`
-	Type         *string                `pulumi:"type"`
-	WithSelector *string                `pulumi:"withSelector"`
+	// ID of the placement group.
+	Id *int `pulumi:"id"`
+	// (map) User-defined labels (key-value pairs)
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Return most recent placement group if multiple are found.
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Name of the placement group.
+	Name *string `pulumi:"name"`
+	// (string)  Type of the Placement Group.
+	Type *string `pulumi:"type"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector *string `pulumi:"withSelector"`
 }
 
 // A collection of values returned by getPlacementGroup.
 type LookupPlacementGroupResult struct {
-	Id           *int                   `pulumi:"id"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	MostRecent   *bool                  `pulumi:"mostRecent"`
-	Name         string                 `pulumi:"name"`
-	Servers      []int                  `pulumi:"servers"`
-	Type         *string                `pulumi:"type"`
-	WithSelector *string                `pulumi:"withSelector"`
+	// (int) Unique ID of the Placement Group.
+	Id *int `pulumi:"id"`
+	// (map) User-defined labels (key-value pairs)
+	Labels     map[string]interface{} `pulumi:"labels"`
+	MostRecent *bool                  `pulumi:"mostRecent"`
+	// (string) Name of the Placement Group.
+	Name    string `pulumi:"name"`
+	Servers []int  `pulumi:"servers"`
+	// (string)  Type of the Placement Group.
+	Type         *string `pulumi:"type"`
+	WithSelector *string `pulumi:"withSelector"`
 }

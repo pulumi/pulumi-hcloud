@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const my_placement_group = new hcloud.PlacementGroup("my-placement-group", {
+ *     type: "spread",
+ *     labels: {
+ *         key: "value",
+ *     },
+ * });
+ * const node1 = new hcloud.Server("node1", {
+ *     image: "debian-9",
+ *     serverType: "cx11",
+ *     placementGroupId: my_placement_group.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Placement Groups can be imported using its `id`
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group <id>
+ * ```
+ */
 export class PlacementGroup extends pulumi.CustomResource {
     /**
      * Get an existing PlacementGroup resource's state with the given name, ID, and optional extra
@@ -32,9 +62,18 @@ export class PlacementGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === PlacementGroup.__pulumiType;
     }
 
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Name of the Placement Group.
+     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly servers!: pulumi.Output<number[]>;
+    /**
+     * Type of the Placement Group.
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -75,9 +114,18 @@ export class PlacementGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PlacementGroup resources.
  */
 export interface PlacementGroupState {
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Placement Group.
+     */
     readonly name?: pulumi.Input<string>;
     readonly servers?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Type of the Placement Group.
+     */
     readonly type?: pulumi.Input<string>;
 }
 
@@ -85,7 +133,16 @@ export interface PlacementGroupState {
  * The set of arguments for constructing a PlacementGroup resource.
  */
 export interface PlacementGroupArgs {
+    /**
+     * User-defined labels (key-value pairs) should be created with.
+     */
     readonly labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Name of the Placement Group.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Type of the Placement Group.
+     */
     readonly type: pulumi.Input<string>;
 }

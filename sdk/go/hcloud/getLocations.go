@@ -21,17 +21,27 @@ func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.In
 // A collection of arguments for invoking getLocations.
 type GetLocationsArgs struct {
 	// (list) List of unique location identifiers.
+	//
+	// Deprecated: Use locations list instead
 	LocationIds []string `pulumi:"locationIds"`
 }
 
 // A collection of values returned by getLocations.
 type GetLocationsResult struct {
 	// (list) List of all location descriptions.
+	//
+	// Deprecated: Use locations list instead
 	Descriptions []string `pulumi:"descriptions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// (list) List of unique location identifiers.
+	//
+	// Deprecated: Use locations list instead
 	LocationIds []string `pulumi:"locationIds"`
+	// (list) List of all locations. See `data.hcloud_location` for schema.
+	Locations []GetLocationsLocation `pulumi:"locations"`
 	// (list) List of location names.
+	//
+	// Deprecated: Use locations list instead
 	Names []string `pulumi:"names"`
 }

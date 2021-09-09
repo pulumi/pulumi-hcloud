@@ -19,13 +19,15 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 // A collection of arguments for invoking getVolume.
 type LookupVolumeArgs struct {
 	// ID of the volume.
-	Id       *int    `pulumi:"id"`
+	Id *int `pulumi:"id"`
+	// (string) The location name.
 	Location *string `pulumi:"location"`
 	// Name of the volume.
 	Name *string `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
-	Server   *string `pulumi:"server"`
+	// (Optional, int) Server ID the volume is attached to
+	ServerId *int `pulumi:"serverId"`
 	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 	// List only volumes with the specified status, could contain `creating` or `available`.
@@ -34,17 +36,23 @@ type LookupVolumeArgs struct {
 
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
-	// Unique ID of the volume.
-	Id          int                    `pulumi:"id"`
-	Labels      map[string]interface{} `pulumi:"labels"`
-	LinuxDevice string                 `pulumi:"linuxDevice"`
-	Location    *string                `pulumi:"location"`
-	// Name of the volume.
+	// (boolean) Whether delete protection is enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
+	// (int) Unique ID of the volume.
+	Id int `pulumi:"id"`
+	// (map) User-defined labels (key-value pairs).
+	Labels map[string]interface{} `pulumi:"labels"`
+	// (string) Device path on the file system for the Volume.
+	LinuxDevice string `pulumi:"linuxDevice"`
+	// (string) The location name.
+	Location *string `pulumi:"location"`
+	// (string) Name of the volume.
 	Name string `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
-	Server   *string `pulumi:"server"`
-	// Size of the volume.
+	// (Optional, int) Server ID the volume is attached to
+	ServerId *int `pulumi:"serverId"`
+	// (int) Size of the volume.
 	Size         int      `pulumi:"size"`
 	WithSelector *string  `pulumi:"withSelector"`
 	WithStatuses []string `pulumi:"withStatuses"`

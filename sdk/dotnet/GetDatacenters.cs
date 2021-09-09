@@ -60,6 +60,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (list) List of unique datacenter identifiers.
         /// </summary>
+        [Obsolete(@"Use datacenters list instead")]
         public List<string> DatacenterIds
         {
             get => _datacenterIds ?? (_datacenterIds = new List<string>());
@@ -80,6 +81,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly ImmutableArray<string> DatacenterIds;
         /// <summary>
+        /// (list) List of all datacenters. See `data.hcloud_datacenter` for schema.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDatacentersDatacenterResult> Datacenters;
+        /// <summary>
         /// (list) List of all datacenter descriptions.
         /// </summary>
         public readonly ImmutableArray<string> Descriptions;
@@ -96,6 +101,8 @@ namespace Pulumi.HCloud
         private GetDatacentersResult(
             ImmutableArray<string> datacenterIds,
 
+            ImmutableArray<Outputs.GetDatacentersDatacenterResult> datacenters,
+
             ImmutableArray<string> descriptions,
 
             string id,
@@ -103,6 +110,7 @@ namespace Pulumi.HCloud
             ImmutableArray<string> names)
         {
             DatacenterIds = datacenterIds;
+            Datacenters = datacenters;
             Descriptions = descriptions;
             Id = id;
             Names = names;

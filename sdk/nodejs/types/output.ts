@@ -4,13 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface FirewallApplyTo {
+    /**
+     * Label Selector to select servers the firewall should be applied to (only one
+     * of `server` and `labelSelector`can be applied in one block)
+     */
+    labelSelector: string;
+    /**
+     * ID of the server you want to apply the firewall to (only one of `server`
+     * and `labelSelector`can be applied in one block)
+     */
+    server: number;
+}
+
 export interface FirewallRule {
     /**
      * Description of the firewall rule
      */
     description?: string;
     /**
-     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+     * is `out`)
      */
     destinationIps?: string[];
     /**
@@ -18,7 +32,9 @@ export interface FirewallRule {
      */
     direction: string;
     /**
-     * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any` to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+     * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
+     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
+     * 85.
      */
     port?: string;
     /**
@@ -29,6 +45,40 @@ export interface FirewallRule {
      * List of CIDRs that are allowed within this Firewall Rule
      */
     sourceIps?: string[];
+}
+
+export interface GetCertificatesCertificate {
+    certificate: string;
+    created: string;
+    domainNames: string[];
+    fingerprint: string;
+    id: number;
+    labels: {[key: string]: any};
+    name?: string;
+    notValidAfter: string;
+    notValidBefore: string;
+    type: string;
+}
+
+export interface GetDatacentersDatacenter {
+    availableServerTypeIds: number[];
+    description: string;
+    id: number;
+    location: {[key: string]: any};
+    name: string;
+    supportedServerTypeIds: number[];
+}
+
+export interface GetFirewallApplyTo {
+    /**
+     * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
+     * referenced
+     */
+    labelSelector: string;
+    /**
+     * (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
+     */
+    server: number;
 }
 
 export interface GetFirewallRule {
@@ -56,6 +106,58 @@ export interface GetFirewallRule {
      * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
      */
     sourceIps?: string[];
+}
+
+export interface GetFirewallsFirewall {
+    applyTos?: outputs.GetFirewallsFirewallApplyTo[];
+    id?: number;
+    labels?: {[key: string]: any};
+    name: string;
+    rules?: outputs.GetFirewallsFirewallRule[];
+}
+
+export interface GetFirewallsFirewallApplyTo {
+    labelSelector: string;
+    server: number;
+}
+
+export interface GetFirewallsFirewallRule {
+    description?: string;
+    destinationIps?: string[];
+    direction: string;
+    port?: string;
+    protocol?: string;
+    sourceIps?: string[];
+}
+
+export interface GetFloatingIpsFloatingIp {
+    deleteProtection: boolean;
+    description: string;
+    homeLocation: string;
+    id: number;
+    ipAddress: string;
+    ipNetwork: string;
+    labels: {[key: string]: any};
+    name?: string;
+    serverId: number;
+    type: string;
+}
+
+export interface GetImagesImage {
+    created: string;
+    deprecated: string;
+    description: string;
+    id: number;
+    labels: {[key: string]: any};
+    name: string;
+    osFlavor: string;
+    osVersion: string;
+    rapidDeploy: boolean;
+    /**
+     * @deprecated Please use the with_selector property instead.
+     */
+    selector?: string;
+    type: string;
 }
 
 export interface GetLoadBalancerAlgorithm {
@@ -180,12 +282,141 @@ export interface GetLoadBalancerTarget {
     type: string;
 }
 
+export interface GetLoadBalancersLoadBalancer {
+    algorithms: outputs.GetLoadBalancersLoadBalancerAlgorithm[];
+    deleteProtection: boolean;
+    id: number;
+    ipv4: string;
+    ipv6: string;
+    labels: {[key: string]: any};
+    loadBalancerType: string;
+    location: string;
+    name?: string;
+    networkZone: string;
+    services: outputs.GetLoadBalancersLoadBalancerService[];
+    targets: outputs.GetLoadBalancersLoadBalancerTarget[];
+}
+
+export interface GetLoadBalancersLoadBalancerAlgorithm {
+    type: string;
+}
+
+export interface GetLoadBalancersLoadBalancerService {
+    destinationPort: number;
+    healthChecks: outputs.GetLoadBalancersLoadBalancerServiceHealthCheck[];
+    https: outputs.GetLoadBalancersLoadBalancerServiceHttp[];
+    listenPort: number;
+    protocol: string;
+    proxyprotocol: boolean;
+}
+
+export interface GetLoadBalancersLoadBalancerServiceHealthCheck {
+    https: outputs.GetLoadBalancersLoadBalancerServiceHealthCheckHttp[];
+    interval: number;
+    port: number;
+    protocol: string;
+    retries: number;
+    timeout: number;
+}
+
+export interface GetLoadBalancersLoadBalancerServiceHealthCheckHttp {
+    domain: string;
+    path: string;
+    response: string;
+    statusCodes: number[];
+    tls: boolean;
+}
+
+export interface GetLoadBalancersLoadBalancerServiceHttp {
+    certificates: string[];
+    cookieLifetime: number;
+    cookieName: string;
+    redirectHttp: boolean;
+    stickySessions: boolean;
+}
+
+export interface GetLoadBalancersLoadBalancerTarget {
+    labelSelector: string;
+    serverId: number;
+    type: string;
+}
+
+export interface GetLocationsLocation {
+    city: string;
+    country: string;
+    description: string;
+    id: number;
+    latitude: number;
+    longitude: number;
+    name: string;
+}
+
+export interface GetNetworksNetwork {
+    deleteProtection: boolean;
+    id: number;
+    ipRange?: string;
+    labels?: {[key: string]: any};
+    name?: string;
+}
+
+export interface GetPlacementGroupsPlacementGroup {
+    id?: number;
+    labels?: {[key: string]: any};
+    name: string;
+    servers: number[];
+    type?: string;
+}
+
+export interface GetServerTypesServerType {
+    cores: number;
+    cpuType: string;
+    description: string;
+    disk: number;
+    id: number;
+    memory: number;
+    name: string;
+    storageType: string;
+}
+
+export interface GetServersServer {
+    backupWindow: string;
+    backups: boolean;
+    datacenter: string;
+    deleteProtection: boolean;
+    firewallIds: number[];
+    id: number;
+    image: string;
+    ipv4Address: string;
+    ipv6Address: string;
+    ipv6Network: string;
+    iso: string;
+    labels: {[key: string]: any};
+    location: string;
+    name: string;
+    placementGroupId?: number;
+    rebuildProtection: boolean;
+    rescue: string;
+    serverType: string;
+    status: string;
+}
+
 export interface GetSshKeysSshKey {
     fingerprint: string;
     id: number;
     labels: {[key: string]: any};
     name: string;
     publicKey: string;
+}
+
+export interface GetVolumesVolume {
+    deleteProtection: boolean;
+    id: number;
+    labels: {[key: string]: any};
+    linuxDevice: string;
+    location?: string;
+    name: string;
+    serverId?: number;
+    size: number;
 }
 
 export interface LoadBalancerAlgorithm {
@@ -269,12 +500,9 @@ export interface LoadBalancerServiceHttp {
 }
 
 export interface LoadBalancerTarget {
-    /**
-     * ID of the server which should be a target for this Load Balancer. Required if `type` is `server`
-     */
     serverId?: number;
     /**
-     * Type of the target. `server`
+     * Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      */
     type: string;
     /**

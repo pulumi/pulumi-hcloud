@@ -63,6 +63,12 @@ namespace Pulumi.HCloud
         public Output<Outputs.LoadBalancerAlgorithm> Algorithm { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Output("deleteProtection")]
+        public Output<bool?> DeleteProtection { get; private set; } = null!;
+
+        /// <summary>
         /// (string) IPv4 Address of the Load Balancer.
         /// </summary>
         [Output("ipv4")]
@@ -110,9 +116,6 @@ namespace Pulumi.HCloud
         [Output("networkZone")]
         public Output<string> NetworkZone { get; private set; } = null!;
 
-        /// <summary>
-        /// List of targets of the Load Balancer.
-        /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.LoadBalancerTarget>> Targets { get; private set; } = null!;
 
@@ -168,6 +171,12 @@ namespace Pulumi.HCloud
         [Input("algorithm")]
         public Input<Inputs.LoadBalancerAlgorithmArgs>? Algorithm { get; set; }
 
+        /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
+
         [Input("labels")]
         private InputMap<object>? _labels;
 
@@ -206,10 +215,7 @@ namespace Pulumi.HCloud
 
         [Input("targets")]
         private InputList<Inputs.LoadBalancerTargetArgs>? _targets;
-
-        /// <summary>
-        /// List of targets of the Load Balancer.
-        /// </summary>
+        [Obsolete(@"Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.")]
         public InputList<Inputs.LoadBalancerTargetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.LoadBalancerTargetArgs>());
@@ -228,6 +234,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("algorithm")]
         public Input<Inputs.LoadBalancerAlgorithmGetArgs>? Algorithm { get; set; }
+
+        /// <summary>
+        /// Enable or disable delete protection.
+        /// </summary>
+        [Input("deleteProtection")]
+        public Input<bool>? DeleteProtection { get; set; }
 
         /// <summary>
         /// (string) IPv4 Address of the Load Balancer.
@@ -285,10 +297,7 @@ namespace Pulumi.HCloud
 
         [Input("targets")]
         private InputList<Inputs.LoadBalancerTargetGetArgs>? _targets;
-
-        /// <summary>
-        /// List of targets of the Load Balancer.
-        /// </summary>
+        [Obsolete(@"Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.")]
         public InputList<Inputs.LoadBalancerTargetGetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.LoadBalancerTargetGetArgs>());

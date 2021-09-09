@@ -57,9 +57,13 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly datacenter!: pulumi.Output<string>;
     /**
+     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+     */
+    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * Firewall IDs the server should be attached to on creation.
      */
-    public readonly firewallIds!: pulumi.Output<number[] | undefined>;
+    public readonly firewallIds!: pulumi.Output<number[]>;
     /**
      * Name or ID of the image the server is created from.
      */
@@ -105,6 +109,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly placementGroupId!: pulumi.Output<number | undefined>;
     /**
+     * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
+     */
+    public readonly rebuildProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
      */
     public readonly rescue!: pulumi.Output<string | undefined>;
@@ -141,6 +149,7 @@ export class Server extends pulumi.CustomResource {
             inputs["backupWindow"] = state ? state.backupWindow : undefined;
             inputs["backups"] = state ? state.backups : undefined;
             inputs["datacenter"] = state ? state.datacenter : undefined;
+            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             inputs["firewallIds"] = state ? state.firewallIds : undefined;
             inputs["image"] = state ? state.image : undefined;
             inputs["ipv4Address"] = state ? state.ipv4Address : undefined;
@@ -153,6 +162,7 @@ export class Server extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["networks"] = state ? state.networks : undefined;
             inputs["placementGroupId"] = state ? state.placementGroupId : undefined;
+            inputs["rebuildProtection"] = state ? state.rebuildProtection : undefined;
             inputs["rescue"] = state ? state.rescue : undefined;
             inputs["serverType"] = state ? state.serverType : undefined;
             inputs["sshKeys"] = state ? state.sshKeys : undefined;
@@ -168,6 +178,7 @@ export class Server extends pulumi.CustomResource {
             }
             inputs["backups"] = args ? args.backups : undefined;
             inputs["datacenter"] = args ? args.datacenter : undefined;
+            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             inputs["firewallIds"] = args ? args.firewallIds : undefined;
             inputs["image"] = args ? args.image : undefined;
             inputs["iso"] = args ? args.iso : undefined;
@@ -177,6 +188,7 @@ export class Server extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["networks"] = args ? args.networks : undefined;
             inputs["placementGroupId"] = args ? args.placementGroupId : undefined;
+            inputs["rebuildProtection"] = args ? args.rebuildProtection : undefined;
             inputs["rescue"] = args ? args.rescue : undefined;
             inputs["serverType"] = args ? args.serverType : undefined;
             inputs["sshKeys"] = args ? args.sshKeys : undefined;
@@ -212,6 +224,10 @@ export interface ServerState {
      * The datacenter name to create the server in.
      */
     readonly datacenter?: pulumi.Input<string>;
+    /**
+     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * Firewall IDs the server should be attached to on creation.
      */
@@ -261,6 +277,10 @@ export interface ServerState {
      */
     readonly placementGroupId?: pulumi.Input<number>;
     /**
+     * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
+     */
+    readonly rebuildProtection?: pulumi.Input<boolean>;
+    /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
      */
     readonly rescue?: pulumi.Input<string>;
@@ -294,6 +314,10 @@ export interface ServerArgs {
      * The datacenter name to create the server in.
      */
     readonly datacenter?: pulumi.Input<string>;
+    /**
+     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+     */
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * Firewall IDs the server should be attached to on creation.
      */
@@ -330,6 +354,10 @@ export interface ServerArgs {
      * Placement Group ID the server added to on creation.
      */
     readonly placementGroupId?: pulumi.Input<number>;
+    /**
+     * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
+     */
+    readonly rebuildProtection?: pulumi.Input<boolean>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
      */

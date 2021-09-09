@@ -77,9 +77,13 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /**
+     * Resources the firewall should be assigned to
+     */
+    public readonly applyTos!: pulumi.Output<outputs.FirewallApplyTo[]>;
+    /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: any}>;
     /**
      * Name of the Firewall.
      */
@@ -102,11 +106,13 @@ export class Firewall extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallState | undefined;
+            inputs["applyTos"] = state ? state.applyTos : undefined;
             inputs["labels"] = state ? state.labels : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
+            inputs["applyTos"] = args ? args.applyTos : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
@@ -122,6 +128,10 @@ export class Firewall extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Firewall resources.
  */
 export interface FirewallState {
+    /**
+     * Resources the firewall should be assigned to
+     */
+    readonly applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[]>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
@@ -140,6 +150,10 @@ export interface FirewallState {
  * The set of arguments for constructing a Firewall resource.
  */
 export interface FirewallArgs {
+    /**
+     * Resources the firewall should be assigned to
+     */
+    readonly applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[]>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */

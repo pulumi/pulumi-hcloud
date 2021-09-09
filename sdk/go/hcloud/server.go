@@ -29,6 +29,8 @@ type Server struct {
 	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
 	// The datacenter name to create the server in.
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayOutput `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
@@ -53,6 +55,8 @@ type Server struct {
 	Networks ServerNetworkTypeArrayOutput `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrOutput `pulumi:"placementGroupId"`
+	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
+	RebuildProtection pulumi.BoolPtrOutput `pulumi:"rebuildProtection"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrOutput `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -108,6 +112,8 @@ type serverState struct {
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in.
 	Datacenter *string `pulumi:"datacenter"`
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds []int `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
@@ -132,6 +138,8 @@ type serverState struct {
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
+	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
+	RebuildProtection *bool `pulumi:"rebuildProtection"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -153,6 +161,8 @@ type ServerState struct {
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in.
 	Datacenter pulumi.StringPtrInput
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	DeleteProtection pulumi.BoolPtrInput
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
 	// Name or ID of the image the server is created from.
@@ -177,6 +187,8 @@ type ServerState struct {
 	Networks ServerNetworkTypeArrayInput
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrInput
+	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
+	RebuildProtection pulumi.BoolPtrInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.
@@ -198,6 +210,8 @@ type serverArgs struct {
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in.
 	Datacenter *string `pulumi:"datacenter"`
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds []int `pulumi:"firewallIds"`
 	// Name or ID of the image the server is created from.
@@ -216,6 +230,8 @@ type serverArgs struct {
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
+	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
+	RebuildProtection *bool `pulumi:"rebuildProtection"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
@@ -232,6 +248,8 @@ type ServerArgs struct {
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in.
 	Datacenter pulumi.StringPtrInput
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	DeleteProtection pulumi.BoolPtrInput
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
 	// Name or ID of the image the server is created from.
@@ -250,6 +268,8 @@ type ServerArgs struct {
 	Networks ServerNetworkTypeArrayInput
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrInput
+	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
+	RebuildProtection pulumi.BoolPtrInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.

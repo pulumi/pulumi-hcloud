@@ -46,6 +46,8 @@ import (
 type Network struct {
 	pulumi.CustomResourceState
 
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringOutput `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
@@ -86,6 +88,8 @@ func GetNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Network resources.
 type networkState struct {
+	// Enable or disable delete protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange *string `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
@@ -95,6 +99,8 @@ type networkState struct {
 }
 
 type NetworkState struct {
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrInput
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
@@ -108,6 +114,8 @@ func (NetworkState) ElementType() reflect.Type {
 }
 
 type networkArgs struct {
+	// Enable or disable delete protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange string `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
@@ -118,6 +126,8 @@ type networkArgs struct {
 
 // The set of arguments for constructing a Network resource.
 type NetworkArgs struct {
+	// Enable or disable delete protection.
+	DeleteProtection pulumi.BoolPtrInput
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringInput
 	// User-defined labels (key-value pairs) should be created with.

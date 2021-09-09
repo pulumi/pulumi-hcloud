@@ -103,6 +103,10 @@ namespace Pulumi.HCloud
     public sealed class GetFloatingIpResult
     {
         /// <summary>
+        /// (boolean) Whether delete protection is enabled.
+        /// </summary>
+        public readonly bool DeleteProtection;
+        /// <summary>
         /// (string) Description of the Floating IP.
         /// </summary>
         public readonly string Description;
@@ -143,6 +147,8 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetFloatingIpResult(
+            bool deleteProtection,
+
             string description,
 
             string homeLocation,
@@ -165,6 +171,7 @@ namespace Pulumi.HCloud
 
             string? withSelector)
         {
+            DeleteProtection = deleteProtection;
             Description = description;
             HomeLocation = homeLocation;
             Id = id;

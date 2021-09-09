@@ -15,6 +15,7 @@ class VolumeArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  automount: Optional[pulumi.Input[bool]] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -24,8 +25,9 @@ class VolumeArgs:
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[int] size: Size of the volume (in GB).
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs).
         :param pulumi.Input[str] location: Location of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
@@ -33,6 +35,8 @@ class VolumeArgs:
         pulumi.set(__self__, "size", size)
         if automount is not None:
             pulumi.set(__self__, "automount", automount)
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if format is not None:
             pulumi.set(__self__, "format", format)
         if labels is not None:
@@ -69,6 +73,18 @@ class VolumeArgs:
         pulumi.set(self, "automount", value)
 
     @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_protection", value)
+
+    @property
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
         """
@@ -84,7 +100,7 @@ class VolumeArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        User-defined labels (key-value pairs).
+        (map) User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
@@ -133,6 +149,7 @@ class VolumeArgs:
 class _VolumeState:
     def __init__(__self__, *,
                  automount: Optional[pulumi.Input[bool]] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  linux_device: Optional[pulumi.Input[str]] = None,
@@ -143,9 +160,10 @@ class _VolumeState:
         """
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
-        :param pulumi.Input[str] linux_device: Device path on the file system for the Volume.
+        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs).
+        :param pulumi.Input[str] linux_device: (string) Device path on the file system for the Volume.
         :param pulumi.Input[str] location: Location of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
@@ -153,6 +171,8 @@ class _VolumeState:
         """
         if automount is not None:
             pulumi.set(__self__, "automount", automount)
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if format is not None:
             pulumi.set(__self__, "format", format)
         if labels is not None:
@@ -181,6 +201,18 @@ class _VolumeState:
         pulumi.set(self, "automount", value)
 
     @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_protection", value)
+
+    @property
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
         """
@@ -196,7 +228,7 @@ class _VolumeState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        User-defined labels (key-value pairs).
+        (map) User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
@@ -208,7 +240,7 @@ class _VolumeState:
     @pulumi.getter(name="linuxDevice")
     def linux_device(self) -> Optional[pulumi.Input[str]]:
         """
-        Device path on the file system for the Volume.
+        (string) Device path on the file system for the Volume.
         """
         return pulumi.get(self, "linux_device")
 
@@ -271,6 +303,7 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automount: Optional[pulumi.Input[bool]] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -308,8 +341,9 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs).
         :param pulumi.Input[str] location: Location of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
@@ -364,6 +398,7 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automount: Optional[pulumi.Input[bool]] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -383,6 +418,7 @@ class Volume(pulumi.CustomResource):
             __props__ = VolumeArgs.__new__(VolumeArgs)
 
             __props__.__dict__["automount"] = automount
+            __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["format"] = format
             __props__.__dict__["labels"] = labels
             __props__.__dict__["location"] = location
@@ -403,6 +439,7 @@ class Volume(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             automount: Optional[pulumi.Input[bool]] = None,
+            delete_protection: Optional[pulumi.Input[bool]] = None,
             format: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             linux_device: Optional[pulumi.Input[str]] = None,
@@ -418,9 +455,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs).
-        :param pulumi.Input[str] linux_device: Device path on the file system for the Volume.
+        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs).
+        :param pulumi.Input[str] linux_device: (string) Device path on the file system for the Volume.
         :param pulumi.Input[str] location: Location of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
@@ -431,6 +469,7 @@ class Volume(pulumi.CustomResource):
         __props__ = _VolumeState.__new__(_VolumeState)
 
         __props__.__dict__["automount"] = automount
+        __props__.__dict__["delete_protection"] = delete_protection
         __props__.__dict__["format"] = format
         __props__.__dict__["labels"] = labels
         __props__.__dict__["linux_device"] = linux_device
@@ -449,6 +488,14 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "automount")
 
     @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable delete protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @property
     @pulumi.getter
     def format(self) -> pulumi.Output[Optional[str]]:
         """
@@ -460,7 +507,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        User-defined labels (key-value pairs).
+        (map) User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
@@ -468,7 +515,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="linuxDevice")
     def linux_device(self) -> pulumi.Output[str]:
         """
-        Device path on the file system for the Volume.
+        (string) Device path on the file system for the Volume.
         """
         return pulumi.get(self, "linux_device")
 

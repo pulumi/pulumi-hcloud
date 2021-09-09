@@ -21,7 +21,10 @@ class GetFirewallResult:
     """
     A collection of values returned by getFirewall.
     """
-    def __init__(__self__, id=None, labels=None, most_recent=None, name=None, rules=None, with_selector=None):
+    def __init__(__self__, apply_tos=None, id=None, labels=None, most_recent=None, name=None, rules=None, with_selector=None):
+        if apply_tos and not isinstance(apply_tos, list):
+            raise TypeError("Expected argument 'apply_tos' to be a list")
+        pulumi.set(__self__, "apply_tos", apply_tos)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -40,6 +43,14 @@ class GetFirewallResult:
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
+
+    @property
+    @pulumi.getter(name="applyTos")
+    def apply_tos(self) -> Optional[Sequence['outputs.GetFirewallApplyToResult']]:
+        """
+        Configuration of the Applied Resources
+        """
+        return pulumi.get(self, "apply_tos")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
         if False:
             yield self
         return GetFirewallResult(
+            apply_tos=self.apply_tos,
             id=self.id,
             labels=self.labels,
             most_recent=self.most_recent,
@@ -98,7 +110,8 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             with_selector=self.with_selector)
 
 
-def get_firewall(id: Optional[int] = None,
+def get_firewall(apply_tos: Optional[Sequence[pulumi.InputType['GetFirewallApplyToArgs']]] = None,
+                 id: Optional[int] = None,
                  labels: Optional[Mapping[str, Any]] = None,
                  most_recent: Optional[bool] = None,
                  name: Optional[str] = None,
@@ -117,13 +130,16 @@ def get_firewall(id: Optional[int] = None,
     ```
 
 
+    :param Sequence[pulumi.InputType['GetFirewallApplyToArgs']] apply_tos: Configuration of the Applied Resources
     :param int id: ID of the firewall.
     :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
+    :param bool most_recent: Return most recent firewall if multiple are found.
     :param str name: Name of the firewall.
     :param Sequence[pulumi.InputType['GetFirewallRuleArgs']] rules: (string)  Configuration of a Rule from this Firewall.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
+    __args__['applyTos'] = apply_tos
     __args__['id'] = id
     __args__['labels'] = labels
     __args__['mostRecent'] = most_recent
@@ -137,6 +153,7 @@ def get_firewall(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult).value
 
     return AwaitableGetFirewallResult(
+        apply_tos=__ret__.apply_tos,
         id=__ret__.id,
         labels=__ret__.labels,
         most_recent=__ret__.most_recent,

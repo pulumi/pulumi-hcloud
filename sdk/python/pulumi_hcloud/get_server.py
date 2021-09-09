@@ -19,7 +19,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, backup_window=None, backups=None, datacenter=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, placement_group=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, backup_window=None, backups=None, datacenter=None, delete_protection=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, placement_group_id=None, rebuild_protection=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
         if backup_window and not isinstance(backup_window, str):
             raise TypeError("Expected argument 'backup_window' to be a str")
         pulumi.set(__self__, "backup_window", backup_window)
@@ -29,6 +29,9 @@ class GetServerResult:
         if datacenter and not isinstance(datacenter, str):
             raise TypeError("Expected argument 'datacenter' to be a str")
         pulumi.set(__self__, "datacenter", datacenter)
+        if delete_protection and not isinstance(delete_protection, bool):
+            raise TypeError("Expected argument 'delete_protection' to be a bool")
+        pulumi.set(__self__, "delete_protection", delete_protection)
         if firewall_ids and not isinstance(firewall_ids, list):
             raise TypeError("Expected argument 'firewall_ids' to be a list")
         pulumi.set(__self__, "firewall_ids", firewall_ids)
@@ -59,9 +62,12 @@ class GetServerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if placement_group and not isinstance(placement_group, str):
-            raise TypeError("Expected argument 'placement_group' to be a str")
-        pulumi.set(__self__, "placement_group", placement_group)
+        if placement_group_id and not isinstance(placement_group_id, int):
+            raise TypeError("Expected argument 'placement_group_id' to be a int")
+        pulumi.set(__self__, "placement_group_id", placement_group_id)
+        if rebuild_protection and not isinstance(rebuild_protection, bool):
+            raise TypeError("Expected argument 'rebuild_protection' to be a bool")
+        pulumi.set(__self__, "rebuild_protection", rebuild_protection)
         if rescue and not isinstance(rescue, str):
             raise TypeError("Expected argument 'rescue' to be a str")
         pulumi.set(__self__, "rescue", rescue)
@@ -108,6 +114,14 @@ class GetServerResult:
         (string) The datacenter name.
         """
         return pulumi.get(self, "datacenter")
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> bool:
+        """
+        (boolean) Whether delete protection is enabled.
+        """
+        return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter(name="firewallIds")
@@ -190,9 +204,20 @@ class GetServerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="placementGroup")
-    def placement_group(self) -> Optional[str]:
-        return pulumi.get(self, "placement_group")
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> Optional[int]:
+        """
+        (Optional, string) Placement Group ID the server is assigned to.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @property
+    @pulumi.getter(name="rebuildProtection")
+    def rebuild_protection(self) -> bool:
+        """
+        (boolean) Whether rebuild protection is enabled.
+        """
+        return pulumi.get(self, "rebuild_protection")
 
     @property
     @pulumi.getter
@@ -240,6 +265,7 @@ class AwaitableGetServerResult(GetServerResult):
             backup_window=self.backup_window,
             backups=self.backups,
             datacenter=self.datacenter,
+            delete_protection=self.delete_protection,
             firewall_ids=self.firewall_ids,
             id=self.id,
             image=self.image,
@@ -250,7 +276,8 @@ class AwaitableGetServerResult(GetServerResult):
             labels=self.labels,
             location=self.location,
             name=self.name,
-            placement_group=self.placement_group,
+            placement_group_id=self.placement_group_id,
+            rebuild_protection=self.rebuild_protection,
             rescue=self.rescue,
             selector=self.selector,
             server_type=self.server_type,
@@ -261,7 +288,7 @@ class AwaitableGetServerResult(GetServerResult):
 
 def get_server(id: Optional[int] = None,
                name: Optional[str] = None,
-               placement_group: Optional[str] = None,
+               placement_group_id: Optional[int] = None,
                selector: Optional[str] = None,
                with_selector: Optional[str] = None,
                with_statuses: Optional[Sequence[str]] = None,
@@ -271,13 +298,14 @@ def get_server(id: Optional[int] = None,
 
     :param int id: ID of the server.
     :param str name: Name of the server.
+    :param int placement_group_id: (Optional, string) Placement Group ID the server is assigned to.
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     :param Sequence[str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
-    __args__['placementGroup'] = placement_group
+    __args__['placementGroupId'] = placement_group_id
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
@@ -291,6 +319,7 @@ def get_server(id: Optional[int] = None,
         backup_window=__ret__.backup_window,
         backups=__ret__.backups,
         datacenter=__ret__.datacenter,
+        delete_protection=__ret__.delete_protection,
         firewall_ids=__ret__.firewall_ids,
         id=__ret__.id,
         image=__ret__.image,
@@ -301,7 +330,8 @@ def get_server(id: Optional[int] = None,
         labels=__ret__.labels,
         location=__ret__.location,
         name=__ret__.name,
-        placement_group=__ret__.placement_group,
+        placement_group_id=__ret__.placement_group_id,
+        rebuild_protection=__ret__.rebuild_protection,
         rescue=__ret__.rescue,
         selector=__ret__.selector,
         server_type=__ret__.server_type,

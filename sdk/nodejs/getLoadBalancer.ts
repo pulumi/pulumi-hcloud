@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Provides details about a specific Hetzner Cloud Server.
+ * Provides details about a specific Hetzner Cloud Load Balancer.
  *
  * ## Example Usage
  *
@@ -67,6 +67,10 @@ export interface GetLoadBalancerResult {
      * (Optional) Configuration of the algorithm the Load Balancer use.
      */
     readonly algorithms: outputs.GetLoadBalancerAlgorithm[];
+    /**
+     * (boolean) Whether delete protection is enabled.
+     */
+    readonly deleteProtection: boolean;
     /**
      * (int) Unique ID of the Load Balancer.
      */

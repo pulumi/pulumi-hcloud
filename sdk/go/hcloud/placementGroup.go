@@ -11,13 +11,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hcloud.NewPlacementGroup(ctx, "my_placement_group", &hcloud.PlacementGroupArgs{
+// 			Type: pulumi.String("spread"),
+// 			Labels: pulumi.StringMap{
+// 				"key": pulumi.String("value"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+// 			Image:            pulumi.String("debian-9"),
+// 			ServerType:       pulumi.String("cx11"),
+// 			PlacementGroupId: my_placement_group.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Placement Groups can be imported using its `id`
+//
+// ```sh
+//  $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group <id>
+// ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState
 
-	Labels  pulumi.MapOutput      `pulumi:"labels"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapOutput `pulumi:"labels"`
+	// Name of the Placement Group.
 	Name    pulumi.StringOutput   `pulumi:"name"`
 	Servers pulumi.IntArrayOutput `pulumi:"servers"`
-	Type    pulumi.StringOutput   `pulumi:"type"`
+	// Type of the Placement Group.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
@@ -52,17 +98,23 @@ func GetPlacementGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PlacementGroup resources.
 type placementGroupState struct {
-	Labels  map[string]interface{} `pulumi:"labels"`
-	Name    *string                `pulumi:"name"`
-	Servers []int                  `pulumi:"servers"`
-	Type    *string                `pulumi:"type"`
+	// User-defined labels (key-value pairs) should be created with.
+	Labels map[string]interface{} `pulumi:"labels"`
+	// Name of the Placement Group.
+	Name    *string `pulumi:"name"`
+	Servers []int   `pulumi:"servers"`
+	// Type of the Placement Group.
+	Type *string `pulumi:"type"`
 }
 
 type PlacementGroupState struct {
-	Labels  pulumi.MapInput
+	// User-defined labels (key-value pairs) should be created with.
+	Labels pulumi.MapInput
+	// Name of the Placement Group.
 	Name    pulumi.StringPtrInput
 	Servers pulumi.IntArrayInput
-	Type    pulumi.StringPtrInput
+	// Type of the Placement Group.
+	Type pulumi.StringPtrInput
 }
 
 func (PlacementGroupState) ElementType() reflect.Type {
@@ -70,16 +122,22 @@ func (PlacementGroupState) ElementType() reflect.Type {
 }
 
 type placementGroupArgs struct {
+	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
-	Name   *string                `pulumi:"name"`
-	Type   string                 `pulumi:"type"`
+	// Name of the Placement Group.
+	Name *string `pulumi:"name"`
+	// Type of the Placement Group.
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PlacementGroup resource.
 type PlacementGroupArgs struct {
+	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
-	Name   pulumi.StringPtrInput
-	Type   pulumi.StringInput
+	// Name of the Placement Group.
+	Name pulumi.StringPtrInput
+	// Type of the Placement Group.
+	Type pulumi.StringInput
 }
 
 func (PlacementGroupArgs) ElementType() reflect.Type {

@@ -42,6 +42,18 @@ namespace Pulumi.HCloud
 
     public sealed class GetFirewallArgs : Pulumi.InvokeArgs
     {
+        [Input("applyTos")]
+        private List<Inputs.GetFirewallApplyToArgs>? _applyTos;
+
+        /// <summary>
+        /// Configuration of the Applied Resources
+        /// </summary>
+        public List<Inputs.GetFirewallApplyToArgs> ApplyTos
+        {
+            get => _applyTos ?? (_applyTos = new List<Inputs.GetFirewallApplyToArgs>());
+            set => _applyTos = value;
+        }
+
         /// <summary>
         /// ID of the firewall.
         /// </summary>
@@ -60,6 +72,9 @@ namespace Pulumi.HCloud
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Return most recent firewall if multiple are found.
+        /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
@@ -97,6 +112,10 @@ namespace Pulumi.HCloud
     public sealed class GetFirewallResult
     {
         /// <summary>
+        /// Configuration of the Applied Resources
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFirewallApplyToResult> ApplyTos;
+        /// <summary>
         /// (int) Unique ID of the Firewall.
         /// </summary>
         public readonly int? Id;
@@ -117,6 +136,8 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetFirewallResult(
+            ImmutableArray<Outputs.GetFirewallApplyToResult> applyTos,
+
             int? id,
 
             ImmutableDictionary<string, object>? labels,
@@ -129,6 +150,7 @@ namespace Pulumi.HCloud
 
             string? withSelector)
         {
+            ApplyTos = applyTos;
             Id = id;
             Labels = labels;
             MostRecent = mostRecent;

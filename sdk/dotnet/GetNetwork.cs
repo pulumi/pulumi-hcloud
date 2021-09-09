@@ -38,6 +38,9 @@ namespace Pulumi.HCloud
             set => _labels = value;
         }
 
+        [Input("mostRecent")]
+        public bool? MostRecent { get; set; }
+
         /// <summary>
         /// Name of the Network.
         /// </summary>
@@ -60,6 +63,10 @@ namespace Pulumi.HCloud
     public sealed class GetNetworkResult
     {
         /// <summary>
+        /// (boolean) Whether delete protection is enabled.
+        /// </summary>
+        public readonly bool DeleteProtection;
+        /// <summary>
         /// Unique ID of the Network.
         /// </summary>
         public readonly int Id;
@@ -68,6 +75,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string? IpRange;
         public readonly ImmutableDictionary<string, object>? Labels;
+        public readonly bool? MostRecent;
         /// <summary>
         /// Name of the Network.
         /// </summary>
@@ -76,19 +84,25 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetNetworkResult(
+            bool deleteProtection,
+
             int id,
 
             string? ipRange,
 
             ImmutableDictionary<string, object>? labels,
 
+            bool? mostRecent,
+
             string? name,
 
             string? withSelector)
         {
+            DeleteProtection = deleteProtection;
             Id = id;
             IpRange = ipRange;
             Labels = labels;
+            MostRecent = mostRecent;
             Name = name;
             WithSelector = withSelector;
         }

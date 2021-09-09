@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetDatacentersResult',
@@ -19,18 +20,33 @@ class GetDatacentersResult:
     """
     A collection of values returned by getDatacenters.
     """
-    def __init__(__self__, datacenter_ids=None, descriptions=None, id=None, names=None):
+    def __init__(__self__, datacenter_ids=None, datacenters=None, descriptions=None, id=None, names=None):
         if datacenter_ids and not isinstance(datacenter_ids, list):
             raise TypeError("Expected argument 'datacenter_ids' to be a list")
+        if datacenter_ids is not None:
+            warnings.warn("""Use datacenters list instead""", DeprecationWarning)
+            pulumi.log.warn("""datacenter_ids is deprecated: Use datacenters list instead""")
+
         pulumi.set(__self__, "datacenter_ids", datacenter_ids)
+        if datacenters and not isinstance(datacenters, list):
+            raise TypeError("Expected argument 'datacenters' to be a list")
+        pulumi.set(__self__, "datacenters", datacenters)
         if descriptions and not isinstance(descriptions, list):
             raise TypeError("Expected argument 'descriptions' to be a list")
+        if descriptions is not None:
+            warnings.warn("""Use datacenters list instead""", DeprecationWarning)
+            pulumi.log.warn("""descriptions is deprecated: Use datacenters list instead""")
+
         pulumi.set(__self__, "descriptions", descriptions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
+        if names is not None:
+            warnings.warn("""Use datacenters list instead""", DeprecationWarning)
+            pulumi.log.warn("""names is deprecated: Use datacenters list instead""")
+
         pulumi.set(__self__, "names", names)
 
     @property
@@ -40,6 +56,14 @@ class GetDatacentersResult:
         (list) List of unique datacenter identifiers.
         """
         return pulumi.get(self, "datacenter_ids")
+
+    @property
+    @pulumi.getter
+    def datacenters(self) -> Sequence['outputs.GetDatacentersDatacenterResult']:
+        """
+        (list) List of all datacenters. See `data.hcloud_datacenter` for schema.
+        """
+        return pulumi.get(self, "datacenters")
 
     @property
     @pulumi.getter
@@ -73,6 +97,7 @@ class AwaitableGetDatacentersResult(GetDatacentersResult):
             yield self
         return GetDatacentersResult(
             datacenter_ids=self.datacenter_ids,
+            datacenters=self.datacenters,
             descriptions=self.descriptions,
             id=self.id,
             names=self.names)
@@ -112,6 +137,7 @@ def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
 
     return AwaitableGetDatacentersResult(
         datacenter_ids=__ret__.datacenter_ids,
+        datacenters=__ret__.datacenters,
         descriptions=__ret__.descriptions,
         id=__ret__.id,
         names=__ret__.names)

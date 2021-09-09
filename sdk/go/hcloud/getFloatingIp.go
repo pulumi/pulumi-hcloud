@@ -81,6 +81,8 @@ type LookupFloatingIpArgs struct {
 
 // A collection of values returned by getFloatingIp.
 type LookupFloatingIpResult struct {
+	// (boolean) Whether delete protection is enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
 	// (string) Description of the Floating IP.
 	Description string `pulumi:"description"`
 	// (string) Home location.

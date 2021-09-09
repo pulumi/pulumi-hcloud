@@ -30,8 +30,11 @@ namespace Pulumi.HCloud
         [Input("name")]
         public string? Name { get; set; }
 
-        [Input("placementGroup")]
-        public string? PlacementGroup { get; set; }
+        /// <summary>
+        /// (Optional, string) Placement Group ID the server is assigned to.
+        /// </summary>
+        [Input("placementGroupId")]
+        public int? PlacementGroupId { get; set; }
 
         [Input("selector")]
         public string? Selector { get; set; }
@@ -76,6 +79,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Datacenter;
         /// <summary>
+        /// (boolean) Whether delete protection is enabled.
+        /// </summary>
+        public readonly bool DeleteProtection;
+        /// <summary>
         /// (Optional, list) Firewall IDs the server is attached to.
         /// </summary>
         public readonly ImmutableArray<int> FirewallIds;
@@ -115,7 +122,14 @@ namespace Pulumi.HCloud
         /// (string) Name of the server.
         /// </summary>
         public readonly string Name;
-        public readonly string? PlacementGroup;
+        /// <summary>
+        /// (Optional, string) Placement Group ID the server is assigned to.
+        /// </summary>
+        public readonly int? PlacementGroupId;
+        /// <summary>
+        /// (boolean) Whether rebuild protection is enabled.
+        /// </summary>
+        public readonly bool RebuildProtection;
         public readonly string Rescue;
         public readonly string? Selector;
         /// <summary>
@@ -137,6 +151,8 @@ namespace Pulumi.HCloud
 
             string datacenter,
 
+            bool deleteProtection,
+
             ImmutableArray<int> firewallIds,
 
             int id,
@@ -157,7 +173,9 @@ namespace Pulumi.HCloud
 
             string name,
 
-            string? placementGroup,
+            int? placementGroupId,
+
+            bool rebuildProtection,
 
             string rescue,
 
@@ -174,6 +192,7 @@ namespace Pulumi.HCloud
             BackupWindow = backupWindow;
             Backups = backups;
             Datacenter = datacenter;
+            DeleteProtection = deleteProtection;
             FirewallIds = firewallIds;
             Id = id;
             Image = image;
@@ -184,7 +203,8 @@ namespace Pulumi.HCloud
             Labels = labels;
             Location = location;
             Name = name;
-            PlacementGroup = placementGroup;
+            PlacementGroupId = placementGroupId;
+            RebuildProtection = rebuildProtection;
             Rescue = rescue;
             Selector = selector;
             ServerType = serverType;
