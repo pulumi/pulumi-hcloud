@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -13,6 +14,9 @@ namespace Pulumi.HCloud
     {
         public static Task<GetServerResult> InvokeAsync(GetServerArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerArgs(), options.WithVersion());
+
+        public static Output<GetServerResult> Invoke(GetServerInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +62,52 @@ namespace Pulumi.HCloud
         }
 
         public GetServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID of the server.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// Name of the server.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// (Optional, string) Placement Group ID the server is assigned to.
+        /// </summary>
+        [Input("placementGroupId")]
+        public Input<int>? PlacementGroupId { get; set; }
+
+        [Input("selector")]
+        public Input<string>? Selector { get; set; }
+
+        /// <summary>
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// </summary>
+        [Input("withSelector")]
+        public Input<string>? WithSelector { get; set; }
+
+        [Input("withStatuses")]
+        private InputList<string>? _withStatuses;
+
+        /// <summary>
+        /// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+        /// </summary>
+        public InputList<string> WithStatuses
+        {
+            get => _withStatuses ?? (_withStatuses = new InputList<string>());
+            set => _withStatuses = value;
+        }
+
+        public GetServerInvokeArgs()
         {
         }
     }

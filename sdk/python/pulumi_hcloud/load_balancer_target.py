@@ -8,10 +8,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
-__all__ = ['LoadBalancerTargetArgs', 'LoadBalancerTarget']
+__all__ = ['LoadBalancerTargetInitArgs', 'LoadBalancerTarget']
 
 @pulumi.input_type
-class LoadBalancerTargetArgs:
+class LoadBalancerTargetInitArgs:
     def __init__(__self__, *,
                  load_balancer_id: pulumi.Input[int],
                  type: pulumi.Input[str],
@@ -297,7 +297,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LoadBalancerTargetArgs,
+                 args: LoadBalancerTargetInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Adds a target to a Hetzner Cloud Load Balancer.
@@ -321,12 +321,12 @@ class LoadBalancerTarget(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LoadBalancerTargetArgs args: The arguments to use to populate this resource's properties.
+        :param LoadBalancerTargetInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerTargetInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -351,7 +351,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LoadBalancerTargetArgs.__new__(LoadBalancerTargetArgs)
+            __props__ = LoadBalancerTargetInitArgs.__new__(LoadBalancerTargetInitArgs)
 
             __props__.__dict__["ip"] = ip
             __props__.__dict__["label_selector"] = label_selector

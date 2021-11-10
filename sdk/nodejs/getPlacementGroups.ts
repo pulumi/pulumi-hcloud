@@ -14,10 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const samplePlacementGroup1 = pulumi.output(hcloud.getPlacementGroups({ async: true }));
+ * const samplePlacementGroup1 = pulumi.output(hcloud.getPlacementGroups());
  * const samplePlacementGroup2 = pulumi.output(hcloud.getPlacementGroups({
  *     withSelector: "key=value",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPlacementGroups(args?: GetPlacementGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupsResult> {
@@ -42,11 +42,11 @@ export interface GetPlacementGroupsArgs {
     /**
      * Sorts list by date.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -63,4 +63,22 @@ export interface GetPlacementGroupsResult {
      */
     readonly placementGroups: outputs.GetPlacementGroupsPlacementGroup[];
     readonly withSelector?: string;
+}
+
+export function getPlacementGroupsOutput(args?: GetPlacementGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupsResult> {
+    return pulumi.output(args).apply(a => getPlacementGroups(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPlacementGroups.
+ */
+export interface GetPlacementGroupsOutputArgs {
+    /**
+     * Sorts list by date.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

@@ -8,20 +8,24 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'endpoint',
-    'poll_interval',
-    'token',
-]
+import types
 
 __config__ = pulumi.Config('hcloud')
 
-endpoint = __config__.get('endpoint')
 
-poll_interval = __config__.get('pollInterval')
+class _ExportableConfig(types.ModuleType):
+    @property
+    def endpoint(self) -> Optional[str]:
+        return __config__.get('endpoint')
 
-token = __config__.get('token')
-"""
-The API token to access the Hetzner cloud.
-"""
+    @property
+    def poll_interval(self) -> Optional[str]:
+        return __config__.get('pollInterval')
+
+    @property
+    def token(self) -> Optional[str]:
+        """
+        The API token to access the Hetzner cloud.
+        """
+        return __config__.get('token')
 

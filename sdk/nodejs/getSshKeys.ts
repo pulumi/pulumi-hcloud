@@ -26,7 +26,7 @@ export interface GetSshKeysArgs {
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -42,4 +42,18 @@ export interface GetSshKeysResult {
      */
     readonly sshKeys: outputs.GetSshKeysSshKey[];
     readonly withSelector?: string;
+}
+
+export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {
+    return pulumi.output(args).apply(a => getSshKeys(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSshKeys.
+ */
+export interface GetSshKeysOutputArgs {
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

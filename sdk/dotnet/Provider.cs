@@ -18,6 +18,19 @@ namespace Pulumi.HCloud
     [HCloudResourceType("pulumi:providers:hcloud")]
     public partial class Provider : Pulumi.ProviderResource
     {
+        [Output("endpoint")]
+        public Output<string?> Endpoint { get; private set; } = null!;
+
+        [Output("pollInterval")]
+        public Output<string?> PollInterval { get; private set; } = null!;
+
+        /// <summary>
+        /// The API token to access the Hetzner cloud.
+        /// </summary>
+        [Output("token")]
+        public Output<string> Token { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>

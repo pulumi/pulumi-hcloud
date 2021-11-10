@@ -4,11 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("hcloud");
+declare var exports: any;
+const __config = new pulumi.Config("hcloud");
 
-export let endpoint: string | undefined = __config.get("endpoint");
-export let pollInterval: string | undefined = __config.get("pollInterval");
+export declare const endpoint: string | undefined;
+Object.defineProperty(exports, "endpoint", {
+    get() {
+        return __config.get("endpoint");
+    },
+    enumerable: true,
+});
+
+export declare const pollInterval: string | undefined;
+Object.defineProperty(exports, "pollInterval", {
+    get() {
+        return __config.get("pollInterval");
+    },
+    enumerable: true,
+});
+
 /**
  * The API token to access the Hetzner cloud.
  */
-export let token: string | undefined = __config.get("token");
+export declare const token: string | undefined;
+Object.defineProperty(exports, "token", {
+    get() {
+        return __config.get("token");
+    },
+    enumerable: true,
+});
+

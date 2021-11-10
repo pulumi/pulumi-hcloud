@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
@@ -31,27 +30,27 @@ export interface GetImageArgs {
     /**
      * ID of the Image.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * If more than one result is returned, use the most recent Image.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * Name of the Image.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
-    readonly selector?: string;
+    selector?: string;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
     /**
      * List only images with the specified status, could contain `creating` or `available`.
      */
-    readonly withStatuses?: string[];
+    withStatuses?: string[];
 }
 
 /**
@@ -102,4 +101,38 @@ export interface GetImageResult {
     readonly type: string;
     readonly withSelector?: string;
     readonly withStatuses?: string[];
+}
+
+export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
+    return pulumi.output(args).apply(a => getImage(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getImage.
+ */
+export interface GetImageOutputArgs {
+    /**
+     * ID of the Image.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * If more than one result is returned, use the most recent Image.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Name of the Image.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * @deprecated Please use the with_selector property instead.
+     */
+    selector?: pulumi.Input<string>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
+    /**
+     * List only images with the specified status, could contain `creating` or `available`.
+     */
+    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
 }

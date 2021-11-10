@@ -14,10 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const network2 = pulumi.output(hcloud.getNetwork({ async: true }));
+ * const network2 = pulumi.output(hcloud.getNetwork());
  * const network3 = pulumi.output(hcloud.getNetwork({
  *     withSelector: "key=value",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getNetworks(args?: GetNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworksResult> {
@@ -41,7 +41,7 @@ export interface GetNetworksArgs {
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -57,4 +57,18 @@ export interface GetNetworksResult {
      */
     readonly networks: outputs.GetNetworksNetwork[];
     readonly withSelector?: string;
+}
+
+export function getNetworksOutput(args?: GetNetworksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworksResult> {
+    return pulumi.output(args).apply(a => getNetworks(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNetworks.
+ */
+export interface GetNetworksOutputArgs {
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

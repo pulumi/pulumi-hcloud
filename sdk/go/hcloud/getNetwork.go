@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,82 @@ type LookupNetworkResult struct {
 	// Name of the Network.
 	Name         *string `pulumi:"name"`
 	WithSelector *string `pulumi:"withSelector"`
+}
+
+func LookupNetworkOutput(ctx *pulumi.Context, args LookupNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNetworkResult, error) {
+			args := v.(LookupNetworkArgs)
+			r, err := LookupNetwork(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNetworkResultOutput)
+}
+
+// A collection of arguments for invoking getNetwork.
+type LookupNetworkOutputArgs struct {
+	// ID of the Network.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// IPv4 prefix of the Network.
+	IpRange    pulumi.StringPtrInput `pulumi:"ipRange"`
+	Labels     pulumi.MapInput       `pulumi:"labels"`
+	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	// Name of the Network.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (LookupNetworkOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNetwork.
+type LookupNetworkResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNetworkResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkResult)(nil)).Elem()
+}
+
+func (o LookupNetworkResultOutput) ToLookupNetworkResultOutput() LookupNetworkResultOutput {
+	return o
+}
+
+func (o LookupNetworkResultOutput) ToLookupNetworkResultOutputWithContext(ctx context.Context) LookupNetworkResultOutput {
+	return o
+}
+
+// (boolean) Whether delete protection is enabled.
+func (o LookupNetworkResultOutput) DeleteProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNetworkResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+// Unique ID of the Network.
+func (o LookupNetworkResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNetworkResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// IPv4 prefix of the Network.
+func (o LookupNetworkResultOutput) IpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkResult) *string { return v.IpRange }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupNetworkResultOutput) Labels() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupNetworkResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+}
+
+func (o LookupNetworkResultOutput) MostRecent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNetworkResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the Network.
+func (o LookupNetworkResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupNetworkResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNetworkResultOutput{})
 }

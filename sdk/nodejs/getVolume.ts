@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
@@ -32,31 +31,31 @@ export interface GetVolumeArgs {
     /**
      * ID of the volume.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * (string) The location name.
      */
-    readonly location?: string;
+    location?: string;
     /**
      * Name of the volume.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
-    readonly selector?: string;
+    selector?: string;
     /**
      * (Optional, int) Server ID the volume is attached to
      */
-    readonly serverId?: number;
+    serverId?: number;
     /**
      * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
      */
-    readonly withSelector?: string;
+    withSelector?: string;
     /**
      * List only volumes with the specified status, could contain `creating` or `available`.
      */
-    readonly withStatuses?: string[];
+    withStatuses?: string[];
 }
 
 /**
@@ -101,4 +100,42 @@ export interface GetVolumeResult {
     readonly size: number;
     readonly withSelector?: string;
     readonly withStatuses?: string[];
+}
+
+export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+    return pulumi.output(args).apply(a => getVolume(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVolume.
+ */
+export interface GetVolumeOutputArgs {
+    /**
+     * ID of the volume.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * (string) The location name.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * Name of the volume.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * @deprecated Please use the with_selector property instead.
+     */
+    selector?: pulumi.Input<string>;
+    /**
+     * (Optional, int) Server ID the volume is attached to
+     */
+    serverId?: pulumi.Input<number>;
+    /**
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     */
+    withSelector?: pulumi.Input<string>;
+    /**
+     * List only volumes with the specified status, could contain `creating` or `available`.
+     */
+    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
 }

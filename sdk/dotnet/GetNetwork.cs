@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -13,6 +14,9 @@ namespace Pulumi.HCloud
     {
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkArgs(), options.WithVersion());
+
+        public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -54,6 +58,48 @@ namespace Pulumi.HCloud
         public string? WithSelector { get; set; }
 
         public GetNetworkArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID of the Network.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// IPv4 prefix of the Network.
+        /// </summary>
+        [Input("ipRange")]
+        public Input<string>? IpRange { get; set; }
+
+        [Input("labels")]
+        private InputMap<object>? _labels;
+        public InputMap<object> Labels
+        {
+            get => _labels ?? (_labels = new InputMap<object>());
+            set => _labels = value;
+        }
+
+        [Input("mostRecent")]
+        public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// Name of the Network.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// </summary>
+        [Input("withSelector")]
+        public Input<string>? WithSelector { get; set; }
+
+        public GetNetworkInvokeArgs()
         {
         }
     }

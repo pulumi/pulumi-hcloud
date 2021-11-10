@@ -120,15 +120,15 @@ export interface VolumeAttachmentState {
     /**
      * Automount the volume upon attaching it.
      */
-    readonly automount?: pulumi.Input<boolean>;
+    automount?: pulumi.Input<boolean>;
     /**
      * Server to attach the Volume to.
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
     /**
      * ID of the Volume.
      */
-    readonly volumeId?: pulumi.Input<number>;
+    volumeId?: pulumi.Input<number>;
 }
 
 /**
@@ -138,13 +138,13 @@ export interface VolumeAttachmentArgs {
     /**
      * Automount the volume upon attaching it.
      */
-    readonly automount?: pulumi.Input<boolean>;
+    automount?: pulumi.Input<boolean>;
     /**
      * Server to attach the Volume to.
      */
-    readonly serverId: pulumi.Input<number>;
+    serverId: pulumi.Input<number>;
     /**
      * ID of the Volume.
      */
-    readonly volumeId: pulumi.Input<number>;
+    volumeId: pulumi.Input<number>;
 }

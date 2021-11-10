@@ -8,9 +8,9 @@ replace (
 )
 
 require (
+	cloud.google.com/go/kms v1.1.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.15.0 // indirect
 	github.com/hetznercloud/terraform-provider-hcloud v1.31.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.0.0
-	github.com/pulumi/pulumi/pkg/v3 v3.0.0
-	github.com/pulumi/pulumi/sdk/v3 v3.0.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.11.0
+	github.com/pulumi/pulumi/sdk/v3 v3.17.0
 )

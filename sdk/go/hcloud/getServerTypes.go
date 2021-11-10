@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,67 @@ type GetServerTypesResult struct {
 	ServerTypeIds []string `pulumi:"serverTypeIds"`
 	// (list) List of all server types. See `data.hcloud_type` for schema.
 	ServerTypes []GetServerTypesServerType `pulumi:"serverTypes"`
+}
+
+func GetServerTypesOutput(ctx *pulumi.Context, args GetServerTypesOutputArgs, opts ...pulumi.InvokeOption) GetServerTypesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetServerTypesResult, error) {
+			args := v.(GetServerTypesArgs)
+			r, err := GetServerTypes(ctx, &args, opts...)
+			return *r, err
+		}).(GetServerTypesResultOutput)
+}
+
+// A collection of arguments for invoking getServerTypes.
+type GetServerTypesOutputArgs struct {
+	// Deprecated: Use server_types list instead
+	ServerTypeIds pulumi.StringArrayInput `pulumi:"serverTypeIds"`
+}
+
+func (GetServerTypesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerTypesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServerTypes.
+type GetServerTypesResultOutput struct{ *pulumi.OutputState }
+
+func (GetServerTypesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerTypesResult)(nil)).Elem()
+}
+
+func (o GetServerTypesResultOutput) ToGetServerTypesResultOutput() GetServerTypesResultOutput {
+	return o
+}
+
+func (o GetServerTypesResultOutput) ToGetServerTypesResultOutputWithContext(ctx context.Context) GetServerTypesResultOutput {
+	return o
+}
+
+// Deprecated: Use server_types list instead
+func (o GetServerTypesResultOutput) Descriptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServerTypesResult) []string { return v.Descriptions }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetServerTypesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Deprecated: Use server_types list instead
+func (o GetServerTypesResultOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServerTypesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: Use server_types list instead
+func (o GetServerTypesResultOutput) ServerTypeIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServerTypesResult) []string { return v.ServerTypeIds }).(pulumi.StringArrayOutput)
+}
+
+// (list) List of all server types. See `data.hcloud_type` for schema.
+func (o GetServerTypesResultOutput) ServerTypes() GetServerTypesServerTypeArrayOutput {
+	return o.ApplyT(func(v GetServerTypesResult) []GetServerTypesServerType { return v.ServerTypes }).(GetServerTypesServerTypeArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetServerTypesResultOutput{})
 }

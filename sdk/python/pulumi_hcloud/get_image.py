@@ -12,6 +12,7 @@ __all__ = [
     'GetImageResult',
     'AwaitableGetImageResult',
     'get_image',
+    'get_image_output',
 ]
 
 @pulumi.output_type
@@ -231,3 +232,23 @@ def get_image(id: Optional[int] = None,
         type=__ret__.type,
         with_selector=__ret__.with_selector,
         with_statuses=__ret__.with_statuses)
+
+
+@_utilities.lift_output_func(get_image)
+def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                     most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                     name: Optional[pulumi.Input[Optional[str]]] = None,
+                     selector: Optional[pulumi.Input[Optional[str]]] = None,
+                     with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                     with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param int id: ID of the Image.
+    :param bool most_recent: If more than one result is returned, use the most recent Image.
+    :param str name: Name of the Image.
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
+    """
+    ...

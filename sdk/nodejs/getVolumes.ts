@@ -14,10 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const volume_ = pulumi.output(hcloud.getVolumes({ async: true }));
+ * const volume_ = pulumi.output(hcloud.getVolumes());
  * const volume3 = pulumi.output(hcloud.getVolumes({
  *     withSelector: "key=value",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getVolumes(args?: GetVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumesResult> {
@@ -42,11 +42,11 @@ export interface GetVolumesArgs {
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
     /**
      * List only volumes with the specified status, could contain `creating` or `available`.
      */
-    readonly withStatuses?: string[];
+    withStatuses?: string[];
 }
 
 /**
@@ -63,4 +63,22 @@ export interface GetVolumesResult {
     readonly volumes: outputs.GetVolumesVolume[];
     readonly withSelector?: string;
     readonly withStatuses?: string[];
+}
+
+export function getVolumesOutput(args?: GetVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumesResult> {
+    return pulumi.output(args).apply(a => getVolumes(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVolumes.
+ */
+export interface GetVolumesOutputArgs {
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
+    /**
+     * List only volumes with the specified status, could contain `creating` or `available`.
+     */
+    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
 }

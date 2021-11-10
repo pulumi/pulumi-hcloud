@@ -175,23 +175,23 @@ export interface RdnsState {
     /**
      * The DNS address the `ipAddress` should resolve to.
      */
-    readonly dnsPtr?: pulumi.Input<string>;
+    dnsPtr?: pulumi.Input<string>;
     /**
      * The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
      */
-    readonly floatingIpId?: pulumi.Input<number>;
+    floatingIpId?: pulumi.Input<number>;
     /**
      * The IP address that should point to `dnsPtr`.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * The Load Balancer the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
      */
-    readonly loadBalancerId?: pulumi.Input<number>;
+    loadBalancerId?: pulumi.Input<number>;
     /**
      * The server the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
 }
 
 /**
@@ -201,21 +201,21 @@ export interface RdnsArgs {
     /**
      * The DNS address the `ipAddress` should resolve to.
      */
-    readonly dnsPtr: pulumi.Input<string>;
+    dnsPtr: pulumi.Input<string>;
     /**
      * The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
      */
-    readonly floatingIpId?: pulumi.Input<number>;
+    floatingIpId?: pulumi.Input<number>;
     /**
      * The IP address that should point to `dnsPtr`.
      */
-    readonly ipAddress: pulumi.Input<string>;
+    ipAddress: pulumi.Input<string>;
     /**
      * The Load Balancer the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
      */
-    readonly loadBalancerId?: pulumi.Input<number>;
+    loadBalancerId?: pulumi.Input<number>;
     /**
      * The server the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
 }

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -14,10 +13,10 @@ import * as utilities from "./utilities";
  *
  * const samplePlacementGroup1 = pulumi.output(hcloud.getPlacementGroup({
  *     name: "sample-placement-group-1",
- * }, { async: true }));
+ * }));
  * const samplePlacementGroup2 = pulumi.output(hcloud.getPlacementGroup({
  *     id: 4711,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPlacementGroup(args?: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
@@ -46,27 +45,27 @@ export interface GetPlacementGroupArgs {
     /**
      * ID of the placement group.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * (map) User-defined labels (key-value pairs)
      */
-    readonly labels?: {[key: string]: any};
+    labels?: {[key: string]: any};
     /**
      * Return most recent placement group if multiple are found.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * Name of the placement group.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * (string)  Type of the Placement Group.
      */
-    readonly type?: string;
+    type?: string;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -92,4 +91,38 @@ export interface GetPlacementGroupResult {
      */
     readonly type?: string;
     readonly withSelector?: string;
+}
+
+export function getPlacementGroupOutput(args?: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
+    return pulumi.output(args).apply(a => getPlacementGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPlacementGroup.
+ */
+export interface GetPlacementGroupOutputArgs {
+    /**
+     * ID of the placement group.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * (map) User-defined labels (key-value pairs)
+     */
+    labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Return most recent placement group if multiple are found.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Name of the placement group.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * (string)  Type of the Placement Group.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

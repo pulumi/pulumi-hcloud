@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,107 @@ type LookupVolumeResult struct {
 	Size         int      `pulumi:"size"`
 	WithSelector *string  `pulumi:"withSelector"`
 	WithStatuses []string `pulumi:"withStatuses"`
+}
+
+func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVolumeResult, error) {
+			args := v.(LookupVolumeArgs)
+			r, err := LookupVolume(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVolumeResultOutput)
+}
+
+// A collection of arguments for invoking getVolume.
+type LookupVolumeOutputArgs struct {
+	// ID of the volume.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// (string) The location name.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Name of the volume.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Deprecated: Please use the with_selector property instead.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// (Optional, int) Server ID the volume is attached to
+	ServerId pulumi.IntPtrInput `pulumi:"serverId"`
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+	// List only volumes with the specified status, could contain `creating` or `available`.
+	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`
+}
+
+func (LookupVolumeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVolumeArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVolume.
+type LookupVolumeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVolumeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVolumeResult)(nil)).Elem()
+}
+
+func (o LookupVolumeResultOutput) ToLookupVolumeResultOutput() LookupVolumeResultOutput {
+	return o
+}
+
+func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx context.Context) LookupVolumeResultOutput {
+	return o
+}
+
+// (boolean) Whether delete protection is enabled.
+func (o LookupVolumeResultOutput) DeleteProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVolumeResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+// (int) Unique ID of the volume.
+func (o LookupVolumeResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVolumeResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (map) User-defined labels (key-value pairs).
+func (o LookupVolumeResultOutput) Labels() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupVolumeResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+}
+
+// (string) Device path on the file system for the Volume.
+func (o LookupVolumeResultOutput) LinuxDevice() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.LinuxDevice }).(pulumi.StringOutput)
+}
+
+// (string) The location name.
+func (o LookupVolumeResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// (string) Name of the volume.
+func (o LookupVolumeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deprecated: Please use the with_selector property instead.
+func (o LookupVolumeResultOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// (Optional, int) Server ID the volume is attached to
+func (o LookupVolumeResultOutput) ServerId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *int { return v.ServerId }).(pulumi.IntPtrOutput)
+}
+
+// (int) Size of the volume.
+func (o LookupVolumeResultOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVolumeResult) int { return v.Size }).(pulumi.IntOutput)
+}
+
+func (o LookupVolumeResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVolumeResultOutput) WithStatuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []string { return v.WithStatuses }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVolumeResultOutput{})
 }

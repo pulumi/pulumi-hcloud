@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,21 +25,21 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "my-load-balancer"
-// 		_, err := hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+// 		_, err := hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		opt1 := 123
-// 		_, err = hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+// 		_, err = hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
 // 			Id: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		opt2 := "key=value"
-// 		_, err = hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+// 		_, err = hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
 // 			WithSelector: &opt2,
 // 		}, nil)
 // 		if err != nil {
@@ -91,4 +94,109 @@ type LookupLoadBalancerResult struct {
 	// (list) List of targets of the Load Balancer.
 	Targets      []GetLoadBalancerTargetType `pulumi:"targets"`
 	WithSelector *string                     `pulumi:"withSelector"`
+}
+
+func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLoadBalancerResult, error) {
+			args := v.(LookupLoadBalancerArgs)
+			r, err := LookupLoadBalancer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLoadBalancerResultOutput)
+}
+
+// A collection of arguments for invoking getLoadBalancer.
+type LookupLoadBalancerOutputArgs struct {
+	// ID of the Load Balancer.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Name of the Load Balancer.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (LookupLoadBalancerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLoadBalancerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLoadBalancer.
+type LookupLoadBalancerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLoadBalancerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLoadBalancerResult)(nil)).Elem()
+}
+
+func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutput() LookupLoadBalancerResultOutput {
+	return o
+}
+
+func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithContext(ctx context.Context) LookupLoadBalancerResultOutput {
+	return o
+}
+
+// (Optional) Configuration of the algorithm the Load Balancer use.
+func (o LookupLoadBalancerResultOutput) Algorithms() GetLoadBalancerAlgorithmArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerAlgorithm { return v.Algorithms }).(GetLoadBalancerAlgorithmArrayOutput)
+}
+
+// (boolean) Whether delete protection is enabled.
+func (o LookupLoadBalancerResultOutput) DeleteProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+// (int) Unique ID of the Load Balancer.
+func (o LookupLoadBalancerResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (string) IPv4 Address of the Load Balancer.
+func (o LookupLoadBalancerResultOutput) Ipv4() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Ipv4 }).(pulumi.StringOutput)
+}
+
+// (string) IPv4 Address of the Load Balancer.
+func (o LookupLoadBalancerResultOutput) Ipv6() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Ipv6 }).(pulumi.StringOutput)
+}
+
+// (map) User-defined labels (key-value pairs) .
+func (o LookupLoadBalancerResultOutput) Labels() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+}
+
+// (string) Name of the Type of the Load Balancer.
+func (o LookupLoadBalancerResultOutput) LoadBalancerType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.LoadBalancerType }).(pulumi.StringOutput)
+}
+
+// (string) Name of the location the Load Balancer is in.
+func (o LookupLoadBalancerResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// (string) Name of the Load Balancer.
+func (o LookupLoadBalancerResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) NetworkZone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.NetworkZone }).(pulumi.StringOutput)
+}
+
+// (list) List of services a Load Balancer provides.
+func (o LookupLoadBalancerResultOutput) Services() GetLoadBalancerServiceTypeArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerServiceType { return v.Services }).(GetLoadBalancerServiceTypeArrayOutput)
+}
+
+// (list) List of targets of the Load Balancer.
+func (o LookupLoadBalancerResultOutput) Targets() GetLoadBalancerTargetTypeArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerTargetType { return v.Targets }).(GetLoadBalancerTargetTypeArrayOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLoadBalancerResultOutput{})
 }

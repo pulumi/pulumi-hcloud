@@ -220,7 +220,7 @@ type UploadedCertificateArrayInput interface {
 type UploadedCertificateArray []UploadedCertificateInput
 
 func (UploadedCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UploadedCertificate)(nil))
+	return reflect.TypeOf((*[]*UploadedCertificate)(nil)).Elem()
 }
 
 func (i UploadedCertificateArray) ToUploadedCertificateArrayOutput() UploadedCertificateArrayOutput {
@@ -245,7 +245,7 @@ type UploadedCertificateMapInput interface {
 type UploadedCertificateMap map[string]UploadedCertificateInput
 
 func (UploadedCertificateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UploadedCertificate)(nil))
+	return reflect.TypeOf((*map[string]*UploadedCertificate)(nil)).Elem()
 }
 
 func (i UploadedCertificateMap) ToUploadedCertificateMapOutput() UploadedCertificateMapOutput {
@@ -256,9 +256,7 @@ func (i UploadedCertificateMap) ToUploadedCertificateMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(UploadedCertificateMapOutput)
 }
 
-type UploadedCertificateOutput struct {
-	*pulumi.OutputState
-}
+type UploadedCertificateOutput struct{ *pulumi.OutputState }
 
 func (UploadedCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UploadedCertificate)(nil))
@@ -277,14 +275,12 @@ func (o UploadedCertificateOutput) ToUploadedCertificatePtrOutput() UploadedCert
 }
 
 func (o UploadedCertificateOutput) ToUploadedCertificatePtrOutputWithContext(ctx context.Context) UploadedCertificatePtrOutput {
-	return o.ApplyT(func(v UploadedCertificate) *UploadedCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadedCertificate) *UploadedCertificate {
 		return &v
 	}).(UploadedCertificatePtrOutput)
 }
 
-type UploadedCertificatePtrOutput struct {
-	*pulumi.OutputState
-}
+type UploadedCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (UploadedCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UploadedCertificate)(nil))
@@ -296,6 +292,16 @@ func (o UploadedCertificatePtrOutput) ToUploadedCertificatePtrOutput() UploadedC
 
 func (o UploadedCertificatePtrOutput) ToUploadedCertificatePtrOutputWithContext(ctx context.Context) UploadedCertificatePtrOutput {
 	return o
+}
+
+func (o UploadedCertificatePtrOutput) Elem() UploadedCertificateOutput {
+	return o.ApplyT(func(v *UploadedCertificate) UploadedCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret UploadedCertificate
+		return ret
+	}).(UploadedCertificateOutput)
 }
 
 type UploadedCertificateArrayOutput struct{ *pulumi.OutputState }
@@ -339,6 +345,10 @@ func (o UploadedCertificateMapOutput) MapIndex(k pulumi.StringInput) UploadedCer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadedCertificateInput)(nil)).Elem(), &UploadedCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadedCertificatePtrInput)(nil)).Elem(), &UploadedCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadedCertificateArrayInput)(nil)).Elem(), UploadedCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadedCertificateMapInput)(nil)).Elem(), UploadedCertificateMap{})
 	pulumi.RegisterOutputType(UploadedCertificateOutput{})
 	pulumi.RegisterOutputType(UploadedCertificatePtrOutput{})
 	pulumi.RegisterOutputType(UploadedCertificateArrayOutput{})

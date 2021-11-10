@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,14 +26,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "fsn1-dc8"
-// 		_, err := hcloud.GetDatacenter(ctx, &hcloud.GetDatacenterArgs{
+// 		_, err := hcloud.GetDatacenter(ctx, &GetDatacenterArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		opt1 := 4
-// 		_, err = hcloud.GetDatacenter(ctx, &hcloud.GetDatacenterArgs{
+// 		_, err = hcloud.GetDatacenter(ctx, &GetDatacenterArgs{
 // 			Id: &opt1,
 // 		}, nil)
 // 		if err != nil {
@@ -71,4 +74,74 @@ type GetDatacenterResult struct {
 	Name string `pulumi:"name"`
 	// (list) List of server types supported by the datacenter.
 	SupportedServerTypeIds []int `pulumi:"supportedServerTypeIds"`
+}
+
+func GetDatacenterOutput(ctx *pulumi.Context, args GetDatacenterOutputArgs, opts ...pulumi.InvokeOption) GetDatacenterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDatacenterResult, error) {
+			args := v.(GetDatacenterArgs)
+			r, err := GetDatacenter(ctx, &args, opts...)
+			return *r, err
+		}).(GetDatacenterResultOutput)
+}
+
+// A collection of arguments for invoking getDatacenter.
+type GetDatacenterOutputArgs struct {
+	// ID of the datacenter.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Name of the datacenter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (GetDatacenterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatacenterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDatacenter.
+type GetDatacenterResultOutput struct{ *pulumi.OutputState }
+
+func (GetDatacenterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatacenterResult)(nil)).Elem()
+}
+
+func (o GetDatacenterResultOutput) ToGetDatacenterResultOutput() GetDatacenterResultOutput {
+	return o
+}
+
+func (o GetDatacenterResultOutput) ToGetDatacenterResultOutputWithContext(ctx context.Context) GetDatacenterResultOutput {
+	return o
+}
+
+// (list) List of available server types.
+func (o GetDatacenterResultOutput) AvailableServerTypeIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetDatacenterResult) []int { return v.AvailableServerTypeIds }).(pulumi.IntArrayOutput)
+}
+
+// (string) Description of the datacenter.
+func (o GetDatacenterResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatacenterResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// (int) Unique ID of the datacenter.
+func (o GetDatacenterResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDatacenterResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (map) Physical datacenter location.
+func (o GetDatacenterResultOutput) Location() pulumi.MapOutput {
+	return o.ApplyT(func(v GetDatacenterResult) map[string]interface{} { return v.Location }).(pulumi.MapOutput)
+}
+
+// (string) Name of the datacenter.
+func (o GetDatacenterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatacenterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (list) List of server types supported by the datacenter.
+func (o GetDatacenterResultOutput) SupportedServerTypeIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetDatacenterResult) []int { return v.SupportedServerTypeIds }).(pulumi.IntArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDatacenterResultOutput{})
 }

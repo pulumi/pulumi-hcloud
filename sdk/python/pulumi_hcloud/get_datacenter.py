@@ -12,6 +12,7 @@ __all__ = [
     'GetDatacenterResult',
     'AwaitableGetDatacenterResult',
     'get_datacenter',
+    'get_datacenter_output',
 ]
 
 @pulumi.output_type
@@ -139,3 +140,28 @@ def get_datacenter(id: Optional[int] = None,
         location=__ret__.location,
         name=__ret__.name,
         supported_server_type_ids=__ret__.supported_server_type_ids)
+
+
+@_utilities.lift_output_func(get_datacenter)
+def get_datacenter_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                          name: Optional[pulumi.Input[Optional[str]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatacenterResult]:
+    """
+    Provides details about a specific Hetzner Cloud Datacenter.
+    Use this resource to get detailed information about specific datacenter.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    ds1 = hcloud.get_datacenter(name="fsn1-dc8")
+    ds2 = hcloud.get_datacenter(id=4)
+    ```
+
+
+    :param int id: ID of the datacenter.
+    :param str name: Name of the datacenter.
+    """
+    ...

@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,62 @@ type GetServersResult struct {
 	Servers      []GetServersServer `pulumi:"servers"`
 	WithSelector *string            `pulumi:"withSelector"`
 	WithStatuses []string           `pulumi:"withStatuses"`
+}
+
+func GetServersOutput(ctx *pulumi.Context, args GetServersOutputArgs, opts ...pulumi.InvokeOption) GetServersResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetServersResult, error) {
+			args := v.(GetServersArgs)
+			r, err := GetServers(ctx, &args, opts...)
+			return *r, err
+		}).(GetServersResultOutput)
+}
+
+// A collection of arguments for invoking getServers.
+type GetServersOutputArgs struct {
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+	// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`
+}
+
+func (GetServersOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServersArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServers.
+type GetServersResultOutput struct{ *pulumi.OutputState }
+
+func (GetServersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServersResult)(nil)).Elem()
+}
+
+func (o GetServersResultOutput) ToGetServersResultOutput() GetServersResultOutput {
+	return o
+}
+
+func (o GetServersResultOutput) ToGetServersResultOutputWithContext(ctx context.Context) GetServersResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetServersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (list) List of all matching servers. See `data.hcloud_server` for schema.
+func (o GetServersResultOutput) Servers() GetServersServerArrayOutput {
+	return o.ApplyT(func(v GetServersResult) []GetServersServer { return v.Servers }).(GetServersServerArrayOutput)
+}
+
+func (o GetServersResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServersResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func (o GetServersResultOutput) WithStatuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServersResult) []string { return v.WithStatuses }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetServersResultOutput{})
 }

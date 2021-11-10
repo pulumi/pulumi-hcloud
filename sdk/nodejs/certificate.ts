@@ -100,24 +100,24 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
-    readonly certificate?: pulumi.Input<string>;
-    readonly created?: pulumi.Input<string>;
-    readonly domainNames?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly fingerprint?: pulumi.Input<string>;
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
-    readonly name?: pulumi.Input<string>;
-    readonly notValidAfter?: pulumi.Input<string>;
-    readonly notValidBefore?: pulumi.Input<string>;
-    readonly privateKey?: pulumi.Input<string>;
-    readonly type?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string>;
+    created?: pulumi.Input<string>;
+    domainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    fingerprint?: pulumi.Input<string>;
+    labels?: pulumi.Input<{[key: string]: any}>;
+    name?: pulumi.Input<string>;
+    notValidAfter?: pulumi.Input<string>;
+    notValidBefore?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    readonly certificate: pulumi.Input<string>;
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
-    readonly name?: pulumi.Input<string>;
-    readonly privateKey: pulumi.Input<string>;
+    certificate: pulumi.Input<string>;
+    labels?: pulumi.Input<{[key: string]: any}>;
+    name?: pulumi.Input<string>;
+    privateKey: pulumi.Input<string>;
 }

@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,75 @@ type GetLocationsResult struct {
 	//
 	// Deprecated: Use locations list instead
 	Names []string `pulumi:"names"`
+}
+
+func GetLocationsOutput(ctx *pulumi.Context, args GetLocationsOutputArgs, opts ...pulumi.InvokeOption) GetLocationsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLocationsResult, error) {
+			args := v.(GetLocationsArgs)
+			r, err := GetLocations(ctx, &args, opts...)
+			return *r, err
+		}).(GetLocationsResultOutput)
+}
+
+// A collection of arguments for invoking getLocations.
+type GetLocationsOutputArgs struct {
+	// (list) List of unique location identifiers.
+	//
+	// Deprecated: Use locations list instead
+	LocationIds pulumi.StringArrayInput `pulumi:"locationIds"`
+}
+
+func (GetLocationsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLocations.
+type GetLocationsResultOutput struct{ *pulumi.OutputState }
+
+func (GetLocationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationsResult)(nil)).Elem()
+}
+
+func (o GetLocationsResultOutput) ToGetLocationsResultOutput() GetLocationsResultOutput {
+	return o
+}
+
+func (o GetLocationsResultOutput) ToGetLocationsResultOutputWithContext(ctx context.Context) GetLocationsResultOutput {
+	return o
+}
+
+// (list) List of all location descriptions.
+//
+// Deprecated: Use locations list instead
+func (o GetLocationsResultOutput) Descriptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationsResult) []string { return v.Descriptions }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLocationsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (list) List of unique location identifiers.
+//
+// Deprecated: Use locations list instead
+func (o GetLocationsResultOutput) LocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationsResult) []string { return v.LocationIds }).(pulumi.StringArrayOutput)
+}
+
+// (list) List of all locations. See `data.hcloud_location` for schema.
+func (o GetLocationsResultOutput) Locations() GetLocationsLocationArrayOutput {
+	return o.ApplyT(func(v GetLocationsResult) []GetLocationsLocation { return v.Locations }).(GetLocationsLocationArrayOutput)
+}
+
+// (list) List of location names.
+//
+// Deprecated: Use locations list instead
+func (o GetLocationsResultOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLocationsResultOutput{})
 }

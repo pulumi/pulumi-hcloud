@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +29,7 @@ import (
 // 			return err
 // 		}
 // 		opt0 := "key=value"
-// 		_, err = hcloud.LookupNetwork(ctx, &hcloud.LookupNetworkArgs{
+// 		_, err = hcloud.LookupNetwork(ctx, &GetNetworkArgs{
 // 			WithSelector: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -58,4 +61,56 @@ type GetNetworksResult struct {
 	// (list) List of all matching networks. See `data.hcloud_network` for schema.
 	Networks     []GetNetworksNetwork `pulumi:"networks"`
 	WithSelector *string              `pulumi:"withSelector"`
+}
+
+func GetNetworksOutput(ctx *pulumi.Context, args GetNetworksOutputArgs, opts ...pulumi.InvokeOption) GetNetworksResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetNetworksResult, error) {
+			args := v.(GetNetworksArgs)
+			r, err := GetNetworks(ctx, &args, opts...)
+			return *r, err
+		}).(GetNetworksResultOutput)
+}
+
+// A collection of arguments for invoking getNetworks.
+type GetNetworksOutputArgs struct {
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (GetNetworksOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworksArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNetworks.
+type GetNetworksResultOutput struct{ *pulumi.OutputState }
+
+func (GetNetworksResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworksResult)(nil)).Elem()
+}
+
+func (o GetNetworksResultOutput) ToGetNetworksResultOutput() GetNetworksResultOutput {
+	return o
+}
+
+func (o GetNetworksResultOutput) ToGetNetworksResultOutputWithContext(ctx context.Context) GetNetworksResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetNetworksResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (list) List of all matching networks. See `data.hcloud_network` for schema.
+func (o GetNetworksResultOutput) Networks() GetNetworksNetworkArrayOutput {
+	return o.ApplyT(func(v GetNetworksResult) []GetNetworksNetwork { return v.Networks }).(GetNetworksNetworkArrayOutput)
+}
+
+func (o GetNetworksResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNetworksResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetNetworksResultOutput{})
 }

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
@@ -31,27 +30,27 @@ export interface GetServerArgs {
     /**
      * ID of the server.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * Name of the server.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * (Optional, string) Placement Group ID the server is assigned to.
      */
-    readonly placementGroupId?: number;
+    placementGroupId?: number;
     /**
      * @deprecated Please use the with_selector property instead.
      */
-    readonly selector?: string;
+    selector?: string;
     /**
      * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
      */
-    readonly withSelector?: string;
+    withSelector?: string;
     /**
      * List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
      */
-    readonly withStatuses?: string[];
+    withStatuses?: string[];
 }
 
 /**
@@ -137,4 +136,38 @@ export interface GetServerResult {
     readonly status: string;
     readonly withSelector?: string;
     readonly withStatuses?: string[];
+}
+
+export function getServerOutput(args?: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+    return pulumi.output(args).apply(a => getServer(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServer.
+ */
+export interface GetServerOutputArgs {
+    /**
+     * ID of the server.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * Name of the server.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * (Optional, string) Placement Group ID the server is assigned to.
+     */
+    placementGroupId?: pulumi.Input<number>;
+    /**
+     * @deprecated Please use the with_selector property instead.
+     */
+    selector?: pulumi.Input<string>;
+    /**
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     */
+    withSelector?: pulumi.Input<string>;
+    /**
+     * List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+     */
+    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
 }

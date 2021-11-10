@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +29,7 @@ import (
 // 			return err
 // 		}
 // 		opt0 := "key=value"
-// 		_, err = hcloud.GetLoadBalancers(ctx, &hcloud.GetLoadBalancersArgs{
+// 		_, err = hcloud.GetLoadBalancers(ctx, &GetLoadBalancersArgs{
 // 			WithSelector: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -58,4 +61,56 @@ type GetLoadBalancersResult struct {
 	// (list) List of all matching load balancers. See `data.hcloud_load_balancer` for schema.
 	LoadBalancers []GetLoadBalancersLoadBalancer `pulumi:"loadBalancers"`
 	WithSelector  *string                        `pulumi:"withSelector"`
+}
+
+func GetLoadBalancersOutput(ctx *pulumi.Context, args GetLoadBalancersOutputArgs, opts ...pulumi.InvokeOption) GetLoadBalancersResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLoadBalancersResult, error) {
+			args := v.(GetLoadBalancersArgs)
+			r, err := GetLoadBalancers(ctx, &args, opts...)
+			return *r, err
+		}).(GetLoadBalancersResultOutput)
+}
+
+// A collection of arguments for invoking getLoadBalancers.
+type GetLoadBalancersOutputArgs struct {
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (GetLoadBalancersOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancersArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLoadBalancers.
+type GetLoadBalancersResultOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancersResult)(nil)).Elem()
+}
+
+func (o GetLoadBalancersResultOutput) ToGetLoadBalancersResultOutput() GetLoadBalancersResultOutput {
+	return o
+}
+
+func (o GetLoadBalancersResultOutput) ToGetLoadBalancersResultOutputWithContext(ctx context.Context) GetLoadBalancersResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLoadBalancersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (list) List of all matching load balancers. See `data.hcloud_load_balancer` for schema.
+func (o GetLoadBalancersResultOutput) LoadBalancers() GetLoadBalancersLoadBalancerArrayOutput {
+	return o.ApplyT(func(v GetLoadBalancersResult) []GetLoadBalancersLoadBalancer { return v.LoadBalancers }).(GetLoadBalancersLoadBalancerArrayOutput)
+}
+
+func (o GetLoadBalancersResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancersResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLoadBalancersResultOutput{})
 }

@@ -12,6 +12,7 @@ __all__ = [
     'GetNetworkResult',
     'AwaitableGetNetworkResult',
     'get_network',
+    'get_network_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,22 @@ def get_network(id: Optional[int] = None,
         most_recent=__ret__.most_recent,
         name=__ret__.name,
         with_selector=__ret__.with_selector)
+
+
+@_utilities.lift_output_func(get_network)
+def get_network_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                       ip_range: Optional[pulumi.Input[Optional[str]]] = None,
+                       labels: Optional[pulumi.Input[Optional[Mapping[str, Any]]]] = None,
+                       most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                       name: Optional[pulumi.Input[Optional[str]]] = None,
+                       with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param int id: ID of the Network.
+    :param str ip_range: IPv4 prefix of the Network.
+    :param str name: Name of the Network.
+    :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    """
+    ...

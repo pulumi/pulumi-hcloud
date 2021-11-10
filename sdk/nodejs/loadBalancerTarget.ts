@@ -137,33 +137,33 @@ export interface LoadBalancerTargetState {
      * IP address for an IP Target. Required if
      * `type` is `ip`.
      */
-    readonly ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
     /**
      * Label Selector selecting targets
      * for this Load Balancer. Required if `type` is `labelSelector`.
      */
-    readonly labelSelector?: pulumi.Input<string>;
+    labelSelector?: pulumi.Input<string>;
     /**
      * ID of the Load Balancer to which
      * the target gets attached.
      */
-    readonly loadBalancerId?: pulumi.Input<number>;
+    loadBalancerId?: pulumi.Input<number>;
     /**
      * ID of the server which should be a
      * target for this Load Balancer. Required if `type` is `server`
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
     /**
      * Type of the target. Possible values
      * `server`, `labelSelector`, `ip`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * use the private IP to connect to
      * Load Balancer targets. Only allowed if type is `server` or
      * `labelSelector`.
      */
-    readonly usePrivateIp?: pulumi.Input<boolean>;
+    usePrivateIp?: pulumi.Input<boolean>;
 }
 
 /**
@@ -174,31 +174,31 @@ export interface LoadBalancerTargetArgs {
      * IP address for an IP Target. Required if
      * `type` is `ip`.
      */
-    readonly ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
     /**
      * Label Selector selecting targets
      * for this Load Balancer. Required if `type` is `labelSelector`.
      */
-    readonly labelSelector?: pulumi.Input<string>;
+    labelSelector?: pulumi.Input<string>;
     /**
      * ID of the Load Balancer to which
      * the target gets attached.
      */
-    readonly loadBalancerId: pulumi.Input<number>;
+    loadBalancerId: pulumi.Input<number>;
     /**
      * ID of the server which should be a
      * target for this Load Balancer. Required if `type` is `server`
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
     /**
      * Type of the target. Possible values
      * `server`, `labelSelector`, `ip`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * use the private IP to connect to
      * Load Balancer targets. Only allowed if type is `server` or
      * `labelSelector`.
      */
-    readonly usePrivateIp?: pulumi.Input<boolean>;
+    usePrivateIp?: pulumi.Input<boolean>;
 }

@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "key=value"
-// 		_, err := hcloud.GetCertificates(ctx, &hcloud.GetCertificatesArgs{
+// 		_, err := hcloud.GetCertificates(ctx, &GetCertificatesArgs{
 // 			WithSelector: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -54,4 +57,56 @@ type GetCertificatesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id           string  `pulumi:"id"`
 	WithSelector *string `pulumi:"withSelector"`
+}
+
+func GetCertificatesOutput(ctx *pulumi.Context, args GetCertificatesOutputArgs, opts ...pulumi.InvokeOption) GetCertificatesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetCertificatesResult, error) {
+			args := v.(GetCertificatesArgs)
+			r, err := GetCertificates(ctx, &args, opts...)
+			return *r, err
+		}).(GetCertificatesResultOutput)
+}
+
+// A collection of arguments for invoking getCertificates.
+type GetCertificatesOutputArgs struct {
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (GetCertificatesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificatesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificates.
+type GetCertificatesResultOutput struct{ *pulumi.OutputState }
+
+func (GetCertificatesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificatesResult)(nil)).Elem()
+}
+
+func (o GetCertificatesResultOutput) ToGetCertificatesResultOutput() GetCertificatesResultOutput {
+	return o
+}
+
+func (o GetCertificatesResultOutput) ToGetCertificatesResultOutputWithContext(ctx context.Context) GetCertificatesResultOutput {
+	return o
+}
+
+// (list) List of all matching certificates. See `data.hcloud_certificate` for schema.
+func (o GetCertificatesResultOutput) Certificates() GetCertificatesCertificateArrayOutput {
+	return o.ApplyT(func(v GetCertificatesResult) []GetCertificatesCertificate { return v.Certificates }).(GetCertificatesCertificateArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCertificatesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificatesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCertificatesResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificatesResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCertificatesResultOutput{})
 }

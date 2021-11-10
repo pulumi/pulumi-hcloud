@@ -14,10 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const image2 = pulumi.output(hcloud.getImages({ async: true }));
+ * const image2 = pulumi.output(hcloud.getImages());
  * const image3 = pulumi.output(hcloud.getImages({
  *     withSelector: "key=value",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getImages(args?: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
@@ -43,15 +43,15 @@ export interface GetImagesArgs {
     /**
      * Sorts list by date.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
     /**
      * List only images with the specified status, could contain `creating` or `available`.
      */
-    readonly withStatuses?: string[];
+    withStatuses?: string[];
 }
 
 /**
@@ -69,4 +69,26 @@ export interface GetImagesResult {
     readonly mostRecent?: boolean;
     readonly withSelector?: string;
     readonly withStatuses?: string[];
+}
+
+export function getImagesOutput(args?: GetImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagesResult> {
+    return pulumi.output(args).apply(a => getImages(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getImages.
+ */
+export interface GetImagesOutputArgs {
+    /**
+     * Sorts list by date.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
+    /**
+     * List only images with the specified status, could contain `creating` or `available`.
+     */
+    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -37,6 +38,33 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Firewall.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sampleFirewall1 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs
+        ///         {
+        ///             Name = "sample-firewall-1",
+        ///         }));
+        ///         var sampleFirewall2 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs
+        ///         {
+        ///             Id = 4711,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// </summary>
+        public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithVersion());
     }
 
 
@@ -103,6 +131,73 @@ namespace Pulumi.HCloud
         public string? WithSelector { get; set; }
 
         public GetFirewallArgs()
+        {
+        }
+    }
+
+    public sealed class GetFirewallInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("applyTos")]
+        private InputList<Inputs.GetFirewallApplyToInputArgs>? _applyTos;
+
+        /// <summary>
+        /// Configuration of the Applied Resources
+        /// </summary>
+        public InputList<Inputs.GetFirewallApplyToInputArgs> ApplyTos
+        {
+            get => _applyTos ?? (_applyTos = new InputList<Inputs.GetFirewallApplyToInputArgs>());
+            set => _applyTos = value;
+        }
+
+        /// <summary>
+        /// ID of the firewall.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        [Input("labels")]
+        private InputMap<object>? _labels;
+
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs)
+        /// </summary>
+        public InputMap<object> Labels
+        {
+            get => _labels ?? (_labels = new InputMap<object>());
+            set => _labels = value;
+        }
+
+        /// <summary>
+        /// Return most recent firewall if multiple are found.
+        /// </summary>
+        [Input("mostRecent")]
+        public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// Name of the firewall.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("rules")]
+        private InputList<Inputs.GetFirewallRuleInputArgs>? _rules;
+
+        /// <summary>
+        /// (string)  Configuration of a Rule from this Firewall.
+        /// </summary>
+        public InputList<Inputs.GetFirewallRuleInputArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.GetFirewallRuleInputArgs>());
+            set => _rules = value;
+        }
+
+        /// <summary>
+        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// </summary>
+        [Input("withSelector")]
+        public Input<string>? WithSelector { get; set; }
+
+        public GetFirewallInvokeArgs()
         {
         }
     }

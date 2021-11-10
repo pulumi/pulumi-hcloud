@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const ip2 = pulumi.output(hcloud.getFloatingIps({
  *     withSelector: "key=value",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getFloatingIps(args?: GetFloatingIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpsResult> {
@@ -40,7 +40,7 @@ export interface GetFloatingIpsArgs {
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -56,4 +56,18 @@ export interface GetFloatingIpsResult {
      */
     readonly id: string;
     readonly withSelector?: string;
+}
+
+export function getFloatingIpsOutput(args?: GetFloatingIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpsResult> {
+    return pulumi.output(args).apply(a => getFloatingIps(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFloatingIps.
+ */
+export interface GetFloatingIpsOutputArgs {
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

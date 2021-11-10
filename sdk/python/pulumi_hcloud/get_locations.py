@@ -13,6 +13,7 @@ __all__ = [
     'GetLocationsResult',
     'AwaitableGetLocationsResult',
     'get_locations',
+    'get_locations_output',
 ]
 
 @pulumi.output_type
@@ -109,21 +110,6 @@ def get_locations(location_ids: Optional[Sequence[str]] = None,
     Provides a list of available Hetzner Cloud Locations.
     This resource may be useful to create highly available infrastructure, distributed across several locations.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds = hcloud.get_locations()
-    workers = []
-    for range in [{"value": i} for i in range(0, 3)]:
-        workers.append(hcloud.Server(f"workers-{range['value']}",
-            image="debian-9",
-            server_type="cx31",
-            location=ds.names[range["value"]]))
-    ```
-
 
     :param Sequence[str] location_ids: (list) List of unique location identifiers.
     """
@@ -141,3 +127,16 @@ def get_locations(location_ids: Optional[Sequence[str]] = None,
         location_ids=__ret__.location_ids,
         locations=__ret__.locations,
         names=__ret__.names)
+
+
+@_utilities.lift_output_func(get_locations)
+def get_locations_output(location_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationsResult]:
+    """
+    Provides a list of available Hetzner Cloud Locations.
+    This resource may be useful to create highly available infrastructure, distributed across several locations.
+
+
+    :param Sequence[str] location_ids: (list) List of unique location identifiers.
+    """
+    ...

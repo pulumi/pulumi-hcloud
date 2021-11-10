@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,14 +23,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "sample-certificate-1"
-// 		_, err := hcloud.LookupCertificate(ctx, &hcloud.LookupCertificateArgs{
+// 		_, err := hcloud.LookupCertificate(ctx, &GetCertificateArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		opt1 := 4711
-// 		_, err = hcloud.LookupCertificate(ctx, &hcloud.LookupCertificateArgs{
+// 		_, err = hcloud.LookupCertificate(ctx, &GetCertificateArgs{
 // 			Id: &opt1,
 // 		}, nil)
 // 		if err != nil {
@@ -78,4 +81,99 @@ type LookupCertificateResult struct {
 	NotValidBefore string  `pulumi:"notValidBefore"`
 	Type           string  `pulumi:"type"`
 	WithSelector   *string `pulumi:"withSelector"`
+}
+
+func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+			args := v.(LookupCertificateArgs)
+			r, err := LookupCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCertificateResultOutput)
+}
+
+// A collection of arguments for invoking getCertificate.
+type LookupCertificateOutputArgs struct {
+	// ID of the certificate.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Name of the certificate.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (LookupCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificate.
+type LookupCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateResult)(nil)).Elem()
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
+	return o
+}
+
+// (string) PEM encoded TLS certificate.
+func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
+func (o LookupCertificateResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// (list) Domains and subdomains covered by the certificate.
+func (o LookupCertificateResultOutput) DomainNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupCertificateResult) []string { return v.DomainNames }).(pulumi.StringArrayOutput)
+}
+
+// (string) Fingerprint of the certificate.
+func (o LookupCertificateResultOutput) Fingerprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Fingerprint }).(pulumi.StringOutput)
+}
+
+// (int) Unique ID of the certificate.
+func (o LookupCertificateResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCertificateResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (map) User-defined labels (key-value pairs) assigned to the certificate.
+func (o LookupCertificateResultOutput) Labels() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupCertificateResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+}
+
+// (string) Name of the Certificate.
+func (o LookupCertificateResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
+func (o LookupCertificateResultOutput) NotValidAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.NotValidAfter }).(pulumi.StringOutput)
+}
+
+// (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
+func (o LookupCertificateResultOutput) NotValidBefore() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.NotValidBefore }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCertificateResultOutput{})
 }

@@ -529,3 +529,4 @@ export interface ServerNetwork {
      */
     networkId: number;
 }
+

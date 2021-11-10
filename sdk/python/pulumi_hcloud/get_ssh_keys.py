@@ -13,6 +13,7 @@ __all__ = [
     'GetSshKeysResult',
     'AwaitableGetSshKeysResult',
     'get_ssh_keys',
+    'get_ssh_keys_output',
 ]
 
 @pulumi.output_type
@@ -83,3 +84,14 @@ def get_ssh_keys(with_selector: Optional[str] = None,
         id=__ret__.id,
         ssh_keys=__ret__.ssh_keys,
         with_selector=__ret__.with_selector)
+
+
+@_utilities.lift_output_func(get_ssh_keys)
+def get_ssh_keys_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeysResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    """
+    ...

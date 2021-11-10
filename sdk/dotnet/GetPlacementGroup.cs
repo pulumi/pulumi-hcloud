@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -37,6 +38,33 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Placement Group.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var samplePlacementGroup1 = Output.Create(HCloud.GetPlacementGroup.InvokeAsync(new HCloud.GetPlacementGroupArgs
+        ///         {
+        ///             Name = "sample-placement-group-1",
+        ///         }));
+        ///         var samplePlacementGroup2 = Output.Create(HCloud.GetPlacementGroup.InvokeAsync(new HCloud.GetPlacementGroupArgs
+        ///         {
+        ///             Id = 4711,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// </summary>
+        public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -85,6 +113,55 @@ namespace Pulumi.HCloud
         public string? WithSelector { get; set; }
 
         public GetPlacementGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetPlacementGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID of the placement group.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        [Input("labels")]
+        private InputMap<object>? _labels;
+
+        /// <summary>
+        /// (map) User-defined labels (key-value pairs)
+        /// </summary>
+        public InputMap<object> Labels
+        {
+            get => _labels ?? (_labels = new InputMap<object>());
+            set => _labels = value;
+        }
+
+        /// <summary>
+        /// Return most recent placement group if multiple are found.
+        /// </summary>
+        [Input("mostRecent")]
+        public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// Name of the placement group.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// (string)  Type of the Placement Group.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// </summary>
+        [Input("withSelector")]
+        public Input<string>? WithSelector { get; set; }
+
+        public GetPlacementGroupInvokeArgs()
         {
         }
     }

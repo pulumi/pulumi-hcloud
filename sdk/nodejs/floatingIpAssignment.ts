@@ -113,11 +113,11 @@ export interface FloatingIpAssignmentState {
     /**
      * ID of the Floating IP.
      */
-    readonly floatingIpId?: pulumi.Input<number>;
+    floatingIpId?: pulumi.Input<number>;
     /**
      * Server to assign the Floating IP to.
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
 }
 
 /**
@@ -127,9 +127,9 @@ export interface FloatingIpAssignmentArgs {
     /**
      * ID of the Floating IP.
      */
-    readonly floatingIpId: pulumi.Input<number>;
+    floatingIpId: pulumi.Input<number>;
     /**
      * Server to assign the Floating IP to.
      */
-    readonly serverId: pulumi.Input<number>;
+    serverId: pulumi.Input<number>;
 }

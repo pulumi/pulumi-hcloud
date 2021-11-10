@@ -10,23 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class GetFirewallRuleInputArgs : Pulumi.ResourceArgs
+    public sealed class GetFirewallRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// (Optional, string) Description of the firewall rule
         /// </summary>
         [Input("description")]
-        public Input<string>? Description { get; set; }
+        public string? Description { get; set; }
 
         [Input("destinationIps")]
-        private InputList<string>? _destinationIps;
+        private List<string>? _destinationIps;
 
         /// <summary>
         /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
         /// </summary>
-        public InputList<string> DestinationIps
+        public List<string> DestinationIps
         {
-            get => _destinationIps ?? (_destinationIps = new InputList<string>());
+            get => _destinationIps ?? (_destinationIps = new List<string>());
             set => _destinationIps = value;
         }
 
@@ -34,33 +34,33 @@ namespace Pulumi.HCloud.Inputs
         /// (Required, string) Direction of the Firewall Rule. `in`, `out`
         /// </summary>
         [Input("direction", required: true)]
-        public Input<string> Direction { get; set; } = null!;
+        public string Direction { get; set; } = null!;
 
         /// <summary>
         /// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
         /// </summary>
         [Input("port")]
-        public Input<string>? Port { get; set; }
+        public string? Port { get; set; }
 
         /// <summary>
         /// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public string? Protocol { get; set; }
 
         [Input("sourceIps")]
-        private InputList<string>? _sourceIps;
+        private List<string>? _sourceIps;
 
         /// <summary>
         /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
         /// </summary>
-        public InputList<string> SourceIps
+        public List<string> SourceIps
         {
-            get => _sourceIps ?? (_sourceIps = new InputList<string>());
+            get => _sourceIps ?? (_sourceIps = new List<string>());
             set => _sourceIps = value;
         }
 
-        public GetFirewallRuleInputArgs()
+        public GetFirewallRuleArgs()
         {
         }
     }

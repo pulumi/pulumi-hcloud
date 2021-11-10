@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -17,10 +16,10 @@ import * as utilities from "./utilities";
  *
  * const ds1 = pulumi.output(hcloud.getServerType({
  *     name: "cx11",
- * }, { async: true }));
+ * }));
  * const ds2 = pulumi.output(hcloud.getServerType({
  *     id: 1,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getServerType(args?: GetServerTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypeResult> {
@@ -45,11 +44,11 @@ export interface GetServerTypeArgs {
     /**
      * ID of the server_type.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * Name of the server_type.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**
@@ -82,4 +81,22 @@ export interface GetServerTypeResult {
      */
     readonly name: string;
     readonly storageType: string;
+}
+
+export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypeResult> {
+    return pulumi.output(args).apply(a => getServerType(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServerType.
+ */
+export interface GetServerTypeOutputArgs {
+    /**
+     * ID of the server_type.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * Name of the server_type.
+     */
+    name?: pulumi.Input<string>;
 }

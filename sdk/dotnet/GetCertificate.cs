@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -37,6 +38,33 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("hcloud:index/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Certificate.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sampleCertificate1 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs
+        ///         {
+        ///             Name = "sample-certificate-1",
+        ///         }));
+        ///         var sampleCertificate2 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs
+        ///         {
+        ///             Id = 4711,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("hcloud:index/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +89,31 @@ namespace Pulumi.HCloud
         public string? WithSelector { get; set; }
 
         public GetCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID of the certificate.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// Name of the certificate.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// </summary>
+        [Input("withSelector")]
+        public Input<string>? WithSelector { get; set; }
+
+        public GetCertificateInvokeArgs()
         {
         }
     }

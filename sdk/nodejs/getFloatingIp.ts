@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -60,23 +59,23 @@ export interface GetFloatingIpArgs {
     /**
      * ID of the Floating IP.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * IP address of the Floating IP.
      */
-    readonly ipAddress?: string;
+    ipAddress?: string;
     /**
      * Name of the Floating IP.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
-    readonly selector?: string;
+    selector?: string;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -128,4 +127,34 @@ export interface GetFloatingIpResult {
      */
     readonly type: string;
     readonly withSelector?: string;
+}
+
+export function getFloatingIpOutput(args?: GetFloatingIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpResult> {
+    return pulumi.output(args).apply(a => getFloatingIp(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFloatingIp.
+ */
+export interface GetFloatingIpOutputArgs {
+    /**
+     * ID of the Floating IP.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * IP address of the Floating IP.
+     */
+    ipAddress?: pulumi.Input<string>;
+    /**
+     * Name of the Floating IP.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * @deprecated Please use the with_selector property instead.
+     */
+    selector?: pulumi.Input<string>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

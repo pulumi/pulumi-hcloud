@@ -13,6 +13,7 @@ __all__ = [
     'GetFloatingIpsResult',
     'AwaitableGetFloatingIpsResult',
     'get_floating_ips',
+    'get_floating_ips_output',
 ]
 
 @pulumi.output_type
@@ -93,3 +94,24 @@ def get_floating_ips(with_selector: Optional[str] = None,
         floating_ips=__ret__.floating_ips,
         id=__ret__.id,
         with_selector=__ret__.with_selector)
+
+
+@_utilities.lift_output_func(get_floating_ips)
+def get_floating_ips_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFloatingIpsResult]:
+    """
+    Provides details about multiple Hetzner Cloud Floating IPs.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    ip2 = hcloud.get_floating_ips(with_selector="key=value")
+    ```
+
+
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    """
+    ...

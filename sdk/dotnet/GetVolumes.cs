@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -41,6 +42,37 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Task<GetVolumesResult> InvokeAsync(GetVolumesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about multiple Hetzner Cloud volumes.
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var volume_ = Output.Create(HCloud.GetVolumes.InvokeAsync());
+        ///         var volume3 = Output.Create(HCloud.GetVolumes.InvokeAsync(new HCloud.GetVolumesArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVolumesResult> Invoke(GetVolumesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.HCloud
         }
 
         public GetVolumesArgs()
+        {
+        }
+    }
+
+    public sealed class GetVolumesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// </summary>
+        [Input("withSelector")]
+        public Input<string>? WithSelector { get; set; }
+
+        [Input("withStatuses")]
+        private InputList<string>? _withStatuses;
+
+        /// <summary>
+        /// List only volumes with the specified status, could contain `creating` or `available`.
+        /// </summary>
+        public InputList<string> WithStatuses
+        {
+            get => _withStatuses ?? (_withStatuses = new InputList<string>());
+            set => _withStatuses = value;
+        }
+
+        public GetVolumesInvokeArgs()
         {
         }
     }

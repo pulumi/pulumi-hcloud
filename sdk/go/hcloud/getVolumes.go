@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +29,7 @@ import (
 // 			return err
 // 		}
 // 		opt0 := "key=value"
-// 		_, err = hcloud.GetVolumes(ctx, &hcloud.GetVolumesArgs{
+// 		_, err = hcloud.GetVolumes(ctx, &GetVolumesArgs{
 // 			WithSelector: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -61,4 +64,62 @@ type GetVolumesResult struct {
 	Volumes      []GetVolumesVolume `pulumi:"volumes"`
 	WithSelector *string            `pulumi:"withSelector"`
 	WithStatuses []string           `pulumi:"withStatuses"`
+}
+
+func GetVolumesOutput(ctx *pulumi.Context, args GetVolumesOutputArgs, opts ...pulumi.InvokeOption) GetVolumesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVolumesResult, error) {
+			args := v.(GetVolumesArgs)
+			r, err := GetVolumes(ctx, &args, opts...)
+			return *r, err
+		}).(GetVolumesResultOutput)
+}
+
+// A collection of arguments for invoking getVolumes.
+type GetVolumesOutputArgs struct {
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+	// List only volumes with the specified status, could contain `creating` or `available`.
+	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`
+}
+
+func (GetVolumesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVolumes.
+type GetVolumesResultOutput struct{ *pulumi.OutputState }
+
+func (GetVolumesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumesResult)(nil)).Elem()
+}
+
+func (o GetVolumesResultOutput) ToGetVolumesResultOutput() GetVolumesResultOutput {
+	return o
+}
+
+func (o GetVolumesResultOutput) ToGetVolumesResultOutputWithContext(ctx context.Context) GetVolumesResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetVolumesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (list) List of all matching volumes. See `data.hcloud_volume` for schema.
+func (o GetVolumesResultOutput) Volumes() GetVolumesVolumeArrayOutput {
+	return o.ApplyT(func(v GetVolumesResult) []GetVolumesVolume { return v.Volumes }).(GetVolumesVolumeArrayOutput)
+}
+
+func (o GetVolumesResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVolumesResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func (o GetVolumesResultOutput) WithStatuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVolumesResult) []string { return v.WithStatuses }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVolumesResultOutput{})
 }

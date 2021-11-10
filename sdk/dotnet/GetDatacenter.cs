@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -44,6 +45,40 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Task<GetDatacenterResult> InvokeAsync(GetDatacenterArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatacenterResult>("hcloud:index/getDatacenter:getDatacenter", args ?? new GetDatacenterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Datacenter.
+        /// Use this resource to get detailed information about specific datacenter.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ds1 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs
+        ///         {
+        ///             Name = "fsn1-dc8",
+        ///         }));
+        ///         var ds2 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs
+        ///         {
+        ///             Id = 4,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDatacenterResult> Invoke(GetDatacenterInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatacenterResult>("hcloud:index/getDatacenter:getDatacenter", args ?? new GetDatacenterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -62,6 +97,25 @@ namespace Pulumi.HCloud
         public string? Name { get; set; }
 
         public GetDatacenterArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatacenterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID of the datacenter.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// Name of the datacenter.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetDatacenterInvokeArgs()
         {
         }
     }

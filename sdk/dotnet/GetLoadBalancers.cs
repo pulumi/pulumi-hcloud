@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -40,6 +41,36 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Task<GetLoadBalancersResult> InvokeAsync(GetLoadBalancersArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancersResult>("hcloud:index/getLoadBalancers:getLoadBalancers", args ?? new GetLoadBalancersArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about multiple Hetzner Cloud Load Balancers.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var lb2 = Output.Create(HCloud.GetLoadBalancers.InvokeAsync());
+        ///         var lb3 = Output.Create(HCloud.GetLoadBalancers.InvokeAsync(new HCloud.GetLoadBalancersArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLoadBalancersResult> Invoke(GetLoadBalancersInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancersResult>("hcloud:index/getLoadBalancers:getLoadBalancers", args ?? new GetLoadBalancersInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +83,19 @@ namespace Pulumi.HCloud
         public string? WithSelector { get; set; }
 
         public GetLoadBalancersArgs()
+        {
+        }
+    }
+
+    public sealed class GetLoadBalancersInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// </summary>
+        [Input("withSelector")]
+        public Input<string>? WithSelector { get; set; }
+
+        public GetLoadBalancersInvokeArgs()
         {
         }
     }

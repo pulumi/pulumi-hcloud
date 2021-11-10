@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const sampleCertificate1 = pulumi.output(hcloud.getCertificates({
  *     withSelector: "key=value",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCertificates(args?: GetCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificatesResult> {
@@ -40,7 +40,7 @@ export interface GetCertificatesArgs {
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -56,4 +56,18 @@ export interface GetCertificatesResult {
      */
     readonly id: string;
     readonly withSelector?: string;
+}
+
+export function getCertificatesOutput(args?: GetCertificatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificatesResult> {
+    return pulumi.output(args).apply(a => getCertificates(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCertificates.
+ */
+export interface GetCertificatesOutputArgs {
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

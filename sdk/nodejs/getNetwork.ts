@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 export function getNetwork(args?: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
@@ -31,21 +30,21 @@ export interface GetNetworkArgs {
     /**
      * ID of the Network.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * IPv4 prefix of the Network.
      */
-    readonly ipRange?: string;
-    readonly labels?: {[key: string]: any};
-    readonly mostRecent?: boolean;
+    ipRange?: string;
+    labels?: {[key: string]: any};
+    mostRecent?: boolean;
     /**
      * Name of the Network.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -71,4 +70,32 @@ export interface GetNetworkResult {
      */
     readonly name?: string;
     readonly withSelector?: string;
+}
+
+export function getNetworkOutput(args?: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
+    return pulumi.output(args).apply(a => getNetwork(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNetwork.
+ */
+export interface GetNetworkOutputArgs {
+    /**
+     * ID of the Network.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * IPv4 prefix of the Network.
+     */
+    ipRange?: pulumi.Input<string>;
+    labels?: pulumi.Input<{[key: string]: any}>;
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Name of the Network.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     */
+    withSelector?: pulumi.Input<string>;
 }

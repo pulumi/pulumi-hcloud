@@ -138,41 +138,41 @@ export interface UploadedCertificateState {
     /**
      * PEM encoded TLS certificate.
      */
-    readonly certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string>;
     /**
      * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
      */
-    readonly created?: pulumi.Input<string>;
+    created?: pulumi.Input<string>;
     /**
      * (list) Domains and subdomains covered by the certificate.
      */
-    readonly domainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    domainNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (string) Fingerprint of the certificate.
      */
-    readonly fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string>;
     /**
      * User-defined labels (key-value pairs) the
      * certificate should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * Name of the Certificate.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
      */
-    readonly notValidAfter?: pulumi.Input<string>;
+    notValidAfter?: pulumi.Input<string>;
     /**
      * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
      */
-    readonly notValidBefore?: pulumi.Input<string>;
+    notValidBefore?: pulumi.Input<string>;
     /**
      * PEM encoded private key belonging to the certificate.
      */
-    readonly privateKey?: pulumi.Input<string>;
-    readonly type?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -182,18 +182,18 @@ export interface UploadedCertificateArgs {
     /**
      * PEM encoded TLS certificate.
      */
-    readonly certificate: pulumi.Input<string>;
+    certificate: pulumi.Input<string>;
     /**
      * User-defined labels (key-value pairs) the
      * certificate should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * Name of the Certificate.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * PEM encoded private key belonging to the certificate.
      */
-    readonly privateKey: pulumi.Input<string>;
+    privateKey: pulumi.Input<string>;
 }

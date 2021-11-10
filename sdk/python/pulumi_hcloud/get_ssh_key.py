@@ -12,6 +12,7 @@ __all__ = [
     'GetSshKeyResult',
     'AwaitableGetSshKeyResult',
     'get_ssh_key',
+    'get_ssh_key_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,21 @@ def get_ssh_key(fingerprint: Optional[str] = None,
         public_key=__ret__.public_key,
         selector=__ret__.selector,
         with_selector=__ret__.with_selector)
+
+
+@_utilities.lift_output_func(get_ssh_key)
+def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None,
+                       id: Optional[pulumi.Input[Optional[int]]] = None,
+                       name: Optional[pulumi.Input[Optional[str]]] = None,
+                       selector: Optional[pulumi.Input[Optional[str]]] = None,
+                       with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str fingerprint: Fingerprint of the SSH Key.
+    :param int id: ID of the SSH Key.
+    :param str name: Name of the SSH Key.
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    """
+    ...

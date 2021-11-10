@@ -233,7 +233,7 @@ type NetworkSubnetArrayInput interface {
 type NetworkSubnetArray []NetworkSubnetInput
 
 func (NetworkSubnetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkSubnet)(nil))
+	return reflect.TypeOf((*[]*NetworkSubnet)(nil)).Elem()
 }
 
 func (i NetworkSubnetArray) ToNetworkSubnetArrayOutput() NetworkSubnetArrayOutput {
@@ -258,7 +258,7 @@ type NetworkSubnetMapInput interface {
 type NetworkSubnetMap map[string]NetworkSubnetInput
 
 func (NetworkSubnetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkSubnet)(nil))
+	return reflect.TypeOf((*map[string]*NetworkSubnet)(nil)).Elem()
 }
 
 func (i NetworkSubnetMap) ToNetworkSubnetMapOutput() NetworkSubnetMapOutput {
@@ -269,9 +269,7 @@ func (i NetworkSubnetMap) ToNetworkSubnetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSubnetMapOutput)
 }
 
-type NetworkSubnetOutput struct {
-	*pulumi.OutputState
-}
+type NetworkSubnetOutput struct{ *pulumi.OutputState }
 
 func (NetworkSubnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkSubnet)(nil))
@@ -290,14 +288,12 @@ func (o NetworkSubnetOutput) ToNetworkSubnetPtrOutput() NetworkSubnetPtrOutput {
 }
 
 func (o NetworkSubnetOutput) ToNetworkSubnetPtrOutputWithContext(ctx context.Context) NetworkSubnetPtrOutput {
-	return o.ApplyT(func(v NetworkSubnet) *NetworkSubnet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkSubnet) *NetworkSubnet {
 		return &v
 	}).(NetworkSubnetPtrOutput)
 }
 
-type NetworkSubnetPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkSubnetPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkSubnetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkSubnet)(nil))
@@ -309,6 +305,16 @@ func (o NetworkSubnetPtrOutput) ToNetworkSubnetPtrOutput() NetworkSubnetPtrOutpu
 
 func (o NetworkSubnetPtrOutput) ToNetworkSubnetPtrOutputWithContext(ctx context.Context) NetworkSubnetPtrOutput {
 	return o
+}
+
+func (o NetworkSubnetPtrOutput) Elem() NetworkSubnetOutput {
+	return o.ApplyT(func(v *NetworkSubnet) NetworkSubnet {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkSubnet
+		return ret
+	}).(NetworkSubnetOutput)
 }
 
 type NetworkSubnetArrayOutput struct{ *pulumi.OutputState }
@@ -352,6 +358,10 @@ func (o NetworkSubnetMapOutput) MapIndex(k pulumi.StringInput) NetworkSubnetOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSubnetInput)(nil)).Elem(), &NetworkSubnet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSubnetPtrInput)(nil)).Elem(), &NetworkSubnet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSubnetArrayInput)(nil)).Elem(), NetworkSubnetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSubnetMapInput)(nil)).Elem(), NetworkSubnetMap{})
 	pulumi.RegisterOutputType(NetworkSubnetOutput{})
 	pulumi.RegisterOutputType(NetworkSubnetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkSubnetArrayOutput{})

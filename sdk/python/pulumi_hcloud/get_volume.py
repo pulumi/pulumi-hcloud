@@ -12,6 +12,7 @@ __all__ = [
     'GetVolumeResult',
     'AwaitableGetVolumeResult',
     'get_volume',
+    'get_volume_output',
 ]
 
 @pulumi.output_type
@@ -201,3 +202,25 @@ def get_volume(id: Optional[int] = None,
         size=__ret__.size,
         with_selector=__ret__.with_selector,
         with_statuses=__ret__.with_statuses)
+
+
+@_utilities.lift_output_func(get_volume)
+def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                      location: Optional[pulumi.Input[Optional[str]]] = None,
+                      name: Optional[pulumi.Input[Optional[str]]] = None,
+                      selector: Optional[pulumi.Input[Optional[str]]] = None,
+                      server_id: Optional[pulumi.Input[Optional[int]]] = None,
+                      with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                      with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param int id: ID of the volume.
+    :param str location: (string) The location name.
+    :param str name: Name of the volume.
+    :param int server_id: (Optional, int) Server ID the volume is attached to
+    :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param Sequence[str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
+    """
+    ...

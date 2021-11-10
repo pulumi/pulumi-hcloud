@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,14 +26,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "fsn1"
-// 		_, err := hcloud.GetLocation(ctx, &hcloud.GetLocationArgs{
+// 		_, err := hcloud.GetLocation(ctx, &GetLocationArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		opt1 := 1
-// 		_, err = hcloud.GetLocation(ctx, &hcloud.GetLocationArgs{
+// 		_, err = hcloud.GetLocation(ctx, &GetLocationArgs{
 // 			Id: &opt1,
 // 		}, nil)
 // 		if err != nil {
@@ -73,4 +76,79 @@ type GetLocationResult struct {
 	Longitude float64 `pulumi:"longitude"`
 	// (string) Name of the location.
 	Name string `pulumi:"name"`
+}
+
+func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLocationResult, error) {
+			args := v.(GetLocationArgs)
+			r, err := GetLocation(ctx, &args, opts...)
+			return *r, err
+		}).(GetLocationResultOutput)
+}
+
+// A collection of arguments for invoking getLocation.
+type GetLocationOutputArgs struct {
+	// ID of the location.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Name of the location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (GetLocationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLocation.
+type GetLocationResultOutput struct{ *pulumi.OutputState }
+
+func (GetLocationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationResult)(nil)).Elem()
+}
+
+func (o GetLocationResultOutput) ToGetLocationResultOutput() GetLocationResultOutput {
+	return o
+}
+
+func (o GetLocationResultOutput) ToGetLocationResultOutputWithContext(ctx context.Context) GetLocationResultOutput {
+	return o
+}
+
+// (string) City of the location.
+func (o GetLocationResultOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.City }).(pulumi.StringOutput)
+}
+
+// (string) Country of the location.
+func (o GetLocationResultOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// (string) Description of the location.
+func (o GetLocationResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// (int) Unique ID of the location.
+func (o GetLocationResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (float) Latitude of the city.
+func (o GetLocationResultOutput) Latitude() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLocationResult) float64 { return v.Latitude }).(pulumi.Float64Output)
+}
+
+// (float) Longitude of the city.
+func (o GetLocationResultOutput) Longitude() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLocationResult) float64 { return v.Longitude }).(pulumi.Float64Output)
+}
+
+// (string) Name of the location.
+func (o GetLocationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLocationResultOutput{})
 }

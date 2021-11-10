@@ -13,6 +13,7 @@ __all__ = [
     'GetImagesResult',
     'AwaitableGetImagesResult',
     'get_images',
+    'get_images_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,29 @@ def get_images(most_recent: Optional[bool] = None,
         most_recent=__ret__.most_recent,
         with_selector=__ret__.with_selector,
         with_statuses=__ret__.with_statuses)
+
+
+@_utilities.lift_output_func(get_images)
+def get_images_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                      with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                      with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagesResult]:
+    """
+    Provides details about multiple Hetzner Cloud Images.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    image2 = hcloud.get_images()
+    image3 = hcloud.get_images(with_selector="key=value")
+    ```
+
+
+    :param bool most_recent: Sorts list by date.
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
+    """
+    ...

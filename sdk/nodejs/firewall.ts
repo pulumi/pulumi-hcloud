@@ -131,19 +131,19 @@ export interface FirewallState {
     /**
      * Resources the firewall should be assigned to
      */
-    readonly applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[]>;
+    applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[]>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * Name of the Firewall.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration of a Rule from this Firewall.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.FirewallRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.FirewallRule>[]>;
 }
 
 /**
@@ -153,17 +153,17 @@ export interface FirewallArgs {
     /**
      * Resources the firewall should be assigned to
      */
-    readonly applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[]>;
+    applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[]>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * Name of the Firewall.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration of a Rule from this Firewall.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.FirewallRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.FirewallRule>[]>;
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -14,41 +15,16 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides a list of available Hetzner Cloud Datacenters.
         /// This resource may be useful to create highly available infrastructure, distributed across several datacenters.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var ds = Output.Create(HCloud.GetDatacenters.InvokeAsync());
-        ///         var workers = new List&lt;HCloud.Server&gt;();
-        ///         for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
-        ///         {
-        ///             var range = new { Value = rangeIndex };
-        ///             workers.Add(new HCloud.Server($"workers-{range.Value}", new HCloud.ServerArgs
-        ///             {
-        ///                 Image = "debian-9",
-        ///                 ServerType = "cx31",
-        ///                 Datacenter = ds.Apply(ds =&gt; ds.Names)[range.Value],
-        ///             }));
-        ///         }
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatacentersResult> InvokeAsync(GetDatacentersArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides a list of available Hetzner Cloud Datacenters.
+        /// This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+        /// </summary>
+        public static Output<GetDatacentersResult> Invoke(GetDatacentersInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +44,26 @@ namespace Pulumi.HCloud
         }
 
         public GetDatacentersArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatacentersInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("datacenterIds")]
+        private InputList<string>? _datacenterIds;
+
+        /// <summary>
+        /// (list) List of unique datacenter identifiers.
+        /// </summary>
+        [Obsolete(@"Use datacenters list instead")]
+        public InputList<string> DatacenterIds
+        {
+            get => _datacenterIds ?? (_datacenterIds = new InputList<string>());
+            set => _datacenterIds = value;
+        }
+
+        public GetDatacentersInvokeArgs()
         {
         }
     }
