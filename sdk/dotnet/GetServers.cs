@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -13,6 +14,9 @@ namespace Pulumi.HCloud
     {
         public static Task<GetServersResult> InvokeAsync(GetServersArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersArgs(), options.WithVersion());
+
+        public static Output<GetServersResult> Invoke(GetServersInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +41,31 @@ namespace Pulumi.HCloud
         }
 
         public GetServersArgs()
+        {
+        }
+    }
+
+    public sealed class GetServersInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// </summary>
+        [Input("withSelector")]
+        public Input<string>? WithSelector { get; set; }
+
+        [Input("withStatuses")]
+        private InputList<string>? _withStatuses;
+
+        /// <summary>
+        /// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+        /// </summary>
+        public InputList<string> WithStatuses
+        {
+            get => _withStatuses ?? (_withStatuses = new InputList<string>());
+            set => _withStatuses = value;
+        }
+
+        public GetServersInvokeArgs()
         {
         }
     }

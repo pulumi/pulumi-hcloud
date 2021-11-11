@@ -16,13 +16,13 @@ import * as utilities from "./utilities";
  *
  * const lb1 = pulumi.output(hcloud.getLoadBalancer({
  *     name: "my-load-balancer",
- * }, { async: true }));
+ * }));
  * const lb2 = pulumi.output(hcloud.getLoadBalancer({
  *     id: 123,
- * }, { async: true }));
+ * }));
  * const lb3 = pulumi.output(hcloud.getLoadBalancer({
  *     withSelector: "key=value",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
@@ -48,15 +48,15 @@ export interface GetLoadBalancerArgs {
     /**
      * ID of the Load Balancer.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * Name of the Load Balancer.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -109,4 +109,26 @@ export interface GetLoadBalancerResult {
      */
     readonly targets: outputs.GetLoadBalancerTarget[];
     readonly withSelector?: string;
+}
+
+export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
+    return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLoadBalancer.
+ */
+export interface GetLoadBalancerOutputArgs {
+    /**
+     * ID of the Load Balancer.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * Name of the Load Balancer.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     */
+    withSelector?: pulumi.Input<string>;
 }

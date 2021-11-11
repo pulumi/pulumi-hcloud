@@ -13,6 +13,39 @@ import (
 
 // Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hcloud.NewSshKey(ctx, "_default", &hcloud.SshKeyArgs{
+// 			PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // SSH keys can be imported using the SSH key `id`
@@ -175,7 +208,7 @@ type SshKeyArrayInput interface {
 type SshKeyArray []SshKeyInput
 
 func (SshKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SshKey)(nil))
+	return reflect.TypeOf((*[]*SshKey)(nil)).Elem()
 }
 
 func (i SshKeyArray) ToSshKeyArrayOutput() SshKeyArrayOutput {
@@ -200,7 +233,7 @@ type SshKeyMapInput interface {
 type SshKeyMap map[string]SshKeyInput
 
 func (SshKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SshKey)(nil))
+	return reflect.TypeOf((*map[string]*SshKey)(nil)).Elem()
 }
 
 func (i SshKeyMap) ToSshKeyMapOutput() SshKeyMapOutput {
@@ -211,9 +244,7 @@ func (i SshKeyMap) ToSshKeyMapOutputWithContext(ctx context.Context) SshKeyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SshKeyMapOutput)
 }
 
-type SshKeyOutput struct {
-	*pulumi.OutputState
-}
+type SshKeyOutput struct{ *pulumi.OutputState }
 
 func (SshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SshKey)(nil))
@@ -232,14 +263,12 @@ func (o SshKeyOutput) ToSshKeyPtrOutput() SshKeyPtrOutput {
 }
 
 func (o SshKeyOutput) ToSshKeyPtrOutputWithContext(ctx context.Context) SshKeyPtrOutput {
-	return o.ApplyT(func(v SshKey) *SshKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SshKey) *SshKey {
 		return &v
 	}).(SshKeyPtrOutput)
 }
 
-type SshKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type SshKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (SshKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SshKey)(nil))
@@ -251,6 +280,16 @@ func (o SshKeyPtrOutput) ToSshKeyPtrOutput() SshKeyPtrOutput {
 
 func (o SshKeyPtrOutput) ToSshKeyPtrOutputWithContext(ctx context.Context) SshKeyPtrOutput {
 	return o
+}
+
+func (o SshKeyPtrOutput) Elem() SshKeyOutput {
+	return o.ApplyT(func(v *SshKey) SshKey {
+		if v != nil {
+			return *v
+		}
+		var ret SshKey
+		return ret
+	}).(SshKeyOutput)
 }
 
 type SshKeyArrayOutput struct{ *pulumi.OutputState }
@@ -294,6 +333,10 @@ func (o SshKeyMapOutput) MapIndex(k pulumi.StringInput) SshKeyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SshKeyInput)(nil)).Elem(), &SshKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SshKeyPtrInput)(nil)).Elem(), &SshKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SshKeyArrayInput)(nil)).Elem(), SshKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SshKeyMapInput)(nil)).Elem(), SshKeyMap{})
 	pulumi.RegisterOutputType(SshKeyOutput{})
 	pulumi.RegisterOutputType(SshKeyPtrOutput{})
 	pulumi.RegisterOutputType(SshKeyArrayOutput{})

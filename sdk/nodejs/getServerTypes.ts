@@ -7,22 +7,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a list of available Hetzner Cloud Server Types.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const ds = hcloud.getServerTypes({});
- * const workers: hcloud.Server[];
- * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     workers.push(new hcloud.Server(`workers-${range.value}`, {
- *         image: "debian-9",
- *         serverType: ds.then(ds => ds.names)[range.value],
- *     }));
- * }
- * ```
  */
 export function getServerTypes(args?: GetServerTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypesResult> {
     args = args || {};
@@ -45,7 +29,7 @@ export interface GetServerTypesArgs {
     /**
      * @deprecated Use server_types list instead
      */
-    readonly serverTypeIds?: string[];
+    serverTypeIds?: string[];
 }
 
 /**
@@ -72,4 +56,18 @@ export interface GetServerTypesResult {
      * (list) List of all server types. See `data.hcloud_type` for schema.
      */
     readonly serverTypes: outputs.GetServerTypesServerType[];
+}
+
+export function getServerTypesOutput(args?: GetServerTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypesResult> {
+    return pulumi.output(args).apply(a => getServerTypes(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServerTypes.
+ */
+export interface GetServerTypesOutputArgs {
+    /**
+     * @deprecated Use server_types list instead
+     */
+    serverTypeIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

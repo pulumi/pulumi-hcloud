@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 export function getSshKey(args?: GetSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeyResult> {
@@ -30,23 +29,23 @@ export interface GetSshKeyArgs {
     /**
      * Fingerprint of the SSH Key.
      */
-    readonly fingerprint?: string;
+    fingerprint?: string;
     /**
      * ID of the SSH Key.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * Name of the SSH Key.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * @deprecated Please use the with_selector property instead.
      */
-    readonly selector?: string;
+    selector?: string;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -75,4 +74,34 @@ export interface GetSshKeyResult {
      */
     readonly selector?: string;
     readonly withSelector?: string;
+}
+
+export function getSshKeyOutput(args?: GetSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeyResult> {
+    return pulumi.output(args).apply(a => getSshKey(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSshKey.
+ */
+export interface GetSshKeyOutputArgs {
+    /**
+     * Fingerprint of the SSH Key.
+     */
+    fingerprint?: pulumi.Input<string>;
+    /**
+     * ID of the SSH Key.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * Name of the SSH Key.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * @deprecated Please use the with_selector property instead.
+     */
+    selector?: pulumi.Input<string>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

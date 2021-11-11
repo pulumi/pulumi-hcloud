@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -44,6 +45,40 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Task<GetLocationResult> InvokeAsync(GetLocationArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Location.
+        /// Use this resource to get detailed information about specific location.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var l1 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs
+        ///         {
+        ///             Name = "fsn1",
+        ///         }));
+        ///         var l2 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs
+        ///         {
+        ///             Id = 1,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -62,6 +97,25 @@ namespace Pulumi.HCloud
         public string? Name { get; set; }
 
         public GetLocationArgs()
+        {
+        }
+    }
+
+    public sealed class GetLocationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID of the location.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// Name of the location.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetLocationInvokeArgs()
         {
         }
     }

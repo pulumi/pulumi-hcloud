@@ -148,14 +148,14 @@ export interface ServerNetworkState {
      * Additional IPs to be assigned
      * to this server.
      */
-    readonly aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * IP to request to be assigned to this server.
      * If you do not provide this then you will be auto assigned an IP
      * address.
      */
-    readonly ip?: pulumi.Input<string>;
-    readonly macAddress?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string>;
     /**
      * ID of the network which should be added
      * to the server. Required if `subnetId` is not set. Successful creation
@@ -166,18 +166,18 @@ export interface ServerNetworkState {
      * will create an explicit dependency between `hcloud.ServerNetwork` and
      * the existence of a subnet.
      */
-    readonly networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number>;
     /**
      * ID of the server.
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
     /**
      * ID of the sub-network which should be
      * added to the Server. Required if `networkId` is not set.
      * *Note*: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -188,13 +188,13 @@ export interface ServerNetworkArgs {
      * Additional IPs to be assigned
      * to this server.
      */
-    readonly aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * IP to request to be assigned to this server.
      * If you do not provide this then you will be auto assigned an IP
      * address.
      */
-    readonly ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
     /**
      * ID of the network which should be added
      * to the server. Required if `subnetId` is not set. Successful creation
@@ -205,16 +205,16 @@ export interface ServerNetworkArgs {
      * will create an explicit dependency between `hcloud.ServerNetwork` and
      * the existence of a subnet.
      */
-    readonly networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number>;
     /**
      * ID of the server.
      */
-    readonly serverId: pulumi.Input<number>;
+    serverId: pulumi.Input<number>;
     /**
      * ID of the sub-network which should be
      * added to the Server. Required if `networkId` is not set.
      * *Note*: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }

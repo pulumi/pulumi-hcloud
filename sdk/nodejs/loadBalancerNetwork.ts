@@ -145,17 +145,17 @@ export interface LoadBalancerNetworkState {
      * Enable or disable the
      * Load Balancers public interface. Default: `true`
      */
-    readonly enablePublicInterface?: pulumi.Input<boolean>;
+    enablePublicInterface?: pulumi.Input<boolean>;
     /**
      * IP to request to be assigned to this Load
      * Balancer. If you do not provide this then you will be auto assigned an
      * IP address.
      */
-    readonly ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
     /**
      * ID of the Load Balancer.
      */
-    readonly loadBalancerId?: pulumi.Input<number>;
+    loadBalancerId?: pulumi.Input<number>;
     /**
      * ID of the network which should be added
      * to the Load Balancer. Required if `subnetId` is not set. Successful
@@ -166,14 +166,14 @@ export interface LoadBalancerNetworkState {
      * property can be used, which will create an explicit dependency between
      * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
      */
-    readonly networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number>;
     /**
      * ID of the sub-network which should be
      * added to the Load Balancer. Required if `networkId` is not set.
      * *Note*: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -184,17 +184,17 @@ export interface LoadBalancerNetworkArgs {
      * Enable or disable the
      * Load Balancers public interface. Default: `true`
      */
-    readonly enablePublicInterface?: pulumi.Input<boolean>;
+    enablePublicInterface?: pulumi.Input<boolean>;
     /**
      * IP to request to be assigned to this Load
      * Balancer. If you do not provide this then you will be auto assigned an
      * IP address.
      */
-    readonly ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
     /**
      * ID of the Load Balancer.
      */
-    readonly loadBalancerId: pulumi.Input<number>;
+    loadBalancerId: pulumi.Input<number>;
     /**
      * ID of the network which should be added
      * to the Load Balancer. Required if `subnetId` is not set. Successful
@@ -205,12 +205,12 @@ export interface LoadBalancerNetworkArgs {
      * property can be used, which will create an explicit dependency between
      * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
      */
-    readonly networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number>;
     /**
      * ID of the sub-network which should be
      * added to the Load Balancer. Required if `networkId` is not set.
      * *Note*: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }

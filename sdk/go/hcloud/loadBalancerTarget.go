@@ -268,7 +268,7 @@ type LoadBalancerTargetArrayInput interface {
 type LoadBalancerTargetArray []LoadBalancerTargetInput
 
 func (LoadBalancerTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LoadBalancerTarget)(nil))
+	return reflect.TypeOf((*[]*LoadBalancerTarget)(nil)).Elem()
 }
 
 func (i LoadBalancerTargetArray) ToLoadBalancerTargetArrayOutput() LoadBalancerTargetArrayOutput {
@@ -293,7 +293,7 @@ type LoadBalancerTargetMapInput interface {
 type LoadBalancerTargetMap map[string]LoadBalancerTargetInput
 
 func (LoadBalancerTargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LoadBalancerTarget)(nil))
+	return reflect.TypeOf((*map[string]*LoadBalancerTarget)(nil)).Elem()
 }
 
 func (i LoadBalancerTargetMap) ToLoadBalancerTargetMapOutput() LoadBalancerTargetMapOutput {
@@ -304,9 +304,7 @@ func (i LoadBalancerTargetMap) ToLoadBalancerTargetMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTargetMapOutput)
 }
 
-type LoadBalancerTargetOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerTargetOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoadBalancerTarget)(nil))
@@ -325,14 +323,12 @@ func (o LoadBalancerTargetOutput) ToLoadBalancerTargetPtrOutput() LoadBalancerTa
 }
 
 func (o LoadBalancerTargetOutput) ToLoadBalancerTargetPtrOutputWithContext(ctx context.Context) LoadBalancerTargetPtrOutput {
-	return o.ApplyT(func(v LoadBalancerTarget) *LoadBalancerTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerTarget) *LoadBalancerTarget {
 		return &v
 	}).(LoadBalancerTargetPtrOutput)
 }
 
-type LoadBalancerTargetPtrOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerTargetPtrOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerTargetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LoadBalancerTarget)(nil))
@@ -344,6 +340,16 @@ func (o LoadBalancerTargetPtrOutput) ToLoadBalancerTargetPtrOutput() LoadBalance
 
 func (o LoadBalancerTargetPtrOutput) ToLoadBalancerTargetPtrOutputWithContext(ctx context.Context) LoadBalancerTargetPtrOutput {
 	return o
+}
+
+func (o LoadBalancerTargetPtrOutput) Elem() LoadBalancerTargetOutput {
+	return o.ApplyT(func(v *LoadBalancerTarget) LoadBalancerTarget {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerTarget
+		return ret
+	}).(LoadBalancerTargetOutput)
 }
 
 type LoadBalancerTargetArrayOutput struct{ *pulumi.OutputState }
@@ -387,6 +393,10 @@ func (o LoadBalancerTargetMapOutput) MapIndex(k pulumi.StringInput) LoadBalancer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTargetInput)(nil)).Elem(), &LoadBalancerTarget{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTargetPtrInput)(nil)).Elem(), &LoadBalancerTarget{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTargetArrayInput)(nil)).Elem(), LoadBalancerTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTargetMapInput)(nil)).Elem(), LoadBalancerTargetMap{})
 	pulumi.RegisterOutputType(LoadBalancerTargetOutput{})
 	pulumi.RegisterOutputType(LoadBalancerTargetPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerTargetArrayOutput{})

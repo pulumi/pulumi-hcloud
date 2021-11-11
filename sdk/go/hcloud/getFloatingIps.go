@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "key=value"
-// 		_, err := hcloud.GetFloatingIps(ctx, &hcloud.GetFloatingIpsArgs{
+// 		_, err := hcloud.GetFloatingIps(ctx, &GetFloatingIpsArgs{
 // 			WithSelector: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -54,4 +57,56 @@ type GetFloatingIpsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id           string  `pulumi:"id"`
 	WithSelector *string `pulumi:"withSelector"`
+}
+
+func GetFloatingIpsOutput(ctx *pulumi.Context, args GetFloatingIpsOutputArgs, opts ...pulumi.InvokeOption) GetFloatingIpsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetFloatingIpsResult, error) {
+			args := v.(GetFloatingIpsArgs)
+			r, err := GetFloatingIps(ctx, &args, opts...)
+			return *r, err
+		}).(GetFloatingIpsResultOutput)
+}
+
+// A collection of arguments for invoking getFloatingIps.
+type GetFloatingIpsOutputArgs struct {
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (GetFloatingIpsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFloatingIpsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getFloatingIps.
+type GetFloatingIpsResultOutput struct{ *pulumi.OutputState }
+
+func (GetFloatingIpsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFloatingIpsResult)(nil)).Elem()
+}
+
+func (o GetFloatingIpsResultOutput) ToGetFloatingIpsResultOutput() GetFloatingIpsResultOutput {
+	return o
+}
+
+func (o GetFloatingIpsResultOutput) ToGetFloatingIpsResultOutputWithContext(ctx context.Context) GetFloatingIpsResultOutput {
+	return o
+}
+
+// (list) List of all matching floating ips. See `data.hcloud_floating_ip` for schema.
+func (o GetFloatingIpsResultOutput) FloatingIps() GetFloatingIpsFloatingIpArrayOutput {
+	return o.ApplyT(func(v GetFloatingIpsResult) []GetFloatingIpsFloatingIp { return v.FloatingIps }).(GetFloatingIpsFloatingIpArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetFloatingIpsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFloatingIpsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetFloatingIpsResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFloatingIpsResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetFloatingIpsResultOutput{})
 }

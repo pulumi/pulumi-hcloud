@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,83 @@ type LookupSshKeyResult struct {
 	// Deprecated: Please use the with_selector property instead.
 	Selector     *string `pulumi:"selector"`
 	WithSelector *string `pulumi:"withSelector"`
+}
+
+func LookupSshKeyOutput(ctx *pulumi.Context, args LookupSshKeyOutputArgs, opts ...pulumi.InvokeOption) LookupSshKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSshKeyResult, error) {
+			args := v.(LookupSshKeyArgs)
+			r, err := LookupSshKey(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSshKeyResultOutput)
+}
+
+// A collection of arguments for invoking getSshKey.
+type LookupSshKeyOutputArgs struct {
+	// Fingerprint of the SSH Key.
+	Fingerprint pulumi.StringPtrInput `pulumi:"fingerprint"`
+	// ID of the SSH Key.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Name of the SSH Key.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Deprecated: Please use the with_selector property instead.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (LookupSshKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSshKeyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSshKey.
+type LookupSshKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSshKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSshKeyResult)(nil)).Elem()
+}
+
+func (o LookupSshKeyResultOutput) ToLookupSshKeyResultOutput() LookupSshKeyResultOutput {
+	return o
+}
+
+func (o LookupSshKeyResultOutput) ToLookupSshKeyResultOutputWithContext(ctx context.Context) LookupSshKeyResultOutput {
+	return o
+}
+
+// (string) Fingerprint of the SSH Key.
+func (o LookupSshKeyResultOutput) Fingerprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) string { return v.Fingerprint }).(pulumi.StringOutput)
+}
+
+// (int) Unique ID of the SSH Key.
+func (o LookupSshKeyResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o LookupSshKeyResultOutput) Labels() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+}
+
+// (string) Name of the SSH Key.
+func (o LookupSshKeyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (string) Public Key of the SSH Key.
+func (o LookupSshKeyResultOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+// Deprecated: Please use the with_selector property instead.
+func (o LookupSshKeyResultOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSshKeyResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSshKeyResultOutput{})
 }

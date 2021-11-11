@@ -12,6 +12,7 @@ __all__ = [
     'GetServerResult',
     'AwaitableGetServerResult',
     'get_server',
+    'get_server_output',
 ]
 
 @pulumi.output_type
@@ -338,3 +339,23 @@ def get_server(id: Optional[int] = None,
         status=__ret__.status,
         with_selector=__ret__.with_selector,
         with_statuses=__ret__.with_statuses)
+
+
+@_utilities.lift_output_func(get_server)
+def get_server_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                      name: Optional[pulumi.Input[Optional[str]]] = None,
+                      placement_group_id: Optional[pulumi.Input[Optional[int]]] = None,
+                      selector: Optional[pulumi.Input[Optional[str]]] = None,
+                      with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                      with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param int id: ID of the server.
+    :param str name: Name of the server.
+    :param int placement_group_id: (Optional, string) Placement Group ID the server is assigned to.
+    :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param Sequence[str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetServerTypesResult',
     'AwaitableGetServerTypesResult',
     'get_server_types',
+    'get_server_types_output',
 ]
 
 @pulumi.output_type
@@ -98,20 +99,6 @@ def get_server_types(server_type_ids: Optional[Sequence[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerTypesResult:
     """
     Provides a list of available Hetzner Cloud Server Types.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds = hcloud.get_server_types()
-    workers = []
-    for range in [{"value": i} for i in range(0, 3)]:
-        workers.append(hcloud.Server(f"workers-{range['value']}",
-            image="debian-9",
-            server_type=ds.names[range["value"]]))
-    ```
     """
     __args__ = dict()
     __args__['serverTypeIds'] = server_type_ids
@@ -127,3 +114,12 @@ def get_server_types(server_type_ids: Optional[Sequence[str]] = None,
         names=__ret__.names,
         server_type_ids=__ret__.server_type_ids,
         server_types=__ret__.server_types)
+
+
+@_utilities.lift_output_func(get_server_types)
+def get_server_types_output(server_type_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTypesResult]:
+    """
+    Provides a list of available Hetzner Cloud Server Types.
+    """
+    ...

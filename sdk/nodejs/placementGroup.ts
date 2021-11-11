@@ -117,16 +117,16 @@ export interface PlacementGroupState {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * Name of the Placement Group.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly servers?: pulumi.Input<pulumi.Input<number>[]>;
+    name?: pulumi.Input<string>;
+    servers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Type of the Placement Group.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -136,13 +136,13 @@ export interface PlacementGroupArgs {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * Name of the Placement Group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Type of the Placement Group.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

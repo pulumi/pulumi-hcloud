@@ -13,6 +13,7 @@ __all__ = [
     'GetDatacentersResult',
     'AwaitableGetDatacentersResult',
     'get_datacenters',
+    'get_datacenters_output',
 ]
 
 @pulumi.output_type
@@ -109,21 +110,6 @@ def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
     Provides a list of available Hetzner Cloud Datacenters.
     This resource may be useful to create highly available infrastructure, distributed across several datacenters.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds = hcloud.get_datacenters()
-    workers = []
-    for range in [{"value": i} for i in range(0, 3)]:
-        workers.append(hcloud.Server(f"workers-{range['value']}",
-            image="debian-9",
-            server_type="cx31",
-            datacenter=ds.names[range["value"]]))
-    ```
-
 
     :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers.
     """
@@ -141,3 +127,16 @@ def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
         descriptions=__ret__.descriptions,
         id=__ret__.id,
         names=__ret__.names)
+
+
+@_utilities.lift_output_func(get_datacenters)
+def get_datacenters_output(datacenter_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatacentersResult]:
+    """
+    Provides a list of available Hetzner Cloud Datacenters.
+    This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+
+
+    :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers.
+    """
+    ...

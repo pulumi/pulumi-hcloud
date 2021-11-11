@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const sampleFirewall1 = pulumi.output(hcloud.getFirewalls({
  *     withSelector: "key=value",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getFirewalls(args?: GetFirewallsArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallsResult> {
@@ -41,11 +41,11 @@ export interface GetFirewallsArgs {
     /**
      * Sorts list by date.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -62,4 +62,22 @@ export interface GetFirewallsResult {
     readonly id: string;
     readonly mostRecent?: boolean;
     readonly withSelector?: string;
+}
+
+export function getFirewallsOutput(args?: GetFirewallsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallsResult> {
+    return pulumi.output(args).apply(a => getFirewalls(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFirewalls.
+ */
+export interface GetFirewallsOutputArgs {
+    /**
+     * Sorts list by date.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

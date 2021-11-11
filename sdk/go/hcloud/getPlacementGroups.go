@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +29,7 @@ import (
 // 			return err
 // 		}
 // 		opt0 := "key=value"
-// 		_, err = hcloud.GetPlacementGroups(ctx, &hcloud.GetPlacementGroupsArgs{
+// 		_, err = hcloud.GetPlacementGroups(ctx, &GetPlacementGroupsArgs{
 // 			WithSelector: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -61,4 +64,62 @@ type GetPlacementGroupsResult struct {
 	// (list) List of all matching placement groups. See `data.hcloud_placement_group` for schema.
 	PlacementGroups []GetPlacementGroupsPlacementGroup `pulumi:"placementGroups"`
 	WithSelector    *string                            `pulumi:"withSelector"`
+}
+
+func GetPlacementGroupsOutput(ctx *pulumi.Context, args GetPlacementGroupsOutputArgs, opts ...pulumi.InvokeOption) GetPlacementGroupsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPlacementGroupsResult, error) {
+			args := v.(GetPlacementGroupsArgs)
+			r, err := GetPlacementGroups(ctx, &args, opts...)
+			return *r, err
+		}).(GetPlacementGroupsResultOutput)
+}
+
+// A collection of arguments for invoking getPlacementGroups.
+type GetPlacementGroupsOutputArgs struct {
+	// Sorts list by date.
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (GetPlacementGroupsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlacementGroupsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPlacementGroups.
+type GetPlacementGroupsResultOutput struct{ *pulumi.OutputState }
+
+func (GetPlacementGroupsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlacementGroupsResult)(nil)).Elem()
+}
+
+func (o GetPlacementGroupsResultOutput) ToGetPlacementGroupsResultOutput() GetPlacementGroupsResultOutput {
+	return o
+}
+
+func (o GetPlacementGroupsResultOutput) ToGetPlacementGroupsResultOutputWithContext(ctx context.Context) GetPlacementGroupsResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetPlacementGroupsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlacementGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetPlacementGroupsResultOutput) MostRecent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetPlacementGroupsResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+// (list) List of all matching placement groups. See `data.hcloud_placement_group` for schema.
+func (o GetPlacementGroupsResultOutput) PlacementGroups() GetPlacementGroupsPlacementGroupArrayOutput {
+	return o.ApplyT(func(v GetPlacementGroupsResult) []GetPlacementGroupsPlacementGroup { return v.PlacementGroups }).(GetPlacementGroupsPlacementGroupArrayOutput)
+}
+
+func (o GetPlacementGroupsResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPlacementGroupsResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPlacementGroupsResultOutput{})
 }

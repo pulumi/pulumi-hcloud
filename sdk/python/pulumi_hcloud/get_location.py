@@ -12,6 +12,7 @@ __all__ = [
     'GetLocationResult',
     'AwaitableGetLocationResult',
     'get_location',
+    'get_location_output',
 ]
 
 @pulumi.output_type
@@ -152,3 +153,28 @@ def get_location(id: Optional[int] = None,
         latitude=__ret__.latitude,
         longitude=__ret__.longitude,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_location)
+def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                        name: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
+    """
+    Provides details about a specific Hetzner Cloud Location.
+    Use this resource to get detailed information about specific location.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    l1 = hcloud.get_location(name="fsn1")
+    l2 = hcloud.get_location(id=1)
+    ```
+
+
+    :param int id: ID of the location.
+    :param str name: Name of the location.
+    """
+    ...

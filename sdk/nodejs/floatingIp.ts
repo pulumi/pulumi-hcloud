@@ -147,39 +147,39 @@ export interface FloatingIpState {
     /**
      * Enable or disable delete protection.
      */
-    readonly deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean>;
     /**
      * Description of the Floating IP.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Home location (routing is optimized for that location). Optional if serverId argument is passed.
      */
-    readonly homeLocation?: pulumi.Input<string>;
+    homeLocation?: pulumi.Input<string>;
     /**
      * (string) IP Address of the Floating IP.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * (string) IPv6 subnet. (Only set if `type` is `ipv6`)
      */
-    readonly ipNetwork?: pulumi.Input<string>;
+    ipNetwork?: pulumi.Input<string>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * Name of the Floating IP.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Server to assign the Floating IP to.
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
     /**
      * Type of the Floating IP. `ipv4` `ipv6`
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -189,29 +189,29 @@ export interface FloatingIpArgs {
     /**
      * Enable or disable delete protection.
      */
-    readonly deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean>;
     /**
      * Description of the Floating IP.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Home location (routing is optimized for that location). Optional if serverId argument is passed.
      */
-    readonly homeLocation?: pulumi.Input<string>;
+    homeLocation?: pulumi.Input<string>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * Name of the Floating IP.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Server to assign the Floating IP to.
      */
-    readonly serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number>;
     /**
      * Type of the Floating IP. `ipv4` `ipv6`
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

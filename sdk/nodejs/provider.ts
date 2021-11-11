@@ -25,6 +25,12 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    public readonly endpoint!: pulumi.Output<string | undefined>;
+    public readonly pollInterval!: pulumi.Output<string | undefined>;
+    /**
+     * The API token to access the Hetzner cloud.
+     */
+    public readonly token!: pulumi.Output<string>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -55,10 +61,10 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    readonly endpoint?: pulumi.Input<string>;
-    readonly pollInterval?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
+    pollInterval?: pulumi.Input<string>;
     /**
      * The API token to access the Hetzner cloud.
      */
-    readonly token: pulumi.Input<string>;
+    token: pulumi.Input<string>;
 }

@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +29,7 @@ import (
 // 			return err
 // 		}
 // 		opt0 := "key=value"
-// 		_, err = hcloud.GetImages(ctx, &hcloud.GetImagesArgs{
+// 		_, err = hcloud.GetImages(ctx, &GetImagesArgs{
 // 			WithSelector: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -64,4 +67,68 @@ type GetImagesResult struct {
 	MostRecent   *bool            `pulumi:"mostRecent"`
 	WithSelector *string          `pulumi:"withSelector"`
 	WithStatuses []string         `pulumi:"withStatuses"`
+}
+
+func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulumi.InvokeOption) GetImagesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetImagesResult, error) {
+			args := v.(GetImagesArgs)
+			r, err := GetImages(ctx, &args, opts...)
+			return *r, err
+		}).(GetImagesResultOutput)
+}
+
+// A collection of arguments for invoking getImages.
+type GetImagesOutputArgs struct {
+	// Sorts list by date.
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+	// List only images with the specified status, could contain `creating` or `available`.
+	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`
+}
+
+func (GetImagesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getImages.
+type GetImagesResultOutput struct{ *pulumi.OutputState }
+
+func (GetImagesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesResult)(nil)).Elem()
+}
+
+func (o GetImagesResultOutput) ToGetImagesResultOutput() GetImagesResultOutput {
+	return o
+}
+
+func (o GetImagesResultOutput) ToGetImagesResultOutputWithContext(ctx context.Context) GetImagesResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetImagesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (list) List of all matching images. See `data.hcloud_image` for schema.
+func (o GetImagesResultOutput) Images() GetImagesImageArrayOutput {
+	return o.ApplyT(func(v GetImagesResult) []GetImagesImage { return v.Images }).(GetImagesImageArrayOutput)
+}
+
+func (o GetImagesResultOutput) MostRecent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetImagesResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetImagesResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImagesResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func (o GetImagesResultOutput) WithStatuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImagesResult) []string { return v.WithStatuses }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetImagesResultOutput{})
 }

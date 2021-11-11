@@ -12,6 +12,7 @@ __all__ = [
     'GetServerTypeResult',
     'AwaitableGetServerTypeResult',
     'get_server_type',
+    'get_server_type_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,28 @@ def get_server_type(id: Optional[int] = None,
         memory=__ret__.memory,
         name=__ret__.name,
         storage_type=__ret__.storage_type)
+
+
+@_utilities.lift_output_func(get_server_type)
+def get_server_type_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                           name: Optional[pulumi.Input[Optional[str]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTypeResult]:
+    """
+    Provides details about a specific Hetzner Cloud Server Type.
+    Use this resource to get detailed information about specific Server Type.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    ds1 = hcloud.get_server_type(name="cx11")
+    ds2 = hcloud.get_server_type(id=1)
+    ```
+
+
+    :param int id: ID of the server_type.
+    :param str name: Name of the server_type.
+    """
+    ...

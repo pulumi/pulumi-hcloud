@@ -13,6 +13,7 @@ __all__ = [
     'GetNetworksResult',
     'AwaitableGetNetworksResult',
     'get_networks',
+    'get_networks_output',
 ]
 
 @pulumi.output_type
@@ -94,3 +95,25 @@ def get_networks(with_selector: Optional[str] = None,
         id=__ret__.id,
         networks=__ret__.networks,
         with_selector=__ret__.with_selector)
+
+
+@_utilities.lift_output_func(get_networks)
+def get_networks_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworksResult]:
+    """
+    Provides details about multiple Hetzner Cloud Networks.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    network2 = hcloud.get_network()
+    network3 = hcloud.get_network(with_selector="key=value")
+    ```
+
+
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    """
+    ...

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -13,40 +14,15 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides a list of available Hetzner Cloud Server Types.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var ds = Output.Create(HCloud.GetServerTypes.InvokeAsync());
-        ///         var workers = new List&lt;HCloud.Server&gt;();
-        ///         for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
-        ///         {
-        ///             var range = new { Value = rangeIndex };
-        ///             workers.Add(new HCloud.Server($"workers-{range.Value}", new HCloud.ServerArgs
-        ///             {
-        ///                 Image = "debian-9",
-        ///                 ServerType = ds.Apply(ds =&gt; ds.Names)[range.Value],
-        ///             }));
-        ///         }
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerTypesResult> InvokeAsync(GetServerTypesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides a list of available Hetzner Cloud Server Types.
+        /// </summary>
+        public static Output<GetServerTypesResult> Invoke(GetServerTypesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -62,6 +38,22 @@ namespace Pulumi.HCloud
         }
 
         public GetServerTypesArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerTypesInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("serverTypeIds")]
+        private InputList<string>? _serverTypeIds;
+        [Obsolete(@"Use server_types list instead")]
+        public InputList<string> ServerTypeIds
+        {
+            get => _serverTypeIds ?? (_serverTypeIds = new InputList<string>());
+            set => _serverTypeIds = value;
+        }
+
+        public GetServerTypesInvokeArgs()
         {
         }
     }

@@ -14,6 +14,7 @@ __all__ = [
     'GetFirewallResult',
     'AwaitableGetFirewallResult',
     'get_firewall',
+    'get_firewall_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,35 @@ def get_firewall(apply_tos: Optional[Sequence[pulumi.InputType['GetFirewallApply
         name=__ret__.name,
         rules=__ret__.rules,
         with_selector=__ret__.with_selector)
+
+
+@_utilities.lift_output_func(get_firewall)
+def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFirewallApplyToArgs']]]]] = None,
+                        id: Optional[pulumi.Input[Optional[int]]] = None,
+                        labels: Optional[pulumi.Input[Optional[Mapping[str, Any]]]] = None,
+                        most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                        name: Optional[pulumi.Input[Optional[str]]] = None,
+                        rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFirewallRuleArgs']]]]] = None,
+                        with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
+    """
+    Provides details about a specific Hetzner Cloud Firewall.
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    sample_firewall1 = hcloud.get_firewall(name="sample-firewall-1")
+    sample_firewall2 = hcloud.get_firewall(id=4711)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetFirewallApplyToArgs']] apply_tos: Configuration of the Applied Resources
+    :param int id: ID of the firewall.
+    :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
+    :param bool most_recent: Return most recent firewall if multiple are found.
+    :param str name: Name of the firewall.
+    :param Sequence[pulumi.InputType['GetFirewallRuleArgs']] rules: (string)  Configuration of a Rule from this Firewall.
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    """
+    ...

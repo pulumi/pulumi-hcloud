@@ -14,10 +14,10 @@ import * as utilities from "./utilities";
  *
  * const sampleFirewall1 = pulumi.output(hcloud.getFirewall({
  *     name: "sample-firewall-1",
- * }, { async: true }));
+ * }));
  * const sampleFirewall2 = pulumi.output(hcloud.getFirewall({
  *     id: 4711,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
@@ -47,31 +47,31 @@ export interface GetFirewallArgs {
     /**
      * Configuration of the Applied Resources
      */
-    readonly applyTos?: inputs.GetFirewallApplyTo[];
+    applyTos?: inputs.GetFirewallApplyTo[];
     /**
      * ID of the firewall.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * (map) User-defined labels (key-value pairs)
      */
-    readonly labels?: {[key: string]: any};
+    labels?: {[key: string]: any};
     /**
      * Return most recent firewall if multiple are found.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * Name of the firewall.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * (string)  Configuration of a Rule from this Firewall.
      */
-    readonly rules?: inputs.GetFirewallRule[];
+    rules?: inputs.GetFirewallRule[];
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -100,4 +100,42 @@ export interface GetFirewallResult {
      */
     readonly rules?: outputs.GetFirewallRule[];
     readonly withSelector?: string;
+}
+
+export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
+    return pulumi.output(args).apply(a => getFirewall(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFirewall.
+ */
+export interface GetFirewallOutputArgs {
+    /**
+     * Configuration of the Applied Resources
+     */
+    applyTos?: pulumi.Input<pulumi.Input<inputs.GetFirewallApplyToArgs>[]>;
+    /**
+     * ID of the firewall.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * (map) User-defined labels (key-value pairs)
+     */
+    labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Return most recent firewall if multiple are found.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Name of the firewall.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * (string)  Configuration of a Rule from this Firewall.
+     */
+    rules?: pulumi.Input<pulumi.Input<inputs.GetFirewallRuleArgs>[]>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

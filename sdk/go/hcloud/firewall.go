@@ -12,6 +12,57 @@ import (
 
 // Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		myfirewall, err := hcloud.NewFirewall(ctx, "myfirewall", &hcloud.FirewallArgs{
+// 			Rules: FirewallRuleArray{
+// 				&FirewallRuleArgs{
+// 					Direction: pulumi.String("in"),
+// 					Protocol:  pulumi.String("icmp"),
+// 					SourceIps: pulumi.StringArray{
+// 						pulumi.String("0.0.0.0/0"),
+// 						pulumi.String("::/0"),
+// 					},
+// 				},
+// 				&FirewallRuleArgs{
+// 					Direction: pulumi.String("in"),
+// 					Protocol:  pulumi.String("tcp"),
+// 					Port:      pulumi.String("80-85"),
+// 					SourceIps: pulumi.StringArray{
+// 						pulumi.String("0.0.0.0/0"),
+// 						pulumi.String("::/0"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+// 			Image:      pulumi.String("debian-9"),
+// 			ServerType: pulumi.String("cx11"),
+// 			FirewallIds: pulumi.IntArray{
+// 				myfirewall.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Firewalls can be imported using its `id`
@@ -175,7 +226,7 @@ type FirewallArrayInput interface {
 type FirewallArray []FirewallInput
 
 func (FirewallArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Firewall)(nil))
+	return reflect.TypeOf((*[]*Firewall)(nil)).Elem()
 }
 
 func (i FirewallArray) ToFirewallArrayOutput() FirewallArrayOutput {
@@ -200,7 +251,7 @@ type FirewallMapInput interface {
 type FirewallMap map[string]FirewallInput
 
 func (FirewallMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Firewall)(nil))
+	return reflect.TypeOf((*map[string]*Firewall)(nil)).Elem()
 }
 
 func (i FirewallMap) ToFirewallMapOutput() FirewallMapOutput {
@@ -211,9 +262,7 @@ func (i FirewallMap) ToFirewallMapOutputWithContext(ctx context.Context) Firewal
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallMapOutput)
 }
 
-type FirewallOutput struct {
-	*pulumi.OutputState
-}
+type FirewallOutput struct{ *pulumi.OutputState }
 
 func (FirewallOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Firewall)(nil))
@@ -232,14 +281,12 @@ func (o FirewallOutput) ToFirewallPtrOutput() FirewallPtrOutput {
 }
 
 func (o FirewallOutput) ToFirewallPtrOutputWithContext(ctx context.Context) FirewallPtrOutput {
-	return o.ApplyT(func(v Firewall) *Firewall {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Firewall) *Firewall {
 		return &v
 	}).(FirewallPtrOutput)
 }
 
-type FirewallPtrOutput struct {
-	*pulumi.OutputState
-}
+type FirewallPtrOutput struct{ *pulumi.OutputState }
 
 func (FirewallPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Firewall)(nil))
@@ -251,6 +298,16 @@ func (o FirewallPtrOutput) ToFirewallPtrOutput() FirewallPtrOutput {
 
 func (o FirewallPtrOutput) ToFirewallPtrOutputWithContext(ctx context.Context) FirewallPtrOutput {
 	return o
+}
+
+func (o FirewallPtrOutput) Elem() FirewallOutput {
+	return o.ApplyT(func(v *Firewall) Firewall {
+		if v != nil {
+			return *v
+		}
+		var ret Firewall
+		return ret
+	}).(FirewallOutput)
 }
 
 type FirewallArrayOutput struct{ *pulumi.OutputState }
@@ -294,6 +351,10 @@ func (o FirewallMapOutput) MapIndex(k pulumi.StringInput) FirewallOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallInput)(nil)).Elem(), &Firewall{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPtrInput)(nil)).Elem(), &Firewall{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallArrayInput)(nil)).Elem(), FirewallArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallMapInput)(nil)).Elem(), FirewallMap{})
 	pulumi.RegisterOutputType(FirewallOutput{})
 	pulumi.RegisterOutputType(FirewallPtrOutput{})
 	pulumi.RegisterOutputType(FirewallArrayOutput{})

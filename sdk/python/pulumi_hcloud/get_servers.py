@@ -13,6 +13,7 @@ __all__ = [
     'GetServersResult',
     'AwaitableGetServersResult',
     'get_servers',
+    'get_servers_output',
 ]
 
 @pulumi.output_type
@@ -96,3 +97,16 @@ def get_servers(with_selector: Optional[str] = None,
         servers=__ret__.servers,
         with_selector=__ret__.with_selector,
         with_statuses=__ret__.with_statuses)
+
+
+@_utilities.lift_output_func(get_servers)
+def get_servers_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServersResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param Sequence[str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+    """
+    ...

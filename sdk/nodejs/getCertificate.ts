@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -14,10 +13,10 @@ import * as utilities from "./utilities";
  *
  * const sampleCertificate1 = pulumi.output(hcloud.getCertificate({
  *     name: "sample-certificate-1",
- * }, { async: true }));
+ * }));
  * const sampleCertificate2 = pulumi.output(hcloud.getCertificate({
  *     id: 4711,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -43,15 +42,15 @@ export interface GetCertificateArgs {
     /**
      * ID of the certificate.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * Name of the certificate.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
-    readonly withSelector?: string;
+    withSelector?: string;
 }
 
 /**
@@ -96,4 +95,26 @@ export interface GetCertificateResult {
     readonly notValidBefore: string;
     readonly type: string;
     readonly withSelector?: string;
+}
+
+export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCertificate.
+ */
+export interface GetCertificateOutputArgs {
+    /**
+     * ID of the certificate.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * Name of the certificate.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     */
+    withSelector?: pulumi.Input<string>;
 }

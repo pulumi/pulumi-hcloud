@@ -8,23 +8,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a list of available Hetzner Cloud Datacenters.
  * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const ds = hcloud.getDatacenters({});
- * const workers: hcloud.Server[];
- * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     workers.push(new hcloud.Server(`workers-${range.value}`, {
- *         image: "debian-9",
- *         serverType: "cx31",
- *         datacenter: ds.then(ds => ds.names)[range.value],
- *     }));
- * }
- * ```
  */
 export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacentersResult> {
     args = args || {};
@@ -49,7 +32,7 @@ export interface GetDatacentersArgs {
      *
      * @deprecated Use datacenters list instead
      */
-    readonly datacenterIds?: string[];
+    datacenterIds?: string[];
 }
 
 /**
@@ -82,4 +65,20 @@ export interface GetDatacentersResult {
      * @deprecated Use datacenters list instead
      */
     readonly names: string[];
+}
+
+export function getDatacentersOutput(args?: GetDatacentersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacentersResult> {
+    return pulumi.output(args).apply(a => getDatacenters(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDatacenters.
+ */
+export interface GetDatacentersOutputArgs {
+    /**
+     * (list) List of unique datacenter identifiers.
+     *
+     * @deprecated Use datacenters list instead
+     */
+    datacenterIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

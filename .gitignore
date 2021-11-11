@@ -4,6 +4,7 @@
 **/obj/
 Pulumi.*.yaml
 sdk/nodejs/node_modules
+.DS_Store
 
 **/command-output/
 

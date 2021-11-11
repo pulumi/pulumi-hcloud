@@ -47,6 +47,18 @@ export interface FirewallRule {
     sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetFirewallApplyToArgs {
+    /**
+     * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
+     * referenced
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
+     */
+    server?: pulumi.Input<number>;
+}
+
 export interface GetFirewallApplyTo {
     /**
      * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
@@ -84,6 +96,33 @@ export interface GetFirewallRule {
      * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
      */
     sourceIps?: string[];
+}
+
+export interface GetFirewallRuleArgs {
+    /**
+     * (Optional, string) Description of the firewall rule
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+     */
+    destinationIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Required, string) Direction of the Firewall Rule. `in`, `out`
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+     */
+    port?: pulumi.Input<string>;
+    /**
+     * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+     */
+    protocol?: pulumi.Input<string>;
+    /**
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
+     */
+    sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface LoadBalancerAlgorithm {
@@ -196,3 +235,4 @@ export interface ServerNetwork {
      */
     networkId: pulumi.Input<number>;
 }
+

@@ -12,6 +12,7 @@ __all__ = [
     'GetPlacementGroupResult',
     'AwaitableGetPlacementGroupResult',
     'get_placement_group',
+    'get_placement_group_output',
 ]
 
 @pulumi.output_type
@@ -152,3 +153,33 @@ def get_placement_group(id: Optional[int] = None,
         servers=__ret__.servers,
         type=__ret__.type,
         with_selector=__ret__.with_selector)
+
+
+@_utilities.lift_output_func(get_placement_group)
+def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                               labels: Optional[pulumi.Input[Optional[Mapping[str, Any]]]] = None,
+                               most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                               name: Optional[pulumi.Input[Optional[str]]] = None,
+                               type: Optional[pulumi.Input[Optional[str]]] = None,
+                               with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupResult]:
+    """
+    Provides details about a specific Hetzner Cloud Placement Group.
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    sample_placement_group1 = hcloud.get_placement_group(name="sample-placement-group-1")
+    sample_placement_group2 = hcloud.get_placement_group(id=4711)
+    ```
+
+
+    :param int id: ID of the placement group.
+    :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
+    :param bool most_recent: Return most recent placement group if multiple are found.
+    :param str name: Name of the placement group.
+    :param str type: (string)  Type of the Placement Group.
+    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    """
+    ...

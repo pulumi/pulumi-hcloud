@@ -27,11 +27,11 @@ export interface GetServersArgs {
     /**
      * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
      */
-    readonly withSelector?: string;
+    withSelector?: string;
     /**
      * List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
      */
-    readonly withStatuses?: string[];
+    withStatuses?: string[];
 }
 
 /**
@@ -48,4 +48,22 @@ export interface GetServersResult {
     readonly servers: outputs.GetServersServer[];
     readonly withSelector?: string;
     readonly withStatuses?: string[];
+}
+
+export function getServersOutput(args?: GetServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServersResult> {
+    return pulumi.output(args).apply(a => getServers(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServers.
+ */
+export interface GetServersOutputArgs {
+    /**
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     */
+    withSelector?: pulumi.Input<string>;
+    /**
+     * List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+     */
+    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
 }

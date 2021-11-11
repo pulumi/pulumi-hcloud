@@ -10,22 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class GetFirewallApplyToInputArgs : Pulumi.ResourceArgs
+    public sealed class GetFirewallApplyToArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
         /// referenced
         /// </summary>
         [Input("labelSelector", required: true)]
-        public Input<string> LabelSelector { get; set; } = null!;
+        public string LabelSelector { get; set; } = null!;
 
         /// <summary>
         /// (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
         /// </summary>
         [Input("server", required: true)]
-        public Input<int> Server { get; set; } = null!;
+        public int Server { get; set; }
 
-        public GetFirewallApplyToInputArgs()
+        public GetFirewallApplyToArgs()
         {
         }
     }

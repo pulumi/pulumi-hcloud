@@ -366,7 +366,7 @@ func (o LoadBalancerAlgorithmOutput) ToLoadBalancerAlgorithmPtrOutput() LoadBala
 }
 
 func (o LoadBalancerAlgorithmOutput) ToLoadBalancerAlgorithmPtrOutputWithContext(ctx context.Context) LoadBalancerAlgorithmPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAlgorithm) *LoadBalancerAlgorithm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerAlgorithm) *LoadBalancerAlgorithm {
 		return &v
 	}).(LoadBalancerAlgorithmPtrOutput)
 }
@@ -391,7 +391,13 @@ func (o LoadBalancerAlgorithmPtrOutput) ToLoadBalancerAlgorithmPtrOutputWithCont
 }
 
 func (o LoadBalancerAlgorithmPtrOutput) Elem() LoadBalancerAlgorithmOutput {
-	return o.ApplyT(func(v *LoadBalancerAlgorithm) LoadBalancerAlgorithm { return *v }).(LoadBalancerAlgorithmOutput)
+	return o.ApplyT(func(v *LoadBalancerAlgorithm) LoadBalancerAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerAlgorithm
+		return ret
+	}).(LoadBalancerAlgorithmOutput)
 }
 
 // Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
@@ -517,7 +523,7 @@ func (o LoadBalancerServiceHealthCheckOutput) ToLoadBalancerServiceHealthCheckPt
 }
 
 func (o LoadBalancerServiceHealthCheckOutput) ToLoadBalancerServiceHealthCheckPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckPtrOutput {
-	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheck {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheck {
 		return &v
 	}).(LoadBalancerServiceHealthCheckPtrOutput)
 }
@@ -567,7 +573,13 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) ToLoadBalancerServiceHealthChec
 }
 
 func (o LoadBalancerServiceHealthCheckPtrOutput) Elem() LoadBalancerServiceHealthCheckOutput {
-	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) LoadBalancerServiceHealthCheck { return *v }).(LoadBalancerServiceHealthCheckOutput)
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) LoadBalancerServiceHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerServiceHealthCheck
+		return ret
+	}).(LoadBalancerServiceHealthCheckOutput)
 }
 
 // List of http configurations. Required if `protocol` is `http`.
@@ -739,7 +751,7 @@ func (o LoadBalancerServiceHealthCheckHttpOutput) ToLoadBalancerServiceHealthChe
 }
 
 func (o LoadBalancerServiceHealthCheckHttpOutput) ToLoadBalancerServiceHealthCheckHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHealthCheckHttpPtrOutput {
-	return o.ApplyT(func(v LoadBalancerServiceHealthCheckHttp) *LoadBalancerServiceHealthCheckHttp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerServiceHealthCheckHttp) *LoadBalancerServiceHealthCheckHttp {
 		return &v
 	}).(LoadBalancerServiceHealthCheckHttpPtrOutput)
 }
@@ -784,7 +796,13 @@ func (o LoadBalancerServiceHealthCheckHttpPtrOutput) ToLoadBalancerServiceHealth
 }
 
 func (o LoadBalancerServiceHealthCheckHttpPtrOutput) Elem() LoadBalancerServiceHealthCheckHttpOutput {
-	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) LoadBalancerServiceHealthCheckHttp { return *v }).(LoadBalancerServiceHealthCheckHttpOutput)
+	return o.ApplyT(func(v *LoadBalancerServiceHealthCheckHttp) LoadBalancerServiceHealthCheckHttp {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerServiceHealthCheckHttp
+		return ret
+	}).(LoadBalancerServiceHealthCheckHttpOutput)
 }
 
 // Domain we try to access when performing the Health Check.
@@ -946,7 +964,7 @@ func (o LoadBalancerServiceHttpOutput) ToLoadBalancerServiceHttpPtrOutput() Load
 }
 
 func (o LoadBalancerServiceHttpOutput) ToLoadBalancerServiceHttpPtrOutputWithContext(ctx context.Context) LoadBalancerServiceHttpPtrOutput {
-	return o.ApplyT(func(v LoadBalancerServiceHttp) *LoadBalancerServiceHttp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerServiceHttp) *LoadBalancerServiceHttp {
 		return &v
 	}).(LoadBalancerServiceHttpPtrOutput)
 }
@@ -991,7 +1009,13 @@ func (o LoadBalancerServiceHttpPtrOutput) ToLoadBalancerServiceHttpPtrOutputWith
 }
 
 func (o LoadBalancerServiceHttpPtrOutput) Elem() LoadBalancerServiceHttpOutput {
-	return o.ApplyT(func(v *LoadBalancerServiceHttp) LoadBalancerServiceHttp { return *v }).(LoadBalancerServiceHttpOutput)
+	return o.ApplyT(func(v *LoadBalancerServiceHttp) LoadBalancerServiceHttp {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerServiceHttp
+		return ret
+	}).(LoadBalancerServiceHttpOutput)
 }
 
 // List of IDs from certificates which the Load Balancer has.
@@ -5019,6 +5043,80 @@ func (o GetVolumesVolumeArrayOutput) Index(i pulumi.IntInput) GetVolumesVolumeOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallApplyToInput)(nil)).Elem(), FirewallApplyToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallApplyToArrayInput)(nil)).Elem(), FirewallApplyToArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleInput)(nil)).Elem(), FirewallRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleArrayInput)(nil)).Elem(), FirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAlgorithmInput)(nil)).Elem(), LoadBalancerAlgorithmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAlgorithmPtrInput)(nil)).Elem(), LoadBalancerAlgorithmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerServiceHealthCheckInput)(nil)).Elem(), LoadBalancerServiceHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerServiceHealthCheckPtrInput)(nil)).Elem(), LoadBalancerServiceHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerServiceHealthCheckHttpInput)(nil)).Elem(), LoadBalancerServiceHealthCheckHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerServiceHealthCheckHttpPtrInput)(nil)).Elem(), LoadBalancerServiceHealthCheckHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerServiceHttpInput)(nil)).Elem(), LoadBalancerServiceHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerServiceHttpPtrInput)(nil)).Elem(), LoadBalancerServiceHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTargetTypeInput)(nil)).Elem(), LoadBalancerTargetTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTargetTypeArrayInput)(nil)).Elem(), LoadBalancerTargetTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerNetworkTypeInput)(nil)).Elem(), ServerNetworkTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerNetworkTypeArrayInput)(nil)).Elem(), ServerNetworkTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatesCertificateInput)(nil)).Elem(), GetCertificatesCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatesCertificateArrayInput)(nil)).Elem(), GetCertificatesCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatacentersDatacenterInput)(nil)).Elem(), GetDatacentersDatacenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatacentersDatacenterArrayInput)(nil)).Elem(), GetDatacentersDatacenterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallApplyToInput)(nil)).Elem(), GetFirewallApplyToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallApplyToArrayInput)(nil)).Elem(), GetFirewallApplyToArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallRuleInput)(nil)).Elem(), GetFirewallRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallRuleArrayInput)(nil)).Elem(), GetFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallsFirewallInput)(nil)).Elem(), GetFirewallsFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallsFirewallArrayInput)(nil)).Elem(), GetFirewallsFirewallArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallsFirewallApplyToInput)(nil)).Elem(), GetFirewallsFirewallApplyToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallsFirewallApplyToArrayInput)(nil)).Elem(), GetFirewallsFirewallApplyToArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallsFirewallRuleInput)(nil)).Elem(), GetFirewallsFirewallRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallsFirewallRuleArrayInput)(nil)).Elem(), GetFirewallsFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFloatingIpsFloatingIpInput)(nil)).Elem(), GetFloatingIpsFloatingIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFloatingIpsFloatingIpArrayInput)(nil)).Elem(), GetFloatingIpsFloatingIpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageInput)(nil)).Elem(), GetImagesImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageArrayInput)(nil)).Elem(), GetImagesImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAlgorithmInput)(nil)).Elem(), GetLoadBalancerAlgorithmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAlgorithmArrayInput)(nil)).Elem(), GetLoadBalancerAlgorithmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceTypeInput)(nil)).Elem(), GetLoadBalancerServiceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceTypeArrayInput)(nil)).Elem(), GetLoadBalancerServiceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceHealthCheckInput)(nil)).Elem(), GetLoadBalancerServiceHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceHealthCheckArrayInput)(nil)).Elem(), GetLoadBalancerServiceHealthCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceHealthCheckHttpInput)(nil)).Elem(), GetLoadBalancerServiceHealthCheckHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceHealthCheckHttpArrayInput)(nil)).Elem(), GetLoadBalancerServiceHealthCheckHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceHttpInput)(nil)).Elem(), GetLoadBalancerServiceHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceHttpArrayInput)(nil)).Elem(), GetLoadBalancerServiceHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerTargetTypeInput)(nil)).Elem(), GetLoadBalancerTargetTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerTargetTypeArrayInput)(nil)).Elem(), GetLoadBalancerTargetTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerInput)(nil)).Elem(), GetLoadBalancersLoadBalancerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerAlgorithmInput)(nil)).Elem(), GetLoadBalancersLoadBalancerAlgorithmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerAlgorithmArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerAlgorithmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceHealthCheckInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceHealthCheckArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceHealthCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceHealthCheckHttpInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceHealthCheckHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceHealthCheckHttpArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceHealthCheckHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceHttpInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceHttpArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerTargetInput)(nil)).Elem(), GetLoadBalancersLoadBalancerTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerTargetArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationsLocationInput)(nil)).Elem(), GetLocationsLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationsLocationArrayInput)(nil)).Elem(), GetLocationsLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkInput)(nil)).Elem(), GetNetworksNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkArrayInput)(nil)).Elem(), GetNetworksNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlacementGroupsPlacementGroupInput)(nil)).Elem(), GetPlacementGroupsPlacementGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlacementGroupsPlacementGroupArrayInput)(nil)).Elem(), GetPlacementGroupsPlacementGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypesServerTypeInput)(nil)).Elem(), GetServerTypesServerTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypesServerTypeArrayInput)(nil)).Elem(), GetServerTypesServerTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerInput)(nil)).Elem(), GetServersServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerArrayInput)(nil)).Elem(), GetServersServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSshKeysSshKeyInput)(nil)).Elem(), GetSshKeysSshKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSshKeysSshKeyArrayInput)(nil)).Elem(), GetSshKeysSshKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumesVolumeInput)(nil)).Elem(), GetVolumesVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumesVolumeArrayInput)(nil)).Elem(), GetVolumesVolumeArray{})
 	pulumi.RegisterOutputType(FirewallApplyToOutput{})
 	pulumi.RegisterOutputType(FirewallApplyToArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleOutput{})

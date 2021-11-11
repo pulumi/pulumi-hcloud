@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,14 +23,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "sample-placement-group-1"
-// 		_, err := hcloud.LookupPlacementGroup(ctx, &hcloud.LookupPlacementGroupArgs{
+// 		_, err := hcloud.LookupPlacementGroup(ctx, &GetPlacementGroupArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		opt1 := 4711
-// 		_, err = hcloud.LookupPlacementGroup(ctx, &hcloud.LookupPlacementGroupArgs{
+// 		_, err = hcloud.LookupPlacementGroup(ctx, &GetPlacementGroupArgs{
 // 			Id: &opt1,
 // 		}, nil)
 // 		if err != nil {
@@ -75,4 +78,84 @@ type LookupPlacementGroupResult struct {
 	// (string)  Type of the Placement Group.
 	Type         *string `pulumi:"type"`
 	WithSelector *string `pulumi:"withSelector"`
+}
+
+func LookupPlacementGroupOutput(ctx *pulumi.Context, args LookupPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPlacementGroupResult, error) {
+			args := v.(LookupPlacementGroupArgs)
+			r, err := LookupPlacementGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPlacementGroupResultOutput)
+}
+
+// A collection of arguments for invoking getPlacementGroup.
+type LookupPlacementGroupOutputArgs struct {
+	// ID of the placement group.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// (map) User-defined labels (key-value pairs)
+	Labels pulumi.MapInput `pulumi:"labels"`
+	// Return most recent placement group if multiple are found.
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Name of the placement group.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (string)  Type of the Placement Group.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (LookupPlacementGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPlacementGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPlacementGroup.
+type LookupPlacementGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPlacementGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPlacementGroupResult)(nil)).Elem()
+}
+
+func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutput() LookupPlacementGroupResultOutput {
+	return o
+}
+
+func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWithContext(ctx context.Context) LookupPlacementGroupResultOutput {
+	return o
+}
+
+// (int) Unique ID of the Placement Group.
+func (o LookupPlacementGroupResultOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// (map) User-defined labels (key-value pairs)
+func (o LookupPlacementGroupResultOutput) Labels() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+}
+
+func (o LookupPlacementGroupResultOutput) MostRecent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+// (string) Name of the Placement Group.
+func (o LookupPlacementGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupPlacementGroupResultOutput) Servers() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) []int { return v.Servers }).(pulumi.IntArrayOutput)
+}
+
+// (string)  Type of the Placement Group.
+func (o LookupPlacementGroupResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPlacementGroupResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPlacementGroupResultOutput{})
 }

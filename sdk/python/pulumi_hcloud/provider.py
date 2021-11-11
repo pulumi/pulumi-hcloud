@@ -129,3 +129,21 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="pollInterval")
+    def poll_interval(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "poll_interval")
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Output[str]:
+        """
+        The API token to access the Hetzner cloud.
+        """
+        return pulumi.get(self, "token")
+

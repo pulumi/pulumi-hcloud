@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -44,6 +45,40 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Task<GetServerTypeResult> InvokeAsync(GetServerTypeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Server Type.
+        /// Use this resource to get detailed information about specific Server Type.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ds1 = Output.Create(HCloud.GetServerType.InvokeAsync(new HCloud.GetServerTypeArgs
+        ///         {
+        ///             Name = "cx11",
+        ///         }));
+        ///         var ds2 = Output.Create(HCloud.GetServerType.InvokeAsync(new HCloud.GetServerTypeArgs
+        ///         {
+        ///             Id = 1,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServerTypeResult> Invoke(GetServerTypeInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -62,6 +97,25 @@ namespace Pulumi.HCloud
         public string? Name { get; set; }
 
         public GetServerTypeArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerTypeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID of the server_type.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// Name of the server_type.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetServerTypeInvokeArgs()
         {
         }
     }

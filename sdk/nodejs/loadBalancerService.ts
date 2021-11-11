@@ -139,31 +139,31 @@ export interface LoadBalancerServiceState {
     /**
      * Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
      */
-    readonly destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number>;
     /**
      * List of health check configurations when `protocol` is `http` or `https`.
      */
-    readonly healthCheck?: pulumi.Input<inputs.LoadBalancerServiceHealthCheck>;
+    healthCheck?: pulumi.Input<inputs.LoadBalancerServiceHealthCheck>;
     /**
      * List of http configurations when `protocol` is `http` or `https`.
      */
-    readonly http?: pulumi.Input<inputs.LoadBalancerServiceHttp>;
+    http?: pulumi.Input<inputs.LoadBalancerServiceHttp>;
     /**
      * Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      */
-    readonly listenPort?: pulumi.Input<number>;
+    listenPort?: pulumi.Input<number>;
     /**
      * Id of the load balancer this service belongs to.
      */
-    readonly loadBalancerId?: pulumi.Input<string>;
+    loadBalancerId?: pulumi.Input<string>;
     /**
      * Protocol of the service. `http`, `https` or `tcp`
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
     /**
      * Enable proxyprotocol.
      */
-    readonly proxyprotocol?: pulumi.Input<boolean>;
+    proxyprotocol?: pulumi.Input<boolean>;
 }
 
 /**
@@ -173,29 +173,29 @@ export interface LoadBalancerServiceArgs {
     /**
      * Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
      */
-    readonly destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number>;
     /**
      * List of health check configurations when `protocol` is `http` or `https`.
      */
-    readonly healthCheck?: pulumi.Input<inputs.LoadBalancerServiceHealthCheck>;
+    healthCheck?: pulumi.Input<inputs.LoadBalancerServiceHealthCheck>;
     /**
      * List of http configurations when `protocol` is `http` or `https`.
      */
-    readonly http?: pulumi.Input<inputs.LoadBalancerServiceHttp>;
+    http?: pulumi.Input<inputs.LoadBalancerServiceHttp>;
     /**
      * Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      */
-    readonly listenPort?: pulumi.Input<number>;
+    listenPort?: pulumi.Input<number>;
     /**
      * Id of the load balancer this service belongs to.
      */
-    readonly loadBalancerId: pulumi.Input<string>;
+    loadBalancerId: pulumi.Input<string>;
     /**
      * Protocol of the service. `http`, `https` or `tcp`
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
     /**
      * Enable proxyprotocol.
      */
-    readonly proxyprotocol?: pulumi.Input<boolean>;
+    proxyprotocol?: pulumi.Input<boolean>;
 }

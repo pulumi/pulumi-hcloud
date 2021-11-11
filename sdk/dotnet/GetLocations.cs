@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -14,41 +15,16 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides a list of available Hetzner Cloud Locations.
         /// This resource may be useful to create highly available infrastructure, distributed across several locations.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var ds = Output.Create(HCloud.GetLocations.InvokeAsync());
-        ///         var workers = new List&lt;HCloud.Server&gt;();
-        ///         for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
-        ///         {
-        ///             var range = new { Value = rangeIndex };
-        ///             workers.Add(new HCloud.Server($"workers-{range.Value}", new HCloud.ServerArgs
-        ///             {
-        ///                 Image = "debian-9",
-        ///                 ServerType = "cx31",
-        ///                 Location = ds.Apply(ds =&gt; ds.Names)[range.Value],
-        ///             }));
-        ///         }
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocationsResult> InvokeAsync(GetLocationsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("hcloud:index/getLocations:getLocations", args ?? new GetLocationsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides a list of available Hetzner Cloud Locations.
+        /// This resource may be useful to create highly available infrastructure, distributed across several locations.
+        /// </summary>
+        public static Output<GetLocationsResult> Invoke(GetLocationsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("hcloud:index/getLocations:getLocations", args ?? new GetLocationsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +44,26 @@ namespace Pulumi.HCloud
         }
 
         public GetLocationsArgs()
+        {
+        }
+    }
+
+    public sealed class GetLocationsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("locationIds")]
+        private InputList<string>? _locationIds;
+
+        /// <summary>
+        /// (list) List of unique location identifiers.
+        /// </summary>
+        [Obsolete(@"Use locations list instead")]
+        public InputList<string> LocationIds
+        {
+            get => _locationIds ?? (_locationIds = new InputList<string>());
+            set => _locationIds = value;
+        }
+
+        public GetLocationsInvokeArgs()
         {
         }
     }

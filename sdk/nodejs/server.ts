@@ -215,91 +215,91 @@ export interface ServerState {
      *
      * @deprecated You should remove this property from your terraform configuration.
      */
-    readonly backupWindow?: pulumi.Input<string>;
+    backupWindow?: pulumi.Input<string>;
     /**
      * Enable or disable backups.
      */
-    readonly backups?: pulumi.Input<boolean>;
+    backups?: pulumi.Input<boolean>;
     /**
      * The datacenter name to create the server in.
      */
-    readonly datacenter?: pulumi.Input<string>;
+    datacenter?: pulumi.Input<string>;
     /**
      * Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
      */
-    readonly deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean>;
     /**
      * Firewall IDs the server should be attached to on creation.
      */
-    readonly firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
+    firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Name or ID of the image the server is created from.
      */
-    readonly image?: pulumi.Input<string>;
+    image?: pulumi.Input<string>;
     /**
      * (string) The IPv4 address.
      */
-    readonly ipv4Address?: pulumi.Input<string>;
+    ipv4Address?: pulumi.Input<string>;
     /**
      * (string) The first IPv6 address of the assigned network.
      */
-    readonly ipv6Address?: pulumi.Input<string>;
+    ipv6Address?: pulumi.Input<string>;
     /**
      * (string) The IPv6 network.
      */
-    readonly ipv6Network?: pulumi.Input<string>;
+    ipv6Network?: pulumi.Input<string>;
     /**
      * ID or Name of an ISO image to mount.
      */
-    readonly iso?: pulumi.Input<string>;
+    iso?: pulumi.Input<string>;
     /**
      * If true, do not upgrade the disk. This allows downgrading the server type later.
      */
-    readonly keepDisk?: pulumi.Input<boolean>;
+    keepDisk?: pulumi.Input<boolean>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * The location name to create the server in. `nbg1`, `fsn1` or `hel1`
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Network the server should be attached to on creation. (Can be specified multiple times)
      */
-    readonly networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
+    networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
     /**
      * Placement Group ID the server added to on creation.
      */
-    readonly placementGroupId?: pulumi.Input<number>;
+    placementGroupId?: pulumi.Input<number>;
     /**
      * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      */
-    readonly rebuildProtection?: pulumi.Input<boolean>;
+    rebuildProtection?: pulumi.Input<boolean>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
      */
-    readonly rescue?: pulumi.Input<string>;
+    rescue?: pulumi.Input<string>;
     /**
      * Name of the server type this server should be created with.
      */
-    readonly serverType?: pulumi.Input<string>;
+    serverType?: pulumi.Input<string>;
     /**
      * SSH key IDs or names which should be injected into the server at creation time
      */
-    readonly sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (string) The status of the server.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Cloud-Init user data to use during server creation
      */
-    readonly userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string>;
 }
 
 /**
@@ -309,69 +309,69 @@ export interface ServerArgs {
     /**
      * Enable or disable backups.
      */
-    readonly backups?: pulumi.Input<boolean>;
+    backups?: pulumi.Input<boolean>;
     /**
      * The datacenter name to create the server in.
      */
-    readonly datacenter?: pulumi.Input<string>;
+    datacenter?: pulumi.Input<string>;
     /**
      * Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
      */
-    readonly deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean>;
     /**
      * Firewall IDs the server should be attached to on creation.
      */
-    readonly firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
+    firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Name or ID of the image the server is created from.
      */
-    readonly image: pulumi.Input<string>;
+    image: pulumi.Input<string>;
     /**
      * ID or Name of an ISO image to mount.
      */
-    readonly iso?: pulumi.Input<string>;
+    iso?: pulumi.Input<string>;
     /**
      * If true, do not upgrade the disk. This allows downgrading the server type later.
      */
-    readonly keepDisk?: pulumi.Input<boolean>;
+    keepDisk?: pulumi.Input<boolean>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    readonly labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: any}>;
     /**
      * The location name to create the server in. `nbg1`, `fsn1` or `hel1`
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Network the server should be attached to on creation. (Can be specified multiple times)
      */
-    readonly networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
+    networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
     /**
      * Placement Group ID the server added to on creation.
      */
-    readonly placementGroupId?: pulumi.Input<number>;
+    placementGroupId?: pulumi.Input<number>;
     /**
      * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      */
-    readonly rebuildProtection?: pulumi.Input<boolean>;
+    rebuildProtection?: pulumi.Input<boolean>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
      */
-    readonly rescue?: pulumi.Input<string>;
+    rescue?: pulumi.Input<string>;
     /**
      * Name of the server type this server should be created with.
      */
-    readonly serverType: pulumi.Input<string>;
+    serverType: pulumi.Input<string>;
     /**
      * SSH key IDs or names which should be injected into the server at creation time
      */
-    readonly sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Cloud-Init user data to use during server creation
      */
-    readonly userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string>;
 }

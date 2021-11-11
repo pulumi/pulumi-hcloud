@@ -207,7 +207,7 @@ type ManagedCertificateArrayInput interface {
 type ManagedCertificateArray []ManagedCertificateInput
 
 func (ManagedCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ManagedCertificate)(nil))
+	return reflect.TypeOf((*[]*ManagedCertificate)(nil)).Elem()
 }
 
 func (i ManagedCertificateArray) ToManagedCertificateArrayOutput() ManagedCertificateArrayOutput {
@@ -232,7 +232,7 @@ type ManagedCertificateMapInput interface {
 type ManagedCertificateMap map[string]ManagedCertificateInput
 
 func (ManagedCertificateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ManagedCertificate)(nil))
+	return reflect.TypeOf((*map[string]*ManagedCertificate)(nil)).Elem()
 }
 
 func (i ManagedCertificateMap) ToManagedCertificateMapOutput() ManagedCertificateMapOutput {
@@ -243,9 +243,7 @@ func (i ManagedCertificateMap) ToManagedCertificateMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedCertificateMapOutput)
 }
 
-type ManagedCertificateOutput struct {
-	*pulumi.OutputState
-}
+type ManagedCertificateOutput struct{ *pulumi.OutputState }
 
 func (ManagedCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedCertificate)(nil))
@@ -264,14 +262,12 @@ func (o ManagedCertificateOutput) ToManagedCertificatePtrOutput() ManagedCertifi
 }
 
 func (o ManagedCertificateOutput) ToManagedCertificatePtrOutputWithContext(ctx context.Context) ManagedCertificatePtrOutput {
-	return o.ApplyT(func(v ManagedCertificate) *ManagedCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedCertificate) *ManagedCertificate {
 		return &v
 	}).(ManagedCertificatePtrOutput)
 }
 
-type ManagedCertificatePtrOutput struct {
-	*pulumi.OutputState
-}
+type ManagedCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedCertificate)(nil))
@@ -283,6 +279,16 @@ func (o ManagedCertificatePtrOutput) ToManagedCertificatePtrOutput() ManagedCert
 
 func (o ManagedCertificatePtrOutput) ToManagedCertificatePtrOutputWithContext(ctx context.Context) ManagedCertificatePtrOutput {
 	return o
+}
+
+func (o ManagedCertificatePtrOutput) Elem() ManagedCertificateOutput {
+	return o.ApplyT(func(v *ManagedCertificate) ManagedCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedCertificate
+		return ret
+	}).(ManagedCertificateOutput)
 }
 
 type ManagedCertificateArrayOutput struct{ *pulumi.OutputState }
@@ -326,6 +332,10 @@ func (o ManagedCertificateMapOutput) MapIndex(k pulumi.StringInput) ManagedCerti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedCertificateInput)(nil)).Elem(), &ManagedCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedCertificatePtrInput)(nil)).Elem(), &ManagedCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedCertificateArrayInput)(nil)).Elem(), ManagedCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedCertificateMapInput)(nil)).Elem(), ManagedCertificateMap{})
 	pulumi.RegisterOutputType(ManagedCertificateOutput{})
 	pulumi.RegisterOutputType(ManagedCertificatePtrOutput{})
 	pulumi.RegisterOutputType(ManagedCertificateArrayOutput{})

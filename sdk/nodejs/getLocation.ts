@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -17,10 +16,10 @@ import * as utilities from "./utilities";
  *
  * const l1 = pulumi.output(hcloud.getLocation({
  *     name: "fsn1",
- * }, { async: true }));
+ * }));
  * const l2 = pulumi.output(hcloud.getLocation({
  *     id: 1,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getLocation(args?: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
@@ -45,11 +44,11 @@ export interface GetLocationArgs {
     /**
      * ID of the location.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * Name of the location.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**
@@ -84,4 +83,22 @@ export interface GetLocationResult {
      * (string) Name of the location.
      */
     readonly name: string;
+}
+
+export function getLocationOutput(args?: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
+    return pulumi.output(args).apply(a => getLocation(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLocation.
+ */
+export interface GetLocationOutputArgs {
+    /**
+     * ID of the location.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * Name of the location.
+     */
+    name?: pulumi.Input<string>;
 }

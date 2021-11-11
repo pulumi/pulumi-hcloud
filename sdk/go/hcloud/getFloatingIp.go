@@ -4,6 +4,9 @@
 package hcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,14 +31,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "1.2.3.4"
-// 		ip1, err := hcloud.LookupFloatingIp(ctx, &hcloud.LookupFloatingIpArgs{
+// 		ip1, err := hcloud.LookupFloatingIp(ctx, &GetFloatingIpArgs{
 // 			IpAddress: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		opt1 := "key=value"
-// 		_, err = hcloud.LookupFloatingIp(ctx, &hcloud.LookupFloatingIpArgs{
+// 		_, err = hcloud.LookupFloatingIp(ctx, &GetFloatingIpArgs{
 // 			WithSelector: &opt1,
 // 		}, nil)
 // 		if err != nil {
@@ -104,4 +107,109 @@ type LookupFloatingIpResult struct {
 	// (string) Type of the Floating IP.
 	Type         string  `pulumi:"type"`
 	WithSelector *string `pulumi:"withSelector"`
+}
+
+func LookupFloatingIpOutput(ctx *pulumi.Context, args LookupFloatingIpOutputArgs, opts ...pulumi.InvokeOption) LookupFloatingIpResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFloatingIpResult, error) {
+			args := v.(LookupFloatingIpArgs)
+			r, err := LookupFloatingIp(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFloatingIpResultOutput)
+}
+
+// A collection of arguments for invoking getFloatingIp.
+type LookupFloatingIpOutputArgs struct {
+	// ID of the Floating IP.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// IP address of the Floating IP.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// Name of the Floating IP.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Deprecated: Please use the with_selector property instead.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
+}
+
+func (LookupFloatingIpOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFloatingIpArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getFloatingIp.
+type LookupFloatingIpResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFloatingIpResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFloatingIpResult)(nil)).Elem()
+}
+
+func (o LookupFloatingIpResultOutput) ToLookupFloatingIpResultOutput() LookupFloatingIpResultOutput {
+	return o
+}
+
+func (o LookupFloatingIpResultOutput) ToLookupFloatingIpResultOutputWithContext(ctx context.Context) LookupFloatingIpResultOutput {
+	return o
+}
+
+// (boolean) Whether delete protection is enabled.
+func (o LookupFloatingIpResultOutput) DeleteProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+// (string) Description of the Floating IP.
+func (o LookupFloatingIpResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// (string) Home location.
+func (o LookupFloatingIpResultOutput) HomeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) string { return v.HomeLocation }).(pulumi.StringOutput)
+}
+
+// (int) Unique ID of the Floating IP.
+func (o LookupFloatingIpResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (string) IP Address of the Floating IP.
+func (o LookupFloatingIpResultOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+func (o LookupFloatingIpResultOutput) IpNetwork() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) string { return v.IpNetwork }).(pulumi.StringOutput)
+}
+
+// (map) User-defined labels (key-value pairs).
+func (o LookupFloatingIpResultOutput) Labels() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+}
+
+// (string) Name of the Floating IP.
+func (o LookupFloatingIpResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: Please use the with_selector property instead.
+func (o LookupFloatingIpResultOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// (int) Server to assign the Floating IP is assigned to.
+func (o LookupFloatingIpResultOutput) ServerId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) int { return v.ServerId }).(pulumi.IntOutput)
+}
+
+// (string) Type of the Floating IP.
+func (o LookupFloatingIpResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o LookupFloatingIpResultOutput) WithSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFloatingIpResultOutput{})
 }

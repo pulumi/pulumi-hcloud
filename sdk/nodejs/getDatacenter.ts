@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -17,10 +16,10 @@ import * as utilities from "./utilities";
  *
  * const ds1 = pulumi.output(hcloud.getDatacenter({
  *     name: "fsn1-dc8",
- * }, { async: true }));
+ * }));
  * const ds2 = pulumi.output(hcloud.getDatacenter({
  *     id: 4,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDatacenter(args?: GetDatacenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacenterResult> {
@@ -45,11 +44,11 @@ export interface GetDatacenterArgs {
     /**
      * ID of the datacenter.
      */
-    readonly id?: number;
+    id?: number;
     /**
      * Name of the datacenter.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**
@@ -80,4 +79,22 @@ export interface GetDatacenterResult {
      * (list) List of server types supported by the datacenter.
      */
     readonly supportedServerTypeIds: number[];
+}
+
+export function getDatacenterOutput(args?: GetDatacenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacenterResult> {
+    return pulumi.output(args).apply(a => getDatacenter(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDatacenter.
+ */
+export interface GetDatacenterOutputArgs {
+    /**
+     * ID of the datacenter.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * Name of the datacenter.
+     */
+    name?: pulumi.Input<string>;
 }
