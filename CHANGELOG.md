@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.32.1 of the Hetzner Cloud Terraform Provider
+_(none)_
 
 ---
+
+## 1.7.0 (2021-11-18)
+* Upgrade to v1.32.1 of the Hetzner Cloud Terraform Provider
 
 ## 1.6.0 (2021-11-11)
 * Upgrade to terraform-bridge 3.11.0
