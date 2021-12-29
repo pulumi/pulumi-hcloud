@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade terraform-provider-hcloud to v1.32.2
 
 ---
 

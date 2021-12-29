@@ -166,7 +166,7 @@ class _LoadBalancerState:
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
-        :param pulumi.Input[str] ipv6: (string) IPv4 Address of the Load Balancer.
+        :param pulumi.Input[str] ipv6: (string) IPv6 Address of the Load Balancer.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
@@ -241,7 +241,7 @@ class _LoadBalancerState:
     @pulumi.getter
     def ipv6(self) -> Optional[pulumi.Input[str]]:
         """
-        (string) IPv4 Address of the Load Balancer.
+        (string) IPv6 Address of the Load Balancer.
         """
         return pulumi.get(self, "ipv6")
 
@@ -509,7 +509,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
         :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
-        :param pulumi.Input[str] ipv6: (string) IPv4 Address of the Load Balancer.
+        :param pulumi.Input[str] ipv6: (string) IPv6 Address of the Load Balancer.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[str] location: Location of the Load Balancer. Require when no network_zone is set.
@@ -562,7 +562,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def ipv6(self) -> pulumi.Output[str]:
         """
-        (string) IPv4 Address of the Load Balancer.
+        (string) IPv6 Address of the Load Balancer.
         """
         return pulumi.get(self, "ipv6")
 

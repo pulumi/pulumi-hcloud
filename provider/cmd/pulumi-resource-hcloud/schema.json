@@ -2955,7 +2955,7 @@
                 },
                 "ipv6": {
                     "type": "string",
-                    "description": "(string) IPv4 Address of the Load Balancer.\n"
+                    "description": "(string) IPv6 Address of the Load Balancer.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -3067,7 +3067,7 @@
                     },
                     "ipv6": {
                         "type": "string",
-                        "description": "(string) IPv4 Address of the Load Balancer.\n"
+                        "description": "(string) IPv6 Address of the Load Balancer.\n"
                     },
                     "labels": {
                         "type": "object",
