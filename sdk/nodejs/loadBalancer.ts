@@ -77,7 +77,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipv4!: pulumi.Output<string>;
     /**
-     * (string) IPv4 Address of the Load Balancer.
+     * (string) IPv6 Address of the Load Balancer.
      */
     public /*out*/ readonly ipv6!: pulumi.Output<string>;
     /**
@@ -174,7 +174,7 @@ export interface LoadBalancerState {
      */
     ipv4?: pulumi.Input<string>;
     /**
-     * (string) IPv4 Address of the Load Balancer.
+     * (string) IPv6 Address of the Load Balancer.
      */
     ipv6?: pulumi.Input<string>;
     /**

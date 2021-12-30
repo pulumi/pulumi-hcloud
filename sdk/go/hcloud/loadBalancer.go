@@ -66,7 +66,7 @@ type LoadBalancer struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 pulumi.StringOutput `pulumi:"ipv4"`
-	// (string) IPv4 Address of the Load Balancer.
+	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 pulumi.StringOutput `pulumi:"ipv6"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapOutput `pulumi:"labels"`
@@ -122,7 +122,7 @@ type loadBalancerState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 *string `pulumi:"ipv4"`
-	// (string) IPv4 Address of the Load Balancer.
+	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 *string `pulumi:"ipv6"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -147,7 +147,7 @@ type LoadBalancerState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 pulumi.StringPtrInput
-	// (string) IPv4 Address of the Load Balancer.
+	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput

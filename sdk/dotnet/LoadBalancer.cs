@@ -75,7 +75,7 @@ namespace Pulumi.HCloud
         public Output<string> Ipv4 { get; private set; } = null!;
 
         /// <summary>
-        /// (string) IPv4 Address of the Load Balancer.
+        /// (string) IPv6 Address of the Load Balancer.
         /// </summary>
         [Output("ipv6")]
         public Output<string> Ipv6 { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.HCloud
         public Input<string>? Ipv4 { get; set; }
 
         /// <summary>
-        /// (string) IPv4 Address of the Load Balancer.
+        /// (string) IPv6 Address of the Load Balancer.
         /// </summary>
         [Input("ipv6")]
         public Input<string>? Ipv6 { get; set; }
