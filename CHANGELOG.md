@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade terraform-provider-hcloud to v1.32.2
+_(none)_
 
 ---
+
+## 1.7.1 (2021-12-30)
+* Upgrade terraform-provider-hcloud to v1.32.2
 
 ## 1.7.0 (2021-11-18)
 * Upgrade to v1.32.1 of the Hetzner Cloud Terraform Provider
