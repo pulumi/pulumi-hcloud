@@ -28,7 +28,8 @@ builds:
   - -X github.com/pulumi/pulumi-hcloud/provider/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-hcloud/
 changelog:
-  skip: true
+  use: git
+  sort: asc
 release:
   disable: false
 snapshot:
