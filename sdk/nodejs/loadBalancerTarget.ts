@@ -97,16 +97,16 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoadBalancerTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerTargetArgs | LoadBalancerTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerTargetState | undefined;
-            inputs["ip"] = state ? state.ip : undefined;
-            inputs["labelSelector"] = state ? state.labelSelector : undefined;
-            inputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["usePrivateIp"] = state ? state.usePrivateIp : undefined;
+            resourceInputs["ip"] = state ? state.ip : undefined;
+            resourceInputs["labelSelector"] = state ? state.labelSelector : undefined;
+            resourceInputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["usePrivateIp"] = state ? state.usePrivateIp : undefined;
         } else {
             const args = argsOrState as LoadBalancerTargetArgs | undefined;
             if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
@@ -115,17 +115,15 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["ip"] = args ? args.ip : undefined;
-            inputs["labelSelector"] = args ? args.labelSelector : undefined;
-            inputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["usePrivateIp"] = args ? args.usePrivateIp : undefined;
+            resourceInputs["ip"] = args ? args.ip : undefined;
+            resourceInputs["labelSelector"] = args ? args.labelSelector : undefined;
+            resourceInputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["usePrivateIp"] = args ? args.usePrivateIp : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancerTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancerTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

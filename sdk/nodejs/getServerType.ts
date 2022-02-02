@@ -28,9 +28,7 @@ export function getServerType(args?: GetServerTypeArgs, opts?: pulumi.InvokeOpti
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("hcloud:index/getServerType:getServerType", {
         "id": args.id,
         "name": args.name,

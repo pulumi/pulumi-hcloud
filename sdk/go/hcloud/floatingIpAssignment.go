@@ -147,7 +147,7 @@ type FloatingIpAssignmentInput interface {
 }
 
 func (*FloatingIpAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*FloatingIpAssignment)(nil))
+	return reflect.TypeOf((**FloatingIpAssignment)(nil)).Elem()
 }
 
 func (i *FloatingIpAssignment) ToFloatingIpAssignmentOutput() FloatingIpAssignmentOutput {
@@ -156,35 +156,6 @@ func (i *FloatingIpAssignment) ToFloatingIpAssignmentOutput() FloatingIpAssignme
 
 func (i *FloatingIpAssignment) ToFloatingIpAssignmentOutputWithContext(ctx context.Context) FloatingIpAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpAssignmentOutput)
-}
-
-func (i *FloatingIpAssignment) ToFloatingIpAssignmentPtrOutput() FloatingIpAssignmentPtrOutput {
-	return i.ToFloatingIpAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *FloatingIpAssignment) ToFloatingIpAssignmentPtrOutputWithContext(ctx context.Context) FloatingIpAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpAssignmentPtrOutput)
-}
-
-type FloatingIpAssignmentPtrInput interface {
-	pulumi.Input
-
-	ToFloatingIpAssignmentPtrOutput() FloatingIpAssignmentPtrOutput
-	ToFloatingIpAssignmentPtrOutputWithContext(ctx context.Context) FloatingIpAssignmentPtrOutput
-}
-
-type floatingIpAssignmentPtrType FloatingIpAssignmentArgs
-
-func (*floatingIpAssignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FloatingIpAssignment)(nil))
-}
-
-func (i *floatingIpAssignmentPtrType) ToFloatingIpAssignmentPtrOutput() FloatingIpAssignmentPtrOutput {
-	return i.ToFloatingIpAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *floatingIpAssignmentPtrType) ToFloatingIpAssignmentPtrOutputWithContext(ctx context.Context) FloatingIpAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpAssignmentPtrOutput)
 }
 
 // FloatingIpAssignmentArrayInput is an input type that accepts FloatingIpAssignmentArray and FloatingIpAssignmentArrayOutput values.
@@ -240,7 +211,7 @@ func (i FloatingIpAssignmentMap) ToFloatingIpAssignmentMapOutputWithContext(ctx 
 type FloatingIpAssignmentOutput struct{ *pulumi.OutputState }
 
 func (FloatingIpAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FloatingIpAssignment)(nil))
+	return reflect.TypeOf((**FloatingIpAssignment)(nil)).Elem()
 }
 
 func (o FloatingIpAssignmentOutput) ToFloatingIpAssignmentOutput() FloatingIpAssignmentOutput {
@@ -251,44 +222,10 @@ func (o FloatingIpAssignmentOutput) ToFloatingIpAssignmentOutputWithContext(ctx 
 	return o
 }
 
-func (o FloatingIpAssignmentOutput) ToFloatingIpAssignmentPtrOutput() FloatingIpAssignmentPtrOutput {
-	return o.ToFloatingIpAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (o FloatingIpAssignmentOutput) ToFloatingIpAssignmentPtrOutputWithContext(ctx context.Context) FloatingIpAssignmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FloatingIpAssignment) *FloatingIpAssignment {
-		return &v
-	}).(FloatingIpAssignmentPtrOutput)
-}
-
-type FloatingIpAssignmentPtrOutput struct{ *pulumi.OutputState }
-
-func (FloatingIpAssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FloatingIpAssignment)(nil))
-}
-
-func (o FloatingIpAssignmentPtrOutput) ToFloatingIpAssignmentPtrOutput() FloatingIpAssignmentPtrOutput {
-	return o
-}
-
-func (o FloatingIpAssignmentPtrOutput) ToFloatingIpAssignmentPtrOutputWithContext(ctx context.Context) FloatingIpAssignmentPtrOutput {
-	return o
-}
-
-func (o FloatingIpAssignmentPtrOutput) Elem() FloatingIpAssignmentOutput {
-	return o.ApplyT(func(v *FloatingIpAssignment) FloatingIpAssignment {
-		if v != nil {
-			return *v
-		}
-		var ret FloatingIpAssignment
-		return ret
-	}).(FloatingIpAssignmentOutput)
-}
-
 type FloatingIpAssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (FloatingIpAssignmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FloatingIpAssignment)(nil))
+	return reflect.TypeOf((*[]*FloatingIpAssignment)(nil)).Elem()
 }
 
 func (o FloatingIpAssignmentArrayOutput) ToFloatingIpAssignmentArrayOutput() FloatingIpAssignmentArrayOutput {
@@ -300,15 +237,15 @@ func (o FloatingIpAssignmentArrayOutput) ToFloatingIpAssignmentArrayOutputWithCo
 }
 
 func (o FloatingIpAssignmentArrayOutput) Index(i pulumi.IntInput) FloatingIpAssignmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FloatingIpAssignment {
-		return vs[0].([]FloatingIpAssignment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FloatingIpAssignment {
+		return vs[0].([]*FloatingIpAssignment)[vs[1].(int)]
 	}).(FloatingIpAssignmentOutput)
 }
 
 type FloatingIpAssignmentMapOutput struct{ *pulumi.OutputState }
 
 func (FloatingIpAssignmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FloatingIpAssignment)(nil))
+	return reflect.TypeOf((*map[string]*FloatingIpAssignment)(nil)).Elem()
 }
 
 func (o FloatingIpAssignmentMapOutput) ToFloatingIpAssignmentMapOutput() FloatingIpAssignmentMapOutput {
@@ -320,18 +257,16 @@ func (o FloatingIpAssignmentMapOutput) ToFloatingIpAssignmentMapOutputWithContex
 }
 
 func (o FloatingIpAssignmentMapOutput) MapIndex(k pulumi.StringInput) FloatingIpAssignmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FloatingIpAssignment {
-		return vs[0].(map[string]FloatingIpAssignment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FloatingIpAssignment {
+		return vs[0].(map[string]*FloatingIpAssignment)[vs[1].(string)]
 	}).(FloatingIpAssignmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FloatingIpAssignmentInput)(nil)).Elem(), &FloatingIpAssignment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FloatingIpAssignmentPtrInput)(nil)).Elem(), &FloatingIpAssignment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FloatingIpAssignmentArrayInput)(nil)).Elem(), FloatingIpAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FloatingIpAssignmentMapInput)(nil)).Elem(), FloatingIpAssignmentMap{})
 	pulumi.RegisterOutputType(FloatingIpAssignmentOutput{})
-	pulumi.RegisterOutputType(FloatingIpAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(FloatingIpAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(FloatingIpAssignmentMapOutput{})
 }

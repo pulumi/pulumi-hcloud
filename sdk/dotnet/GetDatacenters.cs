@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -17,14 +16,14 @@ namespace Pulumi.HCloud
         /// This resource may be useful to create highly available infrastructure, distributed across several datacenters.
         /// </summary>
         public static Task<GetDatacentersResult> InvokeAsync(GetDatacentersArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a list of available Hetzner Cloud Datacenters.
         /// This resource may be useful to create highly available infrastructure, distributed across several datacenters.
         /// </summary>
         public static Output<GetDatacentersResult> Invoke(GetDatacentersInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersInvokeArgs(), options.WithDefaults());
     }
 
 

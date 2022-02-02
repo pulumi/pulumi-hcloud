@@ -142,32 +142,32 @@ export class Server extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            inputs["backupWindow"] = state ? state.backupWindow : undefined;
-            inputs["backups"] = state ? state.backups : undefined;
-            inputs["datacenter"] = state ? state.datacenter : undefined;
-            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            inputs["firewallIds"] = state ? state.firewallIds : undefined;
-            inputs["image"] = state ? state.image : undefined;
-            inputs["ipv4Address"] = state ? state.ipv4Address : undefined;
-            inputs["ipv6Address"] = state ? state.ipv6Address : undefined;
-            inputs["ipv6Network"] = state ? state.ipv6Network : undefined;
-            inputs["iso"] = state ? state.iso : undefined;
-            inputs["keepDisk"] = state ? state.keepDisk : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networks"] = state ? state.networks : undefined;
-            inputs["placementGroupId"] = state ? state.placementGroupId : undefined;
-            inputs["rebuildProtection"] = state ? state.rebuildProtection : undefined;
-            inputs["rescue"] = state ? state.rescue : undefined;
-            inputs["serverType"] = state ? state.serverType : undefined;
-            inputs["sshKeys"] = state ? state.sshKeys : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["userData"] = state ? state.userData : undefined;
+            resourceInputs["backupWindow"] = state ? state.backupWindow : undefined;
+            resourceInputs["backups"] = state ? state.backups : undefined;
+            resourceInputs["datacenter"] = state ? state.datacenter : undefined;
+            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
+            resourceInputs["firewallIds"] = state ? state.firewallIds : undefined;
+            resourceInputs["image"] = state ? state.image : undefined;
+            resourceInputs["ipv4Address"] = state ? state.ipv4Address : undefined;
+            resourceInputs["ipv6Address"] = state ? state.ipv6Address : undefined;
+            resourceInputs["ipv6Network"] = state ? state.ipv6Network : undefined;
+            resourceInputs["iso"] = state ? state.iso : undefined;
+            resourceInputs["keepDisk"] = state ? state.keepDisk : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networks"] = state ? state.networks : undefined;
+            resourceInputs["placementGroupId"] = state ? state.placementGroupId : undefined;
+            resourceInputs["rebuildProtection"] = state ? state.rebuildProtection : undefined;
+            resourceInputs["rescue"] = state ? state.rescue : undefined;
+            resourceInputs["serverType"] = state ? state.serverType : undefined;
+            resourceInputs["sshKeys"] = state ? state.sshKeys : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["userData"] = state ? state.userData : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
             if ((!args || args.image === undefined) && !opts.urn) {
@@ -176,33 +176,31 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.serverType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverType'");
             }
-            inputs["backups"] = args ? args.backups : undefined;
-            inputs["datacenter"] = args ? args.datacenter : undefined;
-            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            inputs["firewallIds"] = args ? args.firewallIds : undefined;
-            inputs["image"] = args ? args.image : undefined;
-            inputs["iso"] = args ? args.iso : undefined;
-            inputs["keepDisk"] = args ? args.keepDisk : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networks"] = args ? args.networks : undefined;
-            inputs["placementGroupId"] = args ? args.placementGroupId : undefined;
-            inputs["rebuildProtection"] = args ? args.rebuildProtection : undefined;
-            inputs["rescue"] = args ? args.rescue : undefined;
-            inputs["serverType"] = args ? args.serverType : undefined;
-            inputs["sshKeys"] = args ? args.sshKeys : undefined;
-            inputs["userData"] = args ? args.userData : undefined;
-            inputs["backupWindow"] = undefined /*out*/;
-            inputs["ipv4Address"] = undefined /*out*/;
-            inputs["ipv6Address"] = undefined /*out*/;
-            inputs["ipv6Network"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["backups"] = args ? args.backups : undefined;
+            resourceInputs["datacenter"] = args ? args.datacenter : undefined;
+            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            resourceInputs["firewallIds"] = args ? args.firewallIds : undefined;
+            resourceInputs["image"] = args ? args.image : undefined;
+            resourceInputs["iso"] = args ? args.iso : undefined;
+            resourceInputs["keepDisk"] = args ? args.keepDisk : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networks"] = args ? args.networks : undefined;
+            resourceInputs["placementGroupId"] = args ? args.placementGroupId : undefined;
+            resourceInputs["rebuildProtection"] = args ? args.rebuildProtection : undefined;
+            resourceInputs["rescue"] = args ? args.rescue : undefined;
+            resourceInputs["serverType"] = args ? args.serverType : undefined;
+            resourceInputs["sshKeys"] = args ? args.sshKeys : undefined;
+            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["backupWindow"] = undefined /*out*/;
+            resourceInputs["ipv4Address"] = undefined /*out*/;
+            resourceInputs["ipv6Address"] = undefined /*out*/;
+            resourceInputs["ipv6Network"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Server.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -107,38 +107,36 @@ export class Volume extends pulumi.CustomResource {
      */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VolumeArgs | VolumeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
-            inputs["automount"] = state ? state.automount : undefined;
-            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            inputs["format"] = state ? state.format : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["linuxDevice"] = state ? state.linuxDevice : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["size"] = state ? state.size : undefined;
+            resourceInputs["automount"] = state ? state.automount : undefined;
+            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
+            resourceInputs["format"] = state ? state.format : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["linuxDevice"] = state ? state.linuxDevice : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["size"] = state ? state.size : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
             if ((!args || args.size === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            inputs["automount"] = args ? args.automount : undefined;
-            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["linuxDevice"] = undefined /*out*/;
+            resourceInputs["automount"] = args ? args.automount : undefined;
+            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["linuxDevice"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Volume.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

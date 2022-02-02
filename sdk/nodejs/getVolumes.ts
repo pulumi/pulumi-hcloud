@@ -26,9 +26,7 @@ export function getVolumes(args?: GetVolumesArgs, opts?: pulumi.InvokeOptions): 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("hcloud:index/getVolumes:getVolumes", {
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,

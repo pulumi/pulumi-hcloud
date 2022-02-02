@@ -11,9 +11,7 @@ export function getServers(args?: GetServersArgs, opts?: pulumi.InvokeOptions): 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("hcloud:index/getServers:getServers", {
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,

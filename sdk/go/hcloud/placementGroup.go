@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.NewPlacementGroup(ctx, "my_placement_group", &hcloud.PlacementGroupArgs{
+// 		_, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
 // 			Type: pulumi.String("spread"),
 // 			Labels: pulumi.AnyMap{
 // 				"key": pulumi.Any("value"),
@@ -152,7 +152,7 @@ type PlacementGroupInput interface {
 }
 
 func (*PlacementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementGroup)(nil))
+	return reflect.TypeOf((**PlacementGroup)(nil)).Elem()
 }
 
 func (i *PlacementGroup) ToPlacementGroupOutput() PlacementGroupOutput {
@@ -161,35 +161,6 @@ func (i *PlacementGroup) ToPlacementGroupOutput() PlacementGroupOutput {
 
 func (i *PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupOutput)
-}
-
-func (i *PlacementGroup) ToPlacementGroupPtrOutput() PlacementGroupPtrOutput {
-	return i.ToPlacementGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *PlacementGroup) ToPlacementGroupPtrOutputWithContext(ctx context.Context) PlacementGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupPtrOutput)
-}
-
-type PlacementGroupPtrInput interface {
-	pulumi.Input
-
-	ToPlacementGroupPtrOutput() PlacementGroupPtrOutput
-	ToPlacementGroupPtrOutputWithContext(ctx context.Context) PlacementGroupPtrOutput
-}
-
-type placementGroupPtrType PlacementGroupArgs
-
-func (*placementGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PlacementGroup)(nil))
-}
-
-func (i *placementGroupPtrType) ToPlacementGroupPtrOutput() PlacementGroupPtrOutput {
-	return i.ToPlacementGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *placementGroupPtrType) ToPlacementGroupPtrOutputWithContext(ctx context.Context) PlacementGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupPtrOutput)
 }
 
 // PlacementGroupArrayInput is an input type that accepts PlacementGroupArray and PlacementGroupArrayOutput values.
@@ -245,7 +216,7 @@ func (i PlacementGroupMap) ToPlacementGroupMapOutputWithContext(ctx context.Cont
 type PlacementGroupOutput struct{ *pulumi.OutputState }
 
 func (PlacementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementGroup)(nil))
+	return reflect.TypeOf((**PlacementGroup)(nil)).Elem()
 }
 
 func (o PlacementGroupOutput) ToPlacementGroupOutput() PlacementGroupOutput {
@@ -256,44 +227,10 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PlacementGroupOutput) ToPlacementGroupPtrOutput() PlacementGroupPtrOutput {
-	return o.ToPlacementGroupPtrOutputWithContext(context.Background())
-}
-
-func (o PlacementGroupOutput) ToPlacementGroupPtrOutputWithContext(ctx context.Context) PlacementGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlacementGroup) *PlacementGroup {
-		return &v
-	}).(PlacementGroupPtrOutput)
-}
-
-type PlacementGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (PlacementGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PlacementGroup)(nil))
-}
-
-func (o PlacementGroupPtrOutput) ToPlacementGroupPtrOutput() PlacementGroupPtrOutput {
-	return o
-}
-
-func (o PlacementGroupPtrOutput) ToPlacementGroupPtrOutputWithContext(ctx context.Context) PlacementGroupPtrOutput {
-	return o
-}
-
-func (o PlacementGroupPtrOutput) Elem() PlacementGroupOutput {
-	return o.ApplyT(func(v *PlacementGroup) PlacementGroup {
-		if v != nil {
-			return *v
-		}
-		var ret PlacementGroup
-		return ret
-	}).(PlacementGroupOutput)
-}
-
 type PlacementGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (PlacementGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PlacementGroup)(nil))
+	return reflect.TypeOf((*[]*PlacementGroup)(nil)).Elem()
 }
 
 func (o PlacementGroupArrayOutput) ToPlacementGroupArrayOutput() PlacementGroupArrayOutput {
@@ -305,15 +242,15 @@ func (o PlacementGroupArrayOutput) ToPlacementGroupArrayOutputWithContext(ctx co
 }
 
 func (o PlacementGroupArrayOutput) Index(i pulumi.IntInput) PlacementGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlacementGroup {
-		return vs[0].([]PlacementGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PlacementGroup {
+		return vs[0].([]*PlacementGroup)[vs[1].(int)]
 	}).(PlacementGroupOutput)
 }
 
 type PlacementGroupMapOutput struct{ *pulumi.OutputState }
 
 func (PlacementGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PlacementGroup)(nil))
+	return reflect.TypeOf((*map[string]*PlacementGroup)(nil)).Elem()
 }
 
 func (o PlacementGroupMapOutput) ToPlacementGroupMapOutput() PlacementGroupMapOutput {
@@ -325,18 +262,16 @@ func (o PlacementGroupMapOutput) ToPlacementGroupMapOutputWithContext(ctx contex
 }
 
 func (o PlacementGroupMapOutput) MapIndex(k pulumi.StringInput) PlacementGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PlacementGroup {
-		return vs[0].(map[string]PlacementGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PlacementGroup {
+		return vs[0].(map[string]*PlacementGroup)[vs[1].(string)]
 	}).(PlacementGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupInput)(nil)).Elem(), &PlacementGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupPtrInput)(nil)).Elem(), &PlacementGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupArrayInput)(nil)).Elem(), PlacementGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupMapInput)(nil)).Elem(), PlacementGroupMap{})
 	pulumi.RegisterOutputType(PlacementGroupOutput{})
-	pulumi.RegisterOutputType(PlacementGroupPtrOutput{})
 	pulumi.RegisterOutputType(PlacementGroupArrayOutput{})
 	pulumi.RegisterOutputType(PlacementGroupMapOutput{})
 }

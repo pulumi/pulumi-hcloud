@@ -111,32 +111,30 @@ export class ServerNetwork extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerNetworkArgs | ServerNetworkState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerNetworkState | undefined;
-            inputs["aliasIps"] = state ? state.aliasIps : undefined;
-            inputs["ip"] = state ? state.ip : undefined;
-            inputs["macAddress"] = state ? state.macAddress : undefined;
-            inputs["networkId"] = state ? state.networkId : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["aliasIps"] = state ? state.aliasIps : undefined;
+            resourceInputs["ip"] = state ? state.ip : undefined;
+            resourceInputs["macAddress"] = state ? state.macAddress : undefined;
+            resourceInputs["networkId"] = state ? state.networkId : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as ServerNetworkArgs | undefined;
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            inputs["aliasIps"] = args ? args.aliasIps : undefined;
-            inputs["ip"] = args ? args.ip : undefined;
-            inputs["networkId"] = args ? args.networkId : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["macAddress"] = undefined /*out*/;
+            resourceInputs["aliasIps"] = args ? args.aliasIps : undefined;
+            resourceInputs["ip"] = args ? args.ip : undefined;
+            resourceInputs["networkId"] = args ? args.networkId : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["macAddress"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServerNetwork.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServerNetwork.__pulumiType, name, resourceInputs, opts);
     }
 }
 

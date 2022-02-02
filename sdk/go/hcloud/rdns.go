@@ -248,7 +248,7 @@ type RdnsInput interface {
 }
 
 func (*Rdns) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rdns)(nil))
+	return reflect.TypeOf((**Rdns)(nil)).Elem()
 }
 
 func (i *Rdns) ToRdnsOutput() RdnsOutput {
@@ -257,35 +257,6 @@ func (i *Rdns) ToRdnsOutput() RdnsOutput {
 
 func (i *Rdns) ToRdnsOutputWithContext(ctx context.Context) RdnsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RdnsOutput)
-}
-
-func (i *Rdns) ToRdnsPtrOutput() RdnsPtrOutput {
-	return i.ToRdnsPtrOutputWithContext(context.Background())
-}
-
-func (i *Rdns) ToRdnsPtrOutputWithContext(ctx context.Context) RdnsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RdnsPtrOutput)
-}
-
-type RdnsPtrInput interface {
-	pulumi.Input
-
-	ToRdnsPtrOutput() RdnsPtrOutput
-	ToRdnsPtrOutputWithContext(ctx context.Context) RdnsPtrOutput
-}
-
-type rdnsPtrType RdnsArgs
-
-func (*rdnsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Rdns)(nil))
-}
-
-func (i *rdnsPtrType) ToRdnsPtrOutput() RdnsPtrOutput {
-	return i.ToRdnsPtrOutputWithContext(context.Background())
-}
-
-func (i *rdnsPtrType) ToRdnsPtrOutputWithContext(ctx context.Context) RdnsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RdnsPtrOutput)
 }
 
 // RdnsArrayInput is an input type that accepts RdnsArray and RdnsArrayOutput values.
@@ -341,7 +312,7 @@ func (i RdnsMap) ToRdnsMapOutputWithContext(ctx context.Context) RdnsMapOutput {
 type RdnsOutput struct{ *pulumi.OutputState }
 
 func (RdnsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rdns)(nil))
+	return reflect.TypeOf((**Rdns)(nil)).Elem()
 }
 
 func (o RdnsOutput) ToRdnsOutput() RdnsOutput {
@@ -352,44 +323,10 @@ func (o RdnsOutput) ToRdnsOutputWithContext(ctx context.Context) RdnsOutput {
 	return o
 }
 
-func (o RdnsOutput) ToRdnsPtrOutput() RdnsPtrOutput {
-	return o.ToRdnsPtrOutputWithContext(context.Background())
-}
-
-func (o RdnsOutput) ToRdnsPtrOutputWithContext(ctx context.Context) RdnsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Rdns) *Rdns {
-		return &v
-	}).(RdnsPtrOutput)
-}
-
-type RdnsPtrOutput struct{ *pulumi.OutputState }
-
-func (RdnsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Rdns)(nil))
-}
-
-func (o RdnsPtrOutput) ToRdnsPtrOutput() RdnsPtrOutput {
-	return o
-}
-
-func (o RdnsPtrOutput) ToRdnsPtrOutputWithContext(ctx context.Context) RdnsPtrOutput {
-	return o
-}
-
-func (o RdnsPtrOutput) Elem() RdnsOutput {
-	return o.ApplyT(func(v *Rdns) Rdns {
-		if v != nil {
-			return *v
-		}
-		var ret Rdns
-		return ret
-	}).(RdnsOutput)
-}
-
 type RdnsArrayOutput struct{ *pulumi.OutputState }
 
 func (RdnsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Rdns)(nil))
+	return reflect.TypeOf((*[]*Rdns)(nil)).Elem()
 }
 
 func (o RdnsArrayOutput) ToRdnsArrayOutput() RdnsArrayOutput {
@@ -401,15 +338,15 @@ func (o RdnsArrayOutput) ToRdnsArrayOutputWithContext(ctx context.Context) RdnsA
 }
 
 func (o RdnsArrayOutput) Index(i pulumi.IntInput) RdnsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Rdns {
-		return vs[0].([]Rdns)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Rdns {
+		return vs[0].([]*Rdns)[vs[1].(int)]
 	}).(RdnsOutput)
 }
 
 type RdnsMapOutput struct{ *pulumi.OutputState }
 
 func (RdnsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Rdns)(nil))
+	return reflect.TypeOf((*map[string]*Rdns)(nil)).Elem()
 }
 
 func (o RdnsMapOutput) ToRdnsMapOutput() RdnsMapOutput {
@@ -421,18 +358,16 @@ func (o RdnsMapOutput) ToRdnsMapOutputWithContext(ctx context.Context) RdnsMapOu
 }
 
 func (o RdnsMapOutput) MapIndex(k pulumi.StringInput) RdnsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Rdns {
-		return vs[0].(map[string]Rdns)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Rdns {
+		return vs[0].(map[string]*Rdns)[vs[1].(string)]
 	}).(RdnsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RdnsInput)(nil)).Elem(), &Rdns{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RdnsPtrInput)(nil)).Elem(), &Rdns{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RdnsArrayInput)(nil)).Elem(), RdnsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RdnsMapInput)(nil)).Elem(), RdnsMap{})
 	pulumi.RegisterOutputType(RdnsOutput{})
-	pulumi.RegisterOutputType(RdnsPtrOutput{})
 	pulumi.RegisterOutputType(RdnsArrayOutput{})
 	pulumi.RegisterOutputType(RdnsMapOutput{})
 }

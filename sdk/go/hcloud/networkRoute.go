@@ -152,7 +152,7 @@ type NetworkRouteInput interface {
 }
 
 func (*NetworkRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkRoute)(nil))
+	return reflect.TypeOf((**NetworkRoute)(nil)).Elem()
 }
 
 func (i *NetworkRoute) ToNetworkRouteOutput() NetworkRouteOutput {
@@ -161,35 +161,6 @@ func (i *NetworkRoute) ToNetworkRouteOutput() NetworkRouteOutput {
 
 func (i *NetworkRoute) ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRouteOutput)
-}
-
-func (i *NetworkRoute) ToNetworkRoutePtrOutput() NetworkRoutePtrOutput {
-	return i.ToNetworkRoutePtrOutputWithContext(context.Background())
-}
-
-func (i *NetworkRoute) ToNetworkRoutePtrOutputWithContext(ctx context.Context) NetworkRoutePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkRoutePtrOutput)
-}
-
-type NetworkRoutePtrInput interface {
-	pulumi.Input
-
-	ToNetworkRoutePtrOutput() NetworkRoutePtrOutput
-	ToNetworkRoutePtrOutputWithContext(ctx context.Context) NetworkRoutePtrOutput
-}
-
-type networkRoutePtrType NetworkRouteArgs
-
-func (*networkRoutePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkRoute)(nil))
-}
-
-func (i *networkRoutePtrType) ToNetworkRoutePtrOutput() NetworkRoutePtrOutput {
-	return i.ToNetworkRoutePtrOutputWithContext(context.Background())
-}
-
-func (i *networkRoutePtrType) ToNetworkRoutePtrOutputWithContext(ctx context.Context) NetworkRoutePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkRoutePtrOutput)
 }
 
 // NetworkRouteArrayInput is an input type that accepts NetworkRouteArray and NetworkRouteArrayOutput values.
@@ -245,7 +216,7 @@ func (i NetworkRouteMap) ToNetworkRouteMapOutputWithContext(ctx context.Context)
 type NetworkRouteOutput struct{ *pulumi.OutputState }
 
 func (NetworkRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkRoute)(nil))
+	return reflect.TypeOf((**NetworkRoute)(nil)).Elem()
 }
 
 func (o NetworkRouteOutput) ToNetworkRouteOutput() NetworkRouteOutput {
@@ -256,44 +227,10 @@ func (o NetworkRouteOutput) ToNetworkRouteOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o NetworkRouteOutput) ToNetworkRoutePtrOutput() NetworkRoutePtrOutput {
-	return o.ToNetworkRoutePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkRouteOutput) ToNetworkRoutePtrOutputWithContext(ctx context.Context) NetworkRoutePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRoute) *NetworkRoute {
-		return &v
-	}).(NetworkRoutePtrOutput)
-}
-
-type NetworkRoutePtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkRoutePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkRoute)(nil))
-}
-
-func (o NetworkRoutePtrOutput) ToNetworkRoutePtrOutput() NetworkRoutePtrOutput {
-	return o
-}
-
-func (o NetworkRoutePtrOutput) ToNetworkRoutePtrOutputWithContext(ctx context.Context) NetworkRoutePtrOutput {
-	return o
-}
-
-func (o NetworkRoutePtrOutput) Elem() NetworkRouteOutput {
-	return o.ApplyT(func(v *NetworkRoute) NetworkRoute {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkRoute
-		return ret
-	}).(NetworkRouteOutput)
-}
-
 type NetworkRouteArrayOutput struct{ *pulumi.OutputState }
 
 func (NetworkRouteArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkRoute)(nil))
+	return reflect.TypeOf((*[]*NetworkRoute)(nil)).Elem()
 }
 
 func (o NetworkRouteArrayOutput) ToNetworkRouteArrayOutput() NetworkRouteArrayOutput {
@@ -305,15 +242,15 @@ func (o NetworkRouteArrayOutput) ToNetworkRouteArrayOutputWithContext(ctx contex
 }
 
 func (o NetworkRouteArrayOutput) Index(i pulumi.IntInput) NetworkRouteOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkRoute {
-		return vs[0].([]NetworkRoute)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkRoute {
+		return vs[0].([]*NetworkRoute)[vs[1].(int)]
 	}).(NetworkRouteOutput)
 }
 
 type NetworkRouteMapOutput struct{ *pulumi.OutputState }
 
 func (NetworkRouteMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NetworkRoute)(nil))
+	return reflect.TypeOf((*map[string]*NetworkRoute)(nil)).Elem()
 }
 
 func (o NetworkRouteMapOutput) ToNetworkRouteMapOutput() NetworkRouteMapOutput {
@@ -325,18 +262,16 @@ func (o NetworkRouteMapOutput) ToNetworkRouteMapOutputWithContext(ctx context.Co
 }
 
 func (o NetworkRouteMapOutput) MapIndex(k pulumi.StringInput) NetworkRouteOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkRoute {
-		return vs[0].(map[string]NetworkRoute)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NetworkRoute {
+		return vs[0].(map[string]*NetworkRoute)[vs[1].(string)]
 	}).(NetworkRouteOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRouteInput)(nil)).Elem(), &NetworkRoute{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRoutePtrInput)(nil)).Elem(), &NetworkRoute{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRouteArrayInput)(nil)).Elem(), NetworkRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRouteMapInput)(nil)).Elem(), NetworkRouteMap{})
 	pulumi.RegisterOutputType(NetworkRouteOutput{})
-	pulumi.RegisterOutputType(NetworkRoutePtrOutput{})
 	pulumi.RegisterOutputType(NetworkRouteArrayOutput{})
 	pulumi.RegisterOutputType(NetworkRouteMapOutput{})
 }

@@ -25,9 +25,7 @@ export function getFloatingIps(args?: GetFloatingIpsArgs, opts?: pulumi.InvokeOp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("hcloud:index/getFloatingIps:getFloatingIps", {
         "withSelector": args.withSelector,
     }, opts);

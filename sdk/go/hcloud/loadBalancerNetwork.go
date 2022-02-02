@@ -247,7 +247,7 @@ type LoadBalancerNetworkInput interface {
 }
 
 func (*LoadBalancerNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerNetwork)(nil))
+	return reflect.TypeOf((**LoadBalancerNetwork)(nil)).Elem()
 }
 
 func (i *LoadBalancerNetwork) ToLoadBalancerNetworkOutput() LoadBalancerNetworkOutput {
@@ -256,35 +256,6 @@ func (i *LoadBalancerNetwork) ToLoadBalancerNetworkOutput() LoadBalancerNetworkO
 
 func (i *LoadBalancerNetwork) ToLoadBalancerNetworkOutputWithContext(ctx context.Context) LoadBalancerNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkOutput)
-}
-
-func (i *LoadBalancerNetwork) ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput {
-	return i.ToLoadBalancerNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *LoadBalancerNetwork) ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkPtrOutput)
-}
-
-type LoadBalancerNetworkPtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput
-	ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput
-}
-
-type loadBalancerNetworkPtrType LoadBalancerNetworkArgs
-
-func (*loadBalancerNetworkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerNetwork)(nil))
-}
-
-func (i *loadBalancerNetworkPtrType) ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput {
-	return i.ToLoadBalancerNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerNetworkPtrType) ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkPtrOutput)
 }
 
 // LoadBalancerNetworkArrayInput is an input type that accepts LoadBalancerNetworkArray and LoadBalancerNetworkArrayOutput values.
@@ -340,7 +311,7 @@ func (i LoadBalancerNetworkMap) ToLoadBalancerNetworkMapOutputWithContext(ctx co
 type LoadBalancerNetworkOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerNetwork)(nil))
+	return reflect.TypeOf((**LoadBalancerNetwork)(nil)).Elem()
 }
 
 func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkOutput() LoadBalancerNetworkOutput {
@@ -351,44 +322,10 @@ func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkOutputWithContext(ctx co
 	return o
 }
 
-func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput {
-	return o.ToLoadBalancerNetworkPtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerNetwork) *LoadBalancerNetwork {
-		return &v
-	}).(LoadBalancerNetworkPtrOutput)
-}
-
-type LoadBalancerNetworkPtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerNetworkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerNetwork)(nil))
-}
-
-func (o LoadBalancerNetworkPtrOutput) ToLoadBalancerNetworkPtrOutput() LoadBalancerNetworkPtrOutput {
-	return o
-}
-
-func (o LoadBalancerNetworkPtrOutput) ToLoadBalancerNetworkPtrOutputWithContext(ctx context.Context) LoadBalancerNetworkPtrOutput {
-	return o
-}
-
-func (o LoadBalancerNetworkPtrOutput) Elem() LoadBalancerNetworkOutput {
-	return o.ApplyT(func(v *LoadBalancerNetwork) LoadBalancerNetwork {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerNetwork
-		return ret
-	}).(LoadBalancerNetworkOutput)
-}
-
 type LoadBalancerNetworkArrayOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerNetworkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerNetwork)(nil))
+	return reflect.TypeOf((*[]*LoadBalancerNetwork)(nil)).Elem()
 }
 
 func (o LoadBalancerNetworkArrayOutput) ToLoadBalancerNetworkArrayOutput() LoadBalancerNetworkArrayOutput {
@@ -400,15 +337,15 @@ func (o LoadBalancerNetworkArrayOutput) ToLoadBalancerNetworkArrayOutputWithCont
 }
 
 func (o LoadBalancerNetworkArrayOutput) Index(i pulumi.IntInput) LoadBalancerNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerNetwork {
-		return vs[0].([]LoadBalancerNetwork)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancerNetwork {
+		return vs[0].([]*LoadBalancerNetwork)[vs[1].(int)]
 	}).(LoadBalancerNetworkOutput)
 }
 
 type LoadBalancerNetworkMapOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerNetworkMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LoadBalancerNetwork)(nil))
+	return reflect.TypeOf((*map[string]*LoadBalancerNetwork)(nil)).Elem()
 }
 
 func (o LoadBalancerNetworkMapOutput) ToLoadBalancerNetworkMapOutput() LoadBalancerNetworkMapOutput {
@@ -420,18 +357,16 @@ func (o LoadBalancerNetworkMapOutput) ToLoadBalancerNetworkMapOutputWithContext(
 }
 
 func (o LoadBalancerNetworkMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerNetworkOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LoadBalancerNetwork {
-		return vs[0].(map[string]LoadBalancerNetwork)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LoadBalancerNetwork {
+		return vs[0].(map[string]*LoadBalancerNetwork)[vs[1].(string)]
 	}).(LoadBalancerNetworkOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerNetworkInput)(nil)).Elem(), &LoadBalancerNetwork{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerNetworkPtrInput)(nil)).Elem(), &LoadBalancerNetwork{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerNetworkArrayInput)(nil)).Elem(), LoadBalancerNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerNetworkMapInput)(nil)).Elem(), LoadBalancerNetworkMap{})
 	pulumi.RegisterOutputType(LoadBalancerNetworkOutput{})
-	pulumi.RegisterOutputType(LoadBalancerNetworkPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerNetworkArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerNetworkMapOutput{})
 }

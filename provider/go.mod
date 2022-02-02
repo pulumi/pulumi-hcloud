@@ -11,6 +11,6 @@ require (
 	cloud.google.com/go/kms v1.1.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.15.0 // indirect
 	github.com/hetznercloud/terraform-provider-hcloud v1.32.2
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.11.0
-	github.com/pulumi/pulumi/sdk/v3 v3.17.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.18.0
+	github.com/pulumi/pulumi/sdk/v3 v3.23.2
 )

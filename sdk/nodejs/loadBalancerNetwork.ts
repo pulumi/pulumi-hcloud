@@ -110,30 +110,28 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoadBalancerNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerNetworkArgs | LoadBalancerNetworkState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerNetworkState | undefined;
-            inputs["enablePublicInterface"] = state ? state.enablePublicInterface : undefined;
-            inputs["ip"] = state ? state.ip : undefined;
-            inputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
-            inputs["networkId"] = state ? state.networkId : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["enablePublicInterface"] = state ? state.enablePublicInterface : undefined;
+            resourceInputs["ip"] = state ? state.ip : undefined;
+            resourceInputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
+            resourceInputs["networkId"] = state ? state.networkId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as LoadBalancerNetworkArgs | undefined;
             if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
-            inputs["enablePublicInterface"] = args ? args.enablePublicInterface : undefined;
-            inputs["ip"] = args ? args.ip : undefined;
-            inputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
-            inputs["networkId"] = args ? args.networkId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["enablePublicInterface"] = args ? args.enablePublicInterface : undefined;
+            resourceInputs["ip"] = args ? args.ip : undefined;
+            resourceInputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
+            resourceInputs["networkId"] = args ? args.networkId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancerNetwork.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancerNetwork.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -15,9 +15,7 @@ export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOption
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("hcloud:index/getLocations:getLocations", {
         "locationIds": args.locationIds,
     }, opts);

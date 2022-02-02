@@ -56,20 +56,20 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["created"] = state ? state.created : undefined;
-            inputs["domainNames"] = state ? state.domainNames : undefined;
-            inputs["fingerprint"] = state ? state.fingerprint : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notValidAfter"] = state ? state.notValidAfter : undefined;
-            inputs["notValidBefore"] = state ? state.notValidBefore : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["created"] = state ? state.created : undefined;
+            resourceInputs["domainNames"] = state ? state.domainNames : undefined;
+            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notValidAfter"] = state ? state.notValidAfter : undefined;
+            resourceInputs["notValidBefore"] = state ? state.notValidBefore : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.certificate === undefined) && !opts.urn) {
@@ -78,21 +78,19 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.privateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["domainNames"] = undefined /*out*/;
-            inputs["fingerprint"] = undefined /*out*/;
-            inputs["notValidAfter"] = undefined /*out*/;
-            inputs["notValidBefore"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["domainNames"] = undefined /*out*/;
+            resourceInputs["fingerprint"] = undefined /*out*/;
+            resourceInputs["notValidAfter"] = undefined /*out*/;
+            resourceInputs["notValidBefore"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 
