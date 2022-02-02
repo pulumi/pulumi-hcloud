@@ -25,9 +25,7 @@ export function getPlacementGroup(args?: GetPlacementGroupArgs, opts?: pulumi.In
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("hcloud:index/getPlacementGroup:getPlacementGroup", {
         "id": args.id,
         "labels": args.labels,

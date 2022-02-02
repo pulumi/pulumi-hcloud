@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
     public static class GetServers
     {
         public static Task<GetServersResult> InvokeAsync(GetServersArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersArgs(), options.WithDefaults());
 
         public static Output<GetServersResult> Invoke(GetServersInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithDefaults());
     }
 
 

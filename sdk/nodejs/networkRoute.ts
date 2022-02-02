@@ -79,13 +79,13 @@ export class NetworkRoute extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkRouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkRouteArgs | NetworkRouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkRouteState | undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["gateway"] = state ? state.gateway : undefined;
-            inputs["networkId"] = state ? state.networkId : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["gateway"] = state ? state.gateway : undefined;
+            resourceInputs["networkId"] = state ? state.networkId : undefined;
         } else {
             const args = argsOrState as NetworkRouteArgs | undefined;
             if ((!args || args.destination === undefined) && !opts.urn) {
@@ -97,14 +97,12 @@ export class NetworkRoute extends pulumi.CustomResource {
             if ((!args || args.networkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkId'");
             }
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["gateway"] = args ? args.gateway : undefined;
-            inputs["networkId"] = args ? args.networkId : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["gateway"] = args ? args.gateway : undefined;
+            resourceInputs["networkId"] = args ? args.networkId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkRoute.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkRoute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

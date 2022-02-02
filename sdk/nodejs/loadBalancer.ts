@@ -116,44 +116,42 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
-            inputs["algorithm"] = state ? state.algorithm : undefined;
-            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            inputs["ipv4"] = state ? state.ipv4 : undefined;
-            inputs["ipv6"] = state ? state.ipv6 : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkId"] = state ? state.networkId : undefined;
-            inputs["networkIp"] = state ? state.networkIp : undefined;
-            inputs["networkZone"] = state ? state.networkZone : undefined;
-            inputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["algorithm"] = state ? state.algorithm : undefined;
+            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
+            resourceInputs["ipv4"] = state ? state.ipv4 : undefined;
+            resourceInputs["ipv6"] = state ? state.ipv6 : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkId"] = state ? state.networkId : undefined;
+            resourceInputs["networkIp"] = state ? state.networkIp : undefined;
+            resourceInputs["networkZone"] = state ? state.networkZone : undefined;
+            resourceInputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
             if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            inputs["algorithm"] = args ? args.algorithm : undefined;
-            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkZone"] = args ? args.networkZone : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["ipv4"] = undefined /*out*/;
-            inputs["ipv6"] = undefined /*out*/;
-            inputs["networkId"] = undefined /*out*/;
-            inputs["networkIp"] = undefined /*out*/;
+            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
+            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkZone"] = args ? args.networkZone : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["ipv4"] = undefined /*out*/;
+            resourceInputs["ipv6"] = undefined /*out*/;
+            resourceInputs["networkId"] = undefined /*out*/;
+            resourceInputs["networkIp"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

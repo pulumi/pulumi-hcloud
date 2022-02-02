@@ -55,6 +55,7 @@ setup(name='pulumi_hcloud',
       package_data={
           'pulumi_hcloud': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

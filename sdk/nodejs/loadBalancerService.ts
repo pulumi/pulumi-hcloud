@@ -98,17 +98,17 @@ export class LoadBalancerService extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoadBalancerServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerServiceArgs | LoadBalancerServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerServiceState | undefined;
-            inputs["destinationPort"] = state ? state.destinationPort : undefined;
-            inputs["healthCheck"] = state ? state.healthCheck : undefined;
-            inputs["http"] = state ? state.http : undefined;
-            inputs["listenPort"] = state ? state.listenPort : undefined;
-            inputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["proxyprotocol"] = state ? state.proxyprotocol : undefined;
+            resourceInputs["destinationPort"] = state ? state.destinationPort : undefined;
+            resourceInputs["healthCheck"] = state ? state.healthCheck : undefined;
+            resourceInputs["http"] = state ? state.http : undefined;
+            resourceInputs["listenPort"] = state ? state.listenPort : undefined;
+            resourceInputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["proxyprotocol"] = state ? state.proxyprotocol : undefined;
         } else {
             const args = argsOrState as LoadBalancerServiceArgs | undefined;
             if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
@@ -117,18 +117,16 @@ export class LoadBalancerService extends pulumi.CustomResource {
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            inputs["destinationPort"] = args ? args.destinationPort : undefined;
-            inputs["healthCheck"] = args ? args.healthCheck : undefined;
-            inputs["http"] = args ? args.http : undefined;
-            inputs["listenPort"] = args ? args.listenPort : undefined;
-            inputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["proxyprotocol"] = args ? args.proxyprotocol : undefined;
+            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["healthCheck"] = args ? args.healthCheck : undefined;
+            resourceInputs["http"] = args ? args.http : undefined;
+            resourceInputs["listenPort"] = args ? args.listenPort : undefined;
+            resourceInputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["proxyprotocol"] = args ? args.proxyprotocol : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancerService.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancerService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -105,38 +105,36 @@ export class FloatingIp extends pulumi.CustomResource {
      */
     constructor(name: string, args: FloatingIpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FloatingIpArgs | FloatingIpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FloatingIpState | undefined;
-            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["homeLocation"] = state ? state.homeLocation : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["ipNetwork"] = state ? state.ipNetwork : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["homeLocation"] = state ? state.homeLocation : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["ipNetwork"] = state ? state.ipNetwork : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as FloatingIpArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["homeLocation"] = args ? args.homeLocation : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["ipNetwork"] = undefined /*out*/;
+            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["homeLocation"] = args ? args.homeLocation : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["ipNetwork"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FloatingIp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FloatingIp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

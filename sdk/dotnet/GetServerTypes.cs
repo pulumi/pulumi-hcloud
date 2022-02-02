@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.HCloud
 {
@@ -16,13 +15,13 @@ namespace Pulumi.HCloud
         /// Provides a list of available Hetzner Cloud Server Types.
         /// </summary>
         public static Task<GetServerTypesResult> InvokeAsync(GetServerTypesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a list of available Hetzner Cloud Server Types.
         /// </summary>
         public static Output<GetServerTypesResult> Invoke(GetServerTypesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesInvokeArgs(), options.WithDefaults());
     }
 
 

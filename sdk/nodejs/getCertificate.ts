@@ -25,9 +25,7 @@ export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("hcloud:index/getCertificate:getCertificate", {
         "id": args.id,
         "name": args.name,

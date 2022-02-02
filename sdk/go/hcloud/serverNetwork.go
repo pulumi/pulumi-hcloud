@@ -250,7 +250,7 @@ type ServerNetworkInput interface {
 }
 
 func (*ServerNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerNetwork)(nil))
+	return reflect.TypeOf((**ServerNetwork)(nil)).Elem()
 }
 
 func (i *ServerNetwork) ToServerNetworkOutput() ServerNetworkOutput {
@@ -259,35 +259,6 @@ func (i *ServerNetwork) ToServerNetworkOutput() ServerNetworkOutput {
 
 func (i *ServerNetwork) ToServerNetworkOutputWithContext(ctx context.Context) ServerNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkOutput)
-}
-
-func (i *ServerNetwork) ToServerNetworkPtrOutput() ServerNetworkPtrOutput {
-	return i.ToServerNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *ServerNetwork) ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkPtrOutput)
-}
-
-type ServerNetworkPtrInput interface {
-	pulumi.Input
-
-	ToServerNetworkPtrOutput() ServerNetworkPtrOutput
-	ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput
-}
-
-type serverNetworkPtrType ServerNetworkArgs
-
-func (*serverNetworkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerNetwork)(nil))
-}
-
-func (i *serverNetworkPtrType) ToServerNetworkPtrOutput() ServerNetworkPtrOutput {
-	return i.ToServerNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *serverNetworkPtrType) ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkPtrOutput)
 }
 
 // ServerNetworkArrayInput is an input type that accepts ServerNetworkArray and ServerNetworkArrayOutput values.
@@ -343,7 +314,7 @@ func (i ServerNetworkMap) ToServerNetworkMapOutputWithContext(ctx context.Contex
 type ServerNetworkOutput struct{ *pulumi.OutputState }
 
 func (ServerNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerNetwork)(nil))
+	return reflect.TypeOf((**ServerNetwork)(nil)).Elem()
 }
 
 func (o ServerNetworkOutput) ToServerNetworkOutput() ServerNetworkOutput {
@@ -354,44 +325,10 @@ func (o ServerNetworkOutput) ToServerNetworkOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o ServerNetworkOutput) ToServerNetworkPtrOutput() ServerNetworkPtrOutput {
-	return o.ToServerNetworkPtrOutputWithContext(context.Background())
-}
-
-func (o ServerNetworkOutput) ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerNetwork) *ServerNetwork {
-		return &v
-	}).(ServerNetworkPtrOutput)
-}
-
-type ServerNetworkPtrOutput struct{ *pulumi.OutputState }
-
-func (ServerNetworkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerNetwork)(nil))
-}
-
-func (o ServerNetworkPtrOutput) ToServerNetworkPtrOutput() ServerNetworkPtrOutput {
-	return o
-}
-
-func (o ServerNetworkPtrOutput) ToServerNetworkPtrOutputWithContext(ctx context.Context) ServerNetworkPtrOutput {
-	return o
-}
-
-func (o ServerNetworkPtrOutput) Elem() ServerNetworkOutput {
-	return o.ApplyT(func(v *ServerNetwork) ServerNetwork {
-		if v != nil {
-			return *v
-		}
-		var ret ServerNetwork
-		return ret
-	}).(ServerNetworkOutput)
-}
-
 type ServerNetworkArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerNetworkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerNetwork)(nil))
+	return reflect.TypeOf((*[]*ServerNetwork)(nil)).Elem()
 }
 
 func (o ServerNetworkArrayOutput) ToServerNetworkArrayOutput() ServerNetworkArrayOutput {
@@ -403,15 +340,15 @@ func (o ServerNetworkArrayOutput) ToServerNetworkArrayOutputWithContext(ctx cont
 }
 
 func (o ServerNetworkArrayOutput) Index(i pulumi.IntInput) ServerNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerNetwork {
-		return vs[0].([]ServerNetwork)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerNetwork {
+		return vs[0].([]*ServerNetwork)[vs[1].(int)]
 	}).(ServerNetworkOutput)
 }
 
 type ServerNetworkMapOutput struct{ *pulumi.OutputState }
 
 func (ServerNetworkMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServerNetwork)(nil))
+	return reflect.TypeOf((*map[string]*ServerNetwork)(nil)).Elem()
 }
 
 func (o ServerNetworkMapOutput) ToServerNetworkMapOutput() ServerNetworkMapOutput {
@@ -423,18 +360,16 @@ func (o ServerNetworkMapOutput) ToServerNetworkMapOutputWithContext(ctx context.
 }
 
 func (o ServerNetworkMapOutput) MapIndex(k pulumi.StringInput) ServerNetworkOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerNetwork {
-		return vs[0].(map[string]ServerNetwork)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServerNetwork {
+		return vs[0].(map[string]*ServerNetwork)[vs[1].(string)]
 	}).(ServerNetworkOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerNetworkInput)(nil)).Elem(), &ServerNetwork{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerNetworkPtrInput)(nil)).Elem(), &ServerNetwork{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerNetworkArrayInput)(nil)).Elem(), ServerNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerNetworkMapInput)(nil)).Elem(), ServerNetworkMap{})
 	pulumi.RegisterOutputType(ServerNetworkOutput{})
-	pulumi.RegisterOutputType(ServerNetworkPtrOutput{})
 	pulumi.RegisterOutputType(ServerNetworkArrayOutput{})
 	pulumi.RegisterOutputType(ServerNetworkMapOutput{})
 }

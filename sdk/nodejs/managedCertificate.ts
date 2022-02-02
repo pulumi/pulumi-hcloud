@@ -87,38 +87,36 @@ export class ManagedCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedCertificateArgs | ManagedCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedCertificateState | undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["created"] = state ? state.created : undefined;
-            inputs["domainNames"] = state ? state.domainNames : undefined;
-            inputs["fingerprint"] = state ? state.fingerprint : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notValidAfter"] = state ? state.notValidAfter : undefined;
-            inputs["notValidBefore"] = state ? state.notValidBefore : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["created"] = state ? state.created : undefined;
+            resourceInputs["domainNames"] = state ? state.domainNames : undefined;
+            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notValidAfter"] = state ? state.notValidAfter : undefined;
+            resourceInputs["notValidBefore"] = state ? state.notValidBefore : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ManagedCertificateArgs | undefined;
             if ((!args || args.domainNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainNames'");
             }
-            inputs["domainNames"] = args ? args.domainNames : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["fingerprint"] = undefined /*out*/;
-            inputs["notValidAfter"] = undefined /*out*/;
-            inputs["notValidBefore"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["domainNames"] = args ? args.domainNames : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["fingerprint"] = undefined /*out*/;
+            resourceInputs["notValidAfter"] = undefined /*out*/;
+            resourceInputs["notValidBefore"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 
