@@ -24,23 +24,20 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "my-load-balancer"
 // 		_, err := hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("my-load-balancer"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := 123
 // 		_, err = hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
-// 			Id: &opt1,
+// 			Id: pulumi.IntRef(123),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt2 := "key=value"
 // 		_, err = hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
-// 			WithSelector: &opt2,
+// 			WithSelector: pulumi.StringRef("key=value"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -25,16 +25,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "fsn1-dc8"
 // 		_, err := hcloud.GetDatacenter(ctx, &GetDatacenterArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("fsn1-dc8"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := 4
 // 		_, err = hcloud.GetDatacenter(ctx, &GetDatacenterArgs{
-// 			Id: &opt1,
+// 			Id: pulumi.IntRef(4),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

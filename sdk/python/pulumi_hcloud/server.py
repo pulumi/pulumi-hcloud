@@ -677,6 +677,45 @@ class Server(pulumi.CustomResource):
                  user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Basic server creation
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Create a new server running debian
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11")
+        ```
+        ### Server creation with network
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        network = hcloud.Network("network", ip_range="10.0.0.0/16")
+        network_subnet = hcloud.NetworkSubnet("network-subnet",
+            type="cloud",
+            network_id=network.id,
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        server = hcloud.Server("server",
+            server_type="cx11",
+            image="ubuntu-20.04",
+            location="nbg1",
+            networks=[hcloud.ServerNetworkArgs(
+                network_id=network.id,
+                ip="10.0.1.5",
+                alias_ips=[
+                    "10.0.1.6",
+                    "10.0.1.7",
+                ],
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
+        ```
+
         ## Import
 
         Servers can be imported using the server `id`
@@ -712,6 +751,45 @@ class Server(pulumi.CustomResource):
                  args: ServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Basic server creation
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Create a new server running debian
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11")
+        ```
+        ### Server creation with network
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        network = hcloud.Network("network", ip_range="10.0.0.0/16")
+        network_subnet = hcloud.NetworkSubnet("network-subnet",
+            type="cloud",
+            network_id=network.id,
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        server = hcloud.Server("server",
+            server_type="cx11",
+            image="ubuntu-20.04",
+            location="nbg1",
+            networks=[hcloud.ServerNetworkArgs(
+                network_id=network.id,
+                ip="10.0.1.5",
+                alias_ips=[
+                    "10.0.1.6",
+                    "10.0.1.7",
+                ],
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
+        ```
+
         ## Import
 
         Servers can be imported using the server `id`

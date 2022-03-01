@@ -117,7 +117,23 @@ def get_ssh_key(fingerprint: Optional[str] = None,
                 with_selector: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    ssh_key1 = hcloud.get_ssh_key(id=1234)
+    ssh_key2 = hcloud.get_ssh_key(name="my-ssh-key")
+    ssh_key3 = hcloud.get_ssh_key(fingerprint="43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
+    ssh_key4 = hcloud.get_ssh_key(with_selector="key=value")
+    main = hcloud.Server("main", ssh_keys=[
+        ssh_key1.id,
+        ssh_key2.id,
+        ssh_key3.id,
+    ])
+    ```
+
 
     :param str fingerprint: Fingerprint of the SSH Key.
     :param int id: ID of the SSH Key.
@@ -154,7 +170,23 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
                        with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    ssh_key1 = hcloud.get_ssh_key(id=1234)
+    ssh_key2 = hcloud.get_ssh_key(name="my-ssh-key")
+    ssh_key3 = hcloud.get_ssh_key(fingerprint="43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
+    ssh_key4 = hcloud.get_ssh_key(with_selector="key=value")
+    main = hcloud.Server("main", ssh_keys=[
+        ssh_key1.id,
+        ssh_key2.id,
+        ssh_key3.id,
+    ])
+    ```
+
 
     :param str fingerprint: Fingerprint of the SSH Key.
     :param int id: ID of the SSH Key.

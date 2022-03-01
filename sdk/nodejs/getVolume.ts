@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const volume1 = pulumi.output(hcloud.getVolume({
+ *     id: 1234,
+ * }));
+ * const volume2 = pulumi.output(hcloud.getVolume({
+ *     name: "my-volume",
+ * }));
+ * const volume3 = pulumi.output(hcloud.getVolume({
+ *     withSelector: "key=value",
+ * }));
+ * ```
+ */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
     if (!opts) {
