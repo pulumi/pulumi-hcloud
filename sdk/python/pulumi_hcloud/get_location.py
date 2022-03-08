@@ -20,7 +20,7 @@ class GetLocationResult:
     """
     A collection of values returned by getLocation.
     """
-    def __init__(__self__, city=None, country=None, description=None, id=None, latitude=None, longitude=None, name=None):
+    def __init__(__self__, city=None, country=None, description=None, id=None, latitude=None, longitude=None, name=None, network_zone=None):
         if city and not isinstance(city, str):
             raise TypeError("Expected argument 'city' to be a str")
         pulumi.set(__self__, "city", city)
@@ -42,6 +42,9 @@ class GetLocationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_zone and not isinstance(network_zone, str):
+            raise TypeError("Expected argument 'network_zone' to be a str")
+        pulumi.set(__self__, "network_zone", network_zone)
 
     @property
     @pulumi.getter
@@ -99,6 +102,14 @@ class GetLocationResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> str:
+        """
+        (string) Network Zone of the location.
+        """
+        return pulumi.get(self, "network_zone")
+
 
 class AwaitableGetLocationResult(GetLocationResult):
     # pylint: disable=using-constant-test
@@ -112,7 +123,8 @@ class AwaitableGetLocationResult(GetLocationResult):
             id=self.id,
             latitude=self.latitude,
             longitude=self.longitude,
-            name=self.name)
+            name=self.name,
+            network_zone=self.network_zone)
 
 
 def get_location(id: Optional[int] = None,
@@ -152,7 +164,8 @@ def get_location(id: Optional[int] = None,
         id=__ret__.id,
         latitude=__ret__.latitude,
         longitude=__ret__.longitude,
-        name=__ret__.name)
+        name=__ret__.name,
+        network_zone=__ret__.network_zone)
 
 
 @_utilities.lift_output_func(get_location)

@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 // Export members:
 export * from "./certificate";
 export * from "./firewall";
+export * from "./firewallAttachment";
 export * from "./floatingIp";
 export * from "./floatingIpAssignment";
 export * from "./getCertificate";
@@ -66,6 +67,7 @@ export {
 // Import resources to register:
 import { Certificate } from "./certificate";
 import { Firewall } from "./firewall";
+import { FirewallAttachment } from "./firewallAttachment";
 import { FloatingIp } from "./floatingIp";
 import { FloatingIpAssignment } from "./floatingIpAssignment";
 import { LoadBalancer } from "./loadBalancer";
@@ -94,6 +96,8 @@ const _module = {
                 return new Certificate(name, <any>undefined, { urn })
             case "hcloud:index/firewall:Firewall":
                 return new Firewall(name, <any>undefined, { urn })
+            case "hcloud:index/firewallAttachment:FirewallAttachment":
+                return new FirewallAttachment(name, <any>undefined, { urn })
             case "hcloud:index/floatingIp:FloatingIp":
                 return new FloatingIp(name, <any>undefined, { urn })
             case "hcloud:index/floatingIpAssignment:FloatingIpAssignment":
@@ -139,6 +143,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("hcloud", "index/certificate", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/firewall", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/firewallAttachment", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/floatingIp", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/floatingIpAssignment", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/loadBalancer", _module)

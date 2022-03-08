@@ -151,6 +151,10 @@ namespace Pulumi.HCloud
         /// (string) Name of the location.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// (string) Network Zone of the location.
+        /// </summary>
+        public readonly string NetworkZone;
 
         [OutputConstructor]
         private GetLocationResult(
@@ -166,7 +170,9 @@ namespace Pulumi.HCloud
 
             double longitude,
 
-            string name)
+            string name,
+
+            string networkZone)
         {
             City = city;
             Country = country;
@@ -175,6 +181,7 @@ namespace Pulumi.HCloud
             Latitude = latitude;
             Longitude = longitude;
             Name = name;
+            NetworkZone = networkZone;
         }
     }
 }

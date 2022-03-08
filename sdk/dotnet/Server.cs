@@ -10,6 +10,78 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// ### Basic server creation
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new server running debian
+    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
+    ///         {
+    ///             Image = "debian-9",
+    ///             ServerType = "cx11",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Server creation with network
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var network = new HCloud.Network("network", new HCloud.NetworkArgs
+    ///         {
+    ///             IpRange = "10.0.0.0/16",
+    ///         });
+    ///         var network_subnet = new HCloud.NetworkSubnet("network-subnet", new HCloud.NetworkSubnetArgs
+    ///         {
+    ///             Type = "cloud",
+    ///             NetworkId = network.Id,
+    ///             NetworkZone = "eu-central",
+    ///             IpRange = "10.0.1.0/24",
+    ///         });
+    ///         var server = new HCloud.Server("server", new HCloud.ServerArgs
+    ///         {
+    ///             ServerType = "cx11",
+    ///             Image = "ubuntu-20.04",
+    ///             Location = "nbg1",
+    ///             Networks = 
+    ///             {
+    ///                 new HCloud.Inputs.ServerNetworkArgs
+    ///                 {
+    ///                     NetworkId = network.Id,
+    ///                     Ip = "10.0.1.5",
+    ///                     AliasIps = 
+    ///                     {
+    ///                         "10.0.1.6",
+    ///                         "10.0.1.7",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 network_subnet,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Servers can be imported using the server `id`
@@ -52,10 +124,20 @@ namespace Pulumi.HCloud
         public Output<ImmutableArray<int>> FirewallIds { get; private set; } = null!;
 
         /// <summary>
-        /// Name or ID of the image the server is created from.
+        /// Ingores any updates
+        /// to the `firewall_ids` argument which were received from the server.
+        /// This should not be used in normal cases. See the documentation of the
+        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// argument.
+        /// </summary>
+        [Output("ignoreRemoteFirewallIds")]
+        public Output<bool?> IgnoreRemoteFirewallIds { get; private set; } = null!;
+
+        /// <summary>
+        /// (string) Name or ID of the image the server was created from.
         /// </summary>
         [Output("image")]
-        public Output<string> Image { get; private set; } = null!;
+        public Output<string?> Image { get; private set; } = null!;
 
         /// <summary>
         /// (string) The IPv4 address.
@@ -94,7 +176,7 @@ namespace Pulumi.HCloud
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -230,10 +312,20 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Name or ID of the image the server is created from.
+        /// Ingores any updates
+        /// to the `firewall_ids` argument which were received from the server.
+        /// This should not be used in normal cases. See the documentation of the
+        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// argument.
         /// </summary>
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
+        [Input("ignoreRemoteFirewallIds")]
+        public Input<bool>? IgnoreRemoteFirewallIds { get; set; }
+
+        /// <summary>
+        /// (string) Name or ID of the image the server was created from.
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
 
         /// <summary>
         /// ID or Name of an ISO image to mount.
@@ -260,7 +352,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -369,7 +461,17 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Name or ID of the image the server is created from.
+        /// Ingores any updates
+        /// to the `firewall_ids` argument which were received from the server.
+        /// This should not be used in normal cases. See the documentation of the
+        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// argument.
+        /// </summary>
+        [Input("ignoreRemoteFirewallIds")]
+        public Input<bool>? IgnoreRemoteFirewallIds { get; set; }
+
+        /// <summary>
+        /// (string) Name or ID of the image the server was created from.
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
@@ -417,7 +519,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

@@ -22,16 +22,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "sample-placement-group-1"
 // 		_, err := hcloud.LookupPlacementGroup(ctx, &GetPlacementGroupArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("sample-placement-group-1"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := 4711
 // 		_, err = hcloud.LookupPlacementGroup(ctx, &GetPlacementGroupArgs{
-// 			Id: &opt1,
+// 			Id: pulumi.IntRef(4711),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -15,12 +15,13 @@ __all__ = ['ServerArgs', 'Server']
 @pulumi.input_type
 class ServerArgs:
     def __init__(__self__, *,
-                 image: pulumi.Input[str],
                  server_type: pulumi.Input[str],
                  backups: Optional[pulumi.Input[bool]] = None,
                  datacenter: Optional[pulumi.Input[str]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 ignore_remote_firewall_ids: Optional[pulumi.Input[bool]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
                  iso: Optional[pulumi.Input[str]] = None,
                  keep_disk: Optional[pulumi.Input[bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -34,16 +35,21 @@ class ServerArgs:
                  user_data: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Server resource.
-        :param pulumi.Input[str] image: Name or ID of the image the server is created from.
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
+        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ingores any updates
+               to the `firewall_ids` argument which were received from the server.
+               This should not be used in normal cases. See the documentation of the
+               `FirewallAttachment` resouce for a reason to use this
+               argument.
+        :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
@@ -52,7 +58,6 @@ class ServerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
-        pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "server_type", server_type)
         if backups is not None:
             pulumi.set(__self__, "backups", backups)
@@ -62,6 +67,10 @@ class ServerArgs:
             pulumi.set(__self__, "delete_protection", delete_protection)
         if firewall_ids is not None:
             pulumi.set(__self__, "firewall_ids", firewall_ids)
+        if ignore_remote_firewall_ids is not None:
+            pulumi.set(__self__, "ignore_remote_firewall_ids", ignore_remote_firewall_ids)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if iso is not None:
             pulumi.set(__self__, "iso", iso)
         if keep_disk is not None:
@@ -84,18 +93,6 @@ class ServerArgs:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if user_data is not None:
             pulumi.set(__self__, "user_data", user_data)
-
-    @property
-    @pulumi.getter
-    def image(self) -> pulumi.Input[str]:
-        """
-        Name or ID of the image the server is created from.
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image", value)
 
     @property
     @pulumi.getter(name="serverType")
@@ -158,6 +155,34 @@ class ServerArgs:
         pulumi.set(self, "firewall_ids", value)
 
     @property
+    @pulumi.getter(name="ignoreRemoteFirewallIds")
+    def ignore_remote_firewall_ids(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ingores any updates
+        to the `firewall_ids` argument which were received from the server.
+        This should not be used in normal cases. See the documentation of the
+        `FirewallAttachment` resouce for a reason to use this
+        argument.
+        """
+        return pulumi.get(self, "ignore_remote_firewall_ids")
+
+    @ignore_remote_firewall_ids.setter
+    def ignore_remote_firewall_ids(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_remote_firewall_ids", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        (string) Name or ID of the image the server was created from.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+    @property
     @pulumi.getter
     def iso(self) -> Optional[pulumi.Input[str]]:
         """
@@ -197,7 +222,7 @@ class ServerArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         """
         return pulumi.get(self, "location")
 
@@ -298,6 +323,7 @@ class _ServerState:
                  datacenter: Optional[pulumi.Input[str]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 ignore_remote_firewall_ids: Optional[pulumi.Input[bool]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  ipv4_address: Optional[pulumi.Input[str]] = None,
                  ipv6_address: Optional[pulumi.Input[str]] = None,
@@ -322,14 +348,19 @@ class _ServerState:
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
-        :param pulumi.Input[str] image: Name or ID of the image the server is created from.
+        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ingores any updates
+               to the `firewall_ids` argument which were received from the server.
+               This should not be used in normal cases. See the documentation of the
+               `FirewallAttachment` resouce for a reason to use this
+               argument.
+        :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
         :param pulumi.Input[str] ipv6_address: (string) The first IPv6 address of the assigned network.
         :param pulumi.Input[str] ipv6_network: (string) The IPv6 network.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
@@ -353,6 +384,8 @@ class _ServerState:
             pulumi.set(__self__, "delete_protection", delete_protection)
         if firewall_ids is not None:
             pulumi.set(__self__, "firewall_ids", firewall_ids)
+        if ignore_remote_firewall_ids is not None:
+            pulumi.set(__self__, "ignore_remote_firewall_ids", ignore_remote_firewall_ids)
         if image is not None:
             pulumi.set(__self__, "image", image)
         if ipv4_address is not None:
@@ -449,10 +482,26 @@ class _ServerState:
         pulumi.set(self, "firewall_ids", value)
 
     @property
+    @pulumi.getter(name="ignoreRemoteFirewallIds")
+    def ignore_remote_firewall_ids(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ingores any updates
+        to the `firewall_ids` argument which were received from the server.
+        This should not be used in normal cases. See the documentation of the
+        `FirewallAttachment` resouce for a reason to use this
+        argument.
+        """
+        return pulumi.get(self, "ignore_remote_firewall_ids")
+
+    @ignore_remote_firewall_ids.setter
+    def ignore_remote_firewall_ids(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_remote_firewall_ids", value)
+
+    @property
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[str]]:
         """
-        Name or ID of the image the server is created from.
+        (string) Name or ID of the image the server was created from.
         """
         return pulumi.get(self, "image")
 
@@ -536,7 +585,7 @@ class _ServerState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         """
         return pulumi.get(self, "location")
 
@@ -662,6 +711,7 @@ class Server(pulumi.CustomResource):
                  datacenter: Optional[pulumi.Input[str]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 ignore_remote_firewall_ids: Optional[pulumi.Input[bool]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  iso: Optional[pulumi.Input[str]] = None,
                  keep_disk: Optional[pulumi.Input[bool]] = None,
@@ -677,6 +727,45 @@ class Server(pulumi.CustomResource):
                  user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Basic server creation
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Create a new server running debian
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11")
+        ```
+        ### Server creation with network
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        network = hcloud.Network("network", ip_range="10.0.0.0/16")
+        network_subnet = hcloud.NetworkSubnet("network-subnet",
+            type="cloud",
+            network_id=network.id,
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        server = hcloud.Server("server",
+            server_type="cx11",
+            image="ubuntu-20.04",
+            location="nbg1",
+            networks=[hcloud.ServerNetworkArgs(
+                network_id=network.id,
+                ip="10.0.1.5",
+                alias_ips=[
+                    "10.0.1.6",
+                    "10.0.1.7",
+                ],
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
+        ```
+
         ## Import
 
         Servers can be imported using the server `id`
@@ -691,11 +780,16 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
-        :param pulumi.Input[str] image: Name or ID of the image the server is created from.
+        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ingores any updates
+               to the `firewall_ids` argument which were received from the server.
+               This should not be used in normal cases. See the documentation of the
+               `FirewallAttachment` resouce for a reason to use this
+               argument.
+        :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
@@ -712,6 +806,45 @@ class Server(pulumi.CustomResource):
                  args: ServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Basic server creation
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Create a new server running debian
+        node1 = hcloud.Server("node1",
+            image="debian-9",
+            server_type="cx11")
+        ```
+        ### Server creation with network
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        network = hcloud.Network("network", ip_range="10.0.0.0/16")
+        network_subnet = hcloud.NetworkSubnet("network-subnet",
+            type="cloud",
+            network_id=network.id,
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        server = hcloud.Server("server",
+            server_type="cx11",
+            image="ubuntu-20.04",
+            location="nbg1",
+            networks=[hcloud.ServerNetworkArgs(
+                network_id=network.id,
+                ip="10.0.1.5",
+                alias_ips=[
+                    "10.0.1.6",
+                    "10.0.1.7",
+                ],
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
+        ```
+
         ## Import
 
         Servers can be imported using the server `id`
@@ -739,6 +872,7 @@ class Server(pulumi.CustomResource):
                  datacenter: Optional[pulumi.Input[str]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 ignore_remote_firewall_ids: Optional[pulumi.Input[bool]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  iso: Optional[pulumi.Input[str]] = None,
                  keep_disk: Optional[pulumi.Input[bool]] = None,
@@ -768,8 +902,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["datacenter"] = datacenter
             __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["firewall_ids"] = firewall_ids
-            if image is None and not opts.urn:
-                raise TypeError("Missing required property 'image'")
+            __props__.__dict__["ignore_remote_firewall_ids"] = ignore_remote_firewall_ids
             __props__.__dict__["image"] = image
             __props__.__dict__["iso"] = iso
             __props__.__dict__["keep_disk"] = keep_disk
@@ -805,6 +938,7 @@ class Server(pulumi.CustomResource):
             datacenter: Optional[pulumi.Input[str]] = None,
             delete_protection: Optional[pulumi.Input[bool]] = None,
             firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            ignore_remote_firewall_ids: Optional[pulumi.Input[bool]] = None,
             image: Optional[pulumi.Input[str]] = None,
             ipv4_address: Optional[pulumi.Input[str]] = None,
             ipv6_address: Optional[pulumi.Input[str]] = None,
@@ -834,14 +968,19 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
-        :param pulumi.Input[str] image: Name or ID of the image the server is created from.
+        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ingores any updates
+               to the `firewall_ids` argument which were received from the server.
+               This should not be used in normal cases. See the documentation of the
+               `FirewallAttachment` resouce for a reason to use this
+               argument.
+        :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
         :param pulumi.Input[str] ipv6_address: (string) The first IPv6 address of the assigned network.
         :param pulumi.Input[str] ipv6_network: (string) The IPv6 network.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
@@ -861,6 +1000,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["datacenter"] = datacenter
         __props__.__dict__["delete_protection"] = delete_protection
         __props__.__dict__["firewall_ids"] = firewall_ids
+        __props__.__dict__["ignore_remote_firewall_ids"] = ignore_remote_firewall_ids
         __props__.__dict__["image"] = image
         __props__.__dict__["ipv4_address"] = ipv4_address
         __props__.__dict__["ipv6_address"] = ipv6_address
@@ -921,10 +1061,22 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "firewall_ids")
 
     @property
-    @pulumi.getter
-    def image(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="ignoreRemoteFirewallIds")
+    def ignore_remote_firewall_ids(self) -> pulumi.Output[Optional[bool]]:
         """
-        Name or ID of the image the server is created from.
+        Ingores any updates
+        to the `firewall_ids` argument which were received from the server.
+        This should not be used in normal cases. See the documentation of the
+        `FirewallAttachment` resouce for a reason to use this
+        argument.
+        """
+        return pulumi.get(self, "ignore_remote_firewall_ids")
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Output[Optional[str]]:
+        """
+        (string) Name or ID of the image the server was created from.
         """
         return pulumi.get(self, "image")
 
@@ -980,7 +1132,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         """
         return pulumi.get(self, "location")
 

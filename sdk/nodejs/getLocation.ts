@@ -81,6 +81,10 @@ export interface GetLocationResult {
      * (string) Name of the location.
      */
     readonly name: string;
+    /**
+     * (string) Network Zone of the location.
+     */
+    readonly networkZone: string;
 }
 
 export function getLocationOutput(args?: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {

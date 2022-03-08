@@ -11,6 +11,82 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Basic server creation
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+// 			Image:      pulumi.String("debian-9"),
+// 			ServerType: pulumi.String("cx11"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Server creation with network
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		network, err := hcloud.NewNetwork(ctx, "network", &hcloud.NetworkArgs{
+// 			IpRange: pulumi.String("10.0.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewNetworkSubnet(ctx, "network-subnet", &hcloud.NetworkSubnetArgs{
+// 			Type:        pulumi.String("cloud"),
+// 			NetworkId:   network.ID(),
+// 			NetworkZone: pulumi.String("eu-central"),
+// 			IpRange:     pulumi.String("10.0.1.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewServer(ctx, "server", &hcloud.ServerArgs{
+// 			ServerType: pulumi.String("cx11"),
+// 			Image:      pulumi.String("ubuntu-20.04"),
+// 			Location:   pulumi.String("nbg1"),
+// 			Networks: ServerNetworkArray{
+// 				&ServerNetworkArgs{
+// 					NetworkId: network.ID(),
+// 					Ip:        pulumi.String("10.0.1.5"),
+// 					AliasIps: pulumi.StringArray{
+// 						pulumi.String("10.0.1.6"),
+// 						pulumi.String("10.0.1.7"),
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			network_subnet,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Servers can be imported using the server `id`
@@ -33,8 +109,14 @@ type Server struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayOutput `pulumi:"firewallIds"`
-	// Name or ID of the image the server is created from.
-	Image pulumi.StringOutput `pulumi:"image"`
+	// Ingores any updates
+	// to the `firewallIds` argument which were received from the server.
+	// This should not be used in normal cases. See the documentation of the
+	// `FirewallAttachment` resouce for a reason to use this
+	// argument.
+	IgnoreRemoteFirewallIds pulumi.BoolPtrOutput `pulumi:"ignoreRemoteFirewallIds"`
+	// (string) Name or ID of the image the server was created from.
+	Image pulumi.StringPtrOutput `pulumi:"image"`
 	// (string) The IPv4 address.
 	Ipv4Address pulumi.StringOutput `pulumi:"ipv4Address"`
 	// (string) The first IPv6 address of the assigned network.
@@ -47,7 +129,7 @@ type Server struct {
 	KeepDisk pulumi.BoolPtrOutput `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapOutput `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -76,9 +158,6 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Image == nil {
-		return nil, errors.New("invalid value for required argument 'Image'")
-	}
 	if args.ServerType == nil {
 		return nil, errors.New("invalid value for required argument 'ServerType'")
 	}
@@ -116,7 +195,13 @@ type serverState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds []int `pulumi:"firewallIds"`
-	// Name or ID of the image the server is created from.
+	// Ingores any updates
+	// to the `firewallIds` argument which were received from the server.
+	// This should not be used in normal cases. See the documentation of the
+	// `FirewallAttachment` resouce for a reason to use this
+	// argument.
+	IgnoreRemoteFirewallIds *bool `pulumi:"ignoreRemoteFirewallIds"`
+	// (string) Name or ID of the image the server was created from.
 	Image *string `pulumi:"image"`
 	// (string) The IPv4 address.
 	Ipv4Address *string `pulumi:"ipv4Address"`
@@ -130,7 +215,7 @@ type serverState struct {
 	KeepDisk *bool `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name *string `pulumi:"name"`
@@ -165,7 +250,13 @@ type ServerState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
-	// Name or ID of the image the server is created from.
+	// Ingores any updates
+	// to the `firewallIds` argument which were received from the server.
+	// This should not be used in normal cases. See the documentation of the
+	// `FirewallAttachment` resouce for a reason to use this
+	// argument.
+	IgnoreRemoteFirewallIds pulumi.BoolPtrInput
+	// (string) Name or ID of the image the server was created from.
 	Image pulumi.StringPtrInput
 	// (string) The IPv4 address.
 	Ipv4Address pulumi.StringPtrInput
@@ -179,7 +270,7 @@ type ServerState struct {
 	KeepDisk pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
-	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringPtrInput
@@ -214,15 +305,21 @@ type serverArgs struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds []int `pulumi:"firewallIds"`
-	// Name or ID of the image the server is created from.
-	Image string `pulumi:"image"`
+	// Ingores any updates
+	// to the `firewallIds` argument which were received from the server.
+	// This should not be used in normal cases. See the documentation of the
+	// `FirewallAttachment` resouce for a reason to use this
+	// argument.
+	IgnoreRemoteFirewallIds *bool `pulumi:"ignoreRemoteFirewallIds"`
+	// (string) Name or ID of the image the server was created from.
+	Image *string `pulumi:"image"`
 	// ID or Name of an ISO image to mount.
 	Iso *string `pulumi:"iso"`
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
 	KeepDisk *bool `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name *string `pulumi:"name"`
@@ -252,15 +349,21 @@ type ServerArgs struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
-	// Name or ID of the image the server is created from.
-	Image pulumi.StringInput
+	// Ingores any updates
+	// to the `firewallIds` argument which were received from the server.
+	// This should not be used in normal cases. See the documentation of the
+	// `FirewallAttachment` resouce for a reason to use this
+	// argument.
+	IgnoreRemoteFirewallIds pulumi.BoolPtrInput
+	// (string) Name or ID of the image the server was created from.
+	Image pulumi.StringPtrInput
 	// ID or Name of an ISO image to mount.
 	Iso pulumi.StringPtrInput
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
 	KeepDisk pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
-	// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringPtrInput

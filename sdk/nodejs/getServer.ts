@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const s1 = pulumi.output(hcloud.getServer({
+ *     name: "my-server",
+ * }));
+ * const s2 = pulumi.output(hcloud.getServer({
+ *     id: 123,
+ * }));
+ * const s3 = pulumi.output(hcloud.getServer({
+ *     withSelector: "key=value",
+ * }));
+ * ```
+ */
 export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     args = args || {};
     if (!opts) {

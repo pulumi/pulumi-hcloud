@@ -59,7 +59,7 @@ export class SshKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
-     * (map) User-defined labels (key-value pairs)
+     * User-defined labels (key-value pairs) should be created with.
      */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -112,7 +112,7 @@ export interface SshKeyState {
      */
     fingerprint?: pulumi.Input<string>;
     /**
-     * (map) User-defined labels (key-value pairs)
+     * User-defined labels (key-value pairs) should be created with.
      */
     labels?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -130,7 +130,7 @@ export interface SshKeyState {
  */
 export interface SshKeyArgs {
     /**
-     * (map) User-defined labels (key-value pairs)
+     * User-defined labels (key-value pairs) should be created with.
      */
     labels?: pulumi.Input<{[key: string]: any}>;
     /**

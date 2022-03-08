@@ -25,16 +25,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "fsn1"
 // 		_, err := hcloud.GetLocation(ctx, &GetLocationArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("fsn1"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := 1
 // 		_, err = hcloud.GetLocation(ctx, &GetLocationArgs{
-// 			Id: &opt1,
+// 			Id: pulumi.IntRef(1),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -76,6 +74,8 @@ type GetLocationResult struct {
 	Longitude float64 `pulumi:"longitude"`
 	// (string) Name of the location.
 	Name string `pulumi:"name"`
+	// (string) Network Zone of the location.
+	NetworkZone string `pulumi:"networkZone"`
 }
 
 func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
@@ -147,6 +147,11 @@ func (o GetLocationResultOutput) Longitude() pulumi.Float64Output {
 // (string) Name of the location.
 func (o GetLocationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (string) Network Zone of the location.
+func (o GetLocationResultOutput) NetworkZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.NetworkZone }).(pulumi.StringOutput)
 }
 
 func init() {

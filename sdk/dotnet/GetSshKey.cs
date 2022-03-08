@@ -11,9 +11,99 @@ namespace Pulumi.HCloud
 {
     public static class GetSshKey
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sshKey1 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
+        ///         {
+        ///             Id = 1234,
+        ///         }));
+        ///         var sshKey2 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
+        ///         {
+        ///             Name = "my-ssh-key",
+        ///         }));
+        ///         var sshKey3 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
+        ///         {
+        ///             Fingerprint = "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
+        ///         }));
+        ///         var sshKey4 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///         var main = new HCloud.Server("main", new HCloud.ServerArgs
+        ///         {
+        ///             SshKeys = 
+        ///             {
+        ///                 sshKey1.Apply(sshKey1 =&gt; sshKey1.Id),
+        ///                 sshKey2.Apply(sshKey2 =&gt; sshKey2.Id),
+        ///                 sshKey3.Apply(sshKey3 =&gt; sshKey3.Id),
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSshKeyResult> InvokeAsync(GetSshKeyArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSshKeyResult>("hcloud:index/getSshKey:getSshKey", args ?? new GetSshKeyArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sshKey1 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
+        ///         {
+        ///             Id = 1234,
+        ///         }));
+        ///         var sshKey2 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
+        ///         {
+        ///             Name = "my-ssh-key",
+        ///         }));
+        ///         var sshKey3 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
+        ///         {
+        ///             Fingerprint = "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
+        ///         }));
+        ///         var sshKey4 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///         var main = new HCloud.Server("main", new HCloud.ServerArgs
+        ///         {
+        ///             SshKeys = 
+        ///             {
+        ///                 sshKey1.Apply(sshKey1 =&gt; sshKey1.Id),
+        ///                 sshKey2.Apply(sshKey2 =&gt; sshKey2.Id),
+        ///                 sshKey3.Apply(sshKey3 =&gt; sshKey3.Id),
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSshKeyResult> Invoke(GetSshKeyInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSshKeyResult>("hcloud:index/getSshKey:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
     }

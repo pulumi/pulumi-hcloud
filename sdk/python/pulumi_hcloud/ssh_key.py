@@ -19,7 +19,7 @@ class SshKeyArgs:
         """
         The set of arguments for constructing a SshKey resource.
         :param pulumi.Input[str] public_key: The public key. If this is a file, it can be read using the file interpolation function
-        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs)
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the SSH key.
         """
         pulumi.set(__self__, "public_key", public_key)
@@ -44,7 +44,7 @@ class SshKeyArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        (map) User-defined labels (key-value pairs)
+        User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
@@ -75,7 +75,7 @@ class _SshKeyState:
         """
         Input properties used for looking up and filtering SshKey resources.
         :param pulumi.Input[str] fingerprint: (string) The fingerprint of the SSH key
-        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs)
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the SSH key.
         :param pulumi.Input[str] public_key: The public key. If this is a file, it can be read using the file interpolation function
         """
@@ -104,7 +104,7 @@ class _SshKeyState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        (map) User-defined labels (key-value pairs)
+        User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
@@ -169,7 +169,7 @@ class SshKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs)
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the SSH key.
         :param pulumi.Input[str] public_key: The public key. If this is a file, it can be read using the file interpolation function
         """
@@ -258,7 +258,7 @@ class SshKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fingerprint: (string) The fingerprint of the SSH key
-        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs)
+        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the SSH key.
         :param pulumi.Input[str] public_key: The public key. If this is a file, it can be read using the file interpolation function
         """
@@ -284,7 +284,7 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        (map) User-defined labels (key-value pairs)
+        User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 

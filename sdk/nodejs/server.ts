@@ -6,6 +6,49 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ * ### Basic server creation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * // Create a new server running debian
+ * const node1 = new hcloud.Server("node1", {
+ *     image: "debian-9",
+ *     serverType: "cx11",
+ * });
+ * ```
+ * ### Server creation with network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const network = new hcloud.Network("network", {ipRange: "10.0.0.0/16"});
+ * const network_subnet = new hcloud.NetworkSubnet("network-subnet", {
+ *     type: "cloud",
+ *     networkId: network.id,
+ *     networkZone: "eu-central",
+ *     ipRange: "10.0.1.0/24",
+ * });
+ * const server = new hcloud.Server("server", {
+ *     serverType: "cx11",
+ *     image: "ubuntu-20.04",
+ *     location: "nbg1",
+ *     networks: [{
+ *         networkId: network.id,
+ *         ip: "10.0.1.5",
+ *         aliasIps: [
+ *             "10.0.1.6",
+ *             "10.0.1.7",
+ *         ],
+ *     }],
+ * }, {
+ *     dependsOn: [network_subnet],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Servers can be imported using the server `id`
@@ -65,9 +108,17 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly firewallIds!: pulumi.Output<number[]>;
     /**
-     * Name or ID of the image the server is created from.
+     * Ingores any updates
+     * to the `firewallIds` argument which were received from the server.
+     * This should not be used in normal cases. See the documentation of the
+     * `hcloud.FirewallAttachment` resouce for a reason to use this
+     * argument.
      */
-    public readonly image!: pulumi.Output<string>;
+    public readonly ignoreRemoteFirewallIds!: pulumi.Output<boolean | undefined>;
+    /**
+     * (string) Name or ID of the image the server was created from.
+     */
+    public readonly image!: pulumi.Output<string | undefined>;
     /**
      * (string) The IPv4 address.
      */
@@ -93,7 +144,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+     * The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -151,6 +202,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["datacenter"] = state ? state.datacenter : undefined;
             resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             resourceInputs["firewallIds"] = state ? state.firewallIds : undefined;
+            resourceInputs["ignoreRemoteFirewallIds"] = state ? state.ignoreRemoteFirewallIds : undefined;
             resourceInputs["image"] = state ? state.image : undefined;
             resourceInputs["ipv4Address"] = state ? state.ipv4Address : undefined;
             resourceInputs["ipv6Address"] = state ? state.ipv6Address : undefined;
@@ -170,9 +222,6 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["userData"] = state ? state.userData : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.image === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'image'");
-            }
             if ((!args || args.serverType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverType'");
             }
@@ -180,6 +229,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["datacenter"] = args ? args.datacenter : undefined;
             resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             resourceInputs["firewallIds"] = args ? args.firewallIds : undefined;
+            resourceInputs["ignoreRemoteFirewallIds"] = args ? args.ignoreRemoteFirewallIds : undefined;
             resourceInputs["image"] = args ? args.image : undefined;
             resourceInputs["iso"] = args ? args.iso : undefined;
             resourceInputs["keepDisk"] = args ? args.keepDisk : undefined;
@@ -231,7 +281,15 @@ export interface ServerState {
      */
     firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Name or ID of the image the server is created from.
+     * Ingores any updates
+     * to the `firewallIds` argument which were received from the server.
+     * This should not be used in normal cases. See the documentation of the
+     * `hcloud.FirewallAttachment` resouce for a reason to use this
+     * argument.
+     */
+    ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
+    /**
+     * (string) Name or ID of the image the server was created from.
      */
     image?: pulumi.Input<string>;
     /**
@@ -259,7 +317,7 @@ export interface ServerState {
      */
     labels?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+     * The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
      */
     location?: pulumi.Input<string>;
     /**
@@ -321,9 +379,17 @@ export interface ServerArgs {
      */
     firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Name or ID of the image the server is created from.
+     * Ingores any updates
+     * to the `firewallIds` argument which were received from the server.
+     * This should not be used in normal cases. See the documentation of the
+     * `hcloud.FirewallAttachment` resouce for a reason to use this
+     * argument.
      */
-    image: pulumi.Input<string>;
+    ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
+    /**
+     * (string) Name or ID of the image the server was created from.
+     */
+    image?: pulumi.Input<string>;
     /**
      * ID or Name of an ISO image to mount.
      */
@@ -337,7 +403,7 @@ export interface ServerArgs {
      */
     labels?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+     * The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
      */
     location?: pulumi.Input<string>;
     /**
