@@ -58,7 +58,7 @@ type SshKey struct {
 
 	// (string) The fingerprint of the SSH key
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// (map) User-defined labels (key-value pairs)
+	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapOutput `pulumi:"labels"`
 	// Name of the SSH key.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -100,7 +100,7 @@ func GetSshKey(ctx *pulumi.Context,
 type sshKeyState struct {
 	// (string) The fingerprint of the SSH key
 	Fingerprint *string `pulumi:"fingerprint"`
-	// (map) User-defined labels (key-value pairs)
+	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Name of the SSH key.
 	Name *string `pulumi:"name"`
@@ -111,7 +111,7 @@ type sshKeyState struct {
 type SshKeyState struct {
 	// (string) The fingerprint of the SSH key
 	Fingerprint pulumi.StringPtrInput
-	// (map) User-defined labels (key-value pairs)
+	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
 	// Name of the SSH key.
 	Name pulumi.StringPtrInput
@@ -124,7 +124,7 @@ func (SshKeyState) ElementType() reflect.Type {
 }
 
 type sshKeyArgs struct {
-	// (map) User-defined labels (key-value pairs)
+	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Name of the SSH key.
 	Name *string `pulumi:"name"`
@@ -134,7 +134,7 @@ type sshKeyArgs struct {
 
 // The set of arguments for constructing a SshKey resource.
 type SshKeyArgs struct {
-	// (map) User-defined labels (key-value pairs)
+	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
 	// Name of the SSH key.
 	Name pulumi.StringPtrInput

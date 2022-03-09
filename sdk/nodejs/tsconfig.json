@@ -17,6 +17,7 @@
         "config/index.ts",
         "config/vars.ts",
         "firewall.ts",
+        "firewallAttachment.ts",
         "floatingIp.ts",
         "floatingIpAssignment.ts",
         "getCertificate.ts",

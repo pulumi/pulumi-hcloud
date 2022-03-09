@@ -24,6 +24,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Certificate{}
 	case "hcloud:index/firewall:Firewall":
 		r = &Firewall{}
+	case "hcloud:index/firewallAttachment:FirewallAttachment":
+		r = &FirewallAttachment{}
 	case "hcloud:index/floatingIp:FloatingIp":
 		r = &FloatingIp{}
 	case "hcloud:index/floatingIpAssignment:FloatingIpAssignment":
@@ -101,6 +103,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"hcloud",
 		"index/firewall",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/firewallAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

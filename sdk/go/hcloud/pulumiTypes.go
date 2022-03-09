@@ -4092,6 +4092,7 @@ type GetLocationsLocation struct {
 	Latitude    float64 `pulumi:"latitude"`
 	Longitude   float64 `pulumi:"longitude"`
 	Name        string  `pulumi:"name"`
+	NetworkZone string  `pulumi:"networkZone"`
 }
 
 // GetLocationsLocationInput is an input type that accepts GetLocationsLocationArgs and GetLocationsLocationOutput values.
@@ -4113,6 +4114,7 @@ type GetLocationsLocationArgs struct {
 	Latitude    pulumi.Float64Input `pulumi:"latitude"`
 	Longitude   pulumi.Float64Input `pulumi:"longitude"`
 	Name        pulumi.StringInput  `pulumi:"name"`
+	NetworkZone pulumi.StringInput  `pulumi:"networkZone"`
 }
 
 func (GetLocationsLocationArgs) ElementType() reflect.Type {
@@ -4192,6 +4194,10 @@ func (o GetLocationsLocationOutput) Longitude() pulumi.Float64Output {
 
 func (o GetLocationsLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationsLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetLocationsLocationOutput) NetworkZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationsLocation) string { return v.NetworkZone }).(pulumi.StringOutput)
 }
 
 type GetLocationsLocationArrayOutput struct{ *pulumi.OutputState }

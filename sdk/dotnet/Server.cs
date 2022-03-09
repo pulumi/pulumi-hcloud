@@ -52,10 +52,20 @@ namespace Pulumi.HCloud
         public Output<ImmutableArray<int>> FirewallIds { get; private set; } = null!;
 
         /// <summary>
-        /// Name or ID of the image the server is created from.
+        /// Ingores any updates
+        /// to the `firewall_ids` argument which were received from the server.
+        /// This should not be used in normal cases. See the documentation of the
+        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// argument.
+        /// </summary>
+        [Output("ignoreRemoteFirewallIds")]
+        public Output<bool?> IgnoreRemoteFirewallIds { get; private set; } = null!;
+
+        /// <summary>
+        /// (string) Name or ID of the image the server was created from.
         /// </summary>
         [Output("image")]
-        public Output<string> Image { get; private set; } = null!;
+        public Output<string?> Image { get; private set; } = null!;
 
         /// <summary>
         /// (string) The IPv4 address.
@@ -94,7 +104,7 @@ namespace Pulumi.HCloud
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -230,10 +240,20 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Name or ID of the image the server is created from.
+        /// Ingores any updates
+        /// to the `firewall_ids` argument which were received from the server.
+        /// This should not be used in normal cases. See the documentation of the
+        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// argument.
         /// </summary>
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
+        [Input("ignoreRemoteFirewallIds")]
+        public Input<bool>? IgnoreRemoteFirewallIds { get; set; }
+
+        /// <summary>
+        /// (string) Name or ID of the image the server was created from.
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
 
         /// <summary>
         /// ID or Name of an ISO image to mount.
@@ -260,7 +280,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -369,7 +389,17 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Name or ID of the image the server is created from.
+        /// Ingores any updates
+        /// to the `firewall_ids` argument which were received from the server.
+        /// This should not be used in normal cases. See the documentation of the
+        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// argument.
+        /// </summary>
+        [Input("ignoreRemoteFirewallIds")]
+        public Input<bool>? IgnoreRemoteFirewallIds { get; set; }
+
+        /// <summary>
+        /// (string) Name or ID of the image the server was created from.
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
@@ -417,7 +447,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1` or `hel1`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

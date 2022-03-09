@@ -76,6 +76,8 @@ type GetLocationResult struct {
 	Longitude float64 `pulumi:"longitude"`
 	// (string) Name of the location.
 	Name string `pulumi:"name"`
+	// (string) Network Zone of the location.
+	NetworkZone string `pulumi:"networkZone"`
 }
 
 func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
@@ -147,6 +149,11 @@ func (o GetLocationResultOutput) Longitude() pulumi.Float64Output {
 // (string) Name of the location.
 func (o GetLocationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (string) Network Zone of the location.
+func (o GetLocationResultOutput) NetworkZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.NetworkZone }).(pulumi.StringOutput)
 }
 
 func init() {

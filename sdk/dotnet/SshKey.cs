@@ -51,7 +51,7 @@ namespace Pulumi.HCloud
         public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// (map) User-defined labels (key-value pairs)
+        /// User-defined labels (key-value pairs) should be created with.
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.HCloud
         private InputMap<object>? _labels;
 
         /// <summary>
-        /// (map) User-defined labels (key-value pairs)
+        /// User-defined labels (key-value pairs) should be created with.
         /// </summary>
         public InputMap<object> Labels
         {
@@ -155,7 +155,7 @@ namespace Pulumi.HCloud
         private InputMap<object>? _labels;
 
         /// <summary>
-        /// (map) User-defined labels (key-value pairs)
+        /// User-defined labels (key-value pairs) should be created with.
         /// </summary>
         public InputMap<object> Labels
         {

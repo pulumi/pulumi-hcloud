@@ -102,6 +102,7 @@ func Provider() tfbridge.ProviderInfo {
 			"hcloud_load_balancer_target":   {Tok: makeResource(mainMod, "LoadBalancerTarget")},
 			"hcloud_snapshot":               {Tok: makeResource(mainMod, "Snapshot")},
 			"hcloud_firewall":               {Tok: makeResource(mainMod, "Firewall")},
+			"hcloud_firewall_attachment":    {Tok: makeResource(mainMod, "FirewallAttachment")},
 			"hcloud_managed_certificate":    {Tok: makeResource(mainMod, "ManagedCertificate")},
 			"hcloud_uploaded_certificate":   {Tok: makeResource(mainMod, "UploadedCertificate")},
 			"hcloud_placement_group":        {Tok: makeResource(mainMod, "PlacementGroup")},

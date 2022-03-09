@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .certificate import *
 from .firewall import *
+from .firewall_attachment import *
 from .floating_ip import *
 from .floating_ip_assignment import *
 from .get_certificate import *
@@ -80,6 +81,14 @@ _utilities.register(
   "fqn": "pulumi_hcloud",
   "classes": {
    "hcloud:index/firewall:Firewall": "Firewall"
+  }
+ },
+ {
+  "pkg": "hcloud",
+  "mod": "index/firewallAttachment",
+  "fqn": "pulumi_hcloud",
+  "classes": {
+   "hcloud:index/firewallAttachment:FirewallAttachment": "FirewallAttachment"
   }
  },
  {
