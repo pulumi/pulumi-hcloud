@@ -1950,6 +1950,14 @@
                             "mapCase": false
                         }
                     }
+                },
+                "networkZone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object",
@@ -1960,7 +1968,8 @@
                 "id",
                 "latitude",
                 "longitude",
-                "name"
+                "name",
+                "networkZone"
             ],
             "language": {
                 "nodejs": {
@@ -2755,6 +2764,79 @@
                             "$ref": "#/types/hcloud:index/FirewallRule:FirewallRule"
                         },
                         "description": "Configuration of a Rule from this Firewall.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/firewallAttachment:FirewallAttachment": {
+            "description": "Attaches resource to a Hetzner Cloud Firewall.\n\n*Note*: only one `hcloud.FirewallAttachment` per Firewall is allowed.\nAny resources that should be attached to that Firewall need to be\nspecified in that `hcloud.FirewallAttachment`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Attach Servers\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst testServer = new hcloud.Server(\"testServer\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-20.04\",\n});\nconst basicFirewall = new hcloud.Firewall(\"basicFirewall\", {});\nconst fwRef = new hcloud.FirewallAttachment(\"fwRef\", {\n    firewallId: basicFirewall.id,\n    serverIds: [testServer.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\ntest_server = hcloud.Server(\"testServer\",\n    server_type=\"cx11\",\n    image=\"ubuntu-20.04\")\nbasic_firewall = hcloud.Firewall(\"basicFirewall\")\nfw_ref = hcloud.FirewallAttachment(\"fwRef\",\n    firewall_id=basic_firewall.id,\n    server_ids=[test_server.id])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testServer = new HCloud.Server(\"testServer\", new HCloud.ServerArgs\n        {\n            ServerType = \"cx11\",\n            Image = \"ubuntu-20.04\",\n        });\n        var basicFirewall = new HCloud.Firewall(\"basicFirewall\", new HCloud.FirewallArgs\n        {\n        });\n        var fwRef = new HCloud.FirewallAttachment(\"fwRef\", new HCloud.FirewallAttachmentArgs\n        {\n            FirewallId = basicFirewall.Id,\n            ServerIds = \n            {\n                testServer.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestServer, err := hcloud.NewServer(ctx, \"testServer\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tbasicFirewall, err := hcloud.NewFirewall(ctx, \"basicFirewall\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFirewallAttachment(ctx, \"fwRef\", \u0026hcloud.FirewallAttachmentArgs{\n\t\t\tFirewallId: basicFirewall.ID(),\n\t\t\tServerIds: pulumi.IntArray{\n\t\t\t\ttestServer.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Attach Label Selectors\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst testServer = new hcloud.Server(\"testServer\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-20.04\",\n    labels: {\n        \"firewall-attachment\": \"test-server\",\n    },\n});\nconst basicFirewall = new hcloud.Firewall(\"basicFirewall\", {});\nconst fwRef = new hcloud.FirewallAttachment(\"fwRef\", {\n    firewallId: basicFirewall.id,\n    labelSelectors: [\"firewall-attachment=test-server\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\ntest_server = hcloud.Server(\"testServer\",\n    server_type=\"cx11\",\n    image=\"ubuntu-20.04\",\n    labels={\n        \"firewall-attachment\": \"test-server\",\n    })\nbasic_firewall = hcloud.Firewall(\"basicFirewall\")\nfw_ref = hcloud.FirewallAttachment(\"fwRef\",\n    firewall_id=basic_firewall.id,\n    label_selectors=[\"firewall-attachment=test-server\"])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testServer = new HCloud.Server(\"testServer\", new HCloud.ServerArgs\n        {\n            ServerType = \"cx11\",\n            Image = \"ubuntu-20.04\",\n            Labels = \n            {\n                { \"firewall-attachment\", \"test-server\" },\n            },\n        });\n        var basicFirewall = new HCloud.Firewall(\"basicFirewall\", new HCloud.FirewallArgs\n        {\n        });\n        var fwRef = new HCloud.FirewallAttachment(\"fwRef\", new HCloud.FirewallAttachmentArgs\n        {\n            FirewallId = basicFirewall.Id,\n            LabelSelectors = \n            {\n                \"firewall-attachment=test-server\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewServer(ctx, \"testServer\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t\tLabels: pulumi.AnyMap{\n\t\t\t\t\"firewall-attachment\": pulumi.Any(\"test-server\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tbasicFirewall, err := hcloud.NewFirewall(ctx, \"basicFirewall\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFirewallAttachment(ctx, \"fwRef\", \u0026hcloud.FirewallAttachmentArgs{\n\t\t\tFirewallId: basicFirewall.ID(),\n\t\t\tLabelSelectors: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"firewall-attachment=test-server\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "firewallId": {
+                    "type": "integer",
+                    "description": "ID of the firewall the resources\nshould be attached to.\n"
+                },
+                "labelSelectors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of label selectors used to\nselect resources to attach to the firewall.\n"
+                },
+                "serverIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "List of Server IDs to attach to the\nfirewall.\n"
+                }
+            },
+            "required": [
+                "firewallId"
+            ],
+            "inputProperties": {
+                "firewallId": {
+                    "type": "integer",
+                    "description": "ID of the firewall the resources\nshould be attached to.\n"
+                },
+                "labelSelectors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of label selectors used to\nselect resources to attach to the firewall.\n"
+                },
+                "serverIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "List of Server IDs to attach to the\nfirewall.\n"
+                }
+            },
+            "requiredInputs": [
+                "firewallId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FirewallAttachment resources.\n",
+                "properties": {
+                    "firewallId": {
+                        "type": "integer",
+                        "description": "ID of the firewall the resources\nshould be attached to.\n"
+                    },
+                    "labelSelectors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of label selectors used to\nselect resources to attach to the firewall.\n"
+                    },
+                    "serverIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "List of Server IDs to attach to the\nfirewall.\n"
                     }
                 },
                 "type": "object"
@@ -3933,9 +4015,13 @@
                     },
                     "description": "Firewall IDs the server should be attached to on creation.\n"
                 },
+                "ignoreRemoteFirewallIds": {
+                    "type": "boolean",
+                    "description": "Ingores any updates\nto the `firewall_ids` argument which were received from the server.\nThis should not be used in normal cases. See the documentation of the\n`hcloud.FirewallAttachment` resouce for a reason to use this\nargument.\n"
+                },
                 "image": {
                     "type": "string",
-                    "description": "Name or ID of the image the server is created from.\n"
+                    "description": "(string) Name or ID of the image the server was created from.\n"
                 },
                 "ipv4Address": {
                     "type": "string",
@@ -3966,7 +4052,7 @@
                 },
                 "location": {
                     "type": "string",
-                    "description": "The location name to create the server in. `nbg1`, `fsn1` or `hel1`\n"
+                    "description": "The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`\n"
                 },
                 "name": {
                     "type": "string",
@@ -4015,7 +4101,6 @@
                 "backupWindow",
                 "datacenter",
                 "firewallIds",
-                "image",
                 "ipv4Address",
                 "ipv6Address",
                 "ipv6Network",
@@ -4044,9 +4129,13 @@
                     },
                     "description": "Firewall IDs the server should be attached to on creation.\n"
                 },
+                "ignoreRemoteFirewallIds": {
+                    "type": "boolean",
+                    "description": "Ingores any updates\nto the `firewall_ids` argument which were received from the server.\nThis should not be used in normal cases. See the documentation of the\n`hcloud.FirewallAttachment` resouce for a reason to use this\nargument.\n"
+                },
                 "image": {
                     "type": "string",
-                    "description": "Name or ID of the image the server is created from.\n"
+                    "description": "(string) Name or ID of the image the server was created from.\n"
                 },
                 "iso": {
                     "type": "string",
@@ -4065,7 +4154,7 @@
                 },
                 "location": {
                     "type": "string",
-                    "description": "The location name to create the server in. `nbg1`, `fsn1` or `hel1`\n"
+                    "description": "The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`\n"
                 },
                 "name": {
                     "type": "string",
@@ -4107,7 +4196,6 @@
                 }
             },
             "requiredInputs": [
-                "image",
                 "serverType"
             ],
             "stateInputs": {
@@ -4137,9 +4225,13 @@
                         },
                         "description": "Firewall IDs the server should be attached to on creation.\n"
                     },
+                    "ignoreRemoteFirewallIds": {
+                        "type": "boolean",
+                        "description": "Ingores any updates\nto the `firewall_ids` argument which were received from the server.\nThis should not be used in normal cases. See the documentation of the\n`hcloud.FirewallAttachment` resouce for a reason to use this\nargument.\n"
+                    },
                     "image": {
                         "type": "string",
-                        "description": "Name or ID of the image the server is created from.\n"
+                        "description": "(string) Name or ID of the image the server was created from.\n"
                     },
                     "ipv4Address": {
                         "type": "string",
@@ -4170,7 +4262,7 @@
                     },
                     "location": {
                         "type": "string",
-                        "description": "The location name to create the server in. `nbg1`, `fsn1` or `hel1`\n"
+                        "description": "The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`\n"
                     },
                     "name": {
                         "type": "string",
@@ -4390,7 +4482,7 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "(map) User-defined labels (key-value pairs)\n"
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4412,7 +4504,7 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "(map) User-defined labels (key-value pairs)\n"
+                    "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4438,7 +4530,7 @@
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
                         },
-                        "description": "(map) User-defined labels (key-value pairs)\n"
+                        "description": "User-defined labels (key-value pairs) should be created with.\n"
                     },
                     "name": {
                         "type": "string",
@@ -5656,6 +5748,10 @@
                     "name": {
                         "type": "string",
                         "description": "(string) Name of the location.\n"
+                    },
+                    "networkZone": {
+                        "type": "string",
+                        "description": "(string) Network Zone of the location.\n"
                     }
                 },
                 "type": "object",
@@ -5666,7 +5762,8 @@
                     "id",
                     "latitude",
                     "longitude",
-                    "name"
+                    "name",
+                    "networkZone"
                 ]
             }
         },

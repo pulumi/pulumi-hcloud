@@ -1744,7 +1744,8 @@ class GetLocationsLocationResult(dict):
                  id: int,
                  latitude: float,
                  longitude: float,
-                 name: str):
+                 name: str,
+                 network_zone: str):
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "country", country)
         pulumi.set(__self__, "description", description)
@@ -1752,6 +1753,7 @@ class GetLocationsLocationResult(dict):
         pulumi.set(__self__, "latitude", latitude)
         pulumi.set(__self__, "longitude", longitude)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_zone", network_zone)
 
     @property
     @pulumi.getter
@@ -1787,6 +1789,11 @@ class GetLocationsLocationResult(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> str:
+        return pulumi.get(self, "network_zone")
 
 
 @pulumi.output_type

@@ -349,6 +349,7 @@ export interface GetLocationsLocation {
     latitude: number;
     longitude: number;
     name: string;
+    networkZone: string;
 }
 
 export interface GetNetworksNetwork {
