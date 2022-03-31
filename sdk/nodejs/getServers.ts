@@ -5,6 +5,18 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const s3 = pulumi.output(hcloud.getServers({
+ *     withSelector: "key=value",
+ * }));
+ * ```
+ */
 export function getServers(args?: GetServersArgs, opts?: pulumi.InvokeOptions): Promise<GetServersResult> {
     args = args || {};
     if (!opts) {

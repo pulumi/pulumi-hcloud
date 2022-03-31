@@ -25,16 +25,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "cx11"
 // 		_, err := hcloud.GetServerType(ctx, &GetServerTypeArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("cx11"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := 1
 // 		_, err = hcloud.GetServerType(ctx, &GetServerTypeArgs{
-// 			Id: &opt1,
+// 			Id: pulumi.IntRef(1),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

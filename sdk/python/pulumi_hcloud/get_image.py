@@ -196,7 +196,18 @@ def get_image(id: Optional[int] = None,
               with_statuses: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    image1 = hcloud.get_image(id=1234)
+    image2 = hcloud.get_image(name="ubuntu-18.04")
+    image3 = hcloud.get_image(with_selector="key=value")
+    main = hcloud.Server("main", image=image1.id)
+    ```
+
 
     :param int id: ID of the Image.
     :param bool most_recent: If more than one result is returned, use the most recent Image.
@@ -243,7 +254,18 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                      with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    image1 = hcloud.get_image(id=1234)
+    image2 = hcloud.get_image(name="ubuntu-18.04")
+    image3 = hcloud.get_image(with_selector="key=value")
+    main = hcloud.Server("main", image=image1.id)
+    ```
+
 
     :param int id: ID of the Image.
     :param bool most_recent: If more than one result is returned, use the most recent Image.

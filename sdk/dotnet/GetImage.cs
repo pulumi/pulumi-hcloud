@@ -11,9 +11,81 @@ namespace Pulumi.HCloud
 {
     public static class GetImage
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var image1 = Output.Create(HCloud.GetImage.InvokeAsync(new HCloud.GetImageArgs
+        ///         {
+        ///             Id = 1234,
+        ///         }));
+        ///         var image2 = Output.Create(HCloud.GetImage.InvokeAsync(new HCloud.GetImageArgs
+        ///         {
+        ///             Name = "ubuntu-18.04",
+        ///         }));
+        ///         var image3 = Output.Create(HCloud.GetImage.InvokeAsync(new HCloud.GetImageArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///         var main = new HCloud.Server("main", new HCloud.ServerArgs
+        ///         {
+        ///             Image = image1.Apply(image1 =&gt; image1.Id),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("hcloud:index/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var image1 = Output.Create(HCloud.GetImage.InvokeAsync(new HCloud.GetImageArgs
+        ///         {
+        ///             Id = 1234,
+        ///         }));
+        ///         var image2 = Output.Create(HCloud.GetImage.InvokeAsync(new HCloud.GetImageArgs
+        ///         {
+        ///             Name = "ubuntu-18.04",
+        ///         }));
+        ///         var image3 = Output.Create(HCloud.GetImage.InvokeAsync(new HCloud.GetImageArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///         var main = new HCloud.Server("main", new HCloud.ServerArgs
+        ///         {
+        ///             Image = image1.Apply(image1 =&gt; image1.Id),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetImageResult>("hcloud:index/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
