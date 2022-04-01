@@ -10,6 +10,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hcloud.LookupServer(ctx, &GetServerArgs{
+// 			Name: pulumi.StringRef("my-server"),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.LookupServer(ctx, &GetServerArgs{
+// 			Id: pulumi.IntRef(123),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.LookupServer(ctx, &GetServerArgs{
+// 			WithSelector: pulumi.StringRef("key=value"),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("hcloud:index/getServer:getServer", args, &rv, opts...)

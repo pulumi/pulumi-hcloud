@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const network1 = pulumi.output(hcloud.getNetwork({
+ *     id: 1234,
+ * }));
+ * const network2 = pulumi.output(hcloud.getNetwork({
+ *     name: "my-network",
+ * }));
+ * const network3 = pulumi.output(hcloud.getNetwork({
+ *     withSelector: "key=value",
+ * }));
+ * ```
+ */
 export function getNetwork(args?: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
     args = args || {};
     if (!opts) {

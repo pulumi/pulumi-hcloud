@@ -11,9 +11,73 @@ namespace Pulumi.HCloud
 {
     public static class GetServer
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var s1 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
+        ///         {
+        ///             Name = "my-server",
+        ///         }));
+        ///         var s2 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
+        ///         {
+        ///             Id = 123,
+        ///         }));
+        ///         var s3 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var s1 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
+        ///         {
+        ///             Name = "my-server",
+        ///         }));
+        ///         var s2 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
+        ///         {
+        ///             Id = 123,
+        ///         }));
+        ///         var s3 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }

@@ -25,16 +25,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "fsn1"
 // 		_, err := hcloud.GetLocation(ctx, &GetLocationArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("fsn1"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := 1
 // 		_, err = hcloud.GetLocation(ctx, &GetLocationArgs{
-// 			Id: &opt1,
+// 			Id: pulumi.IntRef(1),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
