@@ -22,16 +22,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "sample-certificate-1"
 // 		_, err := hcloud.LookupCertificate(ctx, &GetCertificateArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("sample-certificate-1"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := 4711
 // 		_, err = hcloud.LookupCertificate(ctx, &GetCertificateArgs{
-// 			Id: &opt1,
+// 			Id: pulumi.IntRef(4711),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -10,6 +10,78 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// ### Basic server creation
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new server running debian
+    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
+    ///         {
+    ///             Image = "debian-9",
+    ///             ServerType = "cx11",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Server creation with network
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var network = new HCloud.Network("network", new HCloud.NetworkArgs
+    ///         {
+    ///             IpRange = "10.0.0.0/16",
+    ///         });
+    ///         var network_subnet = new HCloud.NetworkSubnet("network-subnet", new HCloud.NetworkSubnetArgs
+    ///         {
+    ///             Type = "cloud",
+    ///             NetworkId = network.Id,
+    ///             NetworkZone = "eu-central",
+    ///             IpRange = "10.0.1.0/24",
+    ///         });
+    ///         var server = new HCloud.Server("server", new HCloud.ServerArgs
+    ///         {
+    ///             ServerType = "cx11",
+    ///             Image = "ubuntu-20.04",
+    ///             Location = "nbg1",
+    ///             Networks = 
+    ///             {
+    ///                 new HCloud.Inputs.ServerNetworkArgs
+    ///                 {
+    ///                     NetworkId = network.Id,
+    ///                     Ip = "10.0.1.5",
+    ///                     AliasIps = 
+    ///                     {
+    ///                         "10.0.1.6",
+    ///                         "10.0.1.7",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 network_subnet,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Servers can be imported using the server `id`

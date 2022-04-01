@@ -22,16 +22,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "sample-firewall-1"
 // 		_, err := hcloud.LookupFirewall(ctx, &GetFirewallArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("sample-firewall-1"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := 4711
 // 		_, err = hcloud.LookupFirewall(ctx, &GetFirewallArgs{
-// 			Id: &opt1,
+// 			Id: pulumi.IntRef(4711),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
