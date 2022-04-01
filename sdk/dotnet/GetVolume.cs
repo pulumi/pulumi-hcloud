@@ -11,9 +11,73 @@ namespace Pulumi.HCloud
 {
     public static class GetVolume
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var volume1 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
+        ///         {
+        ///             Id = 1234,
+        ///         }));
+        ///         var volume2 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
+        ///         {
+        ///             Name = "my-volume",
+        ///         }));
+        ///         var volume3 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("hcloud:index/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var volume1 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
+        ///         {
+        ///             Id = 1234,
+        ///         }));
+        ///         var volume2 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
+        ///         {
+        ///             Name = "my-volume",
+        ///         }));
+        ///         var volume3 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
+        ///         {
+        ///             WithSelector = "key=value",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("hcloud:index/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }

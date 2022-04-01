@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "key=value"
 // 		_, err := hcloud.GetFirewalls(ctx, &GetFirewallsArgs{
-// 			WithSelector: &opt0,
+// 			WithSelector: pulumi.StringRef("key=value"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

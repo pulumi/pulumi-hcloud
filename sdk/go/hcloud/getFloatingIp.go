@@ -30,16 +30,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "1.2.3.4"
 // 		ip1, err := hcloud.LookupFloatingIp(ctx, &GetFloatingIpArgs{
-// 			IpAddress: &opt0,
+// 			IpAddress: pulumi.StringRef("1.2.3.4"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := "key=value"
 // 		_, err = hcloud.LookupFloatingIp(ctx, &GetFloatingIpArgs{
-// 			WithSelector: &opt1,
+// 			WithSelector: pulumi.StringRef("key=value"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -11,6 +11,82 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Basic server creation
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+// 			Image:      pulumi.String("debian-9"),
+// 			ServerType: pulumi.String("cx11"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Server creation with network
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		network, err := hcloud.NewNetwork(ctx, "network", &hcloud.NetworkArgs{
+// 			IpRange: pulumi.String("10.0.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewNetworkSubnet(ctx, "network-subnet", &hcloud.NetworkSubnetArgs{
+// 			Type:        pulumi.String("cloud"),
+// 			NetworkId:   network.ID(),
+// 			NetworkZone: pulumi.String("eu-central"),
+// 			IpRange:     pulumi.String("10.0.1.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewServer(ctx, "server", &hcloud.ServerArgs{
+// 			ServerType: pulumi.String("cx11"),
+// 			Image:      pulumi.String("ubuntu-20.04"),
+// 			Location:   pulumi.String("nbg1"),
+// 			Networks: ServerNetworkArray{
+// 				&ServerNetworkArgs{
+// 					NetworkId: network.ID(),
+// 					Ip:        pulumi.String("10.0.1.5"),
+// 					AliasIps: pulumi.StringArray{
+// 						pulumi.String("10.0.1.6"),
+// 						pulumi.String("10.0.1.7"),
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			network_subnet,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Servers can be imported using the server `id`

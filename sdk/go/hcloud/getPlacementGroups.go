@@ -28,9 +28,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "key=value"
 // 		_, err = hcloud.GetPlacementGroups(ctx, &GetPlacementGroupsArgs{
-// 			WithSelector: &opt0,
+// 			WithSelector: pulumi.StringRef("key=value"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
