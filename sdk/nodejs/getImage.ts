@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const image1 = hcloud.getImage({
- *     id: "1234",
+ *     id: 1234,
  * });
  * const image2 = hcloud.getImage({
  *     name: "ubuntu-18.04",
