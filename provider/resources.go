@@ -121,15 +121,15 @@ func Provider() tfbridge.ProviderInfo {
 			"hcloud_server":       {Tok: makeDataSource(mainMod, "getServer")},
 			"hcloud_servers":      {Tok: makeDataSource(mainMod, "getServers")},
 			"hcloud_ssh_key":      {Tok: makeDataSource(mainMod, "getSshKey")},
-			"hcloud_network":      {Tok: makeDataSource(mainMod, "getNetwork")},
-			"hcloud_networks": {
-				Tok: makeDataSource(mainMod, "getNetworks"),
+			"hcloud_network": {
+				Tok: makeDataSource(mainMod, "getNetwork"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"description": {
 						Default: tfbridge.ManagedByPulumi,
 					},
 				},
 			},
+			"hcloud_networks":         {Tok: makeDataSource(mainMod, "getNetworks")},
 			"hcloud_ssh_keys":         {Tok: makeDataSource(mainMod, "getSshKeys")},
 			"hcloud_volume":           {Tok: makeDataSource(mainMod, "getVolume")},
 			"hcloud_volumes":          {Tok: makeDataSource(mainMod, "getVolumes")},
