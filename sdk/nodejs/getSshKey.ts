@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const sshKey1 = hcloud.getSshKey({
- *     id: "1234",
+ *     id: 1234,
  * });
  * const sshKey2 = hcloud.getSshKey({
  *     name: "my-ssh-key",
