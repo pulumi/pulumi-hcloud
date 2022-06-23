@@ -6,27 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Adds a target to a Hetzner Cloud Load Balancer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const myServer = new hcloud.Server("myServer", {
- *     serverType: "cx11",
- *     image: "ubuntu-18.04",
- * });
- * const loadBalancer = new hcloud.LoadBalancer("loadBalancer", {
- *     loadBalancerType: "lb11",
- *     location: "nbg1",
- * });
- * const loadBalancerTarget = new hcloud.LoadBalancerTarget("loadBalancerTarget", {
- *     type: "server",
- *     loadBalancerId: loadBalancer.id,
- *     serverId: myServer.id,
- * });
- * ```
  */
 export class LoadBalancerTarget extends pulumi.CustomResource {
     /**

@@ -7,24 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud volume resource to manage volumes.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const node1 = new hcloud.Server("node1", {
- *     image: "debian-9",
- *     serverType: "cx11",
- * });
- * const master = new hcloud.Volume("master", {
- *     size: 50,
- *     serverId: node1.id,
- *     automount: true,
- *     format: "ext4",
- * });
- * ```
- *
  * ## Import
  *
  * Volumes can be imported using their `id`

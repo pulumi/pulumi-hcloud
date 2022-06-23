@@ -7,22 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const node1 = new hcloud.Server("node1", {
- *     image: "debian-9",
- *     serverType: "cx11",
- * });
- * const master = new hcloud.FloatingIp("master", {
- *     type: "ipv4",
- *     serverId: node1.id,
- * });
- * ```
- *
  * ## Import
  *
  * Floating IPs can be imported using its `id`

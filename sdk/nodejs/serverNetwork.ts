@@ -7,30 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const node1 = new hcloud.Server("node1", {
- *     image: "debian-9",
- *     serverType: "cx11",
- * });
- * const mynet = new hcloud.Network("mynet", {ipRange: "10.0.0.0/8"});
- * const foonet = new hcloud.NetworkSubnet("foonet", {
- *     networkId: mynet.id,
- *     type: "cloud",
- *     networkZone: "eu-central",
- *     ipRange: "10.0.1.0/24",
- * });
- * const srvnetwork = new hcloud.ServerNetwork("srvnetwork", {
- *     serverId: node1.id,
- *     networkId: mynet.id,
- *     ip: "10.0.1.5",
- * });
- * ```
- *
  * ## Import
  *
  * Server Network entries can be imported using a compound ID with the following format`<server-id>-<network-id>`

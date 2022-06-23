@@ -5,20 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const allKeys = hcloud.getSshKeys({});
- * const keysBySelector = hcloud.getSshKeys({
- *     withSelector: "foo=bar",
- * });
- * const main = new hcloud.Server("main", {sshKeys: [allKeys.then(allKeys => allKeys.sshKeys)].map(__item => __item?.name)});
- * ```
- */
 export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeysResult> {
     args = args || {};
     if (!opts) {

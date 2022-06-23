@@ -8,26 +8,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const myserver = new hcloud.Server("myserver", {
- *     serverType: "cx11",
- *     image: "ubuntu-18.04",
- * });
- * const loadBalancer = new hcloud.LoadBalancer("loadBalancer", {
- *     loadBalancerType: "lb11",
- *     location: "nbg1",
- *     targets: [{
- *         type: "server",
- *         serverId: myserver.id,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Load Balancers can be imported using its `id`

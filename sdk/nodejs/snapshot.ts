@@ -7,19 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const node1 = new hcloud.Server("node1", {
- *     image: "debian-9",
- *     serverType: "cx11",
- * });
- * const my_snapshot = new hcloud.Snapshot("my-snapshot", {serverId: node1.id});
- * ```
- *
  * ## Import
  *
  * Snapshots can be imported using its image `id`

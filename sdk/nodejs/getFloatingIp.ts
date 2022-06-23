@@ -14,25 +14,6 @@ import * as utilities from "./utilities";
  * # Data Source: hcloud.FloatingIp
  * Provides details about a Hetzner Cloud Floating IP.
  * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
- * ### Additional Examples
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const ip1 = hcloud.getFloatingIp({
- *     ipAddress: "1.2.3.4",
- * });
- * const ip2 = hcloud.getFloatingIp({
- *     withSelector: "key=value",
- * });
- * const main: hcloud.FloatingIpAssignment[];
- * for (const range = {value: 0}; range.value < _var.counter; range.value++) {
- *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
- *         floatingIpId: ip1.then(ip1 => ip1.id),
- *         serverId: hcloud_server.main.id,
- *     }));
- * }
- * ```
  */
 export function getFloatingIp(args?: GetFloatingIpArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpResult> {
     args = args || {};

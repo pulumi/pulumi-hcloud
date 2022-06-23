@@ -19,35 +19,6 @@ import * as utilities from "./utilities";
  *     serverType: "cx11",
  * });
  * ```
- * ### Server creation with network
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const network = new hcloud.Network("network", {ipRange: "10.0.0.0/16"});
- * const network_subnet = new hcloud.NetworkSubnet("network-subnet", {
- *     type: "cloud",
- *     networkId: network.id,
- *     networkZone: "eu-central",
- *     ipRange: "10.0.1.0/24",
- * });
- * const server = new hcloud.Server("server", {
- *     serverType: "cx11",
- *     image: "ubuntu-20.04",
- *     location: "nbg1",
- *     networks: [{
- *         networkId: network.id,
- *         ip: "10.0.1.5",
- *         aliasIps: [
- *             "10.0.1.6",
- *             "10.0.1.7",
- *         ],
- *     }],
- * }, {
- *     dependsOn: [network_subnet],
- * });
- * ```
  *
  * ## Import
  *
