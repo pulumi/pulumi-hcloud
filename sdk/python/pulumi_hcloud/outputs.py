@@ -18,6 +18,7 @@ __all__ = [
     'LoadBalancerServiceHttp',
     'LoadBalancerTarget',
     'ServerNetwork',
+    'ServerPublicNet',
     'GetCertificatesCertificateResult',
     'GetDatacentersDatacenterResult',
     'GetFirewallApplyToResult',
@@ -43,6 +44,7 @@ __all__ = [
     'GetLocationsLocationResult',
     'GetNetworksNetworkResult',
     'GetPlacementGroupsPlacementGroupResult',
+    'GetPrimaryIpsPrimaryIpResult',
     'GetServerTypesServerTypeResult',
     'GetServersServerResult',
     'GetSshKeysSshKeyResult',
@@ -597,6 +599,62 @@ class ServerNetwork(dict):
         (Optional, string) The MAC address the private interface of the server has
         """
         return pulumi.get(self, "mac_address")
+
+
+@pulumi.output_type
+class ServerPublicNet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Enabled":
+            suggest = "ipv4_enabled"
+        elif key == "ipv6Enabled":
+            suggest = "ipv6_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerPublicNet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerPublicNet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerPublicNet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4: Optional[int] = None,
+                 ipv4_enabled: Optional[bool] = None,
+                 ipv6: Optional[int] = None,
+                 ipv6_enabled: Optional[bool] = None):
+        if ipv4 is not None:
+            pulumi.set(__self__, "ipv4", ipv4)
+        if ipv4_enabled is not None:
+            pulumi.set(__self__, "ipv4_enabled", ipv4_enabled)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
+        if ipv6_enabled is not None:
+            pulumi.set(__self__, "ipv6_enabled", ipv6_enabled)
+
+    @property
+    @pulumi.getter
+    def ipv4(self) -> Optional[int]:
+        return pulumi.get(self, "ipv4")
+
+    @property
+    @pulumi.getter(name="ipv4Enabled")
+    def ipv4_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "ipv4_enabled")
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[int]:
+        return pulumi.get(self, "ipv6")
+
+    @property
+    @pulumi.getter(name="ipv6Enabled")
+    def ipv6_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "ipv6_enabled")
 
 
 @pulumi.output_type
@@ -1880,6 +1938,89 @@ class GetPlacementGroupsPlacementGroupResult(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetPrimaryIpsPrimaryIpResult(dict):
+    def __init__(__self__, *,
+                 assignee_id: int,
+                 assignee_type: str,
+                 auto_delete: bool,
+                 datacenter: str,
+                 delete_protection: bool,
+                 id: int,
+                 ip_address: str,
+                 ip_network: str,
+                 labels: Mapping[str, Any],
+                 type: str,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "assignee_id", assignee_id)
+        pulumi.set(__self__, "assignee_type", assignee_type)
+        pulumi.set(__self__, "auto_delete", auto_delete)
+        pulumi.set(__self__, "datacenter", datacenter)
+        pulumi.set(__self__, "delete_protection", delete_protection)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "ip_network", ip_network)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "type", type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="assigneeId")
+    def assignee_id(self) -> int:
+        return pulumi.get(self, "assignee_id")
+
+    @property
+    @pulumi.getter(name="assigneeType")
+    def assignee_type(self) -> str:
+        return pulumi.get(self, "assignee_type")
+
+    @property
+    @pulumi.getter(name="autoDelete")
+    def auto_delete(self) -> bool:
+        return pulumi.get(self, "auto_delete")
+
+    @property
+    @pulumi.getter
+    def datacenter(self) -> str:
+        return pulumi.get(self, "datacenter")
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> bool:
+        return pulumi.get(self, "delete_protection")
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipNetwork")
+    def ip_network(self) -> str:
+        return pulumi.get(self, "ip_network")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

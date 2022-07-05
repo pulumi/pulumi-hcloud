@@ -29,6 +29,7 @@ class ServerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
                  placement_group_id: Optional[pulumi.Input[int]] = None,
+                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -53,6 +54,7 @@ class ServerArgs:
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
@@ -85,6 +87,8 @@ class ServerArgs:
             pulumi.set(__self__, "networks", networks)
         if placement_group_id is not None:
             pulumi.set(__self__, "placement_group_id", placement_group_id)
+        if public_nets is not None:
+            pulumi.set(__self__, "public_nets", public_nets)
         if rebuild_protection is not None:
             pulumi.set(__self__, "rebuild_protection", rebuild_protection)
         if rescue is not None:
@@ -267,6 +271,18 @@ class ServerArgs:
         pulumi.set(self, "placement_group_id", value)
 
     @property
+    @pulumi.getter(name="publicNets")
+    def public_nets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]:
+        """
+        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        """
+        return pulumi.get(self, "public_nets")
+
+    @public_nets.setter
+    def public_nets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]):
+        pulumi.set(self, "public_nets", value)
+
+    @property
     @pulumi.getter(name="rebuildProtection")
     def rebuild_protection(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -335,6 +351,7 @@ class _ServerState:
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
                  placement_group_id: Optional[pulumi.Input[int]] = None,
+                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
@@ -364,6 +381,7 @@ class _ServerState:
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
@@ -408,6 +426,8 @@ class _ServerState:
             pulumi.set(__self__, "networks", networks)
         if placement_group_id is not None:
             pulumi.set(__self__, "placement_group_id", placement_group_id)
+        if public_nets is not None:
+            pulumi.set(__self__, "public_nets", public_nets)
         if rebuild_protection is not None:
             pulumi.set(__self__, "rebuild_protection", rebuild_protection)
         if rescue is not None:
@@ -630,6 +650,18 @@ class _ServerState:
         pulumi.set(self, "placement_group_id", value)
 
     @property
+    @pulumi.getter(name="publicNets")
+    def public_nets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]:
+        """
+        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        """
+        return pulumi.get(self, "public_nets")
+
+    @public_nets.setter
+    def public_nets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]):
+        pulumi.set(self, "public_nets", value)
+
+    @property
     @pulumi.getter(name="rebuildProtection")
     def rebuild_protection(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -720,6 +752,7 @@ class Server(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
                  placement_group_id: Optional[pulumi.Input[int]] = None,
+                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]]] = None,
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
@@ -728,19 +761,7 @@ class Server(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
-        ### Basic server creation
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        # Create a new server running debian
-        node1 = hcloud.Server("node1",
-            image="debian-9",
-            server_type="cx11")
-        ```
         ### Server creation with network
-
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -793,6 +814,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
@@ -807,19 +829,7 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-        ### Basic server creation
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        # Create a new server running debian
-        node1 = hcloud.Server("node1",
-            image="debian-9",
-            server_type="cx11")
-        ```
         ### Server creation with network
-
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -881,6 +891,7 @@ class Server(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
                  placement_group_id: Optional[pulumi.Input[int]] = None,
+                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]]] = None,
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
@@ -911,6 +922,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["networks"] = networks
             __props__.__dict__["placement_group_id"] = placement_group_id
+            __props__.__dict__["public_nets"] = public_nets
             __props__.__dict__["rebuild_protection"] = rebuild_protection
             __props__.__dict__["rescue"] = rescue
             if server_type is None and not opts.urn:
@@ -950,6 +962,7 @@ class Server(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
             placement_group_id: Optional[pulumi.Input[int]] = None,
+            public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]]] = None,
             rebuild_protection: Optional[pulumi.Input[bool]] = None,
             rescue: Optional[pulumi.Input[str]] = None,
             server_type: Optional[pulumi.Input[str]] = None,
@@ -984,6 +997,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
@@ -1012,6 +1026,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["networks"] = networks
         __props__.__dict__["placement_group_id"] = placement_group_id
+        __props__.__dict__["public_nets"] = public_nets
         __props__.__dict__["rebuild_protection"] = rebuild_protection
         __props__.__dict__["rescue"] = rescue
         __props__.__dict__["server_type"] = server_type
@@ -1159,6 +1174,14 @@ class Server(pulumi.CustomResource):
         Placement Group ID the server added to on creation.
         """
         return pulumi.get(self, "placement_group_id")
+
+    @property
+    @pulumi.getter(name="publicNets")
+    def public_nets(self) -> pulumi.Output[Optional[Sequence['outputs.ServerPublicNet']]]:
+        """
+        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        """
+        return pulumi.get(self, "public_nets")
 
     @property
     @pulumi.getter(name="rebuildProtection")

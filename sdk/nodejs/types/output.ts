@@ -368,6 +368,20 @@ export interface GetPlacementGroupsPlacementGroup {
     type?: string;
 }
 
+export interface GetPrimaryIpsPrimaryIp {
+    assigneeId: number;
+    assigneeType: string;
+    autoDelete: boolean;
+    datacenter: string;
+    deleteProtection: boolean;
+    id: number;
+    ipAddress: string;
+    ipNetwork: string;
+    labels: {[key: string]: any};
+    name?: string;
+    type: string;
+}
+
 export interface GetServerTypesServerType {
     cores: number;
     cpuType: string;
@@ -529,5 +543,12 @@ export interface ServerNetwork {
      * ID of the network
      */
     networkId: number;
+}
+
+export interface ServerPublicNet {
+    ipv4: number;
+    ipv4Enabled?: boolean;
+    ipv6: number;
+    ipv6Enabled?: boolean;
 }
 

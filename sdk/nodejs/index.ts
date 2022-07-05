@@ -28,6 +28,8 @@ export * from "./getNetwork";
 export * from "./getNetworks";
 export * from "./getPlacementGroup";
 export * from "./getPlacementGroups";
+export * from "./getPrimaryIp";
+export * from "./getPrimaryIps";
 export * from "./getServer";
 export * from "./getServerType";
 export * from "./getServerTypes";
@@ -45,6 +47,7 @@ export * from "./network";
 export * from "./networkRoute";
 export * from "./networkSubnet";
 export * from "./placementGroup";
+export * from "./primaryIp";
 export * from "./provider";
 export * from "./rdns";
 export * from "./server";
@@ -79,6 +82,7 @@ import { Network } from "./network";
 import { NetworkRoute } from "./networkRoute";
 import { NetworkSubnet } from "./networkSubnet";
 import { PlacementGroup } from "./placementGroup";
+import { PrimaryIp } from "./primaryIp";
 import { Rdns } from "./rdns";
 import { Server } from "./server";
 import { ServerNetwork } from "./serverNetwork";
@@ -120,6 +124,8 @@ const _module = {
                 return new NetworkSubnet(name, <any>undefined, { urn })
             case "hcloud:index/placementGroup:PlacementGroup":
                 return new PlacementGroup(name, <any>undefined, { urn })
+            case "hcloud:index/primaryIp:PrimaryIp":
+                return new PrimaryIp(name, <any>undefined, { urn })
             case "hcloud:index/rdns:Rdns":
                 return new Rdns(name, <any>undefined, { urn })
             case "hcloud:index/server:Server":
@@ -155,6 +161,7 @@ pulumi.runtime.registerResourceModule("hcloud", "index/network", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/networkRoute", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/networkSubnet", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/placementGroup", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/primaryIp", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/rdns", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/server", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/serverNetwork", _module)

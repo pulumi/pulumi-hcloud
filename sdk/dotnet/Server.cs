@@ -11,28 +11,7 @@ namespace Pulumi.HCloud
 {
     /// <summary>
     /// ## Example Usage
-    /// ### Basic server creation
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a new server running debian
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// ### Server creation with network
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
@@ -198,6 +177,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Output("placementGroupId")]
         public Output<int?> PlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        /// </summary>
+        [Output("publicNets")]
+        public Output<ImmutableArray<Outputs.ServerPublicNet>> PublicNets { get; private set; } = null!;
 
         /// <summary>
         /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
@@ -381,6 +366,18 @@ namespace Pulumi.HCloud
         [Input("placementGroupId")]
         public Input<int>? PlacementGroupId { get; set; }
 
+        [Input("publicNets")]
+        private InputList<Inputs.ServerPublicNetArgs>? _publicNets;
+
+        /// <summary>
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        /// </summary>
+        public InputList<Inputs.ServerPublicNetArgs> PublicNets
+        {
+            get => _publicNets ?? (_publicNets = new InputList<Inputs.ServerPublicNetArgs>());
+            set => _publicNets = value;
+        }
+
         /// <summary>
         /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         /// </summary>
@@ -547,6 +544,18 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("placementGroupId")]
         public Input<int>? PlacementGroupId { get; set; }
+
+        [Input("publicNets")]
+        private InputList<Inputs.ServerPublicNetGetArgs>? _publicNets;
+
+        /// <summary>
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        /// </summary>
+        public InputList<Inputs.ServerPublicNetGetArgs> PublicNets
+        {
+            get => _publicNets ?? (_publicNets = new InputList<Inputs.ServerPublicNetGetArgs>());
+            set => _publicNets = value;
+        }
 
         /// <summary>
         /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).

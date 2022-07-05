@@ -106,6 +106,7 @@ func Provider() tfbridge.ProviderInfo {
 			"hcloud_managed_certificate":    {Tok: makeResource(mainMod, "ManagedCertificate")},
 			"hcloud_uploaded_certificate":   {Tok: makeResource(mainMod, "UploadedCertificate")},
 			"hcloud_placement_group":        {Tok: makeResource(mainMod, "PlacementGroup")},
+			"hcloud_primary_ip":             {Tok: makeResource(mainMod, "PrimaryIp")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"hcloud_certificate":      {Tok: makeDataSource(mainMod, "getCertificate")},
@@ -134,6 +135,8 @@ func Provider() tfbridge.ProviderInfo {
 			"hcloud_firewalls":        {Tok: makeDataSource(mainMod, "getFirewalls")},
 			"hcloud_placement_group":  {Tok: makeDataSource(mainMod, "getPlacementGroup")},
 			"hcloud_placement_groups": {Tok: makeDataSource(mainMod, "getPlacementGroups")},
+			"hcloud_primary_ip":       {Tok: makeDataSource(mainMod, "getPrimaryIp")},
+			"hcloud_primary_ips":      {Tok: makeDataSource(mainMod, "getPrimaryIps")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
