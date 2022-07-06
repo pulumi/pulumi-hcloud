@@ -48,6 +48,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkSubnet{}
 	case "hcloud:index/placementGroup:PlacementGroup":
 		r = &PlacementGroup{}
+	case "hcloud:index/primaryIp:PrimaryIp":
+		r = &PrimaryIp{}
 	case "hcloud:index/rdns:Rdns":
 		r = &Rdns{}
 	case "hcloud:index/server:Server":
@@ -160,6 +162,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"hcloud",
 		"index/placementGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/primaryIp",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

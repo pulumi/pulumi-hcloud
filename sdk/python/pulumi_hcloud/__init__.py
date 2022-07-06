@@ -28,6 +28,8 @@ from .get_network import *
 from .get_networks import *
 from .get_placement_group import *
 from .get_placement_groups import *
+from .get_primary_ip import *
+from .get_primary_ips import *
 from .get_server import *
 from .get_server_type import *
 from .get_server_types import *
@@ -45,6 +47,7 @@ from .network import *
 from .network_route import *
 from .network_subnet import *
 from .placement_group import *
+from .primary_ip import *
 from .provider import *
 from .rdns import *
 from .server import *
@@ -177,6 +180,14 @@ _utilities.register(
   "fqn": "pulumi_hcloud",
   "classes": {
    "hcloud:index/placementGroup:PlacementGroup": "PlacementGroup"
+  }
+ },
+ {
+  "pkg": "hcloud",
+  "mod": "index/primaryIp",
+  "fqn": "pulumi_hcloud",
+  "classes": {
+   "hcloud:index/primaryIp:PrimaryIp": "PrimaryIp"
   }
  },
  {

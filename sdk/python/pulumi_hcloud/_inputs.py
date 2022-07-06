@@ -17,6 +17,7 @@ __all__ = [
     'LoadBalancerServiceHttpArgs',
     'LoadBalancerTargetArgs',
     'ServerNetworkArgs',
+    'ServerPublicNetArgs',
     'GetFirewallApplyToArgs',
     'GetFirewallRuleArgs',
 ]
@@ -584,6 +585,59 @@ class ServerNetworkArgs:
     @mac_address.setter
     def mac_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mac_address", value)
+
+
+@pulumi.input_type
+class ServerPublicNetArgs:
+    def __init__(__self__, *,
+                 ipv4: Optional[pulumi.Input[int]] = None,
+                 ipv4_enabled: Optional[pulumi.Input[bool]] = None,
+                 ipv6: Optional[pulumi.Input[int]] = None,
+                 ipv6_enabled: Optional[pulumi.Input[bool]] = None):
+        if ipv4 is not None:
+            pulumi.set(__self__, "ipv4", ipv4)
+        if ipv4_enabled is not None:
+            pulumi.set(__self__, "ipv4_enabled", ipv4_enabled)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
+        if ipv6_enabled is not None:
+            pulumi.set(__self__, "ipv6_enabled", ipv6_enabled)
+
+    @property
+    @pulumi.getter
+    def ipv4(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv4")
+
+    @ipv4.setter
+    def ipv4(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv4", value)
+
+    @property
+    @pulumi.getter(name="ipv4Enabled")
+    def ipv4_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ipv4_enabled")
+
+    @ipv4_enabled.setter
+    def ipv4_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ipv4_enabled", value)
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv6")
+
+    @ipv6.setter
+    def ipv6(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6", value)
+
+    @property
+    @pulumi.getter(name="ipv6Enabled")
+    def ipv6_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ipv6_enabled")
+
+    @ipv6_enabled.setter
+    def ipv6_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ipv6_enabled", value)
 
 
 @pulumi.input_type

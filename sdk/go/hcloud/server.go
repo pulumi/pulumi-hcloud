@@ -12,31 +12,7 @@ import (
 )
 
 // ## Example Usage
-// ### Basic server creation
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("debian-9"),
-// 			ServerType: pulumi.String("cx11"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 // ### Server creation with network
-//
 // ```go
 // package main
 //
@@ -137,6 +113,8 @@ type Server struct {
 	Networks ServerNetworkTypeArrayOutput `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrOutput `pulumi:"placementGroupId"`
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	PublicNets ServerPublicNetArrayOutput `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrOutput `pulumi:"rebuildProtection"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
@@ -223,6 +201,8 @@ type serverState struct {
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	PublicNets []ServerPublicNet `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection *bool `pulumi:"rebuildProtection"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
@@ -278,6 +258,8 @@ type ServerState struct {
 	Networks ServerNetworkTypeArrayInput
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrInput
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	PublicNets ServerPublicNetArrayInput
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
@@ -327,6 +309,8 @@ type serverArgs struct {
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	PublicNets []ServerPublicNet `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection *bool `pulumi:"rebuildProtection"`
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
@@ -371,6 +355,8 @@ type ServerArgs struct {
 	Networks ServerNetworkTypeArrayInput
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrInput
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	PublicNets ServerPublicNetArrayInput
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrInput
 	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
@@ -559,6 +545,11 @@ func (o ServerOutput) Networks() ServerNetworkTypeArrayOutput {
 // Placement Group ID the server added to on creation.
 func (o ServerOutput) PlacementGroupId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.IntPtrOutput { return v.PlacementGroupId }).(pulumi.IntPtrOutput)
+}
+
+// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+func (o ServerOutput) PublicNets() ServerPublicNetArrayOutput {
+	return o.ApplyT(func(v *Server) ServerPublicNetArrayOutput { return v.PublicNets }).(ServerPublicNetArrayOutput)
 }
 
 // Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).

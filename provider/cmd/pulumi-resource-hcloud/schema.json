@@ -435,6 +435,51 @@
                 }
             }
         },
+        "hcloud:index/ServerPublicNet:ServerPublicNet": {
+            "properties": {
+                "ipv4": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipv4Enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipv6": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipv6Enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ipv4",
+                        "ipv6"
+                    ]
+                }
+            }
+        },
         "hcloud:index/getCertificatesCertificate:getCertificatesCertificate": {
             "properties": {
                 "certificate": {
@@ -2087,6 +2132,119 @@
             "required": [
                 "name",
                 "servers"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getPrimaryIpsPrimaryIp:getPrimaryIpsPrimaryIp": {
+            "properties": {
+                "assigneeId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "assigneeType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "autoDelete": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "datacenter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipNetwork": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "assigneeId",
+                "assigneeType",
+                "autoDelete",
+                "datacenter",
+                "deleteProtection",
+                "id",
+                "ipAddress",
+                "ipNetwork",
+                "labels",
+                "type"
             ],
             "language": {
                 "nodejs": {
@@ -3961,6 +4119,154 @@
                 "type": "object"
             }
         },
+        "hcloud:index/primaryIp:PrimaryIp": {
+            "description": "Provides a Hetzner Cloud Primary IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.\n\nIf a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created \u0026 attached.\nCurrently, Primary IPs can be only attached to servers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst main = new hcloud.PrimaryIp(\"main\", {\n    datacenter: \"fsn1-dc14\",\n    type: \"ipv4\",\n    assigneeType: \"server\",\n    autoDelete: true,\n    labels: {\n        hallo: \"welt\",\n    },\n});\n// Link a server to a primary IP\nconst serverTest = new hcloud.Server(\"serverTest\", {\n    image: \"ubuntu-20.04\",\n    serverType: \"cx11\",\n    datacenter: \"fsn1-dc14\",\n    labels: {\n        test: \"tessst1\",\n    },\n    publicNets: [{\n        ipv4: main.id,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmain = hcloud.PrimaryIp(\"main\",\n    datacenter=\"fsn1-dc14\",\n    type=\"ipv4\",\n    assignee_type=\"server\",\n    auto_delete=True,\n    labels={\n        \"hallo\": \"welt\",\n    })\n# Link a server to a primary IP\nserver_test = hcloud.Server(\"serverTest\",\n    image=\"ubuntu-20.04\",\n    server_type=\"cx11\",\n    datacenter=\"fsn1-dc14\",\n    labels={\n        \"test\": \"tessst1\",\n    },\n    public_nets=[hcloud.ServerPublicNetArgs(\n        ipv4=main.id,\n    )])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var main = new HCloud.PrimaryIp(\"main\", new HCloud.PrimaryIpArgs\n        {\n            Datacenter = \"fsn1-dc14\",\n            Type = \"ipv4\",\n            AssigneeType = \"server\",\n            AutoDelete = true,\n            Labels = \n            {\n                { \"hallo\", \"welt\" },\n            },\n        });\n        // Link a server to a primary IP\n        var serverTest = new HCloud.Server(\"serverTest\", new HCloud.ServerArgs\n        {\n            Image = \"ubuntu-20.04\",\n            ServerType = \"cx11\",\n            Datacenter = \"fsn1-dc14\",\n            Labels = \n            {\n                { \"test\", \"tessst1\" },\n            },\n            PublicNets = \n            {\n                new HCloud.Inputs.ServerPublicNetArgs\n                {\n                    Ipv4 = main.Id,\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := hcloud.NewPrimaryIp(ctx, \"main\", \u0026hcloud.PrimaryIpArgs{\n\t\t\tDatacenter:   pulumi.String(\"fsn1-dc14\"),\n\t\t\tType:         pulumi.String(\"ipv4\"),\n\t\t\tAssigneeType: pulumi.String(\"server\"),\n\t\t\tAutoDelete:   pulumi.Bool(true),\n\t\t\tLabels: pulumi.AnyMap{\n\t\t\t\t\"hallo\": pulumi.Any(\"welt\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"serverTest\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tDatacenter: pulumi.String(\"fsn1-dc14\"),\n\t\t\tLabels: pulumi.AnyMap{\n\t\t\t\t\"test\": pulumi.Any(\"tessst1\"),\n\t\t\t},\n\t\t\tPublicNets: ServerPublicNetArray{\n\t\t\t\t\u0026ServerPublicNetArgs{\n\t\t\t\t\tIpv4: main.ID(),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new PrimaryIp(\"main\", PrimaryIpArgs.builder()        \n            .datacenter(\"fsn1-dc14\")\n            .type(\"ipv4\")\n            .assigneeType(\"server\")\n            .autoDelete(true)\n            .labels(Map.of(\"hallo\", \"welt\"))\n            .build());\n\n        var serverTest = new Server(\"serverTest\", ServerArgs.builder()        \n            .image(\"ubuntu-20.04\")\n            .serverType(\"cx11\")\n            .datacenter(\"fsn1-dc14\")\n            .labels(Map.of(\"test\", \"tessst1\"))\n            .publicNets(ServerPublicNetArgs.builder()\n                .ipv4(main.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: hcloud:PrimaryIp\n    properties:\n      datacenter: fsn1-dc14\n      type: ipv4\n      assigneeType: server\n      autoDelete: true\n      labels:\n        hallo: welt\n  serverTest:\n    type: hcloud:Server\n    properties:\n      image: ubuntu-20.04\n      serverType: cx11\n      datacenter: fsn1-dc14\n      labels:\n        test: tessst1\n      publicNets:\n        - ipv4: ${main.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nPrimary IPs can be imported using its `id`\n\n```sh\n $ pulumi import hcloud:index/primaryIp:PrimaryIp myip \u003cid\u003e\n```\n\n ",
+            "properties": {
+                "assigneeId": {
+                    "type": "integer",
+                    "description": "ID of the assigned resource\n"
+                },
+                "assigneeType": {
+                    "type": "string",
+                    "description": "The type of the assigned resource.\n"
+                },
+                "autoDelete": {
+                    "type": "boolean",
+                    "description": "Whether auto delete is enabled.\n"
+                },
+                "datacenter": {
+                    "type": "string"
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Whether delete protection is enabled.\n"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "(string) IP Address of the Primary IP.\n"
+                },
+                "ipNetwork": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Description of the Primary IP.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Primary IP.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the Primary IP.\n"
+                }
+            },
+            "required": [
+                "assigneeId",
+                "assigneeType",
+                "autoDelete",
+                "datacenter",
+                "ipAddress",
+                "ipNetwork",
+                "name",
+                "type"
+            ],
+            "inputProperties": {
+                "assigneeId": {
+                    "type": "integer",
+                    "description": "ID of the assigned resource\n"
+                },
+                "assigneeType": {
+                    "type": "string",
+                    "description": "The type of the assigned resource.\n"
+                },
+                "autoDelete": {
+                    "type": "boolean",
+                    "description": "Whether auto delete is enabled.\n"
+                },
+                "datacenter": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Whether delete protection is enabled.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Description of the Primary IP.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Primary IP.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the Primary IP.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "assigneeType",
+                "autoDelete",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PrimaryIp resources.\n",
+                "properties": {
+                    "assigneeId": {
+                        "type": "integer",
+                        "description": "ID of the assigned resource\n"
+                    },
+                    "assigneeType": {
+                        "type": "string",
+                        "description": "The type of the assigned resource.\n"
+                    },
+                    "autoDelete": {
+                        "type": "boolean",
+                        "description": "Whether auto delete is enabled.\n"
+                    },
+                    "datacenter": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "Whether delete protection is enabled.\n"
+                    },
+                    "ipAddress": {
+                        "type": "string",
+                        "description": "(string) IP Address of the Primary IP.\n"
+                    },
+                    "ipNetwork": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "Description of the Primary IP.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Primary IP.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the Primary IP.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "hcloud:index/rdns:Rdns": {
             "description": "Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Floating IPs or Load Balancers.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nFor servers:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\nconst master = new hcloud.Rdns(\"master\", {\n    serverId: node1.id,\n    ipAddress: node1.ipv4Address,\n    dnsPtr: \"example.com\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\nmaster = hcloud.Rdns(\"master\",\n    server_id=node1.id,\n    ip_address=node1.ipv4_address,\n    dns_ptr=\"example.com\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n        var master = new HCloud.Rdns(\"master\", new HCloud.RdnsArgs\n        {\n            ServerId = node1.Id,\n            IpAddress = node1.Ipv4Address,\n            DnsPtr = \"example.com\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnode1, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewRdns(ctx, \"master\", \u0026hcloud.RdnsArgs{\n\t\t\tServerId:  node1.ID(),\n\t\t\tIpAddress: node1.Ipv4Address,\n\t\t\tDnsPtr:    pulumi.String(\"example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var node1 = new Server(\"node1\", ServerArgs.builder()        \n            .image(\"debian-9\")\n            .serverType(\"cx11\")\n            .build());\n\n        var master = new Rdns(\"master\", RdnsArgs.builder()        \n            .serverId(node1.id())\n            .ipAddress(node1.ipv4Address())\n            .dnsPtr(\"example.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  node1:\n    type: hcloud:Server\n    properties:\n      image: debian-9\n      serverType: cx11\n  master:\n    type: hcloud:Rdns\n    properties:\n      serverId: ${node1.id}\n      ipAddress: ${node1.ipv4Address}\n      dnsPtr: example.com\n```\n\nFor Floating IPs:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst floating1 = new hcloud.FloatingIp(\"floating1\", {\n    homeLocation: \"nbg1\",\n    type: \"ipv4\",\n});\nconst floatingMaster = new hcloud.Rdns(\"floating_master\", {\n    dnsPtr: \"example.com\",\n    floatingIpId: floating1.id.apply(id =\u003e Number.parseFloat(id)),\n    ipAddress: floating1.ipAddress,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nfloating1 = hcloud.FloatingIp(\"floating1\",\n    home_location=\"nbg1\",\n    type=\"ipv4\")\nfloating_master = hcloud.Rdns(\"floatingMaster\",\n    dns_ptr=\"example.com\",\n    floating_ip_id=floating1.id,\n    ip_address=floating1.ip_address)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var floating1 = new HCloud.FloatingIp(\"floating1\", new HCloud.FloatingIpArgs\n        {\n            HomeLocation = \"nbg1\",\n            Type = \"ipv4\",\n        });\n        var floatingMaster = new HCloud.Rdns(\"floatingMaster\", new HCloud.RdnsArgs\n        {\n            DnsPtr = \"example.com\",\n            FloatingIpId = floating1.Id,\n            IpAddress = floating1.IpAddress,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfloating1, err := hcloud.NewFloatingIp(ctx, \"floating1\", \u0026hcloud.FloatingIpArgs{\n\t\t\tHomeLocation: pulumi.String(\"nbg1\"),\n\t\t\tType:         pulumi.String(\"ipv4\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewRdns(ctx, \"floatingMaster\", \u0026hcloud.RdnsArgs{\n\t\t\tDnsPtr:       pulumi.String(\"example.com\"),\n\t\t\tFloatingIpId: floating1.ID(),\n\t\t\tIpAddress:    floating1.IpAddress,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var floating1 = new FloatingIp(\"floating1\", FloatingIpArgs.builder()        \n            .homeLocation(\"nbg1\")\n            .type(\"ipv4\")\n            .build());\n\n        var floatingMaster = new Rdns(\"floatingMaster\", RdnsArgs.builder()        \n            .dnsPtr(\"example.com\")\n            .floatingIpId(floating1.id())\n            .ipAddress(floating1.ipAddress())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  floating1:\n    type: hcloud:FloatingIp\n    properties:\n      homeLocation: nbg1\n      type: ipv4\n  floatingMaster:\n    type: hcloud:Rdns\n    properties:\n      dnsPtr: example.com\n      floatingIpId: ${floating1.id}\n      ipAddress: ${floating1.ipAddress}\n```\n\nFor Load Balancers:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst loadBalancer1 = new hcloud.LoadBalancer(\"load_balancer1\", {\n    loadBalancerType: \"lb11\",\n    location: \"fsn1\",\n});\nconst loadBalancerMaster = new hcloud.Rdns(\"load_balancer_master\", {\n    dnsPtr: \"example.com\",\n    ipAddress: loadBalancer1.ipv4,\n    loadBalancerId: loadBalancer1.id.apply(id =\u003e Number.parseFloat(id)),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nload_balancer1 = hcloud.LoadBalancer(\"loadBalancer1\",\n    load_balancer_type=\"lb11\",\n    location=\"fsn1\")\nload_balancer_master = hcloud.Rdns(\"loadBalancerMaster\",\n    dns_ptr=\"example.com\",\n    ip_address=load_balancer1.ipv4,\n    load_balancer_id=load_balancer1.id)\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loadBalancer1 = new HCloud.LoadBalancer(\"loadBalancer1\", new HCloud.LoadBalancerArgs\n        {\n            LoadBalancerType = \"lb11\",\n            Location = \"fsn1\",\n        });\n        var loadBalancerMaster = new HCloud.Rdns(\"loadBalancerMaster\", new HCloud.RdnsArgs\n        {\n            DnsPtr = \"example.com\",\n            IpAddress = loadBalancer1.Ipv4,\n            LoadBalancerId = loadBalancer1.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tloadBalancer1, err := hcloud.NewLoadBalancer(ctx, \"loadBalancer1\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"fsn1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewRdns(ctx, \"loadBalancerMaster\", \u0026hcloud.RdnsArgs{\n\t\t\tDnsPtr:         pulumi.String(\"example.com\"),\n\t\t\tIpAddress:      loadBalancer1.Ipv4,\n\t\t\tLoadBalancerId: loadBalancer1.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var loadBalancer1 = new LoadBalancer(\"loadBalancer1\", LoadBalancerArgs.builder()        \n            .loadBalancerType(\"lb11\")\n            .location(\"fsn1\")\n            .build());\n\n        var loadBalancerMaster = new Rdns(\"loadBalancerMaster\", RdnsArgs.builder()        \n            .dnsPtr(\"example.com\")\n            .ipAddress(loadBalancer1.ipv4())\n            .loadBalancerId(loadBalancer1.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  loadBalancer1:\n    type: hcloud:LoadBalancer\n    properties:\n      loadBalancerType: lb11\n      location: fsn1\n  loadBalancerMaster:\n    type: hcloud:Rdns\n    properties:\n      dnsPtr: example.com\n      ipAddress: ${loadBalancer1.ipv4}\n      loadBalancerId: ${loadBalancer1.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nReverse DNS entries can be imported using a compound ID with the following format`\u003cprefix (s for server/ f for floating ip / l for load balancer)\u003e-\u003cserver, floating ip or load balancer ID\u003e-\u003cIP address\u003e` # import reverse dns entry on server with id 123, ip 192.168.100.1\n\n```sh\n $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1\n```\n\n # import reverse dns entry on floating ip with id 123, ip 2001:db8::1\n\n```sh\n $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1\n```\n\n # import reverse dns entry on load balancer with id 123, ip 2001:db8::1\n\n```sh\n $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1\n```\n\n ",
             "properties": {
@@ -4051,7 +4357,7 @@
             }
         },
         "hcloud:index/server:Server": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n### Basic server creation\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\n// Create a new server running debian\nconst node1 = new hcloud.Server(\"node1\", {\n    image: \"debian-9\",\n    serverType: \"cx11\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\n# Create a new server running debian\nnode1 = hcloud.Server(\"node1\",\n    image=\"debian-9\",\n    server_type=\"cx11\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new server running debian\n        var node1 = new HCloud.Server(\"node1\", new HCloud.ServerArgs\n        {\n            Image = \"debian-9\",\n            ServerType = \"cx11\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewServer(ctx, \"node1\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"debian-9\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var node1 = new Server(\"node1\", ServerArgs.builder()        \n            .image(\"debian-9\")\n            .serverType(\"cx11\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  node1:\n    type: hcloud:Server\n    properties:\n      image: debian-9\n      serverType: cx11\n```\n{{% /example %}}\n{{% example %}}\n### Server creation with network\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst network = new hcloud.Network(\"network\", {ipRange: \"10.0.0.0/16\"});\nconst network_subnet = new hcloud.NetworkSubnet(\"network-subnet\", {\n    type: \"cloud\",\n    networkId: network.id,\n    networkZone: \"eu-central\",\n    ipRange: \"10.0.1.0/24\",\n});\nconst server = new hcloud.Server(\"server\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-20.04\",\n    location: \"nbg1\",\n    networks: [{\n        networkId: network.id,\n        ip: \"10.0.1.5\",\n        aliasIps: [\n            \"10.0.1.6\",\n            \"10.0.1.7\",\n        ],\n    }],\n}, {\n    dependsOn: [network_subnet],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnetwork = hcloud.Network(\"network\", ip_range=\"10.0.0.0/16\")\nnetwork_subnet = hcloud.NetworkSubnet(\"network-subnet\",\n    type=\"cloud\",\n    network_id=network.id,\n    network_zone=\"eu-central\",\n    ip_range=\"10.0.1.0/24\")\nserver = hcloud.Server(\"server\",\n    server_type=\"cx11\",\n    image=\"ubuntu-20.04\",\n    location=\"nbg1\",\n    networks=[hcloud.ServerNetworkArgs(\n        network_id=network.id,\n        ip=\"10.0.1.5\",\n        alias_ips=[\n            \"10.0.1.6\",\n            \"10.0.1.7\",\n        ],\n    )],\n    opts=pulumi.ResourceOptions(depends_on=[network_subnet]))\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var network = new HCloud.Network(\"network\", new HCloud.NetworkArgs\n        {\n            IpRange = \"10.0.0.0/16\",\n        });\n        var network_subnet = new HCloud.NetworkSubnet(\"network-subnet\", new HCloud.NetworkSubnetArgs\n        {\n            Type = \"cloud\",\n            NetworkId = network.Id,\n            NetworkZone = \"eu-central\",\n            IpRange = \"10.0.1.0/24\",\n        });\n        var server = new HCloud.Server(\"server\", new HCloud.ServerArgs\n        {\n            ServerType = \"cx11\",\n            Image = \"ubuntu-20.04\",\n            Location = \"nbg1\",\n            Networks = \n            {\n                new HCloud.Inputs.ServerNetworkArgs\n                {\n                    NetworkId = network.Id,\n                    Ip = \"10.0.1.5\",\n                    AliasIps = \n                    {\n                        \"10.0.1.6\",\n                        \"10.0.1.7\",\n                    },\n                },\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                network_subnet,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnetwork, err := hcloud.NewNetwork(ctx, \"network\", \u0026hcloud.NetworkArgs{\n\t\t\tIpRange: pulumi.String(\"10.0.0.0/16\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewNetworkSubnet(ctx, \"network-subnet\", \u0026hcloud.NetworkSubnetArgs{\n\t\t\tType:        pulumi.String(\"cloud\"),\n\t\t\tNetworkId:   network.ID(),\n\t\t\tNetworkZone: pulumi.String(\"eu-central\"),\n\t\t\tIpRange:     pulumi.String(\"10.0.1.0/24\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"server\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t\tLocation:   pulumi.String(\"nbg1\"),\n\t\t\tNetworks: ServerNetworkArray{\n\t\t\t\t\u0026ServerNetworkArgs{\n\t\t\t\t\tNetworkId: network.ID(),\n\t\t\t\t\tIp:        pulumi.String(\"10.0.1.5\"),\n\t\t\t\t\tAliasIps: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"10.0.1.6\"),\n\t\t\t\t\t\tpulumi.String(\"10.0.1.7\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tnetwork_subnet,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\nimport com.pulumi.resources.CustomResourceOptions;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var network = new Network(\"network\", NetworkArgs.builder()        \n            .ipRange(\"10.0.0.0/16\")\n            .build());\n\n        var network_subnet = new NetworkSubnet(\"network-subnet\", NetworkSubnetArgs.builder()        \n            .type(\"cloud\")\n            .networkId(network.id())\n            .networkZone(\"eu-central\")\n            .ipRange(\"10.0.1.0/24\")\n            .build());\n\n        var server = new Server(\"server\", ServerArgs.builder()        \n            .serverType(\"cx11\")\n            .image(\"ubuntu-20.04\")\n            .location(\"nbg1\")\n            .networks(ServerNetworkArgs.builder()\n                .networkId(network.id())\n                .ip(\"10.0.1.5\")\n                .aliasIps(                \n                    \"10.0.1.6\",\n                    \"10.0.1.7\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(network_subnet)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  network:\n    type: hcloud:Network\n    properties:\n      ipRange: 10.0.0.0/16\n  network-subnet:\n    type: hcloud:NetworkSubnet\n    properties:\n      type: cloud\n      networkId: ${network.id}\n      networkZone: eu-central\n      ipRange: 10.0.1.0/24\n  server:\n    type: hcloud:Server\n    properties:\n      serverType: cx11\n      image: ubuntu-20.04\n      location: nbg1\n      networks:\n        - networkId: ${network.id}\n          ip: 10.0.1.5\n          aliasIps:\n            - 10.0.1.6\n            - 10.0.1.7\n    options:\n      dependson:\n        - ${[\"network-subnet\"]}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nServers can be imported using the server `id`\n\n```sh\n $ pulumi import hcloud:index/server:Server myserver \u003cid\u003e\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n### Server creation with network\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst network = new hcloud.Network(\"network\", {ipRange: \"10.0.0.0/16\"});\nconst network_subnet = new hcloud.NetworkSubnet(\"network-subnet\", {\n    type: \"cloud\",\n    networkId: network.id,\n    networkZone: \"eu-central\",\n    ipRange: \"10.0.1.0/24\",\n});\nconst server = new hcloud.Server(\"server\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-20.04\",\n    location: \"nbg1\",\n    networks: [{\n        networkId: network.id,\n        ip: \"10.0.1.5\",\n        aliasIps: [\n            \"10.0.1.6\",\n            \"10.0.1.7\",\n        ],\n    }],\n}, {\n    dependsOn: [network_subnet],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnetwork = hcloud.Network(\"network\", ip_range=\"10.0.0.0/16\")\nnetwork_subnet = hcloud.NetworkSubnet(\"network-subnet\",\n    type=\"cloud\",\n    network_id=network.id,\n    network_zone=\"eu-central\",\n    ip_range=\"10.0.1.0/24\")\nserver = hcloud.Server(\"server\",\n    server_type=\"cx11\",\n    image=\"ubuntu-20.04\",\n    location=\"nbg1\",\n    networks=[hcloud.ServerNetworkArgs(\n        network_id=network.id,\n        ip=\"10.0.1.5\",\n        alias_ips=[\n            \"10.0.1.6\",\n            \"10.0.1.7\",\n        ],\n    )],\n    opts=pulumi.ResourceOptions(depends_on=[network_subnet]))\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var network = new HCloud.Network(\"network\", new HCloud.NetworkArgs\n        {\n            IpRange = \"10.0.0.0/16\",\n        });\n        var network_subnet = new HCloud.NetworkSubnet(\"network-subnet\", new HCloud.NetworkSubnetArgs\n        {\n            Type = \"cloud\",\n            NetworkId = network.Id,\n            NetworkZone = \"eu-central\",\n            IpRange = \"10.0.1.0/24\",\n        });\n        var server = new HCloud.Server(\"server\", new HCloud.ServerArgs\n        {\n            ServerType = \"cx11\",\n            Image = \"ubuntu-20.04\",\n            Location = \"nbg1\",\n            Networks = \n            {\n                new HCloud.Inputs.ServerNetworkArgs\n                {\n                    NetworkId = network.Id,\n                    Ip = \"10.0.1.5\",\n                    AliasIps = \n                    {\n                        \"10.0.1.6\",\n                        \"10.0.1.7\",\n                    },\n                },\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                network_subnet,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnetwork, err := hcloud.NewNetwork(ctx, \"network\", \u0026hcloud.NetworkArgs{\n\t\t\tIpRange: pulumi.String(\"10.0.0.0/16\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewNetworkSubnet(ctx, \"network-subnet\", \u0026hcloud.NetworkSubnetArgs{\n\t\t\tType:        pulumi.String(\"cloud\"),\n\t\t\tNetworkId:   network.ID(),\n\t\t\tNetworkZone: pulumi.String(\"eu-central\"),\n\t\t\tIpRange:     pulumi.String(\"10.0.1.0/24\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"server\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t\tLocation:   pulumi.String(\"nbg1\"),\n\t\t\tNetworks: ServerNetworkArray{\n\t\t\t\t\u0026ServerNetworkArgs{\n\t\t\t\t\tNetworkId: network.ID(),\n\t\t\t\t\tIp:        pulumi.String(\"10.0.1.5\"),\n\t\t\t\t\tAliasIps: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"10.0.1.6\"),\n\t\t\t\t\t\tpulumi.String(\"10.0.1.7\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tnetwork_subnet,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\nimport com.pulumi.resources.CustomResourceOptions;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var network = new Network(\"network\", NetworkArgs.builder()        \n            .ipRange(\"10.0.0.0/16\")\n            .build());\n\n        var network_subnet = new NetworkSubnet(\"network-subnet\", NetworkSubnetArgs.builder()        \n            .type(\"cloud\")\n            .networkId(network.id())\n            .networkZone(\"eu-central\")\n            .ipRange(\"10.0.1.0/24\")\n            .build());\n\n        var server = new Server(\"server\", ServerArgs.builder()        \n            .serverType(\"cx11\")\n            .image(\"ubuntu-20.04\")\n            .location(\"nbg1\")\n            .networks(ServerNetworkArgs.builder()\n                .networkId(network.id())\n                .ip(\"10.0.1.5\")\n                .aliasIps(                \n                    \"10.0.1.6\",\n                    \"10.0.1.7\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(network_subnet)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  network:\n    type: hcloud:Network\n    properties:\n      ipRange: 10.0.0.0/16\n  network-subnet:\n    type: hcloud:NetworkSubnet\n    properties:\n      type: cloud\n      networkId: ${network.id}\n      networkZone: eu-central\n      ipRange: 10.0.1.0/24\n  server:\n    type: hcloud:Server\n    properties:\n      serverType: cx11\n      image: ubuntu-20.04\n      location: nbg1\n      networks:\n        - networkId: ${network.id}\n          ip: 10.0.1.5\n          aliasIps:\n            - 10.0.1.6\n            - 10.0.1.7\n    options:\n      dependson:\n        - ${[\"network-subnet\"]}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nServers can be imported using the server `id`\n\n```sh\n $ pulumi import hcloud:index/server:Server myserver \u003cid\u003e\n```\n\n ",
             "properties": {
                 "backupWindow": {
                     "type": "string",
@@ -4130,6 +4436,13 @@
                 "placementGroupId": {
                     "type": "integer",
                     "description": "Placement Group ID the server added to on creation.\n"
+                },
+                "publicNets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/ServerPublicNet:ServerPublicNet"
+                    },
+                    "description": "In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)\n"
                 },
                 "rebuildProtection": {
                     "type": "boolean",
@@ -4235,6 +4548,13 @@
                 "placementGroupId": {
                     "type": "integer",
                     "description": "Placement Group ID the server added to on creation.\n"
+                },
+                "publicNets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/ServerPublicNet:ServerPublicNet"
+                    },
+                    "description": "In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)\n"
                 },
                 "rebuildProtection": {
                     "type": "boolean",
@@ -4348,6 +4668,13 @@
                     "placementGroupId": {
                         "type": "integer",
                         "description": "Placement Group ID the server added to on creation.\n"
+                    },
+                    "publicNets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/ServerPublicNet:ServerPublicNet"
+                        },
+                        "description": "In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)\n"
                     },
                     "rebuildProtection": {
                         "type": "boolean",
@@ -6152,6 +6479,138 @@
                 "type": "object",
                 "required": [
                     "placementGroups",
+                    "id"
+                ]
+            }
+        },
+        "hcloud:index/getPrimaryIp:getPrimaryIp": {
+            "description": "Provides details about a Hetzner Cloud Primary IP.\n\nThis resource can be useful when you need to determine a Primary IP ID based on the IP address.\n\nSide note:\n\nIf a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created \u0026 attached.\nCurrently, Primary IPs can be only attached to servers.\n\n{{% examples %}}\n## Example Usage\n\n# Data Source: hcloud.PrimaryIp\nProvides details about a Hetzner Cloud Primary IP.\nThis resource can be useful when you need to determine a Primary IP ID based on the IP address.\n\n{{% example %}}\n### Additional Examples\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ip1 = hcloud.getPrimaryIp({\n    ipAddress: \"1.2.3.4\",\n});\nconst ip2 = hcloud.getPrimaryIp({\n    name: \"primary_ip_1\",\n});\nconst ip3 = hcloud.getPrimaryIp({\n    withSelector: \"key=value\",\n});\n// Link a server to an existing primary IP\nconst serverTest = new hcloud.Server(\"serverTest\", {\n    image: \"ubuntu-20.04\",\n    serverType: \"cx11\",\n    datacenter: \"fsn1-dc14\",\n    labels: {\n        test: \"tessst1\",\n    },\n    publicNets: [{\n        ipv4: hcloud_primary_ip.ip_1.id,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nip1 = hcloud.get_primary_ip(ip_address=\"1.2.3.4\")\nip2 = hcloud.get_primary_ip(name=\"primary_ip_1\")\nip3 = hcloud.get_primary_ip(with_selector=\"key=value\")\n# Link a server to an existing primary IP\nserver_test = hcloud.Server(\"serverTest\",\n    image=\"ubuntu-20.04\",\n    server_type=\"cx11\",\n    datacenter=\"fsn1-dc14\",\n    labels={\n        \"test\": \"tessst1\",\n    },\n    public_nets=[hcloud.ServerPublicNetArgs(\n        ipv4=hcloud_primary_ip[\"ip_1\"][\"id\"],\n    )])\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ip1 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs\n        {\n            IpAddress = \"1.2.3.4\",\n        }));\n        var ip2 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs\n        {\n            Name = \"primary_ip_1\",\n        }));\n        var ip3 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n        // Link a server to an existing primary IP\n        var serverTest = new HCloud.Server(\"serverTest\", new HCloud.ServerArgs\n        {\n            Image = \"ubuntu-20.04\",\n            ServerType = \"cx11\",\n            Datacenter = \"fsn1-dc14\",\n            Labels = \n            {\n                { \"test\", \"tessst1\" },\n            },\n            PublicNets = \n            {\n                new HCloud.Inputs.ServerPublicNetArgs\n                {\n                    Ipv4 = hcloud_primary_ip.Ip_1.Id,\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.LookupPrimaryIp(ctx, \u0026GetPrimaryIpArgs{\n\t\t\tIpAddress: pulumi.StringRef(\"1.2.3.4\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupPrimaryIp(ctx, \u0026GetPrimaryIpArgs{\n\t\t\tName: pulumi.StringRef(\"primary_ip_1\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupPrimaryIp(ctx, \u0026GetPrimaryIpArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"serverTest\", \u0026hcloud.ServerArgs{\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tDatacenter: pulumi.String(\"fsn1-dc14\"),\n\t\t\tLabels: pulumi.AnyMap{\n\t\t\t\t\"test\": pulumi.Any(\"tessst1\"),\n\t\t\t},\n\t\t\tPublicNets: ServerPublicNetArray{\n\t\t\t\t\u0026ServerPublicNetArgs{\n\t\t\t\t\tIpv4: pulumi.Any(hcloud_primary_ip.Ip_1.Id),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var ip1 = Output.of(HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()\n            .ipAddress(\"1.2.3.4\")\n            .build()));\n\n        final var ip2 = Output.of(HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()\n            .name(\"primary_ip_1\")\n            .build()));\n\n        final var ip3 = Output.of(HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()\n            .withSelector(\"key=value\")\n            .build()));\n\n        var serverTest = new Server(\"serverTest\", ServerArgs.builder()        \n            .image(\"ubuntu-20.04\")\n            .serverType(\"cx11\")\n            .datacenter(\"fsn1-dc14\")\n            .labels(Map.of(\"test\", \"tessst1\"))\n            .publicNets(ServerPublicNetArgs.builder()\n                .ipv4(hcloud_primary_ip.ip_1().id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  serverTest:\n    type: hcloud:Server\n    properties:\n      image: ubuntu-20.04\n      serverType: cx11\n      datacenter: fsn1-dc14\n      labels:\n        test: tessst1\n      publicNets:\n        - ipv4: ${hcloud_primary_ip.ip_1.id}\nvariables:\n  ip1:\n    Fn::Invoke:\n      Function: hcloud:getPrimaryIp\n      Arguments:\n        ipAddress: 1.2.3.4\n  ip2:\n    Fn::Invoke:\n      Function: hcloud:getPrimaryIp\n      Arguments:\n        name: primary_ip_1\n  ip3:\n    Fn::Invoke:\n      Function: hcloud:getPrimaryIp\n      Arguments:\n        withSelector: key=value\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPrimaryIp.\n",
+                "properties": {
+                    "assigneeId": {
+                        "type": "integer",
+                        "description": "(int) ID of the assigned resource\n"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the Primary IP.\n"
+                    },
+                    "ipAddress": {
+                        "type": "string",
+                        "description": "IP address of the Primary IP.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Primary IP.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPrimaryIp.\n",
+                "properties": {
+                    "assigneeId": {
+                        "type": "integer",
+                        "description": "(int) ID of the assigned resource\n"
+                    },
+                    "assigneeType": {
+                        "type": "string",
+                        "description": "(string) The type of the assigned resource.\n"
+                    },
+                    "autoDelete": {
+                        "type": "boolean",
+                        "description": "(boolean) Whether auto delete is enabled.\n"
+                    },
+                    "datacenter": {
+                        "type": "string"
+                    },
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "(boolean) Whether delete protection is enabled.\n"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "description": "(int) Unique ID of the Primary IP.\n"
+                    },
+                    "ipAddress": {
+                        "type": "string",
+                        "description": "(string) IP Address of the Primary IP.\n"
+                    },
+                    "ipNetwork": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "(string) Description of the Primary IP.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "(string) Name of the Primary IP.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "(string) Type of the Primary IP.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "assigneeId",
+                    "assigneeType",
+                    "autoDelete",
+                    "datacenter",
+                    "deleteProtection",
+                    "id",
+                    "ipAddress",
+                    "ipNetwork",
+                    "labels",
+                    "type"
+                ]
+            }
+        },
+        "hcloud:index/getPrimaryIps:getPrimaryIps": {
+            "description": "Provides details about multiple Hetzner Cloud Primary IPs.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ip2 = pulumi.output(hcloud.getPrimaryIps({\n    withSelector: \"key=value\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nip2 = hcloud.get_primary_ips(with_selector=\"key=value\")\n```\n```csharp\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ip2 = Output.Create(HCloud.GetPrimaryIps.InvokeAsync(new HCloud.GetPrimaryIpsArgs\n        {\n            WithSelector = \"key=value\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetPrimaryIps(ctx, \u0026GetPrimaryIpsArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var ip2 = Output.of(HcloudFunctions.getPrimaryIps(GetPrimaryIpsArgs.builder()\n            .withSelector(\"key=value\")\n            .build()));\n\n    }\n}\n```\n```yaml\nvariables:\n  ip2:\n    Fn::Invoke:\n      Function: hcloud:getPrimaryIps\n      Arguments:\n        withSelector: key=value\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPrimaryIps.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPrimaryIps.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "primaryIps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getPrimaryIpsPrimaryIp:getPrimaryIpsPrimaryIp"
+                        },
+                        "description": "(list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.\n"
+                    },
+                    "withSelector": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "primaryIps",
                     "id"
                 ]
             }

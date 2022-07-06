@@ -7,20 +7,7 @@ import * as utilities from "./utilities";
 
 /**
  * ## Example Usage
- * ### Basic server creation
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * // Create a new server running debian
- * const node1 = new hcloud.Server("node1", {
- *     image: "debian-9",
- *     serverType: "cx11",
- * });
- * ```
  * ### Server creation with network
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -160,6 +147,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly placementGroupId!: pulumi.Output<number | undefined>;
     /**
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+     */
+    public readonly publicNets!: pulumi.Output<outputs.ServerPublicNet[] | undefined>;
+    /**
      * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      */
     public readonly rebuildProtection!: pulumi.Output<boolean | undefined>;
@@ -214,6 +205,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networks"] = state ? state.networks : undefined;
             resourceInputs["placementGroupId"] = state ? state.placementGroupId : undefined;
+            resourceInputs["publicNets"] = state ? state.publicNets : undefined;
             resourceInputs["rebuildProtection"] = state ? state.rebuildProtection : undefined;
             resourceInputs["rescue"] = state ? state.rescue : undefined;
             resourceInputs["serverType"] = state ? state.serverType : undefined;
@@ -238,6 +230,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networks"] = args ? args.networks : undefined;
             resourceInputs["placementGroupId"] = args ? args.placementGroupId : undefined;
+            resourceInputs["publicNets"] = args ? args.publicNets : undefined;
             resourceInputs["rebuildProtection"] = args ? args.rebuildProtection : undefined;
             resourceInputs["rescue"] = args ? args.rescue : undefined;
             resourceInputs["serverType"] = args ? args.serverType : undefined;
@@ -333,6 +326,10 @@ export interface ServerState {
      */
     placementGroupId?: pulumi.Input<number>;
     /**
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+     */
+    publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[]>;
+    /**
      * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      */
     rebuildProtection?: pulumi.Input<boolean>;
@@ -418,6 +415,10 @@ export interface ServerArgs {
      * Placement Group ID the server added to on creation.
      */
     placementGroupId?: pulumi.Input<number>;
+    /**
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+     */
+    publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[]>;
     /**
      * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      */
