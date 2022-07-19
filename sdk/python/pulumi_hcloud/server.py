@@ -16,6 +16,7 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  server_type: pulumi.Input[str],
+                 allow_deprecated_images: Optional[pulumi.Input[bool]] = None,
                  backups: Optional[pulumi.Input[bool]] = None,
                  datacenter: Optional[pulumi.Input[str]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
@@ -37,14 +38,15 @@ class ServerArgs:
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
+        :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
-        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ingores any updates
+        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
                to the `firewall_ids` argument which were received from the server.
                This should not be used in normal cases. See the documentation of the
-               `FirewallAttachment` resouce for a reason to use this
+               `FirewallAttachment` resource for a reason to use this
                argument.
         :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
@@ -54,13 +56,16 @@ class ServerArgs:
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
-        :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+               If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
         pulumi.set(__self__, "server_type", server_type)
+        if allow_deprecated_images is not None:
+            pulumi.set(__self__, "allow_deprecated_images", allow_deprecated_images)
         if backups is not None:
             pulumi.set(__self__, "backups", backups)
         if datacenter is not None:
@@ -109,6 +114,18 @@ class ServerArgs:
     @server_type.setter
     def server_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_type", value)
+
+    @property
+    @pulumi.getter(name="allowDeprecatedImages")
+    def allow_deprecated_images(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        """
+        return pulumi.get(self, "allow_deprecated_images")
+
+    @allow_deprecated_images.setter
+    def allow_deprecated_images(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_deprecated_images", value)
 
     @property
     @pulumi.getter
@@ -162,10 +179,10 @@ class ServerArgs:
     @pulumi.getter(name="ignoreRemoteFirewallIds")
     def ignore_remote_firewall_ids(self) -> Optional[pulumi.Input[bool]]:
         """
-        Ingores any updates
+        Ignores any updates
         to the `firewall_ids` argument which were received from the server.
         This should not be used in normal cases. See the documentation of the
-        `FirewallAttachment` resouce for a reason to use this
+        `FirewallAttachment` resource for a reason to use this
         argument.
         """
         return pulumi.get(self, "ignore_remote_firewall_ids")
@@ -274,7 +291,8 @@ class ServerArgs:
     @pulumi.getter(name="publicNets")
     def public_nets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]:
         """
-        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         """
         return pulumi.get(self, "public_nets")
 
@@ -334,6 +352,7 @@ class ServerArgs:
 @pulumi.input_type
 class _ServerState:
     def __init__(__self__, *,
+                 allow_deprecated_images: Optional[pulumi.Input[bool]] = None,
                  backup_window: Optional[pulumi.Input[str]] = None,
                  backups: Optional[pulumi.Input[bool]] = None,
                  datacenter: Optional[pulumi.Input[str]] = None,
@@ -360,15 +379,16 @@ class _ServerState:
                  user_data: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
+        :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
-        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ingores any updates
+        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
                to the `firewall_ids` argument which were received from the server.
                This should not be used in normal cases. See the documentation of the
-               `FirewallAttachment` resouce for a reason to use this
+               `FirewallAttachment` resource for a reason to use this
                argument.
         :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
@@ -381,7 +401,8 @@ class _ServerState:
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
-        :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+               If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
@@ -389,6 +410,8 @@ class _ServerState:
         :param pulumi.Input[str] status: (string) The status of the server.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
+        if allow_deprecated_images is not None:
+            pulumi.set(__self__, "allow_deprecated_images", allow_deprecated_images)
         if backup_window is not None:
             warnings.warn("""You should remove this property from your terraform configuration.""", DeprecationWarning)
             pulumi.log.warn("""backup_window is deprecated: You should remove this property from your terraform configuration.""")
@@ -440,6 +463,18 @@ class _ServerState:
             pulumi.set(__self__, "status", status)
         if user_data is not None:
             pulumi.set(__self__, "user_data", user_data)
+
+    @property
+    @pulumi.getter(name="allowDeprecatedImages")
+    def allow_deprecated_images(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        """
+        return pulumi.get(self, "allow_deprecated_images")
+
+    @allow_deprecated_images.setter
+    def allow_deprecated_images(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_deprecated_images", value)
 
     @property
     @pulumi.getter(name="backupWindow")
@@ -505,10 +540,10 @@ class _ServerState:
     @pulumi.getter(name="ignoreRemoteFirewallIds")
     def ignore_remote_firewall_ids(self) -> Optional[pulumi.Input[bool]]:
         """
-        Ingores any updates
+        Ignores any updates
         to the `firewall_ids` argument which were received from the server.
         This should not be used in normal cases. See the documentation of the
-        `FirewallAttachment` resouce for a reason to use this
+        `FirewallAttachment` resource for a reason to use this
         argument.
         """
         return pulumi.get(self, "ignore_remote_firewall_ids")
@@ -653,7 +688,8 @@ class _ServerState:
     @pulumi.getter(name="publicNets")
     def public_nets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]:
         """
-        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         """
         return pulumi.get(self, "public_nets")
 
@@ -739,6 +775,7 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_deprecated_images: Optional[pulumi.Input[bool]] = None,
                  backups: Optional[pulumi.Input[bool]] = None,
                  datacenter: Optional[pulumi.Input[str]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
@@ -786,6 +823,38 @@ class Server(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
+        ## Primary IPs
+
+        When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
+        With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+
+        ### Examples
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Assign existing ipv4 only
+        server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
+            ipv4_enabled=True,
+            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
+            ipv6_enabled=False,
+        )])
+        #...
+        # Link a managed ipv4 but autogenerate ipv6
+        server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
+            ipv4_enabled=True,
+            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
+            ipv6_enabled=False,
+        )])
+        #...
+        # Assign & create auto-generated ipv4 & ipv6
+        server_test_hcloud_index_server_server = hcloud.Server("serverTestHcloudIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
+            ipv4_enabled=True,
+            ipv6_enabled=True,
+        )])
+        #...
+        ```
 
         ## Import
 
@@ -797,14 +866,15 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
-        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ingores any updates
+        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
                to the `firewall_ids` argument which were received from the server.
                This should not be used in normal cases. See the documentation of the
-               `FirewallAttachment` resouce for a reason to use this
+               `FirewallAttachment` resource for a reason to use this
                argument.
         :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
@@ -814,7 +884,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+               If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
@@ -854,6 +925,38 @@ class Server(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
+        ## Primary IPs
+
+        When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
+        With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+
+        ### Examples
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Assign existing ipv4 only
+        server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
+            ipv4_enabled=True,
+            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
+            ipv6_enabled=False,
+        )])
+        #...
+        # Link a managed ipv4 but autogenerate ipv6
+        server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
+            ipv4_enabled=True,
+            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
+            ipv6_enabled=False,
+        )])
+        #...
+        # Assign & create auto-generated ipv4 & ipv6
+        server_test_hcloud_index_server_server = hcloud.Server("serverTestHcloudIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
+            ipv4_enabled=True,
+            ipv6_enabled=True,
+        )])
+        #...
+        ```
 
         ## Import
 
@@ -878,6 +981,7 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_deprecated_images: Optional[pulumi.Input[bool]] = None,
                  backups: Optional[pulumi.Input[bool]] = None,
                  datacenter: Optional[pulumi.Input[str]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
@@ -909,6 +1013,7 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerArgs.__new__(ServerArgs)
 
+            __props__.__dict__["allow_deprecated_images"] = allow_deprecated_images
             __props__.__dict__["backups"] = backups
             __props__.__dict__["datacenter"] = datacenter
             __props__.__dict__["delete_protection"] = delete_protection
@@ -945,6 +1050,7 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allow_deprecated_images: Optional[pulumi.Input[bool]] = None,
             backup_window: Optional[pulumi.Input[str]] = None,
             backups: Optional[pulumi.Input[bool]] = None,
             datacenter: Optional[pulumi.Input[str]] = None,
@@ -976,15 +1082,16 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
-        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ingores any updates
+        :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
                to the `firewall_ids` argument which were received from the server.
                This should not be used in normal cases. See the documentation of the
-               `FirewallAttachment` resouce for a reason to use this
+               `FirewallAttachment` resource for a reason to use this
                argument.
         :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
@@ -997,7 +1104,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+               If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
@@ -1009,6 +1117,7 @@ class Server(pulumi.CustomResource):
 
         __props__ = _ServerState.__new__(_ServerState)
 
+        __props__.__dict__["allow_deprecated_images"] = allow_deprecated_images
         __props__.__dict__["backup_window"] = backup_window
         __props__.__dict__["backups"] = backups
         __props__.__dict__["datacenter"] = datacenter
@@ -1034,6 +1143,14 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         __props__.__dict__["user_data"] = user_data
         return Server(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowDeprecatedImages")
+    def allow_deprecated_images(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        """
+        return pulumi.get(self, "allow_deprecated_images")
 
     @property
     @pulumi.getter(name="backupWindow")
@@ -1079,10 +1196,10 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="ignoreRemoteFirewallIds")
     def ignore_remote_firewall_ids(self) -> pulumi.Output[Optional[bool]]:
         """
-        Ingores any updates
+        Ignores any updates
         to the `firewall_ids` argument which were received from the server.
         This should not be used in normal cases. See the documentation of the
-        `FirewallAttachment` resouce for a reason to use this
+        `FirewallAttachment` resource for a reason to use this
         argument.
         """
         return pulumi.get(self, "ignore_remote_firewall_ids")
@@ -1179,7 +1296,8 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="publicNets")
     def public_nets(self) -> pulumi.Output[Optional[Sequence['outputs.ServerPublicNet']]]:
         """
-        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         """
         return pulumi.get(self, "public_nets")
 

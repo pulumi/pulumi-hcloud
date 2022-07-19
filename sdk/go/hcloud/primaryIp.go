@@ -76,6 +76,7 @@ type PrimaryIp struct {
 	// The type of the assigned resource.
 	AssigneeType pulumi.StringOutput `pulumi:"assigneeType"`
 	// Whether auto delete is enabled.
+	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete pulumi.BoolOutput   `pulumi:"autoDelete"`
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
 	// Whether delete protection is enabled.
@@ -134,6 +135,7 @@ type primaryIpState struct {
 	// The type of the assigned resource.
 	AssigneeType *string `pulumi:"assigneeType"`
 	// Whether auto delete is enabled.
+	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete *bool   `pulumi:"autoDelete"`
 	Datacenter *string `pulumi:"datacenter"`
 	// Whether delete protection is enabled.
@@ -155,6 +157,7 @@ type PrimaryIpState struct {
 	// The type of the assigned resource.
 	AssigneeType pulumi.StringPtrInput
 	// Whether auto delete is enabled.
+	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete pulumi.BoolPtrInput
 	Datacenter pulumi.StringPtrInput
 	// Whether delete protection is enabled.
@@ -180,6 +183,7 @@ type primaryIpArgs struct {
 	// The type of the assigned resource.
 	AssigneeType string `pulumi:"assigneeType"`
 	// Whether auto delete is enabled.
+	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete bool    `pulumi:"autoDelete"`
 	Datacenter *string `pulumi:"datacenter"`
 	// Whether delete protection is enabled.
@@ -199,6 +203,7 @@ type PrimaryIpArgs struct {
 	// The type of the assigned resource.
 	AssigneeType pulumi.StringInput
 	// Whether auto delete is enabled.
+	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete pulumi.BoolInput
 	Datacenter pulumi.StringPtrInput
 	// Whether delete protection is enabled.
@@ -309,6 +314,7 @@ func (o PrimaryIpOutput) AssigneeType() pulumi.StringOutput {
 }
 
 // Whether auto delete is enabled.
+// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 func (o PrimaryIpOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.BoolOutput { return v.AutoDelete }).(pulumi.BoolOutput)
 }

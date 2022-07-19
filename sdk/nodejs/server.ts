@@ -35,6 +35,38 @@ import * as utilities from "./utilities";
  *     dependsOn: [network_subnet],
  * });
  * ```
+ * ## Primary IPs
+ *
+ * When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
+ * With the publicNet block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+ *
+ * ### Examples
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * // Assign existing ipv4 only
+ * const serverTestServer = new hcloud.Server("serverTestServer", {publicNets: [{
+ *     ipv4Enabled: true,
+ *     ipv4: hcloud_primary_ip.primary_ip_1.id,
+ *     ipv6Enabled: false,
+ * }]});
+ * //...
+ * // Link a managed ipv4 but autogenerate ipv6
+ * const serverTestIndex_serverServer = new hcloud.Server("serverTestIndex/serverServer", {publicNets: [{
+ *     ipv4Enabled: true,
+ *     ipv4: hcloud_primary_ip.primary_ip_1.id,
+ *     ipv6Enabled: false,
+ * }]});
+ * //...
+ * // Assign & create auto-generated ipv4 & ipv6
+ * const serverTestHcloudIndex_serverServer = new hcloud.Server("serverTestHcloudIndex/serverServer", {publicNets: [{
+ *     ipv4Enabled: true,
+ *     ipv6Enabled: true,
+ * }]});
+ * //...
+ * ```
  *
  * ## Import
  *
@@ -73,6 +105,10 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
+     * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     */
+    public readonly allowDeprecatedImages!: pulumi.Output<boolean | undefined>;
+    /**
      * (string) The backup window of the server, if enabled.
      *
      * @deprecated You should remove this property from your terraform configuration.
@@ -95,10 +131,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly firewallIds!: pulumi.Output<number[]>;
     /**
-     * Ingores any updates
+     * Ignores any updates
      * to the `firewallIds` argument which were received from the server.
      * This should not be used in normal cases. See the documentation of the
-     * `hcloud.FirewallAttachment` resouce for a reason to use this
+     * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
      */
     public readonly ignoreRemoteFirewallIds!: pulumi.Output<boolean | undefined>;
@@ -147,7 +183,8 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly placementGroupId!: pulumi.Output<number | undefined>;
     /**
-     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+     * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
     public readonly publicNets!: pulumi.Output<outputs.ServerPublicNet[] | undefined>;
     /**
@@ -188,6 +225,7 @@ export class Server extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
+            resourceInputs["allowDeprecatedImages"] = state ? state.allowDeprecatedImages : undefined;
             resourceInputs["backupWindow"] = state ? state.backupWindow : undefined;
             resourceInputs["backups"] = state ? state.backups : undefined;
             resourceInputs["datacenter"] = state ? state.datacenter : undefined;
@@ -217,6 +255,7 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.serverType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverType'");
             }
+            resourceInputs["allowDeprecatedImages"] = args ? args.allowDeprecatedImages : undefined;
             resourceInputs["backups"] = args ? args.backups : undefined;
             resourceInputs["datacenter"] = args ? args.datacenter : undefined;
             resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
@@ -252,6 +291,10 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
+     * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     */
+    allowDeprecatedImages?: pulumi.Input<boolean>;
+    /**
      * (string) The backup window of the server, if enabled.
      *
      * @deprecated You should remove this property from your terraform configuration.
@@ -274,10 +317,10 @@ export interface ServerState {
      */
     firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Ingores any updates
+     * Ignores any updates
      * to the `firewallIds` argument which were received from the server.
      * This should not be used in normal cases. See the documentation of the
-     * `hcloud.FirewallAttachment` resouce for a reason to use this
+     * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
      */
     ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
@@ -326,7 +369,8 @@ export interface ServerState {
      */
     placementGroupId?: pulumi.Input<number>;
     /**
-     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+     * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
     publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[]>;
     /**
@@ -360,6 +404,10 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
+     * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     */
+    allowDeprecatedImages?: pulumi.Input<boolean>;
+    /**
      * Enable or disable backups.
      */
     backups?: pulumi.Input<boolean>;
@@ -376,10 +424,10 @@ export interface ServerArgs {
      */
     firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Ingores any updates
+     * Ignores any updates
      * to the `firewallIds` argument which were received from the server.
      * This should not be used in normal cases. See the documentation of the
-     * `hcloud.FirewallAttachment` resouce for a reason to use this
+     * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
      */
     ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
@@ -416,7 +464,8 @@ export interface ServerArgs {
      */
     placementGroupId?: pulumi.Input<number>;
     /**
-     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+     * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
     publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[]>;
     /**
