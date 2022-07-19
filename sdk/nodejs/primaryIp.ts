@@ -85,6 +85,7 @@ export class PrimaryIp extends pulumi.CustomResource {
     public readonly assigneeType!: pulumi.Output<string>;
     /**
      * Whether auto delete is enabled.
+     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      */
     public readonly autoDelete!: pulumi.Output<boolean>;
     public readonly datacenter!: pulumi.Output<string>;
@@ -174,6 +175,7 @@ export interface PrimaryIpState {
     assigneeType?: pulumi.Input<string>;
     /**
      * Whether auto delete is enabled.
+     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      */
     autoDelete?: pulumi.Input<boolean>;
     datacenter?: pulumi.Input<string>;
@@ -214,6 +216,7 @@ export interface PrimaryIpArgs {
     assigneeType: pulumi.Input<string>;
     /**
      * Whether auto delete is enabled.
+     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      */
     autoDelete: pulumi.Input<boolean>;
     datacenter?: pulumi.Input<string>;

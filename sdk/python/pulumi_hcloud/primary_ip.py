@@ -25,6 +25,7 @@ class PrimaryIpArgs:
         The set of arguments for constructing a PrimaryIp resource.
         :param pulumi.Input[str] assignee_type: The type of the assigned resource.
         :param pulumi.Input[bool] auto_delete: Whether auto delete is enabled.
+               `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         :param pulumi.Input[str] type: Type of the Primary IP.
         :param pulumi.Input[int] assignee_id: ID of the assigned resource
         :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
@@ -62,6 +63,7 @@ class PrimaryIpArgs:
     def auto_delete(self) -> pulumi.Input[bool]:
         """
         Whether auto delete is enabled.
+        `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         """
         return pulumi.get(self, "auto_delete")
 
@@ -157,6 +159,7 @@ class _PrimaryIpState:
         :param pulumi.Input[int] assignee_id: ID of the assigned resource
         :param pulumi.Input[str] assignee_type: The type of the assigned resource.
         :param pulumi.Input[bool] auto_delete: Whether auto delete is enabled.
+               `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Primary IP.
         :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
@@ -213,6 +216,7 @@ class _PrimaryIpState:
     def auto_delete(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether auto delete is enabled.
+        `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         """
         return pulumi.get(self, "auto_delete")
 
@@ -359,6 +363,7 @@ class PrimaryIp(pulumi.CustomResource):
         :param pulumi.Input[int] assignee_id: ID of the assigned resource
         :param pulumi.Input[str] assignee_type: The type of the assigned resource.
         :param pulumi.Input[bool] auto_delete: Whether auto delete is enabled.
+               `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
         :param pulumi.Input[str] name: Name of the Primary IP.
@@ -492,6 +497,7 @@ class PrimaryIp(pulumi.CustomResource):
         :param pulumi.Input[int] assignee_id: ID of the assigned resource
         :param pulumi.Input[str] assignee_type: The type of the assigned resource.
         :param pulumi.Input[bool] auto_delete: Whether auto delete is enabled.
+               `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Primary IP.
         :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
@@ -535,6 +541,7 @@ class PrimaryIp(pulumi.CustomResource):
     def auto_delete(self) -> pulumi.Output[bool]:
         """
         Whether auto delete is enabled.
+        `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         """
         return pulumi.get(self, "auto_delete")
 

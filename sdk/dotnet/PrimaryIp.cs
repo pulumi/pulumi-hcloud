@@ -84,6 +84,7 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Whether auto delete is enabled.
+        /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Output("autoDelete")]
         public Output<bool> AutoDelete { get; private set; } = null!;
@@ -184,6 +185,7 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Whether auto delete is enabled.
+        /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Input("autoDelete", required: true)]
         public Input<bool> AutoDelete { get; set; } = null!;
@@ -242,6 +244,7 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Whether auto delete is enabled.
+        /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Input("autoDelete")]
         public Input<bool>? AutoDelete { get; set; }

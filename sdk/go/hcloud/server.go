@@ -62,6 +62,62 @@ import (
 // 	})
 // }
 // ```
+// ## Primary IPs
+//
+// When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
+// With the publicNet block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+//
+// ### Examples
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hcloud.NewServer(ctx, "serverTestServer", &hcloud.ServerArgs{
+// 			PublicNets: ServerPublicNetArray{
+// 				&ServerPublicNetArgs{
+// 					Ipv4Enabled: pulumi.Bool(true),
+// 					Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
+// 					Ipv6Enabled: pulumi.Bool(false),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewServer(ctx, "serverTestIndex/serverServer", &hcloud.ServerArgs{
+// 			PublicNets: ServerPublicNetArray{
+// 				&ServerPublicNetArgs{
+// 					Ipv4Enabled: pulumi.Bool(true),
+// 					Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
+// 					Ipv6Enabled: pulumi.Bool(false),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hcloud.NewServer(ctx, "serverTestHcloudIndex/serverServer", &hcloud.ServerArgs{
+// 			PublicNets: ServerPublicNetArray{
+// 				&ServerPublicNetArgs{
+// 					Ipv4Enabled: pulumi.Bool(true),
+// 					Ipv6Enabled: pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -73,6 +129,8 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
+	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	AllowDeprecatedImages pulumi.BoolPtrOutput `pulumi:"allowDeprecatedImages"`
 	// (string) The backup window of the server, if enabled.
 	//
 	// Deprecated: You should remove this property from your terraform configuration.
@@ -85,10 +143,10 @@ type Server struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayOutput `pulumi:"firewallIds"`
-	// Ingores any updates
+	// Ignores any updates
 	// to the `firewallIds` argument which were received from the server.
 	// This should not be used in normal cases. See the documentation of the
-	// `FirewallAttachment` resouce for a reason to use this
+	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds pulumi.BoolPtrOutput `pulumi:"ignoreRemoteFirewallIds"`
 	// (string) Name or ID of the image the server was created from.
@@ -113,7 +171,8 @@ type Server struct {
 	Networks ServerNetworkTypeArrayOutput `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrOutput `pulumi:"placementGroupId"`
-	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+	// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 	PublicNets ServerPublicNetArrayOutput `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrOutput `pulumi:"rebuildProtection"`
@@ -161,6 +220,8 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
+	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	AllowDeprecatedImages *bool `pulumi:"allowDeprecatedImages"`
 	// (string) The backup window of the server, if enabled.
 	//
 	// Deprecated: You should remove this property from your terraform configuration.
@@ -173,10 +234,10 @@ type serverState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds []int `pulumi:"firewallIds"`
-	// Ingores any updates
+	// Ignores any updates
 	// to the `firewallIds` argument which were received from the server.
 	// This should not be used in normal cases. See the documentation of the
-	// `FirewallAttachment` resouce for a reason to use this
+	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds *bool `pulumi:"ignoreRemoteFirewallIds"`
 	// (string) Name or ID of the image the server was created from.
@@ -201,7 +262,8 @@ type serverState struct {
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
-	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+	// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 	PublicNets []ServerPublicNet `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection *bool `pulumi:"rebuildProtection"`
@@ -218,6 +280,8 @@ type serverState struct {
 }
 
 type ServerState struct {
+	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	AllowDeprecatedImages pulumi.BoolPtrInput
 	// (string) The backup window of the server, if enabled.
 	//
 	// Deprecated: You should remove this property from your terraform configuration.
@@ -230,10 +294,10 @@ type ServerState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
-	// Ingores any updates
+	// Ignores any updates
 	// to the `firewallIds` argument which were received from the server.
 	// This should not be used in normal cases. See the documentation of the
-	// `FirewallAttachment` resouce for a reason to use this
+	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds pulumi.BoolPtrInput
 	// (string) Name or ID of the image the server was created from.
@@ -258,7 +322,8 @@ type ServerState struct {
 	Networks ServerNetworkTypeArrayInput
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrInput
-	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+	// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 	PublicNets ServerPublicNetArrayInput
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrInput
@@ -279,6 +344,8 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
+	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	AllowDeprecatedImages *bool `pulumi:"allowDeprecatedImages"`
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in.
@@ -287,10 +354,10 @@ type serverArgs struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds []int `pulumi:"firewallIds"`
-	// Ingores any updates
+	// Ignores any updates
 	// to the `firewallIds` argument which were received from the server.
 	// This should not be used in normal cases. See the documentation of the
-	// `FirewallAttachment` resouce for a reason to use this
+	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds *bool `pulumi:"ignoreRemoteFirewallIds"`
 	// (string) Name or ID of the image the server was created from.
@@ -309,7 +376,8 @@ type serverArgs struct {
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
-	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+	// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 	PublicNets []ServerPublicNet `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection *bool `pulumi:"rebuildProtection"`
@@ -325,6 +393,8 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
+	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	AllowDeprecatedImages pulumi.BoolPtrInput
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in.
@@ -333,10 +403,10 @@ type ServerArgs struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
-	// Ingores any updates
+	// Ignores any updates
 	// to the `firewallIds` argument which were received from the server.
 	// This should not be used in normal cases. See the documentation of the
-	// `FirewallAttachment` resouce for a reason to use this
+	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds pulumi.BoolPtrInput
 	// (string) Name or ID of the image the server was created from.
@@ -355,7 +425,8 @@ type ServerArgs struct {
 	Networks ServerNetworkTypeArrayInput
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrInput
-	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+	// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 	PublicNets ServerPublicNetArrayInput
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrInput
@@ -456,6 +527,11 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+func (o ServerOutput) AllowDeprecatedImages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.AllowDeprecatedImages }).(pulumi.BoolPtrOutput)
+}
+
 // (string) The backup window of the server, if enabled.
 //
 // Deprecated: You should remove this property from your terraform configuration.
@@ -483,10 +559,10 @@ func (o ServerOutput) FirewallIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.IntArrayOutput { return v.FirewallIds }).(pulumi.IntArrayOutput)
 }
 
-// Ingores any updates
+// Ignores any updates
 // to the `firewallIds` argument which were received from the server.
 // This should not be used in normal cases. See the documentation of the
-// `FirewallAttachment` resouce for a reason to use this
+// `FirewallAttachment` resource for a reason to use this
 // argument.
 func (o ServerOutput) IgnoreRemoteFirewallIds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.IgnoreRemoteFirewallIds }).(pulumi.BoolPtrOutput)
@@ -547,7 +623,8 @@ func (o ServerOutput) PlacementGroupId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.IntPtrOutput { return v.PlacementGroupId }).(pulumi.IntPtrOutput)
 }
 
-// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 func (o ServerOutput) PublicNets() ServerPublicNetArrayOutput {
 	return o.ApplyT(func(v *Server) ServerPublicNetArrayOutput { return v.PublicNets }).(ServerPublicNetArrayOutput)
 }
