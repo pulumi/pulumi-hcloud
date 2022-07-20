@@ -60,6 +60,66 @@ namespace Pulumi.HCloud
     /// 
     /// }
     /// ```
+    /// ## Primary IPs
+    /// 
+    /// When creating a server without linking at least one ´primary_ip´, it automatically creates &amp; assigns two (ipv4 &amp; ipv6).
+    /// With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+    /// 
+    /// ### Examples
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Assign existing ipv4 only
+    ///         var serverTestServer = new HCloud.Server("serverTestServer", new HCloud.ServerArgs
+    ///         {
+    ///             PublicNets = 
+    ///             {
+    ///                 new HCloud.Inputs.ServerPublicNetArgs
+    ///                 {
+    ///                     Ipv4Enabled = true,
+    ///                     Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
+    ///                     Ipv6Enabled = false,
+    ///                 },
+    ///             },
+    ///         });
+    ///         //...
+    ///         // Link a managed ipv4 but autogenerate ipv6
+    ///         var serverTestIndex_serverServer = new HCloud.Server("serverTestIndex/serverServer", new HCloud.ServerArgs
+    ///         {
+    ///             PublicNets = 
+    ///             {
+    ///                 new HCloud.Inputs.ServerPublicNetArgs
+    ///                 {
+    ///                     Ipv4Enabled = true,
+    ///                     Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
+    ///                     Ipv6Enabled = false,
+    ///                 },
+    ///             },
+    ///         });
+    ///         //...
+    ///         // Assign &amp; create auto-generated ipv4 &amp; ipv6
+    ///         var serverTestHcloudIndex_serverServer = new HCloud.Server("serverTestHcloudIndex/serverServer", new HCloud.ServerArgs
+    ///         {
+    ///             PublicNets = 
+    ///             {
+    ///                 new HCloud.Inputs.ServerPublicNetArgs
+    ///                 {
+    ///                     Ipv4Enabled = true,
+    ///                     Ipv6Enabled = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///         //...
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -72,6 +132,12 @@ namespace Pulumi.HCloud
     [HCloudResourceType("hcloud:index/server:Server")]
     public partial class Server : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        /// </summary>
+        [Output("allowDeprecatedImages")]
+        public Output<bool?> AllowDeprecatedImages { get; private set; } = null!;
+
         /// <summary>
         /// (string) The backup window of the server, if enabled.
         /// </summary>
@@ -103,10 +169,10 @@ namespace Pulumi.HCloud
         public Output<ImmutableArray<int>> FirewallIds { get; private set; } = null!;
 
         /// <summary>
-        /// Ingores any updates
+        /// Ignores any updates
         /// to the `firewall_ids` argument which were received from the server.
         /// This should not be used in normal cases. See the documentation of the
-        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// `hcloud.FirewallAttachment` resource for a reason to use this
         /// argument.
         /// </summary>
         [Output("ignoreRemoteFirewallIds")]
@@ -179,7 +245,8 @@ namespace Pulumi.HCloud
         public Output<int?> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        /// If this block is not defined, two primary (ipv4 &amp; ipv6) ips getting auto generated.
         /// </summary>
         [Output("publicNets")]
         public Output<ImmutableArray<Outputs.ServerPublicNet>> PublicNets { get; private set; } = null!;
@@ -267,6 +334,12 @@ namespace Pulumi.HCloud
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        /// </summary>
+        [Input("allowDeprecatedImages")]
+        public Input<bool>? AllowDeprecatedImages { get; set; }
+
+        /// <summary>
         /// Enable or disable backups.
         /// </summary>
         [Input("backups")]
@@ -297,10 +370,10 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Ingores any updates
+        /// Ignores any updates
         /// to the `firewall_ids` argument which were received from the server.
         /// This should not be used in normal cases. See the documentation of the
-        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// `hcloud.FirewallAttachment` resource for a reason to use this
         /// argument.
         /// </summary>
         [Input("ignoreRemoteFirewallIds")]
@@ -370,7 +443,8 @@ namespace Pulumi.HCloud
         private InputList<Inputs.ServerPublicNetArgs>? _publicNets;
 
         /// <summary>
-        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        /// If this block is not defined, two primary (ipv4 &amp; ipv6) ips getting auto generated.
         /// </summary>
         public InputList<Inputs.ServerPublicNetArgs> PublicNets
         {
@@ -422,6 +496,12 @@ namespace Pulumi.HCloud
     public sealed class ServerState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        /// </summary>
+        [Input("allowDeprecatedImages")]
+        public Input<bool>? AllowDeprecatedImages { get; set; }
+
+        /// <summary>
         /// (string) The backup window of the server, if enabled.
         /// </summary>
         [Input("backupWindow")]
@@ -458,10 +538,10 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Ingores any updates
+        /// Ignores any updates
         /// to the `firewall_ids` argument which were received from the server.
         /// This should not be used in normal cases. See the documentation of the
-        /// `hcloud.FirewallAttachment` resouce for a reason to use this
+        /// `hcloud.FirewallAttachment` resource for a reason to use this
         /// argument.
         /// </summary>
         [Input("ignoreRemoteFirewallIds")]
@@ -549,7 +629,8 @@ namespace Pulumi.HCloud
         private InputList<Inputs.ServerPublicNetGetArgs>? _publicNets;
 
         /// <summary>
-        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples)
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        /// If this block is not defined, two primary (ipv4 &amp; ipv6) ips getting auto generated.
         /// </summary>
         public InputList<Inputs.ServerPublicNetGetArgs> PublicNets
         {
