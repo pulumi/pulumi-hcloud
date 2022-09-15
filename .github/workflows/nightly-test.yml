@@ -5,11 +5,16 @@ env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
   PROVIDER: hcloud
+  PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+  PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+  SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
+  SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
+  SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
 jobs:
@@ -32,7 +37,7 @@ jobs:
       with:
         go-version: ${{matrix.goversion}}
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.2.0
+      uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
@@ -50,6 +55,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.pythonversion}}
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        cache: gradle
+        distribution: temurin
+        java-version: ${{matrix.javaversion}}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -65,6 +76,9 @@ jobs:
       run: make install_plugins
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+    - name: Set PACKAGE_VERSION to Env
+      run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
+        $GITHUB_ENV
     - name: Build SDK
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
@@ -89,16 +103,19 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.18.x
+        - 1.19.x
+        javaversion:
+        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
+        - java
         nodeversion:
-        - 14.x
+        - 16.x
         pythonversion:
-        - "3.7"
+        - "3.9"
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -117,14 +134,14 @@ jobs:
       with:
         go-version: ${{matrix.goversion}}
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.2.0
+      uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@v2
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
-      uses: jaxxstorm/action-install-gh-release@v1.2.0
+      uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: mikhailshilkov/schema-tools
     - name: Build tfgen & provider binaries
@@ -168,11 +185,11 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.18.x
+        - 1.19.x
         nodeversion:
-        - 14.x
+        - 16.x
         pythonversion:
-        - "3.7"
+        - "3.9"
   test:
     name: test
     needs: build_sdk
@@ -192,7 +209,7 @@ jobs:
       with:
         go-version: ${{matrix.goversion}}
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.2.0
+      uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
@@ -210,6 +227,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.pythonversion}}
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        cache: gradle
+        distribution: temurin
+        java-version: ${{matrix.javaversion}}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -239,7 +262,7 @@ jobs:
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
     - name: Install gotestfmt
-      uses: jaxxstorm/action-install-gh-release@v1.2.0
+      uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: haveyoudebuggedit/gotestfmt
     - name: Run tests
@@ -258,16 +281,19 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.18.x
+        - 1.19.x
+        javaversion:
+        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
+        - java
         nodeversion:
-        - 14.x
+        - 16.x
         pythonversion:
-        - "3.7"
+        - "3.9"
 name: cron
 on:
   schedule:
