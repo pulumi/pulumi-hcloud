@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("debian-9"),
-// 			ServerType: pulumi.String("cx11"),
-// 			Datacenter: pulumi.String("fsn1-dc8"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		master, err := hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
-// 			Type:         pulumi.String("ipv4"),
-// 			HomeLocation: pulumi.String("nbg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewFloatingIpAssignment(ctx, "main", &hcloud.FloatingIpAssignmentArgs{
-// 			FloatingIpId: master.ID(),
-// 			ServerId:     node1.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:      pulumi.String("debian-9"),
+//				ServerType: pulumi.String("cx11"),
+//				Datacenter: pulumi.String("fsn1-dc8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			master, err := hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
+//				Type:         pulumi.String("ipv4"),
+//				HomeLocation: pulumi.String("nbg1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewFloatingIpAssignment(ctx, "main", &hcloud.FloatingIpAssignmentArgs{
+//				FloatingIpId: master.ID(),
+//				ServerId:     node1.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Floating IP Assignments can be imported using the `floating_ip_id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment <floating_ip_id>
+//
+//	$ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment <floating_ip_id>
+//
 // ```
 type FloatingIpAssignment struct {
 	pulumi.CustomResourceState
@@ -161,7 +166,7 @@ func (i *FloatingIpAssignment) ToFloatingIpAssignmentOutputWithContext(ctx conte
 // FloatingIpAssignmentArrayInput is an input type that accepts FloatingIpAssignmentArray and FloatingIpAssignmentArrayOutput values.
 // You can construct a concrete instance of `FloatingIpAssignmentArrayInput` via:
 //
-//          FloatingIpAssignmentArray{ FloatingIpAssignmentArgs{...} }
+//	FloatingIpAssignmentArray{ FloatingIpAssignmentArgs{...} }
 type FloatingIpAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +191,7 @@ func (i FloatingIpAssignmentArray) ToFloatingIpAssignmentArrayOutputWithContext(
 // FloatingIpAssignmentMapInput is an input type that accepts FloatingIpAssignmentMap and FloatingIpAssignmentMapOutput values.
 // You can construct a concrete instance of `FloatingIpAssignmentMapInput` via:
 //
-//          FloatingIpAssignmentMap{ "key": FloatingIpAssignmentArgs{...} }
+//	FloatingIpAssignmentMap{ "key": FloatingIpAssignmentArgs{...} }
 type FloatingIpAssignmentMapInput interface {
 	pulumi.Input
 

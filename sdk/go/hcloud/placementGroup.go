@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
-// 			Type: pulumi.String("spread"),
-// 			Labels: pulumi.AnyMap{
-// 				"key": pulumi.Any("value"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Image:            pulumi.String("debian-9"),
-// 			ServerType:       pulumi.String("cx11"),
-// 			PlacementGroupId: my_placement_group.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
+//				Type: pulumi.String("spread"),
+//				Labels: pulumi.AnyMap{
+//					"key": pulumi.Any("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:            pulumi.String("debian-9"),
+//				ServerType:       pulumi.String("cx11"),
+//				PlacementGroupId: my_placement_group.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Placement Groups can be imported using its `id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group <id>
+//
+//	$ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group <id>
+//
 // ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) 
 // PlacementGroupArrayInput is an input type that accepts PlacementGroupArray and PlacementGroupArrayOutput values.
 // You can construct a concrete instance of `PlacementGroupArrayInput` via:
 //
-//          PlacementGroupArray{ PlacementGroupArgs{...} }
+//	PlacementGroupArray{ PlacementGroupArgs{...} }
 type PlacementGroupArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i PlacementGroupArray) ToPlacementGroupArrayOutputWithContext(ctx context.
 // PlacementGroupMapInput is an input type that accepts PlacementGroupMap and PlacementGroupMapOutput values.
 // You can construct a concrete instance of `PlacementGroupMapInput` via:
 //
-//          PlacementGroupMap{ "key": PlacementGroupArgs{...} }
+//	PlacementGroupMap{ "key": PlacementGroupArgs{...} }
 type PlacementGroupMapInput interface {
 	pulumi.Input
 

@@ -18,49 +18,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myfirewall, err := hcloud.NewFirewall(ctx, "myfirewall", &hcloud.FirewallArgs{
-// 			Rules: FirewallRuleArray{
-// 				&FirewallRuleArgs{
-// 					Direction: pulumi.String("in"),
-// 					Protocol:  pulumi.String("icmp"),
-// 					SourceIps: pulumi.StringArray{
-// 						pulumi.String("0.0.0.0/0"),
-// 						pulumi.String("::/0"),
-// 					},
-// 				},
-// 				&FirewallRuleArgs{
-// 					Direction: pulumi.String("in"),
-// 					Protocol:  pulumi.String("tcp"),
-// 					Port:      pulumi.String("80-85"),
-// 					SourceIps: pulumi.StringArray{
-// 						pulumi.String("0.0.0.0/0"),
-// 						pulumi.String("::/0"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("debian-9"),
-// 			ServerType: pulumi.String("cx11"),
-// 			FirewallIds: pulumi.IntArray{
-// 				myfirewall.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myfirewall, err := hcloud.NewFirewall(ctx, "myfirewall", &hcloud.FirewallArgs{
+//				Rules: FirewallRuleArray{
+//					&FirewallRuleArgs{
+//						Direction: pulumi.String("in"),
+//						Protocol:  pulumi.String("icmp"),
+//						SourceIps: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//							pulumi.String("::/0"),
+//						},
+//					},
+//					&FirewallRuleArgs{
+//						Direction: pulumi.String("in"),
+//						Protocol:  pulumi.String("tcp"),
+//						Port:      pulumi.String("80-85"),
+//						SourceIps: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//							pulumi.String("::/0"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:      pulumi.String("debian-9"),
+//				ServerType: pulumi.String("cx11"),
+//				FirewallIds: pulumi.IntArray{
+//					myfirewall.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // Firewalls can be imported using its `id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/firewall:Firewall myfirewall <id>
+//
+//	$ pulumi import hcloud:index/firewall:Firewall myfirewall <id>
+//
 // ```
 type Firewall struct {
 	pulumi.CustomResourceState
@@ -186,7 +191,7 @@ func (i *Firewall) ToFirewallOutputWithContext(ctx context.Context) FirewallOutp
 // FirewallArrayInput is an input type that accepts FirewallArray and FirewallArrayOutput values.
 // You can construct a concrete instance of `FirewallArrayInput` via:
 //
-//          FirewallArray{ FirewallArgs{...} }
+//	FirewallArray{ FirewallArgs{...} }
 type FirewallArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +216,7 @@ func (i FirewallArray) ToFirewallArrayOutputWithContext(ctx context.Context) Fir
 // FirewallMapInput is an input type that accepts FirewallMap and FirewallMapOutput values.
 // You can construct a concrete instance of `FirewallMapInput` via:
 //
-//          FirewallMap{ "key": FirewallArgs{...} }
+//	FirewallMap{ "key": FirewallArgs{...} }
 type FirewallMapInput interface {
 	pulumi.Input
 

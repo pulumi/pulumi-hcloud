@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
-// 			IpRange: pulumi.String("10.0.0.0/8"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
-// 			NetworkId:   mynet.ID(),
-// 			Type:        pulumi.String("cloud"),
-// 			NetworkZone: pulumi.String("eu-central"),
-// 			IpRange:     pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
+//				IpRange: pulumi.String("10.0.0.0/8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
+//				NetworkId:   mynet.ID(),
+//				Type:        pulumi.String("cloud"),
+//				NetworkZone: pulumi.String("eu-central"),
+//				IpRange:     pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
 //
 // ```sh
-//  $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+//
+//	$ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+//
 // ```
 type NetworkSubnet struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *NetworkSubnet) ToNetworkSubnetOutputWithContext(ctx context.Context) Ne
 // NetworkSubnetArrayInput is an input type that accepts NetworkSubnetArray and NetworkSubnetArrayOutput values.
 // You can construct a concrete instance of `NetworkSubnetArrayInput` via:
 //
-//          NetworkSubnetArray{ NetworkSubnetArgs{...} }
+//	NetworkSubnetArray{ NetworkSubnetArgs{...} }
 type NetworkSubnetArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i NetworkSubnetArray) ToNetworkSubnetArrayOutputWithContext(ctx context.Co
 // NetworkSubnetMapInput is an input type that accepts NetworkSubnetMap and NetworkSubnetMapOutput values.
 // You can construct a concrete instance of `NetworkSubnetMapInput` via:
 //
-//          NetworkSubnetMap{ "key": NetworkSubnetArgs{...} }
+//	NetworkSubnetMap{ "key": NetworkSubnetArgs{...} }
 type NetworkSubnetMapInput interface {
 	pulumi.Input
 

@@ -29,49 +29,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
-// 			IpAddress: pulumi.StringRef("1.2.3.4"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
-// 			Name: pulumi.StringRef("primary_ip_1"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
-// 			WithSelector: pulumi.StringRef("key=value"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("ubuntu-20.04"),
-// 			ServerType: pulumi.String("cx11"),
-// 			Datacenter: pulumi.String("fsn1-dc14"),
-// 			Labels: pulumi.AnyMap{
-// 				"test": pulumi.Any("tessst1"),
-// 			},
-// 			PublicNets: ServerPublicNetArray{
-// 				&ServerPublicNetArgs{
-// 					Ipv4: pulumi.Any(hcloud_primary_ip.Ip_1.Id),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
+//				IpAddress: pulumi.StringRef("1.2.3.4"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
+//				Name: pulumi.StringRef("primary_ip_1"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
+//				WithSelector: pulumi.StringRef("key=value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
+//				Image:      pulumi.String("ubuntu-20.04"),
+//				ServerType: pulumi.String("cx11"),
+//				Datacenter: pulumi.String("fsn1-dc14"),
+//				Labels: pulumi.AnyMap{
+//					"test": pulumi.Any("tessst1"),
+//				},
+//				PublicNets: ServerPublicNetArray{
+//					&ServerPublicNetArgs{
+//						Ipv4: pulumi.Any(hcloud_primary_ip.Ip_1.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupPrimaryIp(ctx *pulumi.Context, args *LookupPrimaryIpArgs, opts ...pulumi.InvokeOption) (*LookupPrimaryIpResult, error) {
 	var rv LookupPrimaryIpResult

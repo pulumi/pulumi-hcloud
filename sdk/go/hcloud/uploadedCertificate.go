@@ -15,10 +15,12 @@ import (
 //
 // ## Import
 //
-// Uploaded certificates can be imported using their `id`hcl
+// # Uploaded certificates can be imported using their `id`hcl
 //
 // ```sh
-//  $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate <id>
+//
+//	$ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate <id>
+//
 // ```
 type UploadedCertificate struct {
 	pulumi.CustomResourceState
@@ -180,7 +182,7 @@ func (i *UploadedCertificate) ToUploadedCertificateOutputWithContext(ctx context
 // UploadedCertificateArrayInput is an input type that accepts UploadedCertificateArray and UploadedCertificateArrayOutput values.
 // You can construct a concrete instance of `UploadedCertificateArrayInput` via:
 //
-//          UploadedCertificateArray{ UploadedCertificateArgs{...} }
+//	UploadedCertificateArray{ UploadedCertificateArgs{...} }
 type UploadedCertificateArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +207,7 @@ func (i UploadedCertificateArray) ToUploadedCertificateArrayOutputWithContext(ct
 // UploadedCertificateMapInput is an input type that accepts UploadedCertificateMap and UploadedCertificateMapOutput values.
 // You can construct a concrete instance of `UploadedCertificateMapInput` via:
 //
-//          UploadedCertificateMap{ "key": UploadedCertificateArgs{...} }
+//	UploadedCertificateMap{ "key": UploadedCertificateArgs{...} }
 type UploadedCertificateMapInput interface {
 	pulumi.Input
 

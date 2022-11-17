@@ -47,18 +47,6 @@ export interface FirewallRule {
     sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface GetFirewallApplyTo {
-    /**
-     * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
-     * referenced
-     */
-    labelSelector?: string;
-    /**
-     * (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
-     */
-    server?: number;
-}
-
 export interface GetFirewallApplyToArgs {
     /**
      * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
@@ -69,6 +57,18 @@ export interface GetFirewallApplyToArgs {
      * (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
      */
     server?: pulumi.Input<number>;
+}
+
+export interface GetFirewallApplyTo {
+    /**
+     * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
+     * referenced
+     */
+    labelSelector?: string;
+    /**
+     * (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
+     */
+    server?: number;
 }
 
 export interface GetFirewallRuleArgs {

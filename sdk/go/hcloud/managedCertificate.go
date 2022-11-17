@@ -15,10 +15,12 @@ import (
 //
 // ## Import
 //
-// Managed certificates can be imported using their `id`hcl
+// # Managed certificates can be imported using their `id`hcl
 //
 // ```sh
-//  $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate <id>
+//
+//	$ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate <id>
+//
 // ```
 type ManagedCertificate struct {
 	pulumi.CustomResourceState
@@ -167,7 +169,7 @@ func (i *ManagedCertificate) ToManagedCertificateOutputWithContext(ctx context.C
 // ManagedCertificateArrayInput is an input type that accepts ManagedCertificateArray and ManagedCertificateArrayOutput values.
 // You can construct a concrete instance of `ManagedCertificateArrayInput` via:
 //
-//          ManagedCertificateArray{ ManagedCertificateArgs{...} }
+//	ManagedCertificateArray{ ManagedCertificateArgs{...} }
 type ManagedCertificateArrayInput interface {
 	pulumi.Input
 
@@ -192,7 +194,7 @@ func (i ManagedCertificateArray) ToManagedCertificateArrayOutputWithContext(ctx 
 // ManagedCertificateMapInput is an input type that accepts ManagedCertificateMap and ManagedCertificateMapOutput values.
 // You can construct a concrete instance of `ManagedCertificateMapInput` via:
 //
-//          ManagedCertificateMap{ "key": ManagedCertificateArgs{...} }
+//	ManagedCertificateMap{ "key": ManagedCertificateArgs{...} }
 type ManagedCertificateMapInput interface {
 	pulumi.Input
 

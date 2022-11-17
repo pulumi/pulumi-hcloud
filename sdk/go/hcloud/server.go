@@ -17,50 +17,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		network, err := hcloud.NewNetwork(ctx, "network", &hcloud.NetworkArgs{
-// 			IpRange: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewNetworkSubnet(ctx, "network-subnet", &hcloud.NetworkSubnetArgs{
-// 			Type:        pulumi.String("cloud"),
-// 			NetworkId:   network.ID(),
-// 			NetworkZone: pulumi.String("eu-central"),
-// 			IpRange:     pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServer(ctx, "server", &hcloud.ServerArgs{
-// 			ServerType: pulumi.String("cx11"),
-// 			Image:      pulumi.String("ubuntu-20.04"),
-// 			Location:   pulumi.String("nbg1"),
-// 			Networks: ServerNetworkArray{
-// 				&ServerNetworkArgs{
-// 					NetworkId: network.ID(),
-// 					Ip:        pulumi.String("10.0.1.5"),
-// 					AliasIps: pulumi.StringArray{
-// 						pulumi.String("10.0.1.6"),
-// 						pulumi.String("10.0.1.7"),
-// 					},
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			network_subnet,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			network, err := hcloud.NewNetwork(ctx, "network", &hcloud.NetworkArgs{
+//				IpRange: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewNetworkSubnet(ctx, "network-subnet", &hcloud.NetworkSubnetArgs{
+//				Type:        pulumi.String("cloud"),
+//				NetworkId:   network.ID(),
+//				NetworkZone: pulumi.String("eu-central"),
+//				IpRange:     pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "server", &hcloud.ServerArgs{
+//				ServerType: pulumi.String("cx11"),
+//				Image:      pulumi.String("ubuntu-20.04"),
+//				Location:   pulumi.String("nbg1"),
+//				Networks: ServerNetworkArray{
+//					&ServerNetworkArgs{
+//						NetworkId: network.ID(),
+//						Ip:        pulumi.String("10.0.1.5"),
+//						AliasIps: pulumi.StringArray{
+//							pulumi.String("10.0.1.6"),
+//							pulumi.String("10.0.1.7"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				network_subnet,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Primary IPs
 //
@@ -73,50 +76,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.NewServer(ctx, "serverTestServer", &hcloud.ServerArgs{
-// 			PublicNets: ServerPublicNetArray{
-// 				&ServerPublicNetArgs{
-// 					Ipv4Enabled: pulumi.Bool(true),
-// 					Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
-// 					Ipv6Enabled: pulumi.Bool(false),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServer(ctx, "serverTestIndex/serverServer", &hcloud.ServerArgs{
-// 			PublicNets: ServerPublicNetArray{
-// 				&ServerPublicNetArgs{
-// 					Ipv4Enabled: pulumi.Bool(true),
-// 					Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
-// 					Ipv6Enabled: pulumi.Bool(false),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServer(ctx, "serverTestHcloudIndex/serverServer", &hcloud.ServerArgs{
-// 			PublicNets: ServerPublicNetArray{
-// 				&ServerPublicNetArgs{
-// 					Ipv4Enabled: pulumi.Bool(true),
-// 					Ipv6Enabled: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.NewServer(ctx, "serverTestServer", &hcloud.ServerArgs{
+//				PublicNets: ServerPublicNetArray{
+//					&ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
+//						Ipv6Enabled: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "serverTestIndex/serverServer", &hcloud.ServerArgs{
+//				PublicNets: ServerPublicNetArray{
+//					&ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
+//						Ipv6Enabled: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "serverTestHcloudIndex/serverServer", &hcloud.ServerArgs{
+//				PublicNets: ServerPublicNetArray{
+//					&ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv6Enabled: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -124,7 +130,9 @@ import (
 // Servers can be imported using the server `id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/server:Server myserver <id>
+//
+//	$ pulumi import hcloud:index/server:Server myserver <id>
+//
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -466,7 +474,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
-//          ServerArray{ ServerArgs{...} }
+//	ServerArray{ ServerArgs{...} }
 type ServerArrayInput interface {
 	pulumi.Input
 
@@ -491,7 +499,7 @@ func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerA
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
 // You can construct a concrete instance of `ServerMapInput` via:
 //
-//          ServerMap{ "key": ServerArgs{...} }
+//	ServerMap{ "key": ServerArgs{...} }
 type ServerMapInput interface {
 	pulumi.Input
 
