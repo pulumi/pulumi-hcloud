@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -12,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const s3 = pulumi.output(hcloud.getServers({
+ * const s3 = hcloud.getServers({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getServers(args?: GetServersArgs, opts?: pulumi.InvokeOptions): Promise<GetServersResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServers:getServers", {
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,
@@ -59,9 +57,20 @@ export interface GetServersResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const s3 = hcloud.getServers({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getServersOutput(args?: GetServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServersResult> {
-    return pulumi.output(args).apply(a => getServers(a, opts))
+    return pulumi.output(args).apply((a: any) => getServers(a, opts))
 }
 
 /**

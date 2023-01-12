@@ -19,27 +19,26 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var lb2 = Output.Create(HCloud.GetLoadBalancers.InvokeAsync());
-        ///         var lb3 = Output.Create(HCloud.GetLoadBalancers.InvokeAsync(new HCloud.GetLoadBalancersArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///     var lb2 = HCloud.GetLoadBalancers.Invoke();
         /// 
-        /// }
+        ///     var lb3 = HCloud.GetLoadBalancers.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLoadBalancersResult> InvokeAsync(GetLoadBalancersArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancersResult>("hcloud:index/getLoadBalancers:getLoadBalancers", args ?? new GetLoadBalancersArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancersResult>("hcloud:index/getLoadBalancers:getLoadBalancers", args ?? new GetLoadBalancersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Load Balancers.
@@ -49,31 +48,30 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var lb2 = Output.Create(HCloud.GetLoadBalancers.InvokeAsync());
-        ///         var lb3 = Output.Create(HCloud.GetLoadBalancers.InvokeAsync(new HCloud.GetLoadBalancersArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///     var lb2 = HCloud.GetLoadBalancers.Invoke();
         /// 
-        /// }
+        ///     var lb3 = HCloud.GetLoadBalancers.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLoadBalancersResult> Invoke(GetLoadBalancersInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancersResult>("hcloud:index/getLoadBalancers:getLoadBalancers", args ?? new GetLoadBalancersInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancersResult>("hcloud:index/getLoadBalancers:getLoadBalancers", args ?? new GetLoadBalancersInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetLoadBalancersArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -84,9 +82,10 @@ namespace Pulumi.HCloud
         public GetLoadBalancersArgs()
         {
         }
+        public static new GetLoadBalancersArgs Empty => new GetLoadBalancersArgs();
     }
 
-    public sealed class GetLoadBalancersInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -97,6 +96,7 @@ namespace Pulumi.HCloud
         public GetLoadBalancersInvokeArgs()
         {
         }
+        public static new GetLoadBalancersInvokeArgs Empty => new GetLoadBalancersInvokeArgs();
     }
 
 

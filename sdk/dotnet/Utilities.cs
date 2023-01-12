@@ -74,7 +74,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    internal sealed class HCloudResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class HCloudResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public HCloudResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

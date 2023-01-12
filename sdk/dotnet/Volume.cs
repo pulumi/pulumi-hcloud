@@ -15,28 +15,27 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///         });
-    ///         var master = new HCloud.Volume("master", new HCloud.VolumeArgs
-    ///         {
-    ///             Size = 50,
-    ///             ServerId = node1.Id,
-    ///             Automount = true,
-    ///             Format = "ext4",
-    ///         });
-    ///     }
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///     });
     /// 
-    /// }
+    ///     var master = new HCloud.Volume("master", new()
+    ///     {
+    ///         Size = 50,
+    ///         ServerId = node1.Id,
+    ///         Automount = true,
+    ///         Format = "ext4",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,11 +43,11 @@ namespace Pulumi.HCloud
     /// Volumes can be imported using their `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/volume:Volume myvolume &lt;id&gt;
+    ///  $ pulumi import hcloud:index/volume:Volume myvolume id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/volume:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Automount the volume upon attaching it (server_id must be provided).
@@ -81,7 +80,7 @@ namespace Pulumi.HCloud
         public Output<string> LinuxDevice { get; private set; } = null!;
 
         /// <summary>
-        /// Location of the volume to create, not allowed if server_id argument is passed.
+        /// The location name of the volume to create, not allowed if server_id argument is passed.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -148,7 +147,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Automount the volume upon attaching it (server_id must be provided).
@@ -181,7 +180,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Location of the volume to create, not allowed if server_id argument is passed.
+        /// The location name of the volume to create, not allowed if server_id argument is passed.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -207,9 +206,10 @@ namespace Pulumi.HCloud
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 
-    public sealed class VolumeState : Pulumi.ResourceArgs
+    public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Automount the volume upon attaching it (server_id must be provided).
@@ -248,7 +248,7 @@ namespace Pulumi.HCloud
         public Input<string>? LinuxDevice { get; set; }
 
         /// <summary>
-        /// Location of the volume to create, not allowed if server_id argument is passed.
+        /// The location name of the volume to create, not allowed if server_id argument is passed.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -274,5 +274,6 @@ namespace Pulumi.HCloud
         public VolumeState()
         {
         }
+        public static new VolumeState Empty => new VolumeState();
     }
 }

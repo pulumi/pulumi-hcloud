@@ -11,24 +11,21 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const s1 = pulumi.output(hcloud.getServer({
+ * const s1 = hcloud.getServer({
  *     name: "my-server",
- * }));
- * const s2 = pulumi.output(hcloud.getServer({
+ * });
+ * const s2 = hcloud.getServer({
  *     id: 123,
- * }));
- * const s3 = pulumi.output(hcloud.getServer({
+ * });
+ * const s3 = hcloud.getServer({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServer:getServer", {
         "id": args.id,
         "name": args.name,
@@ -78,7 +75,7 @@ export interface GetServerResult {
      */
     readonly backupWindow: string;
     /**
-     * (boolean) Whether backups are enabled.
+     * (bool) Whether backups are enabled.
      */
     readonly backups: boolean;
     /**
@@ -86,7 +83,7 @@ export interface GetServerResult {
      */
     readonly datacenter: string;
     /**
-     * (boolean) Whether delete protection is enabled.
+     * (bool) Whether delete protection is enabled.
      */
     readonly deleteProtection: boolean;
     /**
@@ -134,7 +131,7 @@ export interface GetServerResult {
      */
     readonly placementGroupId?: number;
     /**
-     * (boolean) Whether rebuild protection is enabled.
+     * (bool) Whether rebuild protection is enabled.
      */
     readonly rebuildProtection: boolean;
     readonly rescue: string;
@@ -153,9 +150,26 @@ export interface GetServerResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const s1 = hcloud.getServer({
+ *     name: "my-server",
+ * });
+ * const s2 = hcloud.getServer({
+ *     id: 123,
+ * });
+ * const s3 = hcloud.getServer({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getServerOutput(args?: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    return pulumi.output(args).apply(a => getServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }
 
 /**

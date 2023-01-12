@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class FirewallApplyToGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallApplyToGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Label Selector to select servers the firewall should be applied to (only one
@@ -29,5 +29,6 @@ namespace Pulumi.HCloud.Inputs
         public FirewallApplyToGetArgs()
         {
         }
+        public static new FirewallApplyToGetArgs Empty => new FirewallApplyToGetArgs();
     }
 }

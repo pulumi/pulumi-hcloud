@@ -14,7 +14,7 @@ namespace Pulumi.HCloud
     /// Deprecated.
     /// </summary>
     [HCloudResourceType("hcloud:index/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         [Output("certificate")]
         public Output<string> CertificateContents { get; private set; } = null!;
@@ -69,6 +69,10 @@ namespace Pulumi.HCloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "privateKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -90,7 +94,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificate", required: true)]
         public Input<string> CertificateContents { get; set; } = null!;
@@ -107,14 +111,24 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         [Input("privateKey", required: true)]
-        public Input<string> PrivateKey { get; set; } = null!;
+        private Input<string>? _privateKey;
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         [Input("certificate")]
         public Input<string>? CertificateContents { get; set; }
@@ -151,7 +165,16 @@ namespace Pulumi.HCloud
         public Input<string>? NotValidBefore { get; set; }
 
         [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        private Input<string>? _privateKey;
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -159,5 +182,6 @@ namespace Pulumi.HCloud
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

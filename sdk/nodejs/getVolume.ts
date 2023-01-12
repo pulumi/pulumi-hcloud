@@ -11,24 +11,21 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const volume1 = pulumi.output(hcloud.getVolume({
+ * const volume1 = hcloud.getVolume({
  *     id: 1234,
- * }));
- * const volume2 = pulumi.output(hcloud.getVolume({
+ * });
+ * const volume2 = hcloud.getVolume({
  *     name: "my-volume",
- * }));
- * const volume3 = pulumi.output(hcloud.getVolume({
+ * });
+ * const volume3 = hcloud.getVolume({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getVolume:getVolume", {
         "id": args.id,
         "location": args.location,
@@ -79,7 +76,7 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
-     * (boolean) Whether delete protection is enabled.
+     * (bool) Whether delete protection is enabled.
      */
     readonly deleteProtection: boolean;
     /**
@@ -117,9 +114,26 @@ export interface GetVolumeResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const volume1 = hcloud.getVolume({
+ *     id: 1234,
+ * });
+ * const volume2 = hcloud.getVolume({
+ *     name: "my-volume",
+ * });
+ * const volume3 = hcloud.getVolume({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply(a => getVolume(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }
 
 /**

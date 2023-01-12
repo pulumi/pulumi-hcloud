@@ -20,30 +20,29 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var l1 = HCloud.GetLocation.Invoke(new()
         ///     {
-        ///         var l1 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs
-        ///         {
-        ///             Name = "fsn1",
-        ///         }));
-        ///         var l2 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs
-        ///         {
-        ///             Id = 1,
-        ///         }));
-        ///     }
+        ///         Name = "fsn1",
+        ///     });
         /// 
-        /// }
+        ///     var l2 = HCloud.GetLocation.Invoke(new()
+        ///     {
+        ///         Id = 1,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocationResult> InvokeAsync(GetLocationArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Location.
@@ -54,34 +53,33 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var l1 = HCloud.GetLocation.Invoke(new()
         ///     {
-        ///         var l1 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs
-        ///         {
-        ///             Name = "fsn1",
-        ///         }));
-        ///         var l2 = Output.Create(HCloud.GetLocation.InvokeAsync(new HCloud.GetLocationArgs
-        ///         {
-        ///             Id = 1,
-        ///         }));
-        ///     }
+        ///         Name = "fsn1",
+        ///     });
         /// 
-        /// }
+        ///     var l2 = HCloud.GetLocation.Invoke(new()
+        ///     {
+        ///         Id = 1,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetLocationArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the location.
@@ -98,9 +96,10 @@ namespace Pulumi.HCloud
         public GetLocationArgs()
         {
         }
+        public static new GetLocationArgs Empty => new GetLocationArgs();
     }
 
-    public sealed class GetLocationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the location.
@@ -117,6 +116,7 @@ namespace Pulumi.HCloud
         public GetLocationInvokeArgs()
         {
         }
+        public static new GetLocationInvokeArgs Empty => new GetLocationInvokeArgs();
     }
 
 

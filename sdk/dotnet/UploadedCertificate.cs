@@ -17,11 +17,11 @@ namespace Pulumi.HCloud
     /// Uploaded certificates can be imported using their `id`hcl
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate &lt;id&gt;
+    ///  $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/uploadedCertificate:UploadedCertificate")]
-    public partial class UploadedCertificate : Pulumi.CustomResource
+    public partial class UploadedCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// PEM encoded TLS certificate.
@@ -104,6 +104,10 @@ namespace Pulumi.HCloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "privateKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -125,7 +129,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class UploadedCertificateArgs : Pulumi.ResourceArgs
+    public sealed class UploadedCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// PEM encoded TLS certificate.
@@ -152,18 +156,29 @@ namespace Pulumi.HCloud
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("privateKey", required: true)]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// PEM encoded private key belonging to the certificate.
         /// </summary>
-        [Input("privateKey", required: true)]
-        public Input<string> PrivateKey { get; set; } = null!;
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public UploadedCertificateArgs()
         {
         }
+        public static new UploadedCertificateArgs Empty => new UploadedCertificateArgs();
     }
 
-    public sealed class UploadedCertificateState : Pulumi.ResourceArgs
+    public sealed class UploadedCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// PEM encoded TLS certificate.
@@ -226,11 +241,21 @@ namespace Pulumi.HCloud
         [Input("notValidBefore")]
         public Input<string>? NotValidBefore { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// PEM encoded private key belonging to the certificate.
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -238,5 +263,6 @@ namespace Pulumi.HCloud
         public UploadedCertificateState()
         {
         }
+        public static new UploadedCertificateState Empty => new UploadedCertificateState();
     }
 }

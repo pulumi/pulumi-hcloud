@@ -15,30 +15,29 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_placement_group = new HCloud.PlacementGroup("my-placement-group", new()
     ///     {
-    ///         var my_placement_group = new HCloud.PlacementGroup("my-placement-group", new HCloud.PlacementGroupArgs
+    ///         Type = "spread",
+    ///         Labels = 
     ///         {
-    ///             Type = "spread",
-    ///             Labels = 
-    ///             {
-    ///                 { "key", "value" },
-    ///             },
-    ///         });
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///             PlacementGroupId = my_placement_group.Id,
-    ///         });
-    ///     }
+    ///             { "key", "value" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var node1 = new HCloud.Server("node1", new()
+    ///     {
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///         PlacementGroupId = my_placement_group.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,11 +45,11 @@ namespace Pulumi.HCloud
     /// Placement Groups can be imported using its `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group &lt;id&gt;
+    ///  $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/placementGroup:PlacementGroup")]
-    public partial class PlacementGroup : Pulumi.CustomResource
+    public partial class PlacementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// User-defined labels (key-value pairs) should be created with.
@@ -117,7 +116,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class PlacementGroupArgs : Pulumi.ResourceArgs
+    public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputMap<object>? _labels;
@@ -146,9 +145,10 @@ namespace Pulumi.HCloud
         public PlacementGroupArgs()
         {
         }
+        public static new PlacementGroupArgs Empty => new PlacementGroupArgs();
     }
 
-    public sealed class PlacementGroupState : Pulumi.ResourceArgs
+    public sealed class PlacementGroupState : global::Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputMap<object>? _labels;
@@ -185,5 +185,6 @@ namespace Pulumi.HCloud
         public PlacementGroupState()
         {
         }
+        public static new PlacementGroupState Empty => new PlacementGroupState();
     }
 }

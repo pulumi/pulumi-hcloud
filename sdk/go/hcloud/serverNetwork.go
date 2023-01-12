@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("debian-9"),
-// 			ServerType: pulumi.String("cx11"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
-// 			IpRange: pulumi.String("10.0.0.0/8"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
-// 			NetworkId:   mynet.ID(),
-// 			Type:        pulumi.String("cloud"),
-// 			NetworkZone: pulumi.String("eu-central"),
-// 			IpRange:     pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServerNetwork(ctx, "srvnetwork", &hcloud.ServerNetworkArgs{
-// 			ServerId:  node1.ID(),
-// 			NetworkId: mynet.ID(),
-// 			Ip:        pulumi.String("10.0.1.5"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:      pulumi.String("debian-9"),
+//				ServerType: pulumi.String("cx11"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
+//				IpRange: pulumi.String("10.0.0.0/8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
+//				NetworkId:   mynet.ID(),
+//				Type:        pulumi.String("cloud"),
+//				NetworkZone: pulumi.String("eu-central"),
+//				IpRange:     pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServerNetwork(ctx, "srvnetwork", &hcloud.ServerNetworkArgs{
+//				ServerId:  node1.ID(),
+//				NetworkId: mynet.ID(),
+//				Ip:        pulumi.String("10.0.1.5"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Server Network entries can be imported using a compound ID with the following format`<server-id>-<network-id>`
 //
 // ```sh
-//  $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+//
+//	$ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+//
 // ```
 type ServerNetwork struct {
 	pulumi.CustomResourceState
@@ -264,7 +269,7 @@ func (i *ServerNetwork) ToServerNetworkOutputWithContext(ctx context.Context) Se
 // ServerNetworkArrayInput is an input type that accepts ServerNetworkArray and ServerNetworkArrayOutput values.
 // You can construct a concrete instance of `ServerNetworkArrayInput` via:
 //
-//          ServerNetworkArray{ ServerNetworkArgs{...} }
+//	ServerNetworkArray{ ServerNetworkArgs{...} }
 type ServerNetworkArrayInput interface {
 	pulumi.Input
 
@@ -289,7 +294,7 @@ func (i ServerNetworkArray) ToServerNetworkArrayOutputWithContext(ctx context.Co
 // ServerNetworkMapInput is an input type that accepts ServerNetworkMap and ServerNetworkMapOutput values.
 // You can construct a concrete instance of `ServerNetworkMapInput` via:
 //
-//          ServerNetworkMap{ "key": ServerNetworkArgs{...} }
+//	ServerNetworkMap{ "key": ServerNetworkArgs{...} }
 type ServerNetworkMapInput interface {
 	pulumi.Input
 

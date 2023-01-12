@@ -20,26 +20,24 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sampleCertificate1 = HCloud.GetCertificates.Invoke(new()
         ///     {
-        ///         var sampleCertificate1 = Output.Create(HCloud.GetCertificates.InvokeAsync(new HCloud.GetCertificatesArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificatesResult> InvokeAsync(GetCertificatesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificatesResult>("hcloud:index/getCertificates:getCertificates", args ?? new GetCertificatesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificatesResult>("hcloud:index/getCertificates:getCertificates", args ?? new GetCertificatesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Certificates.
@@ -50,30 +48,28 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sampleCertificate1 = HCloud.GetCertificates.Invoke(new()
         ///     {
-        ///         var sampleCertificate1 = Output.Create(HCloud.GetCertificates.InvokeAsync(new HCloud.GetCertificatesArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificatesResult> Invoke(GetCertificatesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificatesResult>("hcloud:index/getCertificates:getCertificates", args ?? new GetCertificatesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificatesResult>("hcloud:index/getCertificates:getCertificates", args ?? new GetCertificatesInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetCertificatesArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificatesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -84,9 +80,10 @@ namespace Pulumi.HCloud
         public GetCertificatesArgs()
         {
         }
+        public static new GetCertificatesArgs Empty => new GetCertificatesArgs();
     }
 
-    public sealed class GetCertificatesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificatesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -97,6 +94,7 @@ namespace Pulumi.HCloud
         public GetCertificatesInvokeArgs()
         {
         }
+        public static new GetCertificatesInvokeArgs Empty => new GetCertificatesInvokeArgs();
     }
 
 

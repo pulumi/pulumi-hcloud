@@ -17,26 +17,24 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = HCloud.GetServers.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(HCloud.GetServers.InvokeAsync(new HCloud.GetServersArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServersResult> InvokeAsync(GetServersArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -44,30 +42,28 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = HCloud.GetServers.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(HCloud.GetServers.InvokeAsync(new HCloud.GetServersArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServersResult> Invoke(GetServersInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetServersArgs : Pulumi.InvokeArgs
+    public sealed class GetServersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -90,9 +86,10 @@ namespace Pulumi.HCloud
         public GetServersArgs()
         {
         }
+        public static new GetServersArgs Empty => new GetServersArgs();
     }
 
-    public sealed class GetServersInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -115,6 +112,7 @@ namespace Pulumi.HCloud
         public GetServersInvokeArgs()
         {
         }
+        public static new GetServersInvokeArgs Empty => new GetServersInvokeArgs();
     }
 
 

@@ -15,25 +15,24 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///         });
-    ///         var my_snapshot = new HCloud.Snapshot("my-snapshot", new HCloud.SnapshotArgs
-    ///         {
-    ///             ServerId = node1.Id,
-    ///         });
-    ///     }
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///     });
     /// 
-    /// }
+    ///     var my_snapshot = new HCloud.Snapshot("my-snapshot", new()
+    ///     {
+    ///         ServerId = node1.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,11 +40,11 @@ namespace Pulumi.HCloud
     /// Snapshots can be imported using its image `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/snapshot:Snapshot myimage &lt;id&gt;
+    ///  $ pulumi import hcloud:index/snapshot:Snapshot myimage id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/snapshot:Snapshot")]
-    public partial class Snapshot : Pulumi.CustomResource
+    public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the snapshot.
@@ -109,7 +108,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class SnapshotArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the snapshot.
@@ -138,9 +137,10 @@ namespace Pulumi.HCloud
         public SnapshotArgs()
         {
         }
+        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 
-    public sealed class SnapshotState : Pulumi.ResourceArgs
+    public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the snapshot.
@@ -169,5 +169,6 @@ namespace Pulumi.HCloud
         public SnapshotState()
         {
         }
+        public static new SnapshotState Empty => new SnapshotState();
     }
 }

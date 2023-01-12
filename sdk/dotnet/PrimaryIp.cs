@@ -18,45 +18,44 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new HCloud.PrimaryIp("main", new()
     ///     {
-    ///         var main = new HCloud.PrimaryIp("main", new HCloud.PrimaryIpArgs
+    ///         Datacenter = "fsn1-dc14",
+    ///         Type = "ipv4",
+    ///         AssigneeType = "server",
+    ///         AutoDelete = true,
+    ///         Labels = 
     ///         {
-    ///             Datacenter = "fsn1-dc14",
-    ///             Type = "ipv4",
-    ///             AssigneeType = "server",
-    ///             AutoDelete = true,
-    ///             Labels = 
-    ///             {
-    ///                 { "hallo", "welt" },
-    ///             },
-    ///         });
-    ///         // Link a server to a primary IP
-    ///         var serverTest = new HCloud.Server("serverTest", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "ubuntu-20.04",
-    ///             ServerType = "cx11",
-    ///             Datacenter = "fsn1-dc14",
-    ///             Labels = 
-    ///             {
-    ///                 { "test", "tessst1" },
-    ///             },
-    ///             PublicNets = 
-    ///             {
-    ///                 new HCloud.Inputs.ServerPublicNetArgs
-    ///                 {
-    ///                     Ipv4 = main.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "hallo", "welt" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     // Link a server to a primary IP
+    ///     var serverTest = new HCloud.Server("serverTest", new()
+    ///     {
+    ///         Image = "ubuntu-20.04",
+    ///         ServerType = "cx11",
+    ///         Datacenter = "fsn1-dc14",
+    ///         Labels = 
+    ///         {
+    ///             { "test", "tessst1" },
+    ///         },
+    ///         PublicNets = new[]
+    ///         {
+    ///             new HCloud.Inputs.ServerPublicNetArgs
+    ///             {
+    ///                 Ipv4 = main.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,11 +63,11 @@ namespace Pulumi.HCloud
     /// Primary IPs can be imported using its `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/primaryIp:PrimaryIp myip &lt;id&gt;
+    ///  $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/primaryIp:PrimaryIp")]
-    public partial class PrimaryIp : Pulumi.CustomResource
+    public partial class PrimaryIp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the assigned resource
@@ -77,7 +76,7 @@ namespace Pulumi.HCloud
         public Output<int> AssigneeId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the assigned resource.
+        /// The type of the assigned resource. Currently supported: `server`
         /// </summary>
         [Output("assigneeType")]
         public Output<string> AssigneeType { get; private set; } = null!;
@@ -89,6 +88,9 @@ namespace Pulumi.HCloud
         [Output("autoDelete")]
         public Output<bool> AutoDelete { get; private set; } = null!;
 
+        /// <summary>
+        /// The datacenter name to create the resource in.
+        /// </summary>
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
 
@@ -120,7 +122,7 @@ namespace Pulumi.HCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Primary IP.
+        /// Type of the Primary IP. `ipv4` or `ipv6`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -169,7 +171,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class PrimaryIpArgs : Pulumi.ResourceArgs
+    public sealed class PrimaryIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the assigned resource
@@ -178,7 +180,7 @@ namespace Pulumi.HCloud
         public Input<int>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The type of the assigned resource.
+        /// The type of the assigned resource. Currently supported: `server`
         /// </summary>
         [Input("assigneeType", required: true)]
         public Input<string> AssigneeType { get; set; } = null!;
@@ -190,6 +192,9 @@ namespace Pulumi.HCloud
         [Input("autoDelete", required: true)]
         public Input<bool> AutoDelete { get; set; } = null!;
 
+        /// <summary>
+        /// The datacenter name to create the resource in.
+        /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
@@ -218,7 +223,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of the Primary IP.
+        /// Type of the Primary IP. `ipv4` or `ipv6`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -226,9 +231,10 @@ namespace Pulumi.HCloud
         public PrimaryIpArgs()
         {
         }
+        public static new PrimaryIpArgs Empty => new PrimaryIpArgs();
     }
 
-    public sealed class PrimaryIpState : Pulumi.ResourceArgs
+    public sealed class PrimaryIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the assigned resource
@@ -237,7 +243,7 @@ namespace Pulumi.HCloud
         public Input<int>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The type of the assigned resource.
+        /// The type of the assigned resource. Currently supported: `server`
         /// </summary>
         [Input("assigneeType")]
         public Input<string>? AssigneeType { get; set; }
@@ -249,6 +255,9 @@ namespace Pulumi.HCloud
         [Input("autoDelete")]
         public Input<bool>? AutoDelete { get; set; }
 
+        /// <summary>
+        /// The datacenter name to create the resource in.
+        /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
@@ -286,7 +295,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of the Primary IP.
+        /// Type of the Primary IP. `ipv4` or `ipv6`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -294,5 +303,6 @@ namespace Pulumi.HCloud
         public PrimaryIpState()
         {
         }
+        public static new PrimaryIpState Empty => new PrimaryIpState();
     }
 }

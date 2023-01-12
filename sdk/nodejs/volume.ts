@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  * Volumes can be imported using their `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/volume:Volume myvolume <id>
+ *  $ pulumi import hcloud:index/volume:Volume myvolume id
  * ```
  */
 export class Volume extends pulumi.CustomResource {
@@ -82,7 +82,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly linuxDevice!: pulumi.Output<string>;
     /**
-     * Location of the volume to create, not allowed if serverId argument is passed.
+     * The location name of the volume to create, not allowed if serverId argument is passed.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export interface VolumeState {
      */
     linuxDevice?: pulumi.Input<string>;
     /**
-     * Location of the volume to create, not allowed if serverId argument is passed.
+     * The location name of the volume to create, not allowed if serverId argument is passed.
      */
     location?: pulumi.Input<string>;
     /**
@@ -203,7 +203,7 @@ export interface VolumeArgs {
      */
     labels?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Location of the volume to create, not allowed if serverId argument is passed.
+     * The location name of the volume to create, not allowed if serverId argument is passed.
      */
     location?: pulumi.Input<string>;
     /**

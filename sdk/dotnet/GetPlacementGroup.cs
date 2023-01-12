@@ -15,59 +15,57 @@ namespace Pulumi.HCloud
         /// Provides details about a specific Hetzner Cloud Placement Group.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroup.Invoke(new()
         ///     {
-        ///         var samplePlacementGroup1 = Output.Create(HCloud.GetPlacementGroup.InvokeAsync(new HCloud.GetPlacementGroupArgs
-        ///         {
-        ///             Name = "sample-placement-group-1",
-        ///         }));
-        ///         var samplePlacementGroup2 = Output.Create(HCloud.GetPlacementGroup.InvokeAsync(new HCloud.GetPlacementGroupArgs
-        ///         {
-        ///             Id = 4711,
-        ///         }));
-        ///     }
+        ///         Name = "sample-placement-group-1",
+        ///     });
         /// 
-        /// }
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroup.Invoke(new()
+        ///     {
+        ///         Id = 4711,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// </summary>
         public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Placement Group.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroup.Invoke(new()
         ///     {
-        ///         var samplePlacementGroup1 = Output.Create(HCloud.GetPlacementGroup.InvokeAsync(new HCloud.GetPlacementGroupArgs
-        ///         {
-        ///             Name = "sample-placement-group-1",
-        ///         }));
-        ///         var samplePlacementGroup2 = Output.Create(HCloud.GetPlacementGroup.InvokeAsync(new HCloud.GetPlacementGroupArgs
-        ///         {
-        ///             Id = 4711,
-        ///         }));
-        ///     }
+        ///         Name = "sample-placement-group-1",
+        ///     });
         /// 
-        /// }
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroup.Invoke(new()
+        ///     {
+        ///         Id = 4711,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// </summary>
         public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetPlacementGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the placement group.
@@ -114,9 +112,10 @@ namespace Pulumi.HCloud
         public GetPlacementGroupArgs()
         {
         }
+        public static new GetPlacementGroupArgs Empty => new GetPlacementGroupArgs();
     }
 
-    public sealed class GetPlacementGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the placement group.
@@ -163,6 +162,7 @@ namespace Pulumi.HCloud
         public GetPlacementGroupInvokeArgs()
         {
         }
+        public static new GetPlacementGroupInvokeArgs Empty => new GetPlacementGroupInvokeArgs();
     }
 
 

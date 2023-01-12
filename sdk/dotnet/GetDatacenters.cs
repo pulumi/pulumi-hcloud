@@ -16,18 +16,18 @@ namespace Pulumi.HCloud
         /// This resource may be useful to create highly available infrastructure, distributed across several datacenters.
         /// </summary>
         public static Task<GetDatacentersResult> InvokeAsync(GetDatacentersArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a list of available Hetzner Cloud Datacenters.
         /// This resource may be useful to create highly available infrastructure, distributed across several datacenters.
         /// </summary>
         public static Output<GetDatacentersResult> Invoke(GetDatacentersInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetDatacentersArgs : Pulumi.InvokeArgs
+    public sealed class GetDatacentersArgs : global::Pulumi.InvokeArgs
     {
         [Input("datacenterIds")]
         private List<string>? _datacenterIds;
@@ -45,9 +45,10 @@ namespace Pulumi.HCloud
         public GetDatacentersArgs()
         {
         }
+        public static new GetDatacentersArgs Empty => new GetDatacentersArgs();
     }
 
-    public sealed class GetDatacentersInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatacentersInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("datacenterIds")]
         private InputList<string>? _datacenterIds;
@@ -65,6 +66,7 @@ namespace Pulumi.HCloud
         public GetDatacentersInvokeArgs()
         {
         }
+        public static new GetDatacentersInvokeArgs Empty => new GetDatacentersInvokeArgs();
     }
 
 

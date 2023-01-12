@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -33,7 +34,7 @@ import * as utilities from "./utilities";
  * Load Balancers can be imported using its `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer <id>
+ *  $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer id
  * ```
  */
 export class LoadBalancer extends pulumi.CustomResource {
@@ -89,17 +90,23 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly loadBalancerType!: pulumi.Output<string>;
     /**
-     * Location of the Load Balancer. Require when no networkZone is set.
+     * The location name of the Load Balancer. Require when no networkZone is set.
      */
     public readonly location!: pulumi.Output<string>;
     /**
      * Name of the Load Balancer.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * (int) ID of the first private network that this Load Balancer is connected to.
+     */
     public /*out*/ readonly networkId!: pulumi.Output<number>;
+    /**
+     * (string) IP of the Load Balancer in the first private network that it is connected to.
+     */
     public /*out*/ readonly networkIp!: pulumi.Output<string>;
     /**
-     * Network Zone of the Load Balancer. Require when no location is set.
+     * The Network Zone of the Load Balancer. Require when no location is set.
      */
     public readonly networkZone!: pulumi.Output<string>;
     /**
@@ -184,17 +191,23 @@ export interface LoadBalancerState {
      */
     loadBalancerType?: pulumi.Input<string>;
     /**
-     * Location of the Load Balancer. Require when no networkZone is set.
+     * The location name of the Load Balancer. Require when no networkZone is set.
      */
     location?: pulumi.Input<string>;
     /**
      * Name of the Load Balancer.
      */
     name?: pulumi.Input<string>;
+    /**
+     * (int) ID of the first private network that this Load Balancer is connected to.
+     */
     networkId?: pulumi.Input<number>;
+    /**
+     * (string) IP of the Load Balancer in the first private network that it is connected to.
+     */
     networkIp?: pulumi.Input<string>;
     /**
-     * Network Zone of the Load Balancer. Require when no location is set.
+     * The Network Zone of the Load Balancer. Require when no location is set.
      */
     networkZone?: pulumi.Input<string>;
     /**
@@ -224,7 +237,7 @@ export interface LoadBalancerArgs {
      */
     loadBalancerType: pulumi.Input<string>;
     /**
-     * Location of the Load Balancer. Require when no networkZone is set.
+     * The location name of the Load Balancer. Require when no networkZone is set.
      */
     location?: pulumi.Input<string>;
     /**
@@ -232,7 +245,7 @@ export interface LoadBalancerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Network Zone of the Load Balancer. Require when no location is set.
+     * The Network Zone of the Load Balancer. Require when no location is set.
      */
     networkZone?: pulumi.Input<string>;
     /**

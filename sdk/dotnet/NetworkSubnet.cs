@@ -15,27 +15,26 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mynet = new HCloud.Network("mynet", new()
     ///     {
-    ///         var mynet = new HCloud.Network("mynet", new HCloud.NetworkArgs
-    ///         {
-    ///             IpRange = "10.0.0.0/8",
-    ///         });
-    ///         var foonet = new HCloud.NetworkSubnet("foonet", new HCloud.NetworkSubnetArgs
-    ///         {
-    ///             NetworkId = mynet.Id,
-    ///             Type = "cloud",
-    ///             NetworkZone = "eu-central",
-    ///             IpRange = "10.0.1.0/24",
-    ///         });
-    ///     }
+    ///         IpRange = "10.0.0.0/8",
+    ///     });
     /// 
-    /// }
+    ///     var foonet = new HCloud.NetworkSubnet("foonet", new()
+    ///     {
+    ///         NetworkId = mynet.Id,
+    ///         Type = "cloud",
+    ///         NetworkZone = "eu-central",
+    ///         IpRange = "10.0.1.0/24",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.HCloud
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/networkSubnet:NetworkSubnet")]
-    public partial class NetworkSubnet : Pulumi.CustomResource
+    public partial class NetworkSubnet : global::Pulumi.CustomResource
     {
         [Output("gateway")]
         public Output<string> Gateway { get; private set; } = null!;
@@ -126,7 +125,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class NetworkSubnetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkSubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
@@ -161,9 +160,10 @@ namespace Pulumi.HCloud
         public NetworkSubnetArgs()
         {
         }
+        public static new NetworkSubnetArgs Empty => new NetworkSubnetArgs();
     }
 
-    public sealed class NetworkSubnetState : Pulumi.ResourceArgs
+    public sealed class NetworkSubnetState : global::Pulumi.ResourceArgs
     {
         [Input("gateway")]
         public Input<string>? Gateway { get; set; }
@@ -201,5 +201,6 @@ namespace Pulumi.HCloud
         public NetworkSubnetState()
         {
         }
+        public static new NetworkSubnetState Empty => new NetworkSubnetState();
     }
 }

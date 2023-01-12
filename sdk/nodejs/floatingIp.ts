@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * Floating IPs can be imported using its `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/floatingIp:FloatingIp myip <id>
+ *  $ pulumi import hcloud:index/floatingIp:FloatingIp myip id
  * ```
  */
 export class FloatingIp extends pulumi.CustomResource {
@@ -68,7 +68,7 @@ export class FloatingIp extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Home location (routing is optimized for that location). Optional if serverId argument is passed.
+     * Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
      */
     public readonly homeLocation!: pulumi.Output<string>;
     /**
@@ -151,7 +151,7 @@ export interface FloatingIpState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Home location (routing is optimized for that location). Optional if serverId argument is passed.
+     * Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
      */
     homeLocation?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface FloatingIpArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Home location (routing is optimized for that location). Optional if serverId argument is passed.
+     * Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
      */
     homeLocation?: pulumi.Input<string>;
     /**

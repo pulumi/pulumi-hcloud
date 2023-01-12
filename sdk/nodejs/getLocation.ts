@@ -14,21 +14,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const l1 = pulumi.output(hcloud.getLocation({
+ * const l1 = hcloud.getLocation({
  *     name: "fsn1",
- * }));
- * const l2 = pulumi.output(hcloud.getLocation({
+ * });
+ * const l2 = hcloud.getLocation({
  *     id: 1,
- * }));
+ * });
  * ```
  */
 export function getLocation(args?: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getLocation:getLocation", {
         "id": args.id,
         "name": args.name,
@@ -86,9 +83,26 @@ export interface GetLocationResult {
      */
     readonly networkZone: string;
 }
-
+/**
+ * Provides details about a specific Hetzner Cloud Location.
+ * Use this resource to get detailed information about specific location.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const l1 = hcloud.getLocation({
+ *     name: "fsn1",
+ * });
+ * const l2 = hcloud.getLocation({
+ *     id: 1,
+ * });
+ * ```
+ */
 export function getLocationOutput(args?: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
-    return pulumi.output(args).apply(a => getLocation(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocation(a, opts))
 }
 
 /**

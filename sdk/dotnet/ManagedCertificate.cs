@@ -17,11 +17,11 @@ namespace Pulumi.HCloud
     /// Managed certificates can be imported using their `id`hcl
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate &lt;id&gt;
+    ///  $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/managedCertificate:ManagedCertificate")]
-    public partial class ManagedCertificate : Pulumi.CustomResource
+    public partial class ManagedCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (string) PEM encoded TLS certificate.
@@ -119,7 +119,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class ManagedCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ManagedCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("domainNames", required: true)]
         private InputList<string>? _domainNames;
@@ -155,9 +155,10 @@ namespace Pulumi.HCloud
         public ManagedCertificateArgs()
         {
         }
+        public static new ManagedCertificateArgs Empty => new ManagedCertificateArgs();
     }
 
-    public sealed class ManagedCertificateState : Pulumi.ResourceArgs
+    public sealed class ManagedCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string) PEM encoded TLS certificate.
@@ -226,5 +227,6 @@ namespace Pulumi.HCloud
         public ManagedCertificateState()
         {
         }
+        public static new ManagedCertificateState Empty => new ManagedCertificateState();
     }
 }

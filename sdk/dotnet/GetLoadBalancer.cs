@@ -19,34 +19,34 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var lb1 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
-        ///         var lb1 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
-        ///         {
-        ///             Name = "my-load-balancer",
-        ///         }));
-        ///         var lb2 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
-        ///         {
-        ///             Id = 123,
-        ///         }));
-        ///         var lb3 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         Name = "my-load-balancer",
+        ///     });
         /// 
-        /// }
+        ///     var lb2 = HCloud.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Id = 123,
+        ///     });
+        /// 
+        ///     var lb3 = HCloud.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("hcloud:index/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("hcloud:index/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Load Balancer.
@@ -56,38 +56,38 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var lb1 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
-        ///         var lb1 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
-        ///         {
-        ///             Name = "my-load-balancer",
-        ///         }));
-        ///         var lb2 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
-        ///         {
-        ///             Id = 123,
-        ///         }));
-        ///         var lb3 = Output.Create(HCloud.GetLoadBalancer.InvokeAsync(new HCloud.GetLoadBalancerArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         Name = "my-load-balancer",
+        ///     });
         /// 
-        /// }
+        ///     var lb2 = HCloud.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Id = 123,
+        ///     });
+        /// 
+        ///     var lb3 = HCloud.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("hcloud:index/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("hcloud:index/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the Load Balancer.
@@ -110,9 +110,10 @@ namespace Pulumi.HCloud
         public GetLoadBalancerArgs()
         {
         }
+        public static new GetLoadBalancerArgs Empty => new GetLoadBalancerArgs();
     }
 
-    public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the Load Balancer.
@@ -135,6 +136,7 @@ namespace Pulumi.HCloud
         public GetLoadBalancerInvokeArgs()
         {
         }
+        public static new GetLoadBalancerInvokeArgs Empty => new GetLoadBalancerInvokeArgs();
     }
 
 
@@ -146,7 +148,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLoadBalancerAlgorithmResult> Algorithms;
         /// <summary>
-        /// (boolean) Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>
@@ -177,6 +179,14 @@ namespace Pulumi.HCloud
         /// (string) Name of the Load Balancer.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// (int) ID of the first private network that this Load Balancer is connected to.
+        /// </summary>
+        public readonly int NetworkId;
+        /// <summary>
+        /// (string) IP of the Load Balancer in the first private network that it is connected to.
+        /// </summary>
+        public readonly string NetworkIp;
         public readonly string NetworkZone;
         /// <summary>
         /// (list) List of services a Load Balancer provides.
@@ -208,6 +218,10 @@ namespace Pulumi.HCloud
 
             string? name,
 
+            int networkId,
+
+            string networkIp,
+
             string networkZone,
 
             ImmutableArray<Outputs.GetLoadBalancerServiceResult> services,
@@ -225,6 +239,8 @@ namespace Pulumi.HCloud
             LoadBalancerType = loadBalancerType;
             Location = location;
             Name = name;
+            NetworkId = networkId;
+            NetworkIp = networkIp;
             NetworkZone = networkZone;
             Services = services;
             Targets = targets;

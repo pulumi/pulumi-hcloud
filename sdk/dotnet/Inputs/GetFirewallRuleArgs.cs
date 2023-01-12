@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class GetFirewallRuleInputArgs : Pulumi.ResourceArgs
+    public sealed class GetFirewallRuleInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional, string) Description of the firewall rule
@@ -63,5 +63,6 @@ namespace Pulumi.HCloud.Inputs
         public GetFirewallRuleInputArgs()
         {
         }
+        public static new GetFirewallRuleInputArgs Empty => new GetFirewallRuleInputArgs();
     }
 }

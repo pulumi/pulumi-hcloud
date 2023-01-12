@@ -15,26 +15,25 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///         });
-    ///         var master = new HCloud.FloatingIp("master", new HCloud.FloatingIpArgs
-    ///         {
-    ///             Type = "ipv4",
-    ///             ServerId = node1.Id,
-    ///         });
-    ///     }
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///     });
     /// 
-    /// }
+    ///     var master = new HCloud.FloatingIp("master", new()
+    ///     {
+    ///         Type = "ipv4",
+    ///         ServerId = node1.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,11 +41,11 @@ namespace Pulumi.HCloud
     /// Floating IPs can be imported using its `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/floatingIp:FloatingIp myip &lt;id&gt;
+    ///  $ pulumi import hcloud:index/floatingIp:FloatingIp myip id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/floatingIp:FloatingIp")]
-    public partial class FloatingIp : Pulumi.CustomResource
+    public partial class FloatingIp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enable or disable delete protection.
@@ -61,7 +60,7 @@ namespace Pulumi.HCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         /// </summary>
         [Output("homeLocation")]
         public Output<string> HomeLocation { get; private set; } = null!;
@@ -146,7 +145,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class FloatingIpArgs : Pulumi.ResourceArgs
+    public sealed class FloatingIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable delete protection.
@@ -161,7 +160,7 @@ namespace Pulumi.HCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         /// </summary>
         [Input("homeLocation")]
         public Input<string>? HomeLocation { get; set; }
@@ -199,9 +198,10 @@ namespace Pulumi.HCloud
         public FloatingIpArgs()
         {
         }
+        public static new FloatingIpArgs Empty => new FloatingIpArgs();
     }
 
-    public sealed class FloatingIpState : Pulumi.ResourceArgs
+    public sealed class FloatingIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable delete protection.
@@ -216,7 +216,7 @@ namespace Pulumi.HCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         /// </summary>
         [Input("homeLocation")]
         public Input<string>? HomeLocation { get; set; }
@@ -266,5 +266,6 @@ namespace Pulumi.HCloud
         public FloatingIpState()
         {
         }
+        public static new FloatingIpState Empty => new FloatingIpState();
     }
 }

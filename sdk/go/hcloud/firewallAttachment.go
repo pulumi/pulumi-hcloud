@@ -24,35 +24,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testServer, err := hcloud.NewServer(ctx, "testServer", &hcloud.ServerArgs{
-// 			ServerType: pulumi.String("cx11"),
-// 			Image:      pulumi.String("ubuntu-20.04"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		basicFirewall, err := hcloud.NewFirewall(ctx, "basicFirewall", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewFirewallAttachment(ctx, "fwRef", &hcloud.FirewallAttachmentArgs{
-// 			FirewallId: basicFirewall.ID(),
-// 			ServerIds: pulumi.IntArray{
-// 				testServer.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testServer, err := hcloud.NewServer(ctx, "testServer", &hcloud.ServerArgs{
+//				ServerType: pulumi.String("cx11"),
+//				Image:      pulumi.String("ubuntu-20.04"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			basicFirewall, err := hcloud.NewFirewall(ctx, "basicFirewall", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewFirewallAttachment(ctx, "fwRef", &hcloud.FirewallAttachmentArgs{
+//				FirewallId: basicFirewall.ID(),
+//				ServerIds: pulumi.IntArray{
+//					testServer.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Attach Label Selectors
 //
@@ -60,38 +63,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.NewServer(ctx, "testServer", &hcloud.ServerArgs{
-// 			ServerType: pulumi.String("cx11"),
-// 			Image:      pulumi.String("ubuntu-20.04"),
-// 			Labels: pulumi.AnyMap{
-// 				"firewall-attachment": pulumi.Any("test-server"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		basicFirewall, err := hcloud.NewFirewall(ctx, "basicFirewall", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewFirewallAttachment(ctx, "fwRef", &hcloud.FirewallAttachmentArgs{
-// 			FirewallId: basicFirewall.ID(),
-// 			LabelSelectors: pulumi.StringArray{
-// 				pulumi.String("firewall-attachment=test-server"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.NewServer(ctx, "testServer", &hcloud.ServerArgs{
+//				ServerType: pulumi.String("cx11"),
+//				Image:      pulumi.String("ubuntu-20.04"),
+//				Labels: pulumi.AnyMap{
+//					"firewall-attachment": pulumi.Any("test-server"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			basicFirewall, err := hcloud.NewFirewall(ctx, "basicFirewall", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewFirewallAttachment(ctx, "fwRef", &hcloud.FirewallAttachmentArgs{
+//				FirewallId: basicFirewall.ID(),
+//				LabelSelectors: pulumi.StringArray{
+//					pulumi.String("firewall-attachment=test-server"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type FirewallAttachment struct {
 	pulumi.CustomResourceState
@@ -217,7 +223,7 @@ func (i *FirewallAttachment) ToFirewallAttachmentOutputWithContext(ctx context.C
 // FirewallAttachmentArrayInput is an input type that accepts FirewallAttachmentArray and FirewallAttachmentArrayOutput values.
 // You can construct a concrete instance of `FirewallAttachmentArrayInput` via:
 //
-//          FirewallAttachmentArray{ FirewallAttachmentArgs{...} }
+//	FirewallAttachmentArray{ FirewallAttachmentArgs{...} }
 type FirewallAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -242,7 +248,7 @@ func (i FirewallAttachmentArray) ToFirewallAttachmentArrayOutputWithContext(ctx 
 // FirewallAttachmentMapInput is an input type that accepts FirewallAttachmentMap and FirewallAttachmentMapOutput values.
 // You can construct a concrete instance of `FirewallAttachmentMapInput` via:
 //
-//          FirewallAttachmentMap{ "key": FirewallAttachmentArgs{...} }
+//	FirewallAttachmentMap{ "key": FirewallAttachmentArgs{...} }
 type FirewallAttachmentMapInput interface {
 	pulumi.Input
 

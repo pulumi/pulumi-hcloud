@@ -15,22 +15,20 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new SSH key
+    ///     var @default = new HCloud.SshKey("default", new()
     ///     {
-    ///         // Create a new SSH key
-    ///         var @default = new HCloud.SshKey("default", new HCloud.SshKeyArgs
-    ///         {
-    ///             PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///         });
-    ///     }
+    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -38,11 +36,11 @@ namespace Pulumi.HCloud
     /// SSH keys can be imported using the SSH key `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/sshKey:SshKey mykey &lt;id&gt;
+    ///  $ pulumi import hcloud:index/sshKey:SshKey mykey id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/sshKey:SshKey")]
-    public partial class SshKey : Pulumi.CustomResource
+    public partial class SshKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (string) The fingerprint of the SSH key
@@ -112,7 +110,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class SshKeyArgs : Pulumi.ResourceArgs
+    public sealed class SshKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputMap<object>? _labels;
@@ -141,9 +139,10 @@ namespace Pulumi.HCloud
         public SshKeyArgs()
         {
         }
+        public static new SshKeyArgs Empty => new SshKeyArgs();
     }
 
-    public sealed class SshKeyState : Pulumi.ResourceArgs
+    public sealed class SshKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string) The fingerprint of the SSH key
@@ -178,5 +177,6 @@ namespace Pulumi.HCloud
         public SshKeyState()
         {
         }
+        public static new SshKeyState Empty => new SshKeyState();
     }
 }

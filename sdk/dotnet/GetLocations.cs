@@ -16,18 +16,18 @@ namespace Pulumi.HCloud
         /// This resource may be useful to create highly available infrastructure, distributed across several locations.
         /// </summary>
         public static Task<GetLocationsResult> InvokeAsync(GetLocationsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("hcloud:index/getLocations:getLocations", args ?? new GetLocationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("hcloud:index/getLocations:getLocations", args ?? new GetLocationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a list of available Hetzner Cloud Locations.
         /// This resource may be useful to create highly available infrastructure, distributed across several locations.
         /// </summary>
         public static Output<GetLocationsResult> Invoke(GetLocationsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("hcloud:index/getLocations:getLocations", args ?? new GetLocationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("hcloud:index/getLocations:getLocations", args ?? new GetLocationsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetLocationsArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationsArgs : global::Pulumi.InvokeArgs
     {
         [Input("locationIds")]
         private List<string>? _locationIds;
@@ -45,9 +45,10 @@ namespace Pulumi.HCloud
         public GetLocationsArgs()
         {
         }
+        public static new GetLocationsArgs Empty => new GetLocationsArgs();
     }
 
-    public sealed class GetLocationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("locationIds")]
         private InputList<string>? _locationIds;
@@ -65,6 +66,7 @@ namespace Pulumi.HCloud
         public GetLocationsInvokeArgs()
         {
         }
+        public static new GetLocationsInvokeArgs Empty => new GetLocationsInvokeArgs();
     }
 
 

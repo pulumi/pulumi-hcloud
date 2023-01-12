@@ -22,43 +22,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := hcloud.NewPrimaryIp(ctx, "main", &hcloud.PrimaryIpArgs{
-// 			Datacenter:   pulumi.String("fsn1-dc14"),
-// 			Type:         pulumi.String("ipv4"),
-// 			AssigneeType: pulumi.String("server"),
-// 			AutoDelete:   pulumi.Bool(true),
-// 			Labels: pulumi.AnyMap{
-// 				"hallo": pulumi.Any("welt"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("ubuntu-20.04"),
-// 			ServerType: pulumi.String("cx11"),
-// 			Datacenter: pulumi.String("fsn1-dc14"),
-// 			Labels: pulumi.AnyMap{
-// 				"test": pulumi.Any("tessst1"),
-// 			},
-// 			PublicNets: ServerPublicNetArray{
-// 				&ServerPublicNetArgs{
-// 					Ipv4: main.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := hcloud.NewPrimaryIp(ctx, "main", &hcloud.PrimaryIpArgs{
+//				Datacenter:   pulumi.String("fsn1-dc14"),
+//				Type:         pulumi.String("ipv4"),
+//				AssigneeType: pulumi.String("server"),
+//				AutoDelete:   pulumi.Bool(true),
+//				Labels: pulumi.AnyMap{
+//					"hallo": pulumi.Any("welt"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
+//				Image:      pulumi.String("ubuntu-20.04"),
+//				ServerType: pulumi.String("cx11"),
+//				Datacenter: pulumi.String("fsn1-dc14"),
+//				Labels: pulumi.AnyMap{
+//					"test": pulumi.Any("tessst1"),
+//				},
+//				PublicNets: hcloud.ServerPublicNetArray{
+//					&hcloud.ServerPublicNetArgs{
+//						Ipv4: main.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,18 +69,21 @@ import (
 // Primary IPs can be imported using its `id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/primaryIp:PrimaryIp myip <id>
+//
+//	$ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
+//
 // ```
 type PrimaryIp struct {
 	pulumi.CustomResourceState
 
 	// ID of the assigned resource
 	AssigneeId pulumi.IntOutput `pulumi:"assigneeId"`
-	// The type of the assigned resource.
+	// The type of the assigned resource. Currently supported: `server`
 	AssigneeType pulumi.StringOutput `pulumi:"assigneeType"`
 	// Whether auto delete is enabled.
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-	AutoDelete pulumi.BoolOutput   `pulumi:"autoDelete"`
+	AutoDelete pulumi.BoolOutput `pulumi:"autoDelete"`
+	// The datacenter name to create the resource in.
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
 	// Whether delete protection is enabled.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
@@ -88,7 +94,7 @@ type PrimaryIp struct {
 	Labels pulumi.MapOutput `pulumi:"labels"`
 	// Name of the Primary IP.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Type of the Primary IP.
+	// Type of the Primary IP. `ipv4` or `ipv6`
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -132,11 +138,12 @@ func GetPrimaryIp(ctx *pulumi.Context,
 type primaryIpState struct {
 	// ID of the assigned resource
 	AssigneeId *int `pulumi:"assigneeId"`
-	// The type of the assigned resource.
+	// The type of the assigned resource. Currently supported: `server`
 	AssigneeType *string `pulumi:"assigneeType"`
 	// Whether auto delete is enabled.
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-	AutoDelete *bool   `pulumi:"autoDelete"`
+	AutoDelete *bool `pulumi:"autoDelete"`
+	// The datacenter name to create the resource in.
 	Datacenter *string `pulumi:"datacenter"`
 	// Whether delete protection is enabled.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -147,18 +154,19 @@ type primaryIpState struct {
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
-	// Type of the Primary IP.
+	// Type of the Primary IP. `ipv4` or `ipv6`
 	Type *string `pulumi:"type"`
 }
 
 type PrimaryIpState struct {
 	// ID of the assigned resource
 	AssigneeId pulumi.IntPtrInput
-	// The type of the assigned resource.
+	// The type of the assigned resource. Currently supported: `server`
 	AssigneeType pulumi.StringPtrInput
 	// Whether auto delete is enabled.
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete pulumi.BoolPtrInput
+	// The datacenter name to create the resource in.
 	Datacenter pulumi.StringPtrInput
 	// Whether delete protection is enabled.
 	DeleteProtection pulumi.BoolPtrInput
@@ -169,7 +177,7 @@ type PrimaryIpState struct {
 	Labels pulumi.MapInput
 	// Name of the Primary IP.
 	Name pulumi.StringPtrInput
-	// Type of the Primary IP.
+	// Type of the Primary IP. `ipv4` or `ipv6`
 	Type pulumi.StringPtrInput
 }
 
@@ -180,11 +188,12 @@ func (PrimaryIpState) ElementType() reflect.Type {
 type primaryIpArgs struct {
 	// ID of the assigned resource
 	AssigneeId *int `pulumi:"assigneeId"`
-	// The type of the assigned resource.
+	// The type of the assigned resource. Currently supported: `server`
 	AssigneeType string `pulumi:"assigneeType"`
 	// Whether auto delete is enabled.
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-	AutoDelete bool    `pulumi:"autoDelete"`
+	AutoDelete bool `pulumi:"autoDelete"`
+	// The datacenter name to create the resource in.
 	Datacenter *string `pulumi:"datacenter"`
 	// Whether delete protection is enabled.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -192,7 +201,7 @@ type primaryIpArgs struct {
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
-	// Type of the Primary IP.
+	// Type of the Primary IP. `ipv4` or `ipv6`
 	Type string `pulumi:"type"`
 }
 
@@ -200,11 +209,12 @@ type primaryIpArgs struct {
 type PrimaryIpArgs struct {
 	// ID of the assigned resource
 	AssigneeId pulumi.IntPtrInput
-	// The type of the assigned resource.
+	// The type of the assigned resource. Currently supported: `server`
 	AssigneeType pulumi.StringInput
 	// Whether auto delete is enabled.
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete pulumi.BoolInput
+	// The datacenter name to create the resource in.
 	Datacenter pulumi.StringPtrInput
 	// Whether delete protection is enabled.
 	DeleteProtection pulumi.BoolPtrInput
@@ -212,7 +222,7 @@ type PrimaryIpArgs struct {
 	Labels pulumi.MapInput
 	// Name of the Primary IP.
 	Name pulumi.StringPtrInput
-	// Type of the Primary IP.
+	// Type of the Primary IP. `ipv4` or `ipv6`
 	Type pulumi.StringInput
 }
 
@@ -242,7 +252,7 @@ func (i *PrimaryIp) ToPrimaryIpOutputWithContext(ctx context.Context) PrimaryIpO
 // PrimaryIpArrayInput is an input type that accepts PrimaryIpArray and PrimaryIpArrayOutput values.
 // You can construct a concrete instance of `PrimaryIpArrayInput` via:
 //
-//          PrimaryIpArray{ PrimaryIpArgs{...} }
+//	PrimaryIpArray{ PrimaryIpArgs{...} }
 type PrimaryIpArrayInput interface {
 	pulumi.Input
 
@@ -267,7 +277,7 @@ func (i PrimaryIpArray) ToPrimaryIpArrayOutputWithContext(ctx context.Context) P
 // PrimaryIpMapInput is an input type that accepts PrimaryIpMap and PrimaryIpMapOutput values.
 // You can construct a concrete instance of `PrimaryIpMapInput` via:
 //
-//          PrimaryIpMap{ "key": PrimaryIpArgs{...} }
+//	PrimaryIpMap{ "key": PrimaryIpArgs{...} }
 type PrimaryIpMapInput interface {
 	pulumi.Input
 
@@ -308,7 +318,7 @@ func (o PrimaryIpOutput) AssigneeId() pulumi.IntOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.IntOutput { return v.AssigneeId }).(pulumi.IntOutput)
 }
 
-// The type of the assigned resource.
+// The type of the assigned resource. Currently supported: `server`
 func (o PrimaryIpOutput) AssigneeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.AssigneeType }).(pulumi.StringOutput)
 }
@@ -319,6 +329,7 @@ func (o PrimaryIpOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.BoolOutput { return v.AutoDelete }).(pulumi.BoolOutput)
 }
 
+// The datacenter name to create the resource in.
 func (o PrimaryIpOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.Datacenter }).(pulumi.StringOutput)
 }
@@ -347,7 +358,7 @@ func (o PrimaryIpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Type of the Primary IP.
+// Type of the Primary IP. `ipv4` or `ipv6`
 func (o PrimaryIpOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

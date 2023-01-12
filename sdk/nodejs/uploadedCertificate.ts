@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * Uploaded certificates can be imported using their `id`hcl
  *
  * ```sh
- *  $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate <id>
+ *  $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
  * ```
  */
 export class UploadedCertificate extends pulumi.CustomResource {
@@ -116,7 +116,7 @@ export class UploadedCertificate extends pulumi.CustomResource {
             resourceInputs["certificate"] = args ? args.certificate : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["domainNames"] = undefined /*out*/;
             resourceInputs["fingerprint"] = undefined /*out*/;
@@ -125,6 +125,8 @@ export class UploadedCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(UploadedCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -15,36 +15,52 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myServer = new HCloud.Server("myServer", new()
     ///     {
-    ///         var myServer = new HCloud.Server("myServer", new HCloud.ServerArgs
-    ///         {
-    ///             ServerType = "cx11",
-    ///             Image = "ubuntu-18.04",
-    ///         });
-    ///         var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new HCloud.LoadBalancerArgs
-    ///         {
-    ///             LoadBalancerType = "lb11",
-    ///             Location = "nbg1",
-    ///         });
-    ///         var loadBalancerTarget = new HCloud.LoadBalancerTarget("loadBalancerTarget", new HCloud.LoadBalancerTargetArgs
-    ///         {
-    ///             Type = "server",
-    ///             LoadBalancerId = loadBalancer.Id,
-    ///             ServerId = myServer.Id,
-    ///         });
-    ///     }
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-18.04",
+    ///     });
     /// 
-    /// }
+    ///     var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         LoadBalancerType = "lb11",
+    ///         Location = "nbg1",
+    ///     });
+    /// 
+    ///     var loadBalancerTarget = new HCloud.LoadBalancerTarget("loadBalancerTarget", new()
+    ///     {
+    ///         Type = "server",
+    ///         LoadBalancerId = loadBalancer.Id,
+    ///         ServerId = myServer.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Load Balancer Target entries can be imported using a compound ID with the following format`&lt;load-balancer-id&gt;__&lt;type&gt;__&lt;identifier&gt;` Where _identifier_ depends on the _type_- `server`server id, for example`123` - `label_selector`label selector, for example`foo=bar` - `ip`ip address, for example`203.0.113.123`
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerservertarget 123__server__321
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerlabeltarget 123__label_selector__foo=bar
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalanceriptarget 123__ip__203.0.113.123
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/loadBalancerTarget:LoadBalancerTarget")]
-    public partial class LoadBalancerTarget : Pulumi.CustomResource
+    public partial class LoadBalancerTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IP address for an IP Target. Required if
@@ -133,7 +149,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class LoadBalancerTargetArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address for an IP Target. Required if
@@ -181,9 +197,10 @@ namespace Pulumi.HCloud
         public LoadBalancerTargetArgs()
         {
         }
+        public static new LoadBalancerTargetArgs Empty => new LoadBalancerTargetArgs();
     }
 
-    public sealed class LoadBalancerTargetState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address for an IP Target. Required if
@@ -231,5 +248,6 @@ namespace Pulumi.HCloud
         public LoadBalancerTargetState()
         {
         }
+        public static new LoadBalancerTargetState Empty => new LoadBalancerTargetState();
     }
 }

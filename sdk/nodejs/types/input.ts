@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface FirewallApplyTo {
     /**
@@ -71,33 +72,6 @@ export interface GetFirewallApplyToArgs {
     server?: pulumi.Input<number>;
 }
 
-export interface GetFirewallRuleArgs {
-    /**
-     * (Optional, string) Description of the firewall rule
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
-     */
-    destinationIps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (Required, string) Direction of the Firewall Rule. `in`, `out`
-     */
-    direction: pulumi.Input<string>;
-    /**
-     * (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
-     */
-    port?: pulumi.Input<string>;
-    /**
-     * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
-     */
-    protocol?: pulumi.Input<string>;
-    /**
-     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
-     */
-    sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
-}
-
 export interface GetFirewallRule {
     /**
      * (Optional, string) Description of the firewall rule
@@ -123,6 +97,33 @@ export interface GetFirewallRule {
      * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
      */
     sourceIps?: string[];
+}
+
+export interface GetFirewallRuleArgs {
+    /**
+     * (Optional, string) Description of the firewall rule
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+     */
+    destinationIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Required, string) Direction of the Firewall Rule. `in`, `out`
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+     */
+    port?: pulumi.Input<string>;
+    /**
+     * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+     */
+    protocol?: pulumi.Input<string>;
+    /**
+     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
+     */
+    sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface LoadBalancerAlgorithm {

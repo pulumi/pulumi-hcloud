@@ -22,56 +22,61 @@ import (
 // ## Example Usage
 //
 // # Data Source: PrimaryIp
+//
 // Provides details about a Hetzner Cloud Primary IP.
 // This resource can be useful when you need to determine a Primary IP ID based on the IP address.
 // ### Additional Examples
+//
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
-// 			IpAddress: pulumi.StringRef("1.2.3.4"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
-// 			Name: pulumi.StringRef("primary_ip_1"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupPrimaryIp(ctx, &GetPrimaryIpArgs{
-// 			WithSelector: pulumi.StringRef("key=value"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("ubuntu-20.04"),
-// 			ServerType: pulumi.String("cx11"),
-// 			Datacenter: pulumi.String("fsn1-dc14"),
-// 			Labels: pulumi.AnyMap{
-// 				"test": pulumi.Any("tessst1"),
-// 			},
-// 			PublicNets: ServerPublicNetArray{
-// 				&ServerPublicNetArgs{
-// 					Ipv4: pulumi.Any(hcloud_primary_ip.Ip_1.Id),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.LookupPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
+//				IpAddress: pulumi.StringRef("1.2.3.4"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
+//				Name: pulumi.StringRef("primary_ip_1"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
+//				WithSelector: pulumi.StringRef("key=value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
+//				Image:      pulumi.String("ubuntu-20.04"),
+//				ServerType: pulumi.String("cx11"),
+//				Datacenter: pulumi.String("fsn1-dc14"),
+//				Labels: pulumi.AnyMap{
+//					"test": pulumi.Any("tessst1"),
+//				},
+//				PublicNets: hcloud.ServerPublicNetArray{
+//					&hcloud.ServerPublicNetArgs{
+//						Ipv4: pulumi.Any(hcloud_primary_ip.Ip_1.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupPrimaryIp(ctx *pulumi.Context, args *LookupPrimaryIpArgs, opts ...pulumi.InvokeOption) (*LookupPrimaryIpResult, error) {
 	var rv LookupPrimaryIpResult
@@ -84,7 +89,7 @@ func LookupPrimaryIp(ctx *pulumi.Context, args *LookupPrimaryIpArgs, opts ...pul
 
 // A collection of arguments for invoking getPrimaryIp.
 type LookupPrimaryIpArgs struct {
-	// (int) ID of the assigned resource
+	// (int) ID of the assigned resource.
 	AssigneeId *int `pulumi:"assigneeId"`
 	// ID of the Primary IP.
 	Id *int `pulumi:"id"`
@@ -98,14 +103,15 @@ type LookupPrimaryIpArgs struct {
 
 // A collection of values returned by getPrimaryIp.
 type LookupPrimaryIpResult struct {
-	// (int) ID of the assigned resource
+	// (int) ID of the assigned resource.
 	AssigneeId int `pulumi:"assigneeId"`
 	// (string) The type of the assigned resource.
 	AssigneeType string `pulumi:"assigneeType"`
-	// (boolean) Whether auto delete is enabled.
-	AutoDelete bool   `pulumi:"autoDelete"`
+	// (bool) Whether auto delete is enabled.
+	AutoDelete bool `pulumi:"autoDelete"`
+	// (string) The datacenter name of the Primary IP.
 	Datacenter string `pulumi:"datacenter"`
-	// (boolean) Whether delete protection is enabled.
+	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// (int) Unique ID of the Primary IP.
 	Id int `pulumi:"id"`
@@ -136,7 +142,7 @@ func LookupPrimaryIpOutput(ctx *pulumi.Context, args LookupPrimaryIpOutputArgs, 
 
 // A collection of arguments for invoking getPrimaryIp.
 type LookupPrimaryIpOutputArgs struct {
-	// (int) ID of the assigned resource
+	// (int) ID of the assigned resource.
 	AssigneeId pulumi.IntPtrInput `pulumi:"assigneeId"`
 	// ID of the Primary IP.
 	Id pulumi.IntPtrInput `pulumi:"id"`
@@ -167,7 +173,7 @@ func (o LookupPrimaryIpResultOutput) ToLookupPrimaryIpResultOutputWithContext(ct
 	return o
 }
 
-// (int) ID of the assigned resource
+// (int) ID of the assigned resource.
 func (o LookupPrimaryIpResultOutput) AssigneeId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) int { return v.AssigneeId }).(pulumi.IntOutput)
 }
@@ -177,16 +183,17 @@ func (o LookupPrimaryIpResultOutput) AssigneeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.AssigneeType }).(pulumi.StringOutput)
 }
 
-// (boolean) Whether auto delete is enabled.
+// (bool) Whether auto delete is enabled.
 func (o LookupPrimaryIpResultOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) bool { return v.AutoDelete }).(pulumi.BoolOutput)
 }
 
+// (string) The datacenter name of the Primary IP.
 func (o LookupPrimaryIpResultOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.Datacenter }).(pulumi.StringOutput)
 }
 
-// (boolean) Whether delete protection is enabled.
+// (bool) Whether delete protection is enabled.
 func (o LookupPrimaryIpResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }

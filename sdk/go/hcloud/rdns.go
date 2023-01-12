@@ -21,30 +21,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("debian-9"),
-// 			ServerType: pulumi.String("cx11"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewRdns(ctx, "master", &hcloud.RdnsArgs{
-// 			ServerId:  node1.ID(),
-// 			IpAddress: node1.Ipv4Address,
-// 			DnsPtr:    pulumi.String("example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:      pulumi.String("debian-9"),
+//				ServerType: pulumi.String("cx11"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewRdns(ctx, "master", &hcloud.RdnsArgs{
+//				ServerId:  node1.ID(),
+//				IpAddress: node1.Ipv4Address,
+//				DnsPtr:    pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // For Floating IPs:
@@ -53,30 +56,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		floating1, err := hcloud.NewFloatingIp(ctx, "floating1", &hcloud.FloatingIpArgs{
-// 			HomeLocation: pulumi.String("nbg1"),
-// 			Type:         pulumi.String("ipv4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewRdns(ctx, "floatingMaster", &hcloud.RdnsArgs{
-// 			DnsPtr:       pulumi.String("example.com"),
-// 			FloatingIpId: floating1.ID(),
-// 			IpAddress:    floating1.IpAddress,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			floating1, err := hcloud.NewFloatingIp(ctx, "floating1", &hcloud.FloatingIpArgs{
+//				HomeLocation: pulumi.String("nbg1"),
+//				Type:         pulumi.String("ipv4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewRdns(ctx, "floatingMaster", &hcloud.RdnsArgs{
+//				DnsPtr:       pulumi.String("example.com"),
+//				FloatingIpId: floating1.ID(),
+//				IpAddress:    floating1.IpAddress,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // For Load Balancers:
@@ -85,50 +91,59 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		loadBalancer1, err := hcloud.NewLoadBalancer(ctx, "loadBalancer1", &hcloud.LoadBalancerArgs{
-// 			LoadBalancerType: pulumi.String("lb11"),
-// 			Location:         pulumi.String("fsn1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewRdns(ctx, "loadBalancerMaster", &hcloud.RdnsArgs{
-// 			DnsPtr:         pulumi.String("example.com"),
-// 			IpAddress:      loadBalancer1.Ipv4,
-// 			LoadBalancerId: loadBalancer1.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			loadBalancer1, err := hcloud.NewLoadBalancer(ctx, "loadBalancer1", &hcloud.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("lb11"),
+//				Location:         pulumi.String("fsn1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewRdns(ctx, "loadBalancerMaster", &hcloud.RdnsArgs{
+//				DnsPtr:         pulumi.String("example.com"),
+//				IpAddress:      loadBalancer1.Ipv4,
+//				LoadBalancerId: loadBalancer1.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
+// Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>` import reverse dns entry on server with id 123, ip 192.168.100.1
 //
 // ```sh
-//  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+//
+//	$ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+//
 // ```
 //
-// # import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+//	import reverse dns entry on floating ip with id 123, ip 2001:db8::1
 //
 // ```sh
-//  $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+//
+//	$ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+//
 // ```
 //
-// # import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+//	import reverse dns entry on load balancer with id 123, ip 2001:db8::1
 //
 // ```sh
-//  $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
+//
+//	$ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
+//
 // ```
 type Rdns struct {
 	pulumi.CustomResourceState
@@ -262,7 +277,7 @@ func (i *Rdns) ToRdnsOutputWithContext(ctx context.Context) RdnsOutput {
 // RdnsArrayInput is an input type that accepts RdnsArray and RdnsArrayOutput values.
 // You can construct a concrete instance of `RdnsArrayInput` via:
 //
-//          RdnsArray{ RdnsArgs{...} }
+//	RdnsArray{ RdnsArgs{...} }
 type RdnsArrayInput interface {
 	pulumi.Input
 
@@ -287,7 +302,7 @@ func (i RdnsArray) ToRdnsArrayOutputWithContext(ctx context.Context) RdnsArrayOu
 // RdnsMapInput is an input type that accepts RdnsMap and RdnsMapOutput values.
 // You can construct a concrete instance of `RdnsMapInput` via:
 //
-//          RdnsMap{ "key": RdnsArgs{...} }
+//	RdnsMap{ "key": RdnsArgs{...} }
 type RdnsMapInput interface {
 	pulumi.Input
 

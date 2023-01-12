@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("debian-9"),
-// 			ServerType: pulumi.String("cx11"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
-// 			Type:     pulumi.String("ipv4"),
-// 			ServerId: node1.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:      pulumi.String("debian-9"),
+//				ServerType: pulumi.String("cx11"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
+//				Type:     pulumi.String("ipv4"),
+//				ServerId: node1.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Floating IPs can be imported using its `id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/floatingIp:FloatingIp myip <id>
+//
+//	$ pulumi import hcloud:index/floatingIp:FloatingIp myip id
+//
 // ```
 type FloatingIp struct {
 	pulumi.CustomResourceState
@@ -58,7 +63,7 @@ type FloatingIp struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation pulumi.StringOutput `pulumi:"homeLocation"`
 	// (string) IP Address of the Floating IP.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
@@ -110,7 +115,7 @@ type floatingIpState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description *string `pulumi:"description"`
-	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation *string `pulumi:"homeLocation"`
 	// (string) IP Address of the Floating IP.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -131,7 +136,7 @@ type FloatingIpState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Floating IP.
 	Description pulumi.StringPtrInput
-	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation pulumi.StringPtrInput
 	// (string) IP Address of the Floating IP.
 	IpAddress pulumi.StringPtrInput
@@ -156,7 +161,7 @@ type floatingIpArgs struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description *string `pulumi:"description"`
-	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation *string `pulumi:"homeLocation"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -174,7 +179,7 @@ type FloatingIpArgs struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Floating IP.
 	Description pulumi.StringPtrInput
-	// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
@@ -212,7 +217,7 @@ func (i *FloatingIp) ToFloatingIpOutputWithContext(ctx context.Context) Floating
 // FloatingIpArrayInput is an input type that accepts FloatingIpArray and FloatingIpArrayOutput values.
 // You can construct a concrete instance of `FloatingIpArrayInput` via:
 //
-//          FloatingIpArray{ FloatingIpArgs{...} }
+//	FloatingIpArray{ FloatingIpArgs{...} }
 type FloatingIpArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i FloatingIpArray) ToFloatingIpArrayOutputWithContext(ctx context.Context)
 // FloatingIpMapInput is an input type that accepts FloatingIpMap and FloatingIpMapOutput values.
 // You can construct a concrete instance of `FloatingIpMapInput` via:
 //
-//          FloatingIpMap{ "key": FloatingIpArgs{...} }
+//	FloatingIpMap{ "key": FloatingIpArgs{...} }
 type FloatingIpMapInput interface {
 	pulumi.Input
 
@@ -283,7 +288,7 @@ func (o FloatingIpOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FloatingIp) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Home location (routing is optimized for that location). Optional if serverId argument is passed.
+// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
 func (o FloatingIpOutput) HomeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *FloatingIp) pulumi.StringOutput { return v.HomeLocation }).(pulumi.StringOutput)
 }

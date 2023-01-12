@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * Placement Groups can be imported using its `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group <id>
+ *  $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group id
  * ```
  */
 export class PlacementGroup extends pulumi.CustomResource {

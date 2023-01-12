@@ -36,9 +36,9 @@ import * as utilities from "./utilities";
  *     homeLocation: "nbg1",
  *     type: "ipv4",
  * });
- * const floatingMaster = new hcloud.Rdns("floating_master", {
+ * const floatingMaster = new hcloud.Rdns("floatingMaster", {
  *     dnsPtr: "example.com",
- *     floatingIpId: floating1.id.apply(id => Number.parseFloat(id)),
+ *     floatingIpId: floating1.id,
  *     ipAddress: floating1.ipAddress,
  * });
  * ```
@@ -49,32 +49,32 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const loadBalancer1 = new hcloud.LoadBalancer("load_balancer1", {
+ * const loadBalancer1 = new hcloud.LoadBalancer("loadBalancer1", {
  *     loadBalancerType: "lb11",
  *     location: "fsn1",
  * });
- * const loadBalancerMaster = new hcloud.Rdns("load_balancer_master", {
+ * const loadBalancerMaster = new hcloud.Rdns("loadBalancerMaster", {
  *     dnsPtr: "example.com",
  *     ipAddress: loadBalancer1.ipv4,
- *     loadBalancerId: loadBalancer1.id.apply(id => Number.parseFloat(id)),
+ *     loadBalancerId: loadBalancer1.id,
  * });
  * ```
  *
  * ## Import
  *
- * Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>` # import reverse dns entry on server with id 123, ip 192.168.100.1
+ * Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>` import reverse dns entry on server with id 123, ip 192.168.100.1
  *
  * ```sh
  *  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
  * ```
  *
- * # import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+ *  import reverse dns entry on floating ip with id 123, ip 2001:db8::1
  *
  * ```sh
  *  $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
  * ```
  *
- * # import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+ *  import reverse dns entry on load balancer with id 123, ip 2001:db8::1
  *
  * ```sh
  *  $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1

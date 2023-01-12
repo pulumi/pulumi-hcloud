@@ -14,21 +14,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ds1 = pulumi.output(hcloud.getDatacenter({
+ * const ds1 = hcloud.getDatacenter({
  *     name: "fsn1-dc8",
- * }));
- * const ds2 = pulumi.output(hcloud.getDatacenter({
+ * });
+ * const ds2 = hcloud.getDatacenter({
  *     id: 4,
- * }));
+ * });
  * ```
  */
 export function getDatacenter(args?: GetDatacenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacenterResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getDatacenter:getDatacenter", {
         "id": args.id,
         "name": args.name,
@@ -78,9 +75,26 @@ export interface GetDatacenterResult {
      */
     readonly supportedServerTypeIds: number[];
 }
-
+/**
+ * Provides details about a specific Hetzner Cloud Datacenter.
+ * Use this resource to get detailed information about specific datacenter.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ds1 = hcloud.getDatacenter({
+ *     name: "fsn1-dc8",
+ * });
+ * const ds2 = hcloud.getDatacenter({
+ *     id: 4,
+ * });
+ * ```
+ */
 export function getDatacenterOutput(args?: GetDatacenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacenterResult> {
-    return pulumi.output(args).apply(a => getDatacenter(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatacenter(a, opts))
 }
 
 /**

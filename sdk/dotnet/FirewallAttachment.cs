@@ -20,70 +20,66 @@ namespace Pulumi.HCloud
     /// ### Attach Servers
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testServer = new HCloud.Server("testServer", new()
     ///     {
-    ///         var testServer = new HCloud.Server("testServer", new HCloud.ServerArgs
-    ///         {
-    ///             ServerType = "cx11",
-    ///             Image = "ubuntu-20.04",
-    ///         });
-    ///         var basicFirewall = new HCloud.Firewall("basicFirewall", new HCloud.FirewallArgs
-    ///         {
-    ///         });
-    ///         var fwRef = new HCloud.FirewallAttachment("fwRef", new HCloud.FirewallAttachmentArgs
-    ///         {
-    ///             FirewallId = basicFirewall.Id,
-    ///             ServerIds = 
-    ///             {
-    ///                 testServer.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-20.04",
+    ///     });
     /// 
-    /// }
+    ///     var basicFirewall = new HCloud.Firewall("basicFirewall");
+    /// 
+    ///     var fwRef = new HCloud.FirewallAttachment("fwRef", new()
+    ///     {
+    ///         FirewallId = basicFirewall.Id,
+    ///         ServerIds = new[]
+    ///         {
+    ///             testServer.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Attach Label Selectors
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testServer = new HCloud.Server("testServer", new()
     ///     {
-    ///         var testServer = new HCloud.Server("testServer", new HCloud.ServerArgs
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-20.04",
+    ///         Labels = 
     ///         {
-    ///             ServerType = "cx11",
-    ///             Image = "ubuntu-20.04",
-    ///             Labels = 
-    ///             {
-    ///                 { "firewall-attachment", "test-server" },
-    ///             },
-    ///         });
-    ///         var basicFirewall = new HCloud.Firewall("basicFirewall", new HCloud.FirewallArgs
-    ///         {
-    ///         });
-    ///         var fwRef = new HCloud.FirewallAttachment("fwRef", new HCloud.FirewallAttachmentArgs
-    ///         {
-    ///             FirewallId = basicFirewall.Id,
-    ///             LabelSelectors = 
-    ///             {
-    ///                 "firewall-attachment=test-server",
-    ///             },
-    ///         });
-    ///     }
+    ///             { "firewall-attachment", "test-server" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var basicFirewall = new HCloud.Firewall("basicFirewall");
+    /// 
+    ///     var fwRef = new HCloud.FirewallAttachment("fwRef", new()
+    ///     {
+    ///         FirewallId = basicFirewall.Id,
+    ///         LabelSelectors = new[]
+    ///         {
+    ///             "firewall-attachment=test-server",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/firewallAttachment:FirewallAttachment")]
-    public partial class FirewallAttachment : Pulumi.CustomResource
+    public partial class FirewallAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the firewall the resources
@@ -150,7 +146,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class FirewallAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class FirewallAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the firewall the resources
@@ -188,9 +184,10 @@ namespace Pulumi.HCloud
         public FirewallAttachmentArgs()
         {
         }
+        public static new FirewallAttachmentArgs Empty => new FirewallAttachmentArgs();
     }
 
-    public sealed class FirewallAttachmentState : Pulumi.ResourceArgs
+    public sealed class FirewallAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the firewall the resources
@@ -228,5 +225,6 @@ namespace Pulumi.HCloud
         public FirewallAttachmentState()
         {
         }
+        public static new FirewallAttachmentState Empty => new FirewallAttachmentState();
     }
 }

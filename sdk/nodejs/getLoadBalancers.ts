@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,19 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const lb2 = pulumi.output(hcloud.getLoadBalancers());
- * const lb3 = pulumi.output(hcloud.getLoadBalancers({
+ * const lb2 = hcloud.getLoadBalancers({});
+ * const lb3 = hcloud.getLoadBalancers({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getLoadBalancers(args?: GetLoadBalancersArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancersResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getLoadBalancers:getLoadBalancers", {
         "withSelector": args.withSelector,
     }, opts);
@@ -56,9 +54,23 @@ export interface GetLoadBalancersResult {
     readonly loadBalancers: outputs.GetLoadBalancersLoadBalancer[];
     readonly withSelector?: string;
 }
-
+/**
+ * Provides details about multiple Hetzner Cloud Load Balancers.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const lb2 = hcloud.getLoadBalancers({});
+ * const lb3 = hcloud.getLoadBalancers({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getLoadBalancersOutput(args?: GetLoadBalancersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancersResult> {
-    return pulumi.output(args).apply(a => getLoadBalancers(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoadBalancers(a, opts))
 }
 
 /**

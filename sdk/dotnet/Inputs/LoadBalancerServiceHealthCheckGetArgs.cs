@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class LoadBalancerServiceHealthCheckGetArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerServiceHealthCheckGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// List of http configurations. Required if `protocol` is `http`.
@@ -51,5 +51,6 @@ namespace Pulumi.HCloud.Inputs
         public LoadBalancerServiceHealthCheckGetArgs()
         {
         }
+        public static new LoadBalancerServiceHealthCheckGetArgs Empty => new LoadBalancerServiceHealthCheckGetArgs();
     }
 }

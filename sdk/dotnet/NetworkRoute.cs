@@ -15,26 +15,25 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mynet = new HCloud.Network("mynet", new()
     ///     {
-    ///         var mynet = new HCloud.Network("mynet", new HCloud.NetworkArgs
-    ///         {
-    ///             IpRange = "10.0.0.0/8",
-    ///         });
-    ///         var privNet = new HCloud.NetworkRoute("privNet", new HCloud.NetworkRouteArgs
-    ///         {
-    ///             NetworkId = mynet.Id,
-    ///             Destination = "10.100.1.0/24",
-    ///             Gateway = "10.0.1.1",
-    ///         });
-    ///     }
+    ///         IpRange = "10.0.0.0/8",
+    ///     });
     /// 
-    /// }
+    ///     var privNet = new HCloud.NetworkRoute("privNet", new()
+    ///     {
+    ///         NetworkId = mynet.Id,
+    ///         Destination = "10.100.1.0/24",
+    ///         Gateway = "10.0.1.1",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.HCloud
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/networkRoute:NetworkRoute")]
-    public partial class NetworkRoute : Pulumi.CustomResource
+    public partial class NetworkRoute : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
@@ -110,7 +109,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class NetworkRouteArgs : Pulumi.ResourceArgs
+    public sealed class NetworkRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
@@ -133,9 +132,10 @@ namespace Pulumi.HCloud
         public NetworkRouteArgs()
         {
         }
+        public static new NetworkRouteArgs Empty => new NetworkRouteArgs();
     }
 
-    public sealed class NetworkRouteState : Pulumi.ResourceArgs
+    public sealed class NetworkRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
@@ -158,5 +158,6 @@ namespace Pulumi.HCloud
         public NetworkRouteState()
         {
         }
+        public static new NetworkRouteState Empty => new NetworkRouteState();
     }
 }

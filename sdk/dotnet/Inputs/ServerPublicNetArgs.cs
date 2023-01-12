@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class ServerPublicNetArgs : Pulumi.ResourceArgs
+    public sealed class ServerPublicNetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipv4")]
         public Input<int>? Ipv4 { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.HCloud.Inputs
         public ServerPublicNetArgs()
         {
         }
+        public static new ServerPublicNetArgs Empty => new ServerPublicNetArgs();
     }
 }

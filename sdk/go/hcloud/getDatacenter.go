@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.GetDatacenter(ctx, &GetDatacenterArgs{
-// 			Name: pulumi.StringRef("fsn1-dc8"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.GetDatacenter(ctx, &GetDatacenterArgs{
-// 			Id: pulumi.IntRef(4),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.GetDatacenter(ctx, &hcloud.GetDatacenterArgs{
+//				Name: pulumi.StringRef("fsn1-dc8"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.GetDatacenter(ctx, &hcloud.GetDatacenterArgs{
+//				Id: pulumi.IntRef(4),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetDatacenter(ctx *pulumi.Context, args *GetDatacenterArgs, opts ...pulumi.InvokeOption) (*GetDatacenterResult, error) {
 	var rv GetDatacenterResult

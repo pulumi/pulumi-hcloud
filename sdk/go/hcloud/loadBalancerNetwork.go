@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lb1, err := hcloud.NewLoadBalancer(ctx, "lb1", &hcloud.LoadBalancerArgs{
-// 			LoadBalancerType: pulumi.String("lb11"),
-// 			NetworkZone:      pulumi.String("eu-central"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
-// 			IpRange: pulumi.String("10.0.0.0/8"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
-// 			NetworkId:   mynet.ID(),
-// 			Type:        pulumi.String("cloud"),
-// 			NetworkZone: pulumi.String("eu-central"),
-// 			IpRange:     pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewLoadBalancerNetwork(ctx, "srvnetwork", &hcloud.LoadBalancerNetworkArgs{
-// 			LoadBalancerId: lb1.ID(),
-// 			NetworkId:      mynet.ID(),
-// 			Ip:             pulumi.String("10.0.1.5"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lb1, err := hcloud.NewLoadBalancer(ctx, "lb1", &hcloud.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("lb11"),
+//				NetworkZone:      pulumi.String("eu-central"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
+//				IpRange: pulumi.String("10.0.0.0/8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
+//				NetworkId:   mynet.ID(),
+//				Type:        pulumi.String("cloud"),
+//				NetworkZone: pulumi.String("eu-central"),
+//				IpRange:     pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewLoadBalancerNetwork(ctx, "srvnetwork", &hcloud.LoadBalancerNetworkArgs{
+//				LoadBalancerId: lb1.ID(),
+//				NetworkId:      mynet.ID(),
+//				Ip:             pulumi.String("10.0.1.5"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`
 //
 // ```sh
-//  $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+//
+//	$ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+//
 // ```
 type LoadBalancerNetwork struct {
 	pulumi.CustomResourceState
@@ -261,7 +266,7 @@ func (i *LoadBalancerNetwork) ToLoadBalancerNetworkOutputWithContext(ctx context
 // LoadBalancerNetworkArrayInput is an input type that accepts LoadBalancerNetworkArray and LoadBalancerNetworkArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerNetworkArrayInput` via:
 //
-//          LoadBalancerNetworkArray{ LoadBalancerNetworkArgs{...} }
+//	LoadBalancerNetworkArray{ LoadBalancerNetworkArgs{...} }
 type LoadBalancerNetworkArrayInput interface {
 	pulumi.Input
 
@@ -286,7 +291,7 @@ func (i LoadBalancerNetworkArray) ToLoadBalancerNetworkArrayOutputWithContext(ct
 // LoadBalancerNetworkMapInput is an input type that accepts LoadBalancerNetworkMap and LoadBalancerNetworkMapOutput values.
 // You can construct a concrete instance of `LoadBalancerNetworkMapInput` via:
 //
-//          LoadBalancerNetworkMap{ "key": LoadBalancerNetworkArgs{...} }
+//	LoadBalancerNetworkMap{ "key": LoadBalancerNetworkArgs{...} }
 type LoadBalancerNetworkMapInput interface {
 	pulumi.Input
 

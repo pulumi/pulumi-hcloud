@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * const ip2 = hcloud.getFloatingIp({
  *     withSelector: "key=value",
  * });
- * const main: hcloud.FloatingIpAssignment[];
+ * const main: hcloud.FloatingIpAssignment[] = [];
  * for (const range = {value: 0}; range.value < _var.counter; range.value++) {
  *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
@@ -36,11 +36,8 @@ import * as utilities from "./utilities";
  */
 export function getFloatingIp(args?: GetFloatingIpArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getFloatingIp:getFloatingIp", {
         "id": args.id,
         "ipAddress": args.ipAddress,
@@ -81,7 +78,7 @@ export interface GetFloatingIpArgs {
  */
 export interface GetFloatingIpResult {
     /**
-     * (boolean) Whether delete protection is enabled.
+     * (bool) Whether delete protection is enabled.
      */
     readonly deleteProtection: boolean;
     /**
@@ -126,9 +123,38 @@ export interface GetFloatingIpResult {
     readonly type: string;
     readonly withSelector?: string;
 }
-
+/**
+ * Provides details about a Hetzner Cloud Floating IP.
+ *
+ * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+ *
+ * ## Example Usage
+ *
+ * # Data Source: hcloud.FloatingIp
+ * Provides details about a Hetzner Cloud Floating IP.
+ * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+ * ### Additional Examples
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ip1 = hcloud.getFloatingIp({
+ *     ipAddress: "1.2.3.4",
+ * });
+ * const ip2 = hcloud.getFloatingIp({
+ *     withSelector: "key=value",
+ * });
+ * const main: hcloud.FloatingIpAssignment[] = [];
+ * for (const range = {value: 0}; range.value < _var.counter; range.value++) {
+ *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
+ *         floatingIpId: ip1.then(ip1 => ip1.id),
+ *         serverId: hcloud_server.main.id,
+ *     }));
+ * }
+ * ```
+ */
 export function getFloatingIpOutput(args?: GetFloatingIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpResult> {
-    return pulumi.output(args).apply(a => getFloatingIp(a, opts))
+    return pulumi.output(args).apply((a: any) => getFloatingIp(a, opts))
 }
 
 /**

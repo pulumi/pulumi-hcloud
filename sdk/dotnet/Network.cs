@@ -15,20 +15,18 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var privNet = new HCloud.Network("privNet", new()
     ///     {
-    ///         var privNet = new HCloud.Network("privNet", new HCloud.NetworkArgs
-    ///         {
-    ///             IpRange = "10.0.1.0/24",
-    ///         });
-    ///     }
+    ///         IpRange = "10.0.1.0/24",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -36,11 +34,11 @@ namespace Pulumi.HCloud
     /// Networks can be imported using its `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/network:Network myip &lt;id&gt;
+    ///  $ pulumi import hcloud:index/network:Network myip id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/network:Network")]
-    public partial class Network : Pulumi.CustomResource
+    public partial class Network : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enable or disable delete protection.
@@ -110,7 +108,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class NetworkArgs : Pulumi.ResourceArgs
+    public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable delete protection.
@@ -145,9 +143,10 @@ namespace Pulumi.HCloud
         public NetworkArgs()
         {
         }
+        public static new NetworkArgs Empty => new NetworkArgs();
     }
 
-    public sealed class NetworkState : Pulumi.ResourceArgs
+    public sealed class NetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable delete protection.
@@ -182,5 +181,6 @@ namespace Pulumi.HCloud
         public NetworkState()
         {
         }
+        public static new NetworkState Empty => new NetworkState();
     }
 }

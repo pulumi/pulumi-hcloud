@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,19 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const volume_ = pulumi.output(hcloud.getVolumes());
- * const volume3 = pulumi.output(hcloud.getVolumes({
+ * const volume_ = hcloud.getVolumes({});
+ * const volume3 = hcloud.getVolumes({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getVolumes(args?: GetVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getVolumes:getVolumes", {
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,
@@ -62,9 +60,23 @@ export interface GetVolumesResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
-
+/**
+ * Provides details about multiple Hetzner Cloud volumes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const volume_ = hcloud.getVolumes({});
+ * const volume3 = hcloud.getVolumes({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getVolumesOutput(args?: GetVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumesResult> {
-    return pulumi.output(args).apply(a => getVolumes(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolumes(a, opts))
 }
 
 /**

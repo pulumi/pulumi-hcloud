@@ -15,33 +15,33 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///             Datacenter = "nbg1-dc3",
-    ///         });
-    ///         var master = new HCloud.Volume("master", new HCloud.VolumeArgs
-    ///         {
-    ///             Location = "nbg1",
-    ///             Size = 10,
-    ///         });
-    ///         var main = new HCloud.VolumeAttachment("main", new HCloud.VolumeAttachmentArgs
-    ///         {
-    ///             VolumeId = master.Id,
-    ///             ServerId = node1.Id,
-    ///             Automount = true,
-    ///         });
-    ///     }
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///         Datacenter = "nbg1-dc3",
+    ///     });
     /// 
-    /// }
+    ///     var master = new HCloud.Volume("master", new()
+    ///     {
+    ///         Location = "nbg1",
+    ///         Size = 10,
+    ///     });
+    /// 
+    ///     var main = new HCloud.VolumeAttachment("main", new()
+    ///     {
+    ///         VolumeId = master.Id,
+    ///         ServerId = node1.Id,
+    ///         Automount = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.HCloud
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/volumeAttachment:VolumeAttachment")]
-    public partial class VolumeAttachment : Pulumi.CustomResource
+    public partial class VolumeAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Automount the volume upon attaching it.
@@ -117,7 +117,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class VolumeAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class VolumeAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Automount the volume upon attaching it.
@@ -140,9 +140,10 @@ namespace Pulumi.HCloud
         public VolumeAttachmentArgs()
         {
         }
+        public static new VolumeAttachmentArgs Empty => new VolumeAttachmentArgs();
     }
 
-    public sealed class VolumeAttachmentState : Pulumi.ResourceArgs
+    public sealed class VolumeAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Automount the volume upon attaching it.
@@ -165,5 +166,6 @@ namespace Pulumi.HCloud
         public VolumeAttachmentState()
         {
         }
+        public static new VolumeAttachmentState Empty => new VolumeAttachmentState();
     }
 }

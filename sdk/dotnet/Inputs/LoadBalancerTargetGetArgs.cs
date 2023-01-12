@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class LoadBalancerTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerTargetGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.HCloud.Inputs
         public LoadBalancerTargetGetArgs()
         {
         }
+        public static new LoadBalancerTargetGetArgs Empty => new LoadBalancerTargetGetArgs();
     }
 }

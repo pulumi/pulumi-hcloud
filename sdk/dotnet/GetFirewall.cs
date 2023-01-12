@@ -15,59 +15,57 @@ namespace Pulumi.HCloud
         /// Provides details about a specific Hetzner Cloud Firewall.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sampleFirewall1 = HCloud.GetFirewall.Invoke(new()
         ///     {
-        ///         var sampleFirewall1 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs
-        ///         {
-        ///             Name = "sample-firewall-1",
-        ///         }));
-        ///         var sampleFirewall2 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs
-        ///         {
-        ///             Id = 4711,
-        ///         }));
-        ///     }
+        ///         Name = "sample-firewall-1",
+        ///     });
         /// 
-        /// }
+        ///     var sampleFirewall2 = HCloud.GetFirewall.Invoke(new()
+        ///     {
+        ///         Id = 4711,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Firewall.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sampleFirewall1 = HCloud.GetFirewall.Invoke(new()
         ///     {
-        ///         var sampleFirewall1 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs
-        ///         {
-        ///             Name = "sample-firewall-1",
-        ///         }));
-        ///         var sampleFirewall2 = Output.Create(HCloud.GetFirewall.InvokeAsync(new HCloud.GetFirewallArgs
-        ///         {
-        ///             Id = 4711,
-        ///         }));
-        ///     }
+        ///         Name = "sample-firewall-1",
+        ///     });
         /// 
-        /// }
+        ///     var sampleFirewall2 = HCloud.GetFirewall.Invoke(new()
+        ///     {
+        ///         Id = 4711,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetFirewallArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallArgs : global::Pulumi.InvokeArgs
     {
         [Input("applyTos")]
         private List<Inputs.GetFirewallApplyToArgs>? _applyTos;
@@ -132,9 +130,10 @@ namespace Pulumi.HCloud
         public GetFirewallArgs()
         {
         }
+        public static new GetFirewallArgs Empty => new GetFirewallArgs();
     }
 
-    public sealed class GetFirewallInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("applyTos")]
         private InputList<Inputs.GetFirewallApplyToInputArgs>? _applyTos;
@@ -199,6 +198,7 @@ namespace Pulumi.HCloud
         public GetFirewallInvokeArgs()
         {
         }
+        public static new GetFirewallInvokeArgs Empty => new GetFirewallInvokeArgs();
     }
 
 

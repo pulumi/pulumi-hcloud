@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
-// 			LoadBalancerType: pulumi.String("lb11"),
-// 			Location:         pulumi.String("nbg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewLoadBalancerService(ctx, "loadBalancerService", &hcloud.LoadBalancerServiceArgs{
-// 			LoadBalancerId: pulumi.Any(hcloud_load_balancer.Test_load_balancer.Id),
-// 			Protocol:       pulumi.String("http"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("lb11"),
+//				Location:         pulumi.String("nbg1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewLoadBalancerService(ctx, "loadBalancerService", &hcloud.LoadBalancerServiceArgs{
+//				LoadBalancerId: pulumi.Any(hcloud_load_balancer.Test_load_balancer.Id),
+//				Protocol:       pulumi.String("http"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`
 //
 // ```sh
-//  $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
+//
+//	$ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
+//
 // ```
 type LoadBalancerService struct {
 	pulumi.CustomResourceState
@@ -203,7 +208,7 @@ func (i *LoadBalancerService) ToLoadBalancerServiceOutputWithContext(ctx context
 // LoadBalancerServiceArrayInput is an input type that accepts LoadBalancerServiceArray and LoadBalancerServiceArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerServiceArrayInput` via:
 //
-//          LoadBalancerServiceArray{ LoadBalancerServiceArgs{...} }
+//	LoadBalancerServiceArray{ LoadBalancerServiceArgs{...} }
 type LoadBalancerServiceArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +233,7 @@ func (i LoadBalancerServiceArray) ToLoadBalancerServiceArrayOutputWithContext(ct
 // LoadBalancerServiceMapInput is an input type that accepts LoadBalancerServiceMap and LoadBalancerServiceMapOutput values.
 // You can construct a concrete instance of `LoadBalancerServiceMapInput` via:
 //
-//          LoadBalancerServiceMap{ "key": LoadBalancerServiceArgs{...} }
+//	LoadBalancerServiceMap{ "key": LoadBalancerServiceArgs{...} }
 type LoadBalancerServiceMapInput interface {
 	pulumi.Input
 

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -21,11 +22,8 @@ import * as utilities from "./utilities";
  */
 export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeysResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getSshKeys:getSshKeys", {
         "withSelector": args.withSelector,
     }, opts);
@@ -55,9 +53,22 @@ export interface GetSshKeysResult {
     readonly sshKeys: outputs.GetSshKeysSshKey[];
     readonly withSelector?: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const allKeys = hcloud.getSshKeys({});
+ * const keysBySelector = hcloud.getSshKeys({
+ *     withSelector: "foo=bar",
+ * });
+ * const main = new hcloud.Server("main", {sshKeys: [allKeys.then(allKeys => allKeys.sshKeys)].map(__item => __item?.name)});
+ * ```
+ */
 export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {
-    return pulumi.output(args).apply(a => getSshKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => getSshKeys(a, opts))
 }
 
 /**

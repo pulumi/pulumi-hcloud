@@ -20,26 +20,24 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ip2 = HCloud.GetFloatingIps.Invoke(new()
         ///     {
-        ///         var ip2 = Output.Create(HCloud.GetFloatingIps.InvokeAsync(new HCloud.GetFloatingIpsArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFloatingIpsResult> InvokeAsync(GetFloatingIpsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFloatingIpsResult>("hcloud:index/getFloatingIps:getFloatingIps", args ?? new GetFloatingIpsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFloatingIpsResult>("hcloud:index/getFloatingIps:getFloatingIps", args ?? new GetFloatingIpsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Floating IPs.
@@ -50,30 +48,28 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ip2 = HCloud.GetFloatingIps.Invoke(new()
         ///     {
-        ///         var ip2 = Output.Create(HCloud.GetFloatingIps.InvokeAsync(new HCloud.GetFloatingIpsArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFloatingIpsResult> Invoke(GetFloatingIpsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFloatingIpsResult>("hcloud:index/getFloatingIps:getFloatingIps", args ?? new GetFloatingIpsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFloatingIpsResult>("hcloud:index/getFloatingIps:getFloatingIps", args ?? new GetFloatingIpsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetFloatingIpsArgs : Pulumi.InvokeArgs
+    public sealed class GetFloatingIpsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -84,9 +80,10 @@ namespace Pulumi.HCloud
         public GetFloatingIpsArgs()
         {
         }
+        public static new GetFloatingIpsArgs Empty => new GetFloatingIpsArgs();
     }
 
-    public sealed class GetFloatingIpsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFloatingIpsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -97,6 +94,7 @@ namespace Pulumi.HCloud
         public GetFloatingIpsInvokeArgs()
         {
         }
+        public static new GetFloatingIpsInvokeArgs Empty => new GetFloatingIpsInvokeArgs();
     }
 
 

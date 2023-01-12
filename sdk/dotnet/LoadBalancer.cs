@@ -15,34 +15,33 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myserver = new HCloud.Server("myserver", new()
     ///     {
-    ///         var myserver = new HCloud.Server("myserver", new HCloud.ServerArgs
-    ///         {
-    ///             ServerType = "cx11",
-    ///             Image = "ubuntu-18.04",
-    ///         });
-    ///         var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new HCloud.LoadBalancerArgs
-    ///         {
-    ///             LoadBalancerType = "lb11",
-    ///             Location = "nbg1",
-    ///             Targets = 
-    ///             {
-    ///                 new HCloud.Inputs.LoadBalancerTargetArgs
-    ///                 {
-    ///                     Type = "server",
-    ///                     ServerId = myserver.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-18.04",
+    ///     });
     /// 
-    /// }
+    ///     var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         LoadBalancerType = "lb11",
+    ///         Location = "nbg1",
+    ///         Targets = new[]
+    ///         {
+    ///             new HCloud.Inputs.LoadBalancerTargetArgs
+    ///             {
+    ///                 Type = "server",
+    ///                 ServerId = myserver.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,11 +49,11 @@ namespace Pulumi.HCloud
     /// Load Balancers can be imported using its `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer &lt;id&gt;
+    ///  $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/loadBalancer:LoadBalancer")]
-    public partial class LoadBalancer : Pulumi.CustomResource
+    public partial class LoadBalancer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration of the algorithm the Load Balancer use.
@@ -93,7 +92,7 @@ namespace Pulumi.HCloud
         public Output<string> LoadBalancerType { get; private set; } = null!;
 
         /// <summary>
-        /// Location of the Load Balancer. Require when no network_zone is set.
+        /// The location name of the Load Balancer. Require when no network_zone is set.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -104,14 +103,20 @@ namespace Pulumi.HCloud
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// (int) ID of the first private network that this Load Balancer is connected to.
+        /// </summary>
         [Output("networkId")]
         public Output<int> NetworkId { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) IP of the Load Balancer in the first private network that it is connected to.
+        /// </summary>
         [Output("networkIp")]
         public Output<string> NetworkIp { get; private set; } = null!;
 
         /// <summary>
-        /// Network Zone of the Load Balancer. Require when no location is set.
+        /// The Network Zone of the Load Balancer. Require when no location is set.
         /// </summary>
         [Output("networkZone")]
         public Output<string> NetworkZone { get; private set; } = null!;
@@ -163,7 +168,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration of the algorithm the Load Balancer use.
@@ -196,7 +201,7 @@ namespace Pulumi.HCloud
         public Input<string> LoadBalancerType { get; set; } = null!;
 
         /// <summary>
-        /// Location of the Load Balancer. Require when no network_zone is set.
+        /// The location name of the Load Balancer. Require when no network_zone is set.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -208,7 +213,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network Zone of the Load Balancer. Require when no location is set.
+        /// The Network Zone of the Load Balancer. Require when no location is set.
         /// </summary>
         [Input("networkZone")]
         public Input<string>? NetworkZone { get; set; }
@@ -225,9 +230,10 @@ namespace Pulumi.HCloud
         public LoadBalancerArgs()
         {
         }
+        public static new LoadBalancerArgs Empty => new LoadBalancerArgs();
     }
 
-    public sealed class LoadBalancerState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration of the algorithm the Load Balancer use.
@@ -272,7 +278,7 @@ namespace Pulumi.HCloud
         public Input<string>? LoadBalancerType { get; set; }
 
         /// <summary>
-        /// Location of the Load Balancer. Require when no network_zone is set.
+        /// The location name of the Load Balancer. Require when no network_zone is set.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -283,14 +289,20 @@ namespace Pulumi.HCloud
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// (int) ID of the first private network that this Load Balancer is connected to.
+        /// </summary>
         [Input("networkId")]
         public Input<int>? NetworkId { get; set; }
 
+        /// <summary>
+        /// (string) IP of the Load Balancer in the first private network that it is connected to.
+        /// </summary>
         [Input("networkIp")]
         public Input<string>? NetworkIp { get; set; }
 
         /// <summary>
-        /// Network Zone of the Load Balancer. Require when no location is set.
+        /// The Network Zone of the Load Balancer. Require when no location is set.
         /// </summary>
         [Input("networkZone")]
         public Input<string>? NetworkZone { get; set; }
@@ -307,5 +319,6 @@ namespace Pulumi.HCloud
         public LoadBalancerState()
         {
         }
+        public static new LoadBalancerState Empty => new LoadBalancerState();
     }
 }

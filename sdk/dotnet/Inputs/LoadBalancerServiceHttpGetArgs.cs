@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class LoadBalancerServiceHttpGetArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerServiceHttpGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificates")]
         private InputList<int>? _certificates;
@@ -51,5 +51,6 @@ namespace Pulumi.HCloud.Inputs
         public LoadBalancerServiceHttpGetArgs()
         {
         }
+        public static new LoadBalancerServiceHttpGetArgs Empty => new LoadBalancerServiceHttpGetArgs();
     }
 }

@@ -17,34 +17,34 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var volume1 = HCloud.GetVolume.Invoke(new()
         ///     {
-        ///         var volume1 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
-        ///         {
-        ///             Id = 1234,
-        ///         }));
-        ///         var volume2 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
-        ///         {
-        ///             Name = "my-volume",
-        ///         }));
-        ///         var volume3 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         Id = 1234,
+        ///     });
         /// 
-        /// }
+        ///     var volume2 = HCloud.GetVolume.Invoke(new()
+        ///     {
+        ///         Name = "my-volume",
+        ///     });
+        /// 
+        ///     var volume3 = HCloud.GetVolume.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("hcloud:index/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("hcloud:index/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -52,38 +52,38 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var volume1 = HCloud.GetVolume.Invoke(new()
         ///     {
-        ///         var volume1 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
-        ///         {
-        ///             Id = 1234,
-        ///         }));
-        ///         var volume2 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
-        ///         {
-        ///             Name = "my-volume",
-        ///         }));
-        ///         var volume3 = Output.Create(HCloud.GetVolume.InvokeAsync(new HCloud.GetVolumeArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         Id = 1234,
+        ///     });
         /// 
-        /// }
+        ///     var volume2 = HCloud.GetVolume.Invoke(new()
+        ///     {
+        ///         Name = "my-volume",
+        ///     });
+        /// 
+        ///     var volume3 = HCloud.GetVolume.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("hcloud:index/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("hcloud:index/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetVolumeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the volume.
@@ -133,9 +133,10 @@ namespace Pulumi.HCloud
         public GetVolumeArgs()
         {
         }
+        public static new GetVolumeArgs Empty => new GetVolumeArgs();
     }
 
-    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the volume.
@@ -185,6 +186,7 @@ namespace Pulumi.HCloud
         public GetVolumeInvokeArgs()
         {
         }
+        public static new GetVolumeInvokeArgs Empty => new GetVolumeInvokeArgs();
     }
 
 
@@ -192,7 +194,7 @@ namespace Pulumi.HCloud
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// (boolean) Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>

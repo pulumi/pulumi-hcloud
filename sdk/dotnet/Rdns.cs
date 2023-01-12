@@ -17,103 +17,100 @@ namespace Pulumi.HCloud
     /// For servers:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///         });
-    ///         var master = new HCloud.Rdns("master", new HCloud.RdnsArgs
-    ///         {
-    ///             ServerId = node1.Id,
-    ///             IpAddress = node1.Ipv4Address,
-    ///             DnsPtr = "example.com",
-    ///         });
-    ///     }
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///     });
     /// 
-    /// }
+    ///     var master = new HCloud.Rdns("master", new()
+    ///     {
+    ///         ServerId = node1.Id,
+    ///         IpAddress = node1.Ipv4Address,
+    ///         DnsPtr = "example.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// For Floating IPs:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var floating1 = new HCloud.FloatingIp("floating1", new()
     ///     {
-    ///         var floating1 = new HCloud.FloatingIp("floating1", new HCloud.FloatingIpArgs
-    ///         {
-    ///             HomeLocation = "nbg1",
-    ///             Type = "ipv4",
-    ///         });
-    ///         var floatingMaster = new HCloud.Rdns("floatingMaster", new HCloud.RdnsArgs
-    ///         {
-    ///             DnsPtr = "example.com",
-    ///             FloatingIpId = floating1.Id,
-    ///             IpAddress = floating1.IpAddress,
-    ///         });
-    ///     }
+    ///         HomeLocation = "nbg1",
+    ///         Type = "ipv4",
+    ///     });
     /// 
-    /// }
+    ///     var floatingMaster = new HCloud.Rdns("floatingMaster", new()
+    ///     {
+    ///         DnsPtr = "example.com",
+    ///         FloatingIpId = floating1.Id,
+    ///         IpAddress = floating1.IpAddress,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// For Load Balancers:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var loadBalancer1 = new HCloud.LoadBalancer("loadBalancer1", new()
     ///     {
-    ///         var loadBalancer1 = new HCloud.LoadBalancer("loadBalancer1", new HCloud.LoadBalancerArgs
-    ///         {
-    ///             LoadBalancerType = "lb11",
-    ///             Location = "fsn1",
-    ///         });
-    ///         var loadBalancerMaster = new HCloud.Rdns("loadBalancerMaster", new HCloud.RdnsArgs
-    ///         {
-    ///             DnsPtr = "example.com",
-    ///             IpAddress = loadBalancer1.Ipv4,
-    ///             LoadBalancerId = loadBalancer1.Id,
-    ///         });
-    ///     }
+    ///         LoadBalancerType = "lb11",
+    ///         Location = "fsn1",
+    ///     });
     /// 
-    /// }
+    ///     var loadBalancerMaster = new HCloud.Rdns("loadBalancerMaster", new()
+    ///     {
+    ///         DnsPtr = "example.com",
+    ///         IpAddress = loadBalancer1.Ipv4,
+    ///         LoadBalancerId = loadBalancer1.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// Reverse DNS entries can be imported using a compound ID with the following format`&lt;prefix (s for server/ f for floating ip / l for load balancer)&gt;-&lt;server, floating ip or load balancer ID&gt;-&lt;IP address&gt;` # import reverse dns entry on server with id 123, ip 192.168.100.1
+    /// Reverse DNS entries can be imported using a compound ID with the following format`&lt;prefix (s for server/ f for floating ip / l for load balancer)&gt;-&lt;server, floating ip or load balancer ID&gt;-&lt;IP address&gt;` import reverse dns entry on server with id 123, ip 192.168.100.1
     /// 
     /// ```sh
     ///  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
     /// ```
     /// 
-    /// # import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+    ///  import reverse dns entry on floating ip with id 123, ip 2001:db8::1
     /// 
     /// ```sh
     ///  $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
     /// ```
     /// 
-    /// # import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+    ///  import reverse dns entry on load balancer with id 123, ip 2001:db8::1
     /// 
     /// ```sh
     ///  $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/rdns:Rdns")]
-    public partial class Rdns : Pulumi.CustomResource
+    public partial class Rdns : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The DNS address the `ip_address` should resolve to.
@@ -189,7 +186,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class RdnsArgs : Pulumi.ResourceArgs
+    public sealed class RdnsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS address the `ip_address` should resolve to.
@@ -224,9 +221,10 @@ namespace Pulumi.HCloud
         public RdnsArgs()
         {
         }
+        public static new RdnsArgs Empty => new RdnsArgs();
     }
 
-    public sealed class RdnsState : Pulumi.ResourceArgs
+    public sealed class RdnsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS address the `ip_address` should resolve to.
@@ -261,5 +259,6 @@ namespace Pulumi.HCloud
         public RdnsState()
         {
         }
+        public static new RdnsState Empty => new RdnsState();
     }
 }
