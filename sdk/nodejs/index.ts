@@ -5,58 +5,266 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./firewall";
-export * from "./firewallAttachment";
-export * from "./floatingIp";
-export * from "./floatingIpAssignment";
-export * from "./getCertificate";
-export * from "./getCertificates";
-export * from "./getDatacenter";
-export * from "./getDatacenters";
-export * from "./getFirewall";
-export * from "./getFirewalls";
-export * from "./getFloatingIp";
-export * from "./getFloatingIps";
-export * from "./getImage";
-export * from "./getImages";
-export * from "./getLoadBalancer";
-export * from "./getLoadBalancers";
-export * from "./getLocation";
-export * from "./getLocations";
-export * from "./getNetwork";
-export * from "./getNetworks";
-export * from "./getPlacementGroup";
-export * from "./getPlacementGroups";
-export * from "./getPrimaryIp";
-export * from "./getPrimaryIps";
-export * from "./getServer";
-export * from "./getServerType";
-export * from "./getServerTypes";
-export * from "./getServers";
-export * from "./getSshKey";
-export * from "./getSshKeys";
-export * from "./getVolume";
-export * from "./getVolumes";
-export * from "./loadBalancer";
-export * from "./loadBalancerNetwork";
-export * from "./loadBalancerService";
-export * from "./loadBalancerTarget";
-export * from "./managedCertificate";
-export * from "./network";
-export * from "./networkRoute";
-export * from "./networkSubnet";
-export * from "./placementGroup";
-export * from "./primaryIp";
-export * from "./provider";
-export * from "./rdns";
-export * from "./server";
-export * from "./serverNetwork";
-export * from "./snapshot";
-export * from "./sshKey";
-export * from "./uploadedCertificate";
-export * from "./volume";
-export * from "./volumeAttachment";
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { FirewallArgs, FirewallState } from "./firewall";
+export type Firewall = import("./firewall").Firewall;
+export const Firewall: typeof import("./firewall").Firewall = null as any;
+utilities.lazyLoad(exports, ["Firewall"], () => require("./firewall"));
+
+export { FirewallAttachmentArgs, FirewallAttachmentState } from "./firewallAttachment";
+export type FirewallAttachment = import("./firewallAttachment").FirewallAttachment;
+export const FirewallAttachment: typeof import("./firewallAttachment").FirewallAttachment = null as any;
+utilities.lazyLoad(exports, ["FirewallAttachment"], () => require("./firewallAttachment"));
+
+export { FloatingIpArgs, FloatingIpState } from "./floatingIp";
+export type FloatingIp = import("./floatingIp").FloatingIp;
+export const FloatingIp: typeof import("./floatingIp").FloatingIp = null as any;
+utilities.lazyLoad(exports, ["FloatingIp"], () => require("./floatingIp"));
+
+export { FloatingIpAssignmentArgs, FloatingIpAssignmentState } from "./floatingIpAssignment";
+export type FloatingIpAssignment = import("./floatingIpAssignment").FloatingIpAssignment;
+export const FloatingIpAssignment: typeof import("./floatingIpAssignment").FloatingIpAssignment = null as any;
+utilities.lazyLoad(exports, ["FloatingIpAssignment"], () => require("./floatingIpAssignment"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetCertificatesArgs, GetCertificatesResult, GetCertificatesOutputArgs } from "./getCertificates";
+export const getCertificates: typeof import("./getCertificates").getCertificates = null as any;
+export const getCertificatesOutput: typeof import("./getCertificates").getCertificatesOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificates","getCertificatesOutput"], () => require("./getCertificates"));
+
+export { GetDatacenterArgs, GetDatacenterResult, GetDatacenterOutputArgs } from "./getDatacenter";
+export const getDatacenter: typeof import("./getDatacenter").getDatacenter = null as any;
+export const getDatacenterOutput: typeof import("./getDatacenter").getDatacenterOutput = null as any;
+utilities.lazyLoad(exports, ["getDatacenter","getDatacenterOutput"], () => require("./getDatacenter"));
+
+export { GetDatacentersArgs, GetDatacentersResult, GetDatacentersOutputArgs } from "./getDatacenters";
+export const getDatacenters: typeof import("./getDatacenters").getDatacenters = null as any;
+export const getDatacentersOutput: typeof import("./getDatacenters").getDatacentersOutput = null as any;
+utilities.lazyLoad(exports, ["getDatacenters","getDatacentersOutput"], () => require("./getDatacenters"));
+
+export { GetFirewallArgs, GetFirewallResult, GetFirewallOutputArgs } from "./getFirewall";
+export const getFirewall: typeof import("./getFirewall").getFirewall = null as any;
+export const getFirewallOutput: typeof import("./getFirewall").getFirewallOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewall","getFirewallOutput"], () => require("./getFirewall"));
+
+export { GetFirewallsArgs, GetFirewallsResult, GetFirewallsOutputArgs } from "./getFirewalls";
+export const getFirewalls: typeof import("./getFirewalls").getFirewalls = null as any;
+export const getFirewallsOutput: typeof import("./getFirewalls").getFirewallsOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewalls","getFirewallsOutput"], () => require("./getFirewalls"));
+
+export { GetFloatingIpArgs, GetFloatingIpResult, GetFloatingIpOutputArgs } from "./getFloatingIp";
+export const getFloatingIp: typeof import("./getFloatingIp").getFloatingIp = null as any;
+export const getFloatingIpOutput: typeof import("./getFloatingIp").getFloatingIpOutput = null as any;
+utilities.lazyLoad(exports, ["getFloatingIp","getFloatingIpOutput"], () => require("./getFloatingIp"));
+
+export { GetFloatingIpsArgs, GetFloatingIpsResult, GetFloatingIpsOutputArgs } from "./getFloatingIps";
+export const getFloatingIps: typeof import("./getFloatingIps").getFloatingIps = null as any;
+export const getFloatingIpsOutput: typeof import("./getFloatingIps").getFloatingIpsOutput = null as any;
+utilities.lazyLoad(exports, ["getFloatingIps","getFloatingIpsOutput"], () => require("./getFloatingIps"));
+
+export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export const getImage: typeof import("./getImage").getImage = null as any;
+export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
+
+export { GetImagesArgs, GetImagesResult, GetImagesOutputArgs } from "./getImages";
+export const getImages: typeof import("./getImages").getImages = null as any;
+export const getImagesOutput: typeof import("./getImages").getImagesOutput = null as any;
+utilities.lazyLoad(exports, ["getImages","getImagesOutput"], () => require("./getImages"));
+
+export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
+export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
+export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
+
+export { GetLoadBalancersArgs, GetLoadBalancersResult, GetLoadBalancersOutputArgs } from "./getLoadBalancers";
+export const getLoadBalancers: typeof import("./getLoadBalancers").getLoadBalancers = null as any;
+export const getLoadBalancersOutput: typeof import("./getLoadBalancers").getLoadBalancersOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadBalancers","getLoadBalancersOutput"], () => require("./getLoadBalancers"));
+
+export { GetLocationArgs, GetLocationResult, GetLocationOutputArgs } from "./getLocation";
+export const getLocation: typeof import("./getLocation").getLocation = null as any;
+export const getLocationOutput: typeof import("./getLocation").getLocationOutput = null as any;
+utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("./getLocation"));
+
+export { GetLocationsArgs, GetLocationsResult, GetLocationsOutputArgs } from "./getLocations";
+export const getLocations: typeof import("./getLocations").getLocations = null as any;
+export const getLocationsOutput: typeof import("./getLocations").getLocationsOutput = null as any;
+utilities.lazyLoad(exports, ["getLocations","getLocationsOutput"], () => require("./getLocations"));
+
+export { GetNetworkArgs, GetNetworkResult, GetNetworkOutputArgs } from "./getNetwork";
+export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
+export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getNetwork","getNetworkOutput"], () => require("./getNetwork"));
+
+export { GetNetworksArgs, GetNetworksResult, GetNetworksOutputArgs } from "./getNetworks";
+export const getNetworks: typeof import("./getNetworks").getNetworks = null as any;
+export const getNetworksOutput: typeof import("./getNetworks").getNetworksOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworks","getNetworksOutput"], () => require("./getNetworks"));
+
+export { GetPlacementGroupArgs, GetPlacementGroupResult, GetPlacementGroupOutputArgs } from "./getPlacementGroup";
+export const getPlacementGroup: typeof import("./getPlacementGroup").getPlacementGroup = null as any;
+export const getPlacementGroupOutput: typeof import("./getPlacementGroup").getPlacementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPlacementGroup","getPlacementGroupOutput"], () => require("./getPlacementGroup"));
+
+export { GetPlacementGroupsArgs, GetPlacementGroupsResult, GetPlacementGroupsOutputArgs } from "./getPlacementGroups";
+export const getPlacementGroups: typeof import("./getPlacementGroups").getPlacementGroups = null as any;
+export const getPlacementGroupsOutput: typeof import("./getPlacementGroups").getPlacementGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getPlacementGroups","getPlacementGroupsOutput"], () => require("./getPlacementGroups"));
+
+export { GetPrimaryIpArgs, GetPrimaryIpResult, GetPrimaryIpOutputArgs } from "./getPrimaryIp";
+export const getPrimaryIp: typeof import("./getPrimaryIp").getPrimaryIp = null as any;
+export const getPrimaryIpOutput: typeof import("./getPrimaryIp").getPrimaryIpOutput = null as any;
+utilities.lazyLoad(exports, ["getPrimaryIp","getPrimaryIpOutput"], () => require("./getPrimaryIp"));
+
+export { GetPrimaryIpsArgs, GetPrimaryIpsResult, GetPrimaryIpsOutputArgs } from "./getPrimaryIps";
+export const getPrimaryIps: typeof import("./getPrimaryIps").getPrimaryIps = null as any;
+export const getPrimaryIpsOutput: typeof import("./getPrimaryIps").getPrimaryIpsOutput = null as any;
+utilities.lazyLoad(exports, ["getPrimaryIps","getPrimaryIpsOutput"], () => require("./getPrimaryIps"));
+
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+
+export { GetServerTypeArgs, GetServerTypeResult, GetServerTypeOutputArgs } from "./getServerType";
+export const getServerType: typeof import("./getServerType").getServerType = null as any;
+export const getServerTypeOutput: typeof import("./getServerType").getServerTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getServerType","getServerTypeOutput"], () => require("./getServerType"));
+
+export { GetServerTypesArgs, GetServerTypesResult, GetServerTypesOutputArgs } from "./getServerTypes";
+export const getServerTypes: typeof import("./getServerTypes").getServerTypes = null as any;
+export const getServerTypesOutput: typeof import("./getServerTypes").getServerTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getServerTypes","getServerTypesOutput"], () => require("./getServerTypes"));
+
+export { GetServersArgs, GetServersResult, GetServersOutputArgs } from "./getServers";
+export const getServers: typeof import("./getServers").getServers = null as any;
+export const getServersOutput: typeof import("./getServers").getServersOutput = null as any;
+utilities.lazyLoad(exports, ["getServers","getServersOutput"], () => require("./getServers"));
+
+export { GetSshKeyArgs, GetSshKeyResult, GetSshKeyOutputArgs } from "./getSshKey";
+export const getSshKey: typeof import("./getSshKey").getSshKey = null as any;
+export const getSshKeyOutput: typeof import("./getSshKey").getSshKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getSshKey","getSshKeyOutput"], () => require("./getSshKey"));
+
+export { GetSshKeysArgs, GetSshKeysResult, GetSshKeysOutputArgs } from "./getSshKeys";
+export const getSshKeys: typeof import("./getSshKeys").getSshKeys = null as any;
+export const getSshKeysOutput: typeof import("./getSshKeys").getSshKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getSshKeys","getSshKeysOutput"], () => require("./getSshKeys"));
+
+export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export const getVolume: typeof import("./getVolume").getVolume = null as any;
+export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
+
+export { GetVolumesArgs, GetVolumesResult, GetVolumesOutputArgs } from "./getVolumes";
+export const getVolumes: typeof import("./getVolumes").getVolumes = null as any;
+export const getVolumesOutput: typeof import("./getVolumes").getVolumesOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumes","getVolumesOutput"], () => require("./getVolumes"));
+
+export { LoadBalancerArgs, LoadBalancerState } from "./loadBalancer";
+export type LoadBalancer = import("./loadBalancer").LoadBalancer;
+export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
+
+export { LoadBalancerNetworkArgs, LoadBalancerNetworkState } from "./loadBalancerNetwork";
+export type LoadBalancerNetwork = import("./loadBalancerNetwork").LoadBalancerNetwork;
+export const LoadBalancerNetwork: typeof import("./loadBalancerNetwork").LoadBalancerNetwork = null as any;
+utilities.lazyLoad(exports, ["LoadBalancerNetwork"], () => require("./loadBalancerNetwork"));
+
+export { LoadBalancerServiceArgs, LoadBalancerServiceState } from "./loadBalancerService";
+export type LoadBalancerService = import("./loadBalancerService").LoadBalancerService;
+export const LoadBalancerService: typeof import("./loadBalancerService").LoadBalancerService = null as any;
+utilities.lazyLoad(exports, ["LoadBalancerService"], () => require("./loadBalancerService"));
+
+export { LoadBalancerTargetArgs, LoadBalancerTargetState } from "./loadBalancerTarget";
+export type LoadBalancerTarget = import("./loadBalancerTarget").LoadBalancerTarget;
+export const LoadBalancerTarget: typeof import("./loadBalancerTarget").LoadBalancerTarget = null as any;
+utilities.lazyLoad(exports, ["LoadBalancerTarget"], () => require("./loadBalancerTarget"));
+
+export { ManagedCertificateArgs, ManagedCertificateState } from "./managedCertificate";
+export type ManagedCertificate = import("./managedCertificate").ManagedCertificate;
+export const ManagedCertificate: typeof import("./managedCertificate").ManagedCertificate = null as any;
+utilities.lazyLoad(exports, ["ManagedCertificate"], () => require("./managedCertificate"));
+
+export { NetworkArgs, NetworkState } from "./network";
+export type Network = import("./network").Network;
+export const Network: typeof import("./network").Network = null as any;
+utilities.lazyLoad(exports, ["Network"], () => require("./network"));
+
+export { NetworkRouteArgs, NetworkRouteState } from "./networkRoute";
+export type NetworkRoute = import("./networkRoute").NetworkRoute;
+export const NetworkRoute: typeof import("./networkRoute").NetworkRoute = null as any;
+utilities.lazyLoad(exports, ["NetworkRoute"], () => require("./networkRoute"));
+
+export { NetworkSubnetArgs, NetworkSubnetState } from "./networkSubnet";
+export type NetworkSubnet = import("./networkSubnet").NetworkSubnet;
+export const NetworkSubnet: typeof import("./networkSubnet").NetworkSubnet = null as any;
+utilities.lazyLoad(exports, ["NetworkSubnet"], () => require("./networkSubnet"));
+
+export { PlacementGroupArgs, PlacementGroupState } from "./placementGroup";
+export type PlacementGroup = import("./placementGroup").PlacementGroup;
+export const PlacementGroup: typeof import("./placementGroup").PlacementGroup = null as any;
+utilities.lazyLoad(exports, ["PlacementGroup"], () => require("./placementGroup"));
+
+export { PrimaryIpArgs, PrimaryIpState } from "./primaryIp";
+export type PrimaryIp = import("./primaryIp").PrimaryIp;
+export const PrimaryIp: typeof import("./primaryIp").PrimaryIp = null as any;
+utilities.lazyLoad(exports, ["PrimaryIp"], () => require("./primaryIp"));
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { RdnsArgs, RdnsState } from "./rdns";
+export type Rdns = import("./rdns").Rdns;
+export const Rdns: typeof import("./rdns").Rdns = null as any;
+utilities.lazyLoad(exports, ["Rdns"], () => require("./rdns"));
+
+export { ServerArgs, ServerState } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+
+export { ServerNetworkArgs, ServerNetworkState } from "./serverNetwork";
+export type ServerNetwork = import("./serverNetwork").ServerNetwork;
+export const ServerNetwork: typeof import("./serverNetwork").ServerNetwork = null as any;
+utilities.lazyLoad(exports, ["ServerNetwork"], () => require("./serverNetwork"));
+
+export { SnapshotArgs, SnapshotState } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
+export { SshKeyArgs, SshKeyState } from "./sshKey";
+export type SshKey = import("./sshKey").SshKey;
+export const SshKey: typeof import("./sshKey").SshKey = null as any;
+utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
+
+export { UploadedCertificateArgs, UploadedCertificateState } from "./uploadedCertificate";
+export type UploadedCertificate = import("./uploadedCertificate").UploadedCertificate;
+export const UploadedCertificate: typeof import("./uploadedCertificate").UploadedCertificate = null as any;
+utilities.lazyLoad(exports, ["UploadedCertificate"], () => require("./uploadedCertificate"));
+
+export { VolumeArgs, VolumeState } from "./volume";
+export type Volume = import("./volume").Volume;
+export const Volume: typeof import("./volume").Volume = null as any;
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
+
+export { VolumeAttachmentArgs, VolumeAttachmentState } from "./volumeAttachment";
+export type VolumeAttachment = import("./volumeAttachment").VolumeAttachment;
+export const VolumeAttachment: typeof import("./volumeAttachment").VolumeAttachment = null as any;
+utilities.lazyLoad(exports, ["VolumeAttachment"], () => require("./volumeAttachment"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -66,31 +274,6 @@ export {
     config,
     types,
 };
-
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { Firewall } from "./firewall";
-import { FirewallAttachment } from "./firewallAttachment";
-import { FloatingIp } from "./floatingIp";
-import { FloatingIpAssignment } from "./floatingIpAssignment";
-import { LoadBalancer } from "./loadBalancer";
-import { LoadBalancerNetwork } from "./loadBalancerNetwork";
-import { LoadBalancerService } from "./loadBalancerService";
-import { LoadBalancerTarget } from "./loadBalancerTarget";
-import { ManagedCertificate } from "./managedCertificate";
-import { Network } from "./network";
-import { NetworkRoute } from "./networkRoute";
-import { NetworkSubnet } from "./networkSubnet";
-import { PlacementGroup } from "./placementGroup";
-import { PrimaryIp } from "./primaryIp";
-import { Rdns } from "./rdns";
-import { Server } from "./server";
-import { ServerNetwork } from "./serverNetwork";
-import { Snapshot } from "./snapshot";
-import { SshKey } from "./sshKey";
-import { UploadedCertificate } from "./uploadedCertificate";
-import { Volume } from "./volume";
-import { VolumeAttachment } from "./volumeAttachment";
 
 const _module = {
     version: utilities.getVersion(),
@@ -170,9 +353,6 @@ pulumi.runtime.registerResourceModule("hcloud", "index/sshKey", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/uploadedCertificate", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volume", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volumeAttachment", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("hcloud", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

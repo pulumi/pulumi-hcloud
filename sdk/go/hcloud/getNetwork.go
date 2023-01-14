@@ -16,33 +16,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.LookupNetwork(ctx, &GetNetworkArgs{
-// 			Id: pulumi.IntRef(1234),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupNetwork(ctx, &GetNetworkArgs{
-// 			Name: pulumi.StringRef("my-network"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupNetwork(ctx, &GetNetworkArgs{
-// 			WithSelector: pulumi.StringRef("key=value"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.LookupNetwork(ctx, &hcloud.LookupNetworkArgs{
+//				Id: pulumi.IntRef(1234),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupNetwork(ctx, &hcloud.LookupNetworkArgs{
+//				Name: pulumi.StringRef("my-network"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupNetwork(ctx, &hcloud.LookupNetworkArgs{
+//				WithSelector: pulumi.StringRef("key=value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.InvokeOption) (*LookupNetworkResult, error) {
 	var rv LookupNetworkResult
@@ -69,7 +72,7 @@ type LookupNetworkArgs struct {
 
 // A collection of values returned by getNetwork.
 type LookupNetworkResult struct {
-	// (boolean) Whether delete protection is enabled.
+	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// Unique ID of the Network.
 	Id int `pulumi:"id"`
@@ -128,7 +131,7 @@ func (o LookupNetworkResultOutput) ToLookupNetworkResultOutputWithContext(ctx co
 	return o
 }
 
-// (boolean) Whether delete protection is enabled.
+// (bool) Whether delete protection is enabled.
 func (o LookupNetworkResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNetworkResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }

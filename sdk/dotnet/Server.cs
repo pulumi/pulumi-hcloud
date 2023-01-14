@@ -13,52 +13,84 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// ### Server creation with network
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var network = new HCloud.Network("network", new()
     ///     {
-    ///         var network = new HCloud.Network("network", new HCloud.NetworkArgs
+    ///         IpRange = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var network_subnet = new HCloud.NetworkSubnet("network-subnet", new()
+    ///     {
+    ///         Type = "cloud",
+    ///         NetworkId = network.Id,
+    ///         NetworkZone = "eu-central",
+    ///         IpRange = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var server = new HCloud.Server("server", new()
+    ///     {
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-20.04",
+    ///         Location = "nbg1",
+    ///         Networks = new[]
     ///         {
-    ///             IpRange = "10.0.0.0/16",
-    ///         });
-    ///         var network_subnet = new HCloud.NetworkSubnet("network-subnet", new HCloud.NetworkSubnetArgs
-    ///         {
-    ///             Type = "cloud",
-    ///             NetworkId = network.Id,
-    ///             NetworkZone = "eu-central",
-    ///             IpRange = "10.0.1.0/24",
-    ///         });
-    ///         var server = new HCloud.Server("server", new HCloud.ServerArgs
-    ///         {
-    ///             ServerType = "cx11",
-    ///             Image = "ubuntu-20.04",
-    ///             Location = "nbg1",
-    ///             Networks = 
+    ///             new HCloud.Inputs.ServerNetworkArgs
     ///             {
-    ///                 new HCloud.Inputs.ServerNetworkArgs
+    ///                 NetworkId = network.Id,
+    ///                 Ip = "10.0.1.5",
+    ///                 AliasIps = new[]
     ///                 {
-    ///                     NetworkId = network.Id,
-    ///                     Ip = "10.0.1.5",
-    ///                     AliasIps = 
-    ///                     {
-    ///                         "10.0.1.6",
-    ///                         "10.0.1.7",
-    ///                     },
+    ///                     "10.0.1.6",
+    ///                     "10.0.1.7",
     ///                 },
     ///             },
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 network_subnet,
-    ///             },
-    ///         });
-    ///     }
+    ///             network_subnet,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
+    /// ```
+    /// ### Server creation from snapshot
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var packerSnapshot = HCloud.GetImage.Invoke(new()
+    ///     {
+    ///         WithSelector = "app=foobar",
+    ///         MostRecent = true,
+    ///     });
+    /// 
+    ///     // Create a new server from the snapshot
+    ///     var fromSnapshot = new HCloud.Server("fromSnapshot", new()
+    ///     {
+    ///         Image = packerSnapshot.Apply(getImageResult =&gt; getImageResult.Id),
+    ///         ServerType = "cx11",
+    ///         PublicNets = new[]
+    ///         {
+    ///             new HCloud.Inputs.ServerPublicNetArgs
+    ///             {
+    ///                 Ipv4Enabled = true,
+    ///                 Ipv6Enabled = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Primary IPs
     /// 
@@ -68,57 +100,57 @@ namespace Pulumi.HCloud
     /// ### Examples
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Assign existing ipv4 only
+    ///     var serverTestServer = new HCloud.Server("serverTestServer", new()
     ///     {
-    ///         // Assign existing ipv4 only
-    ///         var serverTestServer = new HCloud.Server("serverTestServer", new HCloud.ServerArgs
+    ///         PublicNets = new[]
     ///         {
-    ///             PublicNets = 
+    ///             new HCloud.Inputs.ServerPublicNetArgs
     ///             {
-    ///                 new HCloud.Inputs.ServerPublicNetArgs
-    ///                 {
-    ///                     Ipv4Enabled = true,
-    ///                     Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
-    ///                     Ipv6Enabled = false,
-    ///                 },
+    ///                 Ipv4Enabled = true,
+    ///                 Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
+    ///                 Ipv6Enabled = false,
     ///             },
-    ///         });
-    ///         //...
-    ///         // Link a managed ipv4 but autogenerate ipv6
-    ///         var serverTestIndex_serverServer = new HCloud.Server("serverTestIndex/serverServer", new HCloud.ServerArgs
-    ///         {
-    ///             PublicNets = 
-    ///             {
-    ///                 new HCloud.Inputs.ServerPublicNetArgs
-    ///                 {
-    ///                     Ipv4Enabled = true,
-    ///                     Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
-    ///                     Ipv6Enabled = false,
-    ///                 },
-    ///             },
-    ///         });
-    ///         //...
-    ///         // Assign &amp; create auto-generated ipv4 &amp; ipv6
-    ///         var serverTestHcloudIndex_serverServer = new HCloud.Server("serverTestHcloudIndex/serverServer", new HCloud.ServerArgs
-    ///         {
-    ///             PublicNets = 
-    ///             {
-    ///                 new HCloud.Inputs.ServerPublicNetArgs
-    ///                 {
-    ///                     Ipv4Enabled = true,
-    ///                     Ipv6Enabled = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         //...
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     //...
+    ///     // Link a managed ipv4 but autogenerate ipv6
+    ///     var serverTestIndex_serverServer = new HCloud.Server("serverTestIndex/serverServer", new()
+    ///     {
+    ///         PublicNets = new[]
+    ///         {
+    ///             new HCloud.Inputs.ServerPublicNetArgs
+    ///             {
+    ///                 Ipv4Enabled = true,
+    ///                 Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
+    ///                 Ipv6Enabled = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     //...
+    ///     // Assign &amp; create auto-generated ipv4 &amp; ipv6
+    ///     var serverTestHcloudIndex_serverServer = new HCloud.Server("serverTestHcloudIndex/serverServer", new()
+    ///     {
+    ///         PublicNets = new[]
+    ///         {
+    ///             new HCloud.Inputs.ServerPublicNetArgs
+    ///             {
+    ///                 Ipv4Enabled = true,
+    ///                 Ipv6Enabled = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     //...
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -126,11 +158,11 @@ namespace Pulumi.HCloud
     /// Servers can be imported using the server `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/server:Server myserver &lt;id&gt;
+    ///  $ pulumi import hcloud:index/server:Server myserver id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/server:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
@@ -245,7 +277,7 @@ namespace Pulumi.HCloud
         public Output<int?> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
         /// If this block is not defined, two primary (ipv4 &amp; ipv6) ips getting auto generated.
         /// </summary>
         [Output("publicNets")]
@@ -331,7 +363,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
@@ -443,7 +475,7 @@ namespace Pulumi.HCloud
         private InputList<Inputs.ServerPublicNetArgs>? _publicNets;
 
         /// <summary>
-        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
         /// If this block is not defined, two primary (ipv4 &amp; ipv6) ips getting auto generated.
         /// </summary>
         public InputList<Inputs.ServerPublicNetArgs> PublicNets
@@ -491,9 +523,10 @@ namespace Pulumi.HCloud
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 
-    public sealed class ServerState : Pulumi.ResourceArgs
+    public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
@@ -629,7 +662,7 @@ namespace Pulumi.HCloud
         private InputList<Inputs.ServerPublicNetGetArgs>? _publicNets;
 
         /// <summary>
-        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+        /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
         /// If this block is not defined, two primary (ipv4 &amp; ipv6) ips getting auto generated.
         /// </summary>
         public InputList<Inputs.ServerPublicNetGetArgs> PublicNets
@@ -683,5 +716,6 @@ namespace Pulumi.HCloud
         public ServerState()
         {
         }
+        public static new ServerState Empty => new ServerState();
     }
 }

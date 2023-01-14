@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class LoadBalancerServiceHealthCheckHttpArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerServiceHealthCheckHttpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain we try to access when performing the Health Check.
@@ -51,5 +51,6 @@ namespace Pulumi.HCloud.Inputs
         public LoadBalancerServiceHealthCheckHttpArgs()
         {
         }
+        public static new LoadBalancerServiceHealthCheckHttpArgs Empty => new LoadBalancerServiceHealthCheckHttpArgs();
     }
 }

@@ -25,58 +25,61 @@ namespace Pulumi.HCloud
         /// ## Example Usage
         /// 
         /// # Data Source: hcloud.PrimaryIp
+        /// 
         /// Provides details about a Hetzner Cloud Primary IP.
         /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
         /// 
         /// {{% example %}}
         /// ### Additional Examples
+        /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ip1 = HCloud.GetPrimaryIp.Invoke(new()
         ///     {
-        ///         var ip1 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs
-        ///         {
-        ///             IpAddress = "1.2.3.4",
-        ///         }));
-        ///         var ip2 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs
-        ///         {
-        ///             Name = "primary_ip_1",
-        ///         }));
-        ///         var ip3 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///         // Link a server to an existing primary IP
-        ///         var serverTest = new HCloud.Server("serverTest", new HCloud.ServerArgs
-        ///         {
-        ///             Image = "ubuntu-20.04",
-        ///             ServerType = "cx11",
-        ///             Datacenter = "fsn1-dc14",
-        ///             Labels = 
-        ///             {
-        ///                 { "test", "tessst1" },
-        ///             },
-        ///             PublicNets = 
-        ///             {
-        ///                 new HCloud.Inputs.ServerPublicNetArgs
-        ///                 {
-        ///                     Ipv4 = hcloud_primary_ip.Ip_1.Id,
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         IpAddress = "1.2.3.4",
+        ///     });
         /// 
-        /// }
+        ///     var ip2 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     {
+        ///         Name = "primary_ip_1",
+        ///     });
+        /// 
+        ///     var ip3 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        ///     // Link a server to an existing primary IP
+        ///     var serverTest = new HCloud.Server("serverTest", new()
+        ///     {
+        ///         Image = "ubuntu-20.04",
+        ///         ServerType = "cx11",
+        ///         Datacenter = "fsn1-dc14",
+        ///         Labels = 
+        ///         {
+        ///             { "test", "tessst1" },
+        ///         },
+        ///         PublicNets = new[]
+        ///         {
+        ///             new HCloud.Inputs.ServerPublicNetArgs
+        ///             {
+        ///                 Ipv4 = hcloud_primary_ip.Ip_1.Id,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrimaryIpResult> InvokeAsync(GetPrimaryIpArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryIpResult>("hcloud:index/getPrimaryIp:getPrimaryIp", args ?? new GetPrimaryIpArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryIpResult>("hcloud:index/getPrimaryIp:getPrimaryIp", args ?? new GetPrimaryIpArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a Hetzner Cloud Primary IP.
@@ -92,65 +95,68 @@ namespace Pulumi.HCloud
         /// ## Example Usage
         /// 
         /// # Data Source: hcloud.PrimaryIp
+        /// 
         /// Provides details about a Hetzner Cloud Primary IP.
         /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
         /// 
         /// {{% example %}}
         /// ### Additional Examples
+        /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ip1 = HCloud.GetPrimaryIp.Invoke(new()
         ///     {
-        ///         var ip1 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs
-        ///         {
-        ///             IpAddress = "1.2.3.4",
-        ///         }));
-        ///         var ip2 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs
-        ///         {
-        ///             Name = "primary_ip_1",
-        ///         }));
-        ///         var ip3 = Output.Create(HCloud.GetPrimaryIp.InvokeAsync(new HCloud.GetPrimaryIpArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///         // Link a server to an existing primary IP
-        ///         var serverTest = new HCloud.Server("serverTest", new HCloud.ServerArgs
-        ///         {
-        ///             Image = "ubuntu-20.04",
-        ///             ServerType = "cx11",
-        ///             Datacenter = "fsn1-dc14",
-        ///             Labels = 
-        ///             {
-        ///                 { "test", "tessst1" },
-        ///             },
-        ///             PublicNets = 
-        ///             {
-        ///                 new HCloud.Inputs.ServerPublicNetArgs
-        ///                 {
-        ///                     Ipv4 = hcloud_primary_ip.Ip_1.Id,
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         IpAddress = "1.2.3.4",
+        ///     });
         /// 
-        /// }
+        ///     var ip2 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     {
+        ///         Name = "primary_ip_1",
+        ///     });
+        /// 
+        ///     var ip3 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        ///     // Link a server to an existing primary IP
+        ///     var serverTest = new HCloud.Server("serverTest", new()
+        ///     {
+        ///         Image = "ubuntu-20.04",
+        ///         ServerType = "cx11",
+        ///         Datacenter = "fsn1-dc14",
+        ///         Labels = 
+        ///         {
+        ///             { "test", "tessst1" },
+        ///         },
+        ///         PublicNets = new[]
+        ///         {
+        ///             new HCloud.Inputs.ServerPublicNetArgs
+        ///             {
+        ///                 Ipv4 = hcloud_primary_ip.Ip_1.Id,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrimaryIpResult> Invoke(GetPrimaryIpInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrimaryIpResult>("hcloud:index/getPrimaryIp:getPrimaryIp", args ?? new GetPrimaryIpInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryIpResult>("hcloud:index/getPrimaryIp:getPrimaryIp", args ?? new GetPrimaryIpInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetPrimaryIpArgs : Pulumi.InvokeArgs
+    public sealed class GetPrimaryIpArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (int) ID of the assigned resource
+        /// (int) ID of the assigned resource.
         /// </summary>
         [Input("assigneeId")]
         public int? AssigneeId { get; set; }
@@ -182,12 +188,13 @@ namespace Pulumi.HCloud
         public GetPrimaryIpArgs()
         {
         }
+        public static new GetPrimaryIpArgs Empty => new GetPrimaryIpArgs();
     }
 
-    public sealed class GetPrimaryIpInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrimaryIpInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (int) ID of the assigned resource
+        /// (int) ID of the assigned resource.
         /// </summary>
         [Input("assigneeId")]
         public Input<int>? AssigneeId { get; set; }
@@ -219,6 +226,7 @@ namespace Pulumi.HCloud
         public GetPrimaryIpInvokeArgs()
         {
         }
+        public static new GetPrimaryIpInvokeArgs Empty => new GetPrimaryIpInvokeArgs();
     }
 
 
@@ -226,7 +234,7 @@ namespace Pulumi.HCloud
     public sealed class GetPrimaryIpResult
     {
         /// <summary>
-        /// (int) ID of the assigned resource
+        /// (int) ID of the assigned resource.
         /// </summary>
         public readonly int AssigneeId;
         /// <summary>
@@ -234,12 +242,15 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string AssigneeType;
         /// <summary>
-        /// (boolean) Whether auto delete is enabled.
+        /// (bool) Whether auto delete is enabled.
         /// </summary>
         public readonly bool AutoDelete;
+        /// <summary>
+        /// (string) The datacenter name of the Primary IP.
+        /// </summary>
         public readonly string Datacenter;
         /// <summary>
-        /// (boolean) Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>

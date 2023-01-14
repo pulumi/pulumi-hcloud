@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -33,6 +34,26 @@ import * as utilities from "./utilities";
  *     }],
  * }, {
  *     dependsOn: [network_subnet],
+ * });
+ * ```
+ * ### Server creation from snapshot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const packerSnapshot = hcloud.getImage({
+ *     withSelector: "app=foobar",
+ *     mostRecent: true,
+ * });
+ * // Create a new server from the snapshot
+ * const fromSnapshot = new hcloud.Server("fromSnapshot", {
+ *     image: packerSnapshot.then(packerSnapshot => packerSnapshot.id),
+ *     serverType: "cx11",
+ *     publicNets: [{
+ *         ipv4Enabled: true,
+ *         ipv6Enabled: true,
+ *     }],
  * });
  * ```
  * ## Primary IPs
@@ -73,7 +94,7 @@ import * as utilities from "./utilities";
  * Servers can be imported using the server `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/server:Server myserver <id>
+ *  $ pulumi import hcloud:index/server:Server myserver id
  * ```
  */
 export class Server extends pulumi.CustomResource {
@@ -183,7 +204,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly placementGroupId!: pulumi.Output<number | undefined>;
     /**
-     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
     public readonly publicNets!: pulumi.Output<outputs.ServerPublicNet[] | undefined>;
@@ -369,7 +390,7 @@ export interface ServerState {
      */
     placementGroupId?: pulumi.Input<number>;
     /**
-     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
     publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[]>;
@@ -464,7 +485,7 @@ export interface ServerArgs {
      */
     placementGroupId?: pulumi.Input<number>;
     /**
-     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples). 
+     * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
     publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[]>;

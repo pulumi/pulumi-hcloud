@@ -17,9 +17,11 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * # Data Source: hcloud.PrimaryIp
+ *
  * Provides details about a Hetzner Cloud Primary IP.
  * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
  * ### Additional Examples
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -49,11 +51,8 @@ import * as utilities from "./utilities";
  */
 export function getPrimaryIp(args?: GetPrimaryIpArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryIpResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getPrimaryIp:getPrimaryIp", {
         "assigneeId": args.assigneeId,
         "id": args.id,
@@ -68,7 +67,7 @@ export function getPrimaryIp(args?: GetPrimaryIpArgs, opts?: pulumi.InvokeOption
  */
 export interface GetPrimaryIpArgs {
     /**
-     * (int) ID of the assigned resource
+     * (int) ID of the assigned resource.
      */
     assigneeId?: number;
     /**
@@ -94,7 +93,7 @@ export interface GetPrimaryIpArgs {
  */
 export interface GetPrimaryIpResult {
     /**
-     * (int) ID of the assigned resource
+     * (int) ID of the assigned resource.
      */
     readonly assigneeId: number;
     /**
@@ -102,12 +101,15 @@ export interface GetPrimaryIpResult {
      */
     readonly assigneeType: string;
     /**
-     * (boolean) Whether auto delete is enabled.
+     * (bool) Whether auto delete is enabled.
      */
     readonly autoDelete: boolean;
+    /**
+     * (string) The datacenter name of the Primary IP.
+     */
     readonly datacenter: string;
     /**
-     * (boolean) Whether delete protection is enabled.
+     * (bool) Whether delete protection is enabled.
      */
     readonly deleteProtection: boolean;
     /**
@@ -133,9 +135,53 @@ export interface GetPrimaryIpResult {
     readonly type: string;
     readonly withSelector?: string;
 }
-
+/**
+ * Provides details about a Hetzner Cloud Primary IP.
+ *
+ * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+ *
+ * Side note:
+ *
+ * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
+ * Currently, Primary IPs can be only attached to servers.
+ *
+ * ## Example Usage
+ *
+ * # Data Source: hcloud.PrimaryIp
+ *
+ * Provides details about a Hetzner Cloud Primary IP.
+ * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+ * ### Additional Examples
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ip1 = hcloud.getPrimaryIp({
+ *     ipAddress: "1.2.3.4",
+ * });
+ * const ip2 = hcloud.getPrimaryIp({
+ *     name: "primary_ip_1",
+ * });
+ * const ip3 = hcloud.getPrimaryIp({
+ *     withSelector: "key=value",
+ * });
+ * // Link a server to an existing primary IP
+ * const serverTest = new hcloud.Server("serverTest", {
+ *     image: "ubuntu-20.04",
+ *     serverType: "cx11",
+ *     datacenter: "fsn1-dc14",
+ *     labels: {
+ *         test: "tessst1",
+ *     },
+ *     publicNets: [{
+ *         ipv4: hcloud_primary_ip.ip_1.id,
+ *     }],
+ * });
+ * ```
+ */
 export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpResult> {
-    return pulumi.output(args).apply(a => getPrimaryIp(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrimaryIp(a, opts))
 }
 
 /**
@@ -143,7 +189,7 @@ export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.
  */
 export interface GetPrimaryIpOutputArgs {
     /**
-     * (int) ID of the assigned resource
+     * (int) ID of the assigned resource.
      */
     assigneeId?: pulumi.Input<number>;
     /**

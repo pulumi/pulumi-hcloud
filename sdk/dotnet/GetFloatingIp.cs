@@ -30,37 +30,35 @@ namespace Pulumi.HCloud
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ip1 = HCloud.GetFloatingIp.Invoke(new()
         ///     {
-        ///         var ip1 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs
-        ///         {
-        ///             IpAddress = "1.2.3.4",
-        ///         }));
-        ///         var ip2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///         var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
-        ///         for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
-        ///         {
-        ///             var range = new { Value = rangeIndex };
-        ///             main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new HCloud.FloatingIpAssignmentArgs
-        ///             {
-        ///                 FloatingIpId = ip1.Apply(ip1 =&gt; ip1.Id),
-        ///                 ServerId = hcloud_server.Main.Id,
-        ///             }));
-        ///         }
-        ///     }
+        ///         IpAddress = "1.2.3.4",
+        ///     });
         /// 
-        /// }
+        ///     var ip2 = HCloud.GetFloatingIp.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
+        ///         {
+        ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
+        ///             ServerId = hcloud_server.Main.Id,
+        ///         }));
+        ///     }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFloatingIpResult> InvokeAsync(GetFloatingIpArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFloatingIpResult>("hcloud:index/getFloatingIp:getFloatingIp", args ?? new GetFloatingIpArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFloatingIpResult>("hcloud:index/getFloatingIp:getFloatingIp", args ?? new GetFloatingIpArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a Hetzner Cloud Floating IP.
@@ -81,41 +79,39 @@ namespace Pulumi.HCloud
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ip1 = HCloud.GetFloatingIp.Invoke(new()
         ///     {
-        ///         var ip1 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs
-        ///         {
-        ///             IpAddress = "1.2.3.4",
-        ///         }));
-        ///         var ip2 = Output.Create(HCloud.GetFloatingIp.InvokeAsync(new HCloud.GetFloatingIpArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///         var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
-        ///         for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
-        ///         {
-        ///             var range = new { Value = rangeIndex };
-        ///             main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new HCloud.FloatingIpAssignmentArgs
-        ///             {
-        ///                 FloatingIpId = ip1.Apply(ip1 =&gt; ip1.Id),
-        ///                 ServerId = hcloud_server.Main.Id,
-        ///             }));
-        ///         }
-        ///     }
+        ///         IpAddress = "1.2.3.4",
+        ///     });
         /// 
-        /// }
+        ///     var ip2 = HCloud.GetFloatingIp.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
+        ///         {
+        ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
+        ///             ServerId = hcloud_server.Main.Id,
+        ///         }));
+        ///     }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFloatingIpResult> Invoke(GetFloatingIpInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFloatingIpResult>("hcloud:index/getFloatingIp:getFloatingIp", args ?? new GetFloatingIpInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFloatingIpResult>("hcloud:index/getFloatingIp:getFloatingIp", args ?? new GetFloatingIpInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetFloatingIpArgs : Pulumi.InvokeArgs
+    public sealed class GetFloatingIpArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the Floating IP.
@@ -147,9 +143,10 @@ namespace Pulumi.HCloud
         public GetFloatingIpArgs()
         {
         }
+        public static new GetFloatingIpArgs Empty => new GetFloatingIpArgs();
     }
 
-    public sealed class GetFloatingIpInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFloatingIpInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the Floating IP.
@@ -181,6 +178,7 @@ namespace Pulumi.HCloud
         public GetFloatingIpInvokeArgs()
         {
         }
+        public static new GetFloatingIpInvokeArgs Empty => new GetFloatingIpInvokeArgs();
     }
 
 
@@ -188,7 +186,7 @@ namespace Pulumi.HCloud
     public sealed class GetFloatingIpResult
     {
         /// <summary>
-        /// (boolean) Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>

@@ -15,26 +15,25 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new()
     ///     {
-    ///         var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new HCloud.LoadBalancerArgs
-    ///         {
-    ///             LoadBalancerType = "lb11",
-    ///             Location = "nbg1",
-    ///         });
-    ///         var loadBalancerService = new HCloud.LoadBalancerService("loadBalancerService", new HCloud.LoadBalancerServiceArgs
-    ///         {
-    ///             LoadBalancerId = hcloud_load_balancer.Test_load_balancer.Id,
-    ///             Protocol = "http",
-    ///         });
-    ///     }
+    ///         LoadBalancerType = "lb11",
+    ///         Location = "nbg1",
+    ///     });
     /// 
-    /// }
+    ///     var loadBalancerService = new HCloud.LoadBalancerService("loadBalancerService", new()
+    ///     {
+    ///         LoadBalancerId = hcloud_load_balancer.Test_load_balancer.Id,
+    ///         Protocol = "http",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.HCloud
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/loadBalancerService:LoadBalancerService")]
-    public partial class LoadBalancerService : Pulumi.CustomResource
+    public partial class LoadBalancerService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
@@ -134,7 +133,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class LoadBalancerServiceArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
@@ -181,9 +180,10 @@ namespace Pulumi.HCloud
         public LoadBalancerServiceArgs()
         {
         }
+        public static new LoadBalancerServiceArgs Empty => new LoadBalancerServiceArgs();
     }
 
-    public sealed class LoadBalancerServiceState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
@@ -230,5 +230,6 @@ namespace Pulumi.HCloud
         public LoadBalancerServiceState()
         {
         }
+        public static new LoadBalancerServiceState Empty => new LoadBalancerServiceState();
     }
 }

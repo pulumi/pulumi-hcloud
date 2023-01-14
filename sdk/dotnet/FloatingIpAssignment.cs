@@ -15,32 +15,32 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///             Datacenter = "fsn1-dc8",
-    ///         });
-    ///         var master = new HCloud.FloatingIp("master", new HCloud.FloatingIpArgs
-    ///         {
-    ///             Type = "ipv4",
-    ///             HomeLocation = "nbg1",
-    ///         });
-    ///         var main = new HCloud.FloatingIpAssignment("main", new HCloud.FloatingIpAssignmentArgs
-    ///         {
-    ///             FloatingIpId = master.Id,
-    ///             ServerId = node1.Id,
-    ///         });
-    ///     }
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///         Datacenter = "fsn1-dc8",
+    ///     });
     /// 
-    /// }
+    ///     var master = new HCloud.FloatingIp("master", new()
+    ///     {
+    ///         Type = "ipv4",
+    ///         HomeLocation = "nbg1",
+    ///     });
+    /// 
+    ///     var main = new HCloud.FloatingIpAssignment("main", new()
+    ///     {
+    ///         FloatingIpId = master.Id,
+    ///         ServerId = node1.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +52,7 @@ namespace Pulumi.HCloud
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/floatingIpAssignment:FloatingIpAssignment")]
-    public partial class FloatingIpAssignment : Pulumi.CustomResource
+    public partial class FloatingIpAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the Floating IP.
@@ -110,7 +110,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class FloatingIpAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class FloatingIpAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Floating IP.
@@ -127,9 +127,10 @@ namespace Pulumi.HCloud
         public FloatingIpAssignmentArgs()
         {
         }
+        public static new FloatingIpAssignmentArgs Empty => new FloatingIpAssignmentArgs();
     }
 
-    public sealed class FloatingIpAssignmentState : Pulumi.ResourceArgs
+    public sealed class FloatingIpAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Floating IP.
@@ -146,5 +147,6 @@ namespace Pulumi.HCloud
         public FloatingIpAssignmentState()
         {
         }
+        public static new FloatingIpAssignmentState Empty => new FloatingIpAssignmentState();
     }
 }

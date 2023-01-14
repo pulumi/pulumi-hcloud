@@ -17,34 +17,34 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s1 = HCloud.GetServer.Invoke(new()
         ///     {
-        ///         var s1 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
-        ///         {
-        ///             Name = "my-server",
-        ///         }));
-        ///         var s2 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
-        ///         {
-        ///             Id = 123,
-        ///         }));
-        ///         var s3 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         Name = "my-server",
+        ///     });
         /// 
-        /// }
+        ///     var s2 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         Id = 123,
+        ///     });
+        /// 
+        ///     var s3 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -52,38 +52,38 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s1 = HCloud.GetServer.Invoke(new()
         ///     {
-        ///         var s1 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
-        ///         {
-        ///             Name = "my-server",
-        ///         }));
-        ///         var s2 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
-        ///         {
-        ///             Id = 123,
-        ///         }));
-        ///         var s3 = Output.Create(HCloud.GetServer.InvokeAsync(new HCloud.GetServerArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         Name = "my-server",
+        ///     });
         /// 
-        /// }
+        ///     var s2 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         Id = 123,
+        ///     });
+        /// 
+        ///     var s3 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetServerArgs : Pulumi.InvokeArgs
+    public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the server.
@@ -127,9 +127,10 @@ namespace Pulumi.HCloud
         public GetServerArgs()
         {
         }
+        public static new GetServerArgs Empty => new GetServerArgs();
     }
 
-    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the server.
@@ -173,6 +174,7 @@ namespace Pulumi.HCloud
         public GetServerInvokeArgs()
         {
         }
+        public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
     }
 
 
@@ -184,7 +186,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string BackupWindow;
         /// <summary>
-        /// (boolean) Whether backups are enabled.
+        /// (bool) Whether backups are enabled.
         /// </summary>
         public readonly bool Backups;
         /// <summary>
@@ -192,7 +194,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Datacenter;
         /// <summary>
-        /// (boolean) Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>
@@ -240,7 +242,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly int? PlacementGroupId;
         /// <summary>
-        /// (boolean) Whether rebuild protection is enabled.
+        /// (bool) Whether rebuild protection is enabled.
         /// </summary>
         public readonly bool RebuildProtection;
         public readonly string Rescue;

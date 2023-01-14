@@ -30,7 +30,7 @@ namespace Pulumi.HCloud
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("hcloud");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("hcloud");
 
         private static readonly __Value<string?> _endpoint = new __Value<string?>(() => __config.Get("endpoint"));
         public static string? Endpoint

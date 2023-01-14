@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.GetServerType(ctx, &GetServerTypeArgs{
-// 			Name: pulumi.StringRef("cx11"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.GetServerType(ctx, &GetServerTypeArgs{
-// 			Id: pulumi.IntRef(1),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.GetServerType(ctx, &hcloud.GetServerTypeArgs{
+//				Name: pulumi.StringRef("cx11"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.GetServerType(ctx, &hcloud.GetServerTypeArgs{
+//				Id: pulumi.IntRef(1),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetServerType(ctx *pulumi.Context, args *GetServerTypeArgs, opts ...pulumi.InvokeOption) (*GetServerTypeResult, error) {
 	var rv GetServerTypeResult

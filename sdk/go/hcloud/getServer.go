@@ -16,33 +16,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.LookupServer(ctx, &GetServerArgs{
-// 			Name: pulumi.StringRef("my-server"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupServer(ctx, &GetServerArgs{
-// 			Id: pulumi.IntRef(123),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupServer(ctx, &GetServerArgs{
-// 			WithSelector: pulumi.StringRef("key=value"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.LookupServer(ctx, &hcloud.LookupServerArgs{
+//				Name: pulumi.StringRef("my-server"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupServer(ctx, &hcloud.LookupServerArgs{
+//				Id: pulumi.IntRef(123),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupServer(ctx, &hcloud.LookupServerArgs{
+//				WithSelector: pulumi.StringRef("key=value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
@@ -73,11 +76,11 @@ type LookupServerArgs struct {
 type LookupServerResult struct {
 	// (string) The backup window of the server, if enabled.
 	BackupWindow string `pulumi:"backupWindow"`
-	// (boolean) Whether backups are enabled.
+	// (bool) Whether backups are enabled.
 	Backups bool `pulumi:"backups"`
 	// (string) The datacenter name.
 	Datacenter string `pulumi:"datacenter"`
-	// (boolean) Whether delete protection is enabled.
+	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// (Optional, list) Firewall IDs the server is attached to.
 	FirewallIds []int `pulumi:"firewallIds"`
@@ -101,7 +104,7 @@ type LookupServerResult struct {
 	Name string `pulumi:"name"`
 	// (Optional, string) Placement Group ID the server is assigned to.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
-	// (boolean) Whether rebuild protection is enabled.
+	// (bool) Whether rebuild protection is enabled.
 	RebuildProtection bool   `pulumi:"rebuildProtection"`
 	Rescue            string `pulumi:"rescue"`
 	// Deprecated: Please use the with_selector property instead.
@@ -167,7 +170,7 @@ func (o LookupServerResultOutput) BackupWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.BackupWindow }).(pulumi.StringOutput)
 }
 
-// (boolean) Whether backups are enabled.
+// (bool) Whether backups are enabled.
 func (o LookupServerResultOutput) Backups() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServerResult) bool { return v.Backups }).(pulumi.BoolOutput)
 }
@@ -177,7 +180,7 @@ func (o LookupServerResultOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Datacenter }).(pulumi.StringOutput)
 }
 
-// (boolean) Whether delete protection is enabled.
+// (bool) Whether delete protection is enabled.
 func (o LookupServerResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServerResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }
@@ -237,7 +240,7 @@ func (o LookupServerResultOutput) PlacementGroupId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *int { return v.PlacementGroupId }).(pulumi.IntPtrOutput)
 }
 
-// (boolean) Whether rebuild protection is enabled.
+// (bool) Whether rebuild protection is enabled.
 func (o LookupServerResultOutput) RebuildProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServerResult) bool { return v.RebuildProtection }).(pulumi.BoolOutput)
 }

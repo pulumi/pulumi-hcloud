@@ -18,33 +18,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
-// 			Name: pulumi.StringRef("my-load-balancer"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
-// 			Id: pulumi.IntRef(123),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.LookupLoadBalancer(ctx, &GetLoadBalancerArgs{
-// 			WithSelector: pulumi.StringRef("key=value"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+//				Name: pulumi.StringRef("my-load-balancer"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+//				Id: pulumi.IntRef(123),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+//				WithSelector: pulumi.StringRef("key=value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
@@ -69,7 +72,7 @@ type LookupLoadBalancerArgs struct {
 type LookupLoadBalancerResult struct {
 	// (Optional) Configuration of the algorithm the Load Balancer use.
 	Algorithms []GetLoadBalancerAlgorithm `pulumi:"algorithms"`
-	// (boolean) Whether delete protection is enabled.
+	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// (int) Unique ID of the Load Balancer.
 	Id int `pulumi:"id"`
@@ -84,8 +87,12 @@ type LookupLoadBalancerResult struct {
 	// (string) Name of the location the Load Balancer is in.
 	Location string `pulumi:"location"`
 	// (string) Name of the Load Balancer.
-	Name        *string `pulumi:"name"`
-	NetworkZone string  `pulumi:"networkZone"`
+	Name *string `pulumi:"name"`
+	// (int) ID of the first private network that this Load Balancer is connected to.
+	NetworkId int `pulumi:"networkId"`
+	// (string) IP of the Load Balancer in the first private network that it is connected to.
+	NetworkIp   string `pulumi:"networkIp"`
+	NetworkZone string `pulumi:"networkZone"`
 	// (list) List of services a Load Balancer provides.
 	Services []GetLoadBalancerServiceType `pulumi:"services"`
 	// (list) List of targets of the Load Balancer.
@@ -140,7 +147,7 @@ func (o LookupLoadBalancerResultOutput) Algorithms() GetLoadBalancerAlgorithmArr
 	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerAlgorithm { return v.Algorithms }).(GetLoadBalancerAlgorithmArrayOutput)
 }
 
-// (boolean) Whether delete protection is enabled.
+// (bool) Whether delete protection is enabled.
 func (o LookupLoadBalancerResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }
@@ -178,6 +185,16 @@ func (o LookupLoadBalancerResultOutput) Location() pulumi.StringOutput {
 // (string) Name of the Load Balancer.
 func (o LookupLoadBalancerResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (int) ID of the first private network that this Load Balancer is connected to.
+func (o LookupLoadBalancerResultOutput) NetworkId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.NetworkId }).(pulumi.IntOutput)
+}
+
+// (string) IP of the Load Balancer in the first private network that it is connected to.
+func (o LookupLoadBalancerResultOutput) NetworkIp() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.NetworkIp }).(pulumi.StringOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) NetworkZone() pulumi.StringOutput {

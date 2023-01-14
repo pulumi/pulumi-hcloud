@@ -15,38 +15,39 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///         });
-    ///         var mynet = new HCloud.Network("mynet", new HCloud.NetworkArgs
-    ///         {
-    ///             IpRange = "10.0.0.0/8",
-    ///         });
-    ///         var foonet = new HCloud.NetworkSubnet("foonet", new HCloud.NetworkSubnetArgs
-    ///         {
-    ///             NetworkId = mynet.Id,
-    ///             Type = "cloud",
-    ///             NetworkZone = "eu-central",
-    ///             IpRange = "10.0.1.0/24",
-    ///         });
-    ///         var srvnetwork = new HCloud.ServerNetwork("srvnetwork", new HCloud.ServerNetworkArgs
-    ///         {
-    ///             ServerId = node1.Id,
-    ///             NetworkId = mynet.Id,
-    ///             Ip = "10.0.1.5",
-    ///         });
-    ///     }
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///     });
     /// 
-    /// }
+    ///     var mynet = new HCloud.Network("mynet", new()
+    ///     {
+    ///         IpRange = "10.0.0.0/8",
+    ///     });
+    /// 
+    ///     var foonet = new HCloud.NetworkSubnet("foonet", new()
+    ///     {
+    ///         NetworkId = mynet.Id,
+    ///         Type = "cloud",
+    ///         NetworkZone = "eu-central",
+    ///         IpRange = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var srvnetwork = new HCloud.ServerNetwork("srvnetwork", new()
+    ///     {
+    ///         ServerId = node1.Id,
+    ///         NetworkId = mynet.Id,
+    ///         Ip = "10.0.1.5",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +59,7 @@ namespace Pulumi.HCloud
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/serverNetwork:ServerNetwork")]
-    public partial class ServerNetwork : Pulumi.CustomResource
+    public partial class ServerNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Additional IPs to be assigned
@@ -150,7 +151,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class ServerNetworkArgs : Pulumi.ResourceArgs
+    public sealed class ServerNetworkArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliasIps")]
         private InputList<string>? _aliasIps;
@@ -204,9 +205,10 @@ namespace Pulumi.HCloud
         public ServerNetworkArgs()
         {
         }
+        public static new ServerNetworkArgs Empty => new ServerNetworkArgs();
     }
 
-    public sealed class ServerNetworkState : Pulumi.ResourceArgs
+    public sealed class ServerNetworkState : global::Pulumi.ResourceArgs
     {
         [Input("aliasIps")]
         private InputList<string>? _aliasIps;
@@ -263,5 +265,6 @@ namespace Pulumi.HCloud
         public ServerNetworkState()
         {
         }
+        public static new ServerNetworkState Empty => new ServerNetworkState();
     }
 }

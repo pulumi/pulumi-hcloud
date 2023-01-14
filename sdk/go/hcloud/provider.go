@@ -34,6 +34,13 @@ func NewProvider(ctx *pulumi.Context,
 	if args.Token == nil {
 		return nil, errors.New("invalid value for required argument 'Token'")
 	}
+	if args.Token != nil {
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"token",
+	})
+	opts = append(opts, secrets)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:hcloud", name, args, &resource, opts...)
 	if err != nil {

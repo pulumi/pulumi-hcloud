@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -11,11 +12,8 @@ import * as utilities from "./utilities";
  */
 export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getLocations:getLocations", {
         "locationIds": args.locationIds,
     }, opts);
@@ -64,9 +62,12 @@ export interface GetLocationsResult {
      */
     readonly names: string[];
 }
-
+/**
+ * Provides a list of available Hetzner Cloud Locations.
+ * This resource may be useful to create highly available infrastructure, distributed across several locations.
+ */
 export function getLocationsOutput(args?: GetLocationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationsResult> {
-    return pulumi.output(args).apply(a => getLocations(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocations(a, opts))
 }
 
 /**

@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myserver, err := hcloud.NewServer(ctx, "myserver", &hcloud.ServerArgs{
-// 			ServerType: pulumi.String("cx11"),
-// 			Image:      pulumi.String("ubuntu-18.04"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
-// 			LoadBalancerType: pulumi.String("lb11"),
-// 			Location:         pulumi.String("nbg1"),
-// 			Targets: LoadBalancerTargetArray{
-// 				&LoadBalancerTargetArgs{
-// 					Type:     pulumi.String("server"),
-// 					ServerId: myserver.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myserver, err := hcloud.NewServer(ctx, "myserver", &hcloud.ServerArgs{
+//				ServerType: pulumi.String("cx11"),
+//				Image:      pulumi.String("ubuntu-18.04"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("lb11"),
+//				Location:         pulumi.String("nbg1"),
+//				Targets: hcloud.LoadBalancerTargetTypeArray{
+//					&hcloud.LoadBalancerTargetTypeArgs{
+//						Type:     pulumi.String("server"),
+//						ServerId: myserver.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Load Balancers can be imported using its `id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer <id>
+//
+//	$ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer id
+//
 // ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
@@ -72,13 +77,15 @@ type LoadBalancer struct {
 	Labels pulumi.MapOutput `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringOutput `pulumi:"loadBalancerType"`
-	// Location of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the Load Balancer.
-	Name      pulumi.StringOutput `pulumi:"name"`
-	NetworkId pulumi.IntOutput    `pulumi:"networkId"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// (int) ID of the first private network that this Load Balancer is connected to.
+	NetworkId pulumi.IntOutput `pulumi:"networkId"`
+	// (string) IP of the Load Balancer in the first private network that it is connected to.
 	NetworkIp pulumi.StringOutput `pulumi:"networkIp"`
-	// Network Zone of the Load Balancer. Require when no location is set.
+	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringOutput `pulumi:"networkZone"`
 	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayOutput `pulumi:"targets"`
@@ -128,13 +135,15 @@ type loadBalancerState struct {
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
-	// Location of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set.
 	Location *string `pulumi:"location"`
 	// Name of the Load Balancer.
-	Name      *string `pulumi:"name"`
-	NetworkId *int    `pulumi:"networkId"`
+	Name *string `pulumi:"name"`
+	// (int) ID of the first private network that this Load Balancer is connected to.
+	NetworkId *int `pulumi:"networkId"`
+	// (string) IP of the Load Balancer in the first private network that it is connected to.
 	NetworkIp *string `pulumi:"networkIp"`
-	// Network Zone of the Load Balancer. Require when no location is set.
+	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone *string `pulumi:"networkZone"`
 	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets []LoadBalancerTargetType `pulumi:"targets"`
@@ -153,13 +162,15 @@ type LoadBalancerState struct {
 	Labels pulumi.MapInput
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringPtrInput
-	// Location of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set.
 	Location pulumi.StringPtrInput
 	// Name of the Load Balancer.
-	Name      pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// (int) ID of the first private network that this Load Balancer is connected to.
 	NetworkId pulumi.IntPtrInput
+	// (string) IP of the Load Balancer in the first private network that it is connected to.
 	NetworkIp pulumi.StringPtrInput
-	// Network Zone of the Load Balancer. Require when no location is set.
+	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringPtrInput
 	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayInput
@@ -178,11 +189,11 @@ type loadBalancerArgs struct {
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
-	// Location of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set.
 	Location *string `pulumi:"location"`
 	// Name of the Load Balancer.
 	Name *string `pulumi:"name"`
-	// Network Zone of the Load Balancer. Require when no location is set.
+	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone *string `pulumi:"networkZone"`
 	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets []LoadBalancerTargetType `pulumi:"targets"`
@@ -198,11 +209,11 @@ type LoadBalancerArgs struct {
 	Labels pulumi.MapInput
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringInput
-	// Location of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set.
 	Location pulumi.StringPtrInput
 	// Name of the Load Balancer.
 	Name pulumi.StringPtrInput
-	// Network Zone of the Load Balancer. Require when no location is set.
+	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringPtrInput
 	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayInput
@@ -234,7 +245,7 @@ func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) Load
 // LoadBalancerArrayInput is an input type that accepts LoadBalancerArray and LoadBalancerArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerArrayInput` via:
 //
-//          LoadBalancerArray{ LoadBalancerArgs{...} }
+//	LoadBalancerArray{ LoadBalancerArgs{...} }
 type LoadBalancerArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +270,7 @@ func (i LoadBalancerArray) ToLoadBalancerArrayOutputWithContext(ctx context.Cont
 // LoadBalancerMapInput is an input type that accepts LoadBalancerMap and LoadBalancerMapOutput values.
 // You can construct a concrete instance of `LoadBalancerMapInput` via:
 //
-//          LoadBalancerMap{ "key": LoadBalancerArgs{...} }
+//	LoadBalancerMap{ "key": LoadBalancerArgs{...} }
 type LoadBalancerMapInput interface {
 	pulumi.Input
 
@@ -325,7 +336,7 @@ func (o LoadBalancerOutput) LoadBalancerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerType }).(pulumi.StringOutput)
 }
 
-// Location of the Load Balancer. Require when no networkZone is set.
+// The location name of the Load Balancer. Require when no networkZone is set.
 func (o LoadBalancerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -335,15 +346,17 @@ func (o LoadBalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// (int) ID of the first private network that this Load Balancer is connected to.
 func (o LoadBalancerOutput) NetworkId() pulumi.IntOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.IntOutput { return v.NetworkId }).(pulumi.IntOutput)
 }
 
+// (string) IP of the Load Balancer in the first private network that it is connected to.
 func (o LoadBalancerOutput) NetworkIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.NetworkIp }).(pulumi.StringOutput)
 }
 
-// Network Zone of the Load Balancer. Require when no location is set.
+// The Network Zone of the Load Balancer. Require when no location is set.
 func (o LoadBalancerOutput) NetworkZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.NetworkZone }).(pulumi.StringOutput)
 }

@@ -11,8 +11,8 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as fs from "fs";
  * import * as hcloud from "@pulumi/hcloud";
- * import * from "fs";
  *
  * // Create a new SSH key
  * const _default = new hcloud.SshKey("default", {publicKey: fs.readFileSync("~/.ssh/id_rsa.pub")});
@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  * SSH keys can be imported using the SSH key `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/sshKey:SshKey mykey <id>
+ *  $ pulumi import hcloud:index/sshKey:SshKey mykey id
  * ```
  */
 export class SshKey extends pulumi.CustomResource {

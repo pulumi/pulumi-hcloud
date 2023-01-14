@@ -20,27 +20,26 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var volume_ = Output.Create(HCloud.GetVolumes.InvokeAsync());
-        ///         var volume3 = Output.Create(HCloud.GetVolumes.InvokeAsync(new HCloud.GetVolumesArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///     var volume_ = HCloud.GetVolumes.Invoke();
         /// 
-        /// }
+        ///     var volume3 = HCloud.GetVolumes.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVolumesResult> InvokeAsync(GetVolumesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud volumes.
@@ -51,31 +50,30 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var volume_ = Output.Create(HCloud.GetVolumes.InvokeAsync());
-        ///         var volume3 = Output.Create(HCloud.GetVolumes.InvokeAsync(new HCloud.GetVolumesArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///     var volume_ = HCloud.GetVolumes.Invoke();
         /// 
-        /// }
+        ///     var volume3 = HCloud.GetVolumes.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVolumesResult> Invoke(GetVolumesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetVolumesArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -98,9 +96,10 @@ namespace Pulumi.HCloud
         public GetVolumesArgs()
         {
         }
+        public static new GetVolumesArgs Empty => new GetVolumesArgs();
     }
 
-    public sealed class GetVolumesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -123,6 +122,7 @@ namespace Pulumi.HCloud
         public GetVolumesInvokeArgs()
         {
         }
+        public static new GetVolumesInvokeArgs Empty => new GetVolumesInvokeArgs();
     }
 
 

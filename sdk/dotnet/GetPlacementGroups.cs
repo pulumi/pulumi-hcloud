@@ -20,27 +20,26 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var samplePlacementGroup1 = Output.Create(HCloud.GetPlacementGroups.InvokeAsync());
-        ///         var samplePlacementGroup2 = Output.Create(HCloud.GetPlacementGroups.InvokeAsync(new HCloud.GetPlacementGroupsArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroups.Invoke();
         /// 
-        /// }
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroups.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlacementGroupsResult> InvokeAsync(GetPlacementGroupsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupsResult>("hcloud:index/getPlacementGroups:getPlacementGroups", args ?? new GetPlacementGroupsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupsResult>("hcloud:index/getPlacementGroups:getPlacementGroups", args ?? new GetPlacementGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Placement Groups.
@@ -51,31 +50,30 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var samplePlacementGroup1 = Output.Create(HCloud.GetPlacementGroups.InvokeAsync());
-        ///         var samplePlacementGroup2 = Output.Create(HCloud.GetPlacementGroups.InvokeAsync(new HCloud.GetPlacementGroupsArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroups.Invoke();
         /// 
-        /// }
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroups.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPlacementGroupsResult> Invoke(GetPlacementGroupsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlacementGroupsResult>("hcloud:index/getPlacementGroups:getPlacementGroups", args ?? new GetPlacementGroupsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupsResult>("hcloud:index/getPlacementGroups:getPlacementGroups", args ?? new GetPlacementGroupsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetPlacementGroupsArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Sorts list by date.
@@ -92,9 +90,10 @@ namespace Pulumi.HCloud
         public GetPlacementGroupsArgs()
         {
         }
+        public static new GetPlacementGroupsArgs Empty => new GetPlacementGroupsArgs();
     }
 
-    public sealed class GetPlacementGroupsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Sorts list by date.
@@ -111,6 +110,7 @@ namespace Pulumi.HCloud
         public GetPlacementGroupsInvokeArgs()
         {
         }
+        public static new GetPlacementGroupsInvokeArgs Empty => new GetPlacementGroupsInvokeArgs();
     }
 
 

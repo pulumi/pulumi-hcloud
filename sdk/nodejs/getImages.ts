@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,19 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const image2 = pulumi.output(hcloud.getImages());
- * const image3 = pulumi.output(hcloud.getImages({
+ * const image2 = hcloud.getImages({});
+ * const image3 = hcloud.getImages({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getImages(args?: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getImages:getImages", {
         "mostRecent": args.mostRecent,
         "withSelector": args.withSelector,
@@ -68,9 +66,23 @@ export interface GetImagesResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
-
+/**
+ * Provides details about multiple Hetzner Cloud Images.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const image2 = hcloud.getImages({});
+ * const image3 = hcloud.getImages({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getImagesOutput(args?: GetImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagesResult> {
-    return pulumi.output(args).apply(a => getImages(a, opts))
+    return pulumi.output(args).apply((a: any) => getImages(a, opts))
 }
 
 /**

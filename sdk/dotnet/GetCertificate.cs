@@ -15,59 +15,57 @@ namespace Pulumi.HCloud
         /// Provides details about a specific Hetzner Cloud Certificate.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sampleCertificate1 = HCloud.GetCertificate.Invoke(new()
         ///     {
-        ///         var sampleCertificate1 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs
-        ///         {
-        ///             Name = "sample-certificate-1",
-        ///         }));
-        ///         var sampleCertificate2 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs
-        ///         {
-        ///             Id = 4711,
-        ///         }));
-        ///     }
+        ///         Name = "sample-certificate-1",
+        ///     });
         /// 
-        /// }
+        ///     var sampleCertificate2 = HCloud.GetCertificate.Invoke(new()
+        ///     {
+        ///         Id = 4711,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("hcloud:index/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("hcloud:index/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Certificate.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sampleCertificate1 = HCloud.GetCertificate.Invoke(new()
         ///     {
-        ///         var sampleCertificate1 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs
-        ///         {
-        ///             Name = "sample-certificate-1",
-        ///         }));
-        ///         var sampleCertificate2 = Output.Create(HCloud.GetCertificate.InvokeAsync(new HCloud.GetCertificateArgs
-        ///         {
-        ///             Id = 4711,
-        ///         }));
-        ///     }
+        ///         Name = "sample-certificate-1",
+        ///     });
         /// 
-        /// }
+        ///     var sampleCertificate2 = HCloud.GetCertificate.Invoke(new()
+        ///     {
+        ///         Id = 4711,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("hcloud:index/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("hcloud:index/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the certificate.
@@ -90,9 +88,10 @@ namespace Pulumi.HCloud
         public GetCertificateArgs()
         {
         }
+        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the certificate.
@@ -115,6 +114,7 @@ namespace Pulumi.HCloud
         public GetCertificateInvokeArgs()
         {
         }
+        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class LoadBalancerAlgorithmArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerAlgorithmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
@@ -21,5 +21,6 @@ namespace Pulumi.HCloud.Inputs
         public LoadBalancerAlgorithmArgs()
         {
         }
+        public static new LoadBalancerAlgorithmArgs Empty => new LoadBalancerAlgorithmArgs();
     }
 }

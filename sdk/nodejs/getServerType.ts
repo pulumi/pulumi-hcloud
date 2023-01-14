@@ -14,21 +14,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ds1 = pulumi.output(hcloud.getServerType({
+ * const ds1 = hcloud.getServerType({
  *     name: "cx11",
- * }));
- * const ds2 = pulumi.output(hcloud.getServerType({
+ * });
+ * const ds2 = hcloud.getServerType({
  *     id: 1,
- * }));
+ * });
  * ```
  */
 export function getServerType(args?: GetServerTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypeResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServerType:getServerType", {
         "id": args.id,
         "name": args.name,
@@ -80,9 +77,26 @@ export interface GetServerTypeResult {
     readonly name: string;
     readonly storageType: string;
 }
-
+/**
+ * Provides details about a specific Hetzner Cloud Server Type.
+ * Use this resource to get detailed information about specific Server Type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ds1 = hcloud.getServerType({
+ *     name: "cx11",
+ * });
+ * const ds2 = hcloud.getServerType({
+ *     id: 1,
+ * });
+ * ```
+ */
 export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypeResult> {
-    return pulumi.output(args).apply(a => getServerType(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerType(a, opts))
 }
 
 /**

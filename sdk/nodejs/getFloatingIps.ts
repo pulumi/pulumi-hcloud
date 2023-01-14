@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,18 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ip2 = pulumi.output(hcloud.getFloatingIps({
+ * const ip2 = hcloud.getFloatingIps({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getFloatingIps(args?: GetFloatingIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getFloatingIps:getFloatingIps", {
         "withSelector": args.withSelector,
     }, opts);
@@ -55,9 +53,22 @@ export interface GetFloatingIpsResult {
     readonly id: string;
     readonly withSelector?: string;
 }
-
+/**
+ * Provides details about multiple Hetzner Cloud Floating IPs.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ip2 = hcloud.getFloatingIps({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getFloatingIpsOutput(args?: GetFloatingIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpsResult> {
-    return pulumi.output(args).apply(a => getFloatingIps(a, opts))
+    return pulumi.output(args).apply((a: any) => getFloatingIps(a, opts))
 }
 
 /**

@@ -27,6 +27,22 @@ import * as utilities from "./utilities";
  *     serverId: myServer.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Load Balancer Target entries can be imported using a compound ID with the following format`<load-balancer-id>__<type>__<identifier>` Where _identifier_ depends on the _type_- `server`server id, for example`123` - `label_selector`label selector, for example`foo=bar` - `ip`ip address, for example`203.0.113.123`
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerservertarget 123__server__321
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerlabeltarget 123__label_selector__foo=bar
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalanceriptarget 123__ip__203.0.113.123
+ * ```
  */
 export class LoadBalancerTarget extends pulumi.CustomResource {
     /**

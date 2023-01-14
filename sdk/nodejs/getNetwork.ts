@@ -11,24 +11,21 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const network1 = pulumi.output(hcloud.getNetwork({
+ * const network1 = hcloud.getNetwork({
  *     id: 1234,
- * }));
- * const network2 = pulumi.output(hcloud.getNetwork({
+ * });
+ * const network2 = hcloud.getNetwork({
  *     name: "my-network",
- * }));
- * const network3 = pulumi.output(hcloud.getNetwork({
+ * });
+ * const network3 = hcloud.getNetwork({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getNetwork(args?: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getNetwork:getNetwork", {
         "id": args.id,
         "ipRange": args.ipRange,
@@ -68,7 +65,7 @@ export interface GetNetworkArgs {
  */
 export interface GetNetworkResult {
     /**
-     * (boolean) Whether delete protection is enabled.
+     * (bool) Whether delete protection is enabled.
      */
     readonly deleteProtection: boolean;
     /**
@@ -87,9 +84,26 @@ export interface GetNetworkResult {
     readonly name?: string;
     readonly withSelector?: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const network1 = hcloud.getNetwork({
+ *     id: 1234,
+ * });
+ * const network2 = hcloud.getNetwork({
+ *     name: "my-network",
+ * });
+ * const network3 = hcloud.getNetwork({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getNetworkOutput(args?: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
-    return pulumi.output(args).apply(a => getNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
 }
 
 /**

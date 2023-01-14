@@ -17,47 +17,49 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sshKey1 = HCloud.GetSshKey.Invoke(new()
         ///     {
-        ///         var sshKey1 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
-        ///         {
-        ///             Id = 1234,
-        ///         }));
-        ///         var sshKey2 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
-        ///         {
-        ///             Name = "my-ssh-key",
-        ///         }));
-        ///         var sshKey3 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
-        ///         {
-        ///             Fingerprint = "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
-        ///         }));
-        ///         var sshKey4 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///         var main = new HCloud.Server("main", new HCloud.ServerArgs
-        ///         {
-        ///             SshKeys = 
-        ///             {
-        ///                 sshKey1.Apply(sshKey1 =&gt; sshKey1.Id),
-        ///                 sshKey2.Apply(sshKey2 =&gt; sshKey2.Id),
-        ///                 sshKey3.Apply(sshKey3 =&gt; sshKey3.Id),
-        ///             },
-        ///         });
-        ///     }
+        ///         Id = 1234,
+        ///     });
         /// 
-        /// }
+        ///     var sshKey2 = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         Name = "my-ssh-key",
+        ///     });
+        /// 
+        ///     var sshKey3 = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         Fingerprint = "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
+        ///     });
+        /// 
+        ///     var sshKey4 = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        ///     var main = new HCloud.Server("main", new()
+        ///     {
+        ///         SshKeys = new[]
+        ///         {
+        ///             sshKey1.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             sshKey2.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             sshKey3.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSshKeyResult> InvokeAsync(GetSshKeyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSshKeyResult>("hcloud:index/getSshKey:getSshKey", args ?? new GetSshKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSshKeyResult>("hcloud:index/getSshKey:getSshKey", args ?? new GetSshKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -65,51 +67,53 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sshKey1 = HCloud.GetSshKey.Invoke(new()
         ///     {
-        ///         var sshKey1 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
-        ///         {
-        ///             Id = 1234,
-        ///         }));
-        ///         var sshKey2 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
-        ///         {
-        ///             Name = "my-ssh-key",
-        ///         }));
-        ///         var sshKey3 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
-        ///         {
-        ///             Fingerprint = "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
-        ///         }));
-        ///         var sshKey4 = Output.Create(HCloud.GetSshKey.InvokeAsync(new HCloud.GetSshKeyArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///         var main = new HCloud.Server("main", new HCloud.ServerArgs
-        ///         {
-        ///             SshKeys = 
-        ///             {
-        ///                 sshKey1.Apply(sshKey1 =&gt; sshKey1.Id),
-        ///                 sshKey2.Apply(sshKey2 =&gt; sshKey2.Id),
-        ///                 sshKey3.Apply(sshKey3 =&gt; sshKey3.Id),
-        ///             },
-        ///         });
-        ///     }
+        ///         Id = 1234,
+        ///     });
         /// 
-        /// }
+        ///     var sshKey2 = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         Name = "my-ssh-key",
+        ///     });
+        /// 
+        ///     var sshKey3 = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         Fingerprint = "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
+        ///     });
+        /// 
+        ///     var sshKey4 = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        ///     var main = new HCloud.Server("main", new()
+        ///     {
+        ///         SshKeys = new[]
+        ///         {
+        ///             sshKey1.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             sshKey2.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             sshKey3.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSshKeyResult> Invoke(GetSshKeyInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSshKeyResult>("hcloud:index/getSshKey:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSshKeyResult>("hcloud:index/getSshKey:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetSshKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetSshKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fingerprint of the SSH Key.
@@ -141,9 +145,10 @@ namespace Pulumi.HCloud
         public GetSshKeyArgs()
         {
         }
+        public static new GetSshKeyArgs Empty => new GetSshKeyArgs();
     }
 
-    public sealed class GetSshKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSshKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fingerprint of the SSH Key.
@@ -175,6 +180,7 @@ namespace Pulumi.HCloud
         public GetSshKeyInvokeArgs()
         {
         }
+        public static new GetSshKeyInvokeArgs Empty => new GetSshKeyInvokeArgs();
     }
 
 

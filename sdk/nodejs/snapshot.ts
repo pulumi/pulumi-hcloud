@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * Snapshots can be imported using its image `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/snapshot:Snapshot myimage <id>
+ *  $ pulumi import hcloud:index/snapshot:Snapshot myimage id
  * ```
  */
 export class Snapshot extends pulumi.CustomResource {

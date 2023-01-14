@@ -11,21 +11,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const sampleCertificate1 = pulumi.output(hcloud.getCertificate({
+ * const sampleCertificate1 = hcloud.getCertificate({
  *     name: "sample-certificate-1",
- * }));
- * const sampleCertificate2 = pulumi.output(hcloud.getCertificate({
+ * });
+ * const sampleCertificate2 = hcloud.getCertificate({
  *     id: 4711,
- * }));
+ * });
  * ```
  */
 export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getCertificate:getCertificate", {
         "id": args.id,
         "name": args.name,
@@ -94,9 +91,23 @@ export interface GetCertificateResult {
     readonly type: string;
     readonly withSelector?: string;
 }
-
+/**
+ * Provides details about a specific Hetzner Cloud Certificate.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const sampleCertificate1 = hcloud.getCertificate({
+ *     name: "sample-certificate-1",
+ * });
+ * const sampleCertificate2 = hcloud.getCertificate({
+ *     id: 4711,
+ * });
+ * ```
+ */
 export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply(a => getCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 /**

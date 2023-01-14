@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud.Inputs
 {
 
-    public sealed class ServerNetworkArgs : Pulumi.ResourceArgs
+    public sealed class ServerNetworkArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliasIps")]
         private InputList<string>? _aliasIps;
@@ -45,5 +45,6 @@ namespace Pulumi.HCloud.Inputs
         public ServerNetworkArgs()
         {
         }
+        public static new ServerNetworkArgs Empty => new ServerNetworkArgs();
     }
 }

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,18 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const sampleFirewall1 = pulumi.output(hcloud.getFirewalls({
+ * const sampleFirewall1 = hcloud.getFirewalls({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getFirewalls(args?: GetFirewallsArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getFirewalls:getFirewalls", {
         "mostRecent": args.mostRecent,
         "withSelector": args.withSelector,
@@ -61,9 +59,22 @@ export interface GetFirewallsResult {
     readonly mostRecent?: boolean;
     readonly withSelector?: string;
 }
-
+/**
+ * Provides details about multiple Hetzner Cloud Firewall.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const sampleFirewall1 = hcloud.getFirewalls({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getFirewallsOutput(args?: GetFirewallsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallsResult> {
-    return pulumi.output(args).apply(a => getFirewalls(a, opts))
+    return pulumi.output(args).apply((a: any) => getFirewalls(a, opts))
 }
 
 /**

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface FirewallApplyTo {
     /**
@@ -292,6 +293,8 @@ export interface GetLoadBalancersLoadBalancer {
     loadBalancerType: string;
     location: string;
     name?: string;
+    networkId: number;
+    networkIp: string;
     networkZone: string;
     services: outputs.GetLoadBalancersLoadBalancerService[];
     targets: outputs.GetLoadBalancersLoadBalancerTarget[];
@@ -530,7 +533,7 @@ export interface ServerNetwork {
     /**
      * Alias IPs the server should have in the Network.
      */
-    aliasIps?: string[];
+    aliasIps: string[];
     /**
      * Specify the IP the server should get in the network
      */

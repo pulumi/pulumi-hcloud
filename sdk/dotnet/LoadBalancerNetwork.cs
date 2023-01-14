@@ -15,38 +15,39 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lb1 = new HCloud.LoadBalancer("lb1", new()
     ///     {
-    ///         var lb1 = new HCloud.LoadBalancer("lb1", new HCloud.LoadBalancerArgs
-    ///         {
-    ///             LoadBalancerType = "lb11",
-    ///             NetworkZone = "eu-central",
-    ///         });
-    ///         var mynet = new HCloud.Network("mynet", new HCloud.NetworkArgs
-    ///         {
-    ///             IpRange = "10.0.0.0/8",
-    ///         });
-    ///         var foonet = new HCloud.NetworkSubnet("foonet", new HCloud.NetworkSubnetArgs
-    ///         {
-    ///             NetworkId = mynet.Id,
-    ///             Type = "cloud",
-    ///             NetworkZone = "eu-central",
-    ///             IpRange = "10.0.1.0/24",
-    ///         });
-    ///         var srvnetwork = new HCloud.LoadBalancerNetwork("srvnetwork", new HCloud.LoadBalancerNetworkArgs
-    ///         {
-    ///             LoadBalancerId = lb1.Id,
-    ///             NetworkId = mynet.Id,
-    ///             Ip = "10.0.1.5",
-    ///         });
-    ///     }
+    ///         LoadBalancerType = "lb11",
+    ///         NetworkZone = "eu-central",
+    ///     });
     /// 
-    /// }
+    ///     var mynet = new HCloud.Network("mynet", new()
+    ///     {
+    ///         IpRange = "10.0.0.0/8",
+    ///     });
+    /// 
+    ///     var foonet = new HCloud.NetworkSubnet("foonet", new()
+    ///     {
+    ///         NetworkId = mynet.Id,
+    ///         Type = "cloud",
+    ///         NetworkZone = "eu-central",
+    ///         IpRange = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var srvnetwork = new HCloud.LoadBalancerNetwork("srvnetwork", new()
+    ///     {
+    ///         LoadBalancerId = lb1.Id,
+    ///         NetworkId = mynet.Id,
+    ///         Ip = "10.0.1.5",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +59,7 @@ namespace Pulumi.HCloud
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/loadBalancerNetwork:LoadBalancerNetwork")]
-    public partial class LoadBalancerNetwork : Pulumi.CustomResource
+    public partial class LoadBalancerNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enable or disable the
@@ -147,7 +148,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class LoadBalancerNetworkArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable the
@@ -195,9 +196,10 @@ namespace Pulumi.HCloud
         public LoadBalancerNetworkArgs()
         {
         }
+        public static new LoadBalancerNetworkArgs Empty => new LoadBalancerNetworkArgs();
     }
 
-    public sealed class LoadBalancerNetworkState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerNetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable the
@@ -245,5 +247,6 @@ namespace Pulumi.HCloud
         public LoadBalancerNetworkState()
         {
         }
+        public static new LoadBalancerNetworkState Empty => new LoadBalancerNetworkState();
     }
 }

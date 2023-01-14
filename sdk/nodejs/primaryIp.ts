@@ -44,7 +44,7 @@ import * as utilities from "./utilities";
  * Primary IPs can be imported using its `id`
  *
  * ```sh
- *  $ pulumi import hcloud:index/primaryIp:PrimaryIp myip <id>
+ *  $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
  * ```
  */
 export class PrimaryIp extends pulumi.CustomResource {
@@ -80,7 +80,7 @@ export class PrimaryIp extends pulumi.CustomResource {
      */
     public readonly assigneeId!: pulumi.Output<number>;
     /**
-     * The type of the assigned resource.
+     * The type of the assigned resource. Currently supported: `server`
      */
     public readonly assigneeType!: pulumi.Output<string>;
     /**
@@ -88,6 +88,9 @@ export class PrimaryIp extends pulumi.CustomResource {
      * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      */
     public readonly autoDelete!: pulumi.Output<boolean>;
+    /**
+     * The datacenter name to create the resource in.
+     */
     public readonly datacenter!: pulumi.Output<string>;
     /**
      * Whether delete protection is enabled.
@@ -107,7 +110,7 @@ export class PrimaryIp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Type of the Primary IP.
+     * Type of the Primary IP. `ipv4` or `ipv6`
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -170,7 +173,7 @@ export interface PrimaryIpState {
      */
     assigneeId?: pulumi.Input<number>;
     /**
-     * The type of the assigned resource.
+     * The type of the assigned resource. Currently supported: `server`
      */
     assigneeType?: pulumi.Input<string>;
     /**
@@ -178,6 +181,9 @@ export interface PrimaryIpState {
      * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      */
     autoDelete?: pulumi.Input<boolean>;
+    /**
+     * The datacenter name to create the resource in.
+     */
     datacenter?: pulumi.Input<string>;
     /**
      * Whether delete protection is enabled.
@@ -197,7 +203,7 @@ export interface PrimaryIpState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Type of the Primary IP.
+     * Type of the Primary IP. `ipv4` or `ipv6`
      */
     type?: pulumi.Input<string>;
 }
@@ -211,7 +217,7 @@ export interface PrimaryIpArgs {
      */
     assigneeId?: pulumi.Input<number>;
     /**
-     * The type of the assigned resource.
+     * The type of the assigned resource. Currently supported: `server`
      */
     assigneeType: pulumi.Input<string>;
     /**
@@ -219,6 +225,9 @@ export interface PrimaryIpArgs {
      * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      */
     autoDelete: pulumi.Input<boolean>;
+    /**
+     * The datacenter name to create the resource in.
+     */
     datacenter?: pulumi.Input<string>;
     /**
      * Whether delete protection is enabled.
@@ -233,7 +242,7 @@ export interface PrimaryIpArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Type of the Primary IP.
+     * Type of the Primary IP. `ipv4` or `ipv6`
      */
     type: pulumi.Input<string>;
 }

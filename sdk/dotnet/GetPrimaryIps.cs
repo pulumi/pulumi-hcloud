@@ -20,26 +20,24 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ip2 = HCloud.GetPrimaryIps.Invoke(new()
         ///     {
-        ///         var ip2 = Output.Create(HCloud.GetPrimaryIps.InvokeAsync(new HCloud.GetPrimaryIpsArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrimaryIpsResult> InvokeAsync(GetPrimaryIpsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Primary IPs.
@@ -50,30 +48,28 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ip2 = HCloud.GetPrimaryIps.Invoke(new()
         ///     {
-        ///         var ip2 = Output.Create(HCloud.GetPrimaryIps.InvokeAsync(new HCloud.GetPrimaryIpsArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrimaryIpsResult> Invoke(GetPrimaryIpsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetPrimaryIpsArgs : Pulumi.InvokeArgs
+    public sealed class GetPrimaryIpsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -84,9 +80,10 @@ namespace Pulumi.HCloud
         public GetPrimaryIpsArgs()
         {
         }
+        public static new GetPrimaryIpsArgs Empty => new GetPrimaryIpsArgs();
     }
 
-    public sealed class GetPrimaryIpsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrimaryIpsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -97,6 +94,7 @@ namespace Pulumi.HCloud
         public GetPrimaryIpsInvokeArgs()
         {
         }
+        public static new GetPrimaryIpsInvokeArgs Empty => new GetPrimaryIpsInvokeArgs();
     }
 
 

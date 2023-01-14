@@ -19,37 +19,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myServer, err := hcloud.NewServer(ctx, "myServer", &hcloud.ServerArgs{
-// 			ServerType: pulumi.String("cx11"),
-// 			Image:      pulumi.String("ubuntu-18.04"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		loadBalancer, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
-// 			LoadBalancerType: pulumi.String("lb11"),
-// 			Location:         pulumi.String("nbg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewLoadBalancerTarget(ctx, "loadBalancerTarget", &hcloud.LoadBalancerTargetArgs{
-// 			Type:           pulumi.String("server"),
-// 			LoadBalancerId: loadBalancer.ID(),
-// 			ServerId:       myServer.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myServer, err := hcloud.NewServer(ctx, "myServer", &hcloud.ServerArgs{
+//				ServerType: pulumi.String("cx11"),
+//				Image:      pulumi.String("ubuntu-18.04"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			loadBalancer, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("lb11"),
+//				Location:         pulumi.String("nbg1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewLoadBalancerTarget(ctx, "loadBalancerTarget", &hcloud.LoadBalancerTargetArgs{
+//				Type:           pulumi.String("server"),
+//				LoadBalancerId: loadBalancer.ID(),
+//				ServerId:       myServer.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Load Balancer Target entries can be imported using a compound ID with the following format`<load-balancer-id>__<type>__<identifier>` Where _identifier_ depends on the _type_- `server`server id, for example`123` - `label_selector`label selector, for example`foo=bar` - `ip`ip address, for example`203.0.113.123`
+//
+// ```sh
+//
+//	$ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerservertarget 123__server__321
+//
+// ```
+//
+// ```sh
+//
+//	$ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerlabeltarget 123__label_selector__foo=bar
+//
+// ```
+//
+// ```sh
+//
+//	$ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalanceriptarget 123__ip__203.0.113.123
+//
 // ```
 type LoadBalancerTarget struct {
 	pulumi.CustomResourceState
@@ -228,7 +253,7 @@ func (i *LoadBalancerTarget) ToLoadBalancerTargetOutputWithContext(ctx context.C
 // LoadBalancerTargetArrayInput is an input type that accepts LoadBalancerTargetArray and LoadBalancerTargetArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerTargetArrayInput` via:
 //
-//          LoadBalancerTargetArray{ LoadBalancerTargetArgs{...} }
+//	LoadBalancerTargetArray{ LoadBalancerTargetArgs{...} }
 type LoadBalancerTargetArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +278,7 @@ func (i LoadBalancerTargetArray) ToLoadBalancerTargetArrayOutputWithContext(ctx 
 // LoadBalancerTargetMapInput is an input type that accepts LoadBalancerTargetMap and LoadBalancerTargetMapOutput values.
 // You can construct a concrete instance of `LoadBalancerTargetMapInput` via:
 //
-//          LoadBalancerTargetMap{ "key": LoadBalancerTargetArgs{...} }
+//	LoadBalancerTargetMap{ "key": LoadBalancerTargetArgs{...} }
 type LoadBalancerTargetMapInput interface {
 	pulumi.Input
 

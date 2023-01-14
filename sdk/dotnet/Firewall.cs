@@ -15,52 +15,51 @@ namespace Pulumi.HCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myfirewall = new HCloud.Firewall("myfirewall", new()
     ///     {
-    ///         var myfirewall = new HCloud.Firewall("myfirewall", new HCloud.FirewallArgs
+    ///         Rules = new[]
     ///         {
-    ///             Rules = 
+    ///             new HCloud.Inputs.FirewallRuleArgs
     ///             {
-    ///                 new HCloud.Inputs.FirewallRuleArgs
+    ///                 Direction = "in",
+    ///                 Protocol = "icmp",
+    ///                 SourceIps = new[]
     ///                 {
-    ///                     Direction = "in",
-    ///                     Protocol = "icmp",
-    ///                     SourceIps = 
-    ///                     {
-    ///                         "0.0.0.0/0",
-    ///                         "::/0",
-    ///                     },
-    ///                 },
-    ///                 new HCloud.Inputs.FirewallRuleArgs
-    ///                 {
-    ///                     Direction = "in",
-    ///                     Protocol = "tcp",
-    ///                     Port = "80-85",
-    ///                     SourceIps = 
-    ///                     {
-    ///                         "0.0.0.0/0",
-    ///                         "::/0",
-    ///                     },
+    ///                     "0.0.0.0/0",
+    ///                     "::/0",
     ///                 },
     ///             },
-    ///         });
-    ///         var node1 = new HCloud.Server("node1", new HCloud.ServerArgs
-    ///         {
-    ///             Image = "debian-9",
-    ///             ServerType = "cx11",
-    ///             FirewallIds = 
+    ///             new HCloud.Inputs.FirewallRuleArgs
     ///             {
-    ///                 myfirewall.Id,
+    ///                 Direction = "in",
+    ///                 Protocol = "tcp",
+    ///                 Port = "80-85",
+    ///                 SourceIps = new[]
+    ///                 {
+    ///                     "0.0.0.0/0",
+    ///                     "::/0",
+    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var node1 = new HCloud.Server("node1", new()
+    ///     {
+    ///         Image = "debian-9",
+    ///         ServerType = "cx11",
+    ///         FirewallIds = new[]
+    ///         {
+    ///             myfirewall.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,11 +67,11 @@ namespace Pulumi.HCloud
     /// Firewalls can be imported using its `id`
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/firewall:Firewall myfirewall &lt;id&gt;
+    ///  $ pulumi import hcloud:index/firewall:Firewall myfirewall id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/firewall:Firewall")]
-    public partial class Firewall : Pulumi.CustomResource
+    public partial class Firewall : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resources the firewall should be assigned to
@@ -142,7 +141,7 @@ namespace Pulumi.HCloud
         }
     }
 
-    public sealed class FirewallArgs : Pulumi.ResourceArgs
+    public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
         [Input("applyTos")]
         private InputList<Inputs.FirewallApplyToArgs>? _applyTos;
@@ -189,9 +188,10 @@ namespace Pulumi.HCloud
         public FirewallArgs()
         {
         }
+        public static new FirewallArgs Empty => new FirewallArgs();
     }
 
-    public sealed class FirewallState : Pulumi.ResourceArgs
+    public sealed class FirewallState : global::Pulumi.ResourceArgs
     {
         [Input("applyTos")]
         private InputList<Inputs.FirewallApplyToGetArgs>? _applyTos;
@@ -238,5 +238,6 @@ namespace Pulumi.HCloud
         public FirewallState()
         {
         }
+        public static new FirewallState Empty => new FirewallState();
     }
 }

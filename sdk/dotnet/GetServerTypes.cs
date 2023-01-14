@@ -15,17 +15,17 @@ namespace Pulumi.HCloud
         /// Provides a list of available Hetzner Cloud Server Types.
         /// </summary>
         public static Task<GetServerTypesResult> InvokeAsync(GetServerTypesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a list of available Hetzner Cloud Server Types.
         /// </summary>
         public static Output<GetServerTypesResult> Invoke(GetServerTypesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", args ?? new GetServerTypesInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetServerTypesArgs : Pulumi.InvokeArgs
+    public sealed class GetServerTypesArgs : global::Pulumi.InvokeArgs
     {
         [Input("serverTypeIds")]
         private List<string>? _serverTypeIds;
@@ -39,9 +39,10 @@ namespace Pulumi.HCloud
         public GetServerTypesArgs()
         {
         }
+        public static new GetServerTypesArgs Empty => new GetServerTypesArgs();
     }
 
-    public sealed class GetServerTypesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerTypesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("serverTypeIds")]
         private InputList<string>? _serverTypeIds;
@@ -55,6 +56,7 @@ namespace Pulumi.HCloud
         public GetServerTypesInvokeArgs()
         {
         }
+        public static new GetServerTypesInvokeArgs Empty => new GetServerTypesInvokeArgs();
     }
 
 

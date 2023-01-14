@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -11,11 +12,8 @@ import * as utilities from "./utilities";
  */
 export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacentersResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getDatacenters:getDatacenters", {
         "datacenterIds": args.datacenterIds,
     }, opts);
@@ -64,9 +62,12 @@ export interface GetDatacentersResult {
      */
     readonly names: string[];
 }
-
+/**
+ * Provides a list of available Hetzner Cloud Datacenters.
+ * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+ */
 export function getDatacentersOutput(args?: GetDatacentersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacentersResult> {
-    return pulumi.output(args).apply(a => getDatacenters(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatacenters(a, opts))
 }
 
 /**

@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-// 			Image:      pulumi.String("debian-9"),
-// 			ServerType: pulumi.String("cx11"),
-// 			Datacenter: pulumi.String("nbg1-dc3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		master, err := hcloud.NewVolume(ctx, "master", &hcloud.VolumeArgs{
-// 			Location: pulumi.String("nbg1"),
-// 			Size:     pulumi.Int(10),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hcloud.NewVolumeAttachment(ctx, "main", &hcloud.VolumeAttachmentArgs{
-// 			VolumeId:  master.ID(),
-// 			ServerId:  node1.ID(),
-// 			Automount: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:      pulumi.String("debian-9"),
+//				ServerType: pulumi.String("cx11"),
+//				Datacenter: pulumi.String("nbg1-dc3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			master, err := hcloud.NewVolume(ctx, "master", &hcloud.VolumeArgs{
+//				Location: pulumi.String("nbg1"),
+//				Size:     pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewVolumeAttachment(ctx, "main", &hcloud.VolumeAttachmentArgs{
+//				VolumeId:  master.ID(),
+//				ServerId:  node1.ID(),
+//				Automount: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Volume Attachments can be imported using the `volume_id`
 //
 // ```sh
-//  $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
+//
+//	$ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
+//
 // ```
 type VolumeAttachment struct {
 	pulumi.CustomResourceState
@@ -172,7 +177,7 @@ func (i *VolumeAttachment) ToVolumeAttachmentOutputWithContext(ctx context.Conte
 // VolumeAttachmentArrayInput is an input type that accepts VolumeAttachmentArray and VolumeAttachmentArrayOutput values.
 // You can construct a concrete instance of `VolumeAttachmentArrayInput` via:
 //
-//          VolumeAttachmentArray{ VolumeAttachmentArgs{...} }
+//	VolumeAttachmentArray{ VolumeAttachmentArgs{...} }
 type VolumeAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +202,7 @@ func (i VolumeAttachmentArray) ToVolumeAttachmentArrayOutputWithContext(ctx cont
 // VolumeAttachmentMapInput is an input type that accepts VolumeAttachmentMap and VolumeAttachmentMapOutput values.
 // You can construct a concrete instance of `VolumeAttachmentMapInput` via:
 //
-//          VolumeAttachmentMap{ "key": VolumeAttachmentArgs{...} }
+//	VolumeAttachmentMap{ "key": VolumeAttachmentArgs{...} }
 type VolumeAttachmentMapInput interface {
 	pulumi.Input
 

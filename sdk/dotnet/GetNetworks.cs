@@ -20,27 +20,26 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var network2 = Output.Create(HCloud.GetNetwork.InvokeAsync());
-        ///         var network3 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///     var network2 = HCloud.GetNetwork.Invoke();
         /// 
-        /// }
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworksResult> InvokeAsync(GetNetworksArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworksResult>("hcloud:index/getNetworks:getNetworks", args ?? new GetNetworksArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworksResult>("hcloud:index/getNetworks:getNetworks", args ?? new GetNetworksArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Networks.
@@ -51,31 +50,30 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var network2 = Output.Create(HCloud.GetNetwork.InvokeAsync());
-        ///         var network3 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///     var network2 = HCloud.GetNetwork.Invoke();
         /// 
-        /// }
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworksResult> Invoke(GetNetworksInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("hcloud:index/getNetworks:getNetworks", args ?? new GetNetworksInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("hcloud:index/getNetworks:getNetworks", args ?? new GetNetworksInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetNetworksArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworksArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -86,9 +84,10 @@ namespace Pulumi.HCloud
         public GetNetworksArgs()
         {
         }
+        public static new GetNetworksArgs Empty => new GetNetworksArgs();
     }
 
-    public sealed class GetNetworksInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworksInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -99,6 +98,7 @@ namespace Pulumi.HCloud
         public GetNetworksInvokeArgs()
         {
         }
+        public static new GetNetworksInvokeArgs Empty => new GetNetworksInvokeArgs();
     }
 
 

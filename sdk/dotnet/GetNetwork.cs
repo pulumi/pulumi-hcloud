@@ -17,34 +17,34 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var network1 = HCloud.GetNetwork.Invoke(new()
         ///     {
-        ///         var network1 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs
-        ///         {
-        ///             Id = 1234,
-        ///         }));
-        ///         var network2 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs
-        ///         {
-        ///             Name = "my-network",
-        ///         }));
-        ///         var network3 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         Id = 1234,
+        ///     });
         /// 
-        /// }
+        ///     var network2 = HCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         Name = "my-network",
+        ///     });
+        /// 
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -52,38 +52,38 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var network1 = HCloud.GetNetwork.Invoke(new()
         ///     {
-        ///         var network1 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs
-        ///         {
-        ///             Id = 1234,
-        ///         }));
-        ///         var network2 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs
-        ///         {
-        ///             Name = "my-network",
-        ///         }));
-        ///         var network3 = Output.Create(HCloud.GetNetwork.InvokeAsync(new HCloud.GetNetworkArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         Id = 1234,
+        ///     });
         /// 
-        /// }
+        ///     var network2 = HCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         Name = "my-network",
+        ///     });
+        /// 
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the Network.
@@ -123,9 +123,10 @@ namespace Pulumi.HCloud
         public GetNetworkArgs()
         {
         }
+        public static new GetNetworkArgs Empty => new GetNetworkArgs();
     }
 
-    public sealed class GetNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the Network.
@@ -165,6 +166,7 @@ namespace Pulumi.HCloud
         public GetNetworkInvokeArgs()
         {
         }
+        public static new GetNetworkInvokeArgs Empty => new GetNetworkInvokeArgs();
     }
 
 
@@ -172,7 +174,7 @@ namespace Pulumi.HCloud
     public sealed class GetNetworkResult
     {
         /// <summary>
-        /// (boolean) Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>

@@ -22,6 +22,8 @@ namespace Pulumi.HCloud.Outputs
         public readonly string LoadBalancerType;
         public readonly string Location;
         public readonly string? Name;
+        public readonly int NetworkId;
+        public readonly string NetworkIp;
         public readonly string NetworkZone;
         public readonly ImmutableArray<Outputs.GetLoadBalancersLoadBalancerServiceResult> Services;
         public readonly ImmutableArray<Outputs.GetLoadBalancersLoadBalancerTargetResult> Targets;
@@ -46,6 +48,10 @@ namespace Pulumi.HCloud.Outputs
 
             string? name,
 
+            int networkId,
+
+            string networkIp,
+
             string networkZone,
 
             ImmutableArray<Outputs.GetLoadBalancersLoadBalancerServiceResult> services,
@@ -61,6 +67,8 @@ namespace Pulumi.HCloud.Outputs
             LoadBalancerType = loadBalancerType;
             Location = location;
             Name = name;
+            NetworkId = networkId;
+            NetworkIp = networkIp;
             NetworkZone = networkZone;
             Services = services;
             Targets = targets;

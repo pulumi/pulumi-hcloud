@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,19 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const samplePlacementGroup1 = pulumi.output(hcloud.getPlacementGroups());
- * const samplePlacementGroup2 = pulumi.output(hcloud.getPlacementGroups({
+ * const samplePlacementGroup1 = hcloud.getPlacementGroups({});
+ * const samplePlacementGroup2 = hcloud.getPlacementGroups({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getPlacementGroups(args?: GetPlacementGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getPlacementGroups:getPlacementGroups", {
         "mostRecent": args.mostRecent,
         "withSelector": args.withSelector,
@@ -62,9 +60,23 @@ export interface GetPlacementGroupsResult {
     readonly placementGroups: outputs.GetPlacementGroupsPlacementGroup[];
     readonly withSelector?: string;
 }
-
+/**
+ * Provides details about multiple Hetzner Cloud Placement Groups.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const samplePlacementGroup1 = hcloud.getPlacementGroups({});
+ * const samplePlacementGroup2 = hcloud.getPlacementGroups({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getPlacementGroupsOutput(args?: GetPlacementGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupsResult> {
-    return pulumi.output(args).apply(a => getPlacementGroups(a, opts))
+    return pulumi.output(args).apply((a: any) => getPlacementGroups(a, opts))
 }
 
 /**

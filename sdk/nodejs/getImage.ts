@@ -25,11 +25,8 @@ import * as utilities from "./utilities";
  */
 export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getImage:getImage", {
         "id": args.id,
         "mostRecent": args.mostRecent,
@@ -119,9 +116,27 @@ export interface GetImageResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const image1 = hcloud.getImage({
+ *     id: 1234,
+ * });
+ * const image2 = hcloud.getImage({
+ *     name: "ubuntu-18.04",
+ * });
+ * const image3 = hcloud.getImage({
+ *     withSelector: "key=value",
+ * });
+ * const main = new hcloud.Server("main", {image: image1.then(image1 => image1.id)});
+ * ```
+ */
 export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply(a => getImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }
 
 /**

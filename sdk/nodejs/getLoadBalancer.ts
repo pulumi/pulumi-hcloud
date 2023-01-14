@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,24 +15,21 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const lb1 = pulumi.output(hcloud.getLoadBalancer({
+ * const lb1 = hcloud.getLoadBalancer({
  *     name: "my-load-balancer",
- * }));
- * const lb2 = pulumi.output(hcloud.getLoadBalancer({
+ * });
+ * const lb2 = hcloud.getLoadBalancer({
  *     id: 123,
- * }));
- * const lb3 = pulumi.output(hcloud.getLoadBalancer({
+ * });
+ * const lb3 = hcloud.getLoadBalancer({
  *     withSelector: "key=value",
- * }));
+ * });
  * ```
  */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getLoadBalancer:getLoadBalancer", {
         "id": args.id,
         "name": args.name,
@@ -66,7 +64,7 @@ export interface GetLoadBalancerResult {
      */
     readonly algorithms: outputs.GetLoadBalancerAlgorithm[];
     /**
-     * (boolean) Whether delete protection is enabled.
+     * (bool) Whether delete protection is enabled.
      */
     readonly deleteProtection: boolean;
     /**
@@ -97,6 +95,14 @@ export interface GetLoadBalancerResult {
      * (string) Name of the Load Balancer.
      */
     readonly name?: string;
+    /**
+     * (int) ID of the first private network that this Load Balancer is connected to.
+     */
+    readonly networkId: number;
+    /**
+     * (string) IP of the Load Balancer in the first private network that it is connected to.
+     */
+    readonly networkIp: string;
     readonly networkZone: string;
     /**
      * (list) List of services a Load Balancer provides.
@@ -108,9 +114,28 @@ export interface GetLoadBalancerResult {
     readonly targets: outputs.GetLoadBalancerTarget[];
     readonly withSelector?: string;
 }
-
+/**
+ * Provides details about a specific Hetzner Cloud Load Balancer.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const lb1 = hcloud.getLoadBalancer({
+ *     name: "my-load-balancer",
+ * });
+ * const lb2 = hcloud.getLoadBalancer({
+ *     id: 123,
+ * });
+ * const lb3 = hcloud.getLoadBalancer({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
-    return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }
 
 /**

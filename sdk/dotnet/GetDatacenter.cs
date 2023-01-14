@@ -20,30 +20,29 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ds1 = HCloud.GetDatacenter.Invoke(new()
         ///     {
-        ///         var ds1 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs
-        ///         {
-        ///             Name = "fsn1-dc8",
-        ///         }));
-        ///         var ds2 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs
-        ///         {
-        ///             Id = 4,
-        ///         }));
-        ///     }
+        ///         Name = "fsn1-dc8",
+        ///     });
         /// 
-        /// }
+        ///     var ds2 = HCloud.GetDatacenter.Invoke(new()
+        ///     {
+        ///         Id = 4,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatacenterResult> InvokeAsync(GetDatacenterArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatacenterResult>("hcloud:index/getDatacenter:getDatacenter", args ?? new GetDatacenterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatacenterResult>("hcloud:index/getDatacenter:getDatacenter", args ?? new GetDatacenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Datacenter.
@@ -54,34 +53,33 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ds1 = HCloud.GetDatacenter.Invoke(new()
         ///     {
-        ///         var ds1 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs
-        ///         {
-        ///             Name = "fsn1-dc8",
-        ///         }));
-        ///         var ds2 = Output.Create(HCloud.GetDatacenter.InvokeAsync(new HCloud.GetDatacenterArgs
-        ///         {
-        ///             Id = 4,
-        ///         }));
-        ///     }
+        ///         Name = "fsn1-dc8",
+        ///     });
         /// 
-        /// }
+        ///     var ds2 = HCloud.GetDatacenter.Invoke(new()
+        ///     {
+        ///         Id = 4,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatacenterResult> Invoke(GetDatacenterInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatacenterResult>("hcloud:index/getDatacenter:getDatacenter", args ?? new GetDatacenterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatacenterResult>("hcloud:index/getDatacenter:getDatacenter", args ?? new GetDatacenterInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetDatacenterArgs : Pulumi.InvokeArgs
+    public sealed class GetDatacenterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the datacenter.
@@ -98,9 +96,10 @@ namespace Pulumi.HCloud
         public GetDatacenterArgs()
         {
         }
+        public static new GetDatacenterArgs Empty => new GetDatacenterArgs();
     }
 
-    public sealed class GetDatacenterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatacenterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the datacenter.
@@ -117,6 +116,7 @@ namespace Pulumi.HCloud
         public GetDatacenterInvokeArgs()
         {
         }
+        public static new GetDatacenterInvokeArgs Empty => new GetDatacenterInvokeArgs();
     }
 
 

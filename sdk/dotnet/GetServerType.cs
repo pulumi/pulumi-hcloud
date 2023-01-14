@@ -20,30 +20,29 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ds1 = HCloud.GetServerType.Invoke(new()
         ///     {
-        ///         var ds1 = Output.Create(HCloud.GetServerType.InvokeAsync(new HCloud.GetServerTypeArgs
-        ///         {
-        ///             Name = "cx11",
-        ///         }));
-        ///         var ds2 = Output.Create(HCloud.GetServerType.InvokeAsync(new HCloud.GetServerTypeArgs
-        ///         {
-        ///             Id = 1,
-        ///         }));
-        ///     }
+        ///         Name = "cx11",
+        ///     });
         /// 
-        /// }
+        ///     var ds2 = HCloud.GetServerType.Invoke(new()
+        ///     {
+        ///         Id = 1,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerTypeResult> InvokeAsync(GetServerTypeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Server Type.
@@ -54,34 +53,33 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ds1 = HCloud.GetServerType.Invoke(new()
         ///     {
-        ///         var ds1 = Output.Create(HCloud.GetServerType.InvokeAsync(new HCloud.GetServerTypeArgs
-        ///         {
-        ///             Name = "cx11",
-        ///         }));
-        ///         var ds2 = Output.Create(HCloud.GetServerType.InvokeAsync(new HCloud.GetServerTypeArgs
-        ///         {
-        ///             Id = 1,
-        ///         }));
-        ///     }
+        ///         Name = "cx11",
+        ///     });
         /// 
-        /// }
+        ///     var ds2 = HCloud.GetServerType.Invoke(new()
+        ///     {
+        ///         Id = 1,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerTypeResult> Invoke(GetServerTypeInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetServerTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the server_type.
@@ -98,9 +96,10 @@ namespace Pulumi.HCloud
         public GetServerTypeArgs()
         {
         }
+        public static new GetServerTypeArgs Empty => new GetServerTypeArgs();
     }
 
-    public sealed class GetServerTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the server_type.
@@ -117,6 +116,7 @@ namespace Pulumi.HCloud
         public GetServerTypeInvokeArgs()
         {
         }
+        public static new GetServerTypeInvokeArgs Empty => new GetServerTypeInvokeArgs();
     }
 
 

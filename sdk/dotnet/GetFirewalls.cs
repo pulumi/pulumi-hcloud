@@ -20,26 +20,24 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sampleFirewall1 = HCloud.GetFirewalls.Invoke(new()
         ///     {
-        ///         var sampleFirewall1 = Output.Create(HCloud.GetFirewalls.InvokeAsync(new HCloud.GetFirewallsArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFirewallsResult> InvokeAsync(GetFirewallsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallsResult>("hcloud:index/getFirewalls:getFirewalls", args ?? new GetFirewallsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallsResult>("hcloud:index/getFirewalls:getFirewalls", args ?? new GetFirewallsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Firewall.
@@ -50,30 +48,28 @@ namespace Pulumi.HCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using HCloud = Pulumi.HCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sampleFirewall1 = HCloud.GetFirewalls.Invoke(new()
         ///     {
-        ///         var sampleFirewall1 = Output.Create(HCloud.GetFirewalls.InvokeAsync(new HCloud.GetFirewallsArgs
-        ///         {
-        ///             WithSelector = "key=value",
-        ///         }));
-        ///     }
+        ///         WithSelector = "key=value",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFirewallsResult> Invoke(GetFirewallsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallsResult>("hcloud:index/getFirewalls:getFirewalls", args ?? new GetFirewallsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallsResult>("hcloud:index/getFirewalls:getFirewalls", args ?? new GetFirewallsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetFirewallsArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Sorts list by date.
@@ -90,9 +86,10 @@ namespace Pulumi.HCloud
         public GetFirewallsArgs()
         {
         }
+        public static new GetFirewallsArgs Empty => new GetFirewallsArgs();
     }
 
-    public sealed class GetFirewallsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Sorts list by date.
@@ -109,6 +106,7 @@ namespace Pulumi.HCloud
         public GetFirewallsInvokeArgs()
         {
         }
+        public static new GetFirewallsInvokeArgs Empty => new GetFirewallsInvokeArgs();
     }
 
 
