@@ -63,7 +63,8 @@ func makeResource(mod string, res string) tokens.Type {
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(hcloud.Provider())
+	p := shimv2.NewProvider(hcloud.Provider(),
+		shimv2.WithDiffStrategy(shimv2.PlanState))
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
