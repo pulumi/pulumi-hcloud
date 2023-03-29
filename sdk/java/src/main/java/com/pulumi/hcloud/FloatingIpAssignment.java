@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
- *             .image(&#34;debian-9&#34;)
+ *             .image(&#34;debian-11&#34;)
  *             .serverType(&#34;cx11&#34;)
  *             .datacenter(&#34;fsn1-dc8&#34;)
  *             .build());

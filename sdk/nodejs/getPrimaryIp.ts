@@ -120,6 +120,9 @@ export interface GetPrimaryIpResult {
      * (string) IP Address of the Primary IP.
      */
     readonly ipAddress: string;
+    /**
+     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     */
     readonly ipNetwork: string;
     /**
      * (string) Description of the Primary IP.

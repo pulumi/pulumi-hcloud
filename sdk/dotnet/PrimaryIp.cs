@@ -106,6 +106,9 @@ namespace Pulumi.HCloud
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        /// </summary>
         [Output("ipNetwork")]
         public Output<string> IpNetwork { get; private set; } = null!;
 
@@ -273,6 +276,9 @@ namespace Pulumi.HCloud
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        /// </summary>
         [Input("ipNetwork")]
         public Input<string>? IpNetwork { get; set; }
 

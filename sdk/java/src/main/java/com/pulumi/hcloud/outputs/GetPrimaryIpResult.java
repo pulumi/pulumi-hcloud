@@ -50,6 +50,10 @@ public final class GetPrimaryIpResult {
      * 
      */
     private String ipAddress;
+    /**
+     * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * 
+     */
     private String ipNetwork;
     /**
      * @return (string) Description of the Primary IP.
@@ -118,6 +122,10 @@ public final class GetPrimaryIpResult {
     public String ipAddress() {
         return this.ipAddress;
     }
+    /**
+     * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * 
+     */
     public String ipNetwork() {
         return this.ipNetwork;
     }

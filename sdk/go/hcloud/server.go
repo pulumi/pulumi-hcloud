@@ -184,7 +184,7 @@ type Server struct {
 	BackupWindow pulumi.StringOutput `pulumi:"backupWindow"`
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
-	// The datacenter name to create the server in.
+	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
@@ -210,7 +210,7 @@ type Server struct {
 	KeepDisk pulumi.BoolPtrOutput `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapOutput `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -223,7 +223,7 @@ type Server struct {
 	PublicNets ServerPublicNetArrayOutput `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrOutput `pulumi:"rebuildProtection"`
-	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
 	Rescue pulumi.StringPtrOutput `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
 	ServerType pulumi.StringOutput `pulumi:"serverType"`
@@ -275,7 +275,7 @@ type serverState struct {
 	BackupWindow *string `pulumi:"backupWindow"`
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
-	// The datacenter name to create the server in.
+	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter *string `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -301,7 +301,7 @@ type serverState struct {
 	KeepDisk *bool `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name *string `pulumi:"name"`
@@ -314,7 +314,7 @@ type serverState struct {
 	PublicNets []ServerPublicNet `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection *bool `pulumi:"rebuildProtection"`
-	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
 	ServerType *string `pulumi:"serverType"`
@@ -335,7 +335,7 @@ type ServerState struct {
 	BackupWindow pulumi.StringPtrInput
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
-	// The datacenter name to create the server in.
+	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter pulumi.StringPtrInput
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
 	DeleteProtection pulumi.BoolPtrInput
@@ -361,7 +361,7 @@ type ServerState struct {
 	KeepDisk pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringPtrInput
@@ -374,7 +374,7 @@ type ServerState struct {
 	PublicNets ServerPublicNetArrayInput
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrInput
-	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.
 	ServerType pulumi.StringPtrInput
@@ -395,7 +395,7 @@ type serverArgs struct {
 	AllowDeprecatedImages *bool `pulumi:"allowDeprecatedImages"`
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
-	// The datacenter name to create the server in.
+	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter *string `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -415,7 +415,7 @@ type serverArgs struct {
 	KeepDisk *bool `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name *string `pulumi:"name"`
@@ -428,7 +428,7 @@ type serverArgs struct {
 	PublicNets []ServerPublicNet `pulumi:"publicNets"`
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection *bool `pulumi:"rebuildProtection"`
-	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
 	ServerType string `pulumi:"serverType"`
@@ -444,7 +444,7 @@ type ServerArgs struct {
 	AllowDeprecatedImages pulumi.BoolPtrInput
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
-	// The datacenter name to create the server in.
+	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter pulumi.StringPtrInput
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
 	DeleteProtection pulumi.BoolPtrInput
@@ -464,7 +464,7 @@ type ServerArgs struct {
 	KeepDisk pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringPtrInput
@@ -477,7 +477,7 @@ type ServerArgs struct {
 	PublicNets ServerPublicNetArrayInput
 	// Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
 	RebuildProtection pulumi.BoolPtrInput
-	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+	// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.
 	ServerType pulumi.StringInput
@@ -591,7 +591,7 @@ func (o ServerOutput) Backups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.Backups }).(pulumi.BoolPtrOutput)
 }
 
-// The datacenter name to create the server in.
+// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 func (o ServerOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Datacenter }).(pulumi.StringOutput)
 }
@@ -650,7 +650,7 @@ func (o ServerOutput) Labels() pulumi.MapOutput {
 	return o.ApplyT(func(v *Server) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
 }
 
-// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 func (o ServerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -681,7 +681,7 @@ func (o ServerOutput) RebuildProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.RebuildProtection }).(pulumi.BoolPtrOutput)
 }
 
-// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
 func (o ServerOutput) Rescue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Rescue }).(pulumi.StringPtrOutput)
 }

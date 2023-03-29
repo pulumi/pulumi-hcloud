@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetLocationsResult {
     /**
-     * @return (list) List of all location descriptions.
+     * @return (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
      * Use locations list instead
@@ -27,7 +27,7 @@ public final class GetLocationsResult {
      */
     private String id;
     /**
-     * @return (list) List of unique location identifiers.
+     * @return (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
      * Use locations list instead
@@ -41,7 +41,7 @@ public final class GetLocationsResult {
      */
     private List<GetLocationsLocation> locations;
     /**
-     * @return (list) List of location names.
+     * @return (list) List of location names. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
      * Use locations list instead
@@ -52,7 +52,7 @@ public final class GetLocationsResult {
 
     private GetLocationsResult() {}
     /**
-     * @return (list) List of all location descriptions.
+     * @return (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
      * Use locations list instead
@@ -70,7 +70,7 @@ public final class GetLocationsResult {
         return this.id;
     }
     /**
-     * @return (list) List of unique location identifiers.
+     * @return (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
      * Use locations list instead
@@ -88,7 +88,7 @@ public final class GetLocationsResult {
         return this.locations;
     }
     /**
-     * @return (list) List of location names.
+     * @return (list) List of location names. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
      * Use locations list instead
