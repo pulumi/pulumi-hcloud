@@ -15,6 +15,8 @@
 package hcloud
 
 import (
+	// embed package is not used directly
+	_ "embed"
 	"fmt"
 	"path/filepath"
 	"unicode"
@@ -22,9 +24,14 @@ import (
 	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
 	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
+
+//go:embed cmd/pulumi-resource-hcloud/bridge-metadata.json
+var metadata []byte
 
 // all of the token components used below.
 const (
@@ -68,15 +75,16 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "hcloud",
-		Description: "A Pulumi package for creating and managing hcloud cloud resources.",
-		Keywords:    []string{"pulumi", "hcloud"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-hcloud",
-		GitHubOrg:   "hetznercloud",
-		Config:      map[string]*tfbridge.SchemaInfo{},
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		P:            p,
+		Name:         "hcloud",
+		Description:  "A Pulumi package for creating and managing hcloud cloud resources.",
+		Keywords:     []string{"pulumi", "hcloud"},
+		License:      "Apache-2.0",
+		Homepage:     "https://pulumi.io",
+		Repository:   "https://github.com/pulumi/pulumi-hcloud",
+		GitHubOrg:    "hetznercloud",
+		Config:       map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"hcloud_certificate": {
 				Tok: makeResource(mainMod, "Certificate"),
@@ -175,6 +183,8 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
+	err := x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "auto aliasing failed")
 	prov.SetAutonaming(255, "-")
 
 	return prov
