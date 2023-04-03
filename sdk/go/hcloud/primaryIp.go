@@ -89,6 +89,7 @@ type PrimaryIp struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// (string) IP Address of the Primary IP.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork pulumi.StringOutput `pulumi:"ipNetwork"`
 	// Description of the Primary IP.
 	Labels pulumi.MapOutput `pulumi:"labels"`
@@ -149,6 +150,7 @@ type primaryIpState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// (string) IP Address of the Primary IP.
 	IpAddress *string `pulumi:"ipAddress"`
+	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork *string `pulumi:"ipNetwork"`
 	// Description of the Primary IP.
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -172,6 +174,7 @@ type PrimaryIpState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// (string) IP Address of the Primary IP.
 	IpAddress pulumi.StringPtrInput
+	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork pulumi.StringPtrInput
 	// Description of the Primary IP.
 	Labels pulumi.MapInput
@@ -344,6 +347,7 @@ func (o PrimaryIpOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 func (o PrimaryIpOutput) IpNetwork() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.IpNetwork }).(pulumi.StringOutput)
 }

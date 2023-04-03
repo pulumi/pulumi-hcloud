@@ -24,7 +24,7 @@ export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOption
  */
 export interface GetLocationsArgs {
     /**
-     * (list) List of unique location identifiers.
+     * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      *
      * @deprecated Use locations list instead
      */
@@ -36,7 +36,7 @@ export interface GetLocationsArgs {
  */
 export interface GetLocationsResult {
     /**
-     * (list) List of all location descriptions.
+     * (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
      *
      * @deprecated Use locations list instead
      */
@@ -46,7 +46,7 @@ export interface GetLocationsResult {
      */
     readonly id: string;
     /**
-     * (list) List of unique location identifiers.
+     * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      *
      * @deprecated Use locations list instead
      */
@@ -56,7 +56,7 @@ export interface GetLocationsResult {
      */
     readonly locations: outputs.GetLocationsLocation[];
     /**
-     * (list) List of location names.
+     * (list) List of location names. **Deprecated**: Use `locations` attribute instead.
      *
      * @deprecated Use locations list instead
      */
@@ -75,7 +75,7 @@ export function getLocationsOutput(args?: GetLocationsOutputArgs, opts?: pulumi.
  */
 export interface GetLocationsOutputArgs {
     /**
-     * (list) List of unique location identifiers.
+     * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      *
      * @deprecated Use locations list instead
      */

@@ -55,7 +55,7 @@ class GetDatacentersResult:
     @pulumi.getter(name="datacenterIds")
     def datacenter_ids(self) -> Optional[Sequence[str]]:
         """
-        (list) List of unique datacenter identifiers.
+        (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
         """
         return pulumi.get(self, "datacenter_ids")
 
@@ -71,7 +71,7 @@ class GetDatacentersResult:
     @pulumi.getter
     def descriptions(self) -> Sequence[str]:
         """
-        (list) List of all datacenter descriptions.
+        (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
         """
         return pulumi.get(self, "descriptions")
 
@@ -87,7 +87,7 @@ class GetDatacentersResult:
     @pulumi.getter
     def names(self) -> Sequence[str]:
         """
-        (list) List of datacenter names.
+        (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
         """
         return pulumi.get(self, "names")
 
@@ -112,7 +112,7 @@ def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
     This resource may be useful to create highly available infrastructure, distributed across several datacenters.
 
 
-    :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers.
+    :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
     """
     __args__ = dict()
     __args__['datacenterIds'] = datacenter_ids
@@ -135,6 +135,6 @@ def get_datacenters_output(datacenter_ids: Optional[pulumi.Input[Optional[Sequen
     This resource may be useful to create highly available infrastructure, distributed across several datacenters.
 
 
-    :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers.
+    :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
     """
     ...

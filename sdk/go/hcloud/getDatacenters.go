@@ -23,7 +23,7 @@ func GetDatacenters(ctx *pulumi.Context, args *GetDatacentersArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatacenters.
 type GetDatacentersArgs struct {
-	// (list) List of unique datacenter identifiers.
+	// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
 	//
 	// Deprecated: Use datacenters list instead
 	DatacenterIds []string `pulumi:"datacenterIds"`
@@ -31,19 +31,19 @@ type GetDatacentersArgs struct {
 
 // A collection of values returned by getDatacenters.
 type GetDatacentersResult struct {
-	// (list) List of unique datacenter identifiers.
+	// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
 	//
 	// Deprecated: Use datacenters list instead
 	DatacenterIds []string `pulumi:"datacenterIds"`
 	// (list) List of all datacenters. See `data.hcloud_datacenter` for schema.
 	Datacenters []GetDatacentersDatacenter `pulumi:"datacenters"`
-	// (list) List of all datacenter descriptions.
+	// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
 	//
 	// Deprecated: Use datacenters list instead
 	Descriptions []string `pulumi:"descriptions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// (list) List of datacenter names.
+	// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
 	//
 	// Deprecated: Use datacenters list instead
 	Names []string `pulumi:"names"`
@@ -64,7 +64,7 @@ func GetDatacentersOutput(ctx *pulumi.Context, args GetDatacentersOutputArgs, op
 
 // A collection of arguments for invoking getDatacenters.
 type GetDatacentersOutputArgs struct {
-	// (list) List of unique datacenter identifiers.
+	// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
 	//
 	// Deprecated: Use datacenters list instead
 	DatacenterIds pulumi.StringArrayInput `pulumi:"datacenterIds"`
@@ -89,7 +89,7 @@ func (o GetDatacentersResultOutput) ToGetDatacentersResultOutputWithContext(ctx 
 	return o
 }
 
-// (list) List of unique datacenter identifiers.
+// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
 //
 // Deprecated: Use datacenters list instead
 func (o GetDatacentersResultOutput) DatacenterIds() pulumi.StringArrayOutput {
@@ -101,7 +101,7 @@ func (o GetDatacentersResultOutput) Datacenters() GetDatacentersDatacenterArrayO
 	return o.ApplyT(func(v GetDatacentersResult) []GetDatacentersDatacenter { return v.Datacenters }).(GetDatacentersDatacenterArrayOutput)
 }
 
-// (list) List of all datacenter descriptions.
+// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
 //
 // Deprecated: Use datacenters list instead
 func (o GetDatacentersResultOutput) Descriptions() pulumi.StringArrayOutput {
@@ -113,7 +113,7 @@ func (o GetDatacentersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatacentersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (list) List of datacenter names.
+// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
 //
 // Deprecated: Use datacenters list instead
 func (o GetDatacentersResultOutput) Names() pulumi.StringArrayOutput {

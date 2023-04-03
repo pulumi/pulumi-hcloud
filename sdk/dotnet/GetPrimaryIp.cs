@@ -261,6 +261,9 @@ namespace Pulumi.HCloud
         /// (string) IP Address of the Primary IP.
         /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        /// </summary>
         public readonly string IpNetwork;
         /// <summary>
         /// (string) Description of the Primary IP.

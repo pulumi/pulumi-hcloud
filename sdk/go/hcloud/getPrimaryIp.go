@@ -117,6 +117,7 @@ type LookupPrimaryIpResult struct {
 	Id int `pulumi:"id"`
 	// (string) IP Address of the Primary IP.
 	IpAddress string `pulumi:"ipAddress"`
+	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork string `pulumi:"ipNetwork"`
 	// (string) Description of the Primary IP.
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -208,6 +209,7 @@ func (o LookupPrimaryIpResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 func (o LookupPrimaryIpResultOutput) IpNetwork() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.IpNetwork }).(pulumi.StringOutput)
 }
