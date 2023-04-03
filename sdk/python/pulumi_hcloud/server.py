@@ -41,7 +41,7 @@ class ServerArgs:
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[bool] backups: Enable or disable backups.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
@@ -53,14 +53,14 @@ class ServerArgs:
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
-        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
@@ -144,7 +144,7 @@ class ServerArgs:
     @pulumi.getter
     def datacenter(self) -> Optional[pulumi.Input[str]]:
         """
-        The datacenter name to create the server in.
+        The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         """
         return pulumi.get(self, "datacenter")
 
@@ -244,7 +244,7 @@ class ServerArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         """
         return pulumi.get(self, "location")
 
@@ -317,7 +317,7 @@ class ServerArgs:
     @pulumi.getter
     def rescue(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         """
         return pulumi.get(self, "rescue")
 
@@ -383,7 +383,7 @@ class _ServerState:
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
@@ -398,14 +398,14 @@ class _ServerState:
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
-        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] status: (string) The status of the server.
@@ -505,7 +505,7 @@ class _ServerState:
     @pulumi.getter
     def datacenter(self) -> Optional[pulumi.Input[str]]:
         """
-        The datacenter name to create the server in.
+        The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         """
         return pulumi.get(self, "datacenter")
 
@@ -641,7 +641,7 @@ class _ServerState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         """
         return pulumi.get(self, "location")
 
@@ -714,7 +714,7 @@ class _ServerState:
     @pulumi.getter
     def rescue(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         """
         return pulumi.get(self, "rescue")
 
@@ -886,7 +886,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[bool] backups: Enable or disable backups.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
@@ -898,14 +898,14 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
-        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
@@ -1117,7 +1117,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the server in.
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
@@ -1132,14 +1132,14 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
-        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
         :param pulumi.Input[str] status: (string) The status of the server.
@@ -1204,7 +1204,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def datacenter(self) -> pulumi.Output[str]:
         """
-        The datacenter name to create the server in.
+        The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         """
         return pulumi.get(self, "datacenter")
 
@@ -1296,7 +1296,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         """
         return pulumi.get(self, "location")
 
@@ -1345,7 +1345,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def rescue(self) -> pulumi.Output[Optional[str]]:
         """
-        Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         """
         return pulumi.get(self, "rescue")
 

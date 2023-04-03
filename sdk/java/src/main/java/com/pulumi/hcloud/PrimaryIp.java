@@ -168,9 +168,17 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
+    /**
+     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * 
+     */
     @Export(name="ipNetwork", type=String.class, parameters={})
     private Output<String> ipNetwork;
 
+    /**
+     * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * 
+     */
     public Output<String> ipNetwork() {
         return this.ipNetwork;
     }

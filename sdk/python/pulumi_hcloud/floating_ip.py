@@ -305,7 +305,7 @@ class FloatingIp(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
-            image="debian-9",
+            image="debian-11",
             server_type="cx11")
         master = hcloud.FloatingIp("master",
             type="ipv4",
@@ -346,7 +346,7 @@ class FloatingIp(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
-            image="debian-9",
+            image="debian-11",
             server_type="cx11")
         master = hcloud.FloatingIp("master",
             type="ipv4",

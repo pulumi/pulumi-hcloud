@@ -16,7 +16,7 @@ public final class GetDatacentersPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetDatacentersPlainArgs Empty = new GetDatacentersPlainArgs();
 
     /**
-     * (list) List of unique datacenter identifiers.
+     * (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
      * 
      * @deprecated
      * Use datacenters list instead
@@ -27,7 +27,7 @@ public final class GetDatacentersPlainArgs extends com.pulumi.resources.InvokeAr
     private @Nullable List<String> datacenterIds;
 
     /**
-     * @return (list) List of unique datacenter identifiers.
+     * @return (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
      * 
      * @deprecated
      * Use datacenters list instead
@@ -63,7 +63,7 @@ public final class GetDatacentersPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param datacenterIds (list) List of unique datacenter identifiers.
+         * @param datacenterIds (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
          * 
          * @return builder
          * 
@@ -78,7 +78,7 @@ public final class GetDatacentersPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param datacenterIds (list) List of unique datacenter identifiers.
+         * @param datacenterIds (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
          * 
          * @return builder
          * 
