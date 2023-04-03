@@ -1,0 +1,161 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "hcloud_certificate": {
+                "current": "hcloud:index/certificate:Certificate"
+            },
+            "hcloud_firewall": {
+                "current": "hcloud:index/firewall:Firewall"
+            },
+            "hcloud_firewall_attachment": {
+                "current": "hcloud:index/firewallAttachment:FirewallAttachment"
+            },
+            "hcloud_floating_ip": {
+                "current": "hcloud:index/floatingIp:FloatingIp"
+            },
+            "hcloud_floating_ip_assignment": {
+                "current": "hcloud:index/floatingIpAssignment:FloatingIpAssignment"
+            },
+            "hcloud_load_balancer": {
+                "current": "hcloud:index/loadBalancer:LoadBalancer"
+            },
+            "hcloud_load_balancer_network": {
+                "current": "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork"
+            },
+            "hcloud_load_balancer_service": {
+                "current": "hcloud:index/loadBalancerService:LoadBalancerService"
+            },
+            "hcloud_load_balancer_target": {
+                "current": "hcloud:index/loadBalancerTarget:LoadBalancerTarget"
+            },
+            "hcloud_managed_certificate": {
+                "current": "hcloud:index/managedCertificate:ManagedCertificate"
+            },
+            "hcloud_network": {
+                "current": "hcloud:index/network:Network"
+            },
+            "hcloud_network_route": {
+                "current": "hcloud:index/networkRoute:NetworkRoute"
+            },
+            "hcloud_network_subnet": {
+                "current": "hcloud:index/networkSubnet:NetworkSubnet"
+            },
+            "hcloud_placement_group": {
+                "current": "hcloud:index/placementGroup:PlacementGroup"
+            },
+            "hcloud_primary_ip": {
+                "current": "hcloud:index/primaryIp:PrimaryIp"
+            },
+            "hcloud_rdns": {
+                "current": "hcloud:index/rdns:Rdns"
+            },
+            "hcloud_server": {
+                "current": "hcloud:index/server:Server"
+            },
+            "hcloud_server_network": {
+                "current": "hcloud:index/serverNetwork:ServerNetwork"
+            },
+            "hcloud_snapshot": {
+                "current": "hcloud:index/snapshot:Snapshot"
+            },
+            "hcloud_ssh_key": {
+                "current": "hcloud:index/sshKey:SshKey"
+            },
+            "hcloud_uploaded_certificate": {
+                "current": "hcloud:index/uploadedCertificate:UploadedCertificate"
+            },
+            "hcloud_volume": {
+                "current": "hcloud:index/volume:Volume"
+            },
+            "hcloud_volume_attachment": {
+                "current": "hcloud:index/volumeAttachment:VolumeAttachment"
+            }
+        },
+        "datasources": {
+            "hcloud_certificate": {
+                "current": "hcloud:index/getCertificate:getCertificate"
+            },
+            "hcloud_certificates": {
+                "current": "hcloud:index/getCertificates:getCertificates"
+            },
+            "hcloud_datacenter": {
+                "current": "hcloud:index/getDatacenter:getDatacenter"
+            },
+            "hcloud_datacenters": {
+                "current": "hcloud:index/getDatacenters:getDatacenters"
+            },
+            "hcloud_firewall": {
+                "current": "hcloud:index/getFirewall:getFirewall"
+            },
+            "hcloud_firewalls": {
+                "current": "hcloud:index/getFirewalls:getFirewalls"
+            },
+            "hcloud_floating_ip": {
+                "current": "hcloud:index/getFloatingIp:getFloatingIp"
+            },
+            "hcloud_floating_ips": {
+                "current": "hcloud:index/getFloatingIps:getFloatingIps"
+            },
+            "hcloud_image": {
+                "current": "hcloud:index/getImage:getImage"
+            },
+            "hcloud_images": {
+                "current": "hcloud:index/getImages:getImages"
+            },
+            "hcloud_load_balancer": {
+                "current": "hcloud:index/getLoadBalancer:getLoadBalancer"
+            },
+            "hcloud_load_balancers": {
+                "current": "hcloud:index/getLoadBalancers:getLoadBalancers"
+            },
+            "hcloud_location": {
+                "current": "hcloud:index/getLocation:getLocation"
+            },
+            "hcloud_locations": {
+                "current": "hcloud:index/getLocations:getLocations"
+            },
+            "hcloud_network": {
+                "current": "hcloud:index/getNetwork:getNetwork"
+            },
+            "hcloud_networks": {
+                "current": "hcloud:index/getNetworks:getNetworks"
+            },
+            "hcloud_placement_group": {
+                "current": "hcloud:index/getPlacementGroup:getPlacementGroup"
+            },
+            "hcloud_placement_groups": {
+                "current": "hcloud:index/getPlacementGroups:getPlacementGroups"
+            },
+            "hcloud_primary_ip": {
+                "current": "hcloud:index/getPrimaryIp:getPrimaryIp"
+            },
+            "hcloud_primary_ips": {
+                "current": "hcloud:index/getPrimaryIps:getPrimaryIps"
+            },
+            "hcloud_server": {
+                "current": "hcloud:index/getServer:getServer"
+            },
+            "hcloud_server_type": {
+                "current": "hcloud:index/getServerType:getServerType"
+            },
+            "hcloud_server_types": {
+                "current": "hcloud:index/getServerTypes:getServerTypes"
+            },
+            "hcloud_servers": {
+                "current": "hcloud:index/getServers:getServers"
+            },
+            "hcloud_ssh_key": {
+                "current": "hcloud:index/getSshKey:getSshKey"
+            },
+            "hcloud_ssh_keys": {
+                "current": "hcloud:index/getSshKeys:getSshKeys"
+            },
+            "hcloud_volume": {
+                "current": "hcloud:index/getVolume:getVolume"
+            },
+            "hcloud_volumes": {
+                "current": "hcloud:index/getVolumes:getVolumes"
+            }
+        }
+    }
+}
