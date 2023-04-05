@@ -16,22 +16,29 @@ package hcloud
 
 import (
 	"fmt"
+	_ "embed"
 	"path/filepath"
 	"unicode"
 
 	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
 	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
+var
+
 // all of the token components used below.
+metadata []byte
+
 const (
 	// packages:
-	mainPkg = "hcloud"
+	mainPkg	= "hcloud"
 	// modules:
-	mainMod = "index" // the y module
+	mainMod	= "index"	// the y module
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -68,76 +75,76 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "hcloud",
-		Description: "A Pulumi package for creating and managing hcloud cloud resources.",
-		Keywords:    []string{"pulumi", "hcloud"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-hcloud",
-		GitHubOrg:   "hetznercloud",
-		Config:      map[string]*tfbridge.SchemaInfo{},
+		P:		p,
+		Name:		"hcloud",
+		Description:	"A Pulumi package for creating and managing hcloud cloud resources.",
+		Keywords:	[]string{"pulumi", "hcloud"},
+		License:	"Apache-2.0",
+		Homepage:	"https://pulumi.io",
+		Repository:	"https://github.com/pulumi/pulumi-hcloud",
+		GitHubOrg:	"hetznercloud",
+		Config:		map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"hcloud_certificate": {
-				Tok: makeResource(mainMod, "Certificate"),
+				Tok:	makeResource(mainMod, "Certificate"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"certificate": {
 						CSharpName: "CertificateContents",
 					},
 				},
 			},
-			"hcloud_server":                 {Tok: makeResource(mainMod, "Server")},
-			"hcloud_server_network":         {Tok: makeResource(mainMod, "ServerNetwork")},
-			"hcloud_floating_ip":            {Tok: makeResource(mainMod, "FloatingIp")},
-			"hcloud_floating_ip_assignment": {Tok: makeResource(mainMod, "FloatingIpAssignment")},
-			"hcloud_rdns":                   {Tok: makeResource(mainMod, "Rdns")},
-			"hcloud_ssh_key":                {Tok: makeResource(mainMod, "SshKey")},
-			"hcloud_volume":                 {Tok: makeResource(mainMod, "Volume")},
-			"hcloud_volume_attachment":      {Tok: makeResource(mainMod, "VolumeAttachment")},
-			"hcloud_network":                {Tok: makeResource(mainMod, "Network")},
-			"hcloud_network_route":          {Tok: makeResource(mainMod, "NetworkRoute")},
-			"hcloud_network_subnet":         {Tok: makeResource(mainMod, "NetworkSubnet")},
-			"hcloud_load_balancer":          {Tok: makeResource(mainMod, "LoadBalancer")},
-			"hcloud_load_balancer_network":  {Tok: makeResource(mainMod, "LoadBalancerNetwork")},
-			"hcloud_load_balancer_service":  {Tok: makeResource(mainMod, "LoadBalancerService")},
-			"hcloud_load_balancer_target":   {Tok: makeResource(mainMod, "LoadBalancerTarget")},
-			"hcloud_snapshot":               {Tok: makeResource(mainMod, "Snapshot")},
-			"hcloud_firewall":               {Tok: makeResource(mainMod, "Firewall")},
-			"hcloud_firewall_attachment":    {Tok: makeResource(mainMod, "FirewallAttachment")},
-			"hcloud_managed_certificate":    {Tok: makeResource(mainMod, "ManagedCertificate")},
-			"hcloud_uploaded_certificate":   {Tok: makeResource(mainMod, "UploadedCertificate")},
-			"hcloud_placement_group":        {Tok: makeResource(mainMod, "PlacementGroup")},
-			"hcloud_primary_ip":             {Tok: makeResource(mainMod, "PrimaryIp")},
+			"hcloud_server":			{Tok: makeResource(mainMod, "Server")},
+			"hcloud_server_network":		{Tok: makeResource(mainMod, "ServerNetwork")},
+			"hcloud_floating_ip":			{Tok: makeResource(mainMod, "FloatingIp")},
+			"hcloud_floating_ip_assignment":	{Tok: makeResource(mainMod, "FloatingIpAssignment")},
+			"hcloud_rdns":				{Tok: makeResource(mainMod, "Rdns")},
+			"hcloud_ssh_key":			{Tok: makeResource(mainMod, "SshKey")},
+			"hcloud_volume":			{Tok: makeResource(mainMod, "Volume")},
+			"hcloud_volume_attachment":		{Tok: makeResource(mainMod, "VolumeAttachment")},
+			"hcloud_network":			{Tok: makeResource(mainMod, "Network")},
+			"hcloud_network_route":			{Tok: makeResource(mainMod, "NetworkRoute")},
+			"hcloud_network_subnet":		{Tok: makeResource(mainMod, "NetworkSubnet")},
+			"hcloud_load_balancer":			{Tok: makeResource(mainMod, "LoadBalancer")},
+			"hcloud_load_balancer_network":		{Tok: makeResource(mainMod, "LoadBalancerNetwork")},
+			"hcloud_load_balancer_service":		{Tok: makeResource(mainMod, "LoadBalancerService")},
+			"hcloud_load_balancer_target":		{Tok: makeResource(mainMod, "LoadBalancerTarget")},
+			"hcloud_snapshot":			{Tok: makeResource(mainMod, "Snapshot")},
+			"hcloud_firewall":			{Tok: makeResource(mainMod, "Firewall")},
+			"hcloud_firewall_attachment":		{Tok: makeResource(mainMod, "FirewallAttachment")},
+			"hcloud_managed_certificate":		{Tok: makeResource(mainMod, "ManagedCertificate")},
+			"hcloud_uploaded_certificate":		{Tok: makeResource(mainMod, "UploadedCertificate")},
+			"hcloud_placement_group":		{Tok: makeResource(mainMod, "PlacementGroup")},
+			"hcloud_primary_ip":			{Tok: makeResource(mainMod, "PrimaryIp")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"hcloud_certificate":      {Tok: makeDataSource(mainMod, "getCertificate")},
-			"hcloud_certificates":     {Tok: makeDataSource(mainMod, "getCertificates")},
-			"hcloud_datacenter":       {Tok: makeDataSource(mainMod, "getDatacenter")},
-			"hcloud_datacenters":      {Tok: makeDataSource(mainMod, "getDatacenters")},
-			"hcloud_floating_ip":      {Tok: makeDataSource(mainMod, "getFloatingIp")},
-			"hcloud_floating_ips":     {Tok: makeDataSource(mainMod, "getFloatingIps")},
-			"hcloud_image":            {Tok: makeDataSource(mainMod, "getImage")},
-			"hcloud_images":           {Tok: makeDataSource(mainMod, "getImages")},
-			"hcloud_location":         {Tok: makeDataSource(mainMod, "getLocation")},
-			"hcloud_locations":        {Tok: makeDataSource(mainMod, "getLocations")},
-			"hcloud_server":           {Tok: makeDataSource(mainMod, "getServer")},
-			"hcloud_servers":          {Tok: makeDataSource(mainMod, "getServers")},
-			"hcloud_ssh_key":          {Tok: makeDataSource(mainMod, "getSshKey")},
-			"hcloud_network":          {Tok: makeDataSource(mainMod, "getNetwork")},
-			"hcloud_networks":         {Tok: makeDataSource(mainMod, "getNetworks")},
-			"hcloud_ssh_keys":         {Tok: makeDataSource(mainMod, "getSshKeys")},
-			"hcloud_volume":           {Tok: makeDataSource(mainMod, "getVolume")},
-			"hcloud_volumes":          {Tok: makeDataSource(mainMod, "getVolumes")},
-			"hcloud_load_balancer":    {Tok: makeDataSource(mainMod, "getLoadBalancer")},
-			"hcloud_load_balancers":   {Tok: makeDataSource(mainMod, "getLoadBalancers")},
-			"hcloud_server_type":      {Tok: makeDataSource(mainMod, "getServerType")},
-			"hcloud_server_types":     {Tok: makeDataSource(mainMod, "getServerTypes")},
-			"hcloud_firewall":         {Tok: makeDataSource(mainMod, "getFirewall")},
-			"hcloud_firewalls":        {Tok: makeDataSource(mainMod, "getFirewalls")},
-			"hcloud_placement_group":  {Tok: makeDataSource(mainMod, "getPlacementGroup")},
-			"hcloud_placement_groups": {Tok: makeDataSource(mainMod, "getPlacementGroups")},
-			"hcloud_primary_ip":       {Tok: makeDataSource(mainMod, "getPrimaryIp")},
-			"hcloud_primary_ips":      {Tok: makeDataSource(mainMod, "getPrimaryIps")},
+			"hcloud_certificate":		{Tok: makeDataSource(mainMod, "getCertificate")},
+			"hcloud_certificates":		{Tok: makeDataSource(mainMod, "getCertificates")},
+			"hcloud_datacenter":		{Tok: makeDataSource(mainMod, "getDatacenter")},
+			"hcloud_datacenters":		{Tok: makeDataSource(mainMod, "getDatacenters")},
+			"hcloud_floating_ip":		{Tok: makeDataSource(mainMod, "getFloatingIp")},
+			"hcloud_floating_ips":		{Tok: makeDataSource(mainMod, "getFloatingIps")},
+			"hcloud_image":			{Tok: makeDataSource(mainMod, "getImage")},
+			"hcloud_images":		{Tok: makeDataSource(mainMod, "getImages")},
+			"hcloud_location":		{Tok: makeDataSource(mainMod, "getLocation")},
+			"hcloud_locations":		{Tok: makeDataSource(mainMod, "getLocations")},
+			"hcloud_server":		{Tok: makeDataSource(mainMod, "getServer")},
+			"hcloud_servers":		{Tok: makeDataSource(mainMod, "getServers")},
+			"hcloud_ssh_key":		{Tok: makeDataSource(mainMod, "getSshKey")},
+			"hcloud_network":		{Tok: makeDataSource(mainMod, "getNetwork")},
+			"hcloud_networks":		{Tok: makeDataSource(mainMod, "getNetworks")},
+			"hcloud_ssh_keys":		{Tok: makeDataSource(mainMod, "getSshKeys")},
+			"hcloud_volume":		{Tok: makeDataSource(mainMod, "getVolume")},
+			"hcloud_volumes":		{Tok: makeDataSource(mainMod, "getVolumes")},
+			"hcloud_load_balancer":		{Tok: makeDataSource(mainMod, "getLoadBalancer")},
+			"hcloud_load_balancers":	{Tok: makeDataSource(mainMod, "getLoadBalancers")},
+			"hcloud_server_type":		{Tok: makeDataSource(mainMod, "getServerType")},
+			"hcloud_server_types":		{Tok: makeDataSource(mainMod, "getServerTypes")},
+			"hcloud_firewall":		{Tok: makeDataSource(mainMod, "getFirewall")},
+			"hcloud_firewalls":		{Tok: makeDataSource(mainMod, "getFirewalls")},
+			"hcloud_placement_group":	{Tok: makeDataSource(mainMod, "getPlacementGroup")},
+			"hcloud_placement_groups":	{Tok: makeDataSource(mainMod, "getPlacementGroups")},
+			"hcloud_primary_ip":		{Tok: makeDataSource(mainMod, "getPrimaryIp")},
+			"hcloud_primary_ips":		{Tok: makeDataSource(mainMod, "getPrimaryIps")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
@@ -145,8 +152,8 @@ func Provider() tfbridge.ProviderInfo {
 				"@pulumi/pulumi": "^3.0.0",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
-				"@types/mime": "^2.0.0",
+				"@types/node":	"^10.0.0",	// so we can access strongly typed node definitions.
+				"@types/mime":	"^2.0.0",
 			},
 		},
 		Python: &tfbridge.PythonInfo{
@@ -162,7 +169,7 @@ func Provider() tfbridge.ProviderInfo {
 				"go",
 				mainPkg,
 			),
-			GenerateResourceContainerTypes: true,
+			GenerateResourceContainerTypes:	true,
 		},
 
 		CSharp: &tfbridge.CSharpInfo{
@@ -172,8 +179,10 @@ func Provider() tfbridge.ProviderInfo {
 			Namespaces: map[string]string{
 				mainPkg: "HCloud",
 			},
-		},
+		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
+	err := x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "auto aliasing apply failed")
 
 	prov.SetAutonaming(255, "-")
 
