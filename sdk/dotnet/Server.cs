@@ -183,7 +183,7 @@ namespace Pulumi.HCloud
         public Output<bool?> Backups { get; private set; } = null!;
 
         /// <summary>
-        /// The datacenter name to create the server in.
+        /// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         /// </summary>
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.HCloud
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.HCloud
         public Output<bool?> RebuildProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         /// </summary>
         [Output("rescue")]
         public Output<string?> Rescue { get; private set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.HCloud
         public Input<bool>? Backups { get; set; }
 
         /// <summary>
-        /// The datacenter name to create the server in.
+        /// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
@@ -442,7 +442,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -491,7 +491,7 @@ namespace Pulumi.HCloud
         public Input<bool>? RebuildProtection { get; set; }
 
         /// <summary>
-        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         /// </summary>
         [Input("rescue")]
         public Input<string>? Rescue { get; set; }
@@ -547,7 +547,7 @@ namespace Pulumi.HCloud
         public Input<bool>? Backups { get; set; }
 
         /// <summary>
-        /// The datacenter name to create the server in.
+        /// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
@@ -629,7 +629,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -678,7 +678,7 @@ namespace Pulumi.HCloud
         public Input<bool>? RebuildProtection { get; set; }
 
         /// <summary>
-        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         /// </summary>
         [Input("rescue")]
         public Input<string>? Rescue { get; set; }

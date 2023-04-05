@@ -118,6 +118,9 @@ class GetPrimaryIpResult:
     @property
     @pulumi.getter(name="ipNetwork")
     def ip_network(self) -> str:
+        """
+        (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        """
         return pulumi.get(self, "ip_network")
 
     @property

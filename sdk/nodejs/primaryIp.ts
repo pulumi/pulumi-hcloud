@@ -100,6 +100,9 @@ export class PrimaryIp extends pulumi.CustomResource {
      * (string) IP Address of the Primary IP.
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    /**
+     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     */
     public /*out*/ readonly ipNetwork!: pulumi.Output<string>;
     /**
      * Description of the Primary IP.
@@ -193,6 +196,9 @@ export interface PrimaryIpState {
      * (string) IP Address of the Primary IP.
      */
     ipAddress?: pulumi.Input<string>;
+    /**
+     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     */
     ipNetwork?: pulumi.Input<string>;
     /**
      * Description of the Primary IP.

@@ -53,14 +53,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The datacenter name to create the server in.
+     * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
      * 
      */
     @Import(name="datacenter")
     private @Nullable Output<String> datacenter;
 
     /**
-     * @return The datacenter name to create the server in.
+     * @return The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
      * 
      */
     public Optional<Output<String>> datacenter() {
@@ -181,14 +181,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+     * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+     * @return The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      * 
      */
     public Optional<Output<String>> location() {
@@ -273,14 +273,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      * 
      */
     @Import(name="rescue")
     private @Nullable Output<String> rescue;
 
     /**
-     * @return Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     * @return Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      * 
      */
     public Optional<Output<String>> rescue() {
@@ -418,7 +418,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datacenter The datacenter name to create the server in.
+         * @param datacenter The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datacenter The datacenter name to create the server in.
+         * @param datacenter The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+         * @param location The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+         * @param location The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rescue Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+         * @param rescue Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
          * 
          * @return builder
          * 
@@ -764,7 +764,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rescue Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+         * @param rescue Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
          * 
          * @return builder
          * 
