@@ -73,21 +73,11 @@
             "properties": {
                 "labelSelector": {
                     "type": "string",
-                    "description": "Label Selector to select servers the firewall should be applied to (only one\nof `server` and `label_selector`can be applied in one block)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Label Selector to select servers the firewall should be applied to (only one\nof `server` and `label_selector`can be applied in one block)\n"
                 },
                 "server": {
                     "type": "integer",
-                    "description": "ID of the server you want to apply the firewall to (only one of `server`\nand `label_selector`can be applied in one block)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of the server you want to apply the firewall to (only one of `server`\nand `label_selector`can be applied in one block)\n"
                 }
             },
             "type": "object",
@@ -104,63 +94,33 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Description of the firewall rule\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Description of the firewall rule\n"
                 },
                 "destinationIps": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`\nis `out`)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`\nis `out`)\n"
                 },
                 "direction": {
                     "type": "string",
-                    "description": "Direction of the Firewall Rule. `in`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Direction of the Firewall Rule. `in`\n"
                 },
                 "port": {
                     "type": "string",
-                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`\nto allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and\n85.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`\nto allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and\n85.\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`\n"
                 },
                 "sourceIps": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of CIDRs that are allowed within this Firewall Rule\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "List of CIDRs that are allowed within this Firewall Rule\n"
                 }
             },
             "type": "object",
@@ -173,12 +133,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "Type of the Load Balancer Algorithm. `round_robin` or `least_connections`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Type of the Load Balancer Algorithm. `round_robin` or `least_connections`\n"
                 }
             },
             "type": "object",
@@ -194,57 +149,27 @@
             "properties": {
                 "http": {
                     "$ref": "#/types/hcloud:index/LoadBalancerServiceHealthCheckHttp:LoadBalancerServiceHealthCheckHttp",
-                    "description": "List of http configurations. Required if `protocol` is `http`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "List of http configurations. Required if `protocol` is `http`.\n"
                 },
                 "interval": {
                     "type": "integer",
-                    "description": "Interval how often the health check will be performed, in seconds.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Interval how often the health check will be performed, in seconds.\n"
                 },
                 "port": {
                     "type": "integer",
-                    "description": "Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "Protocol the health check uses. `http` or `tcp`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Protocol the health check uses. `http` or `tcp`\n"
                 },
                 "retries": {
                     "type": "integer",
-                    "description": "Number of tries a health check will be performed until a target will be listed as `unhealthy`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Number of tries a health check will be performed until a target will be listed as `unhealthy`.\n"
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "Timeout when a health check try will be canceled if there is no response, in seconds.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Timeout when a health check try will be canceled if there is no response, in seconds.\n"
                 }
             },
             "type": "object",
@@ -271,51 +196,26 @@
             "properties": {
                 "domain": {
                     "type": "string",
-                    "description": "Domain we try to access when performing the Health Check.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Domain we try to access when performing the Health Check.\n"
                 },
                 "path": {
                     "type": "string",
-                    "description": "Path we try to access when performing the Health Check.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Path we try to access when performing the Health Check.\n"
                 },
                 "response": {
                     "type": "string",
-                    "description": "Response we expect to be included in the Target response when a Health Check was performed.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Response we expect to be included in the Target response when a Health Check was performed.\n"
                 },
                 "statusCodes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.\n"
                 },
                 "tls": {
                     "type": "boolean",
-                    "description": "Enable TLS certificate checking.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Enable TLS certificate checking.\n"
                 }
             },
             "type": "object"
@@ -327,48 +227,23 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "List of IDs from certificates which the Load Balancer has.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "List of IDs from certificates which the Load Balancer has.\n"
                 },
                 "cookieLifetime": {
                     "type": "integer",
-                    "description": "Lifetime of the cookie for sticky session (in seconds). Default: `300`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Lifetime of the cookie for sticky session (in seconds). Default: `300`\n"
                 },
                 "cookieName": {
                     "type": "string",
-                    "description": "Name of the cookie for sticky session. Default: `HCLBSTICKY`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of the cookie for sticky session. Default: `HCLBSTICKY`\n"
                 },
                 "redirectHttp": {
                     "type": "boolean",
-                    "description": "Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.\n"
                 },
                 "stickySessions": {
                     "type": "boolean",
-                    "description": "Enable sticky sessions\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Enable sticky sessions\n"
                 }
             },
             "type": "object",
@@ -387,30 +262,15 @@
         "hcloud:index/LoadBalancerTarget:LoadBalancerTarget": {
             "properties": {
                 "serverId": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of the Load Balancer Algorithm. `round_robin` or `least_connections`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Type of the Load Balancer Algorithm. `round_robin` or `least_connections`\n"
                 },
                 "usePrivateIp": {
                     "type": "boolean",
-                    "deprecationMessage": "Does not work. Use the hcloud_load_balancer_target resource instead.",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "deprecationMessage": "Does not work. Use the hcloud_load_balancer_target resource instead."
                 }
             },
             "type": "object",
@@ -425,39 +285,19 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Alias IPs the server should have in the Network.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Alias IPs the server should have in the Network.\n"
                 },
                 "ip": {
                     "type": "string",
-                    "description": "Specify the IP the server should get in the network\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Specify the IP the server should get in the network\n"
                 },
                 "macAddress": {
                     "type": "string",
-                    "description": "(Optional, string) The MAC address the private interface of the server has\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional, string) The MAC address the private interface of the server has\n"
                 },
                 "networkId": {
                     "type": "integer",
-                    "description": "ID of the network\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of the network\n"
                 }
             },
             "type": "object",
@@ -478,36 +318,16 @@
         "hcloud:index/ServerPublicNet:ServerPublicNet": {
             "properties": {
                 "ipv4": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "ipv4Enabled": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "ipv6": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "ipv6Enabled": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -523,90 +343,40 @@
         "hcloud:index/getCertificatesCertificate:getCertificatesCertificate": {
             "properties": {
                 "certificate": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "created": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "domainNames": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "fingerprint": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "notValidAfter": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "notValidBefore": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -633,57 +403,27 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "location": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "supportedServerTypeIds": {
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -706,21 +446,11 @@
             "properties": {
                 "labelSelector": {
                     "type": "string",
-                    "description": "(string) Label Selector to select servers the firewall is applied to. Empty if a server is directly\nreferenced\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Label Selector to select servers the firewall is applied to. Empty if a server is directly\nreferenced\n"
                 },
                 "server": {
                     "type": "integer",
-                    "description": "(int) ID of a server where the firewall is applied to. `0` if applied to a label_selector\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) ID of a server where the firewall is applied to. `0` if applied to a label_selector\n"
                 }
             },
             "type": "object",
@@ -738,63 +468,33 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "(Optional, string) Description of the firewall rule\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional, string) Description of the firewall rule\n"
                 },
                 "destinationIps": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)\n"
                 },
                 "direction": {
                     "type": "string",
-                    "description": "(Required, string) Direction of the Firewall Rule. `in`, `out`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required, string) Direction of the Firewall Rule. `in`, `out`\n"
                 },
                 "port": {
                     "type": "string",
-                    "description": "(Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "(Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`\n"
                 },
                 "sourceIps": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)\n"
                 }
             },
             "type": "object",
@@ -808,49 +508,24 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getFirewallsFirewallApplyTo:getFirewallsFirewallApplyTo"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "rules": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getFirewallsFirewallRule:getFirewallsFirewallRule"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -867,20 +542,10 @@
         "hcloud:index/getFirewallsFirewallApplyTo:getFirewallsFirewallApplyTo": {
             "properties": {
                 "labelSelector": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "server": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -897,57 +562,27 @@
         "hcloud:index/getFirewallsFirewallRule:getFirewallsFirewallRule": {
             "properties": {
                 "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "destinationIps": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "direction": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "protocol": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "sourceIps": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -964,87 +599,37 @@
         "hcloud:index/getFloatingIpsFloatingIp:getFloatingIpsFloatingIp": {
             "properties": {
                 "deleteProtection": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "homeLocation": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "ipAddress": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ipNetwork": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "serverId": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1068,96 +653,41 @@
         "hcloud:index/getImagesImage:getImagesImage": {
             "properties": {
                 "created": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "deprecated": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "osFlavor": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "osVersion": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "rapidDeploy": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "selector": {
                     "type": "string",
-                    "deprecationMessage": "Please use the with_selector property instead.",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "deprecationMessage": "Please use the with_selector property instead."
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1183,12 +713,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "(string) Type of the target. `server` or `label_selector`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Type of the target. `server` or `label_selector`\n"
                 }
             },
             "type": "object",
@@ -1205,63 +730,33 @@
             "properties": {
                 "destinationPort": {
                     "type": "integer",
-                    "description": "(int) Port the service connects to the targets on. Can be everything between `1` and `65535`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) Port the service connects to the targets on. Can be everything between `1` and `65535`.\n"
                 },
                 "healthChecks": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancerServiceHealthCheck:getLoadBalancerServiceHealthCheck"
                     },
-                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n"
                 },
                 "https": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancerServiceHttp:getLoadBalancerServiceHttp"
                     },
-                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n"
                 },
                 "listenPort": {
                     "type": "integer",
-                    "description": "(int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "(string) Protocol the health check uses. `http`, `https` or `tcp`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Protocol the health check uses. `http`, `https` or `tcp`\n"
                 },
                 "proxyprotocol": {
                     "type": "boolean",
-                    "description": "(bool) Enable proxyprotocol.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(bool) Enable proxyprotocol.\n"
                 }
             },
             "type": "object",
@@ -1286,57 +781,27 @@
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancerServiceHealthCheckHttp:getLoadBalancerServiceHealthCheckHttp"
                     },
-                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(list) List of http configurations when `protocol` is `http` or `https`.\n"
                 },
                 "interval": {
                     "type": "integer",
-                    "description": "(int) Interval how often the health check will be performed, in seconds.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) Interval how often the health check will be performed, in seconds.\n"
                 },
                 "port": {
                     "type": "integer",
-                    "description": "(int) Port the health check tries to connect to. Can be everything between `1` and `65535`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) Port the health check tries to connect to. Can be everything between `1` and `65535`.\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "(string) Protocol the health check uses. `http`, `https` or `tcp`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Protocol the health check uses. `http`, `https` or `tcp`\n"
                 },
                 "retries": {
                     "type": "integer",
-                    "description": "(int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.\n"
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "(int) Timeout when a health check try will be canceled if there is no response, in seconds.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) Timeout when a health check try will be canceled if there is no response, in seconds.\n"
                 }
             },
             "type": "object",
@@ -1358,51 +823,26 @@
             "properties": {
                 "domain": {
                     "type": "string",
-                    "description": "string) Domain we try to access when performing the Health Check.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "string) Domain we try to access when performing the Health Check.\n"
                 },
                 "path": {
                     "type": "string",
-                    "description": "(string) Path we try to access when performing the Health Check.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Path we try to access when performing the Health Check.\n"
                 },
                 "response": {
                     "type": "string",
-                    "description": "(string) Response we expect to be included in the Target response when a Health Check was performed.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Response we expect to be included in the Target response when a Health Check was performed.\n"
                 },
                 "statusCodes": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     },
-                    "description": "(list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.\n"
                 },
                 "tls": {
                     "type": "boolean",
-                    "description": "(bool) Enable TLS certificate checking.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(bool) Enable TLS certificate checking.\n"
                 }
             },
             "type": "object",
@@ -1426,48 +866,23 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(list[int]) List of IDs from certificates which the Load Balancer has.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(list[int]) List of IDs from certificates which the Load Balancer has.\n"
                 },
                 "cookieLifetime": {
                     "type": "integer",
-                    "description": "(int) Lifetime of the cookie for sticky session (in seconds).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) Lifetime of the cookie for sticky session (in seconds).\n"
                 },
                 "cookieName": {
                     "type": "string",
-                    "description": "(string) Name of the cookie for sticky session.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Name of the cookie for sticky session.\n"
                 },
                 "redirectHttp": {
                     "type": "boolean",
-                    "description": "(string) Determine if all requests from port 80 should be redirected to port 443.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Determine if all requests from port 80 should be redirected to port 443.\n"
                 },
                 "stickySessions": {
                     "type": "boolean",
-                    "description": "(string) Determine if sticky sessions are enabled or not.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Determine if sticky sessions are enabled or not.\n"
                 }
             },
             "type": "object",
@@ -1488,30 +903,15 @@
             "properties": {
                 "labelSelector": {
                     "type": "string",
-                    "description": "(string) Label Selector to add a group of resources based on the label.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Label Selector to add a group of resources based on the label.\n"
                 },
                 "serverId": {
                     "type": "integer",
-                    "description": "(int) ID of the server which should be a target for this Load Balancer.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(int) ID of the server which should be a target for this Load Balancer.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "(string) Type of the target. `server` or `label_selector`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(string) Type of the target. `server` or `label_selector`\n"
                 }
             },
             "type": "object",
@@ -1532,124 +932,54 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerAlgorithm:getLoadBalancersLoadBalancerAlgorithm"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "deleteProtection": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "ipv4": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ipv6": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "loadBalancerType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "location": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "networkId": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "networkIp": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "networkZone": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "services": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerService:getLoadBalancersLoadBalancerService"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "targets": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerTarget:getLoadBalancersLoadBalancerTarget"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -1678,12 +1008,7 @@
         "hcloud:index/getLoadBalancersLoadBalancerAlgorithm:getLoadBalancersLoadBalancerAlgorithm": {
             "properties": {
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1699,58 +1024,28 @@
         "hcloud:index/getLoadBalancersLoadBalancerService:getLoadBalancersLoadBalancerService": {
             "properties": {
                 "destinationPort": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "healthChecks": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerServiceHealthCheck:getLoadBalancersLoadBalancerServiceHealthCheck"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "https": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerServiceHttp:getLoadBalancersLoadBalancerServiceHttp"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "listenPort": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "protocol": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "proxyprotocol": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -1774,52 +1069,22 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/hcloud:index/getLoadBalancersLoadBalancerServiceHealthCheckHttp:getLoadBalancersLoadBalancerServiceHealthCheckHttp"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "interval": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "protocol": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "retries": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "timeout": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1840,47 +1105,22 @@
         "hcloud:index/getLoadBalancersLoadBalancerServiceHealthCheckHttp:getLoadBalancersLoadBalancerServiceHealthCheckHttp": {
             "properties": {
                 "domain": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "response": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "statusCodes": {
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "tls": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -1903,44 +1143,19 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "cookieLifetime": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "cookieName": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "redirectHttp": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "stickySessions": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -1960,28 +1175,13 @@
         "hcloud:index/getLoadBalancersLoadBalancerTarget:getLoadBalancersLoadBalancerTarget": {
             "properties": {
                 "labelSelector": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "serverId": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1999,68 +1199,28 @@
         "hcloud:index/getLocationsLocation:getLocationsLocation": {
             "properties": {
                 "city": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "country": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "latitude": {
-                    "type": "number",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "number"
                 },
                 "longitude": {
-                    "type": "number",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "number"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "networkZone": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2083,47 +1243,22 @@
         "hcloud:index/getNetworksNetwork:getNetworksNetwork": {
             "properties": {
                 "deleteProtection": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "ipRange": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2140,50 +1275,25 @@
         "hcloud:index/getPlacementGroupsPlacementGroup:getPlacementGroupsPlacementGroup": {
             "properties": {
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "servers": {
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2200,95 +1310,40 @@
         "hcloud:index/getPrimaryIpsPrimaryIp:getPrimaryIpsPrimaryIp": {
             "properties": {
                 "assigneeId": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "assigneeType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "autoDelete": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "datacenter": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "deleteProtection": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "ipAddress": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ipNetwork": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2313,68 +1368,28 @@
         "hcloud:index/getServerTypesServerType:getServerTypesServerType": {
             "properties": {
                 "cores": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "cpuType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "disk": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "memory": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "storageType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2397,162 +1412,67 @@
         "hcloud:index/getServersServer:getServersServer": {
             "properties": {
                 "backupWindow": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "backups": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "datacenter": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "deleteProtection": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "firewallIds": {
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "image": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ipv4Address": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ipv6Address": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ipv6Network": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "iso": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "location": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "placementGroupId": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "rebuildProtection": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "rescue": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "serverType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "status": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2585,47 +1505,22 @@
         "hcloud:index/getSshKeysSshKey:getSshKeysSshKey": {
             "properties": {
                 "fingerprint": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "publicKey": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2645,71 +1540,31 @@
         "hcloud:index/getVolumesVolume:getVolumesVolume": {
             "properties": {
                 "deleteProtection": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "linuxDevice": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "location": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "serverId": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "size": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
