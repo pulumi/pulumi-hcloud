@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const node1 = new hcloud.Server("node1", {
- *     image: "debian-9",
+ *     image: "debian-11",
  *     serverType: "cx11",
  *     placementGroupId: my_placement_group.id,
  * });

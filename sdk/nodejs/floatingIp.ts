@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const node1 = new hcloud.Server("node1", {
- *     image: "debian-9",
+ *     image: "debian-11",
  *     serverType: "cx11",
  * });
  * const master = new hcloud.FloatingIp("master", {

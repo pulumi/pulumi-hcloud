@@ -13,6 +13,7 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetImagesImageResult
     {
+        public readonly string Architecture;
         public readonly string Created;
         public readonly string Deprecated;
         public readonly string Description;
@@ -27,6 +28,8 @@ namespace Pulumi.HCloud.Outputs
 
         [OutputConstructor]
         private GetImagesImageResult(
+            string architecture,
+
             string created,
 
             string deprecated,
@@ -49,6 +52,7 @@ namespace Pulumi.HCloud.Outputs
 
             string type)
         {
+            Architecture = architecture;
             Created = created;
             Deprecated = deprecated;
             Description = description;

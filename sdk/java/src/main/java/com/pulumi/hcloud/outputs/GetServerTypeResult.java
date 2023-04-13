@@ -11,6 +11,11 @@ import java.util.Objects;
 @CustomType
 public final class GetServerTypeResult {
     /**
+     * @return (string) Architecture of the server_type.
+     * 
+     */
+    private String architecture;
+    /**
      * @return (int) Number of cpu cores a Server of this type will have.
      * 
      */
@@ -44,6 +49,13 @@ public final class GetServerTypeResult {
     private String storageType;
 
     private GetServerTypeResult() {}
+    /**
+     * @return (string) Architecture of the server_type.
+     * 
+     */
+    public String architecture() {
+        return this.architecture;
+    }
     /**
      * @return (int) Number of cpu cores a Server of this type will have.
      * 
@@ -102,6 +114,7 @@ public final class GetServerTypeResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String architecture;
         private Integer cores;
         private String cpuType;
         private String description;
@@ -113,6 +126,7 @@ public final class GetServerTypeResult {
         public Builder() {}
         public Builder(GetServerTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.architecture = defaults.architecture;
     	      this.cores = defaults.cores;
     	      this.cpuType = defaults.cpuType;
     	      this.description = defaults.description;
@@ -123,6 +137,11 @@ public final class GetServerTypeResult {
     	      this.storageType = defaults.storageType;
         }
 
+        @CustomType.Setter
+        public Builder architecture(String architecture) {
+            this.architecture = Objects.requireNonNull(architecture);
+            return this;
+        }
         @CustomType.Setter
         public Builder cores(Integer cores) {
             this.cores = Objects.requireNonNull(cores);
@@ -165,6 +184,7 @@ public final class GetServerTypeResult {
         }
         public GetServerTypeResult build() {
             final var o = new GetServerTypeResult();
+            o.architecture = architecture;
             o.cores = cores;
             o.cpuType = cpuType;
             o.description = description;

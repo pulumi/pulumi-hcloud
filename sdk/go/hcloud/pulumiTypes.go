@@ -2430,15 +2430,16 @@ func (o GetFloatingIpsFloatingIpArrayOutput) Index(i pulumi.IntInput) GetFloatin
 }
 
 type GetImagesImage struct {
-	Created     string                 `pulumi:"created"`
-	Deprecated  string                 `pulumi:"deprecated"`
-	Description string                 `pulumi:"description"`
-	Id          int                    `pulumi:"id"`
-	Labels      map[string]interface{} `pulumi:"labels"`
-	Name        string                 `pulumi:"name"`
-	OsFlavor    string                 `pulumi:"osFlavor"`
-	OsVersion   string                 `pulumi:"osVersion"`
-	RapidDeploy bool                   `pulumi:"rapidDeploy"`
+	Architecture string                 `pulumi:"architecture"`
+	Created      string                 `pulumi:"created"`
+	Deprecated   string                 `pulumi:"deprecated"`
+	Description  string                 `pulumi:"description"`
+	Id           int                    `pulumi:"id"`
+	Labels       map[string]interface{} `pulumi:"labels"`
+	Name         string                 `pulumi:"name"`
+	OsFlavor     string                 `pulumi:"osFlavor"`
+	OsVersion    string                 `pulumi:"osVersion"`
+	RapidDeploy  bool                   `pulumi:"rapidDeploy"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	Type     string  `pulumi:"type"`
@@ -2456,15 +2457,16 @@ type GetImagesImageInput interface {
 }
 
 type GetImagesImageArgs struct {
-	Created     pulumi.StringInput `pulumi:"created"`
-	Deprecated  pulumi.StringInput `pulumi:"deprecated"`
-	Description pulumi.StringInput `pulumi:"description"`
-	Id          pulumi.IntInput    `pulumi:"id"`
-	Labels      pulumi.MapInput    `pulumi:"labels"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	OsFlavor    pulumi.StringInput `pulumi:"osFlavor"`
-	OsVersion   pulumi.StringInput `pulumi:"osVersion"`
-	RapidDeploy pulumi.BoolInput   `pulumi:"rapidDeploy"`
+	Architecture pulumi.StringInput `pulumi:"architecture"`
+	Created      pulumi.StringInput `pulumi:"created"`
+	Deprecated   pulumi.StringInput `pulumi:"deprecated"`
+	Description  pulumi.StringInput `pulumi:"description"`
+	Id           pulumi.IntInput    `pulumi:"id"`
+	Labels       pulumi.MapInput    `pulumi:"labels"`
+	Name         pulumi.StringInput `pulumi:"name"`
+	OsFlavor     pulumi.StringInput `pulumi:"osFlavor"`
+	OsVersion    pulumi.StringInput `pulumi:"osVersion"`
+	RapidDeploy  pulumi.BoolInput   `pulumi:"rapidDeploy"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	Type     pulumi.StringInput    `pulumi:"type"`
@@ -2519,6 +2521,10 @@ func (o GetImagesImageOutput) ToGetImagesImageOutput() GetImagesImageOutput {
 
 func (o GetImagesImageOutput) ToGetImagesImageOutputWithContext(ctx context.Context) GetImagesImageOutput {
 	return o
+}
+
+func (o GetImagesImageOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
 func (o GetImagesImageOutput) Created() pulumi.StringOutput {
@@ -4735,14 +4741,15 @@ func (o GetPrimaryIpsPrimaryIpArrayOutput) Index(i pulumi.IntInput) GetPrimaryIp
 }
 
 type GetServerTypesServerType struct {
-	Cores       int    `pulumi:"cores"`
-	CpuType     string `pulumi:"cpuType"`
-	Description string `pulumi:"description"`
-	Disk        int    `pulumi:"disk"`
-	Id          int    `pulumi:"id"`
-	Memory      int    `pulumi:"memory"`
-	Name        string `pulumi:"name"`
-	StorageType string `pulumi:"storageType"`
+	Architecture string `pulumi:"architecture"`
+	Cores        int    `pulumi:"cores"`
+	CpuType      string `pulumi:"cpuType"`
+	Description  string `pulumi:"description"`
+	Disk         int    `pulumi:"disk"`
+	Id           int    `pulumi:"id"`
+	Memory       int    `pulumi:"memory"`
+	Name         string `pulumi:"name"`
+	StorageType  string `pulumi:"storageType"`
 }
 
 // GetServerTypesServerTypeInput is an input type that accepts GetServerTypesServerTypeArgs and GetServerTypesServerTypeOutput values.
@@ -4757,14 +4764,15 @@ type GetServerTypesServerTypeInput interface {
 }
 
 type GetServerTypesServerTypeArgs struct {
-	Cores       pulumi.IntInput    `pulumi:"cores"`
-	CpuType     pulumi.StringInput `pulumi:"cpuType"`
-	Description pulumi.StringInput `pulumi:"description"`
-	Disk        pulumi.IntInput    `pulumi:"disk"`
-	Id          pulumi.IntInput    `pulumi:"id"`
-	Memory      pulumi.IntInput    `pulumi:"memory"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	StorageType pulumi.StringInput `pulumi:"storageType"`
+	Architecture pulumi.StringInput `pulumi:"architecture"`
+	Cores        pulumi.IntInput    `pulumi:"cores"`
+	CpuType      pulumi.StringInput `pulumi:"cpuType"`
+	Description  pulumi.StringInput `pulumi:"description"`
+	Disk         pulumi.IntInput    `pulumi:"disk"`
+	Id           pulumi.IntInput    `pulumi:"id"`
+	Memory       pulumi.IntInput    `pulumi:"memory"`
+	Name         pulumi.StringInput `pulumi:"name"`
+	StorageType  pulumi.StringInput `pulumi:"storageType"`
 }
 
 func (GetServerTypesServerTypeArgs) ElementType() reflect.Type {
@@ -4816,6 +4824,10 @@ func (o GetServerTypesServerTypeOutput) ToGetServerTypesServerTypeOutput() GetSe
 
 func (o GetServerTypesServerTypeOutput) ToGetServerTypesServerTypeOutputWithContext(ctx context.Context) GetServerTypesServerTypeOutput {
 	return o
+}
+
+func (o GetServerTypesServerTypeOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
 func (o GetServerTypesServerTypeOutput) Cores() pulumi.IntOutput {

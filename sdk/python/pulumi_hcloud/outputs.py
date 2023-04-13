@@ -1084,6 +1084,7 @@ class GetFloatingIpsFloatingIpResult(dict):
 @pulumi.output_type
 class GetImagesImageResult(dict):
     def __init__(__self__, *,
+                 architecture: str,
                  created: str,
                  deprecated: str,
                  description: str,
@@ -1095,6 +1096,7 @@ class GetImagesImageResult(dict):
                  rapid_deploy: bool,
                  type: str,
                  selector: Optional[str] = None):
+        pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "created", created)
         pulumi.set(__self__, "deprecated", deprecated)
         pulumi.set(__self__, "description", description)
@@ -1107,6 +1109,11 @@ class GetImagesImageResult(dict):
         pulumi.set(__self__, "type", type)
         if selector is not None:
             pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> str:
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
@@ -2041,6 +2048,7 @@ class GetPrimaryIpsPrimaryIpResult(dict):
 @pulumi.output_type
 class GetServerTypesServerTypeResult(dict):
     def __init__(__self__, *,
+                 architecture: str,
                  cores: int,
                  cpu_type: str,
                  description: str,
@@ -2049,6 +2057,7 @@ class GetServerTypesServerTypeResult(dict):
                  memory: int,
                  name: str,
                  storage_type: str):
+        pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "cores", cores)
         pulumi.set(__self__, "cpu_type", cpu_type)
         pulumi.set(__self__, "description", description)
@@ -2057,6 +2066,11 @@ class GetServerTypesServerTypeResult(dict):
         pulumi.set(__self__, "memory", memory)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> str:
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter

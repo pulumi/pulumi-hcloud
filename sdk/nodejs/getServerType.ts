@@ -51,6 +51,10 @@ export interface GetServerTypeArgs {
  */
 export interface GetServerTypeResult {
     /**
+     * (string) Architecture of the server_type.
+     */
+    readonly architecture: string;
+    /**
      * (int) Number of cpu cores a Server of this type will have.
      */
     readonly cores: number;

@@ -10,6 +10,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerTypesServerType {
+    private String architecture;
     private Integer cores;
     private String cpuType;
     private String description;
@@ -20,6 +21,9 @@ public final class GetServerTypesServerType {
     private String storageType;
 
     private GetServerTypesServerType() {}
+    public String architecture() {
+        return this.architecture;
+    }
     public Integer cores() {
         return this.cores;
     }
@@ -54,6 +58,7 @@ public final class GetServerTypesServerType {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String architecture;
         private Integer cores;
         private String cpuType;
         private String description;
@@ -65,6 +70,7 @@ public final class GetServerTypesServerType {
         public Builder() {}
         public Builder(GetServerTypesServerType defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.architecture = defaults.architecture;
     	      this.cores = defaults.cores;
     	      this.cpuType = defaults.cpuType;
     	      this.description = defaults.description;
@@ -75,6 +81,11 @@ public final class GetServerTypesServerType {
     	      this.storageType = defaults.storageType;
         }
 
+        @CustomType.Setter
+        public Builder architecture(String architecture) {
+            this.architecture = Objects.requireNonNull(architecture);
+            return this;
+        }
         @CustomType.Setter
         public Builder cores(Integer cores) {
             this.cores = Objects.requireNonNull(cores);
@@ -117,6 +128,7 @@ public final class GetServerTypesServerType {
         }
         public GetServerTypesServerType build() {
             final var o = new GetServerTypesServerType();
+            o.architecture = architecture;
             o.cores = cores;
             o.cpuType = cpuType;
             o.description = description;

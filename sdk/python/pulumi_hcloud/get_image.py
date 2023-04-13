@@ -21,7 +21,10 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, created=None, deprecated=None, description=None, id=None, labels=None, most_recent=None, name=None, os_flavor=None, os_version=None, rapid_deploy=None, selector=None, type=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, architecture=None, created=None, deprecated=None, description=None, id=None, labels=None, most_recent=None, name=None, os_flavor=None, os_version=None, rapid_deploy=None, selector=None, type=None, with_architecture=None, with_selector=None, with_statuses=None):
+        if architecture and not isinstance(architecture, str):
+            raise TypeError("Expected argument 'architecture' to be a str")
+        pulumi.set(__self__, "architecture", architecture)
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -62,12 +65,23 @@ class GetImageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if with_architecture and not isinstance(with_architecture, str):
+            raise TypeError("Expected argument 'with_architecture' to be a str")
+        pulumi.set(__self__, "with_architecture", with_architecture)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
         if with_statuses and not isinstance(with_statuses, list):
             raise TypeError("Expected argument 'with_statuses' to be a list")
         pulumi.set(__self__, "with_statuses", with_statuses)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> str:
+        """
+        (string) Architecture of the Image.
+        """
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
@@ -157,6 +171,11 @@ class GetImageResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="withArchitecture")
+    def with_architecture(self) -> Optional[str]:
+        return pulumi.get(self, "with_architecture")
+
+    @property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[str]:
         return pulumi.get(self, "with_selector")
@@ -173,6 +192,7 @@ class AwaitableGetImageResult(GetImageResult):
         if False:
             yield self
         return GetImageResult(
+            architecture=self.architecture,
             created=self.created,
             deprecated=self.deprecated,
             description=self.description,
@@ -185,6 +205,7 @@ class AwaitableGetImageResult(GetImageResult):
             rapid_deploy=self.rapid_deploy,
             selector=self.selector,
             type=self.type,
+            with_architecture=self.with_architecture,
             with_selector=self.with_selector,
             with_statuses=self.with_statuses)
 
@@ -193,6 +214,7 @@ def get_image(id: Optional[int] = None,
               most_recent: Optional[bool] = None,
               name: Optional[str] = None,
               selector: Optional[str] = None,
+              with_architecture: Optional[str] = None,
               with_selector: Optional[str] = None,
               with_statuses: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
@@ -204,7 +226,8 @@ def get_image(id: Optional[int] = None,
     import pulumi_hcloud as hcloud
 
     image1 = hcloud.get_image(id=1234)
-    image2 = hcloud.get_image(name="ubuntu-18.04")
+    image2 = hcloud.get_image(name="ubuntu-18.04",
+        with_architecture="x86")
     image3 = hcloud.get_image(with_selector="key=value")
     main = hcloud.Server("main", image=image1.id)
     ```
@@ -213,20 +236,23 @@ def get_image(id: Optional[int] = None,
     :param int id: ID of the Image.
     :param bool most_recent: If more than one result is returned, use the most recent Image.
     :param str name: Name of the Image.
+    :param str with_architecture: Select only images with this architecture, could be `x86` (default) or `arm`.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
-    :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
+    :param Sequence[str] with_statuses: Select only images with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['mostRecent'] = most_recent
     __args__['name'] = name
     __args__['selector'] = selector
+    __args__['withArchitecture'] = with_architecture
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('hcloud:index/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
+        architecture=__ret__.architecture,
         created=__ret__.created,
         deprecated=__ret__.deprecated,
         description=__ret__.description,
@@ -239,6 +265,7 @@ def get_image(id: Optional[int] = None,
         rapid_deploy=__ret__.rapid_deploy,
         selector=__ret__.selector,
         type=__ret__.type,
+        with_architecture=__ret__.with_architecture,
         with_selector=__ret__.with_selector,
         with_statuses=__ret__.with_statuses)
 
@@ -248,6 +275,7 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                      most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      selector: Optional[pulumi.Input[Optional[str]]] = None,
+                     with_architecture: Optional[pulumi.Input[Optional[str]]] = None,
                      with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                      with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
@@ -259,7 +287,8 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     import pulumi_hcloud as hcloud
 
     image1 = hcloud.get_image(id=1234)
-    image2 = hcloud.get_image(name="ubuntu-18.04")
+    image2 = hcloud.get_image(name="ubuntu-18.04",
+        with_architecture="x86")
     image3 = hcloud.get_image(with_selector="key=value")
     main = hcloud.Server("main", image=image1.id)
     ```
@@ -268,7 +297,8 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param int id: ID of the Image.
     :param bool most_recent: If more than one result is returned, use the most recent Image.
     :param str name: Name of the Image.
+    :param str with_architecture: Select only images with this architecture, could be `x86` (default) or `arm`.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
-    :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
+    :param Sequence[str] with_statuses: Select only images with the specified status, could contain `creating` or `available`.
     """
     ...

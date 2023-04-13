@@ -55,7 +55,7 @@ class GetLocationsResult:
     @pulumi.getter
     def descriptions(self) -> Sequence[str]:
         """
-        (list) List of all location descriptions.
+        (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
         """
         return pulumi.get(self, "descriptions")
 
@@ -71,7 +71,7 @@ class GetLocationsResult:
     @pulumi.getter(name="locationIds")
     def location_ids(self) -> Optional[Sequence[str]]:
         """
-        (list) List of unique location identifiers.
+        (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
         """
         return pulumi.get(self, "location_ids")
 
@@ -87,7 +87,7 @@ class GetLocationsResult:
     @pulumi.getter
     def names(self) -> Sequence[str]:
         """
-        (list) List of location names.
+        (list) List of location names. **Deprecated**: Use `locations` attribute instead.
         """
         return pulumi.get(self, "names")
 
@@ -112,7 +112,7 @@ def get_locations(location_ids: Optional[Sequence[str]] = None,
     This resource may be useful to create highly available infrastructure, distributed across several locations.
 
 
-    :param Sequence[str] location_ids: (list) List of unique location identifiers.
+    :param Sequence[str] location_ids: (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
     """
     __args__ = dict()
     __args__['locationIds'] = location_ids
@@ -135,6 +135,6 @@ def get_locations_output(location_ids: Optional[pulumi.Input[Optional[Sequence[s
     This resource may be useful to create highly available infrastructure, distributed across several locations.
 
 
-    :param Sequence[str] location_ids: (list) List of unique location identifiers.
+    :param Sequence[str] location_ids: (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
     """
     ...

@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-//				Image:            pulumi.String("debian-9"),
+//				Image:            pulumi.String("debian-11"),
 //				ServerType:       pulumi.String("cx11"),
 //				PlacementGroupId: my_placement_group.ID(),
 //			})

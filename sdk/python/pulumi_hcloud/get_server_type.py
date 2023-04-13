@@ -21,7 +21,10 @@ class GetServerTypeResult:
     """
     A collection of values returned by getServerType.
     """
-    def __init__(__self__, cores=None, cpu_type=None, description=None, disk=None, id=None, memory=None, name=None, storage_type=None):
+    def __init__(__self__, architecture=None, cores=None, cpu_type=None, description=None, disk=None, id=None, memory=None, name=None, storage_type=None):
+        if architecture and not isinstance(architecture, str):
+            raise TypeError("Expected argument 'architecture' to be a str")
+        pulumi.set(__self__, "architecture", architecture)
         if cores and not isinstance(cores, int):
             raise TypeError("Expected argument 'cores' to be a int")
         pulumi.set(__self__, "cores", cores)
@@ -46,6 +49,14 @@ class GetServerTypeResult:
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> str:
+        """
+        (string) Architecture of the server_type.
+        """
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
@@ -112,6 +123,7 @@ class AwaitableGetServerTypeResult(GetServerTypeResult):
         if False:
             yield self
         return GetServerTypeResult(
+            architecture=self.architecture,
             cores=self.cores,
             cpu_type=self.cpu_type,
             description=self.description,
@@ -150,6 +162,7 @@ def get_server_type(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getServerType:getServerType', __args__, opts=opts, typ=GetServerTypeResult).value
 
     return AwaitableGetServerTypeResult(
+        architecture=__ret__.architecture,
         cores=__ret__.cores,
         cpu_type=__ret__.cpu_type,
         description=__ret__.description,

@@ -177,7 +177,7 @@ class GetServerResult:
     @pulumi.getter
     def iso(self) -> str:
         """
-        (string) ID or Name of the mounted ISO image.
+        (string) ID or Name of the mounted ISO image. Architecture of ISO must equal the server (type) architecture.
         """
         return pulumi.get(self, "iso")
 

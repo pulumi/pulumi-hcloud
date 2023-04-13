@@ -222,7 +222,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Ipv6Network;
         /// <summary>
-        /// (string) ID or Name of the mounted ISO image.
+        /// (string) ID or Name of the mounted ISO image. Architecture of ISO must equal the server (type) architecture.
         /// </summary>
         public readonly string Iso;
         /// <summary>

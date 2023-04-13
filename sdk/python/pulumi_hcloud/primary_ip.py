@@ -168,6 +168,7 @@ class _PrimaryIpState:
         :param pulumi.Input[str] datacenter: The datacenter name to create the resource in.
         :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Primary IP.
+        :param pulumi.Input[str] ip_network: (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
         :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
         :param pulumi.Input[str] name: Name of the Primary IP.
         :param pulumi.Input[str] type: Type of the Primary IP. `ipv4` or `ipv6`
@@ -269,6 +270,9 @@ class _PrimaryIpState:
     @property
     @pulumi.getter(name="ipNetwork")
     def ip_network(self) -> Optional[pulumi.Input[str]]:
+        """
+        (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        """
         return pulumi.get(self, "ip_network")
 
     @ip_network.setter
@@ -508,6 +512,7 @@ class PrimaryIp(pulumi.CustomResource):
         :param pulumi.Input[str] datacenter: The datacenter name to create the resource in.
         :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Primary IP.
+        :param pulumi.Input[str] ip_network: (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
         :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
         :param pulumi.Input[str] name: Name of the Primary IP.
         :param pulumi.Input[str] type: Type of the Primary IP. `ipv4` or `ipv6`
@@ -580,6 +585,9 @@ class PrimaryIp(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipNetwork")
     def ip_network(self) -> pulumi.Output[str]:
+        """
+        (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        """
         return pulumi.get(self, "ip_network")
 
     @property

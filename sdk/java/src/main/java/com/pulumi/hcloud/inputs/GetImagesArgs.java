@@ -33,6 +33,21 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * List only images with this architecture, could contain `x86` or `arm`.
+     * 
+     */
+    @Import(name="withArchitectures")
+    private @Nullable Output<List<String>> withArchitectures;
+
+    /**
+     * @return List only images with this architecture, could contain `x86` or `arm`.
+     * 
+     */
+    public Optional<Output<List<String>>> withArchitectures() {
+        return Optional.ofNullable(this.withArchitectures);
+    }
+
+    /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      * 
      */
@@ -66,6 +81,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetImagesArgs(GetImagesArgs $) {
         this.mostRecent = $.mostRecent;
+        this.withArchitectures = $.withArchitectures;
         this.withSelector = $.withSelector;
         this.withStatuses = $.withStatuses;
     }
@@ -107,6 +123,37 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
+        }
+
+        /**
+         * @param withArchitectures List only images with this architecture, could contain `x86` or `arm`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withArchitectures(@Nullable Output<List<String>> withArchitectures) {
+            $.withArchitectures = withArchitectures;
+            return this;
+        }
+
+        /**
+         * @param withArchitectures List only images with this architecture, could contain `x86` or `arm`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withArchitectures(List<String> withArchitectures) {
+            return withArchitectures(Output.of(withArchitectures));
+        }
+
+        /**
+         * @param withArchitectures List only images with this architecture, could contain `x86` or `arm`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withArchitectures(String... withArchitectures) {
+            return withArchitectures(List.of(withArchitectures));
         }
 
         /**

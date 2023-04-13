@@ -67,7 +67,7 @@ public final class GetServerResult {
      */
     private String ipv6Network;
     /**
-     * @return (string) ID or Name of the mounted ISO image.
+     * @return (string) ID or Name of the mounted ISO image. Architecture of ISO must equal the server (type) architecture.
      * 
      */
     private String iso;
@@ -189,7 +189,7 @@ public final class GetServerResult {
         return this.ipv6Network;
     }
     /**
-     * @return (string) ID or Name of the mounted ISO image.
+     * @return (string) ID or Name of the mounted ISO image. Architecture of ISO must equal the server (type) architecture.
      * 
      */
     public String iso() {

@@ -22,7 +22,7 @@ class GetImagesResult:
     """
     A collection of values returned by getImages.
     """
-    def __init__(__self__, id=None, images=None, most_recent=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, id=None, images=None, most_recent=None, with_architectures=None, with_selector=None, with_statuses=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +32,9 @@ class GetImagesResult:
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
+        if with_architectures and not isinstance(with_architectures, list):
+            raise TypeError("Expected argument 'with_architectures' to be a list")
+        pulumi.set(__self__, "with_architectures", with_architectures)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
@@ -61,6 +64,11 @@ class GetImagesResult:
         return pulumi.get(self, "most_recent")
 
     @property
+    @pulumi.getter(name="withArchitectures")
+    def with_architectures(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "with_architectures")
+
+    @property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[str]:
         return pulumi.get(self, "with_selector")
@@ -80,11 +88,13 @@ class AwaitableGetImagesResult(GetImagesResult):
             id=self.id,
             images=self.images,
             most_recent=self.most_recent,
+            with_architectures=self.with_architectures,
             with_selector=self.with_selector,
             with_statuses=self.with_statuses)
 
 
 def get_images(most_recent: Optional[bool] = None,
+               with_architectures: Optional[Sequence[str]] = None,
                with_selector: Optional[str] = None,
                with_statuses: Optional[Sequence[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagesResult:
@@ -97,17 +107,19 @@ def get_images(most_recent: Optional[bool] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    image2 = hcloud.get_images()
+    image2 = hcloud.get_images(with_architectures=["x86"])
     image3 = hcloud.get_images(with_selector="key=value")
     ```
 
 
     :param bool most_recent: Sorts list by date.
+    :param Sequence[str] with_architectures: List only images with this architecture, could contain `x86` or `arm`.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent
+    __args__['withArchitectures'] = with_architectures
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -117,12 +129,14 @@ def get_images(most_recent: Optional[bool] = None,
         id=__ret__.id,
         images=__ret__.images,
         most_recent=__ret__.most_recent,
+        with_architectures=__ret__.with_architectures,
         with_selector=__ret__.with_selector,
         with_statuses=__ret__.with_statuses)
 
 
 @_utilities.lift_output_func(get_images)
 def get_images_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                      with_architectures: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagesResult]:
@@ -135,12 +149,13 @@ def get_images_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = None
     import pulumi
     import pulumi_hcloud as hcloud
 
-    image2 = hcloud.get_images()
+    image2 = hcloud.get_images(with_architectures=["x86"])
     image3 = hcloud.get_images(with_selector="key=value")
     ```
 
 
     :param bool most_recent: Sorts list by date.
+    :param Sequence[str] with_architectures: List only images with this architecture, could contain `x86` or `arm`.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
     """

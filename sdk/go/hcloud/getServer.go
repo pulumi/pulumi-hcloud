@@ -94,7 +94,7 @@ type LookupServerResult struct {
 	Ipv6Address string `pulumi:"ipv6Address"`
 	// (string) The IPv6 network.
 	Ipv6Network string `pulumi:"ipv6Network"`
-	// (string) ID or Name of the mounted ISO image.
+	// (string) ID or Name of the mounted ISO image. Architecture of ISO must equal the server (type) architecture.
 	Iso string `pulumi:"iso"`
 	// (map) User-defined labels (key-value pairs)
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -215,7 +215,7 @@ func (o LookupServerResultOutput) Ipv6Network() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Ipv6Network }).(pulumi.StringOutput)
 }
 
-// (string) ID or Name of the mounted ISO image.
+// (string) ID or Name of the mounted ISO image. Architecture of ISO must equal the server (type) architecture.
 func (o LookupServerResultOutput) Iso() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Iso }).(pulumi.StringOutput)
 }

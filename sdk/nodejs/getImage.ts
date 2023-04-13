@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * });
  * const image2 = hcloud.getImage({
  *     name: "ubuntu-18.04",
+ *     withArchitecture: "x86",
  * });
  * const image3 = hcloud.getImage({
  *     withSelector: "key=value",
@@ -32,6 +33,7 @@ export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Prom
         "mostRecent": args.mostRecent,
         "name": args.name,
         "selector": args.selector,
+        "withArchitecture": args.withArchitecture,
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,
     }, opts);
@@ -58,11 +60,15 @@ export interface GetImageArgs {
      */
     selector?: string;
     /**
+     * Select only images with this architecture, could be `x86` (default) or `arm`.
+     */
+    withArchitecture?: string;
+    /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
     withSelector?: string;
     /**
-     * List only images with the specified status, could contain `creating` or `available`.
+     * Select only images with the specified status, could contain `creating` or `available`.
      */
     withStatuses?: string[];
 }
@@ -71,6 +77,10 @@ export interface GetImageArgs {
  * A collection of values returned by getImage.
  */
 export interface GetImageResult {
+    /**
+     * (string) Architecture of the Image.
+     */
+    readonly architecture: string;
     /**
      * (string) Date when the Image was created (in ISO-8601 format).
      */
@@ -113,6 +123,7 @@ export interface GetImageResult {
      * (string) Type of the Image, could be `system`, `backup` or `snapshot`.
      */
     readonly type: string;
+    readonly withArchitecture?: string;
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
@@ -128,6 +139,7 @@ export interface GetImageResult {
  * });
  * const image2 = hcloud.getImage({
  *     name: "ubuntu-18.04",
+ *     withArchitecture: "x86",
  * });
  * const image3 = hcloud.getImage({
  *     withSelector: "key=value",
@@ -160,11 +172,15 @@ export interface GetImageOutputArgs {
      */
     selector?: pulumi.Input<string>;
     /**
+     * Select only images with this architecture, could be `x86` (default) or `arm`.
+     */
+    withArchitecture?: pulumi.Input<string>;
+    /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
     withSelector?: pulumi.Input<string>;
     /**
-     * List only images with the specified status, could contain `creating` or `available`.
+     * Select only images with the specified status, could contain `creating` or `available`.
      */
     withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
 }

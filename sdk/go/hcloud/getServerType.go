@@ -63,6 +63,8 @@ type GetServerTypeArgs struct {
 
 // A collection of values returned by getServerType.
 type GetServerTypeResult struct {
+	// (string) Architecture of the server_type.
+	Architecture string `pulumi:"architecture"`
 	// (int) Number of cpu cores a Server of this type will have.
 	Cores   int    `pulumi:"cores"`
 	CpuType string `pulumi:"cpuType"`
@@ -117,6 +119,11 @@ func (o GetServerTypeResultOutput) ToGetServerTypeResultOutput() GetServerTypeRe
 
 func (o GetServerTypeResultOutput) ToGetServerTypeResultOutputWithContext(ctx context.Context) GetServerTypeResultOutput {
 	return o
+}
+
+// (string) Architecture of the server_type.
+func (o GetServerTypeResultOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypeResult) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
 // (int) Number of cpu cores a Server of this type will have.

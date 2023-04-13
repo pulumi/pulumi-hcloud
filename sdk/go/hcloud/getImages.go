@@ -26,7 +26,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.GetImages(ctx, nil, nil)
+//			_, err := hcloud.GetImages(ctx, &hcloud.GetImagesArgs{
+//				WithArchitectures: []string{
+//					"x86",
+//				},
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -54,6 +58,8 @@ func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOp
 type GetImagesArgs struct {
 	// Sorts list by date.
 	MostRecent *bool `pulumi:"mostRecent"`
+	// List only images with this architecture, could contain `x86` or `arm`.
+	WithArchitectures []string `pulumi:"withArchitectures"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 	// List only images with the specified status, could contain `creating` or `available`.
@@ -65,10 +71,11 @@ type GetImagesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// (list) List of all matching images. See `data.hcloud_image` for schema.
-	Images       []GetImagesImage `pulumi:"images"`
-	MostRecent   *bool            `pulumi:"mostRecent"`
-	WithSelector *string          `pulumi:"withSelector"`
-	WithStatuses []string         `pulumi:"withStatuses"`
+	Images            []GetImagesImage `pulumi:"images"`
+	MostRecent        *bool            `pulumi:"mostRecent"`
+	WithArchitectures []string         `pulumi:"withArchitectures"`
+	WithSelector      *string          `pulumi:"withSelector"`
+	WithStatuses      []string         `pulumi:"withStatuses"`
 }
 
 func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulumi.InvokeOption) GetImagesResultOutput {
@@ -88,6 +95,8 @@ func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulu
 type GetImagesOutputArgs struct {
 	// Sorts list by date.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// List only images with this architecture, could contain `x86` or `arm`.
+	WithArchitectures pulumi.StringArrayInput `pulumi:"withArchitectures"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 	// List only images with the specified status, could contain `creating` or `available`.
@@ -125,6 +134,10 @@ func (o GetImagesResultOutput) Images() GetImagesImageArrayOutput {
 
 func (o GetImagesResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImagesResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetImagesResultOutput) WithArchitectures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImagesResult) []string { return v.WithArchitectures }).(pulumi.StringArrayOutput)
 }
 
 func (o GetImagesResultOutput) WithSelector() pulumi.StringPtrOutput {

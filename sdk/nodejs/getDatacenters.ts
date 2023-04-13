@@ -24,7 +24,7 @@ export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOp
  */
 export interface GetDatacentersArgs {
     /**
-     * (list) List of unique datacenter identifiers.
+     * (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
      *
      * @deprecated Use datacenters list instead
      */
@@ -36,7 +36,7 @@ export interface GetDatacentersArgs {
  */
 export interface GetDatacentersResult {
     /**
-     * (list) List of unique datacenter identifiers.
+     * (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
      *
      * @deprecated Use datacenters list instead
      */
@@ -46,7 +46,7 @@ export interface GetDatacentersResult {
      */
     readonly datacenters: outputs.GetDatacentersDatacenter[];
     /**
-     * (list) List of all datacenter descriptions.
+     * (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
      *
      * @deprecated Use datacenters list instead
      */
@@ -56,7 +56,7 @@ export interface GetDatacentersResult {
      */
     readonly id: string;
     /**
-     * (list) List of datacenter names.
+     * (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
      *
      * @deprecated Use datacenters list instead
      */
@@ -75,7 +75,7 @@ export function getDatacentersOutput(args?: GetDatacentersOutputArgs, opts?: pul
  */
 export interface GetDatacentersOutputArgs {
     /**
-     * (list) List of unique datacenter identifiers.
+     * (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
      *
      * @deprecated Use datacenters list instead
      */

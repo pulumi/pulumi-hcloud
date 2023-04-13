@@ -16,7 +16,7 @@ public final class GetLocationsPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetLocationsPlainArgs Empty = new GetLocationsPlainArgs();
 
     /**
-     * (list) List of unique location identifiers.
+     * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
      * Use locations list instead
@@ -27,7 +27,7 @@ public final class GetLocationsPlainArgs extends com.pulumi.resources.InvokeArgs
     private @Nullable List<String> locationIds;
 
     /**
-     * @return (list) List of unique location identifiers.
+     * @return (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
      * Use locations list instead
@@ -63,7 +63,7 @@ public final class GetLocationsPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param locationIds (list) List of unique location identifiers.
+         * @param locationIds (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
          * 
          * @return builder
          * 
@@ -78,7 +78,7 @@ public final class GetLocationsPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param locationIds (list) List of unique location identifiers.
+         * @param locationIds (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
          * 
          * @return builder
          * 
