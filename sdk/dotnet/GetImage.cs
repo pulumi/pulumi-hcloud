@@ -31,6 +31,7 @@ namespace Pulumi.HCloud
         ///     var image2 = HCloud.GetImage.Invoke(new()
         ///     {
         ///         Name = "ubuntu-18.04",
+        ///         WithArchitecture = "x86",
         ///     });
         /// 
         ///     var image3 = HCloud.GetImage.Invoke(new()
@@ -71,6 +72,7 @@ namespace Pulumi.HCloud
         ///     var image2 = HCloud.GetImage.Invoke(new()
         ///     {
         ///         Name = "ubuntu-18.04",
+        ///         WithArchitecture = "x86",
         ///     });
         /// 
         ///     var image3 = HCloud.GetImage.Invoke(new()
@@ -117,6 +119,12 @@ namespace Pulumi.HCloud
         public string? Selector { get; set; }
 
         /// <summary>
+        /// Select only images with this architecture, could be `x86` (default) or `arm`.
+        /// </summary>
+        [Input("withArchitecture")]
+        public string? WithArchitecture { get; set; }
+
+        /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
         /// </summary>
         [Input("withSelector")]
@@ -126,7 +134,7 @@ namespace Pulumi.HCloud
         private List<string>? _withStatuses;
 
         /// <summary>
-        /// List only images with the specified status, could contain `creating` or `available`.
+        /// Select only images with the specified status, could contain `creating` or `available`.
         /// </summary>
         public List<string> WithStatuses
         {
@@ -164,6 +172,12 @@ namespace Pulumi.HCloud
         public Input<string>? Selector { get; set; }
 
         /// <summary>
+        /// Select only images with this architecture, could be `x86` (default) or `arm`.
+        /// </summary>
+        [Input("withArchitecture")]
+        public Input<string>? WithArchitecture { get; set; }
+
+        /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
         /// </summary>
         [Input("withSelector")]
@@ -173,7 +187,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withStatuses;
 
         /// <summary>
-        /// List only images with the specified status, could contain `creating` or `available`.
+        /// Select only images with the specified status, could contain `creating` or `available`.
         /// </summary>
         public InputList<string> WithStatuses
         {
@@ -191,6 +205,10 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetImageResult
     {
+        /// <summary>
+        /// (string) Architecture of the Image.
+        /// </summary>
+        public readonly string Architecture;
         /// <summary>
         /// (string) Date when the Image was created (in ISO-8601 format).
         /// </summary>
@@ -230,11 +248,14 @@ namespace Pulumi.HCloud
         /// (string) Type of the Image, could be `system`, `backup` or `snapshot`.
         /// </summary>
         public readonly string Type;
+        public readonly string? WithArchitecture;
         public readonly string? WithSelector;
         public readonly ImmutableArray<string> WithStatuses;
 
         [OutputConstructor]
         private GetImageResult(
+            string architecture,
+
             string created,
 
             string deprecated,
@@ -259,10 +280,13 @@ namespace Pulumi.HCloud
 
             string type,
 
+            string? withArchitecture,
+
             string? withSelector,
 
             ImmutableArray<string> withStatuses)
         {
+            Architecture = architecture;
             Created = created;
             Deprecated = deprecated;
             Description = description;
@@ -275,6 +299,7 @@ namespace Pulumi.HCloud
             RapidDeploy = rapidDeploy;
             Selector = selector;
             Type = type;
+            WithArchitecture = withArchitecture;
             WithSelector = withSelector;
             WithStatuses = withStatuses;
         }

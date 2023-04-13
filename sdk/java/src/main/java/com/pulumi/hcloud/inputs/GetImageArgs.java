@@ -83,6 +83,21 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Select only images with this architecture, could be `x86` (default) or `arm`.
+     * 
+     */
+    @Import(name="withArchitecture")
+    private @Nullable Output<String> withArchitecture;
+
+    /**
+     * @return Select only images with this architecture, could be `x86` (default) or `arm`.
+     * 
+     */
+    public Optional<Output<String>> withArchitecture() {
+        return Optional.ofNullable(this.withArchitecture);
+    }
+
+    /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      * 
      */
@@ -98,14 +113,14 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List only images with the specified status, could contain `creating` or `available`.
+     * Select only images with the specified status, could contain `creating` or `available`.
      * 
      */
     @Import(name="withStatuses")
     private @Nullable Output<List<String>> withStatuses;
 
     /**
-     * @return List only images with the specified status, could contain `creating` or `available`.
+     * @return Select only images with the specified status, could contain `creating` or `available`.
      * 
      */
     public Optional<Output<List<String>>> withStatuses() {
@@ -119,6 +134,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         this.mostRecent = $.mostRecent;
         this.name = $.name;
         this.selector = $.selector;
+        this.withArchitecture = $.withArchitecture;
         this.withSelector = $.withSelector;
         this.withStatuses = $.withStatuses;
     }
@@ -230,6 +246,27 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param withArchitecture Select only images with this architecture, could be `x86` (default) or `arm`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withArchitecture(@Nullable Output<String> withArchitecture) {
+            $.withArchitecture = withArchitecture;
+            return this;
+        }
+
+        /**
+         * @param withArchitecture Select only images with this architecture, could be `x86` (default) or `arm`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withArchitecture(String withArchitecture) {
+            return withArchitecture(Output.of(withArchitecture));
+        }
+
+        /**
          * @param withSelector [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
          * 
          * @return builder
@@ -251,7 +288,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withStatuses List only images with the specified status, could contain `creating` or `available`.
+         * @param withStatuses Select only images with the specified status, could contain `creating` or `available`.
          * 
          * @return builder
          * 
@@ -262,7 +299,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withStatuses List only images with the specified status, could contain `creating` or `available`.
+         * @param withStatuses Select only images with the specified status, could contain `creating` or `available`.
          * 
          * @return builder
          * 
@@ -272,7 +309,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withStatuses List only images with the specified status, could contain `creating` or `available`.
+         * @param withStatuses Select only images with the specified status, could contain `creating` or `available`.
          * 
          * @return builder
          * 

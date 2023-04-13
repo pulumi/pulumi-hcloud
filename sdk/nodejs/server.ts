@@ -140,7 +140,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly backups!: pulumi.Output<boolean | undefined>;
     /**
-     * The datacenter name to create the server in.
+     * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
      */
     public readonly datacenter!: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+     * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly rebuildProtection!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      */
     public readonly rescue!: pulumi.Output<string | undefined>;
     /**
@@ -326,7 +326,7 @@ export interface ServerState {
      */
     backups?: pulumi.Input<boolean>;
     /**
-     * The datacenter name to create the server in.
+     * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
      */
     datacenter?: pulumi.Input<string>;
     /**
@@ -374,7 +374,7 @@ export interface ServerState {
      */
     labels?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+     * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      */
     location?: pulumi.Input<string>;
     /**
@@ -399,7 +399,7 @@ export interface ServerState {
      */
     rebuildProtection?: pulumi.Input<boolean>;
     /**
-     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      */
     rescue?: pulumi.Input<string>;
     /**
@@ -433,7 +433,7 @@ export interface ServerArgs {
      */
     backups?: pulumi.Input<boolean>;
     /**
-     * The datacenter name to create the server in.
+     * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
      */
     datacenter?: pulumi.Input<string>;
     /**
@@ -469,7 +469,7 @@ export interface ServerArgs {
      */
     labels?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+     * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      */
     location?: pulumi.Input<string>;
     /**
@@ -494,7 +494,7 @@ export interface ServerArgs {
      */
     rebuildProtection?: pulumi.Input<boolean>;
     /**
-     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      */
     rescue?: pulumi.Input<string>;
     /**

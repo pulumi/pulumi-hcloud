@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDatacentersResult {
     /**
-     * @return (list) List of unique datacenter identifiers.
+     * @return (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
      * 
      * @deprecated
      * Use datacenters list instead
@@ -27,7 +27,7 @@ public final class GetDatacentersResult {
      */
     private List<GetDatacentersDatacenter> datacenters;
     /**
-     * @return (list) List of all datacenter descriptions.
+     * @return (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
      * 
      * @deprecated
      * Use datacenters list instead
@@ -41,7 +41,7 @@ public final class GetDatacentersResult {
      */
     private String id;
     /**
-     * @return (list) List of datacenter names.
+     * @return (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
      * 
      * @deprecated
      * Use datacenters list instead
@@ -52,7 +52,7 @@ public final class GetDatacentersResult {
 
     private GetDatacentersResult() {}
     /**
-     * @return (list) List of unique datacenter identifiers.
+     * @return (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
      * 
      * @deprecated
      * Use datacenters list instead
@@ -70,7 +70,7 @@ public final class GetDatacentersResult {
         return this.datacenters;
     }
     /**
-     * @return (list) List of all datacenter descriptions.
+     * @return (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
      * 
      * @deprecated
      * Use datacenters list instead
@@ -88,7 +88,7 @@ public final class GetDatacentersResult {
         return this.id;
     }
     /**
-     * @return (list) List of datacenter names.
+     * @return (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
      * 
      * @deprecated
      * Use datacenters list instead

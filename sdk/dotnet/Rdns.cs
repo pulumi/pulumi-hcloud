@@ -25,7 +25,7 @@ namespace Pulumi.HCloud
     /// {
     ///     var node1 = new HCloud.Server("node1", new()
     ///     {
-    ///         Image = "debian-9",
+    ///         Image = "debian-11",
     ///         ServerType = "cx11",
     ///     });
     /// 

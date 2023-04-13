@@ -145,6 +145,7 @@ export interface GetFloatingIpsFloatingIp {
 }
 
 export interface GetImagesImage {
+    architecture: string;
     created: string;
     deprecated: string;
     description: string;
@@ -386,6 +387,7 @@ export interface GetPrimaryIpsPrimaryIp {
 }
 
 export interface GetServerTypesServerType {
+    architecture: string;
     cores: number;
     cpuType: string;
     description: string;

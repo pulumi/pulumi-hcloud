@@ -32,6 +32,21 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * List only images with this architecture, could contain `x86` or `arm`.
+     * 
+     */
+    @Import(name="withArchitectures")
+    private @Nullable List<String> withArchitectures;
+
+    /**
+     * @return List only images with this architecture, could contain `x86` or `arm`.
+     * 
+     */
+    public Optional<List<String>> withArchitectures() {
+        return Optional.ofNullable(this.withArchitectures);
+    }
+
+    /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      * 
      */
@@ -65,6 +80,7 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetImagesPlainArgs(GetImagesPlainArgs $) {
         this.mostRecent = $.mostRecent;
+        this.withArchitectures = $.withArchitectures;
         this.withSelector = $.withSelector;
         this.withStatuses = $.withStatuses;
     }
@@ -96,6 +112,27 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
             return this;
+        }
+
+        /**
+         * @param withArchitectures List only images with this architecture, could contain `x86` or `arm`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withArchitectures(@Nullable List<String> withArchitectures) {
+            $.withArchitectures = withArchitectures;
+            return this;
+        }
+
+        /**
+         * @param withArchitectures List only images with this architecture, could contain `x86` or `arm`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withArchitectures(String... withArchitectures) {
+            return withArchitectures(List.of(withArchitectures));
         }
 
         /**

@@ -111,9 +111,17 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ipAddress);
     }
 
+    /**
+     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * 
+     */
     @Import(name="ipNetwork")
     private @Nullable Output<String> ipNetwork;
 
+    /**
+     * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * 
+     */
     public Optional<Output<String>> ipNetwork() {
         return Optional.ofNullable(this.ipNetwork);
     }
@@ -324,11 +332,23 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
             return ipAddress(Output.of(ipAddress));
         }
 
+        /**
+         * @param ipNetwork (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipNetwork(@Nullable Output<String> ipNetwork) {
             $.ipNetwork = ipNetwork;
             return this;
         }
 
+        /**
+         * @param ipNetwork (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipNetwork(String ipNetwork) {
             return ipNetwork(Output.of(ipNetwork));
         }

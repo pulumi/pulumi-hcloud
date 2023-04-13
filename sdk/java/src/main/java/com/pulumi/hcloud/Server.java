@@ -235,14 +235,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.backups);
     }
     /**
-     * The datacenter name to create the server in.
+     * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
      * 
      */
     @Export(name="datacenter", type=String.class, parameters={})
     private Output<String> datacenter;
 
     /**
-     * @return The datacenter name to create the server in.
+     * @return The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
      * 
      */
     public Output<String> datacenter() {
@@ -397,14 +397,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.labels);
     }
     /**
-     * The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+     * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The location name to create the server in. `nbg1`, `fsn1`, `hel1` or `ash`
+     * @return The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      * 
      */
     public Output<String> location() {
@@ -483,14 +483,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rebuildProtection);
     }
     /**
-     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      * 
      */
     @Export(name="rescue", type=String.class, parameters={})
     private Output</* @Nullable */ String> rescue;
 
     /**
-     * @return Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` `linux32` or `freebsd64`
+     * @return Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      * 
      */
     public Output<Optional<String>> rescue() {

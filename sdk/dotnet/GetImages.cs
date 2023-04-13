@@ -26,7 +26,13 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var image2 = HCloud.GetImages.Invoke();
+        ///     var image2 = HCloud.GetImages.Invoke(new()
+        ///     {
+        ///         WithArchitectures = new[]
+        ///         {
+        ///             "x86",
+        ///         },
+        ///     });
         /// 
         ///     var image3 = HCloud.GetImages.Invoke(new()
         ///     {
@@ -56,7 +62,13 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var image2 = HCloud.GetImages.Invoke();
+        ///     var image2 = HCloud.GetImages.Invoke(new()
+        ///     {
+        ///         WithArchitectures = new[]
+        ///         {
+        ///             "x86",
+        ///         },
+        ///     });
         /// 
         ///     var image3 = HCloud.GetImages.Invoke(new()
         ///     {
@@ -80,6 +92,18 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
+
+        [Input("withArchitectures")]
+        private List<string>? _withArchitectures;
+
+        /// <summary>
+        /// List only images with this architecture, could contain `x86` or `arm`.
+        /// </summary>
+        public List<string> WithArchitectures
+        {
+            get => _withArchitectures ?? (_withArchitectures = new List<string>());
+            set => _withArchitectures = value;
+        }
 
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -112,6 +136,18 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
+
+        [Input("withArchitectures")]
+        private InputList<string>? _withArchitectures;
+
+        /// <summary>
+        /// List only images with this architecture, could contain `x86` or `arm`.
+        /// </summary>
+        public InputList<string> WithArchitectures
+        {
+            get => _withArchitectures ?? (_withArchitectures = new InputList<string>());
+            set => _withArchitectures = value;
+        }
 
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -150,6 +186,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImagesImageResult> Images;
         public readonly bool? MostRecent;
+        public readonly ImmutableArray<string> WithArchitectures;
         public readonly string? WithSelector;
         public readonly ImmutableArray<string> WithStatuses;
 
@@ -161,6 +198,8 @@ namespace Pulumi.HCloud
 
             bool? mostRecent,
 
+            ImmutableArray<string> withArchitectures,
+
             string? withSelector,
 
             ImmutableArray<string> withStatuses)
@@ -168,6 +207,7 @@ namespace Pulumi.HCloud
             Id = id;
             Images = images;
             MostRecent = mostRecent;
+            WithArchitectures = withArchitectures;
             WithSelector = withSelector;
             WithStatuses = withStatuses;
         }

@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImageResult {
     /**
+     * @return (string) Architecture of the Image.
+     * 
+     */
+    private String architecture;
+    /**
      * @return (string) Date when the Image was created (in ISO-8601 format).
      * 
      */
@@ -70,10 +75,18 @@ public final class GetImageResult {
      * 
      */
     private String type;
+    private @Nullable String withArchitecture;
     private @Nullable String withSelector;
     private @Nullable List<String> withStatuses;
 
     private GetImageResult() {}
+    /**
+     * @return (string) Architecture of the Image.
+     * 
+     */
+    public String architecture() {
+        return this.architecture;
+    }
     /**
      * @return (string) Date when the Image was created (in ISO-8601 format).
      * 
@@ -152,6 +165,9 @@ public final class GetImageResult {
     public String type() {
         return this.type;
     }
+    public Optional<String> withArchitecture() {
+        return Optional.ofNullable(this.withArchitecture);
+    }
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
     }
@@ -168,6 +184,7 @@ public final class GetImageResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String architecture;
         private String created;
         private String deprecated;
         private String description;
@@ -180,11 +197,13 @@ public final class GetImageResult {
         private Boolean rapidDeploy;
         private @Nullable String selector;
         private String type;
+        private @Nullable String withArchitecture;
         private @Nullable String withSelector;
         private @Nullable List<String> withStatuses;
         public Builder() {}
         public Builder(GetImageResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.architecture = defaults.architecture;
     	      this.created = defaults.created;
     	      this.deprecated = defaults.deprecated;
     	      this.description = defaults.description;
@@ -197,10 +216,16 @@ public final class GetImageResult {
     	      this.rapidDeploy = defaults.rapidDeploy;
     	      this.selector = defaults.selector;
     	      this.type = defaults.type;
+    	      this.withArchitecture = defaults.withArchitecture;
     	      this.withSelector = defaults.withSelector;
     	      this.withStatuses = defaults.withStatuses;
         }
 
+        @CustomType.Setter
+        public Builder architecture(String architecture) {
+            this.architecture = Objects.requireNonNull(architecture);
+            return this;
+        }
         @CustomType.Setter
         public Builder created(String created) {
             this.created = Objects.requireNonNull(created);
@@ -262,6 +287,11 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder withArchitecture(@Nullable String withArchitecture) {
+            this.withArchitecture = withArchitecture;
+            return this;
+        }
+        @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
             this.withSelector = withSelector;
             return this;
@@ -276,6 +306,7 @@ public final class GetImageResult {
         }
         public GetImageResult build() {
             final var o = new GetImageResult();
+            o.architecture = architecture;
             o.created = created;
             o.deprecated = deprecated;
             o.description = description;
@@ -288,6 +319,7 @@ public final class GetImageResult {
             o.rapidDeploy = rapidDeploy;
             o.selector = selector;
             o.type = type;
+            o.withArchitecture = withArchitecture;
             o.withSelector = withSelector;
             o.withStatuses = withStatuses;
             return o;

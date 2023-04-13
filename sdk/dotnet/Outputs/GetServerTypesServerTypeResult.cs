@@ -13,6 +13,7 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetServerTypesServerTypeResult
     {
+        public readonly string Architecture;
         public readonly int Cores;
         public readonly string CpuType;
         public readonly string Description;
@@ -24,6 +25,8 @@ namespace Pulumi.HCloud.Outputs
 
         [OutputConstructor]
         private GetServerTypesServerTypeResult(
+            string architecture,
+
             int cores,
 
             string cpuType,
@@ -40,6 +43,7 @@ namespace Pulumi.HCloud.Outputs
 
             string storageType)
         {
+            Architecture = architecture;
             Cores = cores;
             CpuType = cpuType;
             Description = description;

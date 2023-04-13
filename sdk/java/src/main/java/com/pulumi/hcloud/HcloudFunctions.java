@@ -1914,6 +1914,7 @@ public final class HcloudFunctions {
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;ubuntu-18.04&#34;)
+     *             .withArchitecture(&#34;x86&#34;)
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -1963,6 +1964,7 @@ public final class HcloudFunctions {
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;ubuntu-18.04&#34;)
+     *             .withArchitecture(&#34;x86&#34;)
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2012,6 +2014,7 @@ public final class HcloudFunctions {
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;ubuntu-18.04&#34;)
+     *             .withArchitecture(&#34;x86&#34;)
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2061,6 +2064,7 @@ public final class HcloudFunctions {
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;ubuntu-18.04&#34;)
+     *             .withArchitecture(&#34;x86&#34;)
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2110,6 +2114,7 @@ public final class HcloudFunctions {
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;ubuntu-18.04&#34;)
+     *             .withArchitecture(&#34;x86&#34;)
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2159,6 +2164,7 @@ public final class HcloudFunctions {
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;ubuntu-18.04&#34;)
+     *             .withArchitecture(&#34;x86&#34;)
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2202,7 +2208,9 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages();
+     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *             .withArchitectures(&#34;x86&#34;)
+     *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector(&#34;key=value&#34;)
@@ -2241,7 +2249,9 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages();
+     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *             .withArchitectures(&#34;x86&#34;)
+     *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector(&#34;key=value&#34;)
@@ -2280,7 +2290,9 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages();
+     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *             .withArchitectures(&#34;x86&#34;)
+     *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector(&#34;key=value&#34;)
@@ -2319,7 +2331,9 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages();
+     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *             .withArchitectures(&#34;x86&#34;)
+     *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector(&#34;key=value&#34;)
@@ -2358,7 +2372,9 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages();
+     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *             .withArchitectures(&#34;x86&#34;)
+     *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector(&#34;key=value&#34;)
@@ -2397,7 +2413,9 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages();
+     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *             .withArchitectures(&#34;x86&#34;)
+     *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector(&#34;key=value&#34;)

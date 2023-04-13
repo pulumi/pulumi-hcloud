@@ -25,6 +25,7 @@ public final class GetImagesResult {
      */
     private List<GetImagesImage> images;
     private @Nullable Boolean mostRecent;
+    private @Nullable List<String> withArchitectures;
     private @Nullable String withSelector;
     private @Nullable List<String> withStatuses;
 
@@ -46,6 +47,9 @@ public final class GetImagesResult {
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
+    public List<String> withArchitectures() {
+        return this.withArchitectures == null ? List.of() : this.withArchitectures;
+    }
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
     }
@@ -65,6 +69,7 @@ public final class GetImagesResult {
         private String id;
         private List<GetImagesImage> images;
         private @Nullable Boolean mostRecent;
+        private @Nullable List<String> withArchitectures;
         private @Nullable String withSelector;
         private @Nullable List<String> withStatuses;
         public Builder() {}
@@ -73,6 +78,7 @@ public final class GetImagesResult {
     	      this.id = defaults.id;
     	      this.images = defaults.images;
     	      this.mostRecent = defaults.mostRecent;
+    	      this.withArchitectures = defaults.withArchitectures;
     	      this.withSelector = defaults.withSelector;
     	      this.withStatuses = defaults.withStatuses;
         }
@@ -96,6 +102,14 @@ public final class GetImagesResult {
             return this;
         }
         @CustomType.Setter
+        public Builder withArchitectures(@Nullable List<String> withArchitectures) {
+            this.withArchitectures = withArchitectures;
+            return this;
+        }
+        public Builder withArchitectures(String... withArchitectures) {
+            return withArchitectures(List.of(withArchitectures));
+        }
+        @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
             this.withSelector = withSelector;
             return this;
@@ -113,6 +127,7 @@ public final class GetImagesResult {
             o.id = id;
             o.images = images;
             o.mostRecent = mostRecent;
+            o.withArchitectures = withArchitectures;
             o.withSelector = withSelector;
             o.withStatuses = withStatuses;
             return o;

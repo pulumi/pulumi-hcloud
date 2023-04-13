@@ -23,7 +23,7 @@ func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsArgs struct {
-	// (list) List of unique location identifiers.
+	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
 	//
 	// Deprecated: Use locations list instead
 	LocationIds []string `pulumi:"locationIds"`
@@ -31,19 +31,19 @@ type GetLocationsArgs struct {
 
 // A collection of values returned by getLocations.
 type GetLocationsResult struct {
-	// (list) List of all location descriptions.
+	// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
 	//
 	// Deprecated: Use locations list instead
 	Descriptions []string `pulumi:"descriptions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// (list) List of unique location identifiers.
+	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
 	//
 	// Deprecated: Use locations list instead
 	LocationIds []string `pulumi:"locationIds"`
 	// (list) List of all locations. See `data.hcloud_location` for schema.
 	Locations []GetLocationsLocation `pulumi:"locations"`
-	// (list) List of location names.
+	// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
 	//
 	// Deprecated: Use locations list instead
 	Names []string `pulumi:"names"`
@@ -64,7 +64,7 @@ func GetLocationsOutput(ctx *pulumi.Context, args GetLocationsOutputArgs, opts .
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsOutputArgs struct {
-	// (list) List of unique location identifiers.
+	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
 	//
 	// Deprecated: Use locations list instead
 	LocationIds pulumi.StringArrayInput `pulumi:"locationIds"`
@@ -89,7 +89,7 @@ func (o GetLocationsResultOutput) ToGetLocationsResultOutputWithContext(ctx cont
 	return o
 }
 
-// (list) List of all location descriptions.
+// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
 //
 // Deprecated: Use locations list instead
 func (o GetLocationsResultOutput) Descriptions() pulumi.StringArrayOutput {
@@ -101,7 +101,7 @@ func (o GetLocationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (list) List of unique location identifiers.
+// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
 //
 // Deprecated: Use locations list instead
 func (o GetLocationsResultOutput) LocationIds() pulumi.StringArrayOutput {
@@ -113,7 +113,7 @@ func (o GetLocationsResultOutput) Locations() GetLocationsLocationArrayOutput {
 	return o.ApplyT(func(v GetLocationsResult) []GetLocationsLocation { return v.Locations }).(GetLocationsLocationArrayOutput)
 }
 
-// (list) List of location names.
+// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
 //
 // Deprecated: Use locations list instead
 func (o GetLocationsResultOutput) Names() pulumi.StringArrayOutput {

@@ -33,7 +33,7 @@ namespace Pulumi.HCloud
         private List<string>? _locationIds;
 
         /// <summary>
-        /// (list) List of unique location identifiers.
+        /// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
         /// </summary>
         [Obsolete(@"Use locations list instead")]
         public List<string> LocationIds
@@ -54,7 +54,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _locationIds;
 
         /// <summary>
-        /// (list) List of unique location identifiers.
+        /// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
         /// </summary>
         [Obsolete(@"Use locations list instead")]
         public InputList<string> LocationIds
@@ -74,7 +74,7 @@ namespace Pulumi.HCloud
     public sealed class GetLocationsResult
     {
         /// <summary>
-        /// (list) List of all location descriptions.
+        /// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
         /// </summary>
         public readonly ImmutableArray<string> Descriptions;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// (list) List of unique location identifiers.
+        /// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
         /// </summary>
         public readonly ImmutableArray<string> LocationIds;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLocationsLocationResult> Locations;
         /// <summary>
-        /// (list) List of location names.
+        /// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
         /// </summary>
         public readonly ImmutableArray<string> Names;
 

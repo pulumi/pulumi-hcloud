@@ -33,7 +33,7 @@ namespace Pulumi.HCloud
         private List<string>? _datacenterIds;
 
         /// <summary>
-        /// (list) List of unique datacenter identifiers.
+        /// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
         /// </summary>
         [Obsolete(@"Use datacenters list instead")]
         public List<string> DatacenterIds
@@ -54,7 +54,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _datacenterIds;
 
         /// <summary>
-        /// (list) List of unique datacenter identifiers.
+        /// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
         /// </summary>
         [Obsolete(@"Use datacenters list instead")]
         public InputList<string> DatacenterIds
@@ -74,7 +74,7 @@ namespace Pulumi.HCloud
     public sealed class GetDatacentersResult
     {
         /// <summary>
-        /// (list) List of unique datacenter identifiers.
+        /// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
         /// </summary>
         public readonly ImmutableArray<string> DatacenterIds;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDatacentersDatacenterResult> Datacenters;
         /// <summary>
-        /// (list) List of all datacenter descriptions.
+        /// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
         /// </summary>
         public readonly ImmutableArray<string> Descriptions;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// (list) List of datacenter names.
+        /// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
         /// </summary>
         public readonly ImmutableArray<string> Names;
 

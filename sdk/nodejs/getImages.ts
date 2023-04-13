@@ -15,7 +15,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const image2 = hcloud.getImages({});
+ * const image2 = hcloud.getImages({
+ *     withArchitectures: ["x86"],
+ * });
  * const image3 = hcloud.getImages({
  *     withSelector: "key=value",
  * });
@@ -27,6 +29,7 @@ export function getImages(args?: GetImagesArgs, opts?: pulumi.InvokeOptions): Pr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getImages:getImages", {
         "mostRecent": args.mostRecent,
+        "withArchitectures": args.withArchitectures,
         "withSelector": args.withSelector,
         "withStatuses": args.withStatuses,
     }, opts);
@@ -40,6 +43,10 @@ export interface GetImagesArgs {
      * Sorts list by date.
      */
     mostRecent?: boolean;
+    /**
+     * List only images with this architecture, could contain `x86` or `arm`.
+     */
+    withArchitectures?: string[];
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
@@ -63,6 +70,7 @@ export interface GetImagesResult {
      */
     readonly images: outputs.GetImagesImage[];
     readonly mostRecent?: boolean;
+    readonly withArchitectures?: string[];
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
@@ -75,7 +83,9 @@ export interface GetImagesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const image2 = hcloud.getImages({});
+ * const image2 = hcloud.getImages({
+ *     withArchitectures: ["x86"],
+ * });
  * const image3 = hcloud.getImages({
  *     withSelector: "key=value",
  * });
@@ -93,6 +103,10 @@ export interface GetImagesOutputArgs {
      * Sorts list by date.
      */
     mostRecent?: pulumi.Input<boolean>;
+    /**
+     * List only images with this architecture, could contain `x86` or `arm`.
+     */
+    withArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */

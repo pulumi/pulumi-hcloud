@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImagesImage {
+    private String architecture;
     private String created;
     private String deprecated;
     private String description;
@@ -34,6 +35,9 @@ public final class GetImagesImage {
     private String type;
 
     private GetImagesImage() {}
+    public String architecture() {
+        return this.architecture;
+    }
     public String created() {
         return this.created;
     }
@@ -83,6 +87,7 @@ public final class GetImagesImage {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String architecture;
         private String created;
         private String deprecated;
         private String description;
@@ -97,6 +102,7 @@ public final class GetImagesImage {
         public Builder() {}
         public Builder(GetImagesImage defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.architecture = defaults.architecture;
     	      this.created = defaults.created;
     	      this.deprecated = defaults.deprecated;
     	      this.description = defaults.description;
@@ -110,6 +116,11 @@ public final class GetImagesImage {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder architecture(String architecture) {
+            this.architecture = Objects.requireNonNull(architecture);
+            return this;
+        }
         @CustomType.Setter
         public Builder created(String created) {
             this.created = Objects.requireNonNull(created);
@@ -167,6 +178,7 @@ public final class GetImagesImage {
         }
         public GetImagesImage build() {
             final var o = new GetImagesImage();
+            o.architecture = architecture;
             o.created = created;
             o.deprecated = deprecated;
             o.description = description;

@@ -208,7 +208,7 @@ class Rdns(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
-            image="debian-9",
+            image="debian-11",
             server_type="cx11")
         master = hcloud.Rdns("master",
             server_id=node1.id,
@@ -292,7 +292,7 @@ class Rdns(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
-            image="debian-9",
+            image="debian-11",
             server_type="cx11")
         master = hcloud.Rdns("master",
             server_id=node1.id,

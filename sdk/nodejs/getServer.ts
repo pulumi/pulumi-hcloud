@@ -111,7 +111,7 @@ export interface GetServerResult {
      */
     readonly ipv6Network: string;
     /**
-     * (string) ID or Name of the mounted ISO image.
+     * (string) ID or Name of the mounted ISO image. Architecture of ISO must equal the server (type) architecture.
      */
     readonly iso: string;
     /**

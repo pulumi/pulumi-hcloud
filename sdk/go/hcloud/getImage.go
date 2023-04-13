@@ -31,7 +31,8 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.GetImage(ctx, &hcloud.GetImageArgs{
-//				Name: pulumi.StringRef("ubuntu-18.04"),
+//				Name:             pulumi.StringRef("ubuntu-18.04"),
+//				WithArchitecture: pulumi.StringRef("x86"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -72,14 +73,18 @@ type GetImageArgs struct {
 	Name *string `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
+	// Select only images with this architecture, could be `x86` (default) or `arm`.
+	WithArchitecture *string `pulumi:"withArchitecture"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
-	// List only images with the specified status, could contain `creating` or `available`.
+	// Select only images with the specified status, could contain `creating` or `available`.
 	WithStatuses []string `pulumi:"withStatuses"`
 }
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
+	// (string) Architecture of the Image.
+	Architecture string `pulumi:"architecture"`
 	// (string) Date when the Image was created (in ISO-8601 format).
 	Created string `pulumi:"created"`
 	// (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
@@ -101,9 +106,10 @@ type GetImageResult struct {
 	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// (string) Type of the Image, could be `system`, `backup` or `snapshot`.
-	Type         string   `pulumi:"type"`
-	WithSelector *string  `pulumi:"withSelector"`
-	WithStatuses []string `pulumi:"withStatuses"`
+	Type             string   `pulumi:"type"`
+	WithArchitecture *string  `pulumi:"withArchitecture"`
+	WithSelector     *string  `pulumi:"withSelector"`
+	WithStatuses     []string `pulumi:"withStatuses"`
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
@@ -129,9 +135,11 @@ type GetImageOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Deprecated: Please use the with_selector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// Select only images with this architecture, could be `x86` (default) or `arm`.
+	WithArchitecture pulumi.StringPtrInput `pulumi:"withArchitecture"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
-	// List only images with the specified status, could contain `creating` or `available`.
+	// Select only images with the specified status, could contain `creating` or `available`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`
 }
 
@@ -152,6 +160,11 @@ func (o GetImageResultOutput) ToGetImageResultOutput() GetImageResultOutput {
 
 func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Context) GetImageResultOutput {
 	return o
+}
+
+// (string) Architecture of the Image.
+func (o GetImageResultOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
 // (string) Date when the Image was created (in ISO-8601 format).
@@ -210,6 +223,10 @@ func (o GetImageResultOutput) Selector() pulumi.StringPtrOutput {
 // (string) Type of the Image, could be `system`, `backup` or `snapshot`.
 func (o GetImageResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetImageResultOutput) WithArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.WithArchitecture }).(pulumi.StringPtrOutput)
 }
 
 func (o GetImageResultOutput) WithSelector() pulumi.StringPtrOutput {
