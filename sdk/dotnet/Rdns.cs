@@ -18,6 +18,7 @@ namespace Pulumi.HCloud
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
@@ -43,6 +44,7 @@ namespace Pulumi.HCloud
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
@@ -68,6 +70,7 @@ namespace Pulumi.HCloud
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
     /// 
