@@ -16,14 +16,18 @@ package hcloud
 
 import (
 	"fmt"
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
 	"path/filepath"
 	"unicode"
 
 	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
 	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -172,10 +176,15 @@ func Provider() tfbridge.ProviderInfo {
 			Namespaces: map[string]string{
 				mainPkg: "HCloud",
 			},
-		},
+		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
+	err := x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "auto aliasing apply failed")
 
 	prov.SetAutonaming(255, "-")
 
 	return prov
 }
+
+//go:embed cmd/pulumi-resource-hcloud/bridge-metadata.json
+var metadata []byte
