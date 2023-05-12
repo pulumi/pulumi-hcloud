@@ -262,6 +262,10 @@ jobs:
         schema-tools compare -p ${{ env.PROVIDER }} -o ${{ github.event.repository.default_branch }} -n --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> $GITHUB_ENV
 
         echo 'EOF' >> $GITHUB_ENV
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
     - if: github.event_name == 'pull_request' && github.actor != 'dependabot'
       name: Comment on PR with Details of Schema Check
       uses: thollander/actions-comment-pull-request@v1
