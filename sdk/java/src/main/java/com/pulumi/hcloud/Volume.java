@@ -89,12 +89,16 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * Enable or disable delete protection.
      * 
+     * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
+     * 
      */
     @Export(name="deleteProtection", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
      * @return Enable or disable delete protection.
+     * 
+     * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {

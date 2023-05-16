@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Floating IPs or Load Balancers.
+    /// Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
     /// 
     /// ## Example Usage
     /// 
@@ -34,6 +34,32 @@ namespace Pulumi.HCloud
     ///     {
     ///         ServerId = node1.Id,
     ///         IpAddress = node1.Ipv4Address,
+    ///         DnsPtr = "example.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// For Primary IPs:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary1PrimaryIp = new HCloud.PrimaryIp("primary1PrimaryIp", new()
+    ///     {
+    ///         Datacenter = "nbg1-dc3",
+    ///         Type = "ipv4",
+    ///     });
+    /// 
+    ///     var primary1Rdns = new HCloud.Rdns("primary1Rdns", new()
+    ///     {
+    ///         PrimaryIpId = primary1PrimaryIp.Id,
+    ///         IpAddress = primary1PrimaryIp.IpAddress,
     ///         DnsPtr = "example.com",
     ///     });
     /// 
@@ -100,6 +126,12 @@ namespace Pulumi.HCloud
     ///  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
     /// ```
     /// 
+    ///  import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+    /// 
+    /// ```sh
+    ///  $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
+    /// ```
+    /// 
     ///  import reverse dns entry on floating ip with id 123, ip 2001:db8::1
     /// 
     /// ```sh
@@ -122,7 +154,7 @@ namespace Pulumi.HCloud
         public Output<string> DnsPtr { get; private set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Output("floatingIpId")]
         public Output<int?> FloatingIpId { get; private set; } = null!;
@@ -134,13 +166,19 @@ namespace Pulumi.HCloud
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Output("loadBalancerId")]
         public Output<int?> LoadBalancerId { get; private set; } = null!;
 
         /// <summary>
-        /// The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+        /// </summary>
+        [Output("primaryIpId")]
+        public Output<int?> PrimaryIpId { get; private set; } = null!;
+
+        /// <summary>
+        /// The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Output("serverId")]
         public Output<int?> ServerId { get; private set; } = null!;
@@ -198,7 +236,7 @@ namespace Pulumi.HCloud
         public Input<string> DnsPtr { get; set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
@@ -210,13 +248,19 @@ namespace Pulumi.HCloud
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("loadBalancerId")]
         public Input<int>? LoadBalancerId { get; set; }
 
         /// <summary>
-        /// The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+        /// </summary>
+        [Input("primaryIpId")]
+        public Input<int>? PrimaryIpId { get; set; }
+
+        /// <summary>
+        /// The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
@@ -236,7 +280,7 @@ namespace Pulumi.HCloud
         public Input<string>? DnsPtr { get; set; }
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
@@ -248,13 +292,19 @@ namespace Pulumi.HCloud
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("loadBalancerId")]
         public Input<int>? LoadBalancerId { get; set; }
 
         /// <summary>
-        /// The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+        /// The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+        /// </summary>
+        [Input("primaryIpId")]
+        public Input<int>? PrimaryIpId { get; set; }
+
+        /// <summary>
+        /// The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }

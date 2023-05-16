@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * const keysBySelector = hcloud.getSshKeys({
  *     withSelector: "foo=bar",
  * });
- * const main = new hcloud.Server("main", {sshKeys: [allKeys.then(allKeys => allKeys.sshKeys)].map(__item => __item?.name)});
+ * const main = new hcloud.Server("main", {sshKeys: allKeys.then(allKeys => allKeys.sshKeys.map(__item => __item.name))});
  * ```
  */
 export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeysResult> {
@@ -64,7 +64,7 @@ export interface GetSshKeysResult {
  * const keysBySelector = hcloud.getSshKeys({
  *     withSelector: "foo=bar",
  * });
- * const main = new hcloud.Server("main", {sshKeys: [allKeys.then(allKeys => allKeys.sshKeys)].map(__item => __item?.name)});
+ * const main = new hcloud.Server("main", {sshKeys: allKeys.then(allKeys => allKeys.sshKeys.map(__item => __item.name))});
  * ```
  */
 export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {

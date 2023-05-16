@@ -21,7 +21,7 @@ class GetServerTypeResult:
     """
     A collection of values returned by getServerType.
     """
-    def __init__(__self__, architecture=None, cores=None, cpu_type=None, description=None, disk=None, id=None, memory=None, name=None, storage_type=None):
+    def __init__(__self__, architecture=None, cores=None, cpu_type=None, description=None, disk=None, id=None, included_traffic=None, memory=None, name=None, storage_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -40,6 +40,9 @@ class GetServerTypeResult:
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
+        if included_traffic and not isinstance(included_traffic, int):
+            raise TypeError("Expected argument 'included_traffic' to be a int")
+        pulumi.set(__self__, "included_traffic", included_traffic)
         if memory and not isinstance(memory, int):
             raise TypeError("Expected argument 'memory' to be a int")
         pulumi.set(__self__, "memory", memory)
@@ -96,6 +99,14 @@ class GetServerTypeResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="includedTraffic")
+    def included_traffic(self) -> int:
+        """
+        (int) Free traffic per month in bytes.
+        """
+        return pulumi.get(self, "included_traffic")
+
+    @property
     @pulumi.getter
     def memory(self) -> int:
         """
@@ -129,6 +140,7 @@ class AwaitableGetServerTypeResult(GetServerTypeResult):
             description=self.description,
             disk=self.disk,
             id=self.id,
+            included_traffic=self.included_traffic,
             memory=self.memory,
             name=self.name,
             storage_type=self.storage_type)
@@ -168,6 +180,7 @@ def get_server_type(id: Optional[int] = None,
         description=__ret__.description,
         disk=__ret__.disk,
         id=__ret__.id,
+        included_traffic=__ret__.included_traffic,
         memory=__ret__.memory,
         name=__ret__.name,
         storage_type=__ret__.storage_type)

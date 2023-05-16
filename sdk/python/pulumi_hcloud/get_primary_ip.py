@@ -213,7 +213,7 @@ def get_primary_ip(assignee_id: Optional[int] = None,
             "test": "tessst1",
         },
         public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4=hcloud_primary_ip["ip_1"]["id"],
+            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         )])
     ```
 
@@ -289,7 +289,7 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
             "test": "tessst1",
         },
         public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4=hcloud_primary_ip["ip_1"]["id"],
+            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         )])
     ```
 

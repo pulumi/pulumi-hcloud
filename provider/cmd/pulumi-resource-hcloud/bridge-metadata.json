@@ -2,13 +2,44 @@
     "auto-aliasing": {
         "resources": {
             "hcloud_certificate": {
-                "current": "hcloud:index/certificate:Certificate"
+                "current": "hcloud:index/certificate:Certificate",
+                "fields": {
+                    "domain_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_firewall": {
-                "current": "hcloud:index/firewall:Firewall"
+                "current": "hcloud:index/firewall:Firewall",
+                "fields": {
+                    "apply_to": {
+                        "maxItemsOne": false
+                    },
+                    "rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "destination_ips": {
+                                    "maxItemsOne": false
+                                },
+                                "source_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "hcloud_firewall_attachment": {
-                "current": "hcloud:index/firewallAttachment:FirewallAttachment"
+                "current": "hcloud:index/firewallAttachment:FirewallAttachment",
+                "fields": {
+                    "label_selectors": {
+                        "maxItemsOne": false
+                    },
+                    "server_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_floating_ip": {
                 "current": "hcloud:index/floatingIp:FloatingIp"
@@ -17,19 +48,61 @@
                 "current": "hcloud:index/floatingIpAssignment:FloatingIpAssignment"
             },
             "hcloud_load_balancer": {
-                "current": "hcloud:index/loadBalancer:LoadBalancer"
+                "current": "hcloud:index/loadBalancer:LoadBalancer",
+                "fields": {
+                    "algorithm": {
+                        "maxItemsOne": true
+                    },
+                    "target": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_load_balancer_network": {
                 "current": "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork"
             },
             "hcloud_load_balancer_service": {
-                "current": "hcloud:index/loadBalancerService:LoadBalancerService"
+                "current": "hcloud:index/loadBalancerService:LoadBalancerService",
+                "fields": {
+                    "health_check": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "http": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "status_codes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "http": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "certificates": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "hcloud_load_balancer_target": {
                 "current": "hcloud:index/loadBalancerTarget:LoadBalancerTarget"
             },
             "hcloud_managed_certificate": {
-                "current": "hcloud:index/managedCertificate:ManagedCertificate"
+                "current": "hcloud:index/managedCertificate:ManagedCertificate",
+                "fields": {
+                    "domain_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_network": {
                 "current": "hcloud:index/network:Network"
@@ -41,7 +114,12 @@
                 "current": "hcloud:index/networkSubnet:NetworkSubnet"
             },
             "hcloud_placement_group": {
-                "current": "hcloud:index/placementGroup:PlacementGroup"
+                "current": "hcloud:index/placementGroup:PlacementGroup",
+                "fields": {
+                    "servers": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_primary_ip": {
                 "current": "hcloud:index/primaryIp:PrimaryIp"
@@ -50,10 +128,36 @@
                 "current": "hcloud:index/rdns:Rdns"
             },
             "hcloud_server": {
-                "current": "hcloud:index/server:Server"
+                "current": "hcloud:index/server:Server",
+                "fields": {
+                    "firewall_ids": {
+                        "maxItemsOne": false
+                    },
+                    "network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "alias_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "public_net": {
+                        "maxItemsOne": false
+                    },
+                    "ssh_keys": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_server_network": {
-                "current": "hcloud:index/serverNetwork:ServerNetwork"
+                "current": "hcloud:index/serverNetwork:ServerNetwork",
+                "fields": {
+                    "alias_ips": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_snapshot": {
                 "current": "hcloud:index/snapshot:Snapshot"
@@ -62,7 +166,12 @@
                 "current": "hcloud:index/sshKey:SshKey"
             },
             "hcloud_uploaded_certificate": {
-                "current": "hcloud:index/uploadedCertificate:UploadedCertificate"
+                "current": "hcloud:index/uploadedCertificate:UploadedCertificate",
+                "fields": {
+                    "domain_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_volume": {
                 "current": "hcloud:index/volume:Volume"
@@ -498,6 +607,7 @@
             },
             "hcloud:index/getServerType:getServerType": {
                 "cpuType": "cpu_type",
+                "includedTraffic": "included_traffic",
                 "storageType": "storage_type"
             },
             "hcloud:index/getServerTypes:getServerTypes": {
@@ -506,6 +616,7 @@
             },
             "hcloud:index/getServerTypesServerType:getServerTypesServerType": {
                 "cpuType": "cpu_type",
+                "includedTraffic": "included_traffic",
                 "storageType": "storage_type"
             },
             "hcloud:index/getServers:getServers": {
@@ -607,6 +718,7 @@
                 "floatingIpId": "floating_ip_id",
                 "ipAddress": "ip_address",
                 "loadBalancerId": "load_balancer_id",
+                "primaryIpId": "primary_ip_id",
                 "serverId": "server_id"
             },
             "hcloud:index/server:Server": {

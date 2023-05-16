@@ -33,10 +33,7 @@ namespace Pulumi.HCloud
         /// 
         ///     var main = new HCloud.Server("main", new()
         ///     {
-        ///         SshKeys = new[]
-        ///         {
-        ///             allKeys.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys),
-        ///         }.Select(__item =&gt; __item?.Name).ToList(),
+        ///         SshKeys = allKeys.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys).Select(__item =&gt; __item.Name).ToList(),
         ///     });
         /// 
         /// });
@@ -69,10 +66,7 @@ namespace Pulumi.HCloud
         /// 
         ///     var main = new HCloud.Server("main", new()
         ///     {
-        ///         SshKeys = new[]
-        ///         {
-        ///             allKeys.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys),
-        ///         }.Select(__item =&gt; __item?.Name).ToList(),
+        ///         SshKeys = allKeys.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys).Select(__item =&gt; __item.Name).ToList(),
         ///     });
         /// 
         /// });

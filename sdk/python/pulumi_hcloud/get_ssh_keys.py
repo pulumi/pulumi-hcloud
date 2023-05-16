@@ -77,7 +77,7 @@ def get_ssh_keys(with_selector: Optional[str] = None,
 
     all_keys = hcloud.get_ssh_keys()
     keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
-    main = hcloud.Server("main", ssh_keys=[__item.name for __item in [all_keys.ssh_keys]])
+    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
     ```
 
 
@@ -106,7 +106,7 @@ def get_ssh_keys_output(with_selector: Optional[pulumi.Input[Optional[str]]] = N
 
     all_keys = hcloud.get_ssh_keys()
     keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
-    main = hcloud.Server("main", ssh_keys=[__item.name for __item in [all_keys.ssh_keys]])
+    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
     ```
 
 

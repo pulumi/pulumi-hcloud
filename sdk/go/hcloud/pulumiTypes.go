@@ -4741,15 +4741,16 @@ func (o GetPrimaryIpsPrimaryIpArrayOutput) Index(i pulumi.IntInput) GetPrimaryIp
 }
 
 type GetServerTypesServerType struct {
-	Architecture string `pulumi:"architecture"`
-	Cores        int    `pulumi:"cores"`
-	CpuType      string `pulumi:"cpuType"`
-	Description  string `pulumi:"description"`
-	Disk         int    `pulumi:"disk"`
-	Id           int    `pulumi:"id"`
-	Memory       int    `pulumi:"memory"`
-	Name         string `pulumi:"name"`
-	StorageType  string `pulumi:"storageType"`
+	Architecture    string `pulumi:"architecture"`
+	Cores           int    `pulumi:"cores"`
+	CpuType         string `pulumi:"cpuType"`
+	Description     string `pulumi:"description"`
+	Disk            int    `pulumi:"disk"`
+	Id              int    `pulumi:"id"`
+	IncludedTraffic int    `pulumi:"includedTraffic"`
+	Memory          int    `pulumi:"memory"`
+	Name            string `pulumi:"name"`
+	StorageType     string `pulumi:"storageType"`
 }
 
 // GetServerTypesServerTypeInput is an input type that accepts GetServerTypesServerTypeArgs and GetServerTypesServerTypeOutput values.
@@ -4764,15 +4765,16 @@ type GetServerTypesServerTypeInput interface {
 }
 
 type GetServerTypesServerTypeArgs struct {
-	Architecture pulumi.StringInput `pulumi:"architecture"`
-	Cores        pulumi.IntInput    `pulumi:"cores"`
-	CpuType      pulumi.StringInput `pulumi:"cpuType"`
-	Description  pulumi.StringInput `pulumi:"description"`
-	Disk         pulumi.IntInput    `pulumi:"disk"`
-	Id           pulumi.IntInput    `pulumi:"id"`
-	Memory       pulumi.IntInput    `pulumi:"memory"`
-	Name         pulumi.StringInput `pulumi:"name"`
-	StorageType  pulumi.StringInput `pulumi:"storageType"`
+	Architecture    pulumi.StringInput `pulumi:"architecture"`
+	Cores           pulumi.IntInput    `pulumi:"cores"`
+	CpuType         pulumi.StringInput `pulumi:"cpuType"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Disk            pulumi.IntInput    `pulumi:"disk"`
+	Id              pulumi.IntInput    `pulumi:"id"`
+	IncludedTraffic pulumi.IntInput    `pulumi:"includedTraffic"`
+	Memory          pulumi.IntInput    `pulumi:"memory"`
+	Name            pulumi.StringInput `pulumi:"name"`
+	StorageType     pulumi.StringInput `pulumi:"storageType"`
 }
 
 func (GetServerTypesServerTypeArgs) ElementType() reflect.Type {
@@ -4848,6 +4850,10 @@ func (o GetServerTypesServerTypeOutput) Disk() pulumi.IntOutput {
 
 func (o GetServerTypesServerTypeOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o GetServerTypesServerTypeOutput) IncludedTraffic() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) int { return v.IncludedTraffic }).(pulumi.IntOutput)
 }
 
 func (o GetServerTypesServerTypeOutput) Memory() pulumi.IntOutput {

@@ -798,6 +798,8 @@ class Server(pulumi.CustomResource):
                  user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
+
         ## Example Usage
         ### Server creation with network
         ```python
@@ -855,14 +857,14 @@ class Server(pulumi.CustomResource):
         # Assign existing ipv4 only
         server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
+            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ipv6_enabled=False,
         )])
         #...
         # Link a managed ipv4 but autogenerate ipv6
         server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
+            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ipv6_enabled=False,
         )])
         #...
@@ -917,6 +919,8 @@ class Server(pulumi.CustomResource):
                  args: ServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
+
         ## Example Usage
         ### Server creation with network
         ```python
@@ -974,14 +978,14 @@ class Server(pulumi.CustomResource):
         # Assign existing ipv4 only
         server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
+            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ipv6_enabled=False,
         )])
         #...
         # Link a managed ipv4 but autogenerate ipv6
         server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
+            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ipv6_enabled=False,
         )])
         #...

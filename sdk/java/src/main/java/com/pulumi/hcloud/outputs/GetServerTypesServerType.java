@@ -16,6 +16,7 @@ public final class GetServerTypesServerType {
     private String description;
     private Integer disk;
     private Integer id;
+    private Integer includedTraffic;
     private Integer memory;
     private String name;
     private String storageType;
@@ -38,6 +39,9 @@ public final class GetServerTypesServerType {
     }
     public Integer id() {
         return this.id;
+    }
+    public Integer includedTraffic() {
+        return this.includedTraffic;
     }
     public Integer memory() {
         return this.memory;
@@ -64,6 +68,7 @@ public final class GetServerTypesServerType {
         private String description;
         private Integer disk;
         private Integer id;
+        private Integer includedTraffic;
         private Integer memory;
         private String name;
         private String storageType;
@@ -76,6 +81,7 @@ public final class GetServerTypesServerType {
     	      this.description = defaults.description;
     	      this.disk = defaults.disk;
     	      this.id = defaults.id;
+    	      this.includedTraffic = defaults.includedTraffic;
     	      this.memory = defaults.memory;
     	      this.name = defaults.name;
     	      this.storageType = defaults.storageType;
@@ -112,6 +118,11 @@ public final class GetServerTypesServerType {
             return this;
         }
         @CustomType.Setter
+        public Builder includedTraffic(Integer includedTraffic) {
+            this.includedTraffic = Objects.requireNonNull(includedTraffic);
+            return this;
+        }
+        @CustomType.Setter
         public Builder memory(Integer memory) {
             this.memory = Objects.requireNonNull(memory);
             return this;
@@ -134,6 +145,7 @@ public final class GetServerTypesServerType {
             o.description = description;
             o.disk = disk;
             o.id = id;
+            o.includedTraffic = includedTraffic;
             o.memory = memory;
             o.name = name;
             o.storageType = storageType;

@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
+    /// Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
+    /// 
     /// ## Example Usage
     /// ### Server creation with network
     /// ```csharp

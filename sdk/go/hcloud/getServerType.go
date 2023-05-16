@@ -74,6 +74,8 @@ type GetServerTypeResult struct {
 	Disk int `pulumi:"disk"`
 	// (int) Unique ID of the server_type.
 	Id int `pulumi:"id"`
+	// (int) Free traffic per month in bytes.
+	IncludedTraffic int `pulumi:"includedTraffic"`
 	// (int) Memory a Server of this type will have in GB.
 	Memory int `pulumi:"memory"`
 	// (string) Name of the server_type.
@@ -148,6 +150,11 @@ func (o GetServerTypeResultOutput) Disk() pulumi.IntOutput {
 // (int) Unique ID of the server_type.
 func (o GetServerTypeResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypeResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (int) Free traffic per month in bytes.
+func (o GetServerTypeResultOutput) IncludedTraffic() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerTypeResult) int { return v.IncludedTraffic }).(pulumi.IntOutput)
 }
 
 // (int) Memory a Server of this type will have in GB.
