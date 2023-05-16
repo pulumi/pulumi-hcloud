@@ -37,12 +37,16 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Enable or disable delete protection.
      * 
+     * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
+     * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
      * @return Enable or disable delete protection.
+     * 
+     * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -194,6 +198,8 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param deleteProtection Enable or disable delete protection.
          * 
+         * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
+         * 
          * @return builder
          * 
          */
@@ -204,6 +210,8 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param deleteProtection Enable or disable delete protection.
+         * 
+         * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
          * 
          * @return builder
          * 

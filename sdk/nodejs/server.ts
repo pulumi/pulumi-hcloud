@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
+ *
  * ## Example Usage
  * ### Server creation with network
  * ```typescript

@@ -2054,6 +2054,7 @@ class GetServerTypesServerTypeResult(dict):
                  description: str,
                  disk: int,
                  id: int,
+                 included_traffic: int,
                  memory: int,
                  name: str,
                  storage_type: str):
@@ -2063,6 +2064,7 @@ class GetServerTypesServerTypeResult(dict):
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "disk", disk)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "included_traffic", included_traffic)
         pulumi.set(__self__, "memory", memory)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "storage_type", storage_type)
@@ -2096,6 +2098,11 @@ class GetServerTypesServerTypeResult(dict):
     @pulumi.getter
     def id(self) -> int:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includedTraffic")
+    def included_traffic(self) -> int:
+        return pulumi.get(self, "included_traffic")
 
     @property
     @pulumi.getter

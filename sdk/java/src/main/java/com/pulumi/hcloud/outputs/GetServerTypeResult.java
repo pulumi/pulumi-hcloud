@@ -37,6 +37,11 @@ public final class GetServerTypeResult {
      */
     private Integer id;
     /**
+     * @return (int) Free traffic per month in bytes.
+     * 
+     */
+    private Integer includedTraffic;
+    /**
      * @return (int) Memory a Server of this type will have in GB.
      * 
      */
@@ -88,6 +93,13 @@ public final class GetServerTypeResult {
         return this.id;
     }
     /**
+     * @return (int) Free traffic per month in bytes.
+     * 
+     */
+    public Integer includedTraffic() {
+        return this.includedTraffic;
+    }
+    /**
      * @return (int) Memory a Server of this type will have in GB.
      * 
      */
@@ -120,6 +132,7 @@ public final class GetServerTypeResult {
         private String description;
         private Integer disk;
         private Integer id;
+        private Integer includedTraffic;
         private Integer memory;
         private String name;
         private String storageType;
@@ -132,6 +145,7 @@ public final class GetServerTypeResult {
     	      this.description = defaults.description;
     	      this.disk = defaults.disk;
     	      this.id = defaults.id;
+    	      this.includedTraffic = defaults.includedTraffic;
     	      this.memory = defaults.memory;
     	      this.name = defaults.name;
     	      this.storageType = defaults.storageType;
@@ -168,6 +182,11 @@ public final class GetServerTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder includedTraffic(Integer includedTraffic) {
+            this.includedTraffic = Objects.requireNonNull(includedTraffic);
+            return this;
+        }
+        @CustomType.Setter
         public Builder memory(Integer memory) {
             this.memory = Objects.requireNonNull(memory);
             return this;
@@ -190,6 +209,7 @@ public final class GetServerTypeResult {
             o.description = description;
             o.disk = disk;
             o.id = id;
+            o.includedTraffic = includedTraffic;
             o.memory = memory;
             o.name = name;
             o.storageType = storageType;

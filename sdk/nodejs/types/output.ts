@@ -393,6 +393,7 @@ export interface GetServerTypesServerType {
     description: string;
     disk: number;
     id: number;
+    includedTraffic: number;
     memory: number;
     name: string;
     storageType: string;

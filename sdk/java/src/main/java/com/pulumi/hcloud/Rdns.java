@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Floating IPs or Load Balancers.
+ * Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
  * 
  * ## Example Usage
  * 
@@ -52,6 +52,45 @@ import javax.annotation.Nullable;
  *         var master = new Rdns(&#34;master&#34;, RdnsArgs.builder()        
  *             .serverId(node1.id())
  *             .ipAddress(node1.ipv4Address())
+ *             .dnsPtr(&#34;example.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * For Primary IPs:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.hcloud.PrimaryIp;
+ * import com.pulumi.hcloud.PrimaryIpArgs;
+ * import com.pulumi.hcloud.Rdns;
+ * import com.pulumi.hcloud.RdnsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var primary1PrimaryIp = new PrimaryIp(&#34;primary1PrimaryIp&#34;, PrimaryIpArgs.builder()        
+ *             .datacenter(&#34;nbg1-dc3&#34;)
+ *             .type(&#34;ipv4&#34;)
+ *             .build());
+ * 
+ *         var primary1Rdns = new Rdns(&#34;primary1Rdns&#34;, RdnsArgs.builder()        
+ *             .primaryIpId(primary1PrimaryIp.id())
+ *             .ipAddress(primary1PrimaryIp.ipAddress())
  *             .dnsPtr(&#34;example.com&#34;)
  *             .build());
  * 
@@ -145,6 +184,12 @@ import javax.annotation.Nullable;
  *  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
  * ```
  * 
+ *  import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+ * 
+ * ```sh
+ *  $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
+ * ```
+ * 
  *  import reverse dns entry on floating ip with id 123, ip 2001:db8::1
  * 
  * ```sh
@@ -175,14 +220,14 @@ public class Rdns extends com.pulumi.resources.CustomResource {
         return this.dnsPtr;
     }
     /**
-     * The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
     @Export(name="floatingIpId", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> floatingIpId;
 
     /**
-     * @return The Floating IP the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
     public Output<Optional<Integer>> floatingIpId() {
@@ -203,28 +248,42 @@ public class Rdns extends com.pulumi.resources.CustomResource {
         return this.ipAddress;
     }
     /**
-     * The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
     @Export(name="loadBalancerId", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> loadBalancerId;
 
     /**
-     * @return The Load Balancer the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
     public Output<Optional<Integer>> loadBalancerId() {
         return Codegen.optional(this.loadBalancerId);
     }
     /**
-     * The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * 
+     */
+    @Export(name="primaryIpId", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> primaryIpId;
+
+    /**
+     * @return The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * 
+     */
+    public Output<Optional<Integer>> primaryIpId() {
+        return Codegen.optional(this.primaryIpId);
+    }
+    /**
+     * The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
     @Export(name="serverId", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> serverId;
 
     /**
-     * @return The server the `ip_address` belongs to. Specify only one of `server_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
     public Output<Optional<Integer>> serverId() {

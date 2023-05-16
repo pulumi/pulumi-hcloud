@@ -147,6 +147,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly int Id;
         /// <summary>
+        /// (int) Free traffic per month in bytes.
+        /// </summary>
+        public readonly int IncludedTraffic;
+        /// <summary>
         /// (int) Memory a Server of this type will have in GB.
         /// </summary>
         public readonly int Memory;
@@ -170,6 +174,8 @@ namespace Pulumi.HCloud
 
             int id,
 
+            int includedTraffic,
+
             int memory,
 
             string name,
@@ -182,6 +188,7 @@ namespace Pulumi.HCloud
             Description = description;
             Disk = disk;
             Id = id;
+            IncludedTraffic = includedTraffic;
             Memory = memory;
             Name = name;
             StorageType = storageType;

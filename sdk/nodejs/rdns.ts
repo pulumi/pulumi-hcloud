@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Floating IPs or Load Balancers.
+ * Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
  *
  * ## Example Usage
  *
@@ -22,6 +22,23 @@ import * as utilities from "./utilities";
  * const master = new hcloud.Rdns("master", {
  *     serverId: node1.id,
  *     ipAddress: node1.ipv4Address,
+ *     dnsPtr: "example.com",
+ * });
+ * ```
+ *
+ * For Primary IPs:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const primary1PrimaryIp = new hcloud.PrimaryIp("primary1PrimaryIp", {
+ *     datacenter: "nbg1-dc3",
+ *     type: "ipv4",
+ * });
+ * const primary1Rdns = new hcloud.Rdns("primary1Rdns", {
+ *     primaryIpId: primary1PrimaryIp.id,
+ *     ipAddress: primary1PrimaryIp.ipAddress,
  *     dnsPtr: "example.com",
  * });
  * ```
@@ -66,6 +83,12 @@ import * as utilities from "./utilities";
  *
  * ```sh
  *  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+ * ```
+ *
+ *  import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+ *
+ * ```sh
+ *  $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
  * ```
  *
  *  import reverse dns entry on floating ip with id 123, ip 2001:db8::1
@@ -113,7 +136,7 @@ export class Rdns extends pulumi.CustomResource {
      */
     public readonly dnsPtr!: pulumi.Output<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Floating IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     public readonly floatingIpId!: pulumi.Output<number | undefined>;
     /**
@@ -121,11 +144,15 @@ export class Rdns extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
-     * The Load Balancer the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Load Balancer the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     public readonly loadBalancerId!: pulumi.Output<number | undefined>;
     /**
-     * The server the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Primary IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     */
+    public readonly primaryIpId!: pulumi.Output<number | undefined>;
+    /**
+     * The server the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     public readonly serverId!: pulumi.Output<number | undefined>;
 
@@ -146,6 +173,7 @@ export class Rdns extends pulumi.CustomResource {
             resourceInputs["floatingIpId"] = state ? state.floatingIpId : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
+            resourceInputs["primaryIpId"] = state ? state.primaryIpId : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as RdnsArgs | undefined;
@@ -159,6 +187,7 @@ export class Rdns extends pulumi.CustomResource {
             resourceInputs["floatingIpId"] = args ? args.floatingIpId : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
+            resourceInputs["primaryIpId"] = args ? args.primaryIpId : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -175,7 +204,7 @@ export interface RdnsState {
      */
     dnsPtr?: pulumi.Input<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Floating IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     floatingIpId?: pulumi.Input<number>;
     /**
@@ -183,11 +212,15 @@ export interface RdnsState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * The Load Balancer the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Load Balancer the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     loadBalancerId?: pulumi.Input<number>;
     /**
-     * The server the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Primary IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     */
+    primaryIpId?: pulumi.Input<number>;
+    /**
+     * The server the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     serverId?: pulumi.Input<number>;
 }
@@ -201,7 +234,7 @@ export interface RdnsArgs {
      */
     dnsPtr: pulumi.Input<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Floating IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     floatingIpId?: pulumi.Input<number>;
     /**
@@ -209,11 +242,15 @@ export interface RdnsArgs {
      */
     ipAddress: pulumi.Input<string>;
     /**
-     * The Load Balancer the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Load Balancer the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     loadBalancerId?: pulumi.Input<number>;
     /**
-     * The server the `ipAddress` belongs to. Specify only one of `serverId`, `floatingIpId` and `loadBalancerId`.
+     * The Primary IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     */
+    primaryIpId?: pulumi.Input<number>;
+    /**
+     * The server the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
      */
     serverId?: pulumi.Input<number>;
 }

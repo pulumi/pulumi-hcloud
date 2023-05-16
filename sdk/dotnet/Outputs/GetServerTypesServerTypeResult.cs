@@ -19,6 +19,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly string Description;
         public readonly int Disk;
         public readonly int Id;
+        public readonly int IncludedTraffic;
         public readonly int Memory;
         public readonly string Name;
         public readonly string StorageType;
@@ -37,6 +38,8 @@ namespace Pulumi.HCloud.Outputs
 
             int id,
 
+            int includedTraffic,
+
             int memory,
 
             string name,
@@ -49,6 +52,7 @@ namespace Pulumi.HCloud.Outputs
             Description = description;
             Disk = disk;
             Id = id;
+            IncludedTraffic = includedTraffic;
             Memory = memory;
             Name = name;
             StorageType = storageType;

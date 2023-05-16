@@ -72,6 +72,10 @@ export interface GetServerTypeResult {
      */
     readonly id: number;
     /**
+     * (int) Free traffic per month in bytes.
+     */
+    readonly includedTraffic: number;
+    /**
      * (int) Memory a Server of this type will have in GB.
      */
     readonly memory: number;
