@@ -185,10 +185,7 @@ func Provider() tfbridge.ProviderInfo {
 
 	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
 		// TODO[pulumi/pulumi#13108]: work around PANIC printed in an example
-		if args.Token == "hcloud:index/getSshKeys:getSshKeys" {
-			return true
-		}
-		return false
+		return args.Token == "hcloud:index/getSshKeys:getSshKeys"
 	}
 
 	return prov
