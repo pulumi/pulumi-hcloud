@@ -13,30 +13,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSshKeysResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
-    /**
-     * @return (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
-     * 
-     */
     private List<GetSshKeysSshKey> sshKeys;
     private @Nullable String withSelector;
 
     private GetSshKeysResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
-     * 
-     */
     public List<GetSshKeysSshKey> sshKeys() {
         return this.sshKeys;
     }

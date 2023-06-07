@@ -19,9 +19,6 @@ __all__ = [
 
 @pulumi.output_type
 class GetSshKeysResult:
-    """
-    A collection of values returned by getSshKeys.
-    """
     def __init__(__self__, id=None, ssh_keys=None, with_selector=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -36,17 +33,11 @@ class GetSshKeysResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Sequence['outputs.GetSshKeysSshKeyResult']:
-        """
-        (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
-        """
         return pulumi.get(self, "ssh_keys")
 
     @property
@@ -69,19 +60,7 @@ class AwaitableGetSshKeysResult(GetSshKeysResult):
 def get_ssh_keys(with_selector: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeysResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    all_keys = hcloud.get_ssh_keys()
-    keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
-    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
-    ```
-
-
-    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['withSelector'] = with_selector
@@ -98,18 +77,6 @@ def get_ssh_keys(with_selector: Optional[str] = None,
 def get_ssh_keys_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeysResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    all_keys = hcloud.get_ssh_keys()
-    keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
-    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
-    ```
-
-
-    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    Use this data source to access information about an existing resource.
     """
     ...

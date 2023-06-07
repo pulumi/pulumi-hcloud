@@ -183,6 +183,13 @@ func Provider() tfbridge.ProviderInfo {
 
 	prov.SetAutonaming(255, "-")
 
+	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
+		if args.Token == "hcloud:index/getSshKeys:getSshKeys" {
+			return true
+		}
+		return false
+	}
+
 	return prov
 }
 
