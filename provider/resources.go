@@ -183,6 +183,11 @@ func Provider() tfbridge.ProviderInfo {
 
 	prov.SetAutonaming(255, "-")
 
+	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
+		// TODO[pulumi/pulumi#13108]: work around PANIC printed in an example
+		return args.Token == "hcloud:index/getSshKeys:getSshKeys"
+	}
+
 	return prov
 }
 

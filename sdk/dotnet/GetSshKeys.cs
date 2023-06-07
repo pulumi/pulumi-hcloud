@@ -11,69 +11,9 @@ namespace Pulumi.HCloud
 {
     public static class GetSshKeys
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var allKeys = HCloud.GetSshKeys.Invoke();
-        /// 
-        ///     var keysBySelector = HCloud.GetSshKeys.Invoke(new()
-        ///     {
-        ///         WithSelector = "foo=bar",
-        ///     });
-        /// 
-        ///     var main = new HCloud.Server("main", new()
-        ///     {
-        ///         SshKeys = allKeys.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys).Select(__item =&gt; __item.Name).ToList(),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetSshKeysResult> InvokeAsync(GetSshKeysArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSshKeysResult>("hcloud:index/getSshKeys:getSshKeys", args ?? new GetSshKeysArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var allKeys = HCloud.GetSshKeys.Invoke();
-        /// 
-        ///     var keysBySelector = HCloud.GetSshKeys.Invoke(new()
-        ///     {
-        ///         WithSelector = "foo=bar",
-        ///     });
-        /// 
-        ///     var main = new HCloud.Server("main", new()
-        ///     {
-        ///         SshKeys = allKeys.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys).Select(__item =&gt; __item.Name).ToList(),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetSshKeysResult> Invoke(GetSshKeysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSshKeysResult>("hcloud:index/getSshKeys:getSshKeys", args ?? new GetSshKeysInvokeArgs(), options.WithDefaults());
     }
@@ -81,9 +21,6 @@ namespace Pulumi.HCloud
 
     public sealed class GetSshKeysArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
-        /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
 
@@ -95,9 +32,6 @@ namespace Pulumi.HCloud
 
     public sealed class GetSshKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
-        /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }
 
@@ -111,13 +45,7 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetSshKeysResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSshKeysSshKeyResult> SshKeys;
         public readonly string? WithSelector;
 

@@ -6035,30 +6035,24 @@
             }
         },
         "hcloud:index/getSshKeys:getSshKeys": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst allKeys = hcloud.getSshKeys({});\nconst keysBySelector = hcloud.getSshKeys({\n    withSelector: \"foo=bar\",\n});\nconst main = new hcloud.Server(\"main\", {sshKeys: allKeys.then(allKeys =\u003e allKeys.sshKeys.map(__item =\u003e __item.name))});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nall_keys = hcloud.get_ssh_keys()\nkeys_by_selector = hcloud.get_ssh_keys(with_selector=\"foo=bar\")\nmain = hcloud.Server(\"main\", ssh_keys=[__item.name for __item in all_keys.ssh_keys])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var allKeys = HCloud.GetSshKeys.Invoke();\n\n    var keysBySelector = HCloud.GetSshKeys.Invoke(new()\n    {\n        WithSelector = \"foo=bar\",\n    });\n\n    var main = new HCloud.Server(\"main\", new()\n    {\n        SshKeys = allKeys.Apply(getSshKeysResult =\u003e getSshKeysResult.SshKeys).Select(__item =\u003e __item.Name).ToList(),\n    });\n\n});\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetSshKeysArgs;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var allKeys = HcloudFunctions.getSshKeys();\n\n        final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()\n            .withSelector(\"foo=bar\")\n            .build());\n\n        var main = new Server(\"main\", ServerArgs.builder()        \n            .sshKeys(allKeys.applyValue(getSshKeysResult -\u003e getSshKeysResult.sshKeys()).stream().map(element -\u003e element.name()).collect(toList()))\n            .build());\n\n    }\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
-                "description": "A collection of arguments for invoking getSshKeys.\n",
                 "properties": {
                     "withSelector": {
-                        "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "type": "string"
                     }
                 },
                 "type": "object"
             },
             "outputs": {
-                "description": "A collection of values returned by getSshKeys.\n",
                 "properties": {
                     "id": {
-                        "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                        "type": "string"
                     },
                     "sshKeys": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/hcloud:index/getSshKeysSshKey:getSshKeysSshKey"
-                        },
-                        "description": "(list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.\n"
+                        }
                     },
                     "withSelector": {
                         "type": "string"
