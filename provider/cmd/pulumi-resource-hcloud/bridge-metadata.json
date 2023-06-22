@@ -551,6 +551,7 @@
             },
             "hcloud:index/getNetwork:getNetwork": {
                 "deleteProtection": "delete_protection",
+                "exposeRoutesToVswitch": "expose_routes_to_vswitch",
                 "ipRange": "ip_range",
                 "mostRecent": "most_recent",
                 "withSelector": "with_selector"
@@ -560,6 +561,7 @@
             },
             "hcloud:index/getNetworksNetwork:getNetworksNetwork": {
                 "deleteProtection": "delete_protection",
+                "exposeRoutesToVswitch": "expose_routes_to_vswitch",
                 "ipRange": "ip_range"
             },
             "hcloud:index/getPlacementGroup:getPlacementGroup": {
@@ -607,8 +609,11 @@
             },
             "hcloud:index/getServerType:getServerType": {
                 "cpuType": "cpu_type",
+                "deprecationAnnounced": "deprecation_announced",
                 "includedTraffic": "included_traffic",
-                "storageType": "storage_type"
+                "isDeprecated": "is_deprecated",
+                "storageType": "storage_type",
+                "unavailableAfter": "unavailable_after"
             },
             "hcloud:index/getServerTypes:getServerTypes": {
                 "serverTypeIds": "server_type_ids",
@@ -616,8 +621,11 @@
             },
             "hcloud:index/getServerTypesServerType:getServerTypesServerType": {
                 "cpuType": "cpu_type",
+                "deprecationAnnounced": "deprecation_announced",
                 "includedTraffic": "included_traffic",
-                "storageType": "storage_type"
+                "isDeprecated": "is_deprecated",
+                "storageType": "storage_type",
+                "unavailableAfter": "unavailable_after"
             },
             "hcloud:index/getServers:getServers": {
                 "withSelector": "with_selector",
@@ -694,6 +702,7 @@
             },
             "hcloud:index/network:Network": {
                 "deleteProtection": "delete_protection",
+                "exposeRoutesToVswitch": "expose_routes_to_vswitch",
                 "ipRange": "ip_range"
             },
             "hcloud:index/networkRoute:NetworkRoute": {
