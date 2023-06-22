@@ -34,6 +34,21 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     * 
+     */
+    @Import(name="exposeRoutesToVswitch")
+    private @Nullable Output<Boolean> exposeRoutesToVswitch;
+
+    /**
+     * @return Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     * 
+     */
+    public Optional<Output<Boolean>> exposeRoutesToVswitch() {
+        return Optional.ofNullable(this.exposeRoutesToVswitch);
+    }
+
+    /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      * 
      */
@@ -82,6 +97,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
     private NetworkArgs(NetworkArgs $) {
         this.deleteProtection = $.deleteProtection;
+        this.exposeRoutesToVswitch = $.exposeRoutesToVswitch;
         this.ipRange = $.ipRange;
         this.labels = $.labels;
         this.name = $.name;
@@ -124,6 +140,27 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder deleteProtection(Boolean deleteProtection) {
             return deleteProtection(Output.of(deleteProtection));
+        }
+
+        /**
+         * @param exposeRoutesToVswitch Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exposeRoutesToVswitch(@Nullable Output<Boolean> exposeRoutesToVswitch) {
+            $.exposeRoutesToVswitch = exposeRoutesToVswitch;
+            return this;
+        }
+
+        /**
+         * @param exposeRoutesToVswitch Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exposeRoutesToVswitch(Boolean exposeRoutesToVswitch) {
+            return exposeRoutesToVswitch(Output.of(exposeRoutesToVswitch));
         }
 
         /**

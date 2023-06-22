@@ -84,6 +84,12 @@ namespace Pulumi.HCloud
     public sealed class GetServerTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+        /// </summary>
+        [Input("deprecationAnnounced")]
+        public string? DeprecationAnnounced { get; set; }
+
+        /// <summary>
         /// ID of the server_type.
         /// </summary>
         [Input("id")]
@@ -95,6 +101,12 @@ namespace Pulumi.HCloud
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+        /// </summary>
+        [Input("unavailableAfter")]
+        public string? UnavailableAfter { get; set; }
+
         public GetServerTypeArgs()
         {
         }
@@ -103,6 +115,12 @@ namespace Pulumi.HCloud
 
     public sealed class GetServerTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+        /// </summary>
+        [Input("deprecationAnnounced")]
+        public Input<string>? DeprecationAnnounced { get; set; }
+
         /// <summary>
         /// ID of the server_type.
         /// </summary>
@@ -114,6 +132,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+        /// </summary>
+        [Input("unavailableAfter")]
+        public Input<string>? UnavailableAfter { get; set; }
 
         public GetServerTypeInvokeArgs()
         {
@@ -135,6 +159,10 @@ namespace Pulumi.HCloud
         public readonly int Cores;
         public readonly string CpuType;
         /// <summary>
+        /// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+        /// </summary>
+        public readonly string DeprecationAnnounced;
+        /// <summary>
         /// (string) Description of the server_type.
         /// </summary>
         public readonly string Description;
@@ -151,6 +179,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly int IncludedTraffic;
         /// <summary>
+        /// (bool) Deprecation status of server type.
+        /// </summary>
+        public readonly bool IsDeprecated;
+        /// <summary>
         /// (int) Memory a Server of this type will have in GB.
         /// </summary>
         public readonly int Memory;
@@ -159,6 +191,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Name;
         public readonly string StorageType;
+        /// <summary>
+        /// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+        /// </summary>
+        public readonly string UnavailableAfter;
 
         [OutputConstructor]
         private GetServerTypeResult(
@@ -168,6 +204,8 @@ namespace Pulumi.HCloud
 
             string cpuType,
 
+            string deprecationAnnounced,
+
             string description,
 
             int disk,
@@ -176,22 +214,29 @@ namespace Pulumi.HCloud
 
             int includedTraffic,
 
+            bool isDeprecated,
+
             int memory,
 
             string name,
 
-            string storageType)
+            string storageType,
+
+            string unavailableAfter)
         {
             Architecture = architecture;
             Cores = cores;
             CpuType = cpuType;
+            DeprecationAnnounced = deprecationAnnounced;
             Description = description;
             Disk = disk;
             Id = id;
             IncludedTraffic = includedTraffic;
+            IsDeprecated = isDeprecated;
             Memory = memory;
             Name = name;
             StorageType = storageType;
+            UnavailableAfter = unavailableAfter;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.HCloud.Outputs
     public sealed class GetNetworksNetworkResult
     {
         public readonly bool DeleteProtection;
+        public readonly bool ExposeRoutesToVswitch;
         public readonly int Id;
         public readonly string? IpRange;
         public readonly ImmutableDictionary<string, object>? Labels;
@@ -22,6 +23,8 @@ namespace Pulumi.HCloud.Outputs
         [OutputConstructor]
         private GetNetworksNetworkResult(
             bool deleteProtection,
+
+            bool exposeRoutesToVswitch,
 
             int id,
 
@@ -32,6 +35,7 @@ namespace Pulumi.HCloud.Outputs
             string? name)
         {
             DeleteProtection = deleteProtection;
+            ExposeRoutesToVswitch = exposeRoutesToVswitch;
             Id = id;
             IpRange = ipRange;
             Labels = labels;

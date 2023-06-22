@@ -69,6 +69,10 @@ export interface GetNetworkResult {
      */
     readonly deleteProtection: boolean;
     /**
+     * (bool) Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     */
+    readonly exposeRoutesToVswitch: boolean;
+    /**
      * Unique ID of the Network.
      */
     readonly id: number;

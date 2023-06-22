@@ -358,6 +358,7 @@ export interface GetLocationsLocation {
 
 export interface GetNetworksNetwork {
     deleteProtection: boolean;
+    exposeRoutesToVswitch: boolean;
     id: number;
     ipRange?: string;
     labels?: {[key: string]: any};
@@ -390,13 +391,16 @@ export interface GetServerTypesServerType {
     architecture: string;
     cores: number;
     cpuType: string;
+    deprecationAnnounced: string;
     description: string;
     disk: number;
     id: number;
     includedTraffic: number;
+    isDeprecated: boolean;
     memory: number;
     name: string;
     storageType: string;
+    unavailableAfter: string;
 }
 
 export interface GetServersServer {

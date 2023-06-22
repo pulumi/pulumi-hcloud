@@ -57,6 +57,10 @@ export class Network extends pulumi.CustomResource {
      */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     */
+    public readonly exposeRoutesToVswitch!: pulumi.Output<boolean | undefined>;
+    /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */
     public readonly ipRange!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class Network extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NetworkState | undefined;
             resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
+            resourceInputs["exposeRoutesToVswitch"] = state ? state.exposeRoutesToVswitch : undefined;
             resourceInputs["ipRange"] = state ? state.ipRange : undefined;
             resourceInputs["labels"] = state ? state.labels : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -92,6 +97,7 @@ export class Network extends pulumi.CustomResource {
                 throw new Error("Missing required property 'ipRange'");
             }
             resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            resourceInputs["exposeRoutesToVswitch"] = args ? args.exposeRoutesToVswitch : undefined;
             resourceInputs["ipRange"] = args ? args.ipRange : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -109,6 +115,10 @@ export interface NetworkState {
      * Enable or disable delete protection.
      */
     deleteProtection?: pulumi.Input<boolean>;
+    /**
+     * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     */
+    exposeRoutesToVswitch?: pulumi.Input<boolean>;
     /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */
@@ -131,6 +141,10 @@ export interface NetworkArgs {
      * Enable or disable delete protection.
      */
     deleteProtection?: pulumi.Input<boolean>;
+    /**
+     * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     */
+    exposeRoutesToVswitch?: pulumi.Input<boolean>;
     /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */

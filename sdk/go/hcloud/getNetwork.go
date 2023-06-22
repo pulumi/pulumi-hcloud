@@ -74,6 +74,8 @@ type LookupNetworkArgs struct {
 type LookupNetworkResult struct {
 	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
+	// (bool) Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+	ExposeRoutesToVswitch bool `pulumi:"exposeRoutesToVswitch"`
 	// Unique ID of the Network.
 	Id int `pulumi:"id"`
 	// IPv4 prefix of the Network.
@@ -134,6 +136,11 @@ func (o LookupNetworkResultOutput) ToLookupNetworkResultOutputWithContext(ctx co
 // (bool) Whether delete protection is enabled.
 func (o LookupNetworkResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNetworkResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+// (bool) Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+func (o LookupNetworkResultOutput) ExposeRoutesToVswitch() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNetworkResult) bool { return v.ExposeRoutesToVswitch }).(pulumi.BoolOutput)
 }
 
 // Unique ID of the Network.

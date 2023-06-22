@@ -53,6 +53,8 @@ type Network struct {
 
 	// Enable or disable delete protection.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
+	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+	ExposeRoutesToVswitch pulumi.BoolPtrOutput `pulumi:"exposeRoutesToVswitch"`
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringOutput `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
@@ -95,6 +97,8 @@ func GetNetwork(ctx *pulumi.Context,
 type networkState struct {
 	// Enable or disable delete protection.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
+	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+	ExposeRoutesToVswitch *bool `pulumi:"exposeRoutesToVswitch"`
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange *string `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
@@ -106,6 +110,8 @@ type networkState struct {
 type NetworkState struct {
 	// Enable or disable delete protection.
 	DeleteProtection pulumi.BoolPtrInput
+	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+	ExposeRoutesToVswitch pulumi.BoolPtrInput
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
@@ -121,6 +127,8 @@ func (NetworkState) ElementType() reflect.Type {
 type networkArgs struct {
 	// Enable or disable delete protection.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
+	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+	ExposeRoutesToVswitch *bool `pulumi:"exposeRoutesToVswitch"`
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange string `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
@@ -133,6 +141,8 @@ type networkArgs struct {
 type NetworkArgs struct {
 	// Enable or disable delete protection.
 	DeleteProtection pulumi.BoolPtrInput
+	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+	ExposeRoutesToVswitch pulumi.BoolPtrInput
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringInput
 	// User-defined labels (key-value pairs) should be created with.
@@ -231,6 +241,11 @@ func (o NetworkOutput) ToNetworkOutputWithContext(ctx context.Context) NetworkOu
 // Enable or disable delete protection.
 func (o NetworkOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
+}
+
+// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+func (o NetworkOutput) ExposeRoutesToVswitch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Network) pulumi.BoolPtrOutput { return v.ExposeRoutesToVswitch }).(pulumi.BoolPtrOutput)
 }
 
 // IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.

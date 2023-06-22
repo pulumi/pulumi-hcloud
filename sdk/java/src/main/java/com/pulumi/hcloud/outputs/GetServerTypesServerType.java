@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -13,13 +14,16 @@ public final class GetServerTypesServerType {
     private String architecture;
     private Integer cores;
     private String cpuType;
+    private String deprecationAnnounced;
     private String description;
     private Integer disk;
     private Integer id;
     private Integer includedTraffic;
+    private Boolean isDeprecated;
     private Integer memory;
     private String name;
     private String storageType;
+    private String unavailableAfter;
 
     private GetServerTypesServerType() {}
     public String architecture() {
@@ -30,6 +34,9 @@ public final class GetServerTypesServerType {
     }
     public String cpuType() {
         return this.cpuType;
+    }
+    public String deprecationAnnounced() {
+        return this.deprecationAnnounced;
     }
     public String description() {
         return this.description;
@@ -43,6 +50,9 @@ public final class GetServerTypesServerType {
     public Integer includedTraffic() {
         return this.includedTraffic;
     }
+    public Boolean isDeprecated() {
+        return this.isDeprecated;
+    }
     public Integer memory() {
         return this.memory;
     }
@@ -51,6 +61,9 @@ public final class GetServerTypesServerType {
     }
     public String storageType() {
         return this.storageType;
+    }
+    public String unavailableAfter() {
+        return this.unavailableAfter;
     }
 
     public static Builder builder() {
@@ -65,26 +78,32 @@ public final class GetServerTypesServerType {
         private String architecture;
         private Integer cores;
         private String cpuType;
+        private String deprecationAnnounced;
         private String description;
         private Integer disk;
         private Integer id;
         private Integer includedTraffic;
+        private Boolean isDeprecated;
         private Integer memory;
         private String name;
         private String storageType;
+        private String unavailableAfter;
         public Builder() {}
         public Builder(GetServerTypesServerType defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.architecture = defaults.architecture;
     	      this.cores = defaults.cores;
     	      this.cpuType = defaults.cpuType;
+    	      this.deprecationAnnounced = defaults.deprecationAnnounced;
     	      this.description = defaults.description;
     	      this.disk = defaults.disk;
     	      this.id = defaults.id;
     	      this.includedTraffic = defaults.includedTraffic;
+    	      this.isDeprecated = defaults.isDeprecated;
     	      this.memory = defaults.memory;
     	      this.name = defaults.name;
     	      this.storageType = defaults.storageType;
+    	      this.unavailableAfter = defaults.unavailableAfter;
         }
 
         @CustomType.Setter
@@ -100,6 +119,11 @@ public final class GetServerTypesServerType {
         @CustomType.Setter
         public Builder cpuType(String cpuType) {
             this.cpuType = Objects.requireNonNull(cpuType);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deprecationAnnounced(String deprecationAnnounced) {
+            this.deprecationAnnounced = Objects.requireNonNull(deprecationAnnounced);
             return this;
         }
         @CustomType.Setter
@@ -123,6 +147,11 @@ public final class GetServerTypesServerType {
             return this;
         }
         @CustomType.Setter
+        public Builder isDeprecated(Boolean isDeprecated) {
+            this.isDeprecated = Objects.requireNonNull(isDeprecated);
+            return this;
+        }
+        @CustomType.Setter
         public Builder memory(Integer memory) {
             this.memory = Objects.requireNonNull(memory);
             return this;
@@ -137,18 +166,26 @@ public final class GetServerTypesServerType {
             this.storageType = Objects.requireNonNull(storageType);
             return this;
         }
+        @CustomType.Setter
+        public Builder unavailableAfter(String unavailableAfter) {
+            this.unavailableAfter = Objects.requireNonNull(unavailableAfter);
+            return this;
+        }
         public GetServerTypesServerType build() {
             final var o = new GetServerTypesServerType();
             o.architecture = architecture;
             o.cores = cores;
             o.cpuType = cpuType;
+            o.deprecationAnnounced = deprecationAnnounced;
             o.description = description;
             o.disk = disk;
             o.id = id;
             o.includedTraffic = includedTraffic;
+            o.isDeprecated = isDeprecated;
             o.memory = memory;
             o.name = name;
             o.storageType = storageType;
+            o.unavailableAfter = unavailableAfter;
             return o;
         }
     }
