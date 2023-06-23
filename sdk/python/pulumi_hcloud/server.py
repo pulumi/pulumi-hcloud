@@ -857,14 +857,14 @@ class Server(pulumi.CustomResource):
         # Assign existing ipv4 only
         server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
-            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
             ipv6_enabled=False,
         )])
         #...
         # Link a managed ipv4 but autogenerate ipv6
         server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
-            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
             ipv6_enabled=False,
         )])
         #...
@@ -978,14 +978,14 @@ class Server(pulumi.CustomResource):
         # Assign existing ipv4 only
         server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
-            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
             ipv6_enabled=False,
         )])
         #...
         # Link a managed ipv4 but autogenerate ipv6
         server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
-            ipv4=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
             ipv6_enabled=False,
         )])
         #...

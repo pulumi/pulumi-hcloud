@@ -180,6 +180,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>
+        /// (bool) Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        /// </summary>
+        public readonly bool ExposeRoutesToVswitch;
+        /// <summary>
         /// Unique ID of the Network.
         /// </summary>
         public readonly int Id;
@@ -199,6 +203,8 @@ namespace Pulumi.HCloud
         private GetNetworkResult(
             bool deleteProtection,
 
+            bool exposeRoutesToVswitch,
+
             int id,
 
             string? ipRange,
@@ -212,6 +218,7 @@ namespace Pulumi.HCloud
             string? withSelector)
         {
             DeleteProtection = deleteProtection;
+            ExposeRoutesToVswitch = exposeRoutesToVswitch;
             Id = id;
             IpRange = ipRange;
             Labels = labels;

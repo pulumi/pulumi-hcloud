@@ -16,6 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetNetworksNetwork {
     private Boolean deleteProtection;
+    private Boolean exposeRoutesToVswitch;
     private Integer id;
     private @Nullable String ipRange;
     private @Nullable Map<String,Object> labels;
@@ -24,6 +25,9 @@ public final class GetNetworksNetwork {
     private GetNetworksNetwork() {}
     public Boolean deleteProtection() {
         return this.deleteProtection;
+    }
+    public Boolean exposeRoutesToVswitch() {
+        return this.exposeRoutesToVswitch;
     }
     public Integer id() {
         return this.id;
@@ -48,6 +52,7 @@ public final class GetNetworksNetwork {
     @CustomType.Builder
     public static final class Builder {
         private Boolean deleteProtection;
+        private Boolean exposeRoutesToVswitch;
         private Integer id;
         private @Nullable String ipRange;
         private @Nullable Map<String,Object> labels;
@@ -56,6 +61,7 @@ public final class GetNetworksNetwork {
         public Builder(GetNetworksNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteProtection = defaults.deleteProtection;
+    	      this.exposeRoutesToVswitch = defaults.exposeRoutesToVswitch;
     	      this.id = defaults.id;
     	      this.ipRange = defaults.ipRange;
     	      this.labels = defaults.labels;
@@ -65,6 +71,11 @@ public final class GetNetworksNetwork {
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
             this.deleteProtection = Objects.requireNonNull(deleteProtection);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder exposeRoutesToVswitch(Boolean exposeRoutesToVswitch) {
+            this.exposeRoutesToVswitch = Objects.requireNonNull(exposeRoutesToVswitch);
             return this;
         }
         @CustomType.Setter
@@ -90,6 +101,7 @@ public final class GetNetworksNetwork {
         public GetNetworksNetwork build() {
             final var o = new GetNetworksNetwork();
             o.deleteProtection = deleteProtection;
+            o.exposeRoutesToVswitch = exposeRoutesToVswitch;
             o.id = id;
             o.ipRange = ipRange;
             o.labels = labels;

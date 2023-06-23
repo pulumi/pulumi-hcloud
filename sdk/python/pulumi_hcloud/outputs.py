@@ -1880,11 +1880,13 @@ class GetLocationsLocationResult(dict):
 class GetNetworksNetworkResult(dict):
     def __init__(__self__, *,
                  delete_protection: bool,
+                 expose_routes_to_vswitch: bool,
                  id: int,
                  ip_range: Optional[str] = None,
                  labels: Optional[Mapping[str, Any]] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "delete_protection", delete_protection)
+        pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
         pulumi.set(__self__, "id", id)
         if ip_range is not None:
             pulumi.set(__self__, "ip_range", ip_range)
@@ -1897,6 +1899,11 @@ class GetNetworksNetworkResult(dict):
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> bool:
         return pulumi.get(self, "delete_protection")
+
+    @property
+    @pulumi.getter(name="exposeRoutesToVswitch")
+    def expose_routes_to_vswitch(self) -> bool:
+        return pulumi.get(self, "expose_routes_to_vswitch")
 
     @property
     @pulumi.getter
@@ -2051,23 +2058,29 @@ class GetServerTypesServerTypeResult(dict):
                  architecture: str,
                  cores: int,
                  cpu_type: str,
+                 deprecation_announced: str,
                  description: str,
                  disk: int,
                  id: int,
                  included_traffic: int,
+                 is_deprecated: bool,
                  memory: int,
                  name: str,
-                 storage_type: str):
+                 storage_type: str,
+                 unavailable_after: str):
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "cores", cores)
         pulumi.set(__self__, "cpu_type", cpu_type)
+        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "disk", disk)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "included_traffic", included_traffic)
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
         pulumi.set(__self__, "memory", memory)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "storage_type", storage_type)
+        pulumi.set(__self__, "unavailable_after", unavailable_after)
 
     @property
     @pulumi.getter
@@ -2083,6 +2096,11 @@ class GetServerTypesServerTypeResult(dict):
     @pulumi.getter(name="cpuType")
     def cpu_type(self) -> str:
         return pulumi.get(self, "cpu_type")
+
+    @property
+    @pulumi.getter(name="deprecationAnnounced")
+    def deprecation_announced(self) -> str:
+        return pulumi.get(self, "deprecation_announced")
 
     @property
     @pulumi.getter
@@ -2105,6 +2123,11 @@ class GetServerTypesServerTypeResult(dict):
         return pulumi.get(self, "included_traffic")
 
     @property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> bool:
+        return pulumi.get(self, "is_deprecated")
+
+    @property
     @pulumi.getter
     def memory(self) -> int:
         return pulumi.get(self, "memory")
@@ -2118,6 +2141,11 @@ class GetServerTypesServerTypeResult(dict):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> str:
         return pulumi.get(self, "storage_type")
+
+    @property
+    @pulumi.getter(name="unavailableAfter")
+    def unavailable_after(self) -> str:
+        return pulumi.get(self, "unavailable_after")
 
 
 @pulumi.output_type

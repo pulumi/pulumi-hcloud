@@ -21,10 +21,13 @@ class GetNetworkResult:
     """
     A collection of values returned by getNetwork.
     """
-    def __init__(__self__, delete_protection=None, id=None, ip_range=None, labels=None, most_recent=None, name=None, with_selector=None):
+    def __init__(__self__, delete_protection=None, expose_routes_to_vswitch=None, id=None, ip_range=None, labels=None, most_recent=None, name=None, with_selector=None):
         if delete_protection and not isinstance(delete_protection, bool):
             raise TypeError("Expected argument 'delete_protection' to be a bool")
         pulumi.set(__self__, "delete_protection", delete_protection)
+        if expose_routes_to_vswitch and not isinstance(expose_routes_to_vswitch, bool):
+            raise TypeError("Expected argument 'expose_routes_to_vswitch' to be a bool")
+        pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -51,6 +54,14 @@ class GetNetworkResult:
         (bool) Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
+
+    @property
+    @pulumi.getter(name="exposeRoutesToVswitch")
+    def expose_routes_to_vswitch(self) -> bool:
+        """
+        (bool) Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        """
+        return pulumi.get(self, "expose_routes_to_vswitch")
 
     @property
     @pulumi.getter
@@ -99,6 +110,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             yield self
         return GetNetworkResult(
             delete_protection=self.delete_protection,
+            expose_routes_to_vswitch=self.expose_routes_to_vswitch,
             id=self.id,
             ip_range=self.ip_range,
             labels=self.labels,
@@ -144,6 +156,7 @@ def get_network(id: Optional[int] = None,
 
     return AwaitableGetNetworkResult(
         delete_protection=__ret__.delete_protection,
+        expose_routes_to_vswitch=__ret__.expose_routes_to_vswitch,
         id=__ret__.id,
         ip_range=__ret__.ip_range,
         labels=__ret__.labels,

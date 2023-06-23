@@ -16,13 +16,16 @@ namespace Pulumi.HCloud.Outputs
         public readonly string Architecture;
         public readonly int Cores;
         public readonly string CpuType;
+        public readonly string DeprecationAnnounced;
         public readonly string Description;
         public readonly int Disk;
         public readonly int Id;
         public readonly int IncludedTraffic;
+        public readonly bool IsDeprecated;
         public readonly int Memory;
         public readonly string Name;
         public readonly string StorageType;
+        public readonly string UnavailableAfter;
 
         [OutputConstructor]
         private GetServerTypesServerTypeResult(
@@ -32,6 +35,8 @@ namespace Pulumi.HCloud.Outputs
 
             string cpuType,
 
+            string deprecationAnnounced,
+
             string description,
 
             int disk,
@@ -40,22 +45,29 @@ namespace Pulumi.HCloud.Outputs
 
             int includedTraffic,
 
+            bool isDeprecated,
+
             int memory,
 
             string name,
 
-            string storageType)
+            string storageType,
+
+            string unavailableAfter)
         {
             Architecture = architecture;
             Cores = cores;
             CpuType = cpuType;
+            DeprecationAnnounced = deprecationAnnounced;
             Description = description;
             Disk = disk;
             Id = id;
             IncludedTraffic = includedTraffic;
+            IsDeprecated = isDeprecated;
             Memory = memory;
             Name = name;
             StorageType = storageType;
+            UnavailableAfter = unavailableAfter;
         }
     }
 }

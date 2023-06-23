@@ -76,6 +76,20 @@ public class Network extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deleteProtection);
     }
     /**
+     * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     * 
+     */
+    @Export(name="exposeRoutesToVswitch", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> exposeRoutesToVswitch;
+
+    /**
+     * @return Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     * 
+     */
+    public Output<Optional<Boolean>> exposeRoutesToVswitch() {
+        return Codegen.optional(this.exposeRoutesToVswitch);
+    }
+    /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      * 
      */

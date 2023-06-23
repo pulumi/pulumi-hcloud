@@ -4351,11 +4351,12 @@ func (o GetLocationsLocationArrayOutput) Index(i pulumi.IntInput) GetLocationsLo
 }
 
 type GetNetworksNetwork struct {
-	DeleteProtection bool                   `pulumi:"deleteProtection"`
-	Id               int                    `pulumi:"id"`
-	IpRange          *string                `pulumi:"ipRange"`
-	Labels           map[string]interface{} `pulumi:"labels"`
-	Name             *string                `pulumi:"name"`
+	DeleteProtection      bool                   `pulumi:"deleteProtection"`
+	ExposeRoutesToVswitch bool                   `pulumi:"exposeRoutesToVswitch"`
+	Id                    int                    `pulumi:"id"`
+	IpRange               *string                `pulumi:"ipRange"`
+	Labels                map[string]interface{} `pulumi:"labels"`
+	Name                  *string                `pulumi:"name"`
 }
 
 // GetNetworksNetworkInput is an input type that accepts GetNetworksNetworkArgs and GetNetworksNetworkOutput values.
@@ -4370,11 +4371,12 @@ type GetNetworksNetworkInput interface {
 }
 
 type GetNetworksNetworkArgs struct {
-	DeleteProtection pulumi.BoolInput      `pulumi:"deleteProtection"`
-	Id               pulumi.IntInput       `pulumi:"id"`
-	IpRange          pulumi.StringPtrInput `pulumi:"ipRange"`
-	Labels           pulumi.MapInput       `pulumi:"labels"`
-	Name             pulumi.StringPtrInput `pulumi:"name"`
+	DeleteProtection      pulumi.BoolInput      `pulumi:"deleteProtection"`
+	ExposeRoutesToVswitch pulumi.BoolInput      `pulumi:"exposeRoutesToVswitch"`
+	Id                    pulumi.IntInput       `pulumi:"id"`
+	IpRange               pulumi.StringPtrInput `pulumi:"ipRange"`
+	Labels                pulumi.MapInput       `pulumi:"labels"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetNetworksNetworkArgs) ElementType() reflect.Type {
@@ -4430,6 +4432,10 @@ func (o GetNetworksNetworkOutput) ToGetNetworksNetworkOutputWithContext(ctx cont
 
 func (o GetNetworksNetworkOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNetworksNetwork) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+func (o GetNetworksNetworkOutput) ExposeRoutesToVswitch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetNetworksNetwork) bool { return v.ExposeRoutesToVswitch }).(pulumi.BoolOutput)
 }
 
 func (o GetNetworksNetworkOutput) Id() pulumi.IntOutput {
@@ -4741,16 +4747,19 @@ func (o GetPrimaryIpsPrimaryIpArrayOutput) Index(i pulumi.IntInput) GetPrimaryIp
 }
 
 type GetServerTypesServerType struct {
-	Architecture    string `pulumi:"architecture"`
-	Cores           int    `pulumi:"cores"`
-	CpuType         string `pulumi:"cpuType"`
-	Description     string `pulumi:"description"`
-	Disk            int    `pulumi:"disk"`
-	Id              int    `pulumi:"id"`
-	IncludedTraffic int    `pulumi:"includedTraffic"`
-	Memory          int    `pulumi:"memory"`
-	Name            string `pulumi:"name"`
-	StorageType     string `pulumi:"storageType"`
+	Architecture         string `pulumi:"architecture"`
+	Cores                int    `pulumi:"cores"`
+	CpuType              string `pulumi:"cpuType"`
+	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
+	Description          string `pulumi:"description"`
+	Disk                 int    `pulumi:"disk"`
+	Id                   int    `pulumi:"id"`
+	IncludedTraffic      int    `pulumi:"includedTraffic"`
+	IsDeprecated         bool   `pulumi:"isDeprecated"`
+	Memory               int    `pulumi:"memory"`
+	Name                 string `pulumi:"name"`
+	StorageType          string `pulumi:"storageType"`
+	UnavailableAfter     string `pulumi:"unavailableAfter"`
 }
 
 // GetServerTypesServerTypeInput is an input type that accepts GetServerTypesServerTypeArgs and GetServerTypesServerTypeOutput values.
@@ -4765,16 +4774,19 @@ type GetServerTypesServerTypeInput interface {
 }
 
 type GetServerTypesServerTypeArgs struct {
-	Architecture    pulumi.StringInput `pulumi:"architecture"`
-	Cores           pulumi.IntInput    `pulumi:"cores"`
-	CpuType         pulumi.StringInput `pulumi:"cpuType"`
-	Description     pulumi.StringInput `pulumi:"description"`
-	Disk            pulumi.IntInput    `pulumi:"disk"`
-	Id              pulumi.IntInput    `pulumi:"id"`
-	IncludedTraffic pulumi.IntInput    `pulumi:"includedTraffic"`
-	Memory          pulumi.IntInput    `pulumi:"memory"`
-	Name            pulumi.StringInput `pulumi:"name"`
-	StorageType     pulumi.StringInput `pulumi:"storageType"`
+	Architecture         pulumi.StringInput `pulumi:"architecture"`
+	Cores                pulumi.IntInput    `pulumi:"cores"`
+	CpuType              pulumi.StringInput `pulumi:"cpuType"`
+	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
+	Description          pulumi.StringInput `pulumi:"description"`
+	Disk                 pulumi.IntInput    `pulumi:"disk"`
+	Id                   pulumi.IntInput    `pulumi:"id"`
+	IncludedTraffic      pulumi.IntInput    `pulumi:"includedTraffic"`
+	IsDeprecated         pulumi.BoolInput   `pulumi:"isDeprecated"`
+	Memory               pulumi.IntInput    `pulumi:"memory"`
+	Name                 pulumi.StringInput `pulumi:"name"`
+	StorageType          pulumi.StringInput `pulumi:"storageType"`
+	UnavailableAfter     pulumi.StringInput `pulumi:"unavailableAfter"`
 }
 
 func (GetServerTypesServerTypeArgs) ElementType() reflect.Type {
@@ -4840,6 +4852,10 @@ func (o GetServerTypesServerTypeOutput) CpuType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.CpuType }).(pulumi.StringOutput)
 }
 
+func (o GetServerTypesServerTypeOutput) DeprecationAnnounced() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
+}
+
 func (o GetServerTypesServerTypeOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -4856,6 +4872,10 @@ func (o GetServerTypesServerTypeOutput) IncludedTraffic() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) int { return v.IncludedTraffic }).(pulumi.IntOutput)
 }
 
+func (o GetServerTypesServerTypeOutput) IsDeprecated() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
+}
+
 func (o GetServerTypesServerTypeOutput) Memory() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Memory }).(pulumi.IntOutput)
 }
@@ -4866,6 +4886,10 @@ func (o GetServerTypesServerTypeOutput) Name() pulumi.StringOutput {
 
 func (o GetServerTypesServerTypeOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+func (o GetServerTypesServerTypeOutput) UnavailableAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) string { return v.UnavailableAfter }).(pulumi.StringOutput)
 }
 
 type GetServerTypesServerTypeArrayOutput struct{ *pulumi.OutputState }

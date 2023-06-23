@@ -48,6 +48,12 @@ namespace Pulumi.HCloud
         public Output<bool?> DeleteProtection { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        /// </summary>
+        [Output("exposeRoutesToVswitch")]
+        public Output<bool?> ExposeRoutesToVswitch { get; private set; } = null!;
+
+        /// <summary>
         /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         /// </summary>
         [Output("ipRange")]
@@ -118,6 +124,12 @@ namespace Pulumi.HCloud
         public Input<bool>? DeleteProtection { get; set; }
 
         /// <summary>
+        /// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        /// </summary>
+        [Input("exposeRoutesToVswitch")]
+        public Input<bool>? ExposeRoutesToVswitch { get; set; }
+
+        /// <summary>
         /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         /// </summary>
         [Input("ipRange", required: true)]
@@ -154,6 +166,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
+
+        /// <summary>
+        /// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        /// </summary>
+        [Input("exposeRoutesToVswitch")]
+        public Input<bool>? ExposeRoutesToVswitch { get; set; }
 
         /// <summary>
         /// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.

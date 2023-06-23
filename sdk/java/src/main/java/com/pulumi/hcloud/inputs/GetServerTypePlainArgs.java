@@ -16,6 +16,21 @@ public final class GetServerTypePlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetServerTypePlainArgs Empty = new GetServerTypePlainArgs();
 
     /**
+     * (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+     * 
+     */
+    @Import(name="deprecationAnnounced")
+    private @Nullable String deprecationAnnounced;
+
+    /**
+     * @return (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+     * 
+     */
+    public Optional<String> deprecationAnnounced() {
+        return Optional.ofNullable(this.deprecationAnnounced);
+    }
+
+    /**
      * ID of the server_type.
      * 
      */
@@ -45,11 +60,28 @@ public final class GetServerTypePlainArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+     * 
+     */
+    @Import(name="unavailableAfter")
+    private @Nullable String unavailableAfter;
+
+    /**
+     * @return (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+     * 
+     */
+    public Optional<String> unavailableAfter() {
+        return Optional.ofNullable(this.unavailableAfter);
+    }
+
     private GetServerTypePlainArgs() {}
 
     private GetServerTypePlainArgs(GetServerTypePlainArgs $) {
+        this.deprecationAnnounced = $.deprecationAnnounced;
         this.id = $.id;
         this.name = $.name;
+        this.unavailableAfter = $.unavailableAfter;
     }
 
     public static Builder builder() {
@@ -71,6 +103,17 @@ public final class GetServerTypePlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
+         * @param deprecationAnnounced (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deprecationAnnounced(@Nullable String deprecationAnnounced) {
+            $.deprecationAnnounced = deprecationAnnounced;
+            return this;
+        }
+
+        /**
          * @param id ID of the server_type.
          * 
          * @return builder
@@ -89,6 +132,17 @@ public final class GetServerTypePlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param unavailableAfter (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unavailableAfter(@Nullable String unavailableAfter) {
+            $.unavailableAfter = unavailableAfter;
             return this;
         }
 

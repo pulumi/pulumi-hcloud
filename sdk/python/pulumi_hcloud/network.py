@@ -16,18 +16,22 @@ class NetworkArgs:
     def __init__(__self__, *,
                  ip_range: pulumi.Input[str],
                  delete_protection: Optional[pulumi.Input[bool]] = None,
+                 expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Network resource.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
         pulumi.set(__self__, "ip_range", ip_range)
         if delete_protection is not None:
             pulumi.set(__self__, "delete_protection", delete_protection)
+        if expose_routes_to_vswitch is not None:
+            pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if name is not None:
@@ -58,6 +62,18 @@ class NetworkArgs:
         pulumi.set(self, "delete_protection", value)
 
     @property
+    @pulumi.getter(name="exposeRoutesToVswitch")
+    def expose_routes_to_vswitch(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        """
+        return pulumi.get(self, "expose_routes_to_vswitch")
+
+    @expose_routes_to_vswitch.setter
+    def expose_routes_to_vswitch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expose_routes_to_vswitch", value)
+
+    @property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
@@ -86,18 +102,22 @@ class NetworkArgs:
 class _NetworkState:
     def __init__(__self__, *,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
+                 expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Network resources.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
         if delete_protection is not None:
             pulumi.set(__self__, "delete_protection", delete_protection)
+        if expose_routes_to_vswitch is not None:
+            pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
         if ip_range is not None:
             pulumi.set(__self__, "ip_range", ip_range)
         if labels is not None:
@@ -116,6 +136,18 @@ class _NetworkState:
     @delete_protection.setter
     def delete_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_protection", value)
+
+    @property
+    @pulumi.getter(name="exposeRoutesToVswitch")
+    def expose_routes_to_vswitch(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        """
+        return pulumi.get(self, "expose_routes_to_vswitch")
+
+    @expose_routes_to_vswitch.setter
+    def expose_routes_to_vswitch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expose_routes_to_vswitch", value)
 
     @property
     @pulumi.getter(name="ipRange")
@@ -160,6 +192,7 @@ class Network(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
+                 expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -187,6 +220,7 @@ class Network(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
@@ -233,6 +267,7 @@ class Network(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
+                 expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -246,6 +281,7 @@ class Network(pulumi.CustomResource):
             __props__ = NetworkArgs.__new__(NetworkArgs)
 
             __props__.__dict__["delete_protection"] = delete_protection
+            __props__.__dict__["expose_routes_to_vswitch"] = expose_routes_to_vswitch
             if ip_range is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_range'")
             __props__.__dict__["ip_range"] = ip_range
@@ -262,6 +298,7 @@ class Network(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             delete_protection: Optional[pulumi.Input[bool]] = None,
+            expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
             ip_range: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Network':
@@ -273,6 +310,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
@@ -282,6 +320,7 @@ class Network(pulumi.CustomResource):
         __props__ = _NetworkState.__new__(_NetworkState)
 
         __props__.__dict__["delete_protection"] = delete_protection
+        __props__.__dict__["expose_routes_to_vswitch"] = expose_routes_to_vswitch
         __props__.__dict__["ip_range"] = ip_range
         __props__.__dict__["labels"] = labels
         __props__.__dict__["name"] = name
@@ -294,6 +333,14 @@ class Network(pulumi.CustomResource):
         Enable or disable delete protection.
         """
         return pulumi.get(self, "delete_protection")
+
+    @property
+    @pulumi.getter(name="exposeRoutesToVswitch")
+    def expose_routes_to_vswitch(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        """
+        return pulumi.get(self, "expose_routes_to_vswitch")
 
     @property
     @pulumi.getter(name="ipRange")

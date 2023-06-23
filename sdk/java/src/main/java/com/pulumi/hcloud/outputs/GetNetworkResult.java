@@ -21,6 +21,11 @@ public final class GetNetworkResult {
      */
     private Boolean deleteProtection;
     /**
+     * @return (bool) Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     * 
+     */
+    private Boolean exposeRoutesToVswitch;
+    /**
      * @return Unique ID of the Network.
      * 
      */
@@ -46,6 +51,13 @@ public final class GetNetworkResult {
      */
     public Boolean deleteProtection() {
         return this.deleteProtection;
+    }
+    /**
+     * @return (bool) Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     * 
+     */
+    public Boolean exposeRoutesToVswitch() {
+        return this.exposeRoutesToVswitch;
     }
     /**
      * @return Unique ID of the Network.
@@ -88,6 +100,7 @@ public final class GetNetworkResult {
     @CustomType.Builder
     public static final class Builder {
         private Boolean deleteProtection;
+        private Boolean exposeRoutesToVswitch;
         private Integer id;
         private @Nullable String ipRange;
         private @Nullable Map<String,Object> labels;
@@ -98,6 +111,7 @@ public final class GetNetworkResult {
         public Builder(GetNetworkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteProtection = defaults.deleteProtection;
+    	      this.exposeRoutesToVswitch = defaults.exposeRoutesToVswitch;
     	      this.id = defaults.id;
     	      this.ipRange = defaults.ipRange;
     	      this.labels = defaults.labels;
@@ -109,6 +123,11 @@ public final class GetNetworkResult {
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
             this.deleteProtection = Objects.requireNonNull(deleteProtection);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder exposeRoutesToVswitch(Boolean exposeRoutesToVswitch) {
+            this.exposeRoutesToVswitch = Objects.requireNonNull(exposeRoutesToVswitch);
             return this;
         }
         @CustomType.Setter
@@ -144,6 +163,7 @@ public final class GetNetworkResult {
         public GetNetworkResult build() {
             final var o = new GetNetworkResult();
             o.deleteProtection = deleteProtection;
+            o.exposeRoutesToVswitch = exposeRoutesToVswitch;
             o.id = id;
             o.ipRange = ipRange;
             o.labels = labels;
