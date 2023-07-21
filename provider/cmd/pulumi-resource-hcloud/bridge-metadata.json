@@ -182,88 +182,388 @@
         },
         "datasources": {
             "hcloud_certificate": {
-                "current": "hcloud:index/getCertificate:getCertificate"
+                "current": "hcloud:index/getCertificate:getCertificate",
+                "fields": {
+                    "domain_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_certificates": {
-                "current": "hcloud:index/getCertificates:getCertificates"
+                "current": "hcloud:index/getCertificates:getCertificates",
+                "fields": {
+                    "certificates": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "domain_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "hcloud_datacenter": {
-                "current": "hcloud:index/getDatacenter:getDatacenter"
+                "current": "hcloud:index/getDatacenter:getDatacenter",
+                "fields": {
+                    "available_server_type_ids": {
+                        "maxItemsOne": false
+                    },
+                    "supported_server_type_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_datacenters": {
-                "current": "hcloud:index/getDatacenters:getDatacenters"
+                "current": "hcloud:index/getDatacenters:getDatacenters",
+                "fields": {
+                    "datacenter_ids": {
+                        "maxItemsOne": false
+                    },
+                    "datacenters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "available_server_type_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "supported_server_type_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "descriptions": {
+                        "maxItemsOne": false
+                    },
+                    "names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_firewall": {
-                "current": "hcloud:index/getFirewall:getFirewall"
+                "current": "hcloud:index/getFirewall:getFirewall",
+                "fields": {
+                    "apply_to": {
+                        "maxItemsOne": false
+                    },
+                    "rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "destination_ips": {
+                                    "maxItemsOne": false
+                                },
+                                "source_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "hcloud_firewalls": {
-                "current": "hcloud:index/getFirewalls:getFirewalls"
+                "current": "hcloud:index/getFirewalls:getFirewalls",
+                "fields": {
+                    "firewalls": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "apply_to": {
+                                    "maxItemsOne": false
+                                },
+                                "rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "destination_ips": {
+                                                "maxItemsOne": false
+                                            },
+                                            "source_ips": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "hcloud_floating_ip": {
                 "current": "hcloud:index/getFloatingIp:getFloatingIp"
             },
             "hcloud_floating_ips": {
-                "current": "hcloud:index/getFloatingIps:getFloatingIps"
+                "current": "hcloud:index/getFloatingIps:getFloatingIps",
+                "fields": {
+                    "floating_ips": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_image": {
-                "current": "hcloud:index/getImage:getImage"
+                "current": "hcloud:index/getImage:getImage",
+                "fields": {
+                    "with_status": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_images": {
-                "current": "hcloud:index/getImages:getImages"
+                "current": "hcloud:index/getImages:getImages",
+                "fields": {
+                    "images": {
+                        "maxItemsOne": false
+                    },
+                    "with_architecture": {
+                        "maxItemsOne": false
+                    },
+                    "with_status": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_load_balancer": {
-                "current": "hcloud:index/getLoadBalancer:getLoadBalancer"
+                "current": "hcloud:index/getLoadBalancer:getLoadBalancer",
+                "fields": {
+                    "algorithm": {
+                        "maxItemsOne": false
+                    },
+                    "service": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "health_check": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "http": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "status_codes": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "http": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "certificates": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "target": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_load_balancers": {
-                "current": "hcloud:index/getLoadBalancers:getLoadBalancers"
+                "current": "hcloud:index/getLoadBalancers:getLoadBalancers",
+                "fields": {
+                    "load_balancers": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "algorithm": {
+                                    "maxItemsOne": false
+                                },
+                                "service": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "health_check": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "http": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "status_codes": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "http": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "certificates": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "hcloud_location": {
                 "current": "hcloud:index/getLocation:getLocation"
             },
             "hcloud_locations": {
-                "current": "hcloud:index/getLocations:getLocations"
+                "current": "hcloud:index/getLocations:getLocations",
+                "fields": {
+                    "descriptions": {
+                        "maxItemsOne": false
+                    },
+                    "location_ids": {
+                        "maxItemsOne": false
+                    },
+                    "locations": {
+                        "maxItemsOne": false
+                    },
+                    "names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_network": {
                 "current": "hcloud:index/getNetwork:getNetwork"
             },
             "hcloud_networks": {
-                "current": "hcloud:index/getNetworks:getNetworks"
+                "current": "hcloud:index/getNetworks:getNetworks",
+                "fields": {
+                    "networks": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_placement_group": {
-                "current": "hcloud:index/getPlacementGroup:getPlacementGroup"
+                "current": "hcloud:index/getPlacementGroup:getPlacementGroup",
+                "fields": {
+                    "servers": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_placement_groups": {
-                "current": "hcloud:index/getPlacementGroups:getPlacementGroups"
+                "current": "hcloud:index/getPlacementGroups:getPlacementGroups",
+                "fields": {
+                    "placement_groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "servers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "hcloud_primary_ip": {
                 "current": "hcloud:index/getPrimaryIp:getPrimaryIp"
             },
             "hcloud_primary_ips": {
-                "current": "hcloud:index/getPrimaryIps:getPrimaryIps"
+                "current": "hcloud:index/getPrimaryIps:getPrimaryIps",
+                "fields": {
+                    "primary_ips": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_server": {
-                "current": "hcloud:index/getServer:getServer"
+                "current": "hcloud:index/getServer:getServer",
+                "fields": {
+                    "firewall_ids": {
+                        "maxItemsOne": false
+                    },
+                    "with_status": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_server_type": {
                 "current": "hcloud:index/getServerType:getServerType"
             },
             "hcloud_server_types": {
-                "current": "hcloud:index/getServerTypes:getServerTypes"
+                "current": "hcloud:index/getServerTypes:getServerTypes",
+                "fields": {
+                    "descriptions": {
+                        "maxItemsOne": false
+                    },
+                    "names": {
+                        "maxItemsOne": false
+                    },
+                    "server_type_ids": {
+                        "maxItemsOne": false
+                    },
+                    "server_types": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_servers": {
-                "current": "hcloud:index/getServers:getServers"
+                "current": "hcloud:index/getServers:getServers",
+                "fields": {
+                    "servers": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "firewall_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "with_status": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_ssh_key": {
                 "current": "hcloud:index/getSshKey:getSshKey"
             },
             "hcloud_ssh_keys": {
-                "current": "hcloud:index/getSshKeys:getSshKeys"
+                "current": "hcloud:index/getSshKeys:getSshKeys",
+                "fields": {
+                    "ssh_keys": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_volume": {
-                "current": "hcloud:index/getVolume:getVolume"
+                "current": "hcloud:index/getVolume:getVolume",
+                "fields": {
+                    "with_status": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_volumes": {
-                "current": "hcloud:index/getVolumes:getVolumes"
+                "current": "hcloud:index/getVolumes:getVolumes",
+                "fields": {
+                    "volumes": {
+                        "maxItemsOne": false
+                    },
+                    "with_status": {
+                        "maxItemsOne": false
+                    }
+                }
             }
         }
     },
