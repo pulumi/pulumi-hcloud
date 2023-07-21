@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -123,6 +124,7 @@ func NewFirewallAttachment(ctx *pulumi.Context,
 	if args.FirewallId == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallAttachment
 	err := ctx.RegisterResource("hcloud:index/firewallAttachment:FirewallAttachment", name, args, &resource, opts...)
 	if err != nil {

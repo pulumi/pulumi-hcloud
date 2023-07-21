@@ -101,10 +101,10 @@ def get_firewalls(most_recent: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getFirewalls:getFirewalls', __args__, opts=opts, typ=GetFirewallsResult).value
 
     return AwaitableGetFirewallsResult(
-        firewalls=__ret__.firewalls,
-        id=__ret__.id,
-        most_recent=__ret__.most_recent,
-        with_selector=__ret__.with_selector)
+        firewalls=pulumi.get(__ret__, 'firewalls'),
+        id=pulumi.get(__ret__, 'id'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_firewalls)

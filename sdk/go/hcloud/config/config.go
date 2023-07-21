@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 func GetEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "hcloud:endpoint")

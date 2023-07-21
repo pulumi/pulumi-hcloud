@@ -140,6 +140,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
+        warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+        pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
+
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -339,6 +342,9 @@ class _LoadBalancerState:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
+        warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+        pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
+
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -633,5 +639,8 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Sequence['outputs.LoadBalancerTarget']]:
+        warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+        pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
+
         return pulumi.get(self, "targets")
 

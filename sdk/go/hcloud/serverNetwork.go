@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -111,6 +112,7 @@ func NewServerNetwork(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerNetwork
 	err := ctx.RegisterResource("hcloud:index/serverNetwork:ServerNetwork", name, args, &resource, opts...)
 	if err != nil {

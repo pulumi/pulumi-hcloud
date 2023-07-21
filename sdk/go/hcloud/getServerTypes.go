@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a list of available Hetzner Cloud Server Types.
 func GetServerTypes(ctx *pulumi.Context, args *GetServerTypesArgs, opts ...pulumi.InvokeOption) (*GetServerTypesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerTypesResult
 	err := ctx.Invoke("hcloud:index/getServerTypes:getServerTypes", args, &rv, opts...)
 	if err != nil {

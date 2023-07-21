@@ -25,30 +25,18 @@ class GetDatacentersResult:
     def __init__(__self__, datacenter_ids=None, datacenters=None, descriptions=None, id=None, names=None):
         if datacenter_ids and not isinstance(datacenter_ids, list):
             raise TypeError("Expected argument 'datacenter_ids' to be a list")
-        if datacenter_ids is not None:
-            warnings.warn("""Use datacenters list instead""", DeprecationWarning)
-            pulumi.log.warn("""datacenter_ids is deprecated: Use datacenters list instead""")
-
         pulumi.set(__self__, "datacenter_ids", datacenter_ids)
         if datacenters and not isinstance(datacenters, list):
             raise TypeError("Expected argument 'datacenters' to be a list")
         pulumi.set(__self__, "datacenters", datacenters)
         if descriptions and not isinstance(descriptions, list):
             raise TypeError("Expected argument 'descriptions' to be a list")
-        if descriptions is not None:
-            warnings.warn("""Use datacenters list instead""", DeprecationWarning)
-            pulumi.log.warn("""descriptions is deprecated: Use datacenters list instead""")
-
         pulumi.set(__self__, "descriptions", descriptions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
-        if names is not None:
-            warnings.warn("""Use datacenters list instead""", DeprecationWarning)
-            pulumi.log.warn("""names is deprecated: Use datacenters list instead""")
-
         pulumi.set(__self__, "names", names)
 
     @property
@@ -57,6 +45,9 @@ class GetDatacentersResult:
         """
         (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
         """
+        warnings.warn("""Use datacenters list instead""", DeprecationWarning)
+        pulumi.log.warn("""datacenter_ids is deprecated: Use datacenters list instead""")
+
         return pulumi.get(self, "datacenter_ids")
 
     @property
@@ -73,6 +64,9 @@ class GetDatacentersResult:
         """
         (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
         """
+        warnings.warn("""Use datacenters list instead""", DeprecationWarning)
+        pulumi.log.warn("""descriptions is deprecated: Use datacenters list instead""")
+
         return pulumi.get(self, "descriptions")
 
     @property
@@ -89,6 +83,9 @@ class GetDatacentersResult:
         """
         (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
         """
+        warnings.warn("""Use datacenters list instead""", DeprecationWarning)
+        pulumi.log.warn("""names is deprecated: Use datacenters list instead""")
+
         return pulumi.get(self, "names")
 
 
@@ -120,11 +117,11 @@ def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getDatacenters:getDatacenters', __args__, opts=opts, typ=GetDatacentersResult).value
 
     return AwaitableGetDatacentersResult(
-        datacenter_ids=__ret__.datacenter_ids,
-        datacenters=__ret__.datacenters,
-        descriptions=__ret__.descriptions,
-        id=__ret__.id,
-        names=__ret__.names)
+        datacenter_ids=pulumi.get(__ret__, 'datacenter_ids'),
+        datacenters=pulumi.get(__ret__, 'datacenters'),
+        descriptions=pulumi.get(__ret__, 'descriptions'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'))
 
 
 @_utilities.lift_output_func(get_datacenters)

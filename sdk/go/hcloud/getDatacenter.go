@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ import (
 //
 // ```
 func GetDatacenter(ctx *pulumi.Context, args *GetDatacenterArgs, opts ...pulumi.InvokeOption) (*GetDatacenterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDatacenterResult
 	err := ctx.Invoke("hcloud:index/getDatacenter:getDatacenter", args, &rv, opts...)
 	if err != nil {

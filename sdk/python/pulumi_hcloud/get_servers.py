@@ -99,10 +99,10 @@ def get_servers(with_selector: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getServers:getServers', __args__, opts=opts, typ=GetServersResult).value
 
     return AwaitableGetServersResult(
-        id=__ret__.id,
-        servers=__ret__.servers,
-        with_selector=__ret__.with_selector,
-        with_statuses=__ret__.with_statuses)
+        id=pulumi.get(__ret__, 'id'),
+        servers=pulumi.get(__ret__, 'servers'),
+        with_selector=pulumi.get(__ret__, 'with_selector'),
+        with_statuses=pulumi.get(__ret__, 'with_statuses'))
 
 
 @_utilities.lift_output_func(get_servers)

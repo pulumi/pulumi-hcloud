@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,6 +56,7 @@ import (
 //
 // ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageResult
 	err := ctx.Invoke("hcloud:index/getImage:getImage", args, &rv, opts...)
 	if err != nil {

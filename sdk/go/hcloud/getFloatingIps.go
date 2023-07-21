@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetFloatingIps(ctx *pulumi.Context, args *GetFloatingIpsArgs, opts ...pulumi.InvokeOption) (*GetFloatingIpsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFloatingIpsResult
 	err := ctx.Invoke("hcloud:index/getFloatingIps:getFloatingIps", args, &rv, opts...)
 	if err != nil {

@@ -7,12 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a list of available Hetzner Cloud Datacenters.
 // This resource may be useful to create highly available infrastructure, distributed across several datacenters.
 func GetDatacenters(ctx *pulumi.Context, args *GetDatacentersArgs, opts ...pulumi.InvokeOption) (*GetDatacentersResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDatacentersResult
 	err := ctx.Invoke("hcloud:index/getDatacenters:getDatacenters", args, &rv, opts...)
 	if err != nil {

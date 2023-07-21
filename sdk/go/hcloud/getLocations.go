@@ -7,12 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a list of available Hetzner Cloud Locations.
 // This resource may be useful to create highly available infrastructure, distributed across several locations.
 func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationsResult
 	err := ctx.Invoke("hcloud:index/getLocations:getLocations", args, &rv, opts...)
 	if err != nil {

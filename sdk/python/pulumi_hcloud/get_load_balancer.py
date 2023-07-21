@@ -238,21 +238,21 @@ def get_load_balancer(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
 
     return AwaitableGetLoadBalancerResult(
-        algorithms=__ret__.algorithms,
-        delete_protection=__ret__.delete_protection,
-        id=__ret__.id,
-        ipv4=__ret__.ipv4,
-        ipv6=__ret__.ipv6,
-        labels=__ret__.labels,
-        load_balancer_type=__ret__.load_balancer_type,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_id=__ret__.network_id,
-        network_ip=__ret__.network_ip,
-        network_zone=__ret__.network_zone,
-        services=__ret__.services,
-        targets=__ret__.targets,
-        with_selector=__ret__.with_selector)
+        algorithms=pulumi.get(__ret__, 'algorithms'),
+        delete_protection=pulumi.get(__ret__, 'delete_protection'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv4=pulumi.get(__ret__, 'ipv4'),
+        ipv6=pulumi.get(__ret__, 'ipv6'),
+        labels=pulumi.get(__ret__, 'labels'),
+        load_balancer_type=pulumi.get(__ret__, 'load_balancer_type'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_id=pulumi.get(__ret__, 'network_id'),
+        network_ip=pulumi.get(__ret__, 'network_ip'),
+        network_zone=pulumi.get(__ret__, 'network_zone'),
+        services=pulumi.get(__ret__, 'services'),
+        targets=pulumi.get(__ret__, 'targets'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_load_balancer)

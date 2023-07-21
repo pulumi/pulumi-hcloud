@@ -155,14 +155,14 @@ def get_network(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult).value
 
     return AwaitableGetNetworkResult(
-        delete_protection=__ret__.delete_protection,
-        expose_routes_to_vswitch=__ret__.expose_routes_to_vswitch,
-        id=__ret__.id,
-        ip_range=__ret__.ip_range,
-        labels=__ret__.labels,
-        most_recent=__ret__.most_recent,
-        name=__ret__.name,
-        with_selector=__ret__.with_selector)
+        delete_protection=pulumi.get(__ret__, 'delete_protection'),
+        expose_routes_to_vswitch=pulumi.get(__ret__, 'expose_routes_to_vswitch'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_range=pulumi.get(__ret__, 'ip_range'),
+        labels=pulumi.get(__ret__, 'labels'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        name=pulumi.get(__ret__, 'name'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_network)

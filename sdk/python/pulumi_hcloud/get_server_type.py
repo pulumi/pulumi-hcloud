@@ -216,19 +216,19 @@ def get_server_type(deprecation_announced: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getServerType:getServerType', __args__, opts=opts, typ=GetServerTypeResult).value
 
     return AwaitableGetServerTypeResult(
-        architecture=__ret__.architecture,
-        cores=__ret__.cores,
-        cpu_type=__ret__.cpu_type,
-        deprecation_announced=__ret__.deprecation_announced,
-        description=__ret__.description,
-        disk=__ret__.disk,
-        id=__ret__.id,
-        included_traffic=__ret__.included_traffic,
-        is_deprecated=__ret__.is_deprecated,
-        memory=__ret__.memory,
-        name=__ret__.name,
-        storage_type=__ret__.storage_type,
-        unavailable_after=__ret__.unavailable_after)
+        architecture=pulumi.get(__ret__, 'architecture'),
+        cores=pulumi.get(__ret__, 'cores'),
+        cpu_type=pulumi.get(__ret__, 'cpu_type'),
+        deprecation_announced=pulumi.get(__ret__, 'deprecation_announced'),
+        description=pulumi.get(__ret__, 'description'),
+        disk=pulumi.get(__ret__, 'disk'),
+        id=pulumi.get(__ret__, 'id'),
+        included_traffic=pulumi.get(__ret__, 'included_traffic'),
+        is_deprecated=pulumi.get(__ret__, 'is_deprecated'),
+        memory=pulumi.get(__ret__, 'memory'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
+        unavailable_after=pulumi.get(__ret__, 'unavailable_after'))
 
 
 @_utilities.lift_output_func(get_server_type)

@@ -152,13 +152,13 @@ def get_firewall(apply_tos: Optional[Sequence[pulumi.InputType['GetFirewallApply
     __ret__ = pulumi.runtime.invoke('hcloud:index/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult).value
 
     return AwaitableGetFirewallResult(
-        apply_tos=__ret__.apply_tos,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        most_recent=__ret__.most_recent,
-        name=__ret__.name,
-        rules=__ret__.rules,
-        with_selector=__ret__.with_selector)
+        apply_tos=pulumi.get(__ret__, 'apply_tos'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        name=pulumi.get(__ret__, 'name'),
+        rules=pulumi.get(__ret__, 'rules'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_firewall)

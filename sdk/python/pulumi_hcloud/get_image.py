@@ -57,10 +57,6 @@ class GetImageResult:
         pulumi.set(__self__, "rapid_deploy", rapid_deploy)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
-        if selector is not None:
-            warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
-            pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
-
         pulumi.set(__self__, "selector", selector)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -160,6 +156,9 @@ class GetImageResult:
     @property
     @pulumi.getter
     def selector(self) -> Optional[str]:
+        warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
+        pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
+
         return pulumi.get(self, "selector")
 
     @property
@@ -252,22 +251,22 @@ def get_image(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        architecture=__ret__.architecture,
-        created=__ret__.created,
-        deprecated=__ret__.deprecated,
-        description=__ret__.description,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        most_recent=__ret__.most_recent,
-        name=__ret__.name,
-        os_flavor=__ret__.os_flavor,
-        os_version=__ret__.os_version,
-        rapid_deploy=__ret__.rapid_deploy,
-        selector=__ret__.selector,
-        type=__ret__.type,
-        with_architecture=__ret__.with_architecture,
-        with_selector=__ret__.with_selector,
-        with_statuses=__ret__.with_statuses)
+        architecture=pulumi.get(__ret__, 'architecture'),
+        created=pulumi.get(__ret__, 'created'),
+        deprecated=pulumi.get(__ret__, 'deprecated'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        name=pulumi.get(__ret__, 'name'),
+        os_flavor=pulumi.get(__ret__, 'os_flavor'),
+        os_version=pulumi.get(__ret__, 'os_version'),
+        rapid_deploy=pulumi.get(__ret__, 'rapid_deploy'),
+        selector=pulumi.get(__ret__, 'selector'),
+        type=pulumi.get(__ret__, 'type'),
+        with_architecture=pulumi.get(__ret__, 'with_architecture'),
+        with_selector=pulumi.get(__ret__, 'with_selector'),
+        with_statuses=pulumi.get(__ret__, 'with_statuses'))
 
 
 @_utilities.lift_output_func(get_image)
