@@ -22,13 +22,16 @@ class GetImagesResult:
     """
     A collection of values returned by getImages.
     """
-    def __init__(__self__, id=None, images=None, most_recent=None, with_architectures=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, id=None, images=None, include_deprecated=None, most_recent=None, with_architectures=None, with_selector=None, with_statuses=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if images and not isinstance(images, list):
             raise TypeError("Expected argument 'images' to be a list")
         pulumi.set(__self__, "images", images)
+        if include_deprecated and not isinstance(include_deprecated, bool):
+            raise TypeError("Expected argument 'include_deprecated' to be a bool")
+        pulumi.set(__self__, "include_deprecated", include_deprecated)
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
@@ -59,6 +62,11 @@ class GetImagesResult:
         return pulumi.get(self, "images")
 
     @property
+    @pulumi.getter(name="includeDeprecated")
+    def include_deprecated(self) -> Optional[bool]:
+        return pulumi.get(self, "include_deprecated")
+
+    @property
     @pulumi.getter(name="mostRecent")
     def most_recent(self) -> Optional[bool]:
         return pulumi.get(self, "most_recent")
@@ -87,13 +95,15 @@ class AwaitableGetImagesResult(GetImagesResult):
         return GetImagesResult(
             id=self.id,
             images=self.images,
+            include_deprecated=self.include_deprecated,
             most_recent=self.most_recent,
             with_architectures=self.with_architectures,
             with_selector=self.with_selector,
             with_statuses=self.with_statuses)
 
 
-def get_images(most_recent: Optional[bool] = None,
+def get_images(include_deprecated: Optional[bool] = None,
+               most_recent: Optional[bool] = None,
                with_architectures: Optional[Sequence[str]] = None,
                with_selector: Optional[str] = None,
                with_statuses: Optional[Sequence[str]] = None,
@@ -112,12 +122,14 @@ def get_images(most_recent: Optional[bool] = None,
     ```
 
 
+    :param bool include_deprecated: Also list images that are marked as deprecated.
     :param bool most_recent: Sorts list by date.
     :param Sequence[str] with_architectures: List only images with this architecture, could contain `x86` or `arm`.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
+    __args__['includeDeprecated'] = include_deprecated
     __args__['mostRecent'] = most_recent
     __args__['withArchitectures'] = with_architectures
     __args__['withSelector'] = with_selector
@@ -128,6 +140,7 @@ def get_images(most_recent: Optional[bool] = None,
     return AwaitableGetImagesResult(
         id=pulumi.get(__ret__, 'id'),
         images=pulumi.get(__ret__, 'images'),
+        include_deprecated=pulumi.get(__ret__, 'include_deprecated'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         with_architectures=pulumi.get(__ret__, 'with_architectures'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
@@ -135,7 +148,8 @@ def get_images(most_recent: Optional[bool] = None,
 
 
 @_utilities.lift_output_func(get_images)
-def get_images_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
+                      most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                       with_architectures: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -154,6 +168,7 @@ def get_images_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = None
     ```
 
 
+    :param bool include_deprecated: Also list images that are marked as deprecated.
     :param bool most_recent: Sorts list by date.
     :param Sequence[str] with_architectures: List only images with this architecture, could contain `x86` or `arm`.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)

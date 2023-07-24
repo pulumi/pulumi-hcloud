@@ -69,6 +69,8 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 type GetImageArgs struct {
 	// ID of the Image.
 	Id *int `pulumi:"id"`
+	// Also return the image if it is marked as deprecated.
+	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
 	// If more than one result is returned, use the most recent Image.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the Image.
@@ -94,9 +96,10 @@ type GetImageResult struct {
 	// (string) Description of the Image.
 	Description string `pulumi:"description"`
 	// (int) Unique ID of the Image.
-	Id         int                    `pulumi:"id"`
-	Labels     map[string]interface{} `pulumi:"labels"`
-	MostRecent *bool                  `pulumi:"mostRecent"`
+	Id                int                    `pulumi:"id"`
+	IncludeDeprecated *bool                  `pulumi:"includeDeprecated"`
+	Labels            map[string]interface{} `pulumi:"labels"`
+	MostRecent        *bool                  `pulumi:"mostRecent"`
 	// (string) Name of the Image, only present when the Image is of type `system`.
 	Name string `pulumi:"name"`
 	// (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
@@ -131,6 +134,8 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 type GetImageOutputArgs struct {
 	// ID of the Image.
 	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Also return the image if it is marked as deprecated.
+	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
 	// If more than one result is returned, use the most recent Image.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the Image.
@@ -187,6 +192,10 @@ func (o GetImageResultOutput) Description() pulumi.StringOutput {
 // (int) Unique ID of the Image.
 func (o GetImageResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o GetImageResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetImageResultOutput) Labels() pulumi.MapOutput {

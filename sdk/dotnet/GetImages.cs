@@ -90,6 +90,12 @@ namespace Pulumi.HCloud
     public sealed class GetImagesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Also list images that are marked as deprecated.
+        /// </summary>
+        [Input("includeDeprecated")]
+        public bool? IncludeDeprecated { get; set; }
+
+        /// <summary>
         /// Sorts list by date.
         /// </summary>
         [Input("mostRecent")]
@@ -133,6 +139,12 @@ namespace Pulumi.HCloud
 
     public sealed class GetImagesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Also list images that are marked as deprecated.
+        /// </summary>
+        [Input("includeDeprecated")]
+        public Input<bool>? IncludeDeprecated { get; set; }
+
         /// <summary>
         /// Sorts list by date.
         /// </summary>
@@ -187,6 +199,7 @@ namespace Pulumi.HCloud
         /// (list) List of all matching images. See `data.hcloud_image` for schema.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImagesImageResult> Images;
+        public readonly bool? IncludeDeprecated;
         public readonly bool? MostRecent;
         public readonly ImmutableArray<string> WithArchitectures;
         public readonly string? WithSelector;
@@ -198,6 +211,8 @@ namespace Pulumi.HCloud
 
             ImmutableArray<Outputs.GetImagesImageResult> images,
 
+            bool? includeDeprecated,
+
             bool? mostRecent,
 
             ImmutableArray<string> withArchitectures,
@@ -208,6 +223,7 @@ namespace Pulumi.HCloud
         {
             Id = id;
             Images = images;
+            IncludeDeprecated = includeDeprecated;
             MostRecent = mostRecent;
             WithArchitectures = withArchitectures;
             WithSelector = withSelector;

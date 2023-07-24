@@ -58,6 +58,8 @@ func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getImages.
 type GetImagesArgs struct {
+	// Also list images that are marked as deprecated.
+	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
 	// Sorts list by date.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// List only images with this architecture, could contain `x86` or `arm`.
@@ -74,6 +76,7 @@ type GetImagesResult struct {
 	Id string `pulumi:"id"`
 	// (list) List of all matching images. See `data.hcloud_image` for schema.
 	Images            []GetImagesImage `pulumi:"images"`
+	IncludeDeprecated *bool            `pulumi:"includeDeprecated"`
 	MostRecent        *bool            `pulumi:"mostRecent"`
 	WithArchitectures []string         `pulumi:"withArchitectures"`
 	WithSelector      *string          `pulumi:"withSelector"`
@@ -95,6 +98,8 @@ func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getImages.
 type GetImagesOutputArgs struct {
+	// Also list images that are marked as deprecated.
+	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
 	// Sorts list by date.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// List only images with this architecture, could contain `x86` or `arm`.
@@ -132,6 +137,10 @@ func (o GetImagesResultOutput) Id() pulumi.StringOutput {
 // (list) List of all matching images. See `data.hcloud_image` for schema.
 func (o GetImagesResultOutput) Images() GetImagesImageArrayOutput {
 	return o.ApplyT(func(v GetImagesResult) []GetImagesImage { return v.Images }).(GetImagesImageArrayOutput)
+}
+
+func (o GetImagesResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetImagesResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetImagesResultOutput) MostRecent() pulumi.BoolPtrOutput {

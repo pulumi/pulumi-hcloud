@@ -28,6 +28,7 @@ export function getImages(args?: GetImagesArgs, opts?: pulumi.InvokeOptions): Pr
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getImages:getImages", {
+        "includeDeprecated": args.includeDeprecated,
         "mostRecent": args.mostRecent,
         "withArchitectures": args.withArchitectures,
         "withSelector": args.withSelector,
@@ -39,6 +40,10 @@ export function getImages(args?: GetImagesArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getImages.
  */
 export interface GetImagesArgs {
+    /**
+     * Also list images that are marked as deprecated.
+     */
+    includeDeprecated?: boolean;
     /**
      * Sorts list by date.
      */
@@ -69,6 +74,7 @@ export interface GetImagesResult {
      * (list) List of all matching images. See `data.hcloud_image` for schema.
      */
     readonly images: outputs.GetImagesImage[];
+    readonly includeDeprecated?: boolean;
     readonly mostRecent?: boolean;
     readonly withArchitectures?: string[];
     readonly withSelector?: string;
@@ -99,6 +105,10 @@ export function getImagesOutput(args?: GetImagesOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getImages.
  */
 export interface GetImagesOutputArgs {
+    /**
+     * Also list images that are marked as deprecated.
+     */
+    includeDeprecated?: pulumi.Input<boolean>;
     /**
      * Sorts list by date.
      */

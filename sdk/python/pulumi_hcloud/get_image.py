@@ -21,7 +21,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, architecture=None, created=None, deprecated=None, description=None, id=None, labels=None, most_recent=None, name=None, os_flavor=None, os_version=None, rapid_deploy=None, selector=None, type=None, with_architecture=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, architecture=None, created=None, deprecated=None, description=None, id=None, include_deprecated=None, labels=None, most_recent=None, name=None, os_flavor=None, os_version=None, rapid_deploy=None, selector=None, type=None, with_architecture=None, with_selector=None, with_statuses=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -37,6 +37,9 @@ class GetImageResult:
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
+        if include_deprecated and not isinstance(include_deprecated, bool):
+            raise TypeError("Expected argument 'include_deprecated' to be a bool")
+        pulumi.set(__self__, "include_deprecated", include_deprecated)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
         pulumi.set(__self__, "labels", labels)
@@ -110,6 +113,11 @@ class GetImageResult:
         (int) Unique ID of the Image.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includeDeprecated")
+    def include_deprecated(self) -> Optional[bool]:
+        return pulumi.get(self, "include_deprecated")
 
     @property
     @pulumi.getter
@@ -196,6 +204,7 @@ class AwaitableGetImageResult(GetImageResult):
             deprecated=self.deprecated,
             description=self.description,
             id=self.id,
+            include_deprecated=self.include_deprecated,
             labels=self.labels,
             most_recent=self.most_recent,
             name=self.name,
@@ -210,6 +219,7 @@ class AwaitableGetImageResult(GetImageResult):
 
 
 def get_image(id: Optional[int] = None,
+              include_deprecated: Optional[bool] = None,
               most_recent: Optional[bool] = None,
               name: Optional[str] = None,
               selector: Optional[str] = None,
@@ -233,6 +243,7 @@ def get_image(id: Optional[int] = None,
 
 
     :param int id: ID of the Image.
+    :param bool include_deprecated: Also return the image if it is marked as deprecated.
     :param bool most_recent: If more than one result is returned, use the most recent Image.
     :param str name: Name of the Image.
     :param str with_architecture: Select only images with this architecture, could be `x86` (default) or `arm`.
@@ -241,6 +252,7 @@ def get_image(id: Optional[int] = None,
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['includeDeprecated'] = include_deprecated
     __args__['mostRecent'] = most_recent
     __args__['name'] = name
     __args__['selector'] = selector
@@ -256,6 +268,7 @@ def get_image(id: Optional[int] = None,
         deprecated=pulumi.get(__ret__, 'deprecated'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        include_deprecated=pulumi.get(__ret__, 'include_deprecated'),
         labels=pulumi.get(__ret__, 'labels'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         name=pulumi.get(__ret__, 'name'),
@@ -271,6 +284,7 @@ def get_image(id: Optional[int] = None,
 
 @_utilities.lift_output_func(get_image)
 def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
+                     include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                      most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      selector: Optional[pulumi.Input[Optional[str]]] = None,
@@ -294,6 +308,7 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
 
     :param int id: ID of the Image.
+    :param bool include_deprecated: Also return the image if it is marked as deprecated.
     :param bool most_recent: If more than one result is returned, use the most recent Image.
     :param str name: Name of the Image.
     :param str with_architecture: Select only images with this architecture, could be `x86` (default) or `arm`.

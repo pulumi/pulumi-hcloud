@@ -30,6 +30,7 @@ export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Prom
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getImage:getImage", {
         "id": args.id,
+        "includeDeprecated": args.includeDeprecated,
         "mostRecent": args.mostRecent,
         "name": args.name,
         "selector": args.selector,
@@ -47,6 +48,10 @@ export interface GetImageArgs {
      * ID of the Image.
      */
     id?: number;
+    /**
+     * Also return the image if it is marked as deprecated.
+     */
+    includeDeprecated?: boolean;
     /**
      * If more than one result is returned, use the most recent Image.
      */
@@ -97,6 +102,7 @@ export interface GetImageResult {
      * (int) Unique ID of the Image.
      */
     readonly id: number;
+    readonly includeDeprecated?: boolean;
     readonly labels: {[key: string]: any};
     readonly mostRecent?: boolean;
     /**
@@ -159,6 +165,10 @@ export interface GetImageOutputArgs {
      * ID of the Image.
      */
     id?: pulumi.Input<number>;
+    /**
+     * Also return the image if it is marked as deprecated.
+     */
+    includeDeprecated?: pulumi.Input<boolean>;
     /**
      * If more than one result is returned, use the most recent Image.
      */

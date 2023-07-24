@@ -17,6 +17,21 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImagesPlainArgs Empty = new GetImagesPlainArgs();
 
     /**
+     * Also list images that are marked as deprecated.
+     * 
+     */
+    @Import(name="includeDeprecated")
+    private @Nullable Boolean includeDeprecated;
+
+    /**
+     * @return Also list images that are marked as deprecated.
+     * 
+     */
+    public Optional<Boolean> includeDeprecated() {
+        return Optional.ofNullable(this.includeDeprecated);
+    }
+
+    /**
      * Sorts list by date.
      * 
      */
@@ -79,6 +94,7 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetImagesPlainArgs() {}
 
     private GetImagesPlainArgs(GetImagesPlainArgs $) {
+        this.includeDeprecated = $.includeDeprecated;
         this.mostRecent = $.mostRecent;
         this.withArchitectures = $.withArchitectures;
         this.withSelector = $.withSelector;
@@ -101,6 +117,17 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetImagesPlainArgs defaults) {
             $ = new GetImagesPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param includeDeprecated Also list images that are marked as deprecated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+            $.includeDeprecated = includeDeprecated;
+            return this;
         }
 
         /**
