@@ -4827,6 +4827,10 @@
                         "type": "integer",
                         "description": "ID of the Image.\n"
                     },
+                    "includeDeprecated": {
+                        "type": "boolean",
+                        "description": "Also return the image if it is marked as deprecated.\n"
+                    },
                     "mostRecent": {
                         "type": "boolean",
                         "description": "If more than one result is returned, use the most recent Image.\n"
@@ -4879,6 +4883,9 @@
                     "id": {
                         "type": "integer",
                         "description": "(int) Unique ID of the Image.\n"
+                    },
+                    "includeDeprecated": {
+                        "type": "boolean"
                     },
                     "labels": {
                         "type": "object",
@@ -4947,6 +4954,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getImages.\n",
                 "properties": {
+                    "includeDeprecated": {
+                        "type": "boolean",
+                        "description": "Also list images that are marked as deprecated.\n"
+                    },
                     "mostRecent": {
                         "type": "boolean",
                         "description": "Sorts list by date.\n"
@@ -4985,6 +4996,9 @@
                             "$ref": "#/types/hcloud:index/getImagesImage:getImagesImage"
                         },
                         "description": "(list) List of all matching images. See `data.hcloud_image` for schema.\n"
+                    },
+                    "includeDeprecated": {
+                        "type": "boolean"
                     },
                     "mostRecent": {
                         "type": "boolean"
