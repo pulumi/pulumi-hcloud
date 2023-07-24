@@ -106,6 +106,12 @@ namespace Pulumi.HCloud
         public int? Id { get; set; }
 
         /// <summary>
+        /// Also return the image if it is marked as deprecated.
+        /// </summary>
+        [Input("includeDeprecated")]
+        public bool? IncludeDeprecated { get; set; }
+
+        /// <summary>
         /// If more than one result is returned, use the most recent Image.
         /// </summary>
         [Input("mostRecent")]
@@ -157,6 +163,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// Also return the image if it is marked as deprecated.
+        /// </summary>
+        [Input("includeDeprecated")]
+        public Input<bool>? IncludeDeprecated { get; set; }
 
         /// <summary>
         /// If more than one result is returned, use the most recent Image.
@@ -227,6 +239,7 @@ namespace Pulumi.HCloud
         /// (int) Unique ID of the Image.
         /// </summary>
         public readonly int Id;
+        public readonly bool? IncludeDeprecated;
         public readonly ImmutableDictionary<string, object> Labels;
         public readonly bool? MostRecent;
         /// <summary>
@@ -266,6 +279,8 @@ namespace Pulumi.HCloud
 
             int id,
 
+            bool? includeDeprecated,
+
             ImmutableDictionary<string, object> labels,
 
             bool? mostRecent,
@@ -293,6 +308,7 @@ namespace Pulumi.HCloud
             Deprecated = deprecated;
             Description = description;
             Id = id;
+            IncludeDeprecated = includeDeprecated;
             Labels = labels;
             MostRecent = mostRecent;
             Name = name;

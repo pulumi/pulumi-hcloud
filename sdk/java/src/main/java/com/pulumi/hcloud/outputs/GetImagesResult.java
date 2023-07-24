@@ -24,6 +24,7 @@ public final class GetImagesResult {
      * 
      */
     private List<GetImagesImage> images;
+    private @Nullable Boolean includeDeprecated;
     private @Nullable Boolean mostRecent;
     private @Nullable List<String> withArchitectures;
     private @Nullable String withSelector;
@@ -43,6 +44,9 @@ public final class GetImagesResult {
      */
     public List<GetImagesImage> images() {
         return this.images;
+    }
+    public Optional<Boolean> includeDeprecated() {
+        return Optional.ofNullable(this.includeDeprecated);
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
@@ -68,6 +72,7 @@ public final class GetImagesResult {
     public static final class Builder {
         private String id;
         private List<GetImagesImage> images;
+        private @Nullable Boolean includeDeprecated;
         private @Nullable Boolean mostRecent;
         private @Nullable List<String> withArchitectures;
         private @Nullable String withSelector;
@@ -77,6 +82,7 @@ public final class GetImagesResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.images = defaults.images;
+    	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.mostRecent = defaults.mostRecent;
     	      this.withArchitectures = defaults.withArchitectures;
     	      this.withSelector = defaults.withSelector;
@@ -95,6 +101,11 @@ public final class GetImagesResult {
         }
         public Builder images(GetImagesImage... images) {
             return images(List.of(images));
+        }
+        @CustomType.Setter
+        public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+            this.includeDeprecated = includeDeprecated;
+            return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
@@ -126,6 +137,7 @@ public final class GetImagesResult {
             final var o = new GetImagesResult();
             o.id = id;
             o.images = images;
+            o.includeDeprecated = includeDeprecated;
             o.mostRecent = mostRecent;
             o.withArchitectures = withArchitectures;
             o.withSelector = withSelector;

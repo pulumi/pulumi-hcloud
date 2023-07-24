@@ -41,6 +41,7 @@ public final class GetImageResult {
      * 
      */
     private Integer id;
+    private @Nullable Boolean includeDeprecated;
     private Map<String,Object> labels;
     private @Nullable Boolean mostRecent;
     /**
@@ -114,6 +115,9 @@ public final class GetImageResult {
      */
     public Integer id() {
         return this.id;
+    }
+    public Optional<Boolean> includeDeprecated() {
+        return Optional.ofNullable(this.includeDeprecated);
     }
     public Map<String,Object> labels() {
         return this.labels;
@@ -189,6 +193,7 @@ public final class GetImageResult {
         private String deprecated;
         private String description;
         private Integer id;
+        private @Nullable Boolean includeDeprecated;
         private Map<String,Object> labels;
         private @Nullable Boolean mostRecent;
         private String name;
@@ -208,6 +213,7 @@ public final class GetImageResult {
     	      this.deprecated = defaults.deprecated;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.labels = defaults.labels;
     	      this.mostRecent = defaults.mostRecent;
     	      this.name = defaults.name;
@@ -244,6 +250,11 @@ public final class GetImageResult {
         @CustomType.Setter
         public Builder id(Integer id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+            this.includeDeprecated = includeDeprecated;
             return this;
         }
         @CustomType.Setter
@@ -311,6 +322,7 @@ public final class GetImageResult {
             o.deprecated = deprecated;
             o.description = description;
             o.id = id;
+            o.includeDeprecated = includeDeprecated;
             o.labels = labels;
             o.mostRecent = mostRecent;
             o.name = name;

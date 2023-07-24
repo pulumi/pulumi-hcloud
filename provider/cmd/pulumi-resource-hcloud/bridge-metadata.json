@@ -752,6 +752,7 @@
                 "serverId": "server_id"
             },
             "hcloud:index/getImage:getImage": {
+                "includeDeprecated": "include_deprecated",
                 "mostRecent": "most_recent",
                 "osFlavor": "os_flavor",
                 "osVersion": "os_version",
@@ -761,6 +762,7 @@
                 "withStatuses": "with_status"
             },
             "hcloud:index/getImages:getImages": {
+                "includeDeprecated": "include_deprecated",
                 "mostRecent": "most_recent",
                 "withArchitectures": "with_architecture",
                 "withSelector": "with_selector",
