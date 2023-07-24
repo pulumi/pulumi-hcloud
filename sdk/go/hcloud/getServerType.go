@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ import (
 //
 // ```
 func GetServerType(ctx *pulumi.Context, args *GetServerTypeArgs, opts ...pulumi.InvokeOption) (*GetServerTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerTypeResult
 	err := ctx.Invoke("hcloud:index/getServerType:getServerType", args, &rv, opts...)
 	if err != nil {

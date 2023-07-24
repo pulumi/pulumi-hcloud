@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewNetwork(ctx *pulumi.Context,
 	if args.IpRange == nil {
 		return nil, errors.New("invalid value for required argument 'IpRange'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Network
 	err := ctx.RegisterResource("hcloud:index/network:Network", name, args, &resource, opts...)
 	if err != nil {

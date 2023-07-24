@@ -144,13 +144,13 @@ def get_placement_group(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getPlacementGroup:getPlacementGroup', __args__, opts=opts, typ=GetPlacementGroupResult).value
 
     return AwaitableGetPlacementGroupResult(
-        id=__ret__.id,
-        labels=__ret__.labels,
-        most_recent=__ret__.most_recent,
-        name=__ret__.name,
-        servers=__ret__.servers,
-        type=__ret__.type,
-        with_selector=__ret__.with_selector)
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        name=pulumi.get(__ret__, 'name'),
+        servers=pulumi.get(__ret__, 'servers'),
+        type=pulumi.get(__ret__, 'type'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_placement_group)

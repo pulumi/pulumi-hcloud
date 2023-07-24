@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -110,6 +111,7 @@ func NewLoadBalancerNetwork(ctx *pulumi.Context,
 	if args.LoadBalancerId == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancerId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancerNetwork
 	err := ctx.RegisterResource("hcloud:index/loadBalancerNetwork:LoadBalancerNetwork", name, args, &resource, opts...)
 	if err != nil {

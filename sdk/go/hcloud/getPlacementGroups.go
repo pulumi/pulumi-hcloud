@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetPlacementGroups(ctx *pulumi.Context, args *GetPlacementGroupsArgs, opts ...pulumi.InvokeOption) (*GetPlacementGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPlacementGroupsResult
 	err := ctx.Invoke("hcloud:index/getPlacementGroups:getPlacementGroups", args, &rv, opts...)
 	if err != nil {

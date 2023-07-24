@@ -5939,21 +5939,261 @@ public final class HcloudFunctions {
     public static CompletableFuture<GetSshKeyResult> getSshKeyPlain(GetSshKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getSshKey:getSshKey", TypeShape.of(GetSshKeyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allKeys = HcloudFunctions.getSshKeys();
+     * 
+     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .withSelector(&#34;foo=bar&#34;)
+     *             .build());
+     * 
+     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSshKeysResult> getSshKeys() {
         return getSshKeys(GetSshKeysArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allKeys = HcloudFunctions.getSshKeys();
+     * 
+     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .withSelector(&#34;foo=bar&#34;)
+     *             .build());
+     * 
+     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain() {
         return getSshKeysPlain(GetSshKeysPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allKeys = HcloudFunctions.getSshKeys();
+     * 
+     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .withSelector(&#34;foo=bar&#34;)
+     *             .build());
+     * 
+     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSshKeysResult> getSshKeys(GetSshKeysArgs args) {
         return getSshKeys(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allKeys = HcloudFunctions.getSshKeys();
+     * 
+     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .withSelector(&#34;foo=bar&#34;)
+     *             .build());
+     * 
+     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(GetSshKeysPlainArgs args) {
         return getSshKeysPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allKeys = HcloudFunctions.getSshKeys();
+     * 
+     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .withSelector(&#34;foo=bar&#34;)
+     *             .build());
+     * 
+     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSshKeysResult> getSshKeys(GetSshKeysArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allKeys = HcloudFunctions.getSshKeys();
+     * 
+     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .withSelector(&#34;foo=bar&#34;)
+     *             .build());
+     * 
+     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(GetSshKeysPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
     }

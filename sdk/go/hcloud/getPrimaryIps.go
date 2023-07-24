@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetPrimaryIps(ctx *pulumi.Context, args *GetPrimaryIpsArgs, opts ...pulumi.InvokeOption) (*GetPrimaryIpsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrimaryIpsResult
 	err := ctx.Invoke("hcloud:index/getPrimaryIps:getPrimaryIps", args, &rv, opts...)
 	if err != nil {

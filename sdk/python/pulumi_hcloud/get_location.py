@@ -156,14 +156,14 @@ def get_location(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult).value
 
     return AwaitableGetLocationResult(
-        city=__ret__.city,
-        country=__ret__.country,
-        description=__ret__.description,
-        id=__ret__.id,
-        latitude=__ret__.latitude,
-        longitude=__ret__.longitude,
-        name=__ret__.name,
-        network_zone=__ret__.network_zone)
+        city=pulumi.get(__ret__, 'city'),
+        country=pulumi.get(__ret__, 'country'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        latitude=pulumi.get(__ret__, 'latitude'),
+        longitude=pulumi.get(__ret__, 'longitude'),
+        name=pulumi.get(__ret__, 'name'),
+        network_zone=pulumi.get(__ret__, 'network_zone'))
 
 
 @_utilities.lift_output_func(get_location)

@@ -25,30 +25,18 @@ class GetLocationsResult:
     def __init__(__self__, descriptions=None, id=None, location_ids=None, locations=None, names=None):
         if descriptions and not isinstance(descriptions, list):
             raise TypeError("Expected argument 'descriptions' to be a list")
-        if descriptions is not None:
-            warnings.warn("""Use locations list instead""", DeprecationWarning)
-            pulumi.log.warn("""descriptions is deprecated: Use locations list instead""")
-
         pulumi.set(__self__, "descriptions", descriptions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location_ids and not isinstance(location_ids, list):
             raise TypeError("Expected argument 'location_ids' to be a list")
-        if location_ids is not None:
-            warnings.warn("""Use locations list instead""", DeprecationWarning)
-            pulumi.log.warn("""location_ids is deprecated: Use locations list instead""")
-
         pulumi.set(__self__, "location_ids", location_ids)
         if locations and not isinstance(locations, list):
             raise TypeError("Expected argument 'locations' to be a list")
         pulumi.set(__self__, "locations", locations)
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
-        if names is not None:
-            warnings.warn("""Use locations list instead""", DeprecationWarning)
-            pulumi.log.warn("""names is deprecated: Use locations list instead""")
-
         pulumi.set(__self__, "names", names)
 
     @property
@@ -57,6 +45,9 @@ class GetLocationsResult:
         """
         (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
         """
+        warnings.warn("""Use locations list instead""", DeprecationWarning)
+        pulumi.log.warn("""descriptions is deprecated: Use locations list instead""")
+
         return pulumi.get(self, "descriptions")
 
     @property
@@ -73,6 +64,9 @@ class GetLocationsResult:
         """
         (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
         """
+        warnings.warn("""Use locations list instead""", DeprecationWarning)
+        pulumi.log.warn("""location_ids is deprecated: Use locations list instead""")
+
         return pulumi.get(self, "location_ids")
 
     @property
@@ -89,6 +83,9 @@ class GetLocationsResult:
         """
         (list) List of location names. **Deprecated**: Use `locations` attribute instead.
         """
+        warnings.warn("""Use locations list instead""", DeprecationWarning)
+        pulumi.log.warn("""names is deprecated: Use locations list instead""")
+
         return pulumi.get(self, "names")
 
 
@@ -120,11 +117,11 @@ def get_locations(location_ids: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getLocations:getLocations', __args__, opts=opts, typ=GetLocationsResult).value
 
     return AwaitableGetLocationsResult(
-        descriptions=__ret__.descriptions,
-        id=__ret__.id,
-        location_ids=__ret__.location_ids,
-        locations=__ret__.locations,
-        names=__ret__.names)
+        descriptions=pulumi.get(__ret__, 'descriptions'),
+        id=pulumi.get(__ret__, 'id'),
+        location_ids=pulumi.get(__ret__, 'location_ids'),
+        locations=pulumi.get(__ret__, 'locations'),
+        names=pulumi.get(__ret__, 'names'))
 
 
 @_utilities.lift_output_func(get_locations)

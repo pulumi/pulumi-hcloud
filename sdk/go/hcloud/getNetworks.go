@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetNetworks(ctx *pulumi.Context, args *GetNetworksArgs, opts ...pulumi.InvokeOption) (*GetNetworksResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworksResult
 	err := ctx.Invoke("hcloud:index/getNetworks:getNetworks", args, &rv, opts...)
 	if err != nil {

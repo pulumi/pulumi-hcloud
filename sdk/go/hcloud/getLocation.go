@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ import (
 //
 // ```
 func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.InvokeOption) (*GetLocationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationResult
 	err := ctx.Invoke("hcloud:index/getLocation:getLocation", args, &rv, opts...)
 	if err != nil {

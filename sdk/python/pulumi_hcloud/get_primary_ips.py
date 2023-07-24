@@ -89,9 +89,9 @@ def get_primary_ips(with_selector: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getPrimaryIps:getPrimaryIps', __args__, opts=opts, typ=GetPrimaryIpsResult).value
 
     return AwaitableGetPrimaryIpsResult(
-        id=__ret__.id,
-        primary_ips=__ret__.primary_ips,
-        with_selector=__ret__.with_selector)
+        id=pulumi.get(__ret__, 'id'),
+        primary_ips=pulumi.get(__ret__, 'primary_ips'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_primary_ips)

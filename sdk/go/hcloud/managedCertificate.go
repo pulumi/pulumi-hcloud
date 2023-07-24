@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,6 +56,7 @@ func NewManagedCertificate(ctx *pulumi.Context,
 	if args.DomainNames == nil {
 		return nil, errors.New("invalid value for required argument 'DomainNames'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedCertificate
 	err := ctx.RegisterResource("hcloud:index/managedCertificate:ManagedCertificate", name, args, &resource, opts...)
 	if err != nil {

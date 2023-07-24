@@ -102,10 +102,10 @@ def get_volumes(with_selector: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getVolumes:getVolumes', __args__, opts=opts, typ=GetVolumesResult).value
 
     return AwaitableGetVolumesResult(
-        id=__ret__.id,
-        volumes=__ret__.volumes,
-        with_selector=__ret__.with_selector,
-        with_statuses=__ret__.with_statuses)
+        id=pulumi.get(__ret__, 'id'),
+        volumes=pulumi.get(__ret__, 'volumes'),
+        with_selector=pulumi.get(__ret__, 'with_selector'),
+        with_statuses=pulumi.get(__ret__, 'with_statuses'))
 
 
 @_utilities.lift_output_func(get_volumes)

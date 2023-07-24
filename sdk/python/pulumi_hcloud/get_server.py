@@ -75,10 +75,6 @@ class GetServerResult:
         pulumi.set(__self__, "rescue", rescue)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
-        if selector is not None:
-            warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
-            pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
-
         pulumi.set(__self__, "selector", selector)
         if server_type and not isinstance(server_type, str):
             raise TypeError("Expected argument 'server_type' to be a str")
@@ -229,6 +225,9 @@ class GetServerResult:
     @property
     @pulumi.getter
     def selector(self) -> Optional[str]:
+        warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
+        pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
+
         return pulumi.get(self, "selector")
 
     @property
@@ -325,28 +324,28 @@ def get_server(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getServer:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        backup_window=__ret__.backup_window,
-        backups=__ret__.backups,
-        datacenter=__ret__.datacenter,
-        delete_protection=__ret__.delete_protection,
-        firewall_ids=__ret__.firewall_ids,
-        id=__ret__.id,
-        image=__ret__.image,
-        ipv4_address=__ret__.ipv4_address,
-        ipv6_address=__ret__.ipv6_address,
-        ipv6_network=__ret__.ipv6_network,
-        iso=__ret__.iso,
-        labels=__ret__.labels,
-        location=__ret__.location,
-        name=__ret__.name,
-        placement_group_id=__ret__.placement_group_id,
-        rebuild_protection=__ret__.rebuild_protection,
-        rescue=__ret__.rescue,
-        selector=__ret__.selector,
-        server_type=__ret__.server_type,
-        status=__ret__.status,
-        with_selector=__ret__.with_selector,
-        with_statuses=__ret__.with_statuses)
+        backup_window=pulumi.get(__ret__, 'backup_window'),
+        backups=pulumi.get(__ret__, 'backups'),
+        datacenter=pulumi.get(__ret__, 'datacenter'),
+        delete_protection=pulumi.get(__ret__, 'delete_protection'),
+        firewall_ids=pulumi.get(__ret__, 'firewall_ids'),
+        id=pulumi.get(__ret__, 'id'),
+        image=pulumi.get(__ret__, 'image'),
+        ipv4_address=pulumi.get(__ret__, 'ipv4_address'),
+        ipv6_address=pulumi.get(__ret__, 'ipv6_address'),
+        ipv6_network=pulumi.get(__ret__, 'ipv6_network'),
+        iso=pulumi.get(__ret__, 'iso'),
+        labels=pulumi.get(__ret__, 'labels'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        placement_group_id=pulumi.get(__ret__, 'placement_group_id'),
+        rebuild_protection=pulumi.get(__ret__, 'rebuild_protection'),
+        rescue=pulumi.get(__ret__, 'rescue'),
+        selector=pulumi.get(__ret__, 'selector'),
+        server_type=pulumi.get(__ret__, 'server_type'),
+        status=pulumi.get(__ret__, 'status'),
+        with_selector=pulumi.get(__ret__, 'with_selector'),
+        with_statuses=pulumi.get(__ret__, 'with_statuses'))
 
 
 @_utilities.lift_output_func(get_server)

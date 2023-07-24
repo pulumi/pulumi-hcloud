@@ -234,18 +234,18 @@ def get_primary_ip(assignee_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getPrimaryIp:getPrimaryIp', __args__, opts=opts, typ=GetPrimaryIpResult).value
 
     return AwaitableGetPrimaryIpResult(
-        assignee_id=__ret__.assignee_id,
-        assignee_type=__ret__.assignee_type,
-        auto_delete=__ret__.auto_delete,
-        datacenter=__ret__.datacenter,
-        delete_protection=__ret__.delete_protection,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        ip_network=__ret__.ip_network,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        type=__ret__.type,
-        with_selector=__ret__.with_selector)
+        assignee_id=pulumi.get(__ret__, 'assignee_id'),
+        assignee_type=pulumi.get(__ret__, 'assignee_type'),
+        auto_delete=pulumi.get(__ret__, 'auto_delete'),
+        datacenter=pulumi.get(__ret__, 'datacenter'),
+        delete_protection=pulumi.get(__ret__, 'delete_protection'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        ip_network=pulumi.get(__ret__, 'ip_network'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_primary_ip)

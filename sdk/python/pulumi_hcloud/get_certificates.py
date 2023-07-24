@@ -89,9 +89,9 @@ def get_certificates(with_selector: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getCertificates:getCertificates', __args__, opts=opts, typ=GetCertificatesResult).value
 
     return AwaitableGetCertificatesResult(
-        certificates=__ret__.certificates,
-        id=__ret__.id,
-        with_selector=__ret__.with_selector)
+        certificates=pulumi.get(__ret__, 'certificates'),
+        id=pulumi.get(__ret__, 'id'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_certificates)

@@ -126,12 +126,12 @@ def get_images(most_recent: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getImages:getImages', __args__, opts=opts, typ=GetImagesResult).value
 
     return AwaitableGetImagesResult(
-        id=__ret__.id,
-        images=__ret__.images,
-        most_recent=__ret__.most_recent,
-        with_architectures=__ret__.with_architectures,
-        with_selector=__ret__.with_selector,
-        with_statuses=__ret__.with_statuses)
+        id=pulumi.get(__ret__, 'id'),
+        images=pulumi.get(__ret__, 'images'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        with_architectures=pulumi.get(__ret__, 'with_architectures'),
+        with_selector=pulumi.get(__ret__, 'with_selector'),
+        with_statuses=pulumi.get(__ret__, 'with_statuses'))
 
 
 @_utilities.lift_output_func(get_images)

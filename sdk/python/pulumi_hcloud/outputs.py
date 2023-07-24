@@ -524,6 +524,9 @@ class LoadBalancerTarget(dict):
     @property
     @pulumi.getter(name="usePrivateIp")
     def use_private_ip(self) -> Optional[bool]:
+        warnings.warn("""Does not work. Use the hcloud_load_balancer_target resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""use_private_ip is deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.""")
+
         return pulumi.get(self, "use_private_ip")
 
 
@@ -1168,6 +1171,9 @@ class GetImagesImageResult(dict):
     @property
     @pulumi.getter
     def selector(self) -> Optional[str]:
+        warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
+        pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
+
         return pulumi.get(self, "selector")
 
 

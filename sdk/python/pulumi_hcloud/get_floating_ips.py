@@ -89,9 +89,9 @@ def get_floating_ips(with_selector: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getFloatingIps:getFloatingIps', __args__, opts=opts, typ=GetFloatingIpsResult).value
 
     return AwaitableGetFloatingIpsResult(
-        floating_ips=__ret__.floating_ips,
-        id=__ret__.id,
-        with_selector=__ret__.with_selector)
+        floating_ips=pulumi.get(__ret__, 'floating_ips'),
+        id=pulumi.get(__ret__, 'id'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_floating_ips)

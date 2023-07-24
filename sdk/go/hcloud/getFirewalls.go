@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetFirewalls(ctx *pulumi.Context, args *GetFirewallsArgs, opts ...pulumi.InvokeOption) (*GetFirewallsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFirewallsResult
 	err := ctx.Invoke("hcloud:index/getFirewalls:getFirewalls", args, &rv, opts...)
 	if err != nil {

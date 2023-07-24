@@ -186,17 +186,17 @@ def get_certificate(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        certificate=__ret__.certificate,
-        created=__ret__.created,
-        domain_names=__ret__.domain_names,
-        fingerprint=__ret__.fingerprint,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        not_valid_after=__ret__.not_valid_after,
-        not_valid_before=__ret__.not_valid_before,
-        type=__ret__.type,
-        with_selector=__ret__.with_selector)
+        certificate=pulumi.get(__ret__, 'certificate'),
+        created=pulumi.get(__ret__, 'created'),
+        domain_names=pulumi.get(__ret__, 'domain_names'),
+        fingerprint=pulumi.get(__ret__, 'fingerprint'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        not_valid_after=pulumi.get(__ret__, 'not_valid_after'),
+        not_valid_before=pulumi.get(__ret__, 'not_valid_before'),
+        type=pulumi.get(__ret__, 'type'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_certificate)

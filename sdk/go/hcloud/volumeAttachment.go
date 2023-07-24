@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,6 +90,7 @@ func NewVolumeAttachment(ctx *pulumi.Context,
 	if args.VolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VolumeAttachment
 	err := ctx.RegisterResource("hcloud:index/volumeAttachment:VolumeAttachment", name, args, &resource, opts...)
 	if err != nil {

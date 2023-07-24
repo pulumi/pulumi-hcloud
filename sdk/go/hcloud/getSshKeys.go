@@ -7,10 +7,51 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			allKeys, err := hcloud.GetSshKeys(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.GetSshKeys(ctx, &hcloud.GetSshKeysArgs{
+//				WithSelector: pulumi.StringRef("foo=bar"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var splat0 []*string
+//			for _, val0 := range allKeys.SshKeys {
+//				splat0 = append(splat0, val0.Name)
+//			}
+//			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
+//				SshKeys: []*pulumi.String(splat0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSshKeys(ctx *pulumi.Context, args *GetSshKeysArgs, opts ...pulumi.InvokeOption) (*GetSshKeysResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSshKeysResult
 	err := ctx.Invoke("hcloud:index/getSshKeys:getSshKeys", args, &rv, opts...)
 	if err != nil {
@@ -19,12 +60,17 @@ func GetSshKeys(ctx *pulumi.Context, args *GetSshKeysArgs, opts ...pulumi.Invoke
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getSshKeys.
 type GetSshKeysArgs struct {
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
+// A collection of values returned by getSshKeys.
 type GetSshKeysResult struct {
-	Id           string             `pulumi:"id"`
+	// The provider-assigned unique ID for this managed resource.
+	Id string `pulumi:"id"`
+	// (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
 	SshKeys      []GetSshKeysSshKey `pulumi:"sshKeys"`
 	WithSelector *string            `pulumi:"withSelector"`
 }
@@ -42,7 +88,9 @@ func GetSshKeysOutput(ctx *pulumi.Context, args GetSshKeysOutputArgs, opts ...pu
 		}).(GetSshKeysResultOutput)
 }
 
+// A collection of arguments for invoking getSshKeys.
 type GetSshKeysOutputArgs struct {
+	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 
@@ -50,6 +98,7 @@ func (GetSshKeysOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSshKeysArgs)(nil)).Elem()
 }
 
+// A collection of values returned by getSshKeys.
 type GetSshKeysResultOutput struct{ *pulumi.OutputState }
 
 func (GetSshKeysResultOutput) ElementType() reflect.Type {
@@ -64,10 +113,12 @@ func (o GetSshKeysResultOutput) ToGetSshKeysResultOutputWithContext(ctx context.
 	return o
 }
 
+// The provider-assigned unique ID for this managed resource.
 func (o GetSshKeysResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSshKeysResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
 func (o GetSshKeysResultOutput) SshKeys() GetSshKeysSshKeyArrayOutput {
 	return o.ApplyT(func(v GetSshKeysResult) []GetSshKeysSshKey { return v.SshKeys }).(GetSshKeysSshKeyArrayOutput)
 }

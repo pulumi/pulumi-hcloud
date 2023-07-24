@@ -48,10 +48,6 @@ class GetFloatingIpResult:
         pulumi.set(__self__, "name", name)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
-        if selector is not None:
-            warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
-            pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
-
         pulumi.set(__self__, "selector", selector)
         if server_id and not isinstance(server_id, int):
             raise TypeError("Expected argument 'server_id' to be a int")
@@ -130,6 +126,9 @@ class GetFloatingIpResult:
     @property
     @pulumi.getter
     def selector(self) -> Optional[str]:
+        warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
+        pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
+
         return pulumi.get(self, "selector")
 
     @property
@@ -220,18 +219,18 @@ def get_floating_ip(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getFloatingIp:getFloatingIp', __args__, opts=opts, typ=GetFloatingIpResult).value
 
     return AwaitableGetFloatingIpResult(
-        delete_protection=__ret__.delete_protection,
-        description=__ret__.description,
-        home_location=__ret__.home_location,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        ip_network=__ret__.ip_network,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        selector=__ret__.selector,
-        server_id=__ret__.server_id,
-        type=__ret__.type,
-        with_selector=__ret__.with_selector)
+        delete_protection=pulumi.get(__ret__, 'delete_protection'),
+        description=pulumi.get(__ret__, 'description'),
+        home_location=pulumi.get(__ret__, 'home_location'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        ip_network=pulumi.get(__ret__, 'ip_network'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        selector=pulumi.get(__ret__, 'selector'),
+        server_id=pulumi.get(__ret__, 'server_id'),
+        type=pulumi.get(__ret__, 'type'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_floating_ip)

@@ -132,12 +132,12 @@ def get_datacenter(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getDatacenter:getDatacenter', __args__, opts=opts, typ=GetDatacenterResult).value
 
     return AwaitableGetDatacenterResult(
-        available_server_type_ids=__ret__.available_server_type_ids,
-        description=__ret__.description,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        supported_server_type_ids=__ret__.supported_server_type_ids)
+        available_server_type_ids=pulumi.get(__ret__, 'available_server_type_ids'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        supported_server_type_ids=pulumi.get(__ret__, 'supported_server_type_ids'))
 
 
 @_utilities.lift_output_func(get_datacenter)

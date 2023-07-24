@@ -90,9 +90,9 @@ def get_load_balancers(with_selector: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getLoadBalancers:getLoadBalancers', __args__, opts=opts, typ=GetLoadBalancersResult).value
 
     return AwaitableGetLoadBalancersResult(
-        id=__ret__.id,
-        load_balancers=__ret__.load_balancers,
-        with_selector=__ret__.with_selector)
+        id=pulumi.get(__ret__, 'id'),
+        load_balancers=pulumi.get(__ret__, 'load_balancers'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_load_balancers)

@@ -42,10 +42,6 @@ class GetVolumeResult:
         pulumi.set(__self__, "name", name)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
-        if selector is not None:
-            warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
-            pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
-
         pulumi.set(__self__, "selector", selector)
         if server_id and not isinstance(server_id, int):
             raise TypeError("Expected argument 'server_id' to be a int")
@@ -111,6 +107,9 @@ class GetVolumeResult:
     @property
     @pulumi.getter
     def selector(self) -> Optional[str]:
+        warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
+        pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
+
         return pulumi.get(self, "selector")
 
     @property
@@ -199,17 +198,17 @@ def get_volume(id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        delete_protection=__ret__.delete_protection,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        linux_device=__ret__.linux_device,
-        location=__ret__.location,
-        name=__ret__.name,
-        selector=__ret__.selector,
-        server_id=__ret__.server_id,
-        size=__ret__.size,
-        with_selector=__ret__.with_selector,
-        with_statuses=__ret__.with_statuses)
+        delete_protection=pulumi.get(__ret__, 'delete_protection'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        linux_device=pulumi.get(__ret__, 'linux_device'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        selector=pulumi.get(__ret__, 'selector'),
+        server_id=pulumi.get(__ret__, 'server_id'),
+        size=pulumi.get(__ret__, 'size'),
+        with_selector=pulumi.get(__ret__, 'with_selector'),
+        with_statuses=pulumi.get(__ret__, 'with_statuses'))
 
 
 @_utilities.lift_output_func(get_volume)

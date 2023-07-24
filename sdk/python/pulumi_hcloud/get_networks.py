@@ -90,9 +90,9 @@ def get_networks(with_selector: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getNetworks:getNetworks', __args__, opts=opts, typ=GetNetworksResult).value
 
     return AwaitableGetNetworksResult(
-        id=__ret__.id,
-        networks=__ret__.networks,
-        with_selector=__ret__.with_selector)
+        id=pulumi.get(__ret__, 'id'),
+        networks=pulumi.get(__ret__, 'networks'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_networks)

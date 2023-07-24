@@ -24,10 +24,8 @@ import (
 	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
 	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -178,15 +176,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
-	err := x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "auto aliasing apply failed")
+	prov.MustApplyAutoAliases()
 
 	prov.SetAutonaming(255, "-")
-
-	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
-		// TODO[pulumi/pulumi#13108]: work around PANIC printed in an example
-		return args.Token == "hcloud:index/getSshKeys:getSshKeys"
-	}
 
 	return prov
 }

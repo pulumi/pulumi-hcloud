@@ -483,6 +483,9 @@ class _ServerState:
         """
         (string) The backup window of the server, if enabled.
         """
+        warnings.warn("""You should remove this property from your terraform configuration.""", DeprecationWarning)
+        pulumi.log.warn("""backup_window is deprecated: You should remove this property from your terraform configuration.""")
+
         return pulumi.get(self, "backup_window")
 
     @backup_window.setter
@@ -1194,6 +1197,9 @@ class Server(pulumi.CustomResource):
         """
         (string) The backup window of the server, if enabled.
         """
+        warnings.warn("""You should remove this property from your terraform configuration.""", DeprecationWarning)
+        pulumi.log.warn("""backup_window is deprecated: You should remove this property from your terraform configuration.""")
+
         return pulumi.get(self, "backup_window")
 
     @property

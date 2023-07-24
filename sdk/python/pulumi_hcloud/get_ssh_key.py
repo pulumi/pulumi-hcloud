@@ -39,10 +39,6 @@ class GetSshKeyResult:
         pulumi.set(__self__, "public_key", public_key)
         if selector and not isinstance(selector, str):
             raise TypeError("Expected argument 'selector' to be a str")
-        if selector is not None:
-            warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
-            pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
-
         pulumi.set(__self__, "selector", selector)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
@@ -88,6 +84,9 @@ class GetSshKeyResult:
     @property
     @pulumi.getter
     def selector(self) -> Optional[str]:
+        warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
+        pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
+
         return pulumi.get(self, "selector")
 
     @property
@@ -151,13 +150,13 @@ def get_ssh_key(fingerprint: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getSshKey:getSshKey', __args__, opts=opts, typ=GetSshKeyResult).value
 
     return AwaitableGetSshKeyResult(
-        fingerprint=__ret__.fingerprint,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        public_key=__ret__.public_key,
-        selector=__ret__.selector,
-        with_selector=__ret__.with_selector)
+        fingerprint=pulumi.get(__ret__, 'fingerprint'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        selector=pulumi.get(__ret__, 'selector'),
+        with_selector=pulumi.get(__ret__, 'with_selector'))
 
 
 @_utilities.lift_output_func(get_ssh_key)
