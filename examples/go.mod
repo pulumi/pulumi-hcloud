@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-hcloud/examples
 
-go 1.19
+go 1.20
 
 replace github.com/pulumi/pulumi-hcloud/provider => ../provider
 
