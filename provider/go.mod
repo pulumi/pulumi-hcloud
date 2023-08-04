@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-hcloud/provider
 
-go 1.19
+go 1.20
 
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
