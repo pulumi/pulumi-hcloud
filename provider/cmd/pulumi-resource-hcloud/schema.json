@@ -14,21 +14,22 @@
     },
     "language": {
         "csharp": {
-            "compatibility": "tfbridge20",
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
             "namespaces": {
                 "hcloud": "HCloud"
             },
-            "packageReferences": {
-                "Pulumi": "3.*"
-            }
+            "compatibility": "tfbridge20"
         },
         "go": {
-            "generateExtraInputTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-hcloud/sdk/go/hcloud",
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+            "generateExtraInputTypes": true
         },
         "nodejs": {
-            "compatibility": "tfbridge20",
+            "packageDescription": "A Pulumi package for creating and managing hcloud cloud resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/hetznercloud/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-hcloud` repo](https://github.com/hetznercloud/terraform-provider-hcloud/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
             },
@@ -36,20 +37,16 @@
                 "@types/mime": "^2.0.0",
                 "@types/node": "^10.0.0"
             },
-            "disableUnionOutputTypes": true,
-            "packageDescription": "A Pulumi package for creating and managing hcloud cloud resources.",
-            "packageName": "",
-            "pluginName": "",
-            "pluginVersion": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/hetznercloud/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-hcloud` repo](https://github.com/hetznercloud/terraform-provider-hcloud/issues).",
-            "typescriptVersion": ""
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
         },
         "python": {
-            "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/hetznercloud/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-hcloud` repo](https://github.com/hetznercloud/terraform-provider-hcloud/issues).",
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
-            }
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/hetznercloud/terraform-provider-hcloud)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-hcloud` repo](https://github.com/pulumi/pulumi-hcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-hcloud` repo](https://github.com/hetznercloud/terraform-provider-hcloud/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
         }
     },
     "config": {
