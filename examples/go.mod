@@ -13,9 +13,9 @@ replace (
 require (
 	github.com/pulumi/pulumi-hcloud/provider v0.0.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.54.0
-	github.com/pulumi/pulumi/pkg/v3 v3.75.0
-	github.com/pulumi/pulumi/sdk/v3 v3.75.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0
+	github.com/pulumi/pulumi/pkg/v3 v3.76.1
+	github.com/pulumi/pulumi/sdk/v3 v3.76.1
 )
 
 require (
@@ -137,8 +137,8 @@ require (
 	github.com/hashicorp/vault/api v1.8.2 // indirect
 	github.com/hashicorp/vault/sdk v0.6.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/hetznercloud/hcloud-go v1.48.0 // indirect
-	github.com/hetznercloud/terraform-provider-hcloud v1.42.0 // indirect
+	github.com/hetznercloud/hcloud-go v1.49.0 // indirect
+	github.com/hetznercloud/terraform-provider-hcloud v1.42.1 // indirect
 	github.com/ijc/Gotty v0.0.0-20170406111628-a8b993ba6abd // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
@@ -209,14 +209,14 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	gocloud.dev v0.27.0 // indirect
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
-	golang.org/x/crypto v0.11.0 // indirect
+	golang.org/x/crypto v0.12.0 // indirect
 	golang.org/x/mod v0.10.0 // indirect
-	golang.org/x/net v0.12.0 // indirect
+	golang.org/x/net v0.14.0 // indirect
 	golang.org/x/oauth2 v0.7.0 // indirect
 	golang.org/x/sync v0.2.0 // indirect
-	golang.org/x/sys v0.10.0 // indirect
-	golang.org/x/term v0.10.0 // indirect
-	golang.org/x/text v0.11.0 // indirect
+	golang.org/x/sys v0.11.0 // indirect
+	golang.org/x/term v0.11.0 // indirect
+	golang.org/x/text v0.12.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/api v0.114.0 // indirect
