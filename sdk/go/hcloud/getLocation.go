@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Hetzner Cloud Location.
@@ -121,6 +122,12 @@ func (o GetLocationResultOutput) ToGetLocationResultOutput() GetLocationResultOu
 
 func (o GetLocationResultOutput) ToGetLocationResultOutputWithContext(ctx context.Context) GetLocationResultOutput {
 	return o
+}
+
+func (o GetLocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocationResult] {
+	return pulumix.Output[GetLocationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (string) City of the location.

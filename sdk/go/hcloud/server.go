@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
@@ -514,6 +515,12 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
+func (i *Server) ToOutput(ctx context.Context) pulumix.Output[*Server] {
+	return pulumix.Output[*Server]{
+		OutputState: i.ToServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
@@ -537,6 +544,12 @@ func (i ServerArray) ToServerArrayOutput() ServerArrayOutput {
 
 func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerArrayOutput)
+}
+
+func (i ServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Server] {
+	return pulumix.Output[[]*Server]{
+		OutputState: i.ToServerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
@@ -564,6 +577,12 @@ func (i ServerMap) ToServerMapOutputWithContext(ctx context.Context) ServerMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerMapOutput)
 }
 
+func (i ServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Server] {
+	return pulumix.Output[map[string]*Server]{
+		OutputState: i.ToServerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
@@ -576,6 +595,12 @@ func (o ServerOutput) ToServerOutput() ServerOutput {
 
 func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return o
+}
+
+func (o ServerOutput) ToOutput(ctx context.Context) pulumix.Output[*Server] {
+	return pulumix.Output[*Server]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
@@ -724,6 +749,12 @@ func (o ServerArrayOutput) ToServerArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o ServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Server] {
+	return pulumix.Output[[]*Server]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerArrayOutput) Index(i pulumi.IntInput) ServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Server {
 		return vs[0].([]*Server)[vs[1].(int)]
@@ -742,6 +773,12 @@ func (o ServerMapOutput) ToServerMapOutput() ServerMapOutput {
 
 func (o ServerMapOutput) ToServerMapOutputWithContext(ctx context.Context) ServerMapOutput {
 	return o
+}
+
+func (o ServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Server] {
+	return pulumix.Output[map[string]*Server]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerMapOutput) MapIndex(k pulumi.StringInput) ServerOutput {

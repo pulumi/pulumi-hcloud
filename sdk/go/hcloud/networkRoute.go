@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
@@ -170,6 +171,12 @@ func (i *NetworkRoute) ToNetworkRouteOutputWithContext(ctx context.Context) Netw
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRouteOutput)
 }
 
+func (i *NetworkRoute) ToOutput(ctx context.Context) pulumix.Output[*NetworkRoute] {
+	return pulumix.Output[*NetworkRoute]{
+		OutputState: i.ToNetworkRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkRouteArrayInput is an input type that accepts NetworkRouteArray and NetworkRouteArrayOutput values.
 // You can construct a concrete instance of `NetworkRouteArrayInput` via:
 //
@@ -193,6 +200,12 @@ func (i NetworkRouteArray) ToNetworkRouteArrayOutput() NetworkRouteArrayOutput {
 
 func (i NetworkRouteArray) ToNetworkRouteArrayOutputWithContext(ctx context.Context) NetworkRouteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRouteArrayOutput)
+}
+
+func (i NetworkRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkRoute] {
+	return pulumix.Output[[]*NetworkRoute]{
+		OutputState: i.ToNetworkRouteArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkRouteMapInput is an input type that accepts NetworkRouteMap and NetworkRouteMapOutput values.
@@ -220,6 +233,12 @@ func (i NetworkRouteMap) ToNetworkRouteMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRouteMapOutput)
 }
 
+func (i NetworkRouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkRoute] {
+	return pulumix.Output[map[string]*NetworkRoute]{
+		OutputState: i.ToNetworkRouteMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkRouteOutput struct{ *pulumi.OutputState }
 
 func (NetworkRouteOutput) ElementType() reflect.Type {
@@ -232,6 +251,12 @@ func (o NetworkRouteOutput) ToNetworkRouteOutput() NetworkRouteOutput {
 
 func (o NetworkRouteOutput) ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput {
 	return o
+}
+
+func (o NetworkRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkRoute] {
+	return pulumix.Output[*NetworkRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
@@ -263,6 +288,12 @@ func (o NetworkRouteArrayOutput) ToNetworkRouteArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o NetworkRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkRoute] {
+	return pulumix.Output[[]*NetworkRoute]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkRouteArrayOutput) Index(i pulumi.IntInput) NetworkRouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkRoute {
 		return vs[0].([]*NetworkRoute)[vs[1].(int)]
@@ -281,6 +312,12 @@ func (o NetworkRouteMapOutput) ToNetworkRouteMapOutput() NetworkRouteMapOutput {
 
 func (o NetworkRouteMapOutput) ToNetworkRouteMapOutputWithContext(ctx context.Context) NetworkRouteMapOutput {
 	return o
+}
+
+func (o NetworkRouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkRoute] {
+	return pulumix.Output[map[string]*NetworkRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkRouteMapOutput) MapIndex(k pulumi.StringInput) NetworkRouteOutput {

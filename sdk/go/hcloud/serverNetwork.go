@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
@@ -268,6 +269,12 @@ func (i *ServerNetwork) ToServerNetworkOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkOutput)
 }
 
+func (i *ServerNetwork) ToOutput(ctx context.Context) pulumix.Output[*ServerNetwork] {
+	return pulumix.Output[*ServerNetwork]{
+		OutputState: i.ToServerNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerNetworkArrayInput is an input type that accepts ServerNetworkArray and ServerNetworkArrayOutput values.
 // You can construct a concrete instance of `ServerNetworkArrayInput` via:
 //
@@ -291,6 +298,12 @@ func (i ServerNetworkArray) ToServerNetworkArrayOutput() ServerNetworkArrayOutpu
 
 func (i ServerNetworkArray) ToServerNetworkArrayOutputWithContext(ctx context.Context) ServerNetworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkArrayOutput)
+}
+
+func (i ServerNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerNetwork] {
+	return pulumix.Output[[]*ServerNetwork]{
+		OutputState: i.ToServerNetworkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerNetworkMapInput is an input type that accepts ServerNetworkMap and ServerNetworkMapOutput values.
@@ -318,6 +331,12 @@ func (i ServerNetworkMap) ToServerNetworkMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerNetworkMapOutput)
 }
 
+func (i ServerNetworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerNetwork] {
+	return pulumix.Output[map[string]*ServerNetwork]{
+		OutputState: i.ToServerNetworkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerNetworkOutput struct{ *pulumi.OutputState }
 
 func (ServerNetworkOutput) ElementType() reflect.Type {
@@ -330,6 +349,12 @@ func (o ServerNetworkOutput) ToServerNetworkOutput() ServerNetworkOutput {
 
 func (o ServerNetworkOutput) ToServerNetworkOutputWithContext(ctx context.Context) ServerNetworkOutput {
 	return o
+}
+
+func (o ServerNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerNetwork] {
+	return pulumix.Output[*ServerNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Additional IPs to be assigned
@@ -388,6 +413,12 @@ func (o ServerNetworkArrayOutput) ToServerNetworkArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ServerNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerNetwork] {
+	return pulumix.Output[[]*ServerNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerNetworkArrayOutput) Index(i pulumi.IntInput) ServerNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerNetwork {
 		return vs[0].([]*ServerNetwork)[vs[1].(int)]
@@ -406,6 +437,12 @@ func (o ServerNetworkMapOutput) ToServerNetworkMapOutput() ServerNetworkMapOutpu
 
 func (o ServerNetworkMapOutput) ToServerNetworkMapOutputWithContext(ctx context.Context) ServerNetworkMapOutput {
 	return o
+}
+
+func (o ServerNetworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerNetwork] {
+	return pulumix.Output[map[string]*ServerNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerNetworkMapOutput) MapIndex(k pulumi.StringInput) ServerNetworkOutput {
