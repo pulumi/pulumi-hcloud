@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
@@ -172,6 +173,12 @@ func (i *SshKey) ToSshKeyOutputWithContext(ctx context.Context) SshKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SshKeyOutput)
 }
 
+func (i *SshKey) ToOutput(ctx context.Context) pulumix.Output[*SshKey] {
+	return pulumix.Output[*SshKey]{
+		OutputState: i.ToSshKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SshKeyArrayInput is an input type that accepts SshKeyArray and SshKeyArrayOutput values.
 // You can construct a concrete instance of `SshKeyArrayInput` via:
 //
@@ -195,6 +202,12 @@ func (i SshKeyArray) ToSshKeyArrayOutput() SshKeyArrayOutput {
 
 func (i SshKeyArray) ToSshKeyArrayOutputWithContext(ctx context.Context) SshKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SshKeyArrayOutput)
+}
+
+func (i SshKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SshKey] {
+	return pulumix.Output[[]*SshKey]{
+		OutputState: i.ToSshKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SshKeyMapInput is an input type that accepts SshKeyMap and SshKeyMapOutput values.
@@ -222,6 +235,12 @@ func (i SshKeyMap) ToSshKeyMapOutputWithContext(ctx context.Context) SshKeyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SshKeyMapOutput)
 }
 
+func (i SshKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshKey] {
+	return pulumix.Output[map[string]*SshKey]{
+		OutputState: i.ToSshKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SshKeyOutput struct{ *pulumi.OutputState }
 
 func (SshKeyOutput) ElementType() reflect.Type {
@@ -234,6 +253,12 @@ func (o SshKeyOutput) ToSshKeyOutput() SshKeyOutput {
 
 func (o SshKeyOutput) ToSshKeyOutputWithContext(ctx context.Context) SshKeyOutput {
 	return o
+}
+
+func (o SshKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*SshKey] {
+	return pulumix.Output[*SshKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (string) The fingerprint of the SSH key
@@ -270,6 +295,12 @@ func (o SshKeyArrayOutput) ToSshKeyArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o SshKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SshKey] {
+	return pulumix.Output[[]*SshKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SshKeyArrayOutput) Index(i pulumi.IntInput) SshKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SshKey {
 		return vs[0].([]*SshKey)[vs[1].(int)]
@@ -288,6 +319,12 @@ func (o SshKeyMapOutput) ToSshKeyMapOutput() SshKeyMapOutput {
 
 func (o SshKeyMapOutput) ToSshKeyMapOutputWithContext(ctx context.Context) SshKeyMapOutput {
 	return o
+}
+
+func (o SshKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshKey] {
+	return pulumix.Output[map[string]*SshKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SshKeyMapOutput) MapIndex(k pulumi.StringInput) SshKeyOutput {

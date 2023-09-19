@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Hetzner Cloud Load Balancers.
@@ -103,6 +104,12 @@ func (o GetLoadBalancersResultOutput) ToGetLoadBalancersResultOutput() GetLoadBa
 
 func (o GetLoadBalancersResultOutput) ToGetLoadBalancersResultOutputWithContext(ctx context.Context) GetLoadBalancersResultOutput {
 	return o
+}
+
+func (o GetLoadBalancersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLoadBalancersResult] {
+	return pulumix.Output[GetLoadBalancersResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

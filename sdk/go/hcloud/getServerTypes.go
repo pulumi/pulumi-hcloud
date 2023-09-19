@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a list of available Hetzner Cloud Server Types.
@@ -78,6 +79,12 @@ func (o GetServerTypesResultOutput) ToGetServerTypesResultOutput() GetServerType
 
 func (o GetServerTypesResultOutput) ToGetServerTypesResultOutputWithContext(ctx context.Context) GetServerTypesResultOutput {
 	return o
+}
+
+func (o GetServerTypesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerTypesResult] {
+	return pulumix.Output[GetServerTypesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Deprecated: Use server_types list instead

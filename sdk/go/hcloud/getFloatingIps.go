@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Hetzner Cloud Floating IPs.
@@ -99,6 +100,12 @@ func (o GetFloatingIpsResultOutput) ToGetFloatingIpsResultOutput() GetFloatingIp
 
 func (o GetFloatingIpsResultOutput) ToGetFloatingIpsResultOutputWithContext(ctx context.Context) GetFloatingIpsResultOutput {
 	return o
+}
+
+func (o GetFloatingIpsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFloatingIpsResult] {
+	return pulumix.Output[GetFloatingIpsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (list) List of all matching floating ips. See `data.hcloud_floating_ip` for schema.
