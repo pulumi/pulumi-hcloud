@@ -4,10 +4,10 @@ go 1.21
 
 replace github.com/pulumi/pulumi-hcloud/provider => ../provider
 
-// Coppied from ../provider/go.mod
+// Copied from ../provider/go.mod
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230710100801-03a71d0fca3d
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230912190043-e6d96b3b8f7e
 )
 
 require (
