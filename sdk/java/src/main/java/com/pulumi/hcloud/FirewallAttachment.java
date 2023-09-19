@@ -114,7 +114,7 @@ public class FirewallAttachment extends com.pulumi.resources.CustomResource {
      * should be attached to.
      * 
      */
-    @Export(name="firewallId", type=Integer.class, parameters={})
+    @Export(name="firewallId", refs={Integer.class}, tree="[0]")
     private Output<Integer> firewallId;
 
     /**
@@ -130,7 +130,7 @@ public class FirewallAttachment extends com.pulumi.resources.CustomResource {
      * select resources to attach to the firewall.
      * 
      */
-    @Export(name="labelSelectors", type=List.class, parameters={String.class})
+    @Export(name="labelSelectors", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> labelSelectors;
 
     /**
@@ -146,7 +146,7 @@ public class FirewallAttachment extends com.pulumi.resources.CustomResource {
      * firewall.
      * 
      */
-    @Export(name="serverIds", type=List.class, parameters={Integer.class})
+    @Export(name="serverIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> serverIds;
 
     /**

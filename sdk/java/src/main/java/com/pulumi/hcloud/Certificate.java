@@ -24,61 +24,61 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="hcloud:index/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     public Output<String> certificate() {
         return this.certificate;
     }
-    @Export(name="created", type=String.class, parameters={})
+    @Export(name="created", refs={String.class}, tree="[0]")
     private Output<String> created;
 
     public Output<String> created() {
         return this.created;
     }
-    @Export(name="domainNames", type=List.class, parameters={String.class})
+    @Export(name="domainNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> domainNames;
 
     public Output<List<String>> domainNames() {
         return this.domainNames;
     }
-    @Export(name="fingerprint", type=String.class, parameters={})
+    @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
     public Output<String> fingerprint() {
         return this.fingerprint;
     }
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     public Output<Optional<Map<String,Object>>> labels() {
         return Codegen.optional(this.labels);
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="notValidAfter", type=String.class, parameters={})
+    @Export(name="notValidAfter", refs={String.class}, tree="[0]")
     private Output<String> notValidAfter;
 
     public Output<String> notValidAfter() {
         return this.notValidAfter;
     }
-    @Export(name="notValidBefore", type=String.class, parameters={})
+    @Export(name="notValidBefore", refs={String.class}, tree="[0]")
     private Output<String> notValidBefore;
 
     public Output<String> notValidBefore() {
         return this.notValidBefore;
     }
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     public Output<String> privateKey() {
         return this.privateKey;
     }
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     public Output<String> type() {

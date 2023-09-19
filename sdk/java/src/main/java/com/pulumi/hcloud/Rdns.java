@@ -209,7 +209,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * The DNS address the `ip_address` should resolve to.
      * 
      */
-    @Export(name="dnsPtr", type=String.class, parameters={})
+    @Export(name="dnsPtr", refs={String.class}, tree="[0]")
     private Output<String> dnsPtr;
 
     /**
@@ -223,7 +223,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
-    @Export(name="floatingIpId", type=Integer.class, parameters={})
+    @Export(name="floatingIpId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> floatingIpId;
 
     /**
@@ -237,7 +237,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * The IP address that should point to `dns_ptr`.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -251,7 +251,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
-    @Export(name="loadBalancerId", type=Integer.class, parameters={})
+    @Export(name="loadBalancerId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> loadBalancerId;
 
     /**
@@ -265,7 +265,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
-    @Export(name="primaryIpId", type=Integer.class, parameters={})
+    @Export(name="primaryIpId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> primaryIpId;
 
     /**
@@ -279,7 +279,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
      * 
      */
-    @Export(name="serverId", type=Integer.class, parameters={})
+    @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> serverId;
 
     /**

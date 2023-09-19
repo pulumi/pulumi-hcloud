@@ -89,7 +89,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      * to this server.
      * 
      */
-    @Export(name="aliasIps", type=List.class, parameters={String.class})
+    @Export(name="aliasIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> aliasIps;
 
     /**
@@ -106,7 +106,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      * address.
      * 
      */
-    @Export(name="ip", type=String.class, parameters={})
+    @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**
@@ -118,7 +118,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
     public Output<String> ip() {
         return this.ip;
     }
-    @Export(name="macAddress", type=String.class, parameters={})
+    @Export(name="macAddress", refs={String.class}, tree="[0]")
     private Output<String> macAddress;
 
     public Output<String> macAddress() {
@@ -135,7 +135,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      * the existence of a subnet.
      * 
      */
-    @Export(name="networkId", type=Integer.class, parameters={})
+    @Export(name="networkId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> networkId;
 
     /**
@@ -156,7 +156,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      * ID of the server.
      * 
      */
-    @Export(name="serverId", type=Integer.class, parameters={})
+    @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverId;
 
     /**
@@ -173,7 +173,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      * to the last created subnet.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**

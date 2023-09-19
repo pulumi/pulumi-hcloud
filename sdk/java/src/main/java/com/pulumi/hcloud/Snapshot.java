@@ -72,7 +72,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Description of the snapshot.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -86,7 +86,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
@@ -100,7 +100,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Server to the snapshot should be created from.
      * 
      */
-    @Export(name="serverId", type=Integer.class, parameters={})
+    @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverId;
 
     /**

@@ -35,7 +35,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * (string) PEM encoded TLS certificate.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
@@ -49,7 +49,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
      * 
      */
-    @Export(name="created", type=String.class, parameters={})
+    @Export(name="created", refs={String.class}, tree="[0]")
     private Output<String> created;
 
     /**
@@ -63,7 +63,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * (list) Domains and subdomains covered by the certificate.
      * 
      */
-    @Export(name="domainNames", type=List.class, parameters={String.class})
+    @Export(name="domainNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> domainNames;
 
     /**
@@ -77,7 +77,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * (string) Fingerprint of the certificate.
      * 
      */
-    @Export(name="fingerprint", type=String.class, parameters={})
+    @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
     /**
@@ -92,7 +92,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * certificate should be created with.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
@@ -107,7 +107,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * Name of the Certificate.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
      * 
      */
-    @Export(name="notValidAfter", type=String.class, parameters={})
+    @Export(name="notValidAfter", refs={String.class}, tree="[0]")
     private Output<String> notValidAfter;
 
     /**
@@ -135,7 +135,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
      * 
      */
-    @Export(name="notValidBefore", type=String.class, parameters={})
+    @Export(name="notValidBefore", refs={String.class}, tree="[0]")
     private Output<String> notValidBefore;
 
     /**
@@ -145,7 +145,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
     public Output<String> notValidBefore() {
         return this.notValidBefore;
     }
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     public Output<String> type() {

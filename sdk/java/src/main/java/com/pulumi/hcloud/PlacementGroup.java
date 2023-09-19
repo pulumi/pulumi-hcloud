@@ -75,7 +75,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
@@ -89,7 +89,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * Name of the Placement Group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -99,7 +99,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="servers", type=List.class, parameters={Integer.class})
+    @Export(name="servers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> servers;
 
     public Output<List<Integer>> servers() {
@@ -109,7 +109,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * Type of the Placement Group.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

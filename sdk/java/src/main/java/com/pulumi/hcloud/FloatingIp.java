@@ -74,7 +74,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * Enable or disable delete protection.
      * 
      */
-    @Export(name="deleteProtection", type=Boolean.class, parameters={})
+    @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
@@ -88,7 +88,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * Description of the Floating IP.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -102,7 +102,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
      * 
      */
-    @Export(name="homeLocation", type=String.class, parameters={})
+    @Export(name="homeLocation", refs={String.class}, tree="[0]")
     private Output<String> homeLocation;
 
     /**
@@ -116,7 +116,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * (string) IP Address of the Floating IP.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -130,7 +130,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * (string) IPv6 subnet. (Only set if `type` is `ipv6`)
      * 
      */
-    @Export(name="ipNetwork", type=String.class, parameters={})
+    @Export(name="ipNetwork", refs={String.class}, tree="[0]")
     private Output<String> ipNetwork;
 
     /**
@@ -144,7 +144,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
@@ -158,7 +158,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * Name of the Floating IP.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -172,7 +172,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * Server to assign the Floating IP to.
      * 
      */
-    @Export(name="serverId", type=Integer.class, parameters={})
+    @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverId;
 
     /**
@@ -186,7 +186,7 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
      * Type of the Floating IP. `ipv4` `ipv6`
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="hcloud:index/networkSubnet:NetworkSubnet")
 public class NetworkSubnet extends com.pulumi.resources.CustomResource {
-    @Export(name="gateway", type=String.class, parameters={})
+    @Export(name="gateway", refs={String.class}, tree="[0]")
     private Output<String> gateway;
 
     public Output<String> gateway() {
@@ -78,7 +78,7 @@ public class NetworkSubnet extends com.pulumi.resources.CustomResource {
      * Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
      * 
      */
-    @Export(name="ipRange", type=String.class, parameters={})
+    @Export(name="ipRange", refs={String.class}, tree="[0]")
     private Output<String> ipRange;
 
     /**
@@ -92,7 +92,7 @@ public class NetworkSubnet extends com.pulumi.resources.CustomResource {
      * ID of the Network the subnet should be added to.
      * 
      */
-    @Export(name="networkId", type=Integer.class, parameters={})
+    @Export(name="networkId", refs={Integer.class}, tree="[0]")
     private Output<Integer> networkId;
 
     /**
@@ -106,7 +106,7 @@ public class NetworkSubnet extends com.pulumi.resources.CustomResource {
      * Name of network zone.
      * 
      */
-    @Export(name="networkZone", type=String.class, parameters={})
+    @Export(name="networkZone", refs={String.class}, tree="[0]")
     private Output<String> networkZone;
 
     /**
@@ -120,7 +120,7 @@ public class NetworkSubnet extends com.pulumi.resources.CustomResource {
      * Type of subnet. `server`, `cloud` or `vswitch`
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -134,7 +134,7 @@ public class NetworkSubnet extends com.pulumi.resources.CustomResource {
      * ID of the vswitch, Required if type is `vswitch`
      * 
      */
-    @Export(name="vswitchId", type=Integer.class, parameters={})
+    @Export(name="vswitchId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> vswitchId;
 
     /**

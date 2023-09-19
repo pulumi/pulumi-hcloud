@@ -23,13 +23,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pulumi:providers:hcloud")
 public class Provider extends com.pulumi.resources.ProviderResource {
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpoint;
 
     public Output<Optional<String>> endpoint() {
         return Codegen.optional(this.endpoint);
     }
-    @Export(name="pollInterval", type=String.class, parameters={})
+    @Export(name="pollInterval", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pollInterval;
 
     public Output<Optional<String>> pollInterval() {
@@ -39,7 +39,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The API token to access the Hetzner cloud.
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     /**

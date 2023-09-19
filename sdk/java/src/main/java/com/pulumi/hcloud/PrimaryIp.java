@@ -86,7 +86,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * ID of the assigned resource
      * 
      */
-    @Export(name="assigneeId", type=Integer.class, parameters={})
+    @Export(name="assigneeId", refs={Integer.class}, tree="[0]")
     private Output<Integer> assigneeId;
 
     /**
@@ -100,7 +100,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * The type of the assigned resource. Currently supported: `server`
      * 
      */
-    @Export(name="assigneeType", type=String.class, parameters={})
+    @Export(name="assigneeType", refs={String.class}, tree="[0]")
     private Output<String> assigneeType;
 
     /**
@@ -115,7 +115,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
-    @Export(name="autoDelete", type=Boolean.class, parameters={})
+    @Export(name="autoDelete", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoDelete;
 
     /**
@@ -130,7 +130,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * The datacenter name to create the resource in.
      * 
      */
-    @Export(name="datacenter", type=String.class, parameters={})
+    @Export(name="datacenter", refs={String.class}, tree="[0]")
     private Output<String> datacenter;
 
     /**
@@ -144,7 +144,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * Whether delete protection is enabled.
      * 
      */
-    @Export(name="deleteProtection", type=Boolean.class, parameters={})
+    @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
@@ -158,7 +158,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * (string) IP Address of the Primary IP.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -172,7 +172,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
      * 
      */
-    @Export(name="ipNetwork", type=String.class, parameters={})
+    @Export(name="ipNetwork", refs={String.class}, tree="[0]")
     private Output<String> ipNetwork;
 
     /**
@@ -186,7 +186,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * Description of the Primary IP.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
@@ -200,7 +200,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * Name of the Primary IP.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -214,7 +214,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * Type of the Primary IP. `ipv4` or `ipv6`
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
