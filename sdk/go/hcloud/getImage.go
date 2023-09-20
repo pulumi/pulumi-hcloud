@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -167,6 +168,12 @@ func (o GetImageResultOutput) ToGetImageResultOutput() GetImageResultOutput {
 
 func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Context) GetImageResultOutput {
 	return o
+}
+
+func (o GetImageResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageResult] {
+	return pulumix.Output[GetImageResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (string) Architecture of the Image.

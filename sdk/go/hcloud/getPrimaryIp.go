@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a Hetzner Cloud Primary IP.
@@ -174,6 +175,12 @@ func (o LookupPrimaryIpResultOutput) ToLookupPrimaryIpResultOutput() LookupPrima
 
 func (o LookupPrimaryIpResultOutput) ToLookupPrimaryIpResultOutputWithContext(ctx context.Context) LookupPrimaryIpResultOutput {
 	return o
+}
+
+func (o LookupPrimaryIpResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrimaryIpResult] {
+	return pulumix.Output[LookupPrimaryIpResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (int) ID of the assigned resource.

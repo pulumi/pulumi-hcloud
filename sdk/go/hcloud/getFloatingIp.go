@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a Hetzner Cloud Floating IP.
@@ -158,6 +159,12 @@ func (o LookupFloatingIpResultOutput) ToLookupFloatingIpResultOutput() LookupFlo
 
 func (o LookupFloatingIpResultOutput) ToLookupFloatingIpResultOutputWithContext(ctx context.Context) LookupFloatingIpResultOutput {
 	return o
+}
+
+func (o LookupFloatingIpResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFloatingIpResult] {
+	return pulumix.Output[LookupFloatingIpResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (bool) Whether delete protection is enabled.

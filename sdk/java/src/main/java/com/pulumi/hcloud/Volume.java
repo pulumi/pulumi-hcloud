@@ -76,7 +76,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Automount the volume upon attaching it (server_id must be provided).
      * 
      */
-    @Export(name="automount", type=Boolean.class, parameters={})
+    @Export(name="automount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automount;
 
     /**
@@ -92,7 +92,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
      * 
      */
-    @Export(name="deleteProtection", type=Boolean.class, parameters={})
+    @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
@@ -108,7 +108,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Format volume after creation. `xfs` or `ext4`
      * 
      */
-    @Export(name="format", type=String.class, parameters={})
+    @Export(name="format", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> format;
 
     /**
@@ -122,7 +122,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * (map) User-defined labels (key-value pairs).
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
@@ -136,7 +136,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * (string) Device path on the file system for the Volume.
      * 
      */
-    @Export(name="linuxDevice", type=String.class, parameters={})
+    @Export(name="linuxDevice", refs={String.class}, tree="[0]")
     private Output<String> linuxDevice;
 
     /**
@@ -150,7 +150,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The location name of the volume to create, not allowed if server_id argument is passed.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -164,7 +164,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Name of the volume to create (must be unique per project).
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -178,7 +178,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Server to attach the Volume to, not allowed if location argument is passed.
      * 
      */
-    @Export(name="serverId", type=Integer.class, parameters={})
+    @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverId;
 
     /**
@@ -192,7 +192,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Size of the volume (in GB).
      * 
      */
-    @Export(name="size", type=Integer.class, parameters={})
+    @Export(name="size", refs={Integer.class}, tree="[0]")
     private Output<Integer> size;
 
     /**

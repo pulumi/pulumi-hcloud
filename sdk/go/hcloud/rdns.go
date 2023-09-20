@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
@@ -329,6 +330,12 @@ func (i *Rdns) ToRdnsOutputWithContext(ctx context.Context) RdnsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RdnsOutput)
 }
 
+func (i *Rdns) ToOutput(ctx context.Context) pulumix.Output[*Rdns] {
+	return pulumix.Output[*Rdns]{
+		OutputState: i.ToRdnsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RdnsArrayInput is an input type that accepts RdnsArray and RdnsArrayOutput values.
 // You can construct a concrete instance of `RdnsArrayInput` via:
 //
@@ -352,6 +359,12 @@ func (i RdnsArray) ToRdnsArrayOutput() RdnsArrayOutput {
 
 func (i RdnsArray) ToRdnsArrayOutputWithContext(ctx context.Context) RdnsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RdnsArrayOutput)
+}
+
+func (i RdnsArray) ToOutput(ctx context.Context) pulumix.Output[[]*Rdns] {
+	return pulumix.Output[[]*Rdns]{
+		OutputState: i.ToRdnsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RdnsMapInput is an input type that accepts RdnsMap and RdnsMapOutput values.
@@ -379,6 +392,12 @@ func (i RdnsMap) ToRdnsMapOutputWithContext(ctx context.Context) RdnsMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RdnsMapOutput)
 }
 
+func (i RdnsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Rdns] {
+	return pulumix.Output[map[string]*Rdns]{
+		OutputState: i.ToRdnsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RdnsOutput struct{ *pulumi.OutputState }
 
 func (RdnsOutput) ElementType() reflect.Type {
@@ -391,6 +410,12 @@ func (o RdnsOutput) ToRdnsOutput() RdnsOutput {
 
 func (o RdnsOutput) ToRdnsOutputWithContext(ctx context.Context) RdnsOutput {
 	return o
+}
+
+func (o RdnsOutput) ToOutput(ctx context.Context) pulumix.Output[*Rdns] {
+	return pulumix.Output[*Rdns]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The DNS address the `ipAddress` should resolve to.
@@ -437,6 +462,12 @@ func (o RdnsArrayOutput) ToRdnsArrayOutputWithContext(ctx context.Context) RdnsA
 	return o
 }
 
+func (o RdnsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Rdns] {
+	return pulumix.Output[[]*Rdns]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RdnsArrayOutput) Index(i pulumi.IntInput) RdnsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Rdns {
 		return vs[0].([]*Rdns)[vs[1].(int)]
@@ -455,6 +486,12 @@ func (o RdnsMapOutput) ToRdnsMapOutput() RdnsMapOutput {
 
 func (o RdnsMapOutput) ToRdnsMapOutputWithContext(ctx context.Context) RdnsMapOutput {
 	return o
+}
+
+func (o RdnsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Rdns] {
+	return pulumix.Output[map[string]*Rdns]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RdnsMapOutput) MapIndex(k pulumi.StringInput) RdnsOutput {

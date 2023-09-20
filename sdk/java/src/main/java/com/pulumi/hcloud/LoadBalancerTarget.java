@@ -89,7 +89,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * `type` is `ip`.
      * 
      */
-    @Export(name="ip", type=String.class, parameters={})
+    @Export(name="ip", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ip;
 
     /**
@@ -105,7 +105,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * for this Load Balancer. Required if `type` is `label_selector`.
      * 
      */
-    @Export(name="labelSelector", type=String.class, parameters={})
+    @Export(name="labelSelector", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> labelSelector;
 
     /**
@@ -121,7 +121,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * the target gets attached.
      * 
      */
-    @Export(name="loadBalancerId", type=Integer.class, parameters={})
+    @Export(name="loadBalancerId", refs={Integer.class}, tree="[0]")
     private Output<Integer> loadBalancerId;
 
     /**
@@ -137,7 +137,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * target for this Load Balancer. Required if `type` is `server`
      * 
      */
-    @Export(name="serverId", type=Integer.class, parameters={})
+    @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> serverId;
 
     /**
@@ -153,7 +153,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * `server`, `label_selector`, `ip`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -170,7 +170,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * `label_selector`.
      * 
      */
-    @Export(name="usePrivateIp", type=Boolean.class, parameters={})
+    @Export(name="usePrivateIp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> usePrivateIp;
 
     /**

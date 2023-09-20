@@ -12,13 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:build ignore
 // +build ignore
 
 package main
 
 import (
 	"encoding/json"
-	"fmt"
+	"errors"
+	"io/fs"
 	"io/ioutil"
 	"log"
 	"os"
@@ -49,9 +51,13 @@ func main() {
 		log.Fatalf("cannot reserialize schema: %v", err)
 	}
 
-	err = ioutil.WriteFile("./schema.go", []byte(fmt.Sprintf(`package main
-var pulumiSchema = %#v
-`, versionedContents)), 0600)
+	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file isn't present.
+	err = os.Remove("./schema.go")
+	if err != nil && !errors.Is(err, fs.ErrNotExist) {
+		log.Fatal(err)
+	}
+
+	err = ioutil.WriteFile("./schema-embed.json", versionedContents, 0600)
 	if err != nil {
 		log.Fatal(err)
 	}

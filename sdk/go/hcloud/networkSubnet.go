@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
@@ -197,6 +198,12 @@ func (i *NetworkSubnet) ToNetworkSubnetOutputWithContext(ctx context.Context) Ne
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSubnetOutput)
 }
 
+func (i *NetworkSubnet) ToOutput(ctx context.Context) pulumix.Output[*NetworkSubnet] {
+	return pulumix.Output[*NetworkSubnet]{
+		OutputState: i.ToNetworkSubnetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkSubnetArrayInput is an input type that accepts NetworkSubnetArray and NetworkSubnetArrayOutput values.
 // You can construct a concrete instance of `NetworkSubnetArrayInput` via:
 //
@@ -220,6 +227,12 @@ func (i NetworkSubnetArray) ToNetworkSubnetArrayOutput() NetworkSubnetArrayOutpu
 
 func (i NetworkSubnetArray) ToNetworkSubnetArrayOutputWithContext(ctx context.Context) NetworkSubnetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSubnetArrayOutput)
+}
+
+func (i NetworkSubnetArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSubnet] {
+	return pulumix.Output[[]*NetworkSubnet]{
+		OutputState: i.ToNetworkSubnetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkSubnetMapInput is an input type that accepts NetworkSubnetMap and NetworkSubnetMapOutput values.
@@ -247,6 +260,12 @@ func (i NetworkSubnetMap) ToNetworkSubnetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSubnetMapOutput)
 }
 
+func (i NetworkSubnetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSubnet] {
+	return pulumix.Output[map[string]*NetworkSubnet]{
+		OutputState: i.ToNetworkSubnetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkSubnetOutput struct{ *pulumi.OutputState }
 
 func (NetworkSubnetOutput) ElementType() reflect.Type {
@@ -259,6 +278,12 @@ func (o NetworkSubnetOutput) ToNetworkSubnetOutput() NetworkSubnetOutput {
 
 func (o NetworkSubnetOutput) ToNetworkSubnetOutputWithContext(ctx context.Context) NetworkSubnetOutput {
 	return o
+}
+
+func (o NetworkSubnetOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSubnet] {
+	return pulumix.Output[*NetworkSubnet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkSubnetOutput) Gateway() pulumi.StringOutput {
@@ -304,6 +329,12 @@ func (o NetworkSubnetArrayOutput) ToNetworkSubnetArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o NetworkSubnetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSubnet] {
+	return pulumix.Output[[]*NetworkSubnet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkSubnetArrayOutput) Index(i pulumi.IntInput) NetworkSubnetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkSubnet {
 		return vs[0].([]*NetworkSubnet)[vs[1].(int)]
@@ -322,6 +353,12 @@ func (o NetworkSubnetMapOutput) ToNetworkSubnetMapOutput() NetworkSubnetMapOutpu
 
 func (o NetworkSubnetMapOutput) ToNetworkSubnetMapOutputWithContext(ctx context.Context) NetworkSubnetMapOutput {
 	return o
+}
+
+func (o NetworkSubnetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSubnet] {
+	return pulumix.Output[map[string]*NetworkSubnet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkSubnetMapOutput) MapIndex(k pulumi.StringInput) NetworkSubnetOutput {

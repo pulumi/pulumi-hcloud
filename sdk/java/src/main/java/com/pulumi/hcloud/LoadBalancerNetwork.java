@@ -89,7 +89,7 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
      * Load Balancers public interface. Default: `true`
      * 
      */
-    @Export(name="enablePublicInterface", type=Boolean.class, parameters={})
+    @Export(name="enablePublicInterface", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePublicInterface;
 
     /**
@@ -106,7 +106,7 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
      * IP address.
      * 
      */
-    @Export(name="ip", type=String.class, parameters={})
+    @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**
@@ -122,7 +122,7 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
      * ID of the Load Balancer.
      * 
      */
-    @Export(name="loadBalancerId", type=Integer.class, parameters={})
+    @Export(name="loadBalancerId", refs={Integer.class}, tree="[0]")
     private Output<Integer> loadBalancerId;
 
     /**
@@ -143,7 +143,7 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
      * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
      * 
      */
-    @Export(name="networkId", type=Integer.class, parameters={})
+    @Export(name="networkId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> networkId;
 
     /**
@@ -167,7 +167,7 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
      * currently added to the last created subnet.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**

@@ -73,7 +73,7 @@ public class LoadBalancerService extends com.pulumi.resources.CustomResource {
      * Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
      * 
      */
-    @Export(name="destinationPort", type=Integer.class, parameters={})
+    @Export(name="destinationPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> destinationPort;
 
     /**
@@ -87,7 +87,7 @@ public class LoadBalancerService extends com.pulumi.resources.CustomResource {
      * List of health check configurations when `protocol` is `http` or `https`.
      * 
      */
-    @Export(name="healthCheck", type=LoadBalancerServiceHealthCheck.class, parameters={})
+    @Export(name="healthCheck", refs={LoadBalancerServiceHealthCheck.class}, tree="[0]")
     private Output<LoadBalancerServiceHealthCheck> healthCheck;
 
     /**
@@ -101,7 +101,7 @@ public class LoadBalancerService extends com.pulumi.resources.CustomResource {
      * List of http configurations when `protocol` is `http` or `https`.
      * 
      */
-    @Export(name="http", type=LoadBalancerServiceHttp.class, parameters={})
+    @Export(name="http", refs={LoadBalancerServiceHttp.class}, tree="[0]")
     private Output<LoadBalancerServiceHttp> http;
 
     /**
@@ -115,7 +115,7 @@ public class LoadBalancerService extends com.pulumi.resources.CustomResource {
      * Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      * 
      */
-    @Export(name="listenPort", type=Integer.class, parameters={})
+    @Export(name="listenPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> listenPort;
 
     /**
@@ -129,7 +129,7 @@ public class LoadBalancerService extends com.pulumi.resources.CustomResource {
      * Id of the load balancer this service belongs to.
      * 
      */
-    @Export(name="loadBalancerId", type=String.class, parameters={})
+    @Export(name="loadBalancerId", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerId;
 
     /**
@@ -143,7 +143,7 @@ public class LoadBalancerService extends com.pulumi.resources.CustomResource {
      * Protocol of the service. `http`, `https` or `tcp`
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -157,7 +157,7 @@ public class LoadBalancerService extends com.pulumi.resources.CustomResource {
      * Enable proxyprotocol.
      * 
      */
-    @Export(name="proxyprotocol", type=Boolean.class, parameters={})
+    @Export(name="proxyprotocol", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> proxyprotocol;
 
     /**

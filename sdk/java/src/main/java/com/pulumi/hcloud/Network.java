@@ -65,7 +65,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Enable or disable delete protection.
      * 
      */
-    @Export(name="deleteProtection", type=Boolean.class, parameters={})
+    @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
@@ -79,7 +79,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
      * 
      */
-    @Export(name="exposeRoutesToVswitch", type=Boolean.class, parameters={})
+    @Export(name="exposeRoutesToVswitch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> exposeRoutesToVswitch;
 
     /**
@@ -93,7 +93,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      * 
      */
-    @Export(name="ipRange", type=String.class, parameters={})
+    @Export(name="ipRange", refs={String.class}, tree="[0]")
     private Output<String> ipRange;
 
     /**
@@ -107,7 +107,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
@@ -121,7 +121,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Name of the Network to create (must be unique per project).
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

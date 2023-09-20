@@ -91,7 +91,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * Resources the firewall should be assigned to
      * 
      */
-    @Export(name="applyTos", type=List.class, parameters={FirewallApplyTo.class})
+    @Export(name="applyTos", refs={List.class,FirewallApplyTo.class}, tree="[0,1]")
     private Output<List<FirewallApplyTo>> applyTos;
 
     /**
@@ -105,7 +105,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output<Map<String,Object>> labels;
 
     /**
@@ -119,7 +119,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * Name of the Firewall.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * Configuration of a Rule from this Firewall.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={FirewallRule.class})
+    @Export(name="rules", refs={List.class,FirewallRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FirewallRule>> rules;
 
     /**

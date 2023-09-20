@@ -77,7 +77,7 @@ public class FloatingIpAssignment extends com.pulumi.resources.CustomResource {
      * ID of the Floating IP.
      * 
      */
-    @Export(name="floatingIpId", type=Integer.class, parameters={})
+    @Export(name="floatingIpId", refs={Integer.class}, tree="[0]")
     private Output<Integer> floatingIpId;
 
     /**
@@ -91,7 +91,7 @@ public class FloatingIpAssignment extends com.pulumi.resources.CustomResource {
      * Server to assign the Floating IP to.
      * 
      */
-    @Export(name="serverId", type=Integer.class, parameters={})
+    @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverId;
 
     /**

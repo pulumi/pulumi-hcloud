@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a list of available Hetzner Cloud Locations.
@@ -89,6 +90,12 @@ func (o GetLocationsResultOutput) ToGetLocationsResultOutput() GetLocationsResul
 
 func (o GetLocationsResultOutput) ToGetLocationsResultOutputWithContext(ctx context.Context) GetLocationsResultOutput {
 	return o
+}
+
+func (o GetLocationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocationsResult] {
+	return pulumix.Output[GetLocationsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.

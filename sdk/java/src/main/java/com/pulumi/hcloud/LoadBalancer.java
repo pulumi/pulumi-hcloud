@@ -82,7 +82,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Configuration of the algorithm the Load Balancer use.
      * 
      */
-    @Export(name="algorithm", type=LoadBalancerAlgorithm.class, parameters={})
+    @Export(name="algorithm", refs={LoadBalancerAlgorithm.class}, tree="[0]")
     private Output<LoadBalancerAlgorithm> algorithm;
 
     /**
@@ -96,7 +96,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Enable or disable delete protection.
      * 
      */
-    @Export(name="deleteProtection", type=Boolean.class, parameters={})
+    @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
@@ -110,7 +110,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * (string) IPv4 Address of the Load Balancer.
      * 
      */
-    @Export(name="ipv4", type=String.class, parameters={})
+    @Export(name="ipv4", refs={String.class}, tree="[0]")
     private Output<String> ipv4;
 
     /**
@@ -124,7 +124,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * (string) IPv6 Address of the Load Balancer.
      * 
      */
-    @Export(name="ipv6", type=String.class, parameters={})
+    @Export(name="ipv6", refs={String.class}, tree="[0]")
     private Output<String> ipv6;
 
     /**
@@ -138,7 +138,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output<Map<String,Object>> labels;
 
     /**
@@ -152,7 +152,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Type of the Load Balancer.
      * 
      */
-    @Export(name="loadBalancerType", type=String.class, parameters={})
+    @Export(name="loadBalancerType", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerType;
 
     /**
@@ -166,7 +166,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * The location name of the Load Balancer. Require when no network_zone is set.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -180,7 +180,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Name of the Load Balancer.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -194,7 +194,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * (int) ID of the first private network that this Load Balancer is connected to.
      * 
      */
-    @Export(name="networkId", type=Integer.class, parameters={})
+    @Export(name="networkId", refs={Integer.class}, tree="[0]")
     private Output<Integer> networkId;
 
     /**
@@ -208,7 +208,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * (string) IP of the Load Balancer in the first private network that it is connected to.
      * 
      */
-    @Export(name="networkIp", type=String.class, parameters={})
+    @Export(name="networkIp", refs={String.class}, tree="[0]")
     private Output<String> networkIp;
 
     /**
@@ -222,7 +222,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * The Network Zone of the Load Balancer. Require when no location is set.
      * 
      */
-    @Export(name="networkZone", type=String.class, parameters={})
+    @Export(name="networkZone", refs={String.class}, tree="[0]")
     private Output<String> networkZone;
 
     /**
@@ -238,7 +238,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets. */
-    @Export(name="targets", type=List.class, parameters={LoadBalancerTarget.class})
+    @Export(name="targets", refs={List.class,LoadBalancerTarget.class}, tree="[0,1]")
     private Output<List<LoadBalancerTarget>> targets;
 
     public Output<List<LoadBalancerTarget>> targets() {

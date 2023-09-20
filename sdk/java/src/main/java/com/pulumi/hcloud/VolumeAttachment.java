@@ -79,7 +79,7 @@ public class VolumeAttachment extends com.pulumi.resources.CustomResource {
      * Automount the volume upon attaching it.
      * 
      */
-    @Export(name="automount", type=Boolean.class, parameters={})
+    @Export(name="automount", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> automount;
 
     /**
@@ -93,7 +93,7 @@ public class VolumeAttachment extends com.pulumi.resources.CustomResource {
      * Server to attach the Volume to.
      * 
      */
-    @Export(name="serverId", type=Integer.class, parameters={})
+    @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverId;
 
     /**
@@ -107,7 +107,7 @@ public class VolumeAttachment extends com.pulumi.resources.CustomResource {
      * ID of the Volume.
      * 
      */
-    @Export(name="volumeId", type=Integer.class, parameters={})
+    @Export(name="volumeId", refs={Integer.class}, tree="[0]")
     private Output<Integer> volumeId;
 
     /**

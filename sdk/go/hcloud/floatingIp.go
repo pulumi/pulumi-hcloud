@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
@@ -216,6 +217,12 @@ func (i *FloatingIp) ToFloatingIpOutputWithContext(ctx context.Context) Floating
 	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpOutput)
 }
 
+func (i *FloatingIp) ToOutput(ctx context.Context) pulumix.Output[*FloatingIp] {
+	return pulumix.Output[*FloatingIp]{
+		OutputState: i.ToFloatingIpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FloatingIpArrayInput is an input type that accepts FloatingIpArray and FloatingIpArrayOutput values.
 // You can construct a concrete instance of `FloatingIpArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i FloatingIpArray) ToFloatingIpArrayOutput() FloatingIpArrayOutput {
 
 func (i FloatingIpArray) ToFloatingIpArrayOutputWithContext(ctx context.Context) FloatingIpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpArrayOutput)
+}
+
+func (i FloatingIpArray) ToOutput(ctx context.Context) pulumix.Output[[]*FloatingIp] {
+	return pulumix.Output[[]*FloatingIp]{
+		OutputState: i.ToFloatingIpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FloatingIpMapInput is an input type that accepts FloatingIpMap and FloatingIpMapOutput values.
@@ -266,6 +279,12 @@ func (i FloatingIpMap) ToFloatingIpMapOutputWithContext(ctx context.Context) Flo
 	return pulumi.ToOutputWithContext(ctx, i).(FloatingIpMapOutput)
 }
 
+func (i FloatingIpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FloatingIp] {
+	return pulumix.Output[map[string]*FloatingIp]{
+		OutputState: i.ToFloatingIpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FloatingIpOutput struct{ *pulumi.OutputState }
 
 func (FloatingIpOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o FloatingIpOutput) ToFloatingIpOutput() FloatingIpOutput {
 
 func (o FloatingIpOutput) ToFloatingIpOutputWithContext(ctx context.Context) FloatingIpOutput {
 	return o
+}
+
+func (o FloatingIpOutput) ToOutput(ctx context.Context) pulumix.Output[*FloatingIp] {
+	return pulumix.Output[*FloatingIp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enable or disable delete protection.
@@ -339,6 +364,12 @@ func (o FloatingIpArrayOutput) ToFloatingIpArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o FloatingIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FloatingIp] {
+	return pulumix.Output[[]*FloatingIp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FloatingIpArrayOutput) Index(i pulumi.IntInput) FloatingIpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FloatingIp {
 		return vs[0].([]*FloatingIp)[vs[1].(int)]
@@ -357,6 +388,12 @@ func (o FloatingIpMapOutput) ToFloatingIpMapOutput() FloatingIpMapOutput {
 
 func (o FloatingIpMapOutput) ToFloatingIpMapOutputWithContext(ctx context.Context) FloatingIpMapOutput {
 	return o
+}
+
+func (o FloatingIpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FloatingIp] {
+	return pulumix.Output[map[string]*FloatingIp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FloatingIpMapOutput) MapIndex(k pulumi.StringInput) FloatingIpOutput {

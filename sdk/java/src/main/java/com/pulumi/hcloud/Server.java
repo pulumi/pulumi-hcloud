@@ -194,7 +194,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
      * 
      */
-    @Export(name="allowDeprecatedImages", type=Boolean.class, parameters={})
+    @Export(name="allowDeprecatedImages", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowDeprecatedImages;
 
     /**
@@ -212,7 +212,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* You should remove this property from your terraform configuration. */
-    @Export(name="backupWindow", type=String.class, parameters={})
+    @Export(name="backupWindow", refs={String.class}, tree="[0]")
     private Output<String> backupWindow;
 
     /**
@@ -226,7 +226,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Enable or disable backups.
      * 
      */
-    @Export(name="backups", type=Boolean.class, parameters={})
+    @Export(name="backups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> backups;
 
     /**
@@ -240,7 +240,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
      * 
      */
-    @Export(name="datacenter", type=String.class, parameters={})
+    @Export(name="datacenter", refs={String.class}, tree="[0]")
     private Output<String> datacenter;
 
     /**
@@ -254,7 +254,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
      * 
      */
-    @Export(name="deleteProtection", type=Boolean.class, parameters={})
+    @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
@@ -268,7 +268,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Firewall IDs the server should be attached to on creation.
      * 
      */
-    @Export(name="firewallIds", type=List.class, parameters={Integer.class})
+    @Export(name="firewallIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> firewallIds;
 
     /**
@@ -286,7 +286,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * argument.
      * 
      */
-    @Export(name="ignoreRemoteFirewallIds", type=Boolean.class, parameters={})
+    @Export(name="ignoreRemoteFirewallIds", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreRemoteFirewallIds;
 
     /**
@@ -304,7 +304,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * (string) Name or ID of the image the server was created from.
      * 
      */
-    @Export(name="image", type=String.class, parameters={})
+    @Export(name="image", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> image;
 
     /**
@@ -318,7 +318,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * (string) The IPv4 address.
      * 
      */
-    @Export(name="ipv4Address", type=String.class, parameters={})
+    @Export(name="ipv4Address", refs={String.class}, tree="[0]")
     private Output<String> ipv4Address;
 
     /**
@@ -332,7 +332,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * (string) The first IPv6 address of the assigned network.
      * 
      */
-    @Export(name="ipv6Address", type=String.class, parameters={})
+    @Export(name="ipv6Address", refs={String.class}, tree="[0]")
     private Output<String> ipv6Address;
 
     /**
@@ -346,7 +346,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * (string) The IPv6 network.
      * 
      */
-    @Export(name="ipv6Network", type=String.class, parameters={})
+    @Export(name="ipv6Network", refs={String.class}, tree="[0]")
     private Output<String> ipv6Network;
 
     /**
@@ -360,7 +360,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * ID or Name of an ISO image to mount.
      * 
      */
-    @Export(name="iso", type=String.class, parameters={})
+    @Export(name="iso", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iso;
 
     /**
@@ -374,7 +374,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * If true, do not upgrade the disk. This allows downgrading the server type later.
      * 
      */
-    @Export(name="keepDisk", type=Boolean.class, parameters={})
+    @Export(name="keepDisk", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> keepDisk;
 
     /**
@@ -388,7 +388,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
@@ -402,7 +402,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -416,7 +416,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -430,7 +430,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Network the server should be attached to on creation. (Can be specified multiple times)
      * 
      */
-    @Export(name="networks", type=List.class, parameters={ServerNetwork.class})
+    @Export(name="networks", refs={List.class,ServerNetwork.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServerNetwork>> networks;
 
     /**
@@ -444,7 +444,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Placement Group ID the server added to on creation.
      * 
      */
-    @Export(name="placementGroupId", type=Integer.class, parameters={})
+    @Export(name="placementGroupId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> placementGroupId;
 
     /**
@@ -459,7 +459,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * If this block is not defined, two primary (ipv4 &amp; ipv6) ips getting auto generated.
      * 
      */
-    @Export(name="publicNets", type=List.class, parameters={ServerPublicNet.class})
+    @Export(name="publicNets", refs={List.class,ServerPublicNet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServerPublicNet>> publicNets;
 
     /**
@@ -474,7 +474,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
      * 
      */
-    @Export(name="rebuildProtection", type=Boolean.class, parameters={})
+    @Export(name="rebuildProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rebuildProtection;
 
     /**
@@ -488,7 +488,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      * 
      */
-    @Export(name="rescue", type=String.class, parameters={})
+    @Export(name="rescue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rescue;
 
     /**
@@ -502,7 +502,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Name of the server type this server should be created with.
      * 
      */
-    @Export(name="serverType", type=String.class, parameters={})
+    @Export(name="serverType", refs={String.class}, tree="[0]")
     private Output<String> serverType;
 
     /**
@@ -516,7 +516,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * SSH key IDs or names which should be injected into the server at creation time
      * 
      */
-    @Export(name="sshKeys", type=List.class, parameters={String.class})
+    @Export(name="sshKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sshKeys;
 
     /**
@@ -530,7 +530,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * (string) The status of the server.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -544,7 +544,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Cloud-Init user data to use during server creation
      * 
      */
-    @Export(name="userData", type=String.class, parameters={})
+    @Export(name="userData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userData;
 
     /**
