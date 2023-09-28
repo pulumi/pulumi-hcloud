@@ -3446,12 +3446,15 @@
                     "type": "string",
                     "description": "Name of the server type this server should be created with.\n"
                 },
+                "shutdownBeforeDeletion": {
+                    "type": "boolean",
+                    "description": "Whether to try shutting the server down gracefully before deleting it.\n"
+                },
                 "sshKeys": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "SSH key IDs or names which should be injected into the server at creation time\n"
+                    }
                 },
                 "status": {
                     "type": "string",
@@ -3562,12 +3565,15 @@
                     "type": "string",
                     "description": "Name of the server type this server should be created with.\n"
                 },
+                "shutdownBeforeDeletion": {
+                    "type": "boolean",
+                    "description": "Whether to try shutting the server down gracefully before deleting it.\n"
+                },
                 "sshKeys": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "SSH key IDs or names which should be injected into the server at creation time\n",
                     "willReplaceOnChanges": true
                 },
                 "userData": {
@@ -3686,12 +3692,15 @@
                         "type": "string",
                         "description": "Name of the server type this server should be created with.\n"
                     },
+                    "shutdownBeforeDeletion": {
+                        "type": "boolean",
+                        "description": "Whether to try shutting the server down gracefully before deleting it.\n"
+                    },
                     "sshKeys": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "SSH key IDs or names which should be injected into the server at creation time\n",
                         "willReplaceOnChanges": true
                     },
                     "status": {
