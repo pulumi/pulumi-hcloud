@@ -303,16 +303,23 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH key IDs or names which should be injected into the server at creation time
+     * Whether to try shutting the server down gracefully before deleting it.
      * 
      */
+    @Import(name="shutdownBeforeDeletion")
+    private @Nullable Output<Boolean> shutdownBeforeDeletion;
+
+    /**
+     * @return Whether to try shutting the server down gracefully before deleting it.
+     * 
+     */
+    public Optional<Output<Boolean>> shutdownBeforeDeletion() {
+        return Optional.ofNullable(this.shutdownBeforeDeletion);
+    }
+
     @Import(name="sshKeys")
     private @Nullable Output<List<String>> sshKeys;
 
-    /**
-     * @return SSH key IDs or names which should be injected into the server at creation time
-     * 
-     */
     public Optional<Output<List<String>>> sshKeys() {
         return Optional.ofNullable(this.sshKeys);
     }
@@ -353,6 +360,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         this.rebuildProtection = $.rebuildProtection;
         this.rescue = $.rescue;
         this.serverType = $.serverType;
+        this.shutdownBeforeDeletion = $.shutdownBeforeDeletion;
         this.sshKeys = $.sshKeys;
         this.userData = $.userData;
     }
@@ -795,32 +803,35 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time
+         * @param shutdownBeforeDeletion Whether to try shutting the server down gracefully before deleting it.
          * 
          * @return builder
          * 
          */
+        public Builder shutdownBeforeDeletion(@Nullable Output<Boolean> shutdownBeforeDeletion) {
+            $.shutdownBeforeDeletion = shutdownBeforeDeletion;
+            return this;
+        }
+
+        /**
+         * @param shutdownBeforeDeletion Whether to try shutting the server down gracefully before deleting it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shutdownBeforeDeletion(Boolean shutdownBeforeDeletion) {
+            return shutdownBeforeDeletion(Output.of(shutdownBeforeDeletion));
+        }
+
         public Builder sshKeys(@Nullable Output<List<String>> sshKeys) {
             $.sshKeys = sshKeys;
             return this;
         }
 
-        /**
-         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time
-         * 
-         * @return builder
-         * 
-         */
         public Builder sshKeys(List<String> sshKeys) {
             return sshKeys(Output.of(sshKeys));
         }
 
-        /**
-         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time
-         * 
-         * @return builder
-         * 
-         */
         public Builder sshKeys(String... sshKeys) {
             return sshKeys(List.of(sshKeys));
         }

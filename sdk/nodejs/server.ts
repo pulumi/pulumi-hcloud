@@ -223,8 +223,9 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly serverType!: pulumi.Output<string>;
     /**
-     * SSH key IDs or names which should be injected into the server at creation time
+     * Whether to try shutting the server down gracefully before deleting it.
      */
+    public readonly shutdownBeforeDeletion!: pulumi.Output<boolean | undefined>;
     public readonly sshKeys!: pulumi.Output<string[] | undefined>;
     /**
      * (string) The status of the server.
@@ -270,6 +271,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["rebuildProtection"] = state ? state.rebuildProtection : undefined;
             resourceInputs["rescue"] = state ? state.rescue : undefined;
             resourceInputs["serverType"] = state ? state.serverType : undefined;
+            resourceInputs["shutdownBeforeDeletion"] = state ? state.shutdownBeforeDeletion : undefined;
             resourceInputs["sshKeys"] = state ? state.sshKeys : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["userData"] = state ? state.userData : undefined;
@@ -296,6 +298,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["rebuildProtection"] = args ? args.rebuildProtection : undefined;
             resourceInputs["rescue"] = args ? args.rescue : undefined;
             resourceInputs["serverType"] = args ? args.serverType : undefined;
+            resourceInputs["shutdownBeforeDeletion"] = args ? args.shutdownBeforeDeletion : undefined;
             resourceInputs["sshKeys"] = args ? args.sshKeys : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["backupWindow"] = undefined /*out*/;
@@ -409,8 +412,9 @@ export interface ServerState {
      */
     serverType?: pulumi.Input<string>;
     /**
-     * SSH key IDs or names which should be injected into the server at creation time
+     * Whether to try shutting the server down gracefully before deleting it.
      */
+    shutdownBeforeDeletion?: pulumi.Input<boolean>;
     sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (string) The status of the server.
@@ -504,8 +508,9 @@ export interface ServerArgs {
      */
     serverType: pulumi.Input<string>;
     /**
-     * SSH key IDs or names which should be injected into the server at creation time
+     * Whether to try shutting the server down gracefully before deleting it.
      */
+    shutdownBeforeDeletion?: pulumi.Input<boolean>;
     sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Cloud-Init user data to use during server creation

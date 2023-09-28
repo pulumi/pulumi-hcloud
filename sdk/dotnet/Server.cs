@@ -307,8 +307,11 @@ namespace Pulumi.HCloud
         public Output<string> ServerType { get; private set; } = null!;
 
         /// <summary>
-        /// SSH key IDs or names which should be injected into the server at creation time
+        /// Whether to try shutting the server down gracefully before deleting it.
         /// </summary>
+        [Output("shutdownBeforeDeletion")]
+        public Output<bool?> ShutdownBeforeDeletion { get; private set; } = null!;
+
         [Output("sshKeys")]
         public Output<ImmutableArray<string>> SshKeys { get; private set; } = null!;
 
@@ -507,12 +510,14 @@ namespace Pulumi.HCloud
         [Input("serverType", required: true)]
         public Input<string> ServerType { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to try shutting the server down gracefully before deleting it.
+        /// </summary>
+        [Input("shutdownBeforeDeletion")]
+        public Input<bool>? ShutdownBeforeDeletion { get; set; }
+
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
-
-        /// <summary>
-        /// SSH key IDs or names which should be injected into the server at creation time
-        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
@@ -694,12 +699,14 @@ namespace Pulumi.HCloud
         [Input("serverType")]
         public Input<string>? ServerType { get; set; }
 
+        /// <summary>
+        /// Whether to try shutting the server down gracefully before deleting it.
+        /// </summary>
+        [Input("shutdownBeforeDeletion")]
+        public Input<bool>? ShutdownBeforeDeletion { get; set; }
+
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
-
-        /// <summary>
-        /// SSH key IDs or names which should be injected into the server at creation time
-        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());

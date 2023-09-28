@@ -1047,6 +1047,7 @@
                 "publicNets": "public_net",
                 "rebuildProtection": "rebuild_protection",
                 "serverType": "server_type",
+                "shutdownBeforeDeletion": "shutdown_before_deletion",
                 "sshKeys": "ssh_keys",
                 "userData": "user_data"
             },

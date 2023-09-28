@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-hcloud/examples
 
-go 1.21
+go 1.21.1
 
 replace github.com/pulumi/pulumi-hcloud/provider => ../provider
 
@@ -13,7 +13,7 @@ replace (
 require (
 	github.com/pulumi/pulumi-hcloud/provider v0.0.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.1
 	github.com/pulumi/pulumi/pkg/v3 v3.81.0
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0
 )
@@ -139,14 +139,14 @@ require (
 	github.com/hashicorp/terraform-json v0.17.1 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.19.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.27.0 // indirect
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.28.0 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.2 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.8.2 // indirect
 	github.com/hashicorp/vault/sdk v0.6.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/hetznercloud/hcloud-go v1.49.0 // indirect
-	github.com/hetznercloud/terraform-provider-hcloud v1.42.1 // indirect
+	github.com/hetznercloud/terraform-provider-hcloud v1.43.0 // indirect
 	github.com/ijc/Gotty v0.0.0-20170406111628-a8b993ba6abd // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
@@ -193,7 +193,7 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
-	github.com/rogpeppe/go-internal v1.9.0 // indirect
+	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
@@ -223,7 +223,7 @@ require (
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
 	golang.org/x/crypto v0.13.0 // indirect
 	golang.org/x/mod v0.12.0 // indirect
-	golang.org/x/net v0.14.0 // indirect
+	golang.org/x/net v0.15.0 // indirect
 	golang.org/x/oauth2 v0.8.0 // indirect
 	golang.org/x/sync v0.2.0 // indirect
 	golang.org/x/sys v0.12.0 // indirect
