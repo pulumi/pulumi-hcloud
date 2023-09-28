@@ -34,6 +34,7 @@ class ServerArgs:
                  public_nets: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
+                 shutdown_before_deletion: Optional[pulumi.Input[bool]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None):
         """
@@ -61,7 +62,7 @@ class ServerArgs:
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
         pulumi.set(__self__, "server_type", server_type)
@@ -99,6 +100,8 @@ class ServerArgs:
             pulumi.set(__self__, "rebuild_protection", rebuild_protection)
         if rescue is not None:
             pulumi.set(__self__, "rescue", rescue)
+        if shutdown_before_deletion is not None:
+            pulumi.set(__self__, "shutdown_before_deletion", shutdown_before_deletion)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if user_data is not None:
@@ -326,11 +329,20 @@ class ServerArgs:
         pulumi.set(self, "rescue", value)
 
     @property
+    @pulumi.getter(name="shutdownBeforeDeletion")
+    def shutdown_before_deletion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to try shutting the server down gracefully before deleting it.
+        """
+        return pulumi.get(self, "shutdown_before_deletion")
+
+    @shutdown_before_deletion.setter
+    def shutdown_before_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shutdown_before_deletion", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        SSH key IDs or names which should be injected into the server at creation time
-        """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
@@ -375,6 +387,7 @@ class _ServerState:
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
+                 shutdown_before_deletion: Optional[pulumi.Input[bool]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None):
@@ -407,7 +420,7 @@ class _ServerState:
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[str] status: (string) The status of the server.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
@@ -458,6 +471,8 @@ class _ServerState:
             pulumi.set(__self__, "rescue", rescue)
         if server_type is not None:
             pulumi.set(__self__, "server_type", server_type)
+        if shutdown_before_deletion is not None:
+            pulumi.set(__self__, "shutdown_before_deletion", shutdown_before_deletion)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if status is not None:
@@ -738,11 +753,20 @@ class _ServerState:
         pulumi.set(self, "server_type", value)
 
     @property
+    @pulumi.getter(name="shutdownBeforeDeletion")
+    def shutdown_before_deletion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to try shutting the server down gracefully before deleting it.
+        """
+        return pulumi.get(self, "shutdown_before_deletion")
+
+    @shutdown_before_deletion.setter
+    def shutdown_before_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shutdown_before_deletion", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        SSH key IDs or names which should be injected into the server at creation time
-        """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
@@ -797,6 +821,7 @@ class Server(pulumi.CustomResource):
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
+                 shutdown_before_deletion: Optional[pulumi.Input[bool]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -912,7 +937,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
         ...
@@ -1041,6 +1066,7 @@ class Server(pulumi.CustomResource):
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
+                 shutdown_before_deletion: Optional[pulumi.Input[bool]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1072,6 +1098,7 @@ class Server(pulumi.CustomResource):
             if server_type is None and not opts.urn:
                 raise TypeError("Missing required property 'server_type'")
             __props__.__dict__["server_type"] = server_type
+            __props__.__dict__["shutdown_before_deletion"] = shutdown_before_deletion
             __props__.__dict__["ssh_keys"] = ssh_keys
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["backup_window"] = None
@@ -1111,6 +1138,7 @@ class Server(pulumi.CustomResource):
             rebuild_protection: Optional[pulumi.Input[bool]] = None,
             rescue: Optional[pulumi.Input[str]] = None,
             server_type: Optional[pulumi.Input[str]] = None,
+            shutdown_before_deletion: Optional[pulumi.Input[bool]] = None,
             ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_data: Optional[pulumi.Input[str]] = None) -> 'Server':
@@ -1148,7 +1176,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time
+        :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[str] status: (string) The status of the server.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
@@ -1178,6 +1206,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["rebuild_protection"] = rebuild_protection
         __props__.__dict__["rescue"] = rescue
         __props__.__dict__["server_type"] = server_type
+        __props__.__dict__["shutdown_before_deletion"] = shutdown_before_deletion
         __props__.__dict__["ssh_keys"] = ssh_keys
         __props__.__dict__["status"] = status
         __props__.__dict__["user_data"] = user_data
@@ -1368,11 +1397,16 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "server_type")
 
     @property
+    @pulumi.getter(name="shutdownBeforeDeletion")
+    def shutdown_before_deletion(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to try shutting the server down gracefully before deleting it.
+        """
+        return pulumi.get(self, "shutdown_before_deletion")
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        SSH key IDs or names which should be injected into the server at creation time
-        """
         return pulumi.get(self, "ssh_keys")
 
     @property

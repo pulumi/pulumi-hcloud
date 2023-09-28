@@ -513,16 +513,22 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.serverType;
     }
     /**
-     * SSH key IDs or names which should be injected into the server at creation time
+     * Whether to try shutting the server down gracefully before deleting it.
      * 
      */
+    @Export(name="shutdownBeforeDeletion", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> shutdownBeforeDeletion;
+
+    /**
+     * @return Whether to try shutting the server down gracefully before deleting it.
+     * 
+     */
+    public Output<Optional<Boolean>> shutdownBeforeDeletion() {
+        return Codegen.optional(this.shutdownBeforeDeletion);
+    }
     @Export(name="sshKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sshKeys;
 
-    /**
-     * @return SSH key IDs or names which should be injected into the server at creation time
-     * 
-     */
     public Output<Optional<List<String>>> sshKeys() {
         return Codegen.optional(this.sshKeys);
     }
