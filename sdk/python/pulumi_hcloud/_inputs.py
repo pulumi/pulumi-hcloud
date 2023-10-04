@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -34,10 +34,21 @@ class FirewallApplyToArgs:
         :param pulumi.Input[int] server: ID of the server you want to apply the firewall to (only one of `server`
                and `label_selector`can be applied in one block)
         """
+        FirewallApplyToArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_selector=label_selector,
+            server=server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_selector: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if label_selector is not None:
-            pulumi.set(__self__, "label_selector", label_selector)
+            _setter("label_selector", label_selector)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
 
     @property
     @pulumi.getter(name="labelSelector")
@@ -86,16 +97,35 @@ class FirewallRuleArgs:
                85.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of CIDRs that are allowed within this Firewall Rule
         """
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "protocol", protocol)
+        FirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            protocol=protocol,
+            description=description,
+            destination_ips=destination_ips,
+            port=port,
+            source_ips=source_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             source_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("direction", direction)
+        _setter("protocol", protocol)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_ips is not None:
-            pulumi.set(__self__, "destination_ips", destination_ips)
+            _setter("destination_ips", destination_ips)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if source_ips is not None:
-            pulumi.set(__self__, "source_ips", source_ips)
+            _setter("source_ips", source_ips)
 
     @property
     @pulumi.getter
@@ -180,8 +210,17 @@ class LoadBalancerAlgorithmArgs:
         """
         :param pulumi.Input[str] type: Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
+        LoadBalancerAlgorithmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -210,17 +249,36 @@ class LoadBalancerServiceHealthCheckArgs:
         :param pulumi.Input[int] port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param pulumi.Input[str] protocol: Protocol the health check uses. `http` or `tcp`
         :param pulumi.Input[int] timeout: Timeout when a health check try will be canceled if there is no response, in seconds.
-        :param pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs'] http: List of http configurations. Required if `protocol` is `http`.
+        :param pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs'] http: HTTP configuration. Required if `protocol` is `http`.
         :param pulumi.Input[int] retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout", timeout)
+        LoadBalancerServiceHealthCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interval=interval,
+            port=port,
+            protocol=protocol,
+            timeout=timeout,
+            http=http,
+            retries=retries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interval: pulumi.Input[int],
+             port: pulumi.Input[int],
+             protocol: pulumi.Input[str],
+             timeout: pulumi.Input[int],
+             http: Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']] = None,
+             retries: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("interval", interval)
+        _setter("port", port)
+        _setter("protocol", protocol)
+        _setter("timeout", timeout)
         if http is not None:
-            pulumi.set(__self__, "http", http)
+            _setter("http", http)
         if retries is not None:
-            pulumi.set(__self__, "retries", retries)
+            _setter("retries", retries)
 
     @property
     @pulumi.getter
@@ -274,7 +332,7 @@ class LoadBalancerServiceHealthCheckArgs:
     @pulumi.getter
     def http(self) -> Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']]:
         """
-        List of http configurations. Required if `protocol` is `http`.
+        HTTP configuration. Required if `protocol` is `http`.
         """
         return pulumi.get(self, "http")
 
@@ -310,16 +368,33 @@ class LoadBalancerServiceHealthCheckHttpArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] status_codes: We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         :param pulumi.Input[bool] tls: Enable TLS certificate checking.
         """
+        LoadBalancerServiceHealthCheckHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            path=path,
+            response=response,
+            status_codes=status_codes,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             response: Optional[pulumi.Input[str]] = None,
+             status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tls: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if response is not None:
-            pulumi.set(__self__, "response", response)
+            _setter("response", response)
         if status_codes is not None:
-            pulumi.set(__self__, "status_codes", status_codes)
+            _setter("status_codes", status_codes)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -397,16 +472,33 @@ class LoadBalancerServiceHttpArgs:
         :param pulumi.Input[bool] redirect_http: Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
         :param pulumi.Input[bool] sticky_sessions: Enable sticky sessions
         """
+        LoadBalancerServiceHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            cookie_lifetime=cookie_lifetime,
+            cookie_name=cookie_name,
+            redirect_http=redirect_http,
+            sticky_sessions=sticky_sessions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             cookie_lifetime: Optional[pulumi.Input[int]] = None,
+             cookie_name: Optional[pulumi.Input[str]] = None,
+             redirect_http: Optional[pulumi.Input[bool]] = None,
+             sticky_sessions: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if cookie_lifetime is not None:
-            pulumi.set(__self__, "cookie_lifetime", cookie_lifetime)
+            _setter("cookie_lifetime", cookie_lifetime)
         if cookie_name is not None:
-            pulumi.set(__self__, "cookie_name", cookie_name)
+            _setter("cookie_name", cookie_name)
         if redirect_http is not None:
-            pulumi.set(__self__, "redirect_http", redirect_http)
+            _setter("redirect_http", redirect_http)
         if sticky_sessions is not None:
-            pulumi.set(__self__, "sticky_sessions", sticky_sessions)
+            _setter("sticky_sessions", sticky_sessions)
 
     @property
     @pulumi.getter
@@ -478,14 +570,27 @@ class LoadBalancerTargetArgs:
         """
         :param pulumi.Input[str] type: Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
-        pulumi.set(__self__, "type", type)
+        LoadBalancerTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            server_id=server_id,
+            use_private_ip=use_private_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[int]] = None,
+             use_private_ip: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if use_private_ip is not None:
             warnings.warn("""Does not work. Use the hcloud_load_balancer_target resource instead.""", DeprecationWarning)
             pulumi.log.warn("""use_private_ip is deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.""")
         if use_private_ip is not None:
-            pulumi.set(__self__, "use_private_ip", use_private_ip)
+            _setter("use_private_ip", use_private_ip)
 
     @property
     @pulumi.getter
@@ -534,13 +639,28 @@ class ServerNetworkArgs:
         :param pulumi.Input[str] ip: Specify the IP the server should get in the network
         :param pulumi.Input[str] mac_address: (Optional, string) The MAC address the private interface of the server has
         """
-        pulumi.set(__self__, "network_id", network_id)
+        ServerNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_id=network_id,
+            alias_ips=alias_ips,
+            ip=ip,
+            mac_address=mac_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_id: pulumi.Input[int],
+             alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip: Optional[pulumi.Input[str]] = None,
+             mac_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_id", network_id)
         if alias_ips is not None:
-            pulumi.set(__self__, "alias_ips", alias_ips)
+            _setter("alias_ips", alias_ips)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
 
     @property
     @pulumi.getter(name="networkId")
@@ -598,14 +718,29 @@ class ServerPublicNetArgs:
                  ipv4_enabled: Optional[pulumi.Input[bool]] = None,
                  ipv6: Optional[pulumi.Input[int]] = None,
                  ipv6_enabled: Optional[pulumi.Input[bool]] = None):
+        ServerPublicNetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4=ipv4,
+            ipv4_enabled=ipv4_enabled,
+            ipv6=ipv6,
+            ipv6_enabled=ipv6_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4: Optional[pulumi.Input[int]] = None,
+             ipv4_enabled: Optional[pulumi.Input[bool]] = None,
+             ipv6: Optional[pulumi.Input[int]] = None,
+             ipv6_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ipv4 is not None:
-            pulumi.set(__self__, "ipv4", ipv4)
+            _setter("ipv4", ipv4)
         if ipv4_enabled is not None:
-            pulumi.set(__self__, "ipv4_enabled", ipv4_enabled)
+            _setter("ipv4_enabled", ipv4_enabled)
         if ipv6 is not None:
-            pulumi.set(__self__, "ipv6", ipv6)
+            _setter("ipv6", ipv6)
         if ipv6_enabled is not None:
-            pulumi.set(__self__, "ipv6_enabled", ipv6_enabled)
+            _setter("ipv6_enabled", ipv6_enabled)
 
     @property
     @pulumi.getter
@@ -654,8 +789,19 @@ class GetFirewallApplyToArgs:
                referenced
         :param int server: (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
         """
-        pulumi.set(__self__, "label_selector", label_selector)
-        pulumi.set(__self__, "server", server)
+        GetFirewallApplyToArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_selector=label_selector,
+            server=server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_selector: str,
+             server: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label_selector", label_selector)
+        _setter("server", server)
 
     @property
     @pulumi.getter(name="labelSelector")
@@ -700,17 +846,36 @@ class GetFirewallRuleArgs:
         :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param Sequence[str] source_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
         """
-        pulumi.set(__self__, "direction", direction)
+        GetFirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            description=description,
+            destination_ips=destination_ips,
+            port=port,
+            protocol=protocol,
+            source_ips=source_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: str,
+             description: Optional[str] = None,
+             destination_ips: Optional[Sequence[str]] = None,
+             port: Optional[str] = None,
+             protocol: Optional[str] = None,
+             source_ips: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("direction", direction)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_ips is not None:
-            pulumi.set(__self__, "destination_ips", destination_ips)
+            _setter("destination_ips", destination_ips)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if source_ips is not None:
-            pulumi.set(__self__, "source_ips", source_ips)
+            _setter("source_ips", source_ips)
 
     @property
     @pulumi.getter

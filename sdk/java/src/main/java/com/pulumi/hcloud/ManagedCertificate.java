@@ -60,14 +60,16 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
         return this.created;
     }
     /**
-     * (list) Domains and subdomains covered by the certificate.
+     * Domain names for which a certificate
+     * should be obtained.
      * 
      */
     @Export(name="domainNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> domainNames;
 
     /**
-     * @return (list) Domains and subdomains covered by the certificate.
+     * @return Domain names for which a certificate
+     * should be obtained.
      * 
      */
     public Output<List<String>> domainNames() {

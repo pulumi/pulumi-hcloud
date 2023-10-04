@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LoadBalancerNetworkArgs', 'LoadBalancerNetwork']
@@ -40,15 +40,32 @@ class LoadBalancerNetworkArgs:
                *Note*: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
-        pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        LoadBalancerNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_id=load_balancer_id,
+            enable_public_interface=enable_public_interface,
+            ip=ip,
+            network_id=network_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_id: pulumi.Input[int],
+             enable_public_interface: Optional[pulumi.Input[bool]] = None,
+             ip: Optional[pulumi.Input[str]] = None,
+             network_id: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("load_balancer_id", load_balancer_id)
         if enable_public_interface is not None:
-            pulumi.set(__self__, "enable_public_interface", enable_public_interface)
+            _setter("enable_public_interface", enable_public_interface)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
+            _setter("network_id", network_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="loadBalancerId")
@@ -153,16 +170,33 @@ class _LoadBalancerNetworkState:
                *Note*: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
+        _LoadBalancerNetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_public_interface=enable_public_interface,
+            ip=ip,
+            load_balancer_id=load_balancer_id,
+            network_id=network_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_public_interface: Optional[pulumi.Input[bool]] = None,
+             ip: Optional[pulumi.Input[str]] = None,
+             load_balancer_id: Optional[pulumi.Input[int]] = None,
+             network_id: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_public_interface is not None:
-            pulumi.set(__self__, "enable_public_interface", enable_public_interface)
+            _setter("enable_public_interface", enable_public_interface)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if load_balancer_id is not None:
-            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+            _setter("load_balancer_id", load_balancer_id)
         if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
+            _setter("network_id", network_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="enablePublicInterface")
@@ -350,6 +384,10 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

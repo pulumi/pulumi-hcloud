@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ManagedCertificateArgs', 'ManagedCertificate']
@@ -19,22 +19,37 @@ class ManagedCertificateArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedCertificate resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: Domain names for which a certificate
+               should be obtained.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
         :param pulumi.Input[str] name: Name of the Certificate.
         """
-        pulumi.set(__self__, "domain_names", domain_names)
+        ManagedCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_names=domain_names,
+            labels=labels,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_names", domain_names)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="domainNames")
     def domain_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        (list) Domains and subdomains covered by the certificate.
+        Domain names for which a certificate
+        should be obtained.
         """
         return pulumi.get(self, "domain_names")
 
@@ -84,7 +99,8 @@ class _ManagedCertificateState:
         Input properties used for looking up and filtering ManagedCertificate resources.
         :param pulumi.Input[str] certificate: (string) PEM encoded TLS certificate.
         :param pulumi.Input[str] created: (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: Domain names for which a certificate
+               should be obtained.
         :param pulumi.Input[str] fingerprint: (string) Fingerprint of the certificate.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
@@ -92,24 +108,49 @@ class _ManagedCertificateState:
         :param pulumi.Input[str] not_valid_after: (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
         :param pulumi.Input[str] not_valid_before: (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
         """
+        _ManagedCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            created=created,
+            domain_names=domain_names,
+            fingerprint=fingerprint,
+            labels=labels,
+            name=name,
+            not_valid_after=not_valid_after,
+            not_valid_before=not_valid_before,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             created: Optional[pulumi.Input[str]] = None,
+             domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fingerprint: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             not_valid_after: Optional[pulumi.Input[str]] = None,
+             not_valid_before: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if domain_names is not None:
-            pulumi.set(__self__, "domain_names", domain_names)
+            _setter("domain_names", domain_names)
         if fingerprint is not None:
-            pulumi.set(__self__, "fingerprint", fingerprint)
+            _setter("fingerprint", fingerprint)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if not_valid_after is not None:
-            pulumi.set(__self__, "not_valid_after", not_valid_after)
+            _setter("not_valid_after", not_valid_after)
         if not_valid_before is not None:
-            pulumi.set(__self__, "not_valid_before", not_valid_before)
+            _setter("not_valid_before", not_valid_before)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -139,7 +180,8 @@ class _ManagedCertificateState:
     @pulumi.getter(name="domainNames")
     def domain_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (list) Domains and subdomains covered by the certificate.
+        Domain names for which a certificate
+        should be obtained.
         """
         return pulumi.get(self, "domain_names")
 
@@ -240,7 +282,8 @@ class ManagedCertificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: Domain names for which a certificate
+               should be obtained.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
         :param pulumi.Input[str] name: Name of the Certificate.
@@ -272,6 +315,10 @@ class ManagedCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -328,7 +375,8 @@ class ManagedCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: (string) PEM encoded TLS certificate.
         :param pulumi.Input[str] created: (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: Domain names for which a certificate
+               should be obtained.
         :param pulumi.Input[str] fingerprint: (string) Fingerprint of the certificate.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
@@ -371,7 +419,8 @@ class ManagedCertificate(pulumi.CustomResource):
     @pulumi.getter(name="domainNames")
     def domain_names(self) -> pulumi.Output[Sequence[str]]:
         """
-        (list) Domains and subdomains covered by the certificate.
+        Domain names for which a certificate
+        should be obtained.
         """
         return pulumi.get(self, "domain_names")
 

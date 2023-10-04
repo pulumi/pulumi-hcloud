@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FirewallAttachmentArgs', 'FirewallAttachment']
@@ -26,11 +26,24 @@ class FirewallAttachmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] server_ids: List of Server IDs to attach to the
                firewall.
         """
-        pulumi.set(__self__, "firewall_id", firewall_id)
+        FirewallAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_id=firewall_id,
+            label_selectors=label_selectors,
+            server_ids=server_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_id: pulumi.Input[int],
+             label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("firewall_id", firewall_id)
         if label_selectors is not None:
-            pulumi.set(__self__, "label_selectors", label_selectors)
+            _setter("label_selectors", label_selectors)
         if server_ids is not None:
-            pulumi.set(__self__, "server_ids", server_ids)
+            _setter("server_ids", server_ids)
 
     @property
     @pulumi.getter(name="firewallId")
@@ -87,12 +100,25 @@ class _FirewallAttachmentState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] server_ids: List of Server IDs to attach to the
                firewall.
         """
+        _FirewallAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_id=firewall_id,
+            label_selectors=label_selectors,
+            server_ids=server_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_id: Optional[pulumi.Input[int]] = None,
+             label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if firewall_id is not None:
-            pulumi.set(__self__, "firewall_id", firewall_id)
+            _setter("firewall_id", firewall_id)
         if label_selectors is not None:
-            pulumi.set(__self__, "label_selectors", label_selectors)
+            _setter("label_selectors", label_selectors)
         if server_ids is not None:
-            pulumi.set(__self__, "server_ids", server_ids)
+            _setter("server_ids", server_ids)
 
     @property
     @pulumi.getter(name="firewallId")
@@ -248,6 +274,10 @@ class FirewallAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

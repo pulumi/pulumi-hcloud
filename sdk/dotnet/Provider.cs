@@ -18,14 +18,21 @@ namespace Pulumi.HCloud
     [HCloudResourceType("pulumi:providers:hcloud")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
+        /// <summary>
+        /// The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+        /// </summary>
         [Output("endpoint")]
         public Output<string?> Endpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+        /// limiting errors.
+        /// </summary>
         [Output("pollInterval")]
         public Output<string?> PollInterval { get; private set; } = null!;
 
         /// <summary>
-        /// The API token to access the Hetzner cloud.
+        /// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         /// </summary>
         [Output("token")]
         public Output<string> Token { get; private set; } = null!;
@@ -62,9 +69,16 @@ namespace Pulumi.HCloud
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        /// <summary>
+        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+        /// limiting errors.
+        /// </summary>
         [Input("pollInterval")]
         public Input<string>? PollInterval { get; set; }
 
@@ -72,7 +86,7 @@ namespace Pulumi.HCloud
         private Input<string>? _token;
 
         /// <summary>
-        /// The API token to access the Hetzner cloud.
+        /// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         /// </summary>
         public Input<string>? Token
         {

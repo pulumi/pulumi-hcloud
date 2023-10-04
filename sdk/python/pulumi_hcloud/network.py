@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NetworkArgs', 'Network']
@@ -27,15 +27,32 @@ class NetworkArgs:
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
-        pulumi.set(__self__, "ip_range", ip_range)
+        NetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_range=ip_range,
+            delete_protection=delete_protection,
+            expose_routes_to_vswitch=expose_routes_to_vswitch,
+            labels=labels,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_range: pulumi.Input[str],
+             delete_protection: Optional[pulumi.Input[bool]] = None,
+             expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_range", ip_range)
         if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
+            _setter("delete_protection", delete_protection)
         if expose_routes_to_vswitch is not None:
-            pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
+            _setter("expose_routes_to_vswitch", expose_routes_to_vswitch)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="ipRange")
@@ -114,16 +131,33 @@ class _NetworkState:
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
+        _NetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_protection=delete_protection,
+            expose_routes_to_vswitch=expose_routes_to_vswitch,
+            ip_range=ip_range,
+            labels=labels,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_protection: Optional[pulumi.Input[bool]] = None,
+             expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
+             ip_range: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
+            _setter("delete_protection", delete_protection)
         if expose_routes_to_vswitch is not None:
-            pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
+            _setter("expose_routes_to_vswitch", expose_routes_to_vswitch)
         if ip_range is not None:
-            pulumi.set(__self__, "ip_range", ip_range)
+            _setter("ip_range", ip_range)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deleteProtection")
@@ -261,6 +295,10 @@ class Network(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

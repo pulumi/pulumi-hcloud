@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
+//			loadBalancer, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
 //				LoadBalancerType: pulumi.String("lb11"),
 //				Location:         pulumi.String("nbg1"),
 //			})
@@ -37,8 +37,27 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewLoadBalancerService(ctx, "loadBalancerService", &hcloud.LoadBalancerServiceArgs{
-//				LoadBalancerId: pulumi.Any(hcloud_load_balancer.Test_load_balancer.Id),
+//				LoadBalancerId: loadBalancer.ID(),
 //				Protocol:       pulumi.String("http"),
+//				Http: &hcloud.LoadBalancerServiceHttpArgs{
+//					StickySessions: pulumi.Bool(true),
+//					CookieName:     pulumi.String("EXAMPLE_STICKY"),
+//				},
+//				HealthCheck: &hcloud.LoadBalancerServiceHealthCheckArgs{
+//					Protocol: pulumi.String("http"),
+//					Port:     pulumi.Int(80),
+//					Interval: pulumi.Int(10),
+//					Timeout:  pulumi.Int(5),
+//					Http: &hcloud.LoadBalancerServiceHealthCheckHttpArgs{
+//						Domain:   pulumi.String("example.com"),
+//						Path:     pulumi.String("/healthz"),
+//						Response: pulumi.String("OK"),
+//						Tls:      pulumi.Bool(true),
+//						StatusCodes: pulumi.StringArray{
+//							pulumi.String("200"),
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -63,9 +82,9 @@ type LoadBalancerService struct {
 
 	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
 	DestinationPort pulumi.IntOutput `pulumi:"destinationPort"`
-	// List of health check configurations when `protocol` is `http` or `https`.
+	// Health Check configuration when `protocol` is `http` or `https`.
 	HealthCheck LoadBalancerServiceHealthCheckOutput `pulumi:"healthCheck"`
-	// List of http configurations when `protocol` is `http` or `https`.
+	// HTTP configuration when `protocol` is `http` or `https`.
 	Http LoadBalancerServiceHttpOutput `pulumi:"http"`
 	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	ListenPort pulumi.IntOutput `pulumi:"listenPort"`
@@ -115,9 +134,9 @@ func GetLoadBalancerService(ctx *pulumi.Context,
 type loadBalancerServiceState struct {
 	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
 	DestinationPort *int `pulumi:"destinationPort"`
-	// List of health check configurations when `protocol` is `http` or `https`.
+	// Health Check configuration when `protocol` is `http` or `https`.
 	HealthCheck *LoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
-	// List of http configurations when `protocol` is `http` or `https`.
+	// HTTP configuration when `protocol` is `http` or `https`.
 	Http *LoadBalancerServiceHttp `pulumi:"http"`
 	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	ListenPort *int `pulumi:"listenPort"`
@@ -132,9 +151,9 @@ type loadBalancerServiceState struct {
 type LoadBalancerServiceState struct {
 	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
 	DestinationPort pulumi.IntPtrInput
-	// List of health check configurations when `protocol` is `http` or `https`.
+	// Health Check configuration when `protocol` is `http` or `https`.
 	HealthCheck LoadBalancerServiceHealthCheckPtrInput
-	// List of http configurations when `protocol` is `http` or `https`.
+	// HTTP configuration when `protocol` is `http` or `https`.
 	Http LoadBalancerServiceHttpPtrInput
 	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	ListenPort pulumi.IntPtrInput
@@ -153,9 +172,9 @@ func (LoadBalancerServiceState) ElementType() reflect.Type {
 type loadBalancerServiceArgs struct {
 	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
 	DestinationPort *int `pulumi:"destinationPort"`
-	// List of health check configurations when `protocol` is `http` or `https`.
+	// Health Check configuration when `protocol` is `http` or `https`.
 	HealthCheck *LoadBalancerServiceHealthCheck `pulumi:"healthCheck"`
-	// List of http configurations when `protocol` is `http` or `https`.
+	// HTTP configuration when `protocol` is `http` or `https`.
 	Http *LoadBalancerServiceHttp `pulumi:"http"`
 	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	ListenPort *int `pulumi:"listenPort"`
@@ -171,9 +190,9 @@ type loadBalancerServiceArgs struct {
 type LoadBalancerServiceArgs struct {
 	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
 	DestinationPort pulumi.IntPtrInput
-	// List of health check configurations when `protocol` is `http` or `https`.
+	// Health Check configuration when `protocol` is `http` or `https`.
 	HealthCheck LoadBalancerServiceHealthCheckPtrInput
-	// List of http configurations when `protocol` is `http` or `https`.
+	// HTTP configuration when `protocol` is `http` or `https`.
 	Http LoadBalancerServiceHttpPtrInput
 	// Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	ListenPort pulumi.IntPtrInput
@@ -301,12 +320,12 @@ func (o LoadBalancerServiceOutput) DestinationPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *LoadBalancerService) pulumi.IntOutput { return v.DestinationPort }).(pulumi.IntOutput)
 }
 
-// List of health check configurations when `protocol` is `http` or `https`.
+// Health Check configuration when `protocol` is `http` or `https`.
 func (o LoadBalancerServiceOutput) HealthCheck() LoadBalancerServiceHealthCheckOutput {
 	return o.ApplyT(func(v *LoadBalancerService) LoadBalancerServiceHealthCheckOutput { return v.HealthCheck }).(LoadBalancerServiceHealthCheckOutput)
 }
 
-// List of http configurations when `protocol` is `http` or `https`.
+// HTTP configuration when `protocol` is `http` or `https`.
 func (o LoadBalancerServiceOutput) Http() LoadBalancerServiceHttpOutput {
 	return o.ApplyT(func(v *LoadBalancerService) LoadBalancerServiceHttpOutput { return v.Http }).(LoadBalancerServiceHttpOutput)
 }

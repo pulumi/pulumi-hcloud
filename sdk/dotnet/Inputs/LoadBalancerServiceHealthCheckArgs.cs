@@ -13,7 +13,7 @@ namespace Pulumi.HCloud.Inputs
     public sealed class LoadBalancerServiceHealthCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// List of http configurations. Required if `protocol` is `http`.
+        /// HTTP configuration. Required if `protocol` is `http`.
         /// </summary>
         [Input("http")]
         public Input<Inputs.LoadBalancerServiceHealthCheckHttpArgs>? Http { get; set; }

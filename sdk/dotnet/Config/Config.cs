@@ -8,7 +8,7 @@ namespace Pulumi.HCloud
 {
     public static class Config
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "IDE1006", Justification = 
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "IDE1006", Justification = 
         "Double underscore prefix used to avoid conflicts with variable names.")]
         private sealed class __Value<T>
         {
@@ -33,6 +33,9 @@ namespace Pulumi.HCloud
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("hcloud");
 
         private static readonly __Value<string?> _endpoint = new __Value<string?>(() => __config.Get("endpoint"));
+        /// <summary>
+        /// The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+        /// </summary>
         public static string? Endpoint
         {
             get => _endpoint.Get();
@@ -40,6 +43,10 @@ namespace Pulumi.HCloud
         }
 
         private static readonly __Value<string?> _pollInterval = new __Value<string?>(() => __config.Get("pollInterval"));
+        /// <summary>
+        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+        /// limiting errors.
+        /// </summary>
         public static string? PollInterval
         {
             get => _pollInterval.Get();
@@ -48,7 +55,7 @@ namespace Pulumi.HCloud
 
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
         /// <summary>
-        /// The API token to access the Hetzner cloud.
+        /// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         /// </summary>
         public static string? Token
         {

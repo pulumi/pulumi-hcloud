@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LoadBalancerServiceHealthCheck {
     /**
-     * @return List of http configurations. Required if `protocol` is `http`.
+     * @return HTTP configuration. Required if `protocol` is `http`.
      * 
      */
     private @Nullable LoadBalancerServiceHealthCheckHttp http;
@@ -46,7 +46,7 @@ public final class LoadBalancerServiceHealthCheck {
 
     private LoadBalancerServiceHealthCheck() {}
     /**
-     * @return List of http configurations. Required if `protocol` is `http`.
+     * @return HTTP configuration. Required if `protocol` is `http`.
      * 
      */
     public Optional<LoadBalancerServiceHealthCheckHttp> http() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NetworkRouteArgs', 'NetworkRoute']
@@ -23,9 +23,22 @@ class NetworkRouteArgs:
         :param pulumi.Input[str] gateway: Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
         :param pulumi.Input[int] network_id: ID of the Network the route should be added to.
         """
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "gateway", gateway)
-        pulumi.set(__self__, "network_id", network_id)
+        NetworkRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            gateway=gateway,
+            network_id=network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input[str],
+             gateway: pulumi.Input[str],
+             network_id: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination", destination)
+        _setter("gateway", gateway)
+        _setter("network_id", network_id)
 
     @property
     @pulumi.getter
@@ -76,12 +89,25 @@ class _NetworkRouteState:
         :param pulumi.Input[str] gateway: Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
         :param pulumi.Input[int] network_id: ID of the Network the route should be added to.
         """
+        _NetworkRouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            gateway=gateway,
+            network_id=network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[pulumi.Input[str]] = None,
+             gateway: Optional[pulumi.Input[str]] = None,
+             network_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if gateway is not None:
-            pulumi.set(__self__, "gateway", gateway)
+            _setter("gateway", gateway)
         if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
+            _setter("network_id", network_id)
 
     @property
     @pulumi.getter
@@ -199,6 +225,10 @@ class NetworkRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkRouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

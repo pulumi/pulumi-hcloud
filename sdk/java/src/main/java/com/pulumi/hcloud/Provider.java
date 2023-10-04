@@ -23,27 +23,45 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pulumi:providers:hcloud")
 public class Provider extends com.pulumi.resources.ProviderResource {
+    /**
+     * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+     * 
+     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpoint;
 
+    /**
+     * @return The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+     * 
+     */
     public Output<Optional<String>> endpoint() {
         return Codegen.optional(this.endpoint);
     }
+    /**
+     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+     * limiting errors.
+     * 
+     */
     @Export(name="pollInterval", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pollInterval;
 
+    /**
+     * @return The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+     * limiting errors.
+     * 
+     */
     public Output<Optional<String>> pollInterval() {
         return Codegen.optional(this.pollInterval);
     }
     /**
-     * The API token to access the Hetzner cloud.
+     * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      * 
      */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     /**
-     * @return The API token to access the Hetzner cloud.
+     * @return The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      * 
      */
     public Output<String> token() {

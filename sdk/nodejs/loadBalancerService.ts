@@ -20,8 +20,25 @@ import * as utilities from "./utilities";
  *     location: "nbg1",
  * });
  * const loadBalancerService = new hcloud.LoadBalancerService("loadBalancerService", {
- *     loadBalancerId: hcloud_load_balancer.test_load_balancer.id,
+ *     loadBalancerId: loadBalancer.id,
  *     protocol: "http",
+ *     http: {
+ *         stickySessions: true,
+ *         cookieName: "EXAMPLE_STICKY",
+ *     },
+ *     healthCheck: {
+ *         protocol: "http",
+ *         port: 80,
+ *         interval: 10,
+ *         timeout: 5,
+ *         http: {
+ *             domain: "example.com",
+ *             path: "/healthz",
+ *             response: "OK",
+ *             tls: true,
+ *             statusCodes: ["200"],
+ *         },
+ *     },
  * });
  * ```
  *
@@ -66,11 +83,11 @@ export class LoadBalancerService extends pulumi.CustomResource {
      */
     public readonly destinationPort!: pulumi.Output<number>;
     /**
-     * List of health check configurations when `protocol` is `http` or `https`.
+     * Health Check configuration when `protocol` is `http` or `https`.
      */
     public readonly healthCheck!: pulumi.Output<outputs.LoadBalancerServiceHealthCheck>;
     /**
-     * List of http configurations when `protocol` is `http` or `https`.
+     * HTTP configuration when `protocol` is `http` or `https`.
      */
     public readonly http!: pulumi.Output<outputs.LoadBalancerServiceHttp>;
     /**
@@ -140,11 +157,11 @@ export interface LoadBalancerServiceState {
      */
     destinationPort?: pulumi.Input<number>;
     /**
-     * List of health check configurations when `protocol` is `http` or `https`.
+     * Health Check configuration when `protocol` is `http` or `https`.
      */
     healthCheck?: pulumi.Input<inputs.LoadBalancerServiceHealthCheck>;
     /**
-     * List of http configurations when `protocol` is `http` or `https`.
+     * HTTP configuration when `protocol` is `http` or `https`.
      */
     http?: pulumi.Input<inputs.LoadBalancerServiceHttp>;
     /**
@@ -174,11 +191,11 @@ export interface LoadBalancerServiceArgs {
      */
     destinationPort?: pulumi.Input<number>;
     /**
-     * List of health check configurations when `protocol` is `http` or `https`.
+     * Health Check configuration when `protocol` is `http` or `https`.
      */
     healthCheck?: pulumi.Input<inputs.LoadBalancerServiceHealthCheck>;
     /**
-     * List of http configurations when `protocol` is `http` or `https`.
+     * HTTP configuration when `protocol` is `http` or `https`.
      */
     http?: pulumi.Input<inputs.LoadBalancerServiceHttp>;
     /**

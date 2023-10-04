@@ -15,29 +15,47 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProviderArgs Empty = new ProviderArgs();
 
+    /**
+     * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+     * 
+     */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
+    /**
+     * @return The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+     * 
+     */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
 
+    /**
+     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+     * limiting errors.
+     * 
+     */
     @Import(name="pollInterval")
     private @Nullable Output<String> pollInterval;
 
+    /**
+     * @return The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+     * limiting errors.
+     * 
+     */
     public Optional<Output<String>> pollInterval() {
         return Optional.ofNullable(this.pollInterval);
     }
 
     /**
-     * The API token to access the Hetzner cloud.
+     * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      * 
      */
     @Import(name="token", required=true)
     private Output<String> token;
 
     /**
-     * @return The API token to access the Hetzner cloud.
+     * @return The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      * 
      */
     public Output<String> token() {
@@ -70,26 +88,52 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProviderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param endpoint The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
+        /**
+         * @param endpoint The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
+        /**
+         * @param pollInterval The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+         * limiting errors.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pollInterval(@Nullable Output<String> pollInterval) {
             $.pollInterval = pollInterval;
             return this;
         }
 
+        /**
+         * @param pollInterval The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+         * limiting errors.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pollInterval(String pollInterval) {
             return pollInterval(Output.of(pollInterval));
         }
 
         /**
-         * @param token The API token to access the Hetzner cloud.
+         * @param token The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
          * 
          * @return builder
          * 
@@ -100,7 +144,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param token The API token to access the Hetzner cloud.
+         * @param token The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
          * 
          * @return builder
          * 

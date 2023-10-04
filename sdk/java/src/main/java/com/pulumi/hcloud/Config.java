@@ -10,14 +10,23 @@ import java.util.Optional;
 public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("hcloud");
+/**
+ * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+ * 
+ */
     public Optional<String> endpoint() {
         return Codegen.stringProp("endpoint").config(config).get();
     }
+/**
+ * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+ * limiting errors.
+ * 
+ */
     public Optional<String> pollInterval() {
         return Codegen.stringProp("pollInterval").config(config).get();
     }
 /**
- * The API token to access the Hetzner cloud.
+ * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
  * 
  */
     public String token() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -50,7 +50,6 @@ class ServerArgs:
                This should not be used in normal cases. See the documentation of the
                `FirewallAttachment` resource for a reason to use this
                argument.
-        :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -65,47 +64,96 @@ class ServerArgs:
         :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
-        pulumi.set(__self__, "server_type", server_type)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_type=server_type,
+            allow_deprecated_images=allow_deprecated_images,
+            backups=backups,
+            datacenter=datacenter,
+            delete_protection=delete_protection,
+            firewall_ids=firewall_ids,
+            ignore_remote_firewall_ids=ignore_remote_firewall_ids,
+            image=image,
+            iso=iso,
+            keep_disk=keep_disk,
+            labels=labels,
+            location=location,
+            name=name,
+            networks=networks,
+            placement_group_id=placement_group_id,
+            public_nets=public_nets,
+            rebuild_protection=rebuild_protection,
+            rescue=rescue,
+            shutdown_before_deletion=shutdown_before_deletion,
+            ssh_keys=ssh_keys,
+            user_data=user_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_type: pulumi.Input[str],
+             allow_deprecated_images: Optional[pulumi.Input[bool]] = None,
+             backups: Optional[pulumi.Input[bool]] = None,
+             datacenter: Optional[pulumi.Input[str]] = None,
+             delete_protection: Optional[pulumi.Input[bool]] = None,
+             firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             ignore_remote_firewall_ids: Optional[pulumi.Input[bool]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             iso: Optional[pulumi.Input[str]] = None,
+             keep_disk: Optional[pulumi.Input[bool]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
+             placement_group_id: Optional[pulumi.Input[int]] = None,
+             public_nets: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
+             rebuild_protection: Optional[pulumi.Input[bool]] = None,
+             rescue: Optional[pulumi.Input[str]] = None,
+             shutdown_before_deletion: Optional[pulumi.Input[bool]] = None,
+             ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_type", server_type)
         if allow_deprecated_images is not None:
-            pulumi.set(__self__, "allow_deprecated_images", allow_deprecated_images)
+            _setter("allow_deprecated_images", allow_deprecated_images)
         if backups is not None:
-            pulumi.set(__self__, "backups", backups)
+            _setter("backups", backups)
         if datacenter is not None:
-            pulumi.set(__self__, "datacenter", datacenter)
+            _setter("datacenter", datacenter)
         if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
+            _setter("delete_protection", delete_protection)
         if firewall_ids is not None:
-            pulumi.set(__self__, "firewall_ids", firewall_ids)
+            _setter("firewall_ids", firewall_ids)
         if ignore_remote_firewall_ids is not None:
-            pulumi.set(__self__, "ignore_remote_firewall_ids", ignore_remote_firewall_ids)
+            _setter("ignore_remote_firewall_ids", ignore_remote_firewall_ids)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if iso is not None:
-            pulumi.set(__self__, "iso", iso)
+            _setter("iso", iso)
         if keep_disk is not None:
-            pulumi.set(__self__, "keep_disk", keep_disk)
+            _setter("keep_disk", keep_disk)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if networks is not None:
-            pulumi.set(__self__, "networks", networks)
+            _setter("networks", networks)
         if placement_group_id is not None:
-            pulumi.set(__self__, "placement_group_id", placement_group_id)
+            _setter("placement_group_id", placement_group_id)
         if public_nets is not None:
-            pulumi.set(__self__, "public_nets", public_nets)
+            _setter("public_nets", public_nets)
         if rebuild_protection is not None:
-            pulumi.set(__self__, "rebuild_protection", rebuild_protection)
+            _setter("rebuild_protection", rebuild_protection)
         if rescue is not None:
-            pulumi.set(__self__, "rescue", rescue)
+            _setter("rescue", rescue)
         if shutdown_before_deletion is not None:
-            pulumi.set(__self__, "shutdown_before_deletion", shutdown_before_deletion)
+            _setter("shutdown_before_deletion", shutdown_before_deletion)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
 
     @property
     @pulumi.getter(name="serverType")
@@ -198,9 +246,6 @@ class ServerArgs:
     @property
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[str]]:
-        """
-        (string) Name or ID of the image the server was created from.
-        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -404,7 +449,6 @@ class _ServerState:
                This should not be used in normal cases. See the documentation of the
                `FirewallAttachment` resource for a reason to use this
                argument.
-        :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
         :param pulumi.Input[str] ipv6_address: (string) The first IPv6 address of the assigned network.
         :param pulumi.Input[str] ipv6_network: (string) The IPv6 network.
@@ -424,61 +468,120 @@ class _ServerState:
         :param pulumi.Input[str] status: (string) The status of the server.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
+        _ServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_deprecated_images=allow_deprecated_images,
+            backup_window=backup_window,
+            backups=backups,
+            datacenter=datacenter,
+            delete_protection=delete_protection,
+            firewall_ids=firewall_ids,
+            ignore_remote_firewall_ids=ignore_remote_firewall_ids,
+            image=image,
+            ipv4_address=ipv4_address,
+            ipv6_address=ipv6_address,
+            ipv6_network=ipv6_network,
+            iso=iso,
+            keep_disk=keep_disk,
+            labels=labels,
+            location=location,
+            name=name,
+            networks=networks,
+            placement_group_id=placement_group_id,
+            public_nets=public_nets,
+            rebuild_protection=rebuild_protection,
+            rescue=rescue,
+            server_type=server_type,
+            shutdown_before_deletion=shutdown_before_deletion,
+            ssh_keys=ssh_keys,
+            status=status,
+            user_data=user_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_deprecated_images: Optional[pulumi.Input[bool]] = None,
+             backup_window: Optional[pulumi.Input[str]] = None,
+             backups: Optional[pulumi.Input[bool]] = None,
+             datacenter: Optional[pulumi.Input[str]] = None,
+             delete_protection: Optional[pulumi.Input[bool]] = None,
+             firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             ignore_remote_firewall_ids: Optional[pulumi.Input[bool]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             ipv4_address: Optional[pulumi.Input[str]] = None,
+             ipv6_address: Optional[pulumi.Input[str]] = None,
+             ipv6_network: Optional[pulumi.Input[str]] = None,
+             iso: Optional[pulumi.Input[str]] = None,
+             keep_disk: Optional[pulumi.Input[bool]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
+             placement_group_id: Optional[pulumi.Input[int]] = None,
+             public_nets: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
+             rebuild_protection: Optional[pulumi.Input[bool]] = None,
+             rescue: Optional[pulumi.Input[str]] = None,
+             server_type: Optional[pulumi.Input[str]] = None,
+             shutdown_before_deletion: Optional[pulumi.Input[bool]] = None,
+             ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_deprecated_images is not None:
-            pulumi.set(__self__, "allow_deprecated_images", allow_deprecated_images)
+            _setter("allow_deprecated_images", allow_deprecated_images)
         if backup_window is not None:
             warnings.warn("""You should remove this property from your terraform configuration.""", DeprecationWarning)
             pulumi.log.warn("""backup_window is deprecated: You should remove this property from your terraform configuration.""")
         if backup_window is not None:
-            pulumi.set(__self__, "backup_window", backup_window)
+            _setter("backup_window", backup_window)
         if backups is not None:
-            pulumi.set(__self__, "backups", backups)
+            _setter("backups", backups)
         if datacenter is not None:
-            pulumi.set(__self__, "datacenter", datacenter)
+            _setter("datacenter", datacenter)
         if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
+            _setter("delete_protection", delete_protection)
         if firewall_ids is not None:
-            pulumi.set(__self__, "firewall_ids", firewall_ids)
+            _setter("firewall_ids", firewall_ids)
         if ignore_remote_firewall_ids is not None:
-            pulumi.set(__self__, "ignore_remote_firewall_ids", ignore_remote_firewall_ids)
+            _setter("ignore_remote_firewall_ids", ignore_remote_firewall_ids)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
         if ipv6_address is not None:
-            pulumi.set(__self__, "ipv6_address", ipv6_address)
+            _setter("ipv6_address", ipv6_address)
         if ipv6_network is not None:
-            pulumi.set(__self__, "ipv6_network", ipv6_network)
+            _setter("ipv6_network", ipv6_network)
         if iso is not None:
-            pulumi.set(__self__, "iso", iso)
+            _setter("iso", iso)
         if keep_disk is not None:
-            pulumi.set(__self__, "keep_disk", keep_disk)
+            _setter("keep_disk", keep_disk)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if networks is not None:
-            pulumi.set(__self__, "networks", networks)
+            _setter("networks", networks)
         if placement_group_id is not None:
-            pulumi.set(__self__, "placement_group_id", placement_group_id)
+            _setter("placement_group_id", placement_group_id)
         if public_nets is not None:
-            pulumi.set(__self__, "public_nets", public_nets)
+            _setter("public_nets", public_nets)
         if rebuild_protection is not None:
-            pulumi.set(__self__, "rebuild_protection", rebuild_protection)
+            _setter("rebuild_protection", rebuild_protection)
         if rescue is not None:
-            pulumi.set(__self__, "rescue", rescue)
+            _setter("rescue", rescue)
         if server_type is not None:
-            pulumi.set(__self__, "server_type", server_type)
+            _setter("server_type", server_type)
         if shutdown_before_deletion is not None:
-            pulumi.set(__self__, "shutdown_before_deletion", shutdown_before_deletion)
+            _setter("shutdown_before_deletion", shutdown_before_deletion)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
 
     @property
     @pulumi.getter(name="allowDeprecatedImages")
@@ -574,9 +677,6 @@ class _ServerState:
     @property
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[str]]:
-        """
-        (string) Name or ID of the image the server was created from.
-        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -893,7 +993,7 @@ class Server(pulumi.CustomResource):
         server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
             ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=False,
+            ipv6_enabled=True,
         )])
         #...
         # Assign & create auto-generated ipv4 & ipv6
@@ -924,7 +1024,6 @@ class Server(pulumi.CustomResource):
                This should not be used in normal cases. See the documentation of the
                `FirewallAttachment` resource for a reason to use this
                argument.
-        :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -1014,7 +1113,7 @@ class Server(pulumi.CustomResource):
         server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
             ipv4_enabled=True,
             ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=False,
+            ipv6_enabled=True,
         )])
         #...
         # Assign & create auto-generated ipv4 & ipv6
@@ -1043,6 +1142,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1160,7 +1263,6 @@ class Server(pulumi.CustomResource):
                This should not be used in normal cases. See the documentation of the
                `FirewallAttachment` resource for a reason to use this
                argument.
-        :param pulumi.Input[str] image: (string) Name or ID of the image the server was created from.
         :param pulumi.Input[str] ipv4_address: (string) The IPv4 address.
         :param pulumi.Input[str] ipv6_address: (string) The first IPv6 address of the assigned network.
         :param pulumi.Input[str] ipv6_network: (string) The IPv6 network.
@@ -1278,9 +1380,6 @@ class Server(pulumi.CustomResource):
     @property
     @pulumi.getter
     def image(self) -> pulumi.Output[Optional[str]]:
-        """
-        (string) Name or ID of the image the server was created from.
-        """
         return pulumi.get(self, "image")
 
     @property

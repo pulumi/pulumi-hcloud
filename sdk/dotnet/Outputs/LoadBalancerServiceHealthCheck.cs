@@ -14,7 +14,7 @@ namespace Pulumi.HCloud.Outputs
     public sealed class LoadBalancerServiceHealthCheck
     {
         /// <summary>
-        /// List of http configurations. Required if `protocol` is `http`.
+        /// HTTP configuration. Required if `protocol` is `http`.
         /// </summary>
         public readonly Outputs.LoadBalancerServiceHealthCheckHttp? Http;
         /// <summary>
