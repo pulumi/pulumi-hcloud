@@ -14,7 +14,7 @@ jobs:
       with:
         kind: all
         email: bot@pulumi.com
-        name: pulumi-bot
+        username: pulumi-bot
     - env:
         SLACK_CHANNEL: provider-upgrade-publish-status
         SLACK_COLOR: "#7CFC00"
