@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 import types
@@ -17,16 +17,23 @@ __config__ = pulumi.Config('hcloud')
 class _ExportableConfig(types.ModuleType):
     @property
     def endpoint(self) -> Optional[str]:
+        """
+        The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+        """
         return __config__.get('endpoint')
 
     @property
     def poll_interval(self) -> Optional[str]:
+        """
+        The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+        limiting errors.
+        """
         return __config__.get('pollInterval')
 
     @property
     def token(self) -> Optional[str]:
         """
-        The API token to access the Hetzner cloud.
+        The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         """
         return __config__.get('token')
 

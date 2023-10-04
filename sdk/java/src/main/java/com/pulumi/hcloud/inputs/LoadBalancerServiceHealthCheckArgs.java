@@ -18,14 +18,14 @@ public final class LoadBalancerServiceHealthCheckArgs extends com.pulumi.resourc
     public static final LoadBalancerServiceHealthCheckArgs Empty = new LoadBalancerServiceHealthCheckArgs();
 
     /**
-     * List of http configurations. Required if `protocol` is `http`.
+     * HTTP configuration. Required if `protocol` is `http`.
      * 
      */
     @Import(name="http")
     private @Nullable Output<LoadBalancerServiceHealthCheckHttpArgs> http;
 
     /**
-     * @return List of http configurations. Required if `protocol` is `http`.
+     * @return HTTP configuration. Required if `protocol` is `http`.
      * 
      */
     public Optional<Output<LoadBalancerServiceHealthCheckHttpArgs>> http() {
@@ -137,7 +137,7 @@ public final class LoadBalancerServiceHealthCheckArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param http List of http configurations. Required if `protocol` is `http`.
+         * @param http HTTP configuration. Required if `protocol` is `http`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class LoadBalancerServiceHealthCheckArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param http List of http configurations. Required if `protocol` is `http`.
+         * @param http HTTP configuration. Required if `protocol` is `http`.
          * 
          * @return builder
          * 

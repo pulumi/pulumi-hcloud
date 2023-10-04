@@ -32,14 +32,14 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Floating IP the `ip_address` belongs to.
      * 
      */
     @Import(name="floatingIpId")
     private @Nullable Output<Integer> floatingIpId;
 
     /**
-     * @return The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The Floating IP the `ip_address` belongs to.
      * 
      */
     public Optional<Output<Integer>> floatingIpId() {
@@ -62,14 +62,14 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Load Balancer the `ip_address` belongs to.
      * 
      */
     @Import(name="loadBalancerId")
     private @Nullable Output<Integer> loadBalancerId;
 
     /**
-     * @return The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The Load Balancer the `ip_address` belongs to.
      * 
      */
     public Optional<Output<Integer>> loadBalancerId() {
@@ -77,14 +77,14 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Primary IP the `ip_address` belongs to.
      * 
      */
     @Import(name="primaryIpId")
     private @Nullable Output<Integer> primaryIpId;
 
     /**
-     * @return The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The Primary IP the `ip_address` belongs to.
      * 
      */
     public Optional<Output<Integer>> primaryIpId() {
@@ -92,14 +92,14 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * The server the `ip_address` belongs to.
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<Integer> serverId;
 
     /**
-     * @return The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The server the `ip_address` belongs to.
      * 
      */
     public Optional<Output<Integer>> serverId() {
@@ -157,7 +157,7 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param floatingIpId The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+         * @param floatingIpId The Floating IP the `ip_address` belongs to.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param floatingIpId The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+         * @param floatingIpId The Floating IP the `ip_address` belongs to.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerId The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+         * @param loadBalancerId The Load Balancer the `ip_address` belongs to.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerId The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+         * @param loadBalancerId The Load Balancer the `ip_address` belongs to.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryIpId The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+         * @param primaryIpId The Primary IP the `ip_address` belongs to.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryIpId The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+         * @param primaryIpId The Primary IP the `ip_address` belongs to.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+         * @param serverId The server the `ip_address` belongs to.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class RdnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+         * @param serverId The server the `ip_address` belongs to.
          * 
          * @return builder
          * 

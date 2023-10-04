@@ -36,7 +36,8 @@ namespace Pulumi.HCloud
         public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
-        /// (list) Domains and subdomains covered by the certificate.
+        /// Domain names for which a certificate
+        /// should be obtained.
         /// </summary>
         [Output("domainNames")]
         public Output<ImmutableArray<string>> DomainNames { get; private set; } = null!;
@@ -125,7 +126,8 @@ namespace Pulumi.HCloud
         private InputList<string>? _domainNames;
 
         /// <summary>
-        /// (list) Domains and subdomains covered by the certificate.
+        /// Domain names for which a certificate
+        /// should be obtained.
         /// </summary>
         public InputList<string> DomainNames
         {
@@ -176,7 +178,8 @@ namespace Pulumi.HCloud
         private InputList<string>? _domainNames;
 
         /// <summary>
-        /// (list) Domains and subdomains covered by the certificate.
+        /// Domain names for which a certificate
+        /// should be obtained.
         /// </summary>
         public InputList<string> DomainNames
         {

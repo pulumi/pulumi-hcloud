@@ -487,7 +487,7 @@ func (o LoadBalancerAlgorithmPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type LoadBalancerServiceHealthCheck struct {
-	// List of http configurations. Required if `protocol` is `http`.
+	// HTTP configuration. Required if `protocol` is `http`.
 	Http *LoadBalancerServiceHealthCheckHttp `pulumi:"http"`
 	// Interval how often the health check will be performed, in seconds.
 	Interval int `pulumi:"interval"`
@@ -513,7 +513,7 @@ type LoadBalancerServiceHealthCheckInput interface {
 }
 
 type LoadBalancerServiceHealthCheckArgs struct {
-	// List of http configurations. Required if `protocol` is `http`.
+	// HTTP configuration. Required if `protocol` is `http`.
 	Http LoadBalancerServiceHealthCheckHttpPtrInput `pulumi:"http"`
 	// Interval how often the health check will be performed, in seconds.
 	Interval pulumi.IntInput `pulumi:"interval"`
@@ -622,7 +622,7 @@ func (o LoadBalancerServiceHealthCheckOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// List of http configurations. Required if `protocol` is `http`.
+// HTTP configuration. Required if `protocol` is `http`.
 func (o LoadBalancerServiceHealthCheckOutput) Http() LoadBalancerServiceHealthCheckHttpPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheckHttp { return v.Http }).(LoadBalancerServiceHealthCheckHttpPtrOutput)
 }
@@ -682,7 +682,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Elem() LoadBalancerServiceHealt
 	}).(LoadBalancerServiceHealthCheckOutput)
 }
 
-// List of http configurations. Required if `protocol` is `http`.
+// HTTP configuration. Required if `protocol` is `http`.
 func (o LoadBalancerServiceHealthCheckPtrOutput) Http() LoadBalancerServiceHealthCheckHttpPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerServiceHealthCheck) *LoadBalancerServiceHealthCheckHttp {
 		if v == nil {

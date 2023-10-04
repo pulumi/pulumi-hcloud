@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['VolumeArgs', 'Volume']
@@ -35,21 +35,44 @@ class VolumeArgs:
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         """
-        pulumi.set(__self__, "size", size)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            automount=automount,
+            delete_protection=delete_protection,
+            format=format,
+            labels=labels,
+            location=location,
+            name=name,
+            server_id=server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: pulumi.Input[int],
+             automount: Optional[pulumi.Input[bool]] = None,
+             delete_protection: Optional[pulumi.Input[bool]] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("size", size)
         if automount is not None:
-            pulumi.set(__self__, "automount", automount)
+            _setter("automount", automount)
         if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
+            _setter("delete_protection", delete_protection)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
 
     @property
     @pulumi.getter
@@ -176,24 +199,49 @@ class _VolumeState:
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         :param pulumi.Input[int] size: Size of the volume (in GB).
         """
+        _VolumeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automount=automount,
+            delete_protection=delete_protection,
+            format=format,
+            labels=labels,
+            linux_device=linux_device,
+            location=location,
+            name=name,
+            server_id=server_id,
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automount: Optional[pulumi.Input[bool]] = None,
+             delete_protection: Optional[pulumi.Input[bool]] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             linux_device: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[int]] = None,
+             size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automount is not None:
-            pulumi.set(__self__, "automount", automount)
+            _setter("automount", automount)
         if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
+            _setter("delete_protection", delete_protection)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if linux_device is not None:
-            pulumi.set(__self__, "linux_device", linux_device)
+            _setter("linux_device", linux_device)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter
@@ -403,6 +451,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

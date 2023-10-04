@@ -49,14 +49,16 @@ public final class ManagedCertificateState extends com.pulumi.resources.Resource
     }
 
     /**
-     * (list) Domains and subdomains covered by the certificate.
+     * Domain names for which a certificate
+     * should be obtained.
      * 
      */
     @Import(name="domainNames")
     private @Nullable Output<List<String>> domainNames;
 
     /**
-     * @return (list) Domains and subdomains covered by the certificate.
+     * @return Domain names for which a certificate
+     * should be obtained.
      * 
      */
     public Optional<Output<List<String>>> domainNames() {
@@ -222,7 +224,8 @@ public final class ManagedCertificateState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param domainNames (list) Domains and subdomains covered by the certificate.
+         * @param domainNames Domain names for which a certificate
+         * should be obtained.
          * 
          * @return builder
          * 
@@ -233,7 +236,8 @@ public final class ManagedCertificateState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param domainNames (list) Domains and subdomains covered by the certificate.
+         * @param domainNames Domain names for which a certificate
+         * should be obtained.
          * 
          * @return builder
          * 
@@ -243,7 +247,8 @@ public final class ManagedCertificateState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param domainNames (list) Domains and subdomains covered by the certificate.
+         * @param domainNames Domain names for which a certificate
+         * should be obtained.
          * 
          * @return builder
          * 

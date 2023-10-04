@@ -19,14 +19,16 @@ public final class ManagedCertificateArgs extends com.pulumi.resources.ResourceA
     public static final ManagedCertificateArgs Empty = new ManagedCertificateArgs();
 
     /**
-     * (list) Domains and subdomains covered by the certificate.
+     * Domain names for which a certificate
+     * should be obtained.
      * 
      */
     @Import(name="domainNames", required=true)
     private Output<List<String>> domainNames;
 
     /**
-     * @return (list) Domains and subdomains covered by the certificate.
+     * @return Domain names for which a certificate
+     * should be obtained.
      * 
      */
     public Output<List<String>> domainNames() {
@@ -92,7 +94,8 @@ public final class ManagedCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainNames (list) Domains and subdomains covered by the certificate.
+         * @param domainNames Domain names for which a certificate
+         * should be obtained.
          * 
          * @return builder
          * 
@@ -103,7 +106,8 @@ public final class ManagedCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainNames (list) Domains and subdomains covered by the certificate.
+         * @param domainNames Domain names for which a certificate
+         * should be obtained.
          * 
          * @return builder
          * 
@@ -113,7 +117,8 @@ public final class ManagedCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainNames (list) Domains and subdomains covered by the certificate.
+         * @param domainNames Domain names for which a certificate
+         * should be obtained.
          * 
          * @return builder
          * 

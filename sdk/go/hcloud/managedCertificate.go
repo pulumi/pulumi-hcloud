@@ -31,7 +31,8 @@ type ManagedCertificate struct {
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
 	// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
 	Created pulumi.StringOutput `pulumi:"created"`
-	// (list) Domains and subdomains covered by the certificate.
+	// Domain names for which a certificate
+	// should be obtained.
 	DomainNames pulumi.StringArrayOutput `pulumi:"domainNames"`
 	// (string) Fingerprint of the certificate.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
@@ -84,7 +85,8 @@ type managedCertificateState struct {
 	Certificate *string `pulumi:"certificate"`
 	// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
 	Created *string `pulumi:"created"`
-	// (list) Domains and subdomains covered by the certificate.
+	// Domain names for which a certificate
+	// should be obtained.
 	DomainNames []string `pulumi:"domainNames"`
 	// (string) Fingerprint of the certificate.
 	Fingerprint *string `pulumi:"fingerprint"`
@@ -105,7 +107,8 @@ type ManagedCertificateState struct {
 	Certificate pulumi.StringPtrInput
 	// (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
 	Created pulumi.StringPtrInput
-	// (list) Domains and subdomains covered by the certificate.
+	// Domain names for which a certificate
+	// should be obtained.
 	DomainNames pulumi.StringArrayInput
 	// (string) Fingerprint of the certificate.
 	Fingerprint pulumi.StringPtrInput
@@ -126,7 +129,8 @@ func (ManagedCertificateState) ElementType() reflect.Type {
 }
 
 type managedCertificateArgs struct {
-	// (list) Domains and subdomains covered by the certificate.
+	// Domain names for which a certificate
+	// should be obtained.
 	DomainNames []string `pulumi:"domainNames"`
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
@@ -137,7 +141,8 @@ type managedCertificateArgs struct {
 
 // The set of arguments for constructing a ManagedCertificate resource.
 type ManagedCertificateArgs struct {
-	// (list) Domains and subdomains covered by the certificate.
+	// Domain names for which a certificate
+	// should be obtained.
 	DomainNames pulumi.StringArrayInput
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
@@ -267,7 +272,8 @@ func (o ManagedCertificateOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCertificate) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
 }
 
-// (list) Domains and subdomains covered by the certificate.
+// Domain names for which a certificate
+// should be obtained.
 func (o ManagedCertificateOutput) DomainNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedCertificate) pulumi.StringArrayOutput { return v.DomainNames }).(pulumi.StringArrayOutput)
 }

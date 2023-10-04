@@ -35,14 +35,14 @@ public final class LoadBalancerServiceArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of health check configurations when `protocol` is `http` or `https`.
+     * Health Check configuration when `protocol` is `http` or `https`.
      * 
      */
     @Import(name="healthCheck")
     private @Nullable Output<LoadBalancerServiceHealthCheckArgs> healthCheck;
 
     /**
-     * @return List of health check configurations when `protocol` is `http` or `https`.
+     * @return Health Check configuration when `protocol` is `http` or `https`.
      * 
      */
     public Optional<Output<LoadBalancerServiceHealthCheckArgs>> healthCheck() {
@@ -50,14 +50,14 @@ public final class LoadBalancerServiceArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of http configurations when `protocol` is `http` or `https`.
+     * HTTP configuration when `protocol` is `http` or `https`.
      * 
      */
     @Import(name="http")
     private @Nullable Output<LoadBalancerServiceHttpArgs> http;
 
     /**
-     * @return List of http configurations when `protocol` is `http` or `https`.
+     * @return HTTP configuration when `protocol` is `http` or `https`.
      * 
      */
     public Optional<Output<LoadBalancerServiceHttpArgs>> http() {
@@ -176,7 +176,7 @@ public final class LoadBalancerServiceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param healthCheck List of health check configurations when `protocol` is `http` or `https`.
+         * @param healthCheck Health Check configuration when `protocol` is `http` or `https`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class LoadBalancerServiceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param healthCheck List of health check configurations when `protocol` is `http` or `https`.
+         * @param healthCheck Health Check configuration when `protocol` is `http` or `https`.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class LoadBalancerServiceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param http List of http configurations when `protocol` is `http` or `https`.
+         * @param http HTTP configuration when `protocol` is `http` or `https`.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class LoadBalancerServiceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param http List of http configurations when `protocol` is `http` or `https`.
+         * @param http HTTP configuration when `protocol` is `http` or `https`.
          * 
          * @return builder
          * 

@@ -135,7 +135,7 @@ namespace Pulumi.HCloud
     ///             {
     ///                 Ipv4Enabled = true,
     ///                 Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
-    ///                 Ipv6Enabled = false,
+    ///                 Ipv6Enabled = true,
     ///             },
     ///         },
     ///     });
@@ -215,9 +215,6 @@ namespace Pulumi.HCloud
         [Output("ignoreRemoteFirewallIds")]
         public Output<bool?> IgnoreRemoteFirewallIds { get; private set; } = null!;
 
-        /// <summary>
-        /// (string) Name or ID of the image the server was created from.
-        /// </summary>
         [Output("image")]
         public Output<string?> Image { get; private set; } = null!;
 
@@ -419,9 +416,6 @@ namespace Pulumi.HCloud
         [Input("ignoreRemoteFirewallIds")]
         public Input<bool>? IgnoreRemoteFirewallIds { get; set; }
 
-        /// <summary>
-        /// (string) Name or ID of the image the server was created from.
-        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 
@@ -590,9 +584,6 @@ namespace Pulumi.HCloud
         [Input("ignoreRemoteFirewallIds")]
         public Input<bool>? IgnoreRemoteFirewallIds { get; set; }
 
-        /// <summary>
-        /// (string) Name or ID of the image the server was created from.
-        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 

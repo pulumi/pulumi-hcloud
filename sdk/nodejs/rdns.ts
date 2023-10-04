@@ -136,7 +136,7 @@ export class Rdns extends pulumi.CustomResource {
      */
     public readonly dnsPtr!: pulumi.Output<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Floating IP the `ipAddress` belongs to.
      */
     public readonly floatingIpId!: pulumi.Output<number | undefined>;
     /**
@@ -144,15 +144,15 @@ export class Rdns extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
-     * The Load Balancer the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Load Balancer the `ipAddress` belongs to.
      */
     public readonly loadBalancerId!: pulumi.Output<number | undefined>;
     /**
-     * The Primary IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Primary IP the `ipAddress` belongs to.
      */
     public readonly primaryIpId!: pulumi.Output<number | undefined>;
     /**
-     * The server the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The server the `ipAddress` belongs to.
      */
     public readonly serverId!: pulumi.Output<number | undefined>;
 
@@ -204,7 +204,7 @@ export interface RdnsState {
      */
     dnsPtr?: pulumi.Input<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Floating IP the `ipAddress` belongs to.
      */
     floatingIpId?: pulumi.Input<number>;
     /**
@@ -212,15 +212,15 @@ export interface RdnsState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * The Load Balancer the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Load Balancer the `ipAddress` belongs to.
      */
     loadBalancerId?: pulumi.Input<number>;
     /**
-     * The Primary IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Primary IP the `ipAddress` belongs to.
      */
     primaryIpId?: pulumi.Input<number>;
     /**
-     * The server the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The server the `ipAddress` belongs to.
      */
     serverId?: pulumi.Input<number>;
 }
@@ -234,7 +234,7 @@ export interface RdnsArgs {
      */
     dnsPtr: pulumi.Input<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Floating IP the `ipAddress` belongs to.
      */
     floatingIpId?: pulumi.Input<number>;
     /**
@@ -242,15 +242,15 @@ export interface RdnsArgs {
      */
     ipAddress: pulumi.Input<string>;
     /**
-     * The Load Balancer the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Load Balancer the `ipAddress` belongs to.
      */
     loadBalancerId?: pulumi.Input<number>;
     /**
-     * The Primary IP the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The Primary IP the `ipAddress` belongs to.
      */
     primaryIpId?: pulumi.Input<number>;
     /**
-     * The server the `ipAddress` belongs to. - `serverId` - (Required, int) The server the `ipAddress` belongs to. Specify only one of `serverId`, `primaryIpId`, `floatingIpId` and `loadBalancerId`.
+     * The server the `ipAddress` belongs to.
      */
     serverId?: pulumi.Input<number>;
 }

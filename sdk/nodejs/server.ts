@@ -80,7 +80,7 @@ import * as utilities from "./utilities";
  * const serverTestIndex_serverServer = new hcloud.Server("serverTestIndex/serverServer", {publicNets: [{
  *     ipv4Enabled: true,
  *     ipv4: hcloud_primary_ip.primary_ip_1.id,
- *     ipv6Enabled: false,
+ *     ipv6Enabled: true,
  * }]});
  * //...
  * // Assign & create auto-generated ipv4 & ipv6
@@ -161,9 +161,6 @@ export class Server extends pulumi.CustomResource {
      * argument.
      */
     public readonly ignoreRemoteFirewallIds!: pulumi.Output<boolean | undefined>;
-    /**
-     * (string) Name or ID of the image the server was created from.
-     */
     public readonly image!: pulumi.Output<string | undefined>;
     /**
      * (string) The IPv4 address.
@@ -350,9 +347,6 @@ export interface ServerState {
      * argument.
      */
     ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
-    /**
-     * (string) Name or ID of the image the server was created from.
-     */
     image?: pulumi.Input<string>;
     /**
      * (string) The IPv4 address.
@@ -458,9 +452,6 @@ export interface ServerArgs {
      * argument.
      */
     ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
-    /**
-     * (string) Name or ID of the image the server was created from.
-     */
     image?: pulumi.Input<string>;
     /**
      * ID or Name of an ISO image to mount.

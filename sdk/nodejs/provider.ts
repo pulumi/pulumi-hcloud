@@ -25,10 +25,17 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
+    /**
+     * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+     */
     public readonly endpoint!: pulumi.Output<string | undefined>;
+    /**
+     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+     * limiting errors.
+     */
     public readonly pollInterval!: pulumi.Output<string | undefined>;
     /**
-     * The API token to access the Hetzner cloud.
+     * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      */
     public readonly token!: pulumi.Output<string>;
 
@@ -61,10 +68,17 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    /**
+     * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+     */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+     * limiting errors.
+     */
     pollInterval?: pulumi.Input<string>;
     /**
-     * The API token to access the Hetzner cloud.
+     * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      */
     token: pulumi.Input<string>;
 }

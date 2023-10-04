@@ -220,14 +220,14 @@ public class Rdns extends com.pulumi.resources.CustomResource {
         return this.dnsPtr;
     }
     /**
-     * The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Floating IP the `ip_address` belongs to.
      * 
      */
     @Export(name="floatingIpId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> floatingIpId;
 
     /**
-     * @return The Floating IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The Floating IP the `ip_address` belongs to.
      * 
      */
     public Output<Optional<Integer>> floatingIpId() {
@@ -248,42 +248,42 @@ public class Rdns extends com.pulumi.resources.CustomResource {
         return this.ipAddress;
     }
     /**
-     * The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Load Balancer the `ip_address` belongs to.
      * 
      */
     @Export(name="loadBalancerId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> loadBalancerId;
 
     /**
-     * @return The Load Balancer the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The Load Balancer the `ip_address` belongs to.
      * 
      */
     public Output<Optional<Integer>> loadBalancerId() {
         return Codegen.optional(this.loadBalancerId);
     }
     /**
-     * The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * The Primary IP the `ip_address` belongs to.
      * 
      */
     @Export(name="primaryIpId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> primaryIpId;
 
     /**
-     * @return The Primary IP the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The Primary IP the `ip_address` belongs to.
      * 
      */
     public Output<Optional<Integer>> primaryIpId() {
         return Codegen.optional(this.primaryIpId);
     }
     /**
-     * The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * The server the `ip_address` belongs to.
      * 
      */
     @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> serverId;
 
     /**
-     * @return The server the `ip_address` belongs to. - `server_id` - (Required, int) The server the `ip_address` belongs to. Specify only one of `server_id`, `primary_ip_id`, `floating_ip_id` and `load_balancer_id`.
+     * @return The server the `ip_address` belongs to.
      * 
      */
     public Output<Optional<Integer>> serverId() {

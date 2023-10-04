@@ -30,8 +30,31 @@ namespace Pulumi.HCloud
     /// 
     ///     var loadBalancerService = new HCloud.LoadBalancerService("loadBalancerService", new()
     ///     {
-    ///         LoadBalancerId = hcloud_load_balancer.Test_load_balancer.Id,
+    ///         LoadBalancerId = loadBalancer.Id,
     ///         Protocol = "http",
+    ///         Http = new HCloud.Inputs.LoadBalancerServiceHttpArgs
+    ///         {
+    ///             StickySessions = true,
+    ///             CookieName = "EXAMPLE_STICKY",
+    ///         },
+    ///         HealthCheck = new HCloud.Inputs.LoadBalancerServiceHealthCheckArgs
+    ///         {
+    ///             Protocol = "http",
+    ///             Port = 80,
+    ///             Interval = 10,
+    ///             Timeout = 5,
+    ///             Http = new HCloud.Inputs.LoadBalancerServiceHealthCheckHttpArgs
+    ///             {
+    ///                 Domain = "example.com",
+    ///                 Path = "/healthz",
+    ///                 Response = "OK",
+    ///                 Tls = true,
+    ///                 StatusCodes = new[]
+    ///                 {
+    ///                     "200",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -55,13 +78,13 @@ namespace Pulumi.HCloud
         public Output<int> DestinationPort { get; private set; } = null!;
 
         /// <summary>
-        /// List of health check configurations when `protocol` is `http` or `https`.
+        /// Health Check configuration when `protocol` is `http` or `https`.
         /// </summary>
         [Output("healthCheck")]
         public Output<Outputs.LoadBalancerServiceHealthCheck> HealthCheck { get; private set; } = null!;
 
         /// <summary>
-        /// List of http configurations when `protocol` is `http` or `https`.
+        /// HTTP configuration when `protocol` is `http` or `https`.
         /// </summary>
         [Output("http")]
         public Output<Outputs.LoadBalancerServiceHttp> Http { get; private set; } = null!;
@@ -143,13 +166,13 @@ namespace Pulumi.HCloud
         public Input<int>? DestinationPort { get; set; }
 
         /// <summary>
-        /// List of health check configurations when `protocol` is `http` or `https`.
+        /// Health Check configuration when `protocol` is `http` or `https`.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.LoadBalancerServiceHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// List of http configurations when `protocol` is `http` or `https`.
+        /// HTTP configuration when `protocol` is `http` or `https`.
         /// </summary>
         [Input("http")]
         public Input<Inputs.LoadBalancerServiceHttpArgs>? Http { get; set; }
@@ -193,13 +216,13 @@ namespace Pulumi.HCloud
         public Input<int>? DestinationPort { get; set; }
 
         /// <summary>
-        /// List of health check configurations when `protocol` is `http` or `https`.
+        /// Health Check configuration when `protocol` is `http` or `https`.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.LoadBalancerServiceHealthCheckGetArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// List of http configurations when `protocol` is `http` or `https`.
+        /// HTTP configuration when `protocol` is `http` or `https`.
         /// </summary>
         [Input("http")]
         public Input<Inputs.LoadBalancerServiceHttpGetArgs>? Http { get; set; }

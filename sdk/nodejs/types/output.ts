@@ -453,7 +453,7 @@ export interface LoadBalancerAlgorithm {
 
 export interface LoadBalancerServiceHealthCheck {
     /**
-     * List of http configurations. Required if `protocol` is `http`.
+     * HTTP configuration. Required if `protocol` is `http`.
      */
     http: outputs.LoadBalancerServiceHealthCheckHttp;
     /**

@@ -120,17 +120,9 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ignoreRemoteFirewallIds);
     }
 
-    /**
-     * (string) Name or ID of the image the server was created from.
-     * 
-     */
     @Import(name="image")
     private @Nullable Output<String> image;
 
-    /**
-     * @return (string) Name or ID of the image the server was created from.
-     * 
-     */
     public Optional<Output<String>> image() {
         return Optional.ofNullable(this.image);
     }
@@ -527,23 +519,11 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
             return ignoreRemoteFirewallIds(Output.of(ignoreRemoteFirewallIds));
         }
 
-        /**
-         * @param image (string) Name or ID of the image the server was created from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder image(@Nullable Output<String> image) {
             $.image = image;
             return this;
         }
 
-        /**
-         * @param image (string) Name or ID of the image the server was created from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder image(String image) {
             return image(Output.of(image));
         }

@@ -144,7 +144,7 @@ import (
 //					&hcloud.ServerPublicNetArgs{
 //						Ipv4Enabled: pulumi.Bool(true),
 //						Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
-//						Ipv6Enabled: pulumi.Bool(false),
+//						Ipv6Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})
@@ -199,9 +199,8 @@ type Server struct {
 	// This should not be used in normal cases. See the documentation of the
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
-	IgnoreRemoteFirewallIds pulumi.BoolPtrOutput `pulumi:"ignoreRemoteFirewallIds"`
-	// (string) Name or ID of the image the server was created from.
-	Image pulumi.StringPtrOutput `pulumi:"image"`
+	IgnoreRemoteFirewallIds pulumi.BoolPtrOutput   `pulumi:"ignoreRemoteFirewallIds"`
+	Image                   pulumi.StringPtrOutput `pulumi:"image"`
 	// (string) The IPv4 address.
 	Ipv4Address pulumi.StringOutput `pulumi:"ipv4Address"`
 	// (string) The first IPv6 address of the assigned network.
@@ -292,9 +291,8 @@ type serverState struct {
 	// This should not be used in normal cases. See the documentation of the
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
-	IgnoreRemoteFirewallIds *bool `pulumi:"ignoreRemoteFirewallIds"`
-	// (string) Name or ID of the image the server was created from.
-	Image *string `pulumi:"image"`
+	IgnoreRemoteFirewallIds *bool   `pulumi:"ignoreRemoteFirewallIds"`
+	Image                   *string `pulumi:"image"`
 	// (string) The IPv4 address.
 	Ipv4Address *string `pulumi:"ipv4Address"`
 	// (string) The first IPv6 address of the assigned network.
@@ -354,8 +352,7 @@ type ServerState struct {
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds pulumi.BoolPtrInput
-	// (string) Name or ID of the image the server was created from.
-	Image pulumi.StringPtrInput
+	Image                   pulumi.StringPtrInput
 	// (string) The IPv4 address.
 	Ipv4Address pulumi.StringPtrInput
 	// (string) The first IPv6 address of the assigned network.
@@ -414,9 +411,8 @@ type serverArgs struct {
 	// This should not be used in normal cases. See the documentation of the
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
-	IgnoreRemoteFirewallIds *bool `pulumi:"ignoreRemoteFirewallIds"`
-	// (string) Name or ID of the image the server was created from.
-	Image *string `pulumi:"image"`
+	IgnoreRemoteFirewallIds *bool   `pulumi:"ignoreRemoteFirewallIds"`
+	Image                   *string `pulumi:"image"`
 	// ID or Name of an ISO image to mount.
 	Iso *string `pulumi:"iso"`
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
@@ -465,8 +461,7 @@ type ServerArgs struct {
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds pulumi.BoolPtrInput
-	// (string) Name or ID of the image the server was created from.
-	Image pulumi.StringPtrInput
+	Image                   pulumi.StringPtrInput
 	// ID or Name of an ISO image to mount.
 	Iso pulumi.StringPtrInput
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
@@ -649,7 +644,6 @@ func (o ServerOutput) IgnoreRemoteFirewallIds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.IgnoreRemoteFirewallIds }).(pulumi.BoolPtrOutput)
 }
 
-// (string) Name or ID of the image the server was created from.
 func (o ServerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Image }).(pulumi.StringPtrOutput)
 }

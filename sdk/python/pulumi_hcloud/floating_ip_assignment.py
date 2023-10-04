@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FloatingIpAssignmentArgs', 'FloatingIpAssignment']
@@ -21,8 +21,19 @@ class FloatingIpAssignmentArgs:
         :param pulumi.Input[int] floating_ip_id: ID of the Floating IP.
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         """
-        pulumi.set(__self__, "floating_ip_id", floating_ip_id)
-        pulumi.set(__self__, "server_id", server_id)
+        FloatingIpAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            floating_ip_id=floating_ip_id,
+            server_id=server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             floating_ip_id: pulumi.Input[int],
+             server_id: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("floating_ip_id", floating_ip_id)
+        _setter("server_id", server_id)
 
     @property
     @pulumi.getter(name="floatingIpId")
@@ -59,10 +70,21 @@ class _FloatingIpAssignmentState:
         :param pulumi.Input[int] floating_ip_id: ID of the Floating IP.
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         """
+        _FloatingIpAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            floating_ip_id=floating_ip_id,
+            server_id=server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             floating_ip_id: Optional[pulumi.Input[int]] = None,
+             server_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if floating_ip_id is not None:
-            pulumi.set(__self__, "floating_ip_id", floating_ip_id)
+            _setter("floating_ip_id", floating_ip_id)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
 
     @property
     @pulumi.getter(name="floatingIpId")
@@ -176,6 +198,10 @@ class FloatingIpAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FloatingIpAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

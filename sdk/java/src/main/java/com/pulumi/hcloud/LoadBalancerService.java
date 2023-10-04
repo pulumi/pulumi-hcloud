@@ -31,6 +31,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.LoadBalancerArgs;
  * import com.pulumi.hcloud.LoadBalancerService;
  * import com.pulumi.hcloud.LoadBalancerServiceArgs;
+ * import com.pulumi.hcloud.inputs.LoadBalancerServiceHttpArgs;
+ * import com.pulumi.hcloud.inputs.LoadBalancerServiceHealthCheckArgs;
+ * import com.pulumi.hcloud.inputs.LoadBalancerServiceHealthCheckHttpArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,8 +53,25 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var loadBalancerService = new LoadBalancerService(&#34;loadBalancerService&#34;, LoadBalancerServiceArgs.builder()        
- *             .loadBalancerId(hcloud_load_balancer.test_load_balancer().id())
+ *             .loadBalancerId(loadBalancer.id())
  *             .protocol(&#34;http&#34;)
+ *             .http(LoadBalancerServiceHttpArgs.builder()
+ *                 .stickySessions(true)
+ *                 .cookieName(&#34;EXAMPLE_STICKY&#34;)
+ *                 .build())
+ *             .healthCheck(LoadBalancerServiceHealthCheckArgs.builder()
+ *                 .protocol(&#34;http&#34;)
+ *                 .port(80)
+ *                 .interval(10)
+ *                 .timeout(5)
+ *                 .http(LoadBalancerServiceHealthCheckHttpArgs.builder()
+ *                     .domain(&#34;example.com&#34;)
+ *                     .path(&#34;/healthz&#34;)
+ *                     .response(&#34;OK&#34;)
+ *                     .tls(true)
+ *                     .statusCodes(&#34;200&#34;)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -84,28 +104,28 @@ public class LoadBalancerService extends com.pulumi.resources.CustomResource {
         return this.destinationPort;
     }
     /**
-     * List of health check configurations when `protocol` is `http` or `https`.
+     * Health Check configuration when `protocol` is `http` or `https`.
      * 
      */
     @Export(name="healthCheck", refs={LoadBalancerServiceHealthCheck.class}, tree="[0]")
     private Output<LoadBalancerServiceHealthCheck> healthCheck;
 
     /**
-     * @return List of health check configurations when `protocol` is `http` or `https`.
+     * @return Health Check configuration when `protocol` is `http` or `https`.
      * 
      */
     public Output<LoadBalancerServiceHealthCheck> healthCheck() {
         return this.healthCheck;
     }
     /**
-     * List of http configurations when `protocol` is `http` or `https`.
+     * HTTP configuration when `protocol` is `http` or `https`.
      * 
      */
     @Export(name="http", refs={LoadBalancerServiceHttp.class}, tree="[0]")
     private Output<LoadBalancerServiceHttp> http;
 
     /**
-     * @return List of http configurations when `protocol` is `http` or `https`.
+     * @return HTTP configuration when `protocol` is `http` or `https`.
      * 
      */
     public Output<LoadBalancerServiceHttp> http() {

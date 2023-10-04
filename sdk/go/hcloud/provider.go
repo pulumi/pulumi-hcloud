@@ -20,9 +20,12 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	Endpoint     pulumi.StringPtrOutput `pulumi:"endpoint"`
+	// The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
+	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+	// limiting errors.
 	PollInterval pulumi.StringPtrOutput `pulumi:"pollInterval"`
-	// The API token to access the Hetzner cloud.
+	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
 	Token pulumi.StringOutput `pulumi:"token"`
 }
 
@@ -53,17 +56,23 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	Endpoint     *string `pulumi:"endpoint"`
+	// The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+	Endpoint *string `pulumi:"endpoint"`
+	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+	// limiting errors.
 	PollInterval *string `pulumi:"pollInterval"`
-	// The API token to access the Hetzner cloud.
+	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
 	Token string `pulumi:"token"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	Endpoint     pulumi.StringPtrInput
+	// The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+	Endpoint pulumi.StringPtrInput
+	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+	// limiting errors.
 	PollInterval pulumi.StringPtrInput
-	// The API token to access the Hetzner cloud.
+	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
 	Token pulumi.StringInput
 }
 
@@ -116,15 +125,18 @@ func (o ProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*Provider] 
 	}
 }
 
+// The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
 func (o ProviderOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
+// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+// limiting errors.
 func (o ProviderOutput) PollInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PollInterval }).(pulumi.StringPtrOutput)
 }
 
-// The API token to access the Hetzner cloud.
+// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
 func (o ProviderOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
 }

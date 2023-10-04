@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 declare var exports: any;
 const __config = new pulumi.Config("hcloud");
 
+/**
+ * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+ */
 export declare const endpoint: string | undefined;
 Object.defineProperty(exports, "endpoint", {
     get() {
@@ -15,6 +18,10 @@ Object.defineProperty(exports, "endpoint", {
     enumerable: true,
 });
 
+/**
+ * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
+ * limiting errors.
+ */
 export declare const pollInterval: string | undefined;
 Object.defineProperty(exports, "pollInterval", {
     get() {
@@ -24,7 +31,7 @@ Object.defineProperty(exports, "pollInterval", {
 });
 
 /**
- * The API token to access the Hetzner cloud.
+ * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
  */
 export declare const token: string | undefined;
 Object.defineProperty(exports, "token", {

@@ -52,7 +52,8 @@ export class ManagedCertificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly created!: pulumi.Output<string>;
     /**
-     * (list) Domains and subdomains covered by the certificate.
+     * Domain names for which a certificate
+     * should be obtained.
      */
     public readonly domainNames!: pulumi.Output<string[]>;
     /**
@@ -133,7 +134,8 @@ export interface ManagedCertificateState {
      */
     created?: pulumi.Input<string>;
     /**
-     * (list) Domains and subdomains covered by the certificate.
+     * Domain names for which a certificate
+     * should be obtained.
      */
     domainNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -165,7 +167,8 @@ export interface ManagedCertificateState {
  */
 export interface ManagedCertificateArgs {
     /**
-     * (list) Domains and subdomains covered by the certificate.
+     * Domain names for which a certificate
+     * should be obtained.
      */
     domainNames: pulumi.Input<pulumi.Input<string>[]>;
     /**

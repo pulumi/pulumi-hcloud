@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)
  *                 .ipv4(hcloud_primary_ip.primary_ip_1().id())
- *                 .ipv6Enabled(false)
+ *                 .ipv6Enabled(true)
  *                 .build())
  *             .build());
  * 
@@ -300,17 +300,9 @@ public class Server extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> ignoreRemoteFirewallIds() {
         return Codegen.optional(this.ignoreRemoteFirewallIds);
     }
-    /**
-     * (string) Name or ID of the image the server was created from.
-     * 
-     */
     @Export(name="image", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> image;
 
-    /**
-     * @return (string) Name or ID of the image the server was created from.
-     * 
-     */
     public Output<Optional<String>> image() {
         return Codegen.optional(this.image);
     }
