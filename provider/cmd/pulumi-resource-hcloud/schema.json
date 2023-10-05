@@ -66,10 +66,7 @@
                 "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.\n",
                 "secret": true
             }
-        },
-        "defaults": [
-            "token"
-        ]
+        }
     },
     "types": {
         "hcloud:index/FirewallApplyTo:FirewallApplyTo": {
@@ -1631,9 +1628,6 @@
                 "secret": true
             }
         },
-        "required": [
-            "token"
-        ],
         "inputProperties": {
             "endpoint": {
                 "type": "string",
@@ -1648,10 +1642,7 @@
                 "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.\n",
                 "secret": true
             }
-        },
-        "requiredInputs": [
-            "token"
-        ]
+        }
     },
     "resources": {
         "hcloud:index/certificate:Certificate": {

@@ -1689,8 +1689,8 @@ github.com/hetznercloud/hcloud-go v1.33.1/go.mod h1:XX/TQub3ge0yWR2yHWmnDVIrB+MQ
 github.com/hetznercloud/hcloud-go v1.35.0/go.mod h1:mepQwR6va27S3UQthaEPGS86jtzSY9xWL1e9dyxXpgA=
 github.com/hetznercloud/hcloud-go v1.51.0 h1:Gsjh+GeSH1ZZwOhVBLDxqRFEJSctDu6Jva9YDnNYlk4=
 github.com/hetznercloud/hcloud-go v1.51.0/go.mod h1:VzDWThl47lOnZXY0q5/LPFD+M62pfe/52TV+mOrpp9Q=
-github.com/hetznercloud/terraform-provider-hcloud v1.44.0 h1:lj2JNeDJGvjCxiJZwrxh3QIZ66hcksYaZ0LdCTO0MHM=
-github.com/hetznercloud/terraform-provider-hcloud v1.44.0/go.mod h1:4YeTV0LLBeI01dRP5WeIQKk/xIAvXutbFP3RVh6fA1s=
+github.com/hetznercloud/terraform-provider-hcloud v1.44.1 h1:ISbIYOVqCD/GFOQRURCueZFYbWBPW7Qo3oTV8wuCQAE=
+github.com/hetznercloud/terraform-provider-hcloud v1.44.1/go.mod h1:4YeTV0LLBeI01dRP5WeIQKk/xIAvXutbFP3RVh6fA1s=
 github.com/hexops/autogold v1.3.0 h1:IEtGNPxBeBu8RMn8eKWh/Ll9dVNgSnJ7bp/qHgMQ14o=
 github.com/hexops/autogold v1.3.0/go.mod h1:d4hwi2rid66Sag+BVuHgwakW/EmaFr8vdTSbWDbrDRI=
 github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
