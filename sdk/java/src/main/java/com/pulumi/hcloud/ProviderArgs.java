@@ -51,15 +51,15 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      * 
      */
-    @Import(name="token", required=true)
-    private Output<String> token;
+    @Import(name="token")
+    private @Nullable Output<String> token;
 
     /**
      * @return The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      * 
      */
-    public Output<String> token() {
-        return this.token;
+    public Optional<Output<String>> token() {
+        return Optional.ofNullable(this.token);
     }
 
     private ProviderArgs() {}
@@ -138,7 +138,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder token(Output<String> token) {
+        public Builder token(@Nullable Output<String> token) {
             $.token = token;
             return this;
         }
@@ -154,7 +154,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProviderArgs build() {
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
             return $;
         }
     }

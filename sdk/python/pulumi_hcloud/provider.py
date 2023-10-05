@@ -14,46 +14,35 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 token: pulumi.Input[str],
                  endpoint: Optional[pulumi.Input[str]] = None,
-                 poll_interval: Optional[pulumi.Input[str]] = None):
+                 poll_interval: Optional[pulumi.Input[str]] = None,
+                 token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] token: The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         :param pulumi.Input[str] endpoint: The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
         :param pulumi.Input[str] poll_interval: The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
                limiting errors.
+        :param pulumi.Input[str] token: The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         """
         ProviderArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
-            token=token,
             endpoint=endpoint,
             poll_interval=poll_interval,
+            token=token,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             token: pulumi.Input[str],
              endpoint: Optional[pulumi.Input[str]] = None,
              poll_interval: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("token", token)
         if endpoint is not None:
             _setter("endpoint", endpoint)
         if poll_interval is not None:
             _setter("poll_interval", poll_interval)
-
-    @property
-    @pulumi.getter
-    def token(self) -> pulumi.Input[str]:
-        """
-        The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
-        """
-        return pulumi.get(self, "token")
-
-    @token.setter
-    def token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "token", value)
+        if token is not None:
+            _setter("token", token)
 
     @property
     @pulumi.getter
@@ -79,6 +68,18 @@ class ProviderArgs:
     @poll_interval.setter
     def poll_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "poll_interval", value)
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token", value)
 
 
 class Provider(pulumi.ProviderResource):
@@ -107,7 +108,7 @@ class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProviderArgs,
+                 args: Optional[ProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the hcloud package. By default, resources use package-wide configuration
@@ -148,8 +149,6 @@ class Provider(pulumi.ProviderResource):
 
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["poll_interval"] = poll_interval
-            if token is None and not opts.urn:
-                raise TypeError("Missing required property 'token'")
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -178,7 +177,7 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter
-    def token(self) -> pulumi.Output[str]:
+    def token(self) -> pulumi.Output[Optional[str]]:
         """
         The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         """

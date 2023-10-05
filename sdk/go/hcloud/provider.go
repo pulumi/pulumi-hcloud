@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
@@ -26,21 +25,18 @@ type Provider struct {
 	// limiting errors.
 	PollInterval pulumi.StringPtrOutput `pulumi:"pollInterval"`
 	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
-	Token pulumi.StringOutput `pulumi:"token"`
+	Token pulumi.StringPtrOutput `pulumi:"token"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProviderArgs{}
 	}
 
-	if args.Token == nil {
-		return nil, errors.New("invalid value for required argument 'Token'")
-	}
 	if args.Token != nil {
-		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringInput)
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"token",
@@ -62,7 +58,7 @@ type providerArgs struct {
 	// limiting errors.
 	PollInterval *string `pulumi:"pollInterval"`
 	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
-	Token string `pulumi:"token"`
+	Token *string `pulumi:"token"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -73,7 +69,7 @@ type ProviderArgs struct {
 	// limiting errors.
 	PollInterval pulumi.StringPtrInput
 	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
-	Token pulumi.StringInput
+	Token pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -137,8 +133,8 @@ func (o ProviderOutput) PollInterval() pulumi.StringPtrOutput {
 }
 
 // The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
-func (o ProviderOutput) Token() pulumi.StringOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
+func (o ProviderOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Token }).(pulumi.StringPtrOutput)
 }
 
 func init() {
