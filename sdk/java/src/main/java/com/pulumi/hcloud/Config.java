@@ -29,7 +29,7 @@ public final class Config {
  * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
  * 
  */
-    public String token() {
-        return Codegen.stringProp("token").config(config).require();
+    public Optional<String> token() {
+        return Codegen.stringProp("token").config(config).get();
     }
 }

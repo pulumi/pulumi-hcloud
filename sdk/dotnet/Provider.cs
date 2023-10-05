@@ -35,7 +35,7 @@ namespace Pulumi.HCloud
         /// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         /// </summary>
         [Output("token")]
-        public Output<string> Token { get; private set; } = null!;
+        public Output<string?> Token { get; private set; } = null!;
 
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Pulumi.HCloud
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("hcloud", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -82,7 +82,7 @@ namespace Pulumi.HCloud
         [Input("pollInterval")]
         public Input<string>? PollInterval { get; set; }
 
-        [Input("token", required: true)]
+        [Input("token")]
         private Input<string>? _token;
 
         /// <summary>
