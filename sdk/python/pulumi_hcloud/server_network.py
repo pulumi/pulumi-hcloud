@@ -51,12 +51,24 @@ class ServerNetworkInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[int],
+             server_id: Optional[pulumi.Input[int]] = None,
              alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              ip: Optional[pulumi.Input[str]] = None,
              network_id: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if alias_ips is None and 'aliasIps' in kwargs:
+            alias_ips = kwargs['aliasIps']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("server_id", server_id)
         if alias_ips is not None:
             _setter("alias_ips", alias_ips)
@@ -189,7 +201,19 @@ class _ServerNetworkState:
              network_id: Optional[pulumi.Input[int]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if alias_ips is None and 'aliasIps' in kwargs:
+            alias_ips = kwargs['aliasIps']
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if alias_ips is not None:
             _setter("alias_ips", alias_ips)
         if ip is not None:

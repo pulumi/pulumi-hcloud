@@ -32,10 +32,14 @@ class PlacementGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if labels is not None:
             _setter("labels", labels)
@@ -106,7 +110,9 @@ class _PlacementGroupState:
              name: Optional[pulumi.Input[str]] = None,
              servers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if labels is not None:
             _setter("labels", labels)
         if name is not None:

@@ -76,7 +76,7 @@ import (
 //			_, err := hcloud.NewServer(ctx, "testServer", &hcloud.ServerArgs{
 //				ServerType: pulumi.String("cx11"),
 //				Image:      pulumi.String("ubuntu-20.04"),
-//				Labels: pulumi.AnyMap{
+//				Labels: pulumi.Map{
 //					"firewall-attachment": pulumi.Any("test-server"),
 //				},
 //			})

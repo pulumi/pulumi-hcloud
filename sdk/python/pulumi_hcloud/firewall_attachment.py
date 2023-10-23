@@ -35,10 +35,20 @@ class FirewallAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall_id: pulumi.Input[int],
+             firewall_id: Optional[pulumi.Input[int]] = None,
              label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if firewall_id is None and 'firewallId' in kwargs:
+            firewall_id = kwargs['firewallId']
+        if firewall_id is None:
+            raise TypeError("Missing 'firewall_id' argument")
+        if label_selectors is None and 'labelSelectors' in kwargs:
+            label_selectors = kwargs['labelSelectors']
+        if server_ids is None and 'serverIds' in kwargs:
+            server_ids = kwargs['serverIds']
+
         _setter("firewall_id", firewall_id)
         if label_selectors is not None:
             _setter("label_selectors", label_selectors)
@@ -112,7 +122,15 @@ class _FirewallAttachmentState:
              firewall_id: Optional[pulumi.Input[int]] = None,
              label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if firewall_id is None and 'firewallId' in kwargs:
+            firewall_id = kwargs['firewallId']
+        if label_selectors is None and 'labelSelectors' in kwargs:
+            label_selectors = kwargs['labelSelectors']
+        if server_ids is None and 'serverIds' in kwargs:
+            server_ids = kwargs['serverIds']
+
         if firewall_id is not None:
             _setter("firewall_id", firewall_id)
         if label_selectors is not None:

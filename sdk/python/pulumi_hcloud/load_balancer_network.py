@@ -51,12 +51,24 @@ class LoadBalancerNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_id: pulumi.Input[int],
+             load_balancer_id: Optional[pulumi.Input[int]] = None,
              enable_public_interface: Optional[pulumi.Input[bool]] = None,
              ip: Optional[pulumi.Input[str]] = None,
              network_id: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if load_balancer_id is None:
+            raise TypeError("Missing 'load_balancer_id' argument")
+        if enable_public_interface is None and 'enablePublicInterface' in kwargs:
+            enable_public_interface = kwargs['enablePublicInterface']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("load_balancer_id", load_balancer_id)
         if enable_public_interface is not None:
             _setter("enable_public_interface", enable_public_interface)
@@ -186,7 +198,17 @@ class _LoadBalancerNetworkState:
              load_balancer_id: Optional[pulumi.Input[int]] = None,
              network_id: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enable_public_interface is None and 'enablePublicInterface' in kwargs:
+            enable_public_interface = kwargs['enablePublicInterface']
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if enable_public_interface is not None:
             _setter("enable_public_interface", enable_public_interface)
         if ip is not None:

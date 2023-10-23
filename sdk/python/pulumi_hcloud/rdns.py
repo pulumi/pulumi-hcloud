@@ -41,13 +41,31 @@ class RdnsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_ptr: pulumi.Input[str],
-             ip_address: pulumi.Input[str],
+             dns_ptr: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
              floating_ip_id: Optional[pulumi.Input[int]] = None,
              load_balancer_id: Optional[pulumi.Input[int]] = None,
              primary_ip_id: Optional[pulumi.Input[int]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dns_ptr is None and 'dnsPtr' in kwargs:
+            dns_ptr = kwargs['dnsPtr']
+        if dns_ptr is None:
+            raise TypeError("Missing 'dns_ptr' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if floating_ip_id is None and 'floatingIpId' in kwargs:
+            floating_ip_id = kwargs['floatingIpId']
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if primary_ip_id is None and 'primaryIpId' in kwargs:
+            primary_ip_id = kwargs['primaryIpId']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         _setter("dns_ptr", dns_ptr)
         _setter("ip_address", ip_address)
         if floating_ip_id is not None:
@@ -168,7 +186,21 @@ class _RdnsState:
              load_balancer_id: Optional[pulumi.Input[int]] = None,
              primary_ip_id: Optional[pulumi.Input[int]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dns_ptr is None and 'dnsPtr' in kwargs:
+            dns_ptr = kwargs['dnsPtr']
+        if floating_ip_id is None and 'floatingIpId' in kwargs:
+            floating_ip_id = kwargs['floatingIpId']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if primary_ip_id is None and 'primaryIpId' in kwargs:
+            primary_ip_id = kwargs['primaryIpId']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if dns_ptr is not None:
             _setter("dns_ptr", dns_ptr)
         if floating_ip_id is not None:

@@ -44,14 +44,24 @@ class FloatingIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              delete_protection: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              home_location: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if home_location is None and 'homeLocation' in kwargs:
+            home_location = kwargs['homeLocation']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         _setter("type", type)
         if delete_protection is not None:
             _setter("delete_protection", delete_protection)
@@ -199,7 +209,19 @@ class _FloatingIpState:
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if home_location is None and 'homeLocation' in kwargs:
+            home_location = kwargs['homeLocation']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_network is None and 'ipNetwork' in kwargs:
+            ip_network = kwargs['ipNetwork']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if delete_protection is not None:
             _setter("delete_protection", delete_protection)
         if description is not None:

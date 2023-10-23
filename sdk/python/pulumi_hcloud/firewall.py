@@ -41,7 +41,11 @@ class FirewallArgs:
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if apply_tos is None and 'applyTos' in kwargs:
+            apply_tos = kwargs['applyTos']
+
         if apply_tos is not None:
             _setter("apply_tos", apply_tos)
         if labels is not None:
@@ -128,7 +132,11 @@ class _FirewallState:
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if apply_tos is None and 'applyTos' in kwargs:
+            apply_tos = kwargs['applyTos']
+
         if apply_tos is not None:
             _setter("apply_tos", apply_tos)
         if labels is not None:

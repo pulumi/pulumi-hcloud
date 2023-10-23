@@ -31,11 +31,19 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate: pulumi.Input[str],
-             private_key: pulumi.Input[str],
+             certificate: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+
         _setter("certificate", certificate)
         _setter("private_key", private_key)
         if labels is not None:
@@ -122,7 +130,17 @@ class _CertificateState:
              not_valid_before: Optional[pulumi.Input[str]] = None,
              private_key: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_names is None and 'domainNames' in kwargs:
+            domain_names = kwargs['domainNames']
+        if not_valid_after is None and 'notValidAfter' in kwargs:
+            not_valid_after = kwargs['notValidAfter']
+        if not_valid_before is None and 'notValidBefore' in kwargs:
+            not_valid_before = kwargs['notValidBefore']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if created is not None:

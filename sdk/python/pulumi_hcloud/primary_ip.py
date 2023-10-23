@@ -48,15 +48,31 @@ class PrimaryIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assignee_type: pulumi.Input[str],
-             auto_delete: pulumi.Input[bool],
-             type: pulumi.Input[str],
+             assignee_type: Optional[pulumi.Input[str]] = None,
+             auto_delete: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              assignee_id: Optional[pulumi.Input[int]] = None,
              datacenter: Optional[pulumi.Input[str]] = None,
              delete_protection: Optional[pulumi.Input[bool]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if assignee_type is None and 'assigneeType' in kwargs:
+            assignee_type = kwargs['assigneeType']
+        if assignee_type is None:
+            raise TypeError("Missing 'assignee_type' argument")
+        if auto_delete is None and 'autoDelete' in kwargs:
+            auto_delete = kwargs['autoDelete']
+        if auto_delete is None:
+            raise TypeError("Missing 'auto_delete' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if assignee_id is None and 'assigneeId' in kwargs:
+            assignee_id = kwargs['assigneeId']
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+
         _setter("assignee_type", assignee_type)
         _setter("auto_delete", auto_delete)
         _setter("type", type)
@@ -222,7 +238,21 @@ class _PrimaryIpState:
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if assignee_id is None and 'assigneeId' in kwargs:
+            assignee_id = kwargs['assigneeId']
+        if assignee_type is None and 'assigneeType' in kwargs:
+            assignee_type = kwargs['assigneeType']
+        if auto_delete is None and 'autoDelete' in kwargs:
+            auto_delete = kwargs['autoDelete']
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_network is None and 'ipNetwork' in kwargs:
+            ip_network = kwargs['ipNetwork']
+
         if assignee_id is not None:
             _setter("assignee_id", assignee_id)
         if assignee_type is not None:

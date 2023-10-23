@@ -32,10 +32,20 @@ class VolumeAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[int],
-             volume_id: pulumi.Input[int],
+             server_id: Optional[pulumi.Input[int]] = None,
+             volume_id: Optional[pulumi.Input[int]] = None,
              automount: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+        if volume_id is None:
+            raise TypeError("Missing 'volume_id' argument")
+
         _setter("server_id", server_id)
         _setter("volume_id", volume_id)
         if automount is not None:
@@ -102,7 +112,13 @@ class _VolumeAttachmentState:
              automount: Optional[pulumi.Input[bool]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
              volume_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+
         if automount is not None:
             _setter("automount", automount)
         if server_id is not None:

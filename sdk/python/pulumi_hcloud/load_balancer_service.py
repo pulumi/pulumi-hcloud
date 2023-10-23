@@ -46,14 +46,28 @@ class LoadBalancerServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_id: pulumi.Input[str],
-             protocol: pulumi.Input[str],
+             load_balancer_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              destination_port: Optional[pulumi.Input[int]] = None,
              health_check: Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']] = None,
              http: Optional[pulumi.Input['LoadBalancerServiceHttpArgs']] = None,
              listen_port: Optional[pulumi.Input[int]] = None,
              proxyprotocol: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if load_balancer_id is None:
+            raise TypeError("Missing 'load_balancer_id' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if listen_port is None and 'listenPort' in kwargs:
+            listen_port = kwargs['listenPort']
+
         _setter("load_balancer_id", load_balancer_id)
         _setter("protocol", protocol)
         if destination_port is not None:
@@ -192,7 +206,17 @@ class _LoadBalancerServiceState:
              load_balancer_id: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              proxyprotocol: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if listen_port is None and 'listenPort' in kwargs:
+            listen_port = kwargs['listenPort']
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+
         if destination_port is not None:
             _setter("destination_port", destination_port)
         if health_check is not None:

@@ -32,10 +32,16 @@ class SnapshotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[int],
+             server_id: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+
         _setter("server_id", server_id)
         if description is not None:
             _setter("description", description)
@@ -103,7 +109,11 @@ class _SnapshotState:
              description: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if description is not None:
             _setter("description", description)
         if labels is not None:

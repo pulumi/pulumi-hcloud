@@ -63,7 +63,7 @@ import (
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				ServerType: pulumi.String("cx11"),
 //				Datacenter: pulumi.String("fsn1-dc14"),
-//				Labels: pulumi.AnyMap{
+//				Labels: pulumi.Map{
 //					"test": pulumi.Any("tessst1"),
 //				},
 //				PublicNets: hcloud.ServerPublicNetArray{

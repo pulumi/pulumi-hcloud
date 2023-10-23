@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
 //				Type: pulumi.String("spread"),
-//				Labels: pulumi.AnyMap{
+//				Labels: pulumi.Map{
 //					"key": pulumi.Any("value"),
 //				},
 //			})

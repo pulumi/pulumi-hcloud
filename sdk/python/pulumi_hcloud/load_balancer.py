@@ -48,7 +48,7 @@ class LoadBalancerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_type: pulumi.Input[str],
+             load_balancer_type: Optional[pulumi.Input[str]] = None,
              algorithm: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']] = None,
              delete_protection: Optional[pulumi.Input[bool]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -56,7 +56,17 @@ class LoadBalancerArgs:
              name: Optional[pulumi.Input[str]] = None,
              network_zone: Optional[pulumi.Input[str]] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if load_balancer_type is None:
+            raise TypeError("Missing 'load_balancer_type' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if network_zone is None and 'networkZone' in kwargs:
+            network_zone = kwargs['networkZone']
+
         _setter("load_balancer_type", load_balancer_type)
         if algorithm is not None:
             _setter("algorithm", algorithm)
@@ -232,7 +242,19 @@ class _LoadBalancerState:
              network_ip: Optional[pulumi.Input[str]] = None,
              network_zone: Optional[pulumi.Input[str]] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if network_ip is None and 'networkIp' in kwargs:
+            network_ip = kwargs['networkIp']
+        if network_zone is None and 'networkZone' in kwargs:
+            network_zone = kwargs['networkZone']
+
         if algorithm is not None:
             _setter("algorithm", algorithm)
         if delete_protection is not None:

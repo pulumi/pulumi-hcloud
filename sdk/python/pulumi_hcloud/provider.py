@@ -36,7 +36,11 @@ class ProviderArgs:
              endpoint: Optional[pulumi.Input[str]] = None,
              poll_interval: Optional[pulumi.Input[str]] = None,
              token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if poll_interval is None and 'pollInterval' in kwargs:
+            poll_interval = kwargs['pollInterval']
+
         if endpoint is not None:
             _setter("endpoint", endpoint)
         if poll_interval is not None:
