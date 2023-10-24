@@ -127,17 +127,7 @@ def get_network(id: Optional[int] = None,
                 with_selector: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    network1 = hcloud.get_network(id=1234)
-    network2 = hcloud.get_network(name="my-network")
-    network3 = hcloud.get_network(with_selector="key=value")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param int id: ID of the Network.
     :param str ip_range: IPv4 prefix of the Network.
@@ -174,17 +164,7 @@ def get_network_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                        with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    network1 = hcloud.get_network(id=1234)
-    network2 = hcloud.get_network(name="my-network")
-    network3 = hcloud.get_network(with_selector="key=value")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param int id: ID of the Network.
     :param str ip_range: IPv4 prefix of the Network.

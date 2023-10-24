@@ -13,74 +13,12 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Images.
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var image2 = HCloud.GetImages.Invoke(new()
-        ///     {
-        ///         WithArchitectures = new[]
-        ///         {
-        ///             "x86",
-        ///         },
-        ///     });
-        /// 
-        ///     var image3 = HCloud.GetImages.Invoke(new()
-        ///     {
-        ///         WithSelector = "key=value",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetImagesResult> InvokeAsync(GetImagesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagesResult>("hcloud:index/getImages:getImages", args ?? new GetImagesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Images.
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var image2 = HCloud.GetImages.Invoke(new()
-        ///     {
-        ///         WithArchitectures = new[]
-        ///         {
-        ///             "x86",
-        ///         },
-        ///     });
-        /// 
-        ///     var image3 = HCloud.GetImages.Invoke(new()
-        ///     {
-        ///         WithSelector = "key=value",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("hcloud:index/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());

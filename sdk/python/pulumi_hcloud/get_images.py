@@ -111,16 +111,6 @@ def get_images(include_deprecated: Optional[bool] = None,
     """
     Provides details about multiple Hetzner Cloud Images.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    image2 = hcloud.get_images(with_architectures=["x86"])
-    image3 = hcloud.get_images(with_selector="key=value")
-    ```
-
 
     :param bool include_deprecated: Also list images that are marked as deprecated.
     :param bool most_recent: Sorts list by date.
@@ -156,16 +146,6 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]]
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagesResult]:
     """
     Provides details about multiple Hetzner Cloud Images.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    image2 = hcloud.get_images(with_architectures=["x86"])
-    image3 = hcloud.get_images(with_selector="key=value")
-    ```
 
 
     :param bool include_deprecated: Also list images that are marked as deprecated.

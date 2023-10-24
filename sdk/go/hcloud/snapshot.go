@@ -15,39 +15,6 @@ import (
 
 // Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-//				Image:      pulumi.String("debian-11"),
-//				ServerType: pulumi.String("cx11"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.NewSnapshot(ctx, "my-snapshot", &hcloud.SnapshotArgs{
-//				ServerId: node1.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Snapshots can be imported using its image `id`

@@ -69,17 +69,7 @@ class AwaitableGetSshKeysResult(GetSshKeysResult):
 def get_ssh_keys(with_selector: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeysResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    all_keys = hcloud.get_ssh_keys()
-    keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
-    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
@@ -98,17 +88,7 @@ def get_ssh_keys(with_selector: Optional[str] = None,
 def get_ssh_keys_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeysResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    all_keys = hcloud.get_ssh_keys()
-    keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
-    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """

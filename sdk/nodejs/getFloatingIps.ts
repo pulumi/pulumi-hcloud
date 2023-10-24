@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about multiple Hetzner Cloud Floating IPs.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const ip2 = hcloud.getFloatingIps({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getFloatingIps(args?: GetFloatingIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpsResult> {
     args = args || {};
@@ -55,17 +44,6 @@ export interface GetFloatingIpsResult {
 }
 /**
  * Provides details about multiple Hetzner Cloud Floating IPs.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const ip2 = hcloud.getFloatingIps({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getFloatingIpsOutput(args?: GetFloatingIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpsResult> {
     return pulumi.output(args).apply((a: any) => getFloatingIps(a, opts))

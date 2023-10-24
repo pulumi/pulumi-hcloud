@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about multiple Hetzner Cloud volumes.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const volume_ = hcloud.getVolumes({});
- * const volume3 = hcloud.getVolumes({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getVolumes(args?: GetVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumesResult> {
     args = args || {};
@@ -62,18 +50,6 @@ export interface GetVolumesResult {
 }
 /**
  * Provides details about multiple Hetzner Cloud volumes.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const volume_ = hcloud.getVolumes({});
- * const volume3 = hcloud.getVolumes({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getVolumesOutput(args?: GetVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumesResult> {
     return pulumi.output(args).apply((a: any) => getVolumes(a, opts))

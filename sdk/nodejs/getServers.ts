@@ -6,18 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const s3 = hcloud.getServers({
- *     withSelector: "key=value",
- * });
- * ```
- */
 export function getServers(args?: GetServersArgs, opts?: pulumi.InvokeOptions): Promise<GetServersResult> {
     args = args || {};
 
@@ -57,18 +45,6 @@ export interface GetServersResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const s3 = hcloud.getServers({
- *     withSelector: "key=value",
- * });
- * ```
- */
 export function getServersOutput(args?: GetServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServersResult> {
     return pulumi.output(args).apply((a: any) => getServers(a, opts))
 }

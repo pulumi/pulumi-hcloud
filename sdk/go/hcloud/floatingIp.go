@@ -15,40 +15,6 @@ import (
 
 // Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-//				Image:      pulumi.String("debian-11"),
-//				ServerType: pulumi.String("cx11"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
-//				Type:     pulumi.String("ipv4"),
-//				ServerId: node1.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Floating IPs can be imported using its `id`

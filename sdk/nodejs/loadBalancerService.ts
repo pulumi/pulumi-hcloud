@@ -9,39 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Define services for Hetzner Cloud Load Balancers.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const loadBalancer = new hcloud.LoadBalancer("loadBalancer", {
- *     loadBalancerType: "lb11",
- *     location: "nbg1",
- * });
- * const loadBalancerService = new hcloud.LoadBalancerService("loadBalancerService", {
- *     loadBalancerId: loadBalancer.id,
- *     protocol: "http",
- *     http: {
- *         stickySessions: true,
- *         cookieName: "EXAMPLE_STICKY",
- *     },
- *     healthCheck: {
- *         protocol: "http",
- *         port: 80,
- *         interval: 10,
- *         timeout: 5,
- *         http: {
- *             domain: "example.com",
- *             path: "/healthz",
- *             response: "OK",
- *             tls: true,
- *             statusCodes: ["200"],
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`

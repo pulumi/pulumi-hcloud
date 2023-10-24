@@ -91,7 +91,7 @@ class ServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_type: pulumi.Input[str],
+             server_type: Optional[pulumi.Input[str]] = None,
              allow_deprecated_images: Optional[pulumi.Input[bool]] = None,
              backups: Optional[pulumi.Input[bool]] = None,
              datacenter: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,35 @@ class ServerArgs:
              shutdown_before_deletion: Optional[pulumi.Input[bool]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if server_type is None and 'serverType' in kwargs:
+            server_type = kwargs['serverType']
+        if server_type is None:
+            raise TypeError("Missing 'server_type' argument")
+        if allow_deprecated_images is None and 'allowDeprecatedImages' in kwargs:
+            allow_deprecated_images = kwargs['allowDeprecatedImages']
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if firewall_ids is None and 'firewallIds' in kwargs:
+            firewall_ids = kwargs['firewallIds']
+        if ignore_remote_firewall_ids is None and 'ignoreRemoteFirewallIds' in kwargs:
+            ignore_remote_firewall_ids = kwargs['ignoreRemoteFirewallIds']
+        if keep_disk is None and 'keepDisk' in kwargs:
+            keep_disk = kwargs['keepDisk']
+        if placement_group_id is None and 'placementGroupId' in kwargs:
+            placement_group_id = kwargs['placementGroupId']
+        if public_nets is None and 'publicNets' in kwargs:
+            public_nets = kwargs['publicNets']
+        if rebuild_protection is None and 'rebuildProtection' in kwargs:
+            rebuild_protection = kwargs['rebuildProtection']
+        if shutdown_before_deletion is None and 'shutdownBeforeDeletion' in kwargs:
+            shutdown_before_deletion = kwargs['shutdownBeforeDeletion']
+        if ssh_keys is None and 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         _setter("server_type", server_type)
         if allow_deprecated_images is not None:
             _setter("allow_deprecated_images", allow_deprecated_images)
@@ -526,7 +554,41 @@ class _ServerState:
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input[str]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_deprecated_images is None and 'allowDeprecatedImages' in kwargs:
+            allow_deprecated_images = kwargs['allowDeprecatedImages']
+        if backup_window is None and 'backupWindow' in kwargs:
+            backup_window = kwargs['backupWindow']
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if firewall_ids is None and 'firewallIds' in kwargs:
+            firewall_ids = kwargs['firewallIds']
+        if ignore_remote_firewall_ids is None and 'ignoreRemoteFirewallIds' in kwargs:
+            ignore_remote_firewall_ids = kwargs['ignoreRemoteFirewallIds']
+        if ipv4_address is None and 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+        if ipv6_address is None and 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+        if ipv6_network is None and 'ipv6Network' in kwargs:
+            ipv6_network = kwargs['ipv6Network']
+        if keep_disk is None and 'keepDisk' in kwargs:
+            keep_disk = kwargs['keepDisk']
+        if placement_group_id is None and 'placementGroupId' in kwargs:
+            placement_group_id = kwargs['placementGroupId']
+        if public_nets is None and 'publicNets' in kwargs:
+            public_nets = kwargs['publicNets']
+        if rebuild_protection is None and 'rebuildProtection' in kwargs:
+            rebuild_protection = kwargs['rebuildProtection']
+        if server_type is None and 'serverType' in kwargs:
+            server_type = kwargs['serverType']
+        if shutdown_before_deletion is None and 'shutdownBeforeDeletion' in kwargs:
+            shutdown_before_deletion = kwargs['shutdownBeforeDeletion']
+        if ssh_keys is None and 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         if allow_deprecated_images is not None:
             _setter("allow_deprecated_images", allow_deprecated_images)
         if backup_window is not None:
@@ -929,80 +991,10 @@ class Server(pulumi.CustomResource):
         Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 
         ## Example Usage
-        ### Server creation with network
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        network = hcloud.Network("network", ip_range="10.0.0.0/16")
-        network_subnet = hcloud.NetworkSubnet("network-subnet",
-            type="cloud",
-            network_id=network.id,
-            network_zone="eu-central",
-            ip_range="10.0.1.0/24")
-        server = hcloud.Server("server",
-            server_type="cx11",
-            image="ubuntu-20.04",
-            location="nbg1",
-            networks=[hcloud.ServerNetworkArgs(
-                network_id=network.id,
-                ip="10.0.1.5",
-                alias_ips=[
-                    "10.0.1.6",
-                    "10.0.1.7",
-                ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
-        ```
-        ### Server creation from snapshot
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        packer_snapshot = hcloud.get_image(with_selector="app=foobar",
-            most_recent=True)
-        # Create a new server from the snapshot
-        from_snapshot = hcloud.Server("fromSnapshot",
-            image=packer_snapshot.id,
-            server_type="cx11",
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4_enabled=True,
-                ipv6_enabled=True,
-            )])
-        ```
         ## Primary IPs
 
         When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
         With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
-
-        ### Examples
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        # Assign existing ipv4 only
-        server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=False,
-        )])
-        #...
-        # Link a managed ipv4 but autogenerate ipv6
-        server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=True,
-        )])
-        #...
-        # Assign & create auto-generated ipv4 & ipv6
-        server_test_hcloud_index_server_server = hcloud.Server("serverTestHcloudIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv6_enabled=True,
-        )])
-        #...
-        ```
 
         ## Import
 
@@ -1049,80 +1041,10 @@ class Server(pulumi.CustomResource):
         Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 
         ## Example Usage
-        ### Server creation with network
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        network = hcloud.Network("network", ip_range="10.0.0.0/16")
-        network_subnet = hcloud.NetworkSubnet("network-subnet",
-            type="cloud",
-            network_id=network.id,
-            network_zone="eu-central",
-            ip_range="10.0.1.0/24")
-        server = hcloud.Server("server",
-            server_type="cx11",
-            image="ubuntu-20.04",
-            location="nbg1",
-            networks=[hcloud.ServerNetworkArgs(
-                network_id=network.id,
-                ip="10.0.1.5",
-                alias_ips=[
-                    "10.0.1.6",
-                    "10.0.1.7",
-                ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
-        ```
-        ### Server creation from snapshot
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        packer_snapshot = hcloud.get_image(with_selector="app=foobar",
-            most_recent=True)
-        # Create a new server from the snapshot
-        from_snapshot = hcloud.Server("fromSnapshot",
-            image=packer_snapshot.id,
-            server_type="cx11",
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4_enabled=True,
-                ipv6_enabled=True,
-            )])
-        ```
         ## Primary IPs
 
         When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
         With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
-
-        ### Examples
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        # Assign existing ipv4 only
-        server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=False,
-        )])
-        #...
-        # Link a managed ipv4 but autogenerate ipv6
-        server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=True,
-        )])
-        #...
-        # Assign & create auto-generated ipv4 & ipv6
-        server_test_hcloud_index_server_server = hcloud.Server("serverTestHcloudIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv6_enabled=True,
-        )])
-        #...
-        ```
 
         ## Import
 

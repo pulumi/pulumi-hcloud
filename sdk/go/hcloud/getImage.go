@@ -12,50 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			image1, err := hcloud.GetImage(ctx, &hcloud.GetImageArgs{
-//				Id: pulumi.IntRef(1234),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.GetImage(ctx, &hcloud.GetImageArgs{
-//				Name:             pulumi.StringRef("ubuntu-18.04"),
-//				WithArchitecture: pulumi.StringRef("x86"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.GetImage(ctx, &hcloud.GetImageArgs{
-//				WithSelector: pulumi.StringRef("key=value"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
-//				Image: *pulumi.Int(image1.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageResult

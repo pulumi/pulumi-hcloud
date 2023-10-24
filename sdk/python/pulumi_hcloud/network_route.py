@@ -32,10 +32,20 @@ class NetworkRouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input[str],
-             gateway: pulumi.Input[str],
-             network_id: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[pulumi.Input[str]] = None,
+             gateway: Optional[pulumi.Input[str]] = None,
+             network_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if gateway is None:
+            raise TypeError("Missing 'gateway' argument")
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if network_id is None:
+            raise TypeError("Missing 'network_id' argument")
+
         _setter("destination", destination)
         _setter("gateway", gateway)
         _setter("network_id", network_id)
@@ -101,7 +111,11 @@ class _NetworkRouteState:
              destination: Optional[pulumi.Input[str]] = None,
              gateway: Optional[pulumi.Input[str]] = None,
              network_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+
         if destination is not None:
             _setter("destination", destination)
         if gateway is not None:
@@ -158,19 +172,6 @@ class NetworkRoute(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        priv_net = hcloud.NetworkRoute("privNet",
-            network_id=mynet.id,
-            destination="10.100.1.0/24",
-            gateway="10.0.1.1")
-        ```
-
         ## Import
 
         Network Route entries can be imported using a compound ID with the following format`<network-id>-<destination>`
@@ -193,19 +194,6 @@ class NetworkRoute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        priv_net = hcloud.NetworkRoute("privNet",
-            network_id=mynet.id,
-            destination="10.100.1.0/24",
-            gateway="10.0.1.1")
-        ```
 
         ## Import
 

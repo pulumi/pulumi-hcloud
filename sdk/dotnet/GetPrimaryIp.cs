@@ -29,54 +29,6 @@ namespace Pulumi.HCloud
         /// Provides details about a Hetzner Cloud Primary IP.
         /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
         /// 
-        /// {{% example %}}
-        /// ### Additional Examples
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ip1 = HCloud.GetPrimaryIp.Invoke(new()
-        ///     {
-        ///         IpAddress = "1.2.3.4",
-        ///     });
-        /// 
-        ///     var ip2 = HCloud.GetPrimaryIp.Invoke(new()
-        ///     {
-        ///         Name = "primary_ip_1",
-        ///     });
-        /// 
-        ///     var ip3 = HCloud.GetPrimaryIp.Invoke(new()
-        ///     {
-        ///         WithSelector = "key=value",
-        ///     });
-        /// 
-        ///     // Link a server to an existing primary IP
-        ///     var serverTest = new HCloud.Server("serverTest", new()
-        ///     {
-        ///         Image = "ubuntu-20.04",
-        ///         ServerType = "cx11",
-        ///         Datacenter = "fsn1-dc14",
-        ///         Labels = 
-        ///         {
-        ///             { "test", "tessst1" },
-        ///         },
-        ///         PublicNets = new[]
-        ///         {
-        ///             new HCloud.Inputs.ServerPublicNetArgs
-        ///             {
-        ///                 Ipv4 = hcloud_primary_ip.Ip_1.Id,
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrimaryIpResult> InvokeAsync(GetPrimaryIpArgs? args = null, InvokeOptions? options = null)
@@ -100,54 +52,6 @@ namespace Pulumi.HCloud
         /// Provides details about a Hetzner Cloud Primary IP.
         /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
         /// 
-        /// {{% example %}}
-        /// ### Additional Examples
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ip1 = HCloud.GetPrimaryIp.Invoke(new()
-        ///     {
-        ///         IpAddress = "1.2.3.4",
-        ///     });
-        /// 
-        ///     var ip2 = HCloud.GetPrimaryIp.Invoke(new()
-        ///     {
-        ///         Name = "primary_ip_1",
-        ///     });
-        /// 
-        ///     var ip3 = HCloud.GetPrimaryIp.Invoke(new()
-        ///     {
-        ///         WithSelector = "key=value",
-        ///     });
-        /// 
-        ///     // Link a server to an existing primary IP
-        ///     var serverTest = new HCloud.Server("serverTest", new()
-        ///     {
-        ///         Image = "ubuntu-20.04",
-        ///         ServerType = "cx11",
-        ///         Datacenter = "fsn1-dc14",
-        ///         Labels = 
-        ///         {
-        ///             { "test", "tessst1" },
-        ///         },
-        ///         PublicNets = new[]
-        ///         {
-        ///             new HCloud.Inputs.ServerPublicNetArgs
-        ///             {
-        ///                 Ipv4 = hcloud_primary_ip.Ip_1.Id,
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrimaryIpResult> Invoke(GetPrimaryIpInvokeArgs? args = null, InvokeOptions? options = null)

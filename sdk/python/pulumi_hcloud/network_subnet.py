@@ -38,12 +38,30 @@ class NetworkSubnetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_range: pulumi.Input[str],
-             network_id: pulumi.Input[int],
-             network_zone: pulumi.Input[str],
-             type: pulumi.Input[str],
+             ip_range: Optional[pulumi.Input[str]] = None,
+             network_id: Optional[pulumi.Input[int]] = None,
+             network_zone: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              vswitch_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_range is None and 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+        if ip_range is None:
+            raise TypeError("Missing 'ip_range' argument")
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if network_id is None:
+            raise TypeError("Missing 'network_id' argument")
+        if network_zone is None and 'networkZone' in kwargs:
+            network_zone = kwargs['networkZone']
+        if network_zone is None:
+            raise TypeError("Missing 'network_zone' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if vswitch_id is None and 'vswitchId' in kwargs:
+            vswitch_id = kwargs['vswitchId']
+
         _setter("ip_range", ip_range)
         _setter("network_id", network_id)
         _setter("network_zone", network_zone)
@@ -147,7 +165,17 @@ class _NetworkSubnetState:
              network_zone: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vswitch_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_range is None and 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if network_zone is None and 'networkZone' in kwargs:
+            network_zone = kwargs['networkZone']
+        if vswitch_id is None and 'vswitchId' in kwargs:
+            vswitch_id = kwargs['vswitchId']
+
         if gateway is not None:
             _setter("gateway", gateway)
         if ip_range is not None:
@@ -245,20 +273,6 @@ class NetworkSubnet(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        foonet = hcloud.NetworkSubnet("foonet",
-            network_id=mynet.id,
-            type="cloud",
-            network_zone="eu-central",
-            ip_range="10.0.1.0/24")
-        ```
-
         ## Import
 
         Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
@@ -283,20 +297,6 @@ class NetworkSubnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        foonet = hcloud.NetworkSubnet("foonet",
-            network_id=mynet.id,
-            type="cloud",
-            network_zone="eu-central",
-            ip_range="10.0.1.0/24")
-        ```
 
         ## Import
 
