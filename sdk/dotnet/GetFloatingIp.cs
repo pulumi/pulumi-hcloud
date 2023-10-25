@@ -23,39 +23,6 @@ namespace Pulumi.HCloud
         /// Provides details about a Hetzner Cloud Floating IP.
         /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
         /// 
-        /// {{% example %}}
-        /// ### Additional Examples
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ip1 = HCloud.GetFloatingIp.Invoke(new()
-        ///     {
-        ///         IpAddress = "1.2.3.4",
-        ///     });
-        /// 
-        ///     var ip2 = HCloud.GetFloatingIp.Invoke(new()
-        ///     {
-        ///         WithSelector = "key=value",
-        ///     });
-        /// 
-        ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
-        ///         {
-        ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
-        ///             ServerId = hcloud_server.Main.Id,
-        ///         }));
-        ///     }
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFloatingIpResult> InvokeAsync(GetFloatingIpArgs? args = null, InvokeOptions? options = null)
@@ -73,39 +40,6 @@ namespace Pulumi.HCloud
         /// Provides details about a Hetzner Cloud Floating IP.
         /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
         /// 
-        /// {{% example %}}
-        /// ### Additional Examples
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ip1 = HCloud.GetFloatingIp.Invoke(new()
-        ///     {
-        ///         IpAddress = "1.2.3.4",
-        ///     });
-        /// 
-        ///     var ip2 = HCloud.GetFloatingIp.Invoke(new()
-        ///     {
-        ///         WithSelector = "key=value",
-        ///     });
-        /// 
-        ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
-        ///         {
-        ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
-        ///             ServerId = hcloud_server.Main.Id,
-        ///         }));
-        ///     }
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFloatingIpResult> Invoke(GetFloatingIpInvokeArgs? args = null, InvokeOptions? options = null)

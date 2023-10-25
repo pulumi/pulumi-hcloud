@@ -111,16 +111,6 @@ def get_datacenter(id: Optional[int] = None,
     Provides details about a specific Hetzner Cloud Datacenter.
     Use this resource to get detailed information about specific datacenter.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds1 = hcloud.get_datacenter(name="fsn1-dc8")
-    ds2 = hcloud.get_datacenter(id=4)
-    ```
-
 
     :param int id: ID of the datacenter.
     :param str name: Name of the datacenter.
@@ -147,16 +137,6 @@ def get_datacenter_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     """
     Provides details about a specific Hetzner Cloud Datacenter.
     Use this resource to get detailed information about specific datacenter.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds1 = hcloud.get_datacenter(name="fsn1-dc8")
-    ds2 = hcloud.get_datacenter(id=4)
-    ```
 
 
     :param int id: ID of the datacenter.

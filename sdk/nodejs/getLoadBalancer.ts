@@ -8,23 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a specific Hetzner Cloud Load Balancer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const lb1 = hcloud.getLoadBalancer({
- *     name: "my-load-balancer",
- * });
- * const lb2 = hcloud.getLoadBalancer({
- *     id: 123,
- * });
- * const lb3 = hcloud.getLoadBalancer({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     args = args || {};
@@ -116,23 +99,6 @@ export interface GetLoadBalancerResult {
 }
 /**
  * Provides details about a specific Hetzner Cloud Load Balancer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const lb1 = hcloud.getLoadBalancer({
- *     name: "my-load-balancer",
- * });
- * const lb2 = hcloud.getLoadBalancer({
- *     id: 123,
- * });
- * const lb3 = hcloud.getLoadBalancer({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))

@@ -117,14 +117,6 @@ def get_placement_group(id: Optional[int] = None,
     """
     Provides details about a specific Hetzner Cloud Placement Group.
 
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_placement_group1 = hcloud.get_placement_group(name="sample-placement-group-1")
-    sample_placement_group2 = hcloud.get_placement_group(id=4711)
-    ```
-
 
     :param int id: ID of the placement group.
     :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
@@ -163,14 +155,6 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupResult]:
     """
     Provides details about a specific Hetzner Cloud Placement Group.
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_placement_group1 = hcloud.get_placement_group(name="sample-placement-group-1")
-    sample_placement_group2 = hcloud.get_placement_group(id=4711)
-    ```
 
 
     :param int id: ID of the placement group.

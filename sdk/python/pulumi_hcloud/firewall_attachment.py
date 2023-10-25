@@ -35,10 +35,20 @@ class FirewallAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall_id: pulumi.Input[int],
+             firewall_id: Optional[pulumi.Input[int]] = None,
              label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_id is None and 'firewallId' in kwargs:
+            firewall_id = kwargs['firewallId']
+        if firewall_id is None:
+            raise TypeError("Missing 'firewall_id' argument")
+        if label_selectors is None and 'labelSelectors' in kwargs:
+            label_selectors = kwargs['labelSelectors']
+        if server_ids is None and 'serverIds' in kwargs:
+            server_ids = kwargs['serverIds']
+
         _setter("firewall_id", firewall_id)
         if label_selectors is not None:
             _setter("label_selectors", label_selectors)
@@ -112,7 +122,15 @@ class _FirewallAttachmentState:
              firewall_id: Optional[pulumi.Input[int]] = None,
              label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_id is None and 'firewallId' in kwargs:
+            firewall_id = kwargs['firewallId']
+        if label_selectors is None and 'labelSelectors' in kwargs:
+            label_selectors = kwargs['labelSelectors']
+        if server_ids is None and 'serverIds' in kwargs:
+            server_ids = kwargs['serverIds']
+
         if firewall_id is not None:
             _setter("firewall_id", firewall_id)
         if label_selectors is not None:
@@ -177,37 +195,6 @@ class FirewallAttachment(pulumi.CustomResource):
         specified in that `FirewallAttachment`.
 
         ## Example Usage
-        ### Attach Servers
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        test_server = hcloud.Server("testServer",
-            server_type="cx11",
-            image="ubuntu-20.04")
-        basic_firewall = hcloud.Firewall("basicFirewall")
-        fw_ref = hcloud.FirewallAttachment("fwRef",
-            firewall_id=basic_firewall.id,
-            server_ids=[test_server.id])
-        ```
-        ### Attach Label Selectors
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        test_server = hcloud.Server("testServer",
-            server_type="cx11",
-            image="ubuntu-20.04",
-            labels={
-                "firewall-attachment": "test-server",
-            })
-        basic_firewall = hcloud.Firewall("basicFirewall")
-        fw_ref = hcloud.FirewallAttachment("fwRef",
-            firewall_id=basic_firewall.id,
-            label_selectors=["firewall-attachment=test-server"])
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,37 +219,6 @@ class FirewallAttachment(pulumi.CustomResource):
         specified in that `FirewallAttachment`.
 
         ## Example Usage
-        ### Attach Servers
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        test_server = hcloud.Server("testServer",
-            server_type="cx11",
-            image="ubuntu-20.04")
-        basic_firewall = hcloud.Firewall("basicFirewall")
-        fw_ref = hcloud.FirewallAttachment("fwRef",
-            firewall_id=basic_firewall.id,
-            server_ids=[test_server.id])
-        ```
-        ### Attach Label Selectors
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        test_server = hcloud.Server("testServer",
-            server_type="cx11",
-            image="ubuntu-20.04",
-            labels={
-                "firewall-attachment": "test-server",
-            })
-        basic_firewall = hcloud.Firewall("basicFirewall")
-        fw_ref = hcloud.FirewallAttachment("fwRef",
-            firewall_id=basic_firewall.id,
-            label_selectors=["firewall-attachment=test-server"])
-        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallAttachmentArgs args: The arguments to use to populate this resource's properties.

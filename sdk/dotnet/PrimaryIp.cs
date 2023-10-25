@@ -15,50 +15,6 @@ namespace Pulumi.HCloud
     /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
     /// Currently, Primary IPs can be only attached to servers.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new HCloud.PrimaryIp("main", new()
-    ///     {
-    ///         Datacenter = "fsn1-dc14",
-    ///         Type = "ipv4",
-    ///         AssigneeType = "server",
-    ///         AutoDelete = true,
-    ///         Labels = 
-    ///         {
-    ///             { "hallo", "welt" },
-    ///         },
-    ///     });
-    /// 
-    ///     // Link a server to a primary IP
-    ///     var serverTest = new HCloud.Server("serverTest", new()
-    ///     {
-    ///         Image = "ubuntu-20.04",
-    ///         ServerType = "cx11",
-    ///         Datacenter = "fsn1-dc14",
-    ///         Labels = 
-    ///         {
-    ///             { "test", "tessst1" },
-    ///         },
-    ///         PublicNets = new[]
-    ///         {
-    ///             new HCloud.Inputs.ServerPublicNetArgs
-    ///             {
-    ///                 Ipv4 = main.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Primary IPs can be imported using its `id`

@@ -12,38 +12,6 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Floating IP Assignment to assign a Floating IP to a Hetzner Cloud Server. Deleting a Floating IP Assignment will unassign the Floating IP from the Server.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var node1 = new HCloud.Server("node1", new()
-    ///     {
-    ///         Image = "debian-11",
-    ///         ServerType = "cx11",
-    ///         Datacenter = "fsn1-dc8",
-    ///     });
-    /// 
-    ///     var master = new HCloud.FloatingIp("master", new()
-    ///     {
-    ///         Type = "ipv4",
-    ///         HomeLocation = "nbg1",
-    ///     });
-    /// 
-    ///     var main = new HCloud.FloatingIpAssignment("main", new()
-    ///     {
-    ///         FloatingIpId = master.Id,
-    ///         ServerId = node1.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Floating IP Assignments can be imported using the `floating_ip_id`

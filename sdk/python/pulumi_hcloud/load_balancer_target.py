@@ -48,13 +48,27 @@ class LoadBalancerTargetInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_id: pulumi.Input[int],
-             type: pulumi.Input[str],
+             load_balancer_id: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              ip: Optional[pulumi.Input[str]] = None,
              label_selector: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
              use_private_ip: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if load_balancer_id is None:
+            raise TypeError("Missing 'load_balancer_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if label_selector is None and 'labelSelector' in kwargs:
+            label_selector = kwargs['labelSelector']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if use_private_ip is None and 'usePrivateIp' in kwargs:
+            use_private_ip = kwargs['usePrivateIp']
+
         _setter("load_balancer_id", load_balancer_id)
         _setter("type", type)
         if ip is not None:
@@ -189,7 +203,17 @@ class _LoadBalancerTargetState:
              server_id: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
              use_private_ip: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if label_selector is None and 'labelSelector' in kwargs:
+            label_selector = kwargs['labelSelector']
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if use_private_ip is None and 'usePrivateIp' in kwargs:
+            use_private_ip = kwargs['usePrivateIp']
+
         if ip is not None:
             _setter("ip", ip)
         if label_selector is not None:
@@ -298,24 +322,6 @@ class LoadBalancerTarget(pulumi.CustomResource):
         """
         Adds a target to a Hetzner Cloud Load Balancer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        my_server = hcloud.Server("myServer",
-            server_type="cx11",
-            image="ubuntu-18.04")
-        load_balancer = hcloud.LoadBalancer("loadBalancer",
-            load_balancer_type="lb11",
-            location="nbg1")
-        load_balancer_target = hcloud.LoadBalancerTarget("loadBalancerTarget",
-            type="server",
-            load_balancer_id=load_balancer.id,
-            server_id=my_server.id)
-        ```
-
         ## Import
 
         Load Balancer Target entries can be imported using a compound ID with the following format`<load-balancer-id>__<type>__<identifier>` Where _identifier_ depends on the _type_- `server`server id, for example`123` - `label_selector`label selector, for example`foo=bar` - `ip`ip address, for example`203.0.113.123`
@@ -356,24 +362,6 @@ class LoadBalancerTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Adds a target to a Hetzner Cloud Load Balancer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        my_server = hcloud.Server("myServer",
-            server_type="cx11",
-            image="ubuntu-18.04")
-        load_balancer = hcloud.LoadBalancer("loadBalancer",
-            load_balancer_type="lb11",
-            location="nbg1")
-        load_balancer_target = hcloud.LoadBalancerTarget("loadBalancerTarget",
-            type="server",
-            load_balancer_id=load_balancer.id,
-            server_id=my_server.id)
-        ```
 
         ## Import
 

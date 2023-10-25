@@ -8,20 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about multiple Hetzner Cloud Images.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const image2 = hcloud.getImages({
- *     withArchitectures: ["x86"],
- * });
- * const image3 = hcloud.getImages({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getImages(args?: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
     args = args || {};
@@ -82,20 +68,6 @@ export interface GetImagesResult {
 }
 /**
  * Provides details about multiple Hetzner Cloud Images.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const image2 = hcloud.getImages({
- *     withArchitectures: ["x86"],
- * });
- * const image3 = hcloud.getImages({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getImagesOutput(args?: GetImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagesResult> {
     return pulumi.output(args).apply((a: any) => getImages(a, opts))

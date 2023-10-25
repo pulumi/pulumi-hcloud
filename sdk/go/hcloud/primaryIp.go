@@ -18,54 +18,6 @@ import (
 // If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
 // Currently, Primary IPs can be only attached to servers.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := hcloud.NewPrimaryIp(ctx, "main", &hcloud.PrimaryIpArgs{
-//				Datacenter:   pulumi.String("fsn1-dc14"),
-//				Type:         pulumi.String("ipv4"),
-//				AssigneeType: pulumi.String("server"),
-//				AutoDelete:   pulumi.Bool(true),
-//				Labels: pulumi.AnyMap{
-//					"hallo": pulumi.Any("welt"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
-//				Image:      pulumi.String("ubuntu-20.04"),
-//				ServerType: pulumi.String("cx11"),
-//				Datacenter: pulumi.String("fsn1-dc14"),
-//				Labels: pulumi.AnyMap{
-//					"test": pulumi.Any("tessst1"),
-//				},
-//				PublicNets: hcloud.ServerPublicNetArray{
-//					&hcloud.ServerPublicNetArgs{
-//						Ipv4: main.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Primary IPs can be imported using its `id`

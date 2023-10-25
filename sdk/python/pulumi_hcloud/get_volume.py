@@ -167,17 +167,7 @@ def get_volume(id: Optional[int] = None,
                with_statuses: Optional[Sequence[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    volume1 = hcloud.get_volume(id=1234)
-    volume2 = hcloud.get_volume(name="my-volume")
-    volume3 = hcloud.get_volume(with_selector="key=value")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param int id: ID of the volume.
     :param str location: (string) The location name.
@@ -221,17 +211,7 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    volume1 = hcloud.get_volume(id=1234)
-    volume2 = hcloud.get_volume(name="my-volume")
-    volume3 = hcloud.get_volume(with_selector="key=value")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param int id: ID of the volume.
     :param str location: (string) The location name.

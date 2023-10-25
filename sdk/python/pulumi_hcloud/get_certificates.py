@@ -71,15 +71,6 @@ def get_certificates(with_selector: Optional[str] = None,
     """
     Provides details about multiple Hetzner Cloud Certificates.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_certificate1 = hcloud.get_certificates(with_selector="key=value")
-    ```
-
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
@@ -99,15 +90,6 @@ def get_certificates_output(with_selector: Optional[pulumi.Input[Optional[str]]]
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificatesResult]:
     """
     Provides details about multiple Hetzner Cloud Certificates.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_certificate1 = hcloud.get_certificates(with_selector="key=value")
-    ```
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)

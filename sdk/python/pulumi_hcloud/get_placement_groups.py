@@ -81,16 +81,6 @@ def get_placement_groups(most_recent: Optional[bool] = None,
     """
     Provides details about multiple Hetzner Cloud Placement Groups.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_placement_group1 = hcloud.get_placement_groups()
-    sample_placement_group2 = hcloud.get_placement_groups(with_selector="key=value")
-    ```
-
 
     :param bool most_recent: Sorts list by date.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -114,16 +104,6 @@ def get_placement_groups_output(most_recent: Optional[pulumi.Input[Optional[bool
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupsResult]:
     """
     Provides details about multiple Hetzner Cloud Placement Groups.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_placement_group1 = hcloud.get_placement_groups()
-    sample_placement_group2 = hcloud.get_placement_groups(with_selector="key=value")
-    ```
 
 
     :param bool most_recent: Sorts list by date.

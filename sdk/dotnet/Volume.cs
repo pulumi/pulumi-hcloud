@@ -12,33 +12,6 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud volume resource to manage volumes.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var node1 = new HCloud.Server("node1", new()
-    ///     {
-    ///         Image = "debian-11",
-    ///         ServerType = "cx11",
-    ///     });
-    /// 
-    ///     var master = new HCloud.Volume("master", new()
-    ///     {
-    ///         Size = 50,
-    ///         ServerId = node1.Id,
-    ///         Automount = true,
-    ///         Format = "ext4",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Volumes can be imported using their `id`

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const sshKey1 = hcloud.getSshKey({
- *     id: 1234,
- * });
- * const sshKey2 = hcloud.getSshKey({
- *     name: "my-ssh-key",
- * });
- * const sshKey3 = hcloud.getSshKey({
- *     fingerprint: "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
- * });
- * const sshKey4 = hcloud.getSshKey({
- *     withSelector: "key=value",
- * });
- * const main = new hcloud.Server("main", {sshKeys: [
- *     sshKey1.then(sshKey1 => sshKey1.id),
- *     sshKey2.then(sshKey2 => sshKey2.id),
- *     sshKey3.then(sshKey3 => sshKey3.id),
- * ]});
- * ```
- */
 export function getSshKey(args?: GetSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeyResult> {
     args = args || {};
 
@@ -96,32 +70,6 @@ export interface GetSshKeyResult {
     readonly selector?: string;
     readonly withSelector?: string;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const sshKey1 = hcloud.getSshKey({
- *     id: 1234,
- * });
- * const sshKey2 = hcloud.getSshKey({
- *     name: "my-ssh-key",
- * });
- * const sshKey3 = hcloud.getSshKey({
- *     fingerprint: "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
- * });
- * const sshKey4 = hcloud.getSshKey({
- *     withSelector: "key=value",
- * });
- * const main = new hcloud.Server("main", {sshKeys: [
- *     sshKey1.then(sshKey1 => sshKey1.id),
- *     sshKey2.then(sshKey2 => sshKey2.id),
- *     sshKey3.then(sshKey3 => sshKey3.id),
- * ]});
- * ```
- */
 export function getSshKeyOutput(args?: GetSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeyResult> {
     return pulumi.output(args).apply((a: any) => getSshKey(a, opts))
 }

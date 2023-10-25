@@ -38,12 +38,22 @@ class NetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_range: pulumi.Input[str],
+             ip_range: Optional[pulumi.Input[str]] = None,
              delete_protection: Optional[pulumi.Input[bool]] = None,
              expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_range is None and 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+        if ip_range is None:
+            raise TypeError("Missing 'ip_range' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if expose_routes_to_vswitch is None and 'exposeRoutesToVswitch' in kwargs:
+            expose_routes_to_vswitch = kwargs['exposeRoutesToVswitch']
+
         _setter("ip_range", ip_range)
         if delete_protection is not None:
             _setter("delete_protection", delete_protection)
@@ -147,7 +157,15 @@ class _NetworkState:
              ip_range: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if expose_routes_to_vswitch is None and 'exposeRoutesToVswitch' in kwargs:
+            expose_routes_to_vswitch = kwargs['exposeRoutesToVswitch']
+        if ip_range is None and 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+
         if delete_protection is not None:
             _setter("delete_protection", delete_protection)
         if expose_routes_to_vswitch is not None:
@@ -234,15 +252,6 @@ class Network(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
-        ```
-
         ## Import
 
         Networks can be imported using its `id`
@@ -267,15 +276,6 @@ class Network(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
-        ```
 
         ## Import
 

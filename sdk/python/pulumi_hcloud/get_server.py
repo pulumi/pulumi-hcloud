@@ -295,17 +295,7 @@ def get_server(id: Optional[int] = None,
                with_statuses: Optional[Sequence[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    s1 = hcloud.get_server(name="my-server")
-    s2 = hcloud.get_server(id=123)
-    s3 = hcloud.get_server(with_selector="key=value")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param int id: ID of the server.
     :param str name: Name of the server.
@@ -357,17 +347,7 @@ def get_server_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    s1 = hcloud.get_server(name="my-server")
-    s2 = hcloud.get_server(id=123)
-    s3 = hcloud.get_server(with_selector="key=value")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param int id: ID of the server.
     :param str name: Name of the server.

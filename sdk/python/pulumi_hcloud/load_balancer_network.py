@@ -51,12 +51,24 @@ class LoadBalancerNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_id: pulumi.Input[int],
+             load_balancer_id: Optional[pulumi.Input[int]] = None,
              enable_public_interface: Optional[pulumi.Input[bool]] = None,
              ip: Optional[pulumi.Input[str]] = None,
              network_id: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if load_balancer_id is None:
+            raise TypeError("Missing 'load_balancer_id' argument")
+        if enable_public_interface is None and 'enablePublicInterface' in kwargs:
+            enable_public_interface = kwargs['enablePublicInterface']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("load_balancer_id", load_balancer_id)
         if enable_public_interface is not None:
             _setter("enable_public_interface", enable_public_interface)
@@ -186,7 +198,17 @@ class _LoadBalancerNetworkState:
              load_balancer_id: Optional[pulumi.Input[int]] = None,
              network_id: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_public_interface is None and 'enablePublicInterface' in kwargs:
+            enable_public_interface = kwargs['enablePublicInterface']
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if enable_public_interface is not None:
             _setter("enable_public_interface", enable_public_interface)
         if ip is not None:
@@ -286,27 +308,6 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        lb1 = hcloud.LoadBalancer("lb1",
-            load_balancer_type="lb11",
-            network_zone="eu-central")
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        foonet = hcloud.NetworkSubnet("foonet",
-            network_id=mynet.id,
-            type="cloud",
-            network_zone="eu-central",
-            ip_range="10.0.1.0/24")
-        srvnetwork = hcloud.LoadBalancerNetwork("srvnetwork",
-            load_balancer_id=lb1.id,
-            network_id=mynet.id,
-            ip="10.0.1.5")
-        ```
-
         ## Import
 
         Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`
@@ -344,27 +345,6 @@ class LoadBalancerNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        lb1 = hcloud.LoadBalancer("lb1",
-            load_balancer_type="lb11",
-            network_zone="eu-central")
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
-        foonet = hcloud.NetworkSubnet("foonet",
-            network_id=mynet.id,
-            type="cloud",
-            network_zone="eu-central",
-            ip_range="10.0.1.0/24")
-        srvnetwork = hcloud.LoadBalancerNetwork("srvnetwork",
-            load_balancer_id=lb1.id,
-            network_id=mynet.id,
-            ip="10.0.1.5")
-        ```
 
         ## Import
 

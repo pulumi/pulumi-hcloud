@@ -13,54 +13,12 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Placement Group.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroup.Invoke(new()
-        ///     {
-        ///         Name = "sample-placement-group-1",
-        ///     });
-        /// 
-        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroup.Invoke(new()
-        ///     {
-        ///         Id = 4711,
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Placement Group.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using HCloud = Pulumi.HCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroup.Invoke(new()
-        ///     {
-        ///         Name = "sample-placement-group-1",
-        ///     });
-        /// 
-        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroup.Invoke(new()
-        ///     {
-        ///         Id = 4711,
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());

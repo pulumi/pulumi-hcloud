@@ -189,19 +189,6 @@ def get_floating_ip(id: Optional[int] = None,
     # Data Source: FloatingIp
     Provides details about a Hetzner Cloud Floating IP.
     This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-    ### Additional Examples
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ip1 = hcloud.get_floating_ip(ip_address="1.2.3.4")
-    ip2 = hcloud.get_floating_ip(with_selector="key=value")
-    main = []
-    for range in [{"value": i} for i in range(0, var.counter)]:
-        main.append(hcloud.FloatingIpAssignment(f"main-{range['value']}",
-            floating_ip_id=ip1.id,
-            server_id=hcloud_server["main"]["id"]))
-    ```
 
 
     :param int id: ID of the Floating IP.
@@ -250,19 +237,6 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     # Data Source: FloatingIp
     Provides details about a Hetzner Cloud Floating IP.
     This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-    ### Additional Examples
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ip1 = hcloud.get_floating_ip(ip_address="1.2.3.4")
-    ip2 = hcloud.get_floating_ip(with_selector="key=value")
-    main = []
-    for range in [{"value": i} for i in range(0, var.counter)]:
-        main.append(hcloud.FloatingIpAssignment(f"main-{range['value']}",
-            floating_ip_id=ip1.id,
-            server_id=hcloud_server["main"]["id"]))
-    ```
 
 
     :param int id: ID of the Floating IP.

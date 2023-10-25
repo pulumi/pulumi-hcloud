@@ -71,16 +71,6 @@ def get_load_balancers(with_selector: Optional[str] = None,
     """
     Provides details about multiple Hetzner Cloud Load Balancers.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    lb2 = hcloud.get_load_balancers()
-    lb3 = hcloud.get_load_balancers(with_selector="key=value")
-    ```
-
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
@@ -100,16 +90,6 @@ def get_load_balancers_output(with_selector: Optional[pulumi.Input[Optional[str]
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancersResult]:
     """
     Provides details about multiple Hetzner Cloud Load Balancers.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    lb2 = hcloud.get_load_balancers()
-    lb3 = hcloud.get_load_balancers(with_selector="key=value")
-    ```
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
