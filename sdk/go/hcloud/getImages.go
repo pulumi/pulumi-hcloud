@@ -13,6 +13,40 @@ import (
 )
 
 // Provides details about multiple Hetzner Cloud Images.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.GetImages(ctx, &hcloud.GetImagesArgs{
+//				WithArchitectures: []string{
+//					"x86",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.GetImages(ctx, &hcloud.GetImagesArgs{
+//				WithSelector: pulumi.StringRef("key=value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOption) (*GetImagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImagesResult

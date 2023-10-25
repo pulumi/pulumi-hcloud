@@ -20,6 +20,34 @@ import * as utilities from "./utilities";
  *
  * Provides details about a Hetzner Cloud Primary IP.
  * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+ * ### Additional Examples
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ip1 = hcloud.getPrimaryIp({
+ *     ipAddress: "1.2.3.4",
+ * });
+ * const ip2 = hcloud.getPrimaryIp({
+ *     name: "primary_ip_1",
+ * });
+ * const ip3 = hcloud.getPrimaryIp({
+ *     withSelector: "key=value",
+ * });
+ * // Link a server to an existing primary IP
+ * const serverTest = new hcloud.Server("serverTest", {
+ *     image: "ubuntu-20.04",
+ *     serverType: "cx11",
+ *     datacenter: "fsn1-dc14",
+ *     labels: {
+ *         test: "tessst1",
+ *     },
+ *     publicNets: [{
+ *         ipv4: hcloud_primary_ip.ip_1.id,
+ *     }],
+ * });
+ * ```
  */
 export function getPrimaryIp(args?: GetPrimaryIpArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryIpResult> {
     args = args || {};
@@ -126,6 +154,34 @@ export interface GetPrimaryIpResult {
  *
  * Provides details about a Hetzner Cloud Primary IP.
  * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+ * ### Additional Examples
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ip1 = hcloud.getPrimaryIp({
+ *     ipAddress: "1.2.3.4",
+ * });
+ * const ip2 = hcloud.getPrimaryIp({
+ *     name: "primary_ip_1",
+ * });
+ * const ip3 = hcloud.getPrimaryIp({
+ *     withSelector: "key=value",
+ * });
+ * // Link a server to an existing primary IP
+ * const serverTest = new hcloud.Server("serverTest", {
+ *     image: "ubuntu-20.04",
+ *     serverType: "cx11",
+ *     datacenter: "fsn1-dc14",
+ *     labels: {
+ *         test: "tessst1",
+ *     },
+ *     publicNets: [{
+ *         ipv4: hcloud_primary_ip.ip_1.id,
+ *     }],
+ * });
+ * ```
  */
 export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpResult> {
     return pulumi.output(args).apply((a: any) => getPrimaryIp(a, opts))

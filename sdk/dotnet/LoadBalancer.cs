@@ -12,6 +12,39 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myserver = new HCloud.Server("myserver", new()
+    ///     {
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-18.04",
+    ///     });
+    /// 
+    ///     var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         LoadBalancerType = "lb11",
+    ///         Location = "nbg1",
+    ///         Targets = new[]
+    ///         {
+    ///             new HCloud.Inputs.LoadBalancerTargetArgs
+    ///             {
+    ///                 Type = "server",
+    ///                 ServerId = myserver.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Load Balancers can be imported using its `id`

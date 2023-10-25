@@ -308,6 +308,27 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        lb1 = hcloud.LoadBalancer("lb1",
+            load_balancer_type="lb11",
+            network_zone="eu-central")
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        foonet = hcloud.NetworkSubnet("foonet",
+            network_id=mynet.id,
+            type="cloud",
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        srvnetwork = hcloud.LoadBalancerNetwork("srvnetwork",
+            load_balancer_id=lb1.id,
+            network_id=mynet.id,
+            ip="10.0.1.5")
+        ```
+
         ## Import
 
         Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`
@@ -345,6 +366,27 @@ class LoadBalancerNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        lb1 = hcloud.LoadBalancer("lb1",
+            load_balancer_type="lb11",
+            network_zone="eu-central")
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        foonet = hcloud.NetworkSubnet("foonet",
+            network_id=mynet.id,
+            type="cloud",
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        srvnetwork = hcloud.LoadBalancerNetwork("srvnetwork",
+            load_balancer_id=lb1.id,
+            network_id=mynet.id,
+            ip="10.0.1.5")
+        ```
 
         ## Import
 

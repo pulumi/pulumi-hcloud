@@ -7,6 +7,20 @@ import * as utilities from "./utilities";
 /**
  * Provides details about a specific Hetzner Cloud Datacenter.
  * Use this resource to get detailed information about specific datacenter.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ds1 = hcloud.getDatacenter({
+ *     name: "fsn1-dc8",
+ * });
+ * const ds2 = hcloud.getDatacenter({
+ *     id: 4,
+ * });
+ * ```
  */
 export function getDatacenter(args?: GetDatacenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacenterResult> {
     args = args || {};
@@ -64,6 +78,20 @@ export interface GetDatacenterResult {
 /**
  * Provides details about a specific Hetzner Cloud Datacenter.
  * Use this resource to get detailed information about specific datacenter.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ds1 = hcloud.getDatacenter({
+ *     name: "fsn1-dc8",
+ * });
+ * const ds2 = hcloud.getDatacenter({
+ *     id: 4,
+ * });
+ * ```
  */
 export function getDatacenterOutput(args?: GetDatacenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacenterResult> {
     return pulumi.output(args).apply((a: any) => getDatacenter(a, opts))

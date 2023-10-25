@@ -13,6 +13,32 @@ import (
 )
 
 // Provides details about multiple Hetzner Cloud Primary IPs.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.GetPrimaryIps(ctx, &hcloud.GetPrimaryIpsArgs{
+//				WithSelector: pulumi.StringRef("key=value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetPrimaryIps(ctx *pulumi.Context, args *GetPrimaryIpsArgs, opts ...pulumi.InvokeOption) (*GetPrimaryIpsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrimaryIpsResult

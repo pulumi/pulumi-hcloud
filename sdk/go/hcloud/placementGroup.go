@@ -15,6 +15,43 @@ import (
 
 // Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
+//				Type: pulumi.String("spread"),
+//				Labels: pulumi.Map{
+//					"key": pulumi.Any("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:            pulumi.String("debian-11"),
+//				ServerType:       pulumi.String("cx11"),
+//				PlacementGroupId: my_placement_group.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Placement Groups can be imported using its `id`

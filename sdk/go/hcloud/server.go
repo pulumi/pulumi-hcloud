@@ -16,10 +16,157 @@ import (
 // Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 //
 // ## Example Usage
+// ### Server creation with network
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			network, err := hcloud.NewNetwork(ctx, "network", &hcloud.NetworkArgs{
+//				IpRange: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewNetworkSubnet(ctx, "network-subnet", &hcloud.NetworkSubnetArgs{
+//				Type:        pulumi.String("cloud"),
+//				NetworkId:   network.ID(),
+//				NetworkZone: pulumi.String("eu-central"),
+//				IpRange:     pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "server", &hcloud.ServerArgs{
+//				ServerType: pulumi.String("cx11"),
+//				Image:      pulumi.String("ubuntu-20.04"),
+//				Location:   pulumi.String("nbg1"),
+//				Networks: hcloud.ServerNetworkTypeArray{
+//					&hcloud.ServerNetworkTypeArgs{
+//						NetworkId: network.ID(),
+//						Ip:        pulumi.String("10.0.1.5"),
+//						AliasIps: pulumi.StringArray{
+//							pulumi.String("10.0.1.6"),
+//							pulumi.String("10.0.1.7"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				network_subnet,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Server creation from snapshot
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			packerSnapshot, err := hcloud.GetImage(ctx, &hcloud.GetImageArgs{
+//				WithSelector: pulumi.StringRef("app=foobar"),
+//				MostRecent:   pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "fromSnapshot", &hcloud.ServerArgs{
+//				Image:      *pulumi.Int(packerSnapshot.Id),
+//				ServerType: pulumi.String("cx11"),
+//				PublicNets: hcloud.ServerPublicNetArray{
+//					&hcloud.ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv6Enabled: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Primary IPs
 //
 // When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
 // With the publicNet block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+//
+// ### Examples
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.NewServer(ctx, "serverTestServer", &hcloud.ServerArgs{
+//				PublicNets: hcloud.ServerPublicNetArray{
+//					&hcloud.ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
+//						Ipv6Enabled: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "serverTestIndex/serverServer", &hcloud.ServerArgs{
+//				PublicNets: hcloud.ServerPublicNetArray{
+//					&hcloud.ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv4:        pulumi.Any(hcloud_primary_ip.Primary_ip_1.Id),
+//						Ipv6Enabled: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "serverTestHcloudIndex/serverServer", &hcloud.ServerArgs{
+//				PublicNets: hcloud.ServerPublicNetArray{
+//					&hcloud.ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv6Enabled: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

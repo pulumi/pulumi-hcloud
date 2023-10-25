@@ -9,6 +9,38 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const myfirewall = new hcloud.Firewall("myfirewall", {rules: [
+ *     {
+ *         direction: "in",
+ *         protocol: "icmp",
+ *         sourceIps: [
+ *             "0.0.0.0/0",
+ *             "::/0",
+ *         ],
+ *     },
+ *     {
+ *         direction: "in",
+ *         protocol: "tcp",
+ *         port: "80-85",
+ *         sourceIps: [
+ *             "0.0.0.0/0",
+ *             "::/0",
+ *         ],
+ *     },
+ * ]});
+ * const node1 = new hcloud.Server("node1", {
+ *     image: "debian-11",
+ *     serverType: "cx11",
+ *     firewallIds: [myfirewall.id],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Firewalls can be imported using its `id`

@@ -445,6 +445,24 @@ class LoadBalancer(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        myserver = hcloud.Server("myserver",
+            server_type="cx11",
+            image="ubuntu-18.04")
+        load_balancer = hcloud.LoadBalancer("loadBalancer",
+            load_balancer_type="lb11",
+            location="nbg1",
+            targets=[hcloud.LoadBalancerTargetArgs(
+                type="server",
+                server_id=myserver.id,
+            )])
+        ```
+
         ## Import
 
         Load Balancers can be imported using its `id`
@@ -471,6 +489,24 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        myserver = hcloud.Server("myserver",
+            server_type="cx11",
+            image="ubuntu-18.04")
+        load_balancer = hcloud.LoadBalancer("loadBalancer",
+            load_balancer_type="lb11",
+            location="nbg1",
+            targets=[hcloud.LoadBalancerTargetArgs(
+                type="server",
+                server_id=myserver.id,
+            )])
+        ```
 
         ## Import
 

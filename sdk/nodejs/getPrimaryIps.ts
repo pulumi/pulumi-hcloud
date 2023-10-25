@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about multiple Hetzner Cloud Primary IPs.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ip2 = hcloud.getPrimaryIps({
+ *     withSelector: "key=value",
+ * });
+ * ```
  */
 export function getPrimaryIps(args?: GetPrimaryIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryIpsResult> {
     args = args || {};
@@ -44,6 +55,17 @@ export interface GetPrimaryIpsResult {
 }
 /**
  * Provides details about multiple Hetzner Cloud Primary IPs.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ip2 = hcloud.getPrimaryIps({
+ *     withSelector: "key=value",
+ * });
+ * ```
  */
 export function getPrimaryIpsOutput(args?: GetPrimaryIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpsResult> {
     return pulumi.output(args).apply((a: any) => getPrimaryIps(a, opts))

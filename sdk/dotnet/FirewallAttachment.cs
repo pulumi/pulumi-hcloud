@@ -17,6 +17,68 @@ namespace Pulumi.HCloud
     /// specified in that `hcloud.FirewallAttachment`.
     /// 
     /// ## Example Usage
+    /// ### Attach Servers
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testServer = new HCloud.Server("testServer", new()
+    ///     {
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-20.04",
+    ///     });
+    /// 
+    ///     var basicFirewall = new HCloud.Firewall("basicFirewall");
+    /// 
+    ///     var fwRef = new HCloud.FirewallAttachment("fwRef", new()
+    ///     {
+    ///         FirewallId = basicFirewall.Id,
+    ///         ServerIds = new[]
+    ///         {
+    ///             testServer.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Attach Label Selectors
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testServer = new HCloud.Server("testServer", new()
+    ///     {
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-20.04",
+    ///         Labels = 
+    ///         {
+    ///             { "firewall-attachment", "test-server" },
+    ///         },
+    ///     });
+    /// 
+    ///     var basicFirewall = new HCloud.Firewall("basicFirewall");
+    /// 
+    ///     var fwRef = new HCloud.FirewallAttachment("fwRef", new()
+    ///     {
+    ///         FirewallId = basicFirewall.Id,
+    ///         LabelSelectors = new[]
+    ///         {
+    ///             "firewall-attachment=test-server",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/firewallAttachment:FirewallAttachment")]
     public partial class FirewallAttachment : global::Pulumi.CustomResource

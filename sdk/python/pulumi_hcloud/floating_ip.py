@@ -366,6 +366,20 @@ class FloatingIp(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        master = hcloud.FloatingIp("master",
+            type="ipv4",
+            server_id=node1.id)
+        ```
+
         ## Import
 
         Floating IPs can be imported using its `id`
@@ -392,6 +406,20 @@ class FloatingIp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Floating IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        master = hcloud.FloatingIp("master",
+            type="ipv4",
+            server_id=node1.id)
+        ```
 
         ## Import
 

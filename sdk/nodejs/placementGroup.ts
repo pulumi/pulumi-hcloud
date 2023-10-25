@@ -7,6 +7,25 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const my_placement_group = new hcloud.PlacementGroup("my-placement-group", {
+ *     type: "spread",
+ *     labels: {
+ *         key: "value",
+ *     },
+ * });
+ * const node1 = new hcloud.Server("node1", {
+ *     image: "debian-11",
+ *     serverType: "cx11",
+ *     placementGroupId: my_placement_group.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Placement Groups can be imported using its `id`

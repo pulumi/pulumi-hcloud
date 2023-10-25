@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const image1 = hcloud.getImage({
+ *     id: 1234,
+ * });
+ * const image2 = hcloud.getImage({
+ *     name: "ubuntu-18.04",
+ *     withArchitecture: "x86",
+ * });
+ * const image3 = hcloud.getImage({
+ *     withSelector: "key=value",
+ * });
+ * const main = new hcloud.Server("main", {image: image1.then(image1 => image1.id)});
+ * ```
+ */
 export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     args = args || {};
 
@@ -113,6 +133,26 @@ export interface GetImageResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const image1 = hcloud.getImage({
+ *     id: 1234,
+ * });
+ * const image2 = hcloud.getImage({
+ *     name: "ubuntu-18.04",
+ *     withArchitecture: "x86",
+ * });
+ * const image3 = hcloud.getImage({
+ *     withSelector: "key=value",
+ * });
+ * const main = new hcloud.Server("main", {image: image1.then(image1 => image1.id)});
+ * ```
+ */
 export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }

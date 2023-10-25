@@ -172,6 +172,19 @@ class NetworkRoute(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        priv_net = hcloud.NetworkRoute("privNet",
+            network_id=mynet.id,
+            destination="10.100.1.0/24",
+            gateway="10.0.1.1")
+        ```
+
         ## Import
 
         Network Route entries can be imported using a compound ID with the following format`<network-id>-<destination>`
@@ -194,6 +207,19 @@ class NetworkRoute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        priv_net = hcloud.NetworkRoute("privNet",
+            network_id=mynet.id,
+            destination="10.100.1.0/24",
+            gateway="10.0.1.1")
+        ```
 
         ## Import
 

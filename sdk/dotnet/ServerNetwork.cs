@@ -12,6 +12,45 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var node1 = new HCloud.Server("node1", new()
+    ///     {
+    ///         Image = "debian-11",
+    ///         ServerType = "cx11",
+    ///     });
+    /// 
+    ///     var mynet = new HCloud.Network("mynet", new()
+    ///     {
+    ///         IpRange = "10.0.0.0/8",
+    ///     });
+    /// 
+    ///     var foonet = new HCloud.NetworkSubnet("foonet", new()
+    ///     {
+    ///         NetworkId = mynet.Id,
+    ///         Type = "cloud",
+    ///         NetworkZone = "eu-central",
+    ///         IpRange = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var srvnetwork = new HCloud.ServerNetwork("srvnetwork", new()
+    ///     {
+    ///         ServerId = node1.Id,
+    ///         NetworkId = mynet.Id,
+    ///         Ip = "10.0.1.5",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Server Network entries can be imported using a compound ID with the following format`&lt;server-id&gt;-&lt;network-id&gt;`

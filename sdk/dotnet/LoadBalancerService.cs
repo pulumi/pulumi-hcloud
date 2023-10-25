@@ -12,6 +12,54 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Define services for Hetzner Cloud Load Balancers.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         LoadBalancerType = "lb11",
+    ///         Location = "nbg1",
+    ///     });
+    /// 
+    ///     var loadBalancerService = new HCloud.LoadBalancerService("loadBalancerService", new()
+    ///     {
+    ///         LoadBalancerId = loadBalancer.Id,
+    ///         Protocol = "http",
+    ///         Http = new HCloud.Inputs.LoadBalancerServiceHttpArgs
+    ///         {
+    ///             StickySessions = true,
+    ///             CookieName = "EXAMPLE_STICKY",
+    ///         },
+    ///         HealthCheck = new HCloud.Inputs.LoadBalancerServiceHealthCheckArgs
+    ///         {
+    ///             Protocol = "http",
+    ///             Port = 80,
+    ///             Interval = 10,
+    ///             Timeout = 5,
+    ///             Http = new HCloud.Inputs.LoadBalancerServiceHealthCheckHttpArgs
+    ///             {
+    ///                 Domain = "example.com",
+    ///                 Path = "/healthz",
+    ///                 Response = "OK",
+    ///                 Tls = true,
+    ///                 StatusCodes = new[]
+    ///                 {
+    ///                     "200",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Load Balancer Service entries can be imported using a compound ID with the following format`&lt;load-balancer-id&gt;__&lt;listen-port&gt;`

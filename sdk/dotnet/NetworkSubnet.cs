@@ -12,6 +12,32 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mynet = new HCloud.Network("mynet", new()
+    ///     {
+    ///         IpRange = "10.0.0.0/8",
+    ///     });
+    /// 
+    ///     var foonet = new HCloud.NetworkSubnet("foonet", new()
+    ///     {
+    ///         NetworkId = mynet.Id,
+    ///         Type = "cloud",
+    ///         NetworkZone = "eu-central",
+    ///         IpRange = "10.0.1.0/24",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Network Subnet entries can be imported using a compound ID with the following format`&lt;network-id&gt;-&lt;ip_range&gt;`

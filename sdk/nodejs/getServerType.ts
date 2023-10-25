@@ -7,6 +7,20 @@ import * as utilities from "./utilities";
 /**
  * Provides details about a specific Hetzner Cloud Server Type.
  * Use this resource to get detailed information about specific Server Type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ds1 = hcloud.getServerType({
+ *     name: "cx11",
+ * });
+ * const ds2 = hcloud.getServerType({
+ *     id: 1,
+ * });
+ * ```
  */
 export function getServerType(args?: GetServerTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypeResult> {
     args = args || {};
@@ -96,6 +110,20 @@ export interface GetServerTypeResult {
 /**
  * Provides details about a specific Hetzner Cloud Server Type.
  * Use this resource to get detailed information about specific Server Type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const ds1 = hcloud.getServerType({
+ *     name: "cx11",
+ * });
+ * const ds2 = hcloud.getServerType({
+ *     id: 1,
+ * });
+ * ```
  */
 export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypeResult> {
     return pulumi.output(args).apply((a: any) => getServerType(a, opts))

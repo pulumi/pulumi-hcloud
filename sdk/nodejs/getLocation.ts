@@ -7,6 +7,20 @@ import * as utilities from "./utilities";
 /**
  * Provides details about a specific Hetzner Cloud Location.
  * Use this resource to get detailed information about specific location.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const l1 = hcloud.getLocation({
+ *     name: "fsn1",
+ * });
+ * const l2 = hcloud.getLocation({
+ *     id: 1,
+ * });
+ * ```
  */
 export function getLocation(args?: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
     args = args || {};
@@ -72,6 +86,20 @@ export interface GetLocationResult {
 /**
  * Provides details about a specific Hetzner Cloud Location.
  * Use this resource to get detailed information about specific location.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const l1 = hcloud.getLocation({
+ *     name: "fsn1",
+ * });
+ * const l2 = hcloud.getLocation({
+ *     id: 1,
+ * });
+ * ```
  */
 export function getLocationOutput(args?: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
     return pulumi.output(args).apply((a: any) => getLocation(a, opts))

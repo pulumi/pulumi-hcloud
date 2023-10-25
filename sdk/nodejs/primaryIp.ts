@@ -10,6 +10,35 @@ import * as utilities from "./utilities";
  * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
  * Currently, Primary IPs can be only attached to servers.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const main = new hcloud.PrimaryIp("main", {
+ *     datacenter: "fsn1-dc14",
+ *     type: "ipv4",
+ *     assigneeType: "server",
+ *     autoDelete: true,
+ *     labels: {
+ *         hallo: "welt",
+ *     },
+ * });
+ * // Link a server to a primary IP
+ * const serverTest = new hcloud.Server("serverTest", {
+ *     image: "ubuntu-20.04",
+ *     serverType: "cx11",
+ *     datacenter: "fsn1-dc14",
+ *     labels: {
+ *         test: "tessst1",
+ *     },
+ *     publicNets: [{
+ *         ipv4: main.id,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Primary IPs can be imported using its `id`

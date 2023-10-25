@@ -6,6 +6,18 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a specific Hetzner Cloud Placement Group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const samplePlacementGroup1 = hcloud.getPlacementGroup({
+ *     name: "sample-placement-group-1",
+ * });
+ * const samplePlacementGroup2 = hcloud.getPlacementGroup({
+ *     id: 4711,
+ * });
+ * ```
  */
 export function getPlacementGroup(args?: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
     args = args || {};
@@ -77,6 +89,18 @@ export interface GetPlacementGroupResult {
 }
 /**
  * Provides details about a specific Hetzner Cloud Placement Group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const samplePlacementGroup1 = hcloud.getPlacementGroup({
+ *     name: "sample-placement-group-1",
+ * });
+ * const samplePlacementGroup2 = hcloud.getPlacementGroup({
+ *     id: 4711,
+ * });
+ * ```
  */
 export function getPlacementGroupOutput(args?: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPlacementGroup(a, opts))

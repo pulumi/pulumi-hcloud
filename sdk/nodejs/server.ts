@@ -10,10 +10,86 @@ import * as utilities from "./utilities";
  * Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
  *
  * ## Example Usage
+ * ### Server creation with network
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const network = new hcloud.Network("network", {ipRange: "10.0.0.0/16"});
+ * const network_subnet = new hcloud.NetworkSubnet("network-subnet", {
+ *     type: "cloud",
+ *     networkId: network.id,
+ *     networkZone: "eu-central",
+ *     ipRange: "10.0.1.0/24",
+ * });
+ * const server = new hcloud.Server("server", {
+ *     serverType: "cx11",
+ *     image: "ubuntu-20.04",
+ *     location: "nbg1",
+ *     networks: [{
+ *         networkId: network.id,
+ *         ip: "10.0.1.5",
+ *         aliasIps: [
+ *             "10.0.1.6",
+ *             "10.0.1.7",
+ *         ],
+ *     }],
+ * }, {
+ *     dependsOn: [network_subnet],
+ * });
+ * ```
+ * ### Server creation from snapshot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const packerSnapshot = hcloud.getImage({
+ *     withSelector: "app=foobar",
+ *     mostRecent: true,
+ * });
+ * // Create a new server from the snapshot
+ * const fromSnapshot = new hcloud.Server("fromSnapshot", {
+ *     image: packerSnapshot.then(packerSnapshot => packerSnapshot.id),
+ *     serverType: "cx11",
+ *     publicNets: [{
+ *         ipv4Enabled: true,
+ *         ipv6Enabled: true,
+ *     }],
+ * });
+ * ```
  * ## Primary IPs
  *
  * When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
  * With the publicNet block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+ *
+ * ### Examples
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * // Assign existing ipv4 only
+ * const serverTestServer = new hcloud.Server("serverTestServer", {publicNets: [{
+ *     ipv4Enabled: true,
+ *     ipv4: hcloud_primary_ip.primary_ip_1.id,
+ *     ipv6Enabled: false,
+ * }]});
+ * //...
+ * // Link a managed ipv4 but autogenerate ipv6
+ * const serverTestIndex_serverServer = new hcloud.Server("serverTestIndex/serverServer", {publicNets: [{
+ *     ipv4Enabled: true,
+ *     ipv4: hcloud_primary_ip.primary_ip_1.id,
+ *     ipv6Enabled: true,
+ * }]});
+ * //...
+ * // Assign & create auto-generated ipv4 & ipv6
+ * const serverTestHcloudIndex_serverServer = new hcloud.Server("serverTestHcloudIndex/serverServer", {publicNets: [{
+ *     ipv4Enabled: true,
+ *     ipv6Enabled: true,
+ * }]});
+ * //...
+ * ```
  *
  * ## Import
  *

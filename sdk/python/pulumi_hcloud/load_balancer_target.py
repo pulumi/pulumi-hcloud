@@ -322,6 +322,24 @@ class LoadBalancerTarget(pulumi.CustomResource):
         """
         Adds a target to a Hetzner Cloud Load Balancer.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        my_server = hcloud.Server("myServer",
+            server_type="cx11",
+            image="ubuntu-18.04")
+        load_balancer = hcloud.LoadBalancer("loadBalancer",
+            load_balancer_type="lb11",
+            location="nbg1")
+        load_balancer_target = hcloud.LoadBalancerTarget("loadBalancerTarget",
+            type="server",
+            load_balancer_id=load_balancer.id,
+            server_id=my_server.id)
+        ```
+
         ## Import
 
         Load Balancer Target entries can be imported using a compound ID with the following format`<load-balancer-id>__<type>__<identifier>` Where _identifier_ depends on the _type_- `server`server id, for example`123` - `label_selector`label selector, for example`foo=bar` - `ip`ip address, for example`203.0.113.123`
@@ -362,6 +380,24 @@ class LoadBalancerTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Adds a target to a Hetzner Cloud Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        my_server = hcloud.Server("myServer",
+            server_type="cx11",
+            image="ubuntu-18.04")
+        load_balancer = hcloud.LoadBalancer("loadBalancer",
+            load_balancer_type="lb11",
+            location="nbg1")
+        load_balancer_target = hcloud.LoadBalancerTarget("loadBalancerTarget",
+            type="server",
+            load_balancer_id=load_balancer.id,
+            server_id=my_server.id)
+        ```
 
         ## Import
 

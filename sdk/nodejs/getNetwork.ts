@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const network1 = hcloud.getNetwork({
+ *     id: 1234,
+ * });
+ * const network2 = hcloud.getNetwork({
+ *     name: "my-network",
+ * });
+ * const network3 = hcloud.getNetwork({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getNetwork(args?: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
     args = args || {};
 
@@ -70,6 +88,24 @@ export interface GetNetworkResult {
     readonly name?: string;
     readonly withSelector?: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const network1 = hcloud.getNetwork({
+ *     id: 1234,
+ * });
+ * const network2 = hcloud.getNetwork({
+ *     name: "my-network",
+ * });
+ * const network3 = hcloud.getNetwork({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getNetworkOutput(args?: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
     return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
 }

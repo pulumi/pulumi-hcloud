@@ -12,6 +12,39 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var node1 = new HCloud.Server("node1", new()
+    ///     {
+    ///         Image = "debian-11",
+    ///         ServerType = "cx11",
+    ///         Datacenter = "nbg1-dc3",
+    ///     });
+    /// 
+    ///     var master = new HCloud.Volume("master", new()
+    ///     {
+    ///         Location = "nbg1",
+    ///         Size = 10,
+    ///     });
+    /// 
+    ///     var main = new HCloud.VolumeAttachment("main", new()
+    ///     {
+    ///         VolumeId = master.Id,
+    ///         ServerId = node1.Id,
+    ///         Automount = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Volume Attachments can be imported using the `volume_id`

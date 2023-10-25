@@ -135,6 +135,16 @@ def get_location(id: Optional[int] = None,
     Provides details about a specific Hetzner Cloud Location.
     Use this resource to get detailed information about specific location.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    l1 = hcloud.get_location(name="fsn1")
+    l2 = hcloud.get_location(id=1)
+    ```
+
 
     :param int id: ID of the location.
     :param str name: Name of the location.
@@ -163,6 +173,16 @@ def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     """
     Provides details about a specific Hetzner Cloud Location.
     Use this resource to get detailed information about specific location.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    l1 = hcloud.get_location(name="fsn1")
+    l2 = hcloud.get_location(id=1)
+    ```
 
 
     :param int id: ID of the location.

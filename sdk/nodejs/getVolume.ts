@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const volume1 = hcloud.getVolume({
+ *     id: 1234,
+ * });
+ * const volume2 = hcloud.getVolume({
+ *     name: "my-volume",
+ * });
+ * const volume3 = hcloud.getVolume({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
 
@@ -96,6 +114,24 @@ export interface GetVolumeResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const volume1 = hcloud.getVolume({
+ *     id: 1234,
+ * });
+ * const volume2 = hcloud.getVolume({
+ *     name: "my-volume",
+ * });
+ * const volume3 = hcloud.getVolume({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }

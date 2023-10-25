@@ -195,6 +195,37 @@ class FirewallAttachment(pulumi.CustomResource):
         specified in that `FirewallAttachment`.
 
         ## Example Usage
+        ### Attach Servers
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        test_server = hcloud.Server("testServer",
+            server_type="cx11",
+            image="ubuntu-20.04")
+        basic_firewall = hcloud.Firewall("basicFirewall")
+        fw_ref = hcloud.FirewallAttachment("fwRef",
+            firewall_id=basic_firewall.id,
+            server_ids=[test_server.id])
+        ```
+        ### Attach Label Selectors
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        test_server = hcloud.Server("testServer",
+            server_type="cx11",
+            image="ubuntu-20.04",
+            labels={
+                "firewall-attachment": "test-server",
+            })
+        basic_firewall = hcloud.Firewall("basicFirewall")
+        fw_ref = hcloud.FirewallAttachment("fwRef",
+            firewall_id=basic_firewall.id,
+            label_selectors=["firewall-attachment=test-server"])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,6 +250,37 @@ class FirewallAttachment(pulumi.CustomResource):
         specified in that `FirewallAttachment`.
 
         ## Example Usage
+        ### Attach Servers
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        test_server = hcloud.Server("testServer",
+            server_type="cx11",
+            image="ubuntu-20.04")
+        basic_firewall = hcloud.Firewall("basicFirewall")
+        fw_ref = hcloud.FirewallAttachment("fwRef",
+            firewall_id=basic_firewall.id,
+            server_ids=[test_server.id])
+        ```
+        ### Attach Label Selectors
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        test_server = hcloud.Server("testServer",
+            server_type="cx11",
+            image="ubuntu-20.04",
+            labels={
+                "firewall-attachment": "test-server",
+            })
+        basic_firewall = hcloud.Firewall("basicFirewall")
+        fw_ref = hcloud.FirewallAttachment("fwRef",
+            firewall_id=basic_firewall.id,
+            label_selectors=["firewall-attachment=test-server"])
+        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallAttachmentArgs args: The arguments to use to populate this resource's properties.

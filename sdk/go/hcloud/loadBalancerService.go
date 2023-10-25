@@ -15,6 +15,59 @@ import (
 
 // Define services for Hetzner Cloud Load Balancers.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			loadBalancer, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("lb11"),
+//				Location:         pulumi.String("nbg1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewLoadBalancerService(ctx, "loadBalancerService", &hcloud.LoadBalancerServiceArgs{
+//				LoadBalancerId: loadBalancer.ID(),
+//				Protocol:       pulumi.String("http"),
+//				Http: &hcloud.LoadBalancerServiceHttpArgs{
+//					StickySessions: pulumi.Bool(true),
+//					CookieName:     pulumi.String("EXAMPLE_STICKY"),
+//				},
+//				HealthCheck: &hcloud.LoadBalancerServiceHealthCheckArgs{
+//					Protocol: pulumi.String("http"),
+//					Port:     pulumi.Int(80),
+//					Interval: pulumi.Int(10),
+//					Timeout:  pulumi.Int(5),
+//					Http: &hcloud.LoadBalancerServiceHealthCheckHttpArgs{
+//						Domain:   pulumi.String("example.com"),
+//						Path:     pulumi.String("/healthz"),
+//						Response: pulumi.String("OK"),
+//						Tls:      pulumi.Bool(true),
+//						StatusCodes: pulumi.StringArray{
+//							pulumi.String("200"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`

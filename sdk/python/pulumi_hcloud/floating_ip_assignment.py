@@ -138,6 +138,24 @@ class FloatingIpAssignment(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Floating IP Assignment to assign a Floating IP to a Hetzner Cloud Server. Deleting a Floating IP Assignment will unassign the Floating IP from the Server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11",
+            datacenter="fsn1-dc8")
+        master = hcloud.FloatingIp("master",
+            type="ipv4",
+            home_location="nbg1")
+        main = hcloud.FloatingIpAssignment("main",
+            floating_ip_id=master.id,
+            server_id=node1.id)
+        ```
+
         ## Import
 
         Floating IP Assignments can be imported using the `floating_ip_id`
@@ -159,6 +177,24 @@ class FloatingIpAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Floating IP Assignment to assign a Floating IP to a Hetzner Cloud Server. Deleting a Floating IP Assignment will unassign the Floating IP from the Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11",
+            datacenter="fsn1-dc8")
+        master = hcloud.FloatingIp("master",
+            type="ipv4",
+            home_location="nbg1")
+        main = hcloud.FloatingIpAssignment("main",
+            floating_ip_id=master.id,
+            server_id=node1.id)
+        ```
 
         ## Import
 

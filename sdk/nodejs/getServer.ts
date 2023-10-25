@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const s1 = hcloud.getServer({
+ *     name: "my-server",
+ * });
+ * const s2 = hcloud.getServer({
+ *     id: 123,
+ * });
+ * const s3 = hcloud.getServer({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     args = args || {};
 
@@ -132,6 +150,24 @@ export interface GetServerResult {
     readonly withSelector?: string;
     readonly withStatuses?: string[];
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const s1 = hcloud.getServer({
+ *     name: "my-server",
+ * });
+ * const s2 = hcloud.getServer({
+ *     id: 123,
+ * });
+ * const s3 = hcloud.getServer({
+ *     withSelector: "key=value",
+ * });
+ * ```
+ */
 export function getServerOutput(args?: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }

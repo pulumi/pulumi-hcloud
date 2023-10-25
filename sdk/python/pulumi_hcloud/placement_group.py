@@ -180,6 +180,23 @@ class PlacementGroup(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        my_placement_group = hcloud.PlacementGroup("my-placement-group",
+            type="spread",
+            labels={
+                "key": "value",
+            })
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11",
+            placement_group_id=my_placement_group.id)
+        ```
+
         ## Import
 
         Placement Groups can be imported using its `id`
@@ -202,6 +219,23 @@ class PlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        my_placement_group = hcloud.PlacementGroup("my-placement-group",
+            type="spread",
+            labels={
+                "key": "value",
+            })
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11",
+            placement_group_id=my_placement_group.id)
+        ```
 
         ## Import
 
