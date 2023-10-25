@@ -13,36 +13,6 @@ import (
 )
 
 // Provides details about multiple Hetzner Cloud Load Balancers.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.GetLoadBalancers(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.GetLoadBalancers(ctx, &hcloud.GetLoadBalancersArgs{
-//				WithSelector: pulumi.StringRef("key=value"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLoadBalancers(ctx *pulumi.Context, args *GetLoadBalancersArgs, opts ...pulumi.InvokeOption) (*GetLoadBalancersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLoadBalancersResult

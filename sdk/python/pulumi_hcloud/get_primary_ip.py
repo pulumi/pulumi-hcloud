@@ -195,27 +195,6 @@ def get_primary_ip(assignee_id: Optional[int] = None,
 
     Provides details about a Hetzner Cloud Primary IP.
     This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-    ### Additional Examples
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ip1 = hcloud.get_primary_ip(ip_address="1.2.3.4")
-    ip2 = hcloud.get_primary_ip(name="primary_ip_1")
-    ip3 = hcloud.get_primary_ip(with_selector="key=value")
-    # Link a server to an existing primary IP
-    server_test = hcloud.Server("serverTest",
-        image="ubuntu-20.04",
-        server_type="cx11",
-        datacenter="fsn1-dc14",
-        labels={
-            "test": "tessst1",
-        },
-        public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4=hcloud_primary_ip["ip_1"]["id"],
-        )])
-    ```
 
 
     :param int assignee_id: (int) ID of the assigned resource.
@@ -271,27 +250,6 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
 
     Provides details about a Hetzner Cloud Primary IP.
     This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-    ### Additional Examples
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ip1 = hcloud.get_primary_ip(ip_address="1.2.3.4")
-    ip2 = hcloud.get_primary_ip(name="primary_ip_1")
-    ip3 = hcloud.get_primary_ip(with_selector="key=value")
-    # Link a server to an existing primary IP
-    server_test = hcloud.Server("serverTest",
-        image="ubuntu-20.04",
-        server_type="cx11",
-        datacenter="fsn1-dc14",
-        labels={
-            "test": "tessst1",
-        },
-        public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4=hcloud_primary_ip["ip_1"]["id"],
-        )])
-    ```
 
 
     :param int assignee_id: (int) ID of the assigned resource.

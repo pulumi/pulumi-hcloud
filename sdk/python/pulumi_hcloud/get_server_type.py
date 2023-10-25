@@ -191,16 +191,6 @@ def get_server_type(deprecation_announced: Optional[str] = None,
     Provides details about a specific Hetzner Cloud Server Type.
     Use this resource to get detailed information about specific Server Type.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds1 = hcloud.get_server_type(name="cx11")
-    ds2 = hcloud.get_server_type(id=1)
-    ```
-
 
     :param str deprecation_announced: (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
     :param int id: ID of the server_type.
@@ -240,16 +230,6 @@ def get_server_type_output(deprecation_announced: Optional[pulumi.Input[Optional
     """
     Provides details about a specific Hetzner Cloud Server Type.
     Use this resource to get detailed information about specific Server Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    ds1 = hcloud.get_server_type(name="cx11")
-    ds2 = hcloud.get_server_type(id=1)
-    ```
 
 
     :param str deprecation_announced: (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.

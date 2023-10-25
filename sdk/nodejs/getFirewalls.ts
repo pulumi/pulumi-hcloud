@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about multiple Hetzner Cloud Firewall.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const sampleFirewall1 = hcloud.getFirewalls({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getFirewalls(args?: GetFirewallsArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallsResult> {
     args = args || {};
@@ -61,17 +50,6 @@ export interface GetFirewallsResult {
 }
 /**
  * Provides details about multiple Hetzner Cloud Firewall.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const sampleFirewall1 = hcloud.getFirewalls({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getFirewallsOutput(args?: GetFirewallsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallsResult> {
     return pulumi.output(args).apply((a: any) => getFirewalls(a, opts))

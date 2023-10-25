@@ -49,7 +49,7 @@ class VolumeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size: pulumi.Input[int],
+             size: Optional[pulumi.Input[int]] = None,
              automount: Optional[pulumi.Input[bool]] = None,
              delete_protection: Optional[pulumi.Input[bool]] = None,
              format: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,15 @@ class VolumeArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         _setter("size", size)
         if automount is not None:
             _setter("automount", automount)
@@ -223,7 +231,15 @@ class _VolumeState:
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[int]] = None,
              size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if linux_device is None and 'linuxDevice' in kwargs:
+            linux_device = kwargs['linuxDevice']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if automount is not None:
             _setter("automount", automount)
         if delete_protection is not None:
@@ -371,22 +387,6 @@ class Volume(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud volume resource to manage volumes.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        node1 = hcloud.Server("node1",
-            image="debian-11",
-            server_type="cx11")
-        master = hcloud.Volume("master",
-            size=50,
-            server_id=node1.id,
-            automount=True,
-            format="ext4")
-        ```
-
         ## Import
 
         Volumes can be imported using their `id`
@@ -416,22 +416,6 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud volume resource to manage volumes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        node1 = hcloud.Server("node1",
-            image="debian-11",
-            server_type="cx11")
-        master = hcloud.Volume("master",
-            size=50,
-            server_id=node1.id,
-            automount=True,
-            format="ext4")
-        ```
 
         ## Import
 

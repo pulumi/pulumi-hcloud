@@ -12,31 +12,6 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mynet = new HCloud.Network("mynet", new()
-    ///     {
-    ///         IpRange = "10.0.0.0/8",
-    ///     });
-    /// 
-    ///     var privNet = new HCloud.NetworkRoute("privNet", new()
-    ///     {
-    ///         NetworkId = mynet.Id,
-    ///         Destination = "10.100.1.0/24",
-    ///         Gateway = "10.0.1.1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Network Route entries can be imported using a compound ID with the following format`&lt;network-id&gt;-&lt;destination&gt;`

@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about multiple Hetzner Cloud Certificates.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const sampleCertificate1 = hcloud.getCertificates({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getCertificates(args?: GetCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificatesResult> {
     args = args || {};
@@ -55,17 +44,6 @@ export interface GetCertificatesResult {
 }
 /**
  * Provides details about multiple Hetzner Cloud Certificates.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const sampleCertificate1 = hcloud.getCertificates({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getCertificatesOutput(args?: GetCertificatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificatesResult> {
     return pulumi.output(args).apply((a: any) => getCertificates(a, opts))

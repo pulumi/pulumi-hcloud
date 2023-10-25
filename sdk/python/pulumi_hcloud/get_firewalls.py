@@ -81,15 +81,6 @@ def get_firewalls(most_recent: Optional[bool] = None,
     """
     Provides details about multiple Hetzner Cloud Firewall.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_firewall1 = hcloud.get_firewalls(with_selector="key=value")
-    ```
-
 
     :param bool most_recent: Sorts list by date.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -113,15 +104,6 @@ def get_firewalls_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = N
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallsResult]:
     """
     Provides details about multiple Hetzner Cloud Firewall.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_firewall1 = hcloud.get_firewalls(with_selector="key=value")
-    ```
 
 
     :param bool most_recent: Sorts list by date.

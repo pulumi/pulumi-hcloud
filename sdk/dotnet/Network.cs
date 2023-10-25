@@ -12,24 +12,6 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privNet = new HCloud.Network("privNet", new()
-    ///     {
-    ///         IpRange = "10.0.1.0/24",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Networks can be imported using its `id`

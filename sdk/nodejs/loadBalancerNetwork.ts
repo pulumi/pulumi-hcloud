@@ -7,30 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const lb1 = new hcloud.LoadBalancer("lb1", {
- *     loadBalancerType: "lb11",
- *     networkZone: "eu-central",
- * });
- * const mynet = new hcloud.Network("mynet", {ipRange: "10.0.0.0/8"});
- * const foonet = new hcloud.NetworkSubnet("foonet", {
- *     networkId: mynet.id,
- *     type: "cloud",
- *     networkZone: "eu-central",
- *     ipRange: "10.0.1.0/24",
- * });
- * const srvnetwork = new hcloud.LoadBalancerNetwork("srvnetwork", {
- *     loadBalancerId: lb1.id,
- *     networkId: mynet.id,
- *     ip: "10.0.1.5",
- * });
- * ```
- *
  * ## Import
  *
  * Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`

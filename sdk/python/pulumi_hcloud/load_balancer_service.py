@@ -46,14 +46,28 @@ class LoadBalancerServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_id: pulumi.Input[str],
-             protocol: pulumi.Input[str],
+             load_balancer_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              destination_port: Optional[pulumi.Input[int]] = None,
              health_check: Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']] = None,
              http: Optional[pulumi.Input['LoadBalancerServiceHttpArgs']] = None,
              listen_port: Optional[pulumi.Input[int]] = None,
              proxyprotocol: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if load_balancer_id is None:
+            raise TypeError("Missing 'load_balancer_id' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if listen_port is None and 'listenPort' in kwargs:
+            listen_port = kwargs['listenPort']
+
         _setter("load_balancer_id", load_balancer_id)
         _setter("protocol", protocol)
         if destination_port is not None:
@@ -192,7 +206,17 @@ class _LoadBalancerServiceState:
              load_balancer_id: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              proxyprotocol: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if listen_port is None and 'listenPort' in kwargs:
+            listen_port = kwargs['listenPort']
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+
         if destination_port is not None:
             _setter("destination_port", destination_port)
         if health_check is not None:
@@ -309,37 +333,6 @@ class LoadBalancerService(pulumi.CustomResource):
         """
         Define services for Hetzner Cloud Load Balancers.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        load_balancer = hcloud.LoadBalancer("loadBalancer",
-            load_balancer_type="lb11",
-            location="nbg1")
-        load_balancer_service = hcloud.LoadBalancerService("loadBalancerService",
-            load_balancer_id=load_balancer.id,
-            protocol="http",
-            http=hcloud.LoadBalancerServiceHttpArgs(
-                sticky_sessions=True,
-                cookie_name="EXAMPLE_STICKY",
-            ),
-            health_check=hcloud.LoadBalancerServiceHealthCheckArgs(
-                protocol="http",
-                port=80,
-                interval=10,
-                timeout=5,
-                http=hcloud.LoadBalancerServiceHealthCheckHttpArgs(
-                    domain="example.com",
-                    path="/healthz",
-                    response="OK",
-                    tls=True,
-                    status_codes=["200"],
-                ),
-            ))
-        ```
-
         ## Import
 
         Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`
@@ -366,37 +359,6 @@ class LoadBalancerService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define services for Hetzner Cloud Load Balancers.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        load_balancer = hcloud.LoadBalancer("loadBalancer",
-            load_balancer_type="lb11",
-            location="nbg1")
-        load_balancer_service = hcloud.LoadBalancerService("loadBalancerService",
-            load_balancer_id=load_balancer.id,
-            protocol="http",
-            http=hcloud.LoadBalancerServiceHttpArgs(
-                sticky_sessions=True,
-                cookie_name="EXAMPLE_STICKY",
-            ),
-            health_check=hcloud.LoadBalancerServiceHealthCheckArgs(
-                protocol="http",
-                port=80,
-                interval=10,
-                timeout=5,
-                http=hcloud.LoadBalancerServiceHealthCheckHttpArgs(
-                    domain="example.com",
-                    path="/healthz",
-                    response="OK",
-                    tls=True,
-                    status_codes=["200"],
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -442,17 +404,9 @@ class LoadBalancerService(pulumi.CustomResource):
             __props__ = LoadBalancerServiceArgs.__new__(LoadBalancerServiceArgs)
 
             __props__.__dict__["destination_port"] = destination_port
-            if health_check is not None and not isinstance(health_check, LoadBalancerServiceHealthCheckArgs):
-                health_check = health_check or {}
-                def _setter(key, value):
-                    health_check[key] = value
-                LoadBalancerServiceHealthCheckArgs._configure(_setter, **health_check)
+            health_check = _utilities.configure(health_check, LoadBalancerServiceHealthCheckArgs, True)
             __props__.__dict__["health_check"] = health_check
-            if http is not None and not isinstance(http, LoadBalancerServiceHttpArgs):
-                http = http or {}
-                def _setter(key, value):
-                    http[key] = value
-                LoadBalancerServiceHttpArgs._configure(_setter, **http)
+            http = _utilities.configure(http, LoadBalancerServiceHttpArgs, True)
             __props__.__dict__["http"] = http
             __props__.__dict__["listen_port"] = listen_port
             if load_balancer_id is None and not opts.urn:

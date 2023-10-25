@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about multiple Hetzner Cloud Load Balancers.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const lb2 = hcloud.getLoadBalancers({});
- * const lb3 = hcloud.getLoadBalancers({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getLoadBalancers(args?: GetLoadBalancersArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancersResult> {
     args = args || {};
@@ -56,18 +44,6 @@ export interface GetLoadBalancersResult {
 }
 /**
  * Provides details about multiple Hetzner Cloud Load Balancers.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const lb2 = hcloud.getLoadBalancers({});
- * const lb3 = hcloud.getLoadBalancers({
- *     withSelector: "key=value",
- * });
- * ```
  */
 export function getLoadBalancersOutput(args?: GetLoadBalancersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancersResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancers(a, opts))

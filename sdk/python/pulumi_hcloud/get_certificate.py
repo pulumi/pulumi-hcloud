@@ -165,14 +165,6 @@ def get_certificate(id: Optional[int] = None,
     """
     Provides details about a specific Hetzner Cloud Certificate.
 
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_certificate1 = hcloud.get_certificate(name="sample-certificate-1")
-    sample_certificate2 = hcloud.get_certificate(id=4711)
-    ```
-
 
     :param int id: ID of the certificate.
     :param str name: Name of the certificate.
@@ -206,14 +198,6 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Provides details about a specific Hetzner Cloud Certificate.
-
-    ```python
-    import pulumi
-    import pulumi_hcloud as hcloud
-
-    sample_certificate1 = hcloud.get_certificate(name="sample-certificate-1")
-    sample_certificate2 = hcloud.get_certificate(id=4711)
-    ```
 
 
     :param int id: ID of the certificate.

@@ -12,45 +12,6 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lb1 = new HCloud.LoadBalancer("lb1", new()
-    ///     {
-    ///         LoadBalancerType = "lb11",
-    ///         NetworkZone = "eu-central",
-    ///     });
-    /// 
-    ///     var mynet = new HCloud.Network("mynet", new()
-    ///     {
-    ///         IpRange = "10.0.0.0/8",
-    ///     });
-    /// 
-    ///     var foonet = new HCloud.NetworkSubnet("foonet", new()
-    ///     {
-    ///         NetworkId = mynet.Id,
-    ///         Type = "cloud",
-    ///         NetworkZone = "eu-central",
-    ///         IpRange = "10.0.1.0/24",
-    ///     });
-    /// 
-    ///     var srvnetwork = new HCloud.LoadBalancerNetwork("srvnetwork", new()
-    ///     {
-    ///         LoadBalancerId = lb1.Id,
-    ///         NetworkId = mynet.Id,
-    ///         Ip = "10.0.1.5",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Load Balancer Network entries can be imported using a compound ID with the following format`&lt;load-balancer-id&gt;-&lt;network-id&gt;`

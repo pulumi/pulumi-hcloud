@@ -7,20 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const mynet = new hcloud.Network("mynet", {ipRange: "10.0.0.0/8"});
- * const privNet = new hcloud.NetworkRoute("privNet", {
- *     networkId: mynet.id,
- *     destination: "10.100.1.0/24",
- *     gateway: "10.0.1.1",
- * });
- * ```
- *
  * ## Import
  *
  * Network Route entries can be imported using a compound ID with the following format`<network-id>-<destination>`

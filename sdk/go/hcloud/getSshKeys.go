@@ -12,45 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			allKeys, err := hcloud.GetSshKeys(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.GetSshKeys(ctx, &hcloud.GetSshKeysArgs{
-//				WithSelector: pulumi.StringRef("foo=bar"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			var splat0 []*string
-//			for _, val0 := range allKeys.SshKeys {
-//				splat0 = append(splat0, val0.Name)
-//			}
-//			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
-//				SshKeys: []*pulumi.String(splat0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSshKeys(ctx *pulumi.Context, args *GetSshKeysArgs, opts ...pulumi.InvokeOption) (*GetSshKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSshKeysResult
