@@ -12,6 +12,38 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Adds a target to a Hetzner Cloud Load Balancer.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myServer = new HCloud.Server("myServer", new()
+    ///     {
+    ///         ServerType = "cx11",
+    ///         Image = "ubuntu-18.04",
+    ///     });
+    /// 
+    ///     var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         LoadBalancerType = "lb11",
+    ///         Location = "nbg1",
+    ///     });
+    /// 
+    ///     var loadBalancerTarget = new HCloud.LoadBalancerTarget("loadBalancerTarget", new()
+    ///     {
+    ///         Type = "server",
+    ///         LoadBalancerId = loadBalancer.Id,
+    ///         ServerId = myServer.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Load Balancer Target entries can be imported using a compound ID with the following format`&lt;load-balancer-id&gt;__&lt;type&gt;__&lt;identifier&gt;` Where _identifier_ depends on the _type_- `server`server id, for example`123` - `label_selector`label selector, for example`foo=bar` - `ip`ip address, for example`203.0.113.123`

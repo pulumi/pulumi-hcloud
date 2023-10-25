@@ -170,6 +170,18 @@ class Snapshot(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        my_snapshot = hcloud.Snapshot("my-snapshot", server_id=node1.id)
+        ```
+
         ## Import
 
         Snapshots can be imported using its image `id`
@@ -192,6 +204,18 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        my_snapshot = hcloud.Snapshot("my-snapshot", server_id=node1.id)
+        ```
 
         ## Import
 

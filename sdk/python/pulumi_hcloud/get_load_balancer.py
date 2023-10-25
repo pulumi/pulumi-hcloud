@@ -214,6 +214,17 @@ def get_load_balancer(id: Optional[int] = None,
     """
     Provides details about a specific Hetzner Cloud Load Balancer.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    lb1 = hcloud.get_load_balancer(name="my-load-balancer")
+    lb2 = hcloud.get_load_balancer(id=123)
+    lb3 = hcloud.get_load_balancer(with_selector="key=value")
+    ```
+
 
     :param int id: ID of the Load Balancer.
     :param str name: Name of the Load Balancer.
@@ -251,6 +262,17 @@ def get_load_balancer_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Provides details about a specific Hetzner Cloud Load Balancer.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    lb1 = hcloud.get_load_balancer(name="my-load-balancer")
+    lb2 = hcloud.get_load_balancer(id=123)
+    lb3 = hcloud.get_load_balancer(with_selector="key=value")
+    ```
 
 
     :param int id: ID of the Load Balancer.

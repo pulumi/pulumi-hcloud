@@ -387,6 +387,22 @@ class Volume(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud volume resource to manage volumes.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        master = hcloud.Volume("master",
+            size=50,
+            server_id=node1.id,
+            automount=True,
+            format="ext4")
+        ```
+
         ## Import
 
         Volumes can be imported using their `id`
@@ -416,6 +432,22 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud volume resource to manage volumes.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        master = hcloud.Volume("master",
+            size=50,
+            server_id=node1.id,
+            automount=True,
+            format="ext4")
+        ```
 
         ## Import
 

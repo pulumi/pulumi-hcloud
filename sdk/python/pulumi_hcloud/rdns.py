@@ -302,6 +302,68 @@ class Rdns(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
 
+        ## Example Usage
+
+        For servers:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        master = hcloud.Rdns("master",
+            server_id=node1.id,
+            ip_address=node1.ipv4_address,
+            dns_ptr="example.com")
+        ```
+
+        For Primary IPs:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        primary1_primary_ip = hcloud.PrimaryIp("primary1PrimaryIp",
+            datacenter="nbg1-dc3",
+            type="ipv4")
+        primary1_rdns = hcloud.Rdns("primary1Rdns",
+            primary_ip_id=primary1_primary_ip.id,
+            ip_address=primary1_primary_ip.ip_address,
+            dns_ptr="example.com")
+        ```
+
+        For Floating IPs:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        floating1 = hcloud.FloatingIp("floating1",
+            home_location="nbg1",
+            type="ipv4")
+        floating_master = hcloud.Rdns("floatingMaster",
+            dns_ptr="example.com",
+            floating_ip_id=floating1.id,
+            ip_address=floating1.ip_address)
+        ```
+
+        For Load Balancers:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        load_balancer1 = hcloud.LoadBalancer("loadBalancer1",
+            load_balancer_type="lb11",
+            location="fsn1")
+        load_balancer_master = hcloud.Rdns("loadBalancerMaster",
+            dns_ptr="example.com",
+            ip_address=load_balancer1.ipv4,
+            load_balancer_id=load_balancer1.id)
+        ```
+
         ## Import
 
         Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>` import reverse dns entry on server with id 123, ip 192.168.100.1
@@ -345,6 +407,68 @@ class Rdns(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
+
+        ## Example Usage
+
+        For servers:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        master = hcloud.Rdns("master",
+            server_id=node1.id,
+            ip_address=node1.ipv4_address,
+            dns_ptr="example.com")
+        ```
+
+        For Primary IPs:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        primary1_primary_ip = hcloud.PrimaryIp("primary1PrimaryIp",
+            datacenter="nbg1-dc3",
+            type="ipv4")
+        primary1_rdns = hcloud.Rdns("primary1Rdns",
+            primary_ip_id=primary1_primary_ip.id,
+            ip_address=primary1_primary_ip.ip_address,
+            dns_ptr="example.com")
+        ```
+
+        For Floating IPs:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        floating1 = hcloud.FloatingIp("floating1",
+            home_location="nbg1",
+            type="ipv4")
+        floating_master = hcloud.Rdns("floatingMaster",
+            dns_ptr="example.com",
+            floating_ip_id=floating1.id,
+            ip_address=floating1.ip_address)
+        ```
+
+        For Load Balancers:
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        load_balancer1 = hcloud.LoadBalancer("loadBalancer1",
+            load_balancer_type="lb11",
+            location="fsn1")
+        load_balancer_master = hcloud.Rdns("loadBalancerMaster",
+            dns_ptr="example.com",
+            ip_address=load_balancer1.ipv4,
+            load_balancer_id=load_balancer1.id)
+        ```
 
         ## Import
 

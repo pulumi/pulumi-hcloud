@@ -13,12 +13,54 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Firewall.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var sampleFirewall1 = HCloud.GetFirewall.Invoke(new()
+        ///     {
+        ///         Name = "sample-firewall-1",
+        ///     });
+        /// 
+        ///     var sampleFirewall2 = HCloud.GetFirewall.Invoke(new()
+        ///     {
+        ///         Id = 4711,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Firewall.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var sampleFirewall1 = HCloud.GetFirewall.Invoke(new()
+        ///     {
+        ///         Name = "sample-firewall-1",
+        ///     });
+        /// 
+        ///     var sampleFirewall2 = HCloud.GetFirewall.Invoke(new()
+        ///     {
+        ///         Id = 4711,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());

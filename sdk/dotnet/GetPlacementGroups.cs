@@ -13,12 +13,62 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Placement Groups.
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroups.Invoke();
+        /// 
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroups.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlacementGroupsResult> InvokeAsync(GetPlacementGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupsResult>("hcloud:index/getPlacementGroups:getPlacementGroups", args ?? new GetPlacementGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Placement Groups.
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroups.Invoke();
+        /// 
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroups.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPlacementGroupsResult> Invoke(GetPlacementGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupsResult>("hcloud:index/getPlacementGroups:getPlacementGroups", args ?? new GetPlacementGroupsInvokeArgs(), options.WithDefaults());

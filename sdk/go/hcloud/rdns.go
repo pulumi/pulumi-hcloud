@@ -15,6 +15,148 @@ import (
 
 // Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
 //
+// ## Example Usage
+//
+// For servers:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:      pulumi.String("debian-11"),
+//				ServerType: pulumi.String("cx11"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewRdns(ctx, "master", &hcloud.RdnsArgs{
+//				ServerId:  node1.ID(),
+//				IpAddress: node1.Ipv4Address,
+//				DnsPtr:    pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// For Primary IPs:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary1PrimaryIp, err := hcloud.NewPrimaryIp(ctx, "primary1PrimaryIp", &hcloud.PrimaryIpArgs{
+//				Datacenter: pulumi.String("nbg1-dc3"),
+//				Type:       pulumi.String("ipv4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewRdns(ctx, "primary1Rdns", &hcloud.RdnsArgs{
+//				PrimaryIpId: primary1PrimaryIp.ID(),
+//				IpAddress:   primary1PrimaryIp.IpAddress,
+//				DnsPtr:      pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// For Floating IPs:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			floating1, err := hcloud.NewFloatingIp(ctx, "floating1", &hcloud.FloatingIpArgs{
+//				HomeLocation: pulumi.String("nbg1"),
+//				Type:         pulumi.String("ipv4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewRdns(ctx, "floatingMaster", &hcloud.RdnsArgs{
+//				DnsPtr:       pulumi.String("example.com"),
+//				FloatingIpId: floating1.ID(),
+//				IpAddress:    floating1.IpAddress,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// For Load Balancers:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			loadBalancer1, err := hcloud.NewLoadBalancer(ctx, "loadBalancer1", &hcloud.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("lb11"),
+//				Location:         pulumi.String("fsn1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewRdns(ctx, "loadBalancerMaster", &hcloud.RdnsArgs{
+//				DnsPtr:         pulumi.String("example.com"),
+//				IpAddress:      loadBalancer1.Ipv4,
+//				LoadBalancerId: loadBalancer1.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Reverse DNS entries can be imported using a compound ID with the following format`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>` import reverse dns entry on server with id 123, ip 192.168.100.1

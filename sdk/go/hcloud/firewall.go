@@ -14,6 +14,60 @@ import (
 
 // Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myfirewall, err := hcloud.NewFirewall(ctx, "myfirewall", &hcloud.FirewallArgs{
+//				Rules: hcloud.FirewallRuleArray{
+//					&hcloud.FirewallRuleArgs{
+//						Direction: pulumi.String("in"),
+//						Protocol:  pulumi.String("icmp"),
+//						SourceIps: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//							pulumi.String("::/0"),
+//						},
+//					},
+//					&hcloud.FirewallRuleArgs{
+//						Direction: pulumi.String("in"),
+//						Protocol:  pulumi.String("tcp"),
+//						Port:      pulumi.String("80-85"),
+//						SourceIps: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//							pulumi.String("::/0"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image:      pulumi.String("debian-11"),
+//				ServerType: pulumi.String("cx11"),
+//				FirewallIds: pulumi.IntArray{
+//					myfirewall.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Firewalls can be imported using its `id`

@@ -15,6 +15,40 @@ import (
 
 // Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
+//				IpRange: pulumi.String("10.0.0.0/8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewNetworkRoute(ctx, "privNet", &hcloud.NetworkRouteArgs{
+//				NetworkId:   mynet.ID(),
+//				Destination: pulumi.String("10.100.1.0/24"),
+//				Gateway:     pulumi.String("10.0.1.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Network Route entries can be imported using a compound ID with the following format`<network-id>-<destination>`

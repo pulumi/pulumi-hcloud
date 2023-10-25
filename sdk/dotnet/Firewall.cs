@@ -12,6 +12,57 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myfirewall = new HCloud.Firewall("myfirewall", new()
+    ///     {
+    ///         Rules = new[]
+    ///         {
+    ///             new HCloud.Inputs.FirewallRuleArgs
+    ///             {
+    ///                 Direction = "in",
+    ///                 Protocol = "icmp",
+    ///                 SourceIps = new[]
+    ///                 {
+    ///                     "0.0.0.0/0",
+    ///                     "::/0",
+    ///                 },
+    ///             },
+    ///             new HCloud.Inputs.FirewallRuleArgs
+    ///             {
+    ///                 Direction = "in",
+    ///                 Protocol = "tcp",
+    ///                 Port = "80-85",
+    ///                 SourceIps = new[]
+    ///                 {
+    ///                     "0.0.0.0/0",
+    ///                     "::/0",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var node1 = new HCloud.Server("node1", new()
+    ///     {
+    ///         Image = "debian-11",
+    ///         ServerType = "cx11",
+    ///         FirewallIds = new[]
+    ///         {
+    ///             myfirewall.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Firewalls can be imported using its `id`

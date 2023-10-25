@@ -12,6 +12,35 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_placement_group = new HCloud.PlacementGroup("my-placement-group", new()
+    ///     {
+    ///         Type = "spread",
+    ///         Labels = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    ///     var node1 = new HCloud.Server("node1", new()
+    ///     {
+    ///         Image = "debian-11",
+    ///         ServerType = "cx11",
+    ///         PlacementGroupId = my_placement_group.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Placement Groups can be imported using its `id`

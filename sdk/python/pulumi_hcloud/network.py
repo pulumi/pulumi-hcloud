@@ -252,6 +252,15 @@ class Network(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
+        ```
+
         ## Import
 
         Networks can be imported using its `id`
@@ -276,6 +285,15 @@ class Network(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
+        ```
 
         ## Import
 

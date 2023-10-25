@@ -12,6 +12,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			sshKey1, err := hcloud.LookupSshKey(ctx, &hcloud.LookupSshKeyArgs{
+//				Id: pulumi.IntRef(1234),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			sshKey2, err := hcloud.LookupSshKey(ctx, &hcloud.LookupSshKeyArgs{
+//				Name: pulumi.StringRef("my-ssh-key"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			sshKey3, err := hcloud.LookupSshKey(ctx, &hcloud.LookupSshKeyArgs{
+//				Fingerprint: pulumi.StringRef("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupSshKey(ctx, &hcloud.LookupSshKeyArgs{
+//				WithSelector: pulumi.StringRef("key=value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
+//				SshKeys: pulumi.StringArray{
+//					*pulumi.Int(sshKey1.Id),
+//					*pulumi.Int(sshKey2.Id),
+//					*pulumi.Int(sshKey3.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSshKey(ctx *pulumi.Context, args *LookupSshKeyArgs, opts ...pulumi.InvokeOption) (*LookupSshKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSshKeyResult

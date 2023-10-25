@@ -416,6 +416,33 @@ class PrimaryIp(pulumi.CustomResource):
         If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
         Currently, Primary IPs can be only attached to servers.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        main = hcloud.PrimaryIp("main",
+            datacenter="fsn1-dc14",
+            type="ipv4",
+            assignee_type="server",
+            auto_delete=True,
+            labels={
+                "hallo": "welt",
+            })
+        # Link a server to a primary IP
+        server_test = hcloud.Server("serverTest",
+            image="ubuntu-20.04",
+            server_type="cx11",
+            datacenter="fsn1-dc14",
+            labels={
+                "test": "tessst1",
+            },
+            public_nets=[hcloud.ServerPublicNetArgs(
+                ipv4=main.id,
+            )])
+        ```
+
         ## Import
 
         Primary IPs can be imported using its `id`
@@ -447,6 +474,33 @@ class PrimaryIp(pulumi.CustomResource):
 
         If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
         Currently, Primary IPs can be only attached to servers.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        main = hcloud.PrimaryIp("main",
+            datacenter="fsn1-dc14",
+            type="ipv4",
+            assignee_type="server",
+            auto_delete=True,
+            labels={
+                "hallo": "welt",
+            })
+        # Link a server to a primary IP
+        server_test = hcloud.Server("serverTest",
+            image="ubuntu-20.04",
+            server_type="cx11",
+            datacenter="fsn1-dc14",
+            labels={
+                "test": "tessst1",
+            },
+            public_nets=[hcloud.ServerPublicNetArgs(
+                ipv4=main.id,
+            )])
+        ```
 
         ## Import
 

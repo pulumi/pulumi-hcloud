@@ -273,6 +273,20 @@ class NetworkSubnet(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        foonet = hcloud.NetworkSubnet("foonet",
+            network_id=mynet.id,
+            type="cloud",
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        ```
+
         ## Import
 
         Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
@@ -297,6 +311,20 @@ class NetworkSubnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        foonet = hcloud.NetworkSubnet("foonet",
+            network_id=mynet.id,
+            type="cloud",
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        ```
 
         ## Import
 

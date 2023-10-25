@@ -81,6 +81,16 @@ def get_volumes(with_selector: Optional[str] = None,
     """
     Provides details about multiple Hetzner Cloud volumes.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    volume_ = hcloud.get_volumes()
+    volume3 = hcloud.get_volumes(with_selector="key=value")
+    ```
+
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     :param Sequence[str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
@@ -104,6 +114,16 @@ def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumesResult]:
     """
     Provides details about multiple Hetzner Cloud volumes.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    volume_ = hcloud.get_volumes()
+    volume3 = hcloud.get_volumes(with_selector="key=value")
+    ```
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)

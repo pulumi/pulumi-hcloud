@@ -123,6 +123,14 @@ def get_firewall(apply_tos: Optional[Sequence[pulumi.InputType['GetFirewallApply
     """
     Provides details about a specific Hetzner Cloud Firewall.
 
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    sample_firewall1 = hcloud.get_firewall(name="sample-firewall-1")
+    sample_firewall2 = hcloud.get_firewall(id=4711)
+    ```
+
 
     :param Sequence[pulumi.InputType['GetFirewallApplyToArgs']] apply_tos: Configuration of the Applied Resources
     :param int id: ID of the firewall.
@@ -164,6 +172,14 @@ def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[pulum
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Provides details about a specific Hetzner Cloud Firewall.
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    sample_firewall1 = hcloud.get_firewall(name="sample-firewall-1")
+    sample_firewall2 = hcloud.get_firewall(id=4711)
+    ```
 
 
     :param Sequence[pulumi.InputType['GetFirewallApplyToArgs']] apply_tos: Configuration of the Applied Resources

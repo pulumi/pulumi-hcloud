@@ -8,6 +8,18 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about multiple Hetzner Cloud Networks.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const network2 = hcloud.getNetwork({});
+ * const network3 = hcloud.getNetwork({
+ *     withSelector: "key=value",
+ * });
+ * ```
  */
 export function getNetworks(args?: GetNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworksResult> {
     args = args || {};
@@ -44,6 +56,18 @@ export interface GetNetworksResult {
 }
 /**
  * Provides details about multiple Hetzner Cloud Networks.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const network2 = hcloud.getNetwork({});
+ * const network3 = hcloud.getNetwork({
+ *     withSelector: "key=value",
+ * });
+ * ```
  */
 export function getNetworksOutput(args?: GetNetworksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworksResult> {
     return pulumi.output(args).apply((a: any) => getNetworks(a, opts))

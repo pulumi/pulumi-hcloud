@@ -12,6 +12,30 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud snapshot to represent an image with type snapshot in the Hetzner Cloud. This resource makes it easy to create a snapshot of your server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var node1 = new HCloud.Server("node1", new()
+    ///     {
+    ///         Image = "debian-11",
+    ///         ServerType = "cx11",
+    ///     });
+    /// 
+    ///     var my_snapshot = new HCloud.Snapshot("my-snapshot", new()
+    ///     {
+    ///         ServerId = node1.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Snapshots can be imported using its image `id`

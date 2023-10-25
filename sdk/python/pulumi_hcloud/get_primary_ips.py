@@ -71,6 +71,15 @@ def get_primary_ips(with_selector: Optional[str] = None,
     """
     Provides details about multiple Hetzner Cloud Primary IPs.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    ip2 = hcloud.get_primary_ips(with_selector="key=value")
+    ```
+
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
@@ -90,6 +99,15 @@ def get_primary_ips_output(with_selector: Optional[pulumi.Input[Optional[str]]] 
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrimaryIpsResult]:
     """
     Provides details about multiple Hetzner Cloud Primary IPs.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    ip2 = hcloud.get_primary_ips(with_selector="key=value")
+    ```
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)

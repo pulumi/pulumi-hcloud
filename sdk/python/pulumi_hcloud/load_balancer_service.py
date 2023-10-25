@@ -333,6 +333,37 @@ class LoadBalancerService(pulumi.CustomResource):
         """
         Define services for Hetzner Cloud Load Balancers.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        load_balancer = hcloud.LoadBalancer("loadBalancer",
+            load_balancer_type="lb11",
+            location="nbg1")
+        load_balancer_service = hcloud.LoadBalancerService("loadBalancerService",
+            load_balancer_id=load_balancer.id,
+            protocol="http",
+            http=hcloud.LoadBalancerServiceHttpArgs(
+                sticky_sessions=True,
+                cookie_name="EXAMPLE_STICKY",
+            ),
+            health_check=hcloud.LoadBalancerServiceHealthCheckArgs(
+                protocol="http",
+                port=80,
+                interval=10,
+                timeout=5,
+                http=hcloud.LoadBalancerServiceHealthCheckHttpArgs(
+                    domain="example.com",
+                    path="/healthz",
+                    response="OK",
+                    tls=True,
+                    status_codes=["200"],
+                ),
+            ))
+        ```
+
         ## Import
 
         Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`
@@ -359,6 +390,37 @@ class LoadBalancerService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define services for Hetzner Cloud Load Balancers.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        load_balancer = hcloud.LoadBalancer("loadBalancer",
+            load_balancer_type="lb11",
+            location="nbg1")
+        load_balancer_service = hcloud.LoadBalancerService("loadBalancerService",
+            load_balancer_id=load_balancer.id,
+            protocol="http",
+            http=hcloud.LoadBalancerServiceHttpArgs(
+                sticky_sessions=True,
+                cookie_name="EXAMPLE_STICKY",
+            ),
+            health_check=hcloud.LoadBalancerServiceHealthCheckArgs(
+                protocol="http",
+                port=80,
+                interval=10,
+                timeout=5,
+                http=hcloud.LoadBalancerServiceHealthCheckHttpArgs(
+                    domain="example.com",
+                    path="/healthz",
+                    response="OK",
+                    tls=True,
+                    status_codes=["200"],
+                ),
+            ))
+        ```
 
         ## Import
 

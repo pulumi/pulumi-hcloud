@@ -11,9 +11,75 @@ namespace Pulumi.HCloud
 {
     public static class GetServer
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var s1 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         Name = "my-server",
+        ///     });
+        /// 
+        ///     var s2 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         Id = 123,
+        ///     });
+        /// 
+        ///     var s3 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var s1 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         Name = "my-server",
+        ///     });
+        /// 
+        ///     var s2 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         Id = 123,
+        ///     });
+        /// 
+        ///     var s3 = HCloud.GetServer.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }

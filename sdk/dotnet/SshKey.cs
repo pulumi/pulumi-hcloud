@@ -12,6 +12,26 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new SSH key
+    ///     var @default = new HCloud.SshKey("default", new()
+    ///     {
+    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SSH keys can be imported using the SSH key `id`

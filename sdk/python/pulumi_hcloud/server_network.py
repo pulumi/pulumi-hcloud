@@ -324,6 +324,27 @@ class ServerNetwork(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        foonet = hcloud.NetworkSubnet("foonet",
+            network_id=mynet.id,
+            type="cloud",
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        srvnetwork = hcloud.ServerNetwork("srvnetwork",
+            server_id=node1.id,
+            network_id=mynet.id,
+            ip="10.0.1.5")
+        ```
+
         ## Import
 
         Server Network entries can be imported using a compound ID with the following format`<server-id>-<network-id>`
@@ -361,6 +382,27 @@ class ServerNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            server_type="cx11")
+        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        foonet = hcloud.NetworkSubnet("foonet",
+            network_id=mynet.id,
+            type="cloud",
+            network_zone="eu-central",
+            ip_range="10.0.1.0/24")
+        srvnetwork = hcloud.ServerNetwork("srvnetwork",
+            server_id=node1.id,
+            network_id=mynet.id,
+            ip="10.0.1.5")
+        ```
 
         ## Import
 

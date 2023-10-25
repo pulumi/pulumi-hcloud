@@ -188,6 +188,16 @@ class SshKey(pulumi.CustomResource):
         """
         Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Create a new SSH key
+        default = hcloud.SshKey("default", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        ```
+
         ## Import
 
         SSH keys can be imported using the SSH key `id`
@@ -210,6 +220,16 @@ class SshKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Create a new SSH key
+        default = hcloud.SshKey("default", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        ```
 
         ## Import
 
