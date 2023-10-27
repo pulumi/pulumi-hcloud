@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FloatingIpArgs', 'FloatingIp']
@@ -31,50 +31,19 @@ class FloatingIpArgs:
         :param pulumi.Input[str] name: Name of the Floating IP.
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         """
-        FloatingIpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            delete_protection=delete_protection,
-            description=description,
-            home_location=home_location,
-            labels=labels,
-            name=name,
-            server_id=server_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             delete_protection: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             home_location: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if delete_protection is None and 'deleteProtection' in kwargs:
-            delete_protection = kwargs['deleteProtection']
-        if home_location is None and 'homeLocation' in kwargs:
-            home_location = kwargs['homeLocation']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if delete_protection is not None:
-            _setter("delete_protection", delete_protection)
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if home_location is not None:
-            _setter("home_location", home_location)
+            pulumi.set(__self__, "home_location", home_location)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
 
     @property
     @pulumi.getter
@@ -185,61 +154,24 @@ class _FloatingIpState:
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
         """
-        _FloatingIpState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delete_protection=delete_protection,
-            description=description,
-            home_location=home_location,
-            ip_address=ip_address,
-            ip_network=ip_network,
-            labels=labels,
-            name=name,
-            server_id=server_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delete_protection: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             home_location: Optional[pulumi.Input[str]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             ip_network: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if delete_protection is None and 'deleteProtection' in kwargs:
-            delete_protection = kwargs['deleteProtection']
-        if home_location is None and 'homeLocation' in kwargs:
-            home_location = kwargs['homeLocation']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ip_network is None and 'ipNetwork' in kwargs:
-            ip_network = kwargs['ipNetwork']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-
         if delete_protection is not None:
-            _setter("delete_protection", delete_protection)
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if home_location is not None:
-            _setter("home_location", home_location)
+            pulumi.set(__self__, "home_location", home_location)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if ip_network is not None:
-            _setter("ip_network", ip_network)
+            pulumi.set(__self__, "ip_network", ip_network)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="deleteProtection")
@@ -439,10 +371,6 @@ class FloatingIp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FloatingIpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

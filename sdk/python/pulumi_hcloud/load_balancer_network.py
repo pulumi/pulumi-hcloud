@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LoadBalancerNetworkArgs', 'LoadBalancerNetwork']
@@ -40,44 +40,15 @@ class LoadBalancerNetworkArgs:
                *Note*: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
-        LoadBalancerNetworkArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            load_balancer_id=load_balancer_id,
-            enable_public_interface=enable_public_interface,
-            ip=ip,
-            network_id=network_id,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             load_balancer_id: Optional[pulumi.Input[int]] = None,
-             enable_public_interface: Optional[pulumi.Input[bool]] = None,
-             ip: Optional[pulumi.Input[str]] = None,
-             network_id: Optional[pulumi.Input[int]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if load_balancer_id is None and 'loadBalancerId' in kwargs:
-            load_balancer_id = kwargs['loadBalancerId']
-        if load_balancer_id is None:
-            raise TypeError("Missing 'load_balancer_id' argument")
-        if enable_public_interface is None and 'enablePublicInterface' in kwargs:
-            enable_public_interface = kwargs['enablePublicInterface']
-        if network_id is None and 'networkId' in kwargs:
-            network_id = kwargs['networkId']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
-        _setter("load_balancer_id", load_balancer_id)
+        pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         if enable_public_interface is not None:
-            _setter("enable_public_interface", enable_public_interface)
+            pulumi.set(__self__, "enable_public_interface", enable_public_interface)
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if network_id is not None:
-            _setter("network_id", network_id)
+            pulumi.set(__self__, "network_id", network_id)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="loadBalancerId")
@@ -182,43 +153,16 @@ class _LoadBalancerNetworkState:
                *Note*: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
-        _LoadBalancerNetworkState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable_public_interface=enable_public_interface,
-            ip=ip,
-            load_balancer_id=load_balancer_id,
-            network_id=network_id,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable_public_interface: Optional[pulumi.Input[bool]] = None,
-             ip: Optional[pulumi.Input[str]] = None,
-             load_balancer_id: Optional[pulumi.Input[int]] = None,
-             network_id: Optional[pulumi.Input[int]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable_public_interface is None and 'enablePublicInterface' in kwargs:
-            enable_public_interface = kwargs['enablePublicInterface']
-        if load_balancer_id is None and 'loadBalancerId' in kwargs:
-            load_balancer_id = kwargs['loadBalancerId']
-        if network_id is None and 'networkId' in kwargs:
-            network_id = kwargs['networkId']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
         if enable_public_interface is not None:
-            _setter("enable_public_interface", enable_public_interface)
+            pulumi.set(__self__, "enable_public_interface", enable_public_interface)
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if load_balancer_id is not None:
-            _setter("load_balancer_id", load_balancer_id)
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         if network_id is not None:
-            _setter("network_id", network_id)
+            pulumi.set(__self__, "network_id", network_id)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="enablePublicInterface")
@@ -406,10 +350,6 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoadBalancerNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

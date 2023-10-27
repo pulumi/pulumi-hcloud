@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['VolumeAttachmentArgs', 'VolumeAttachment']
@@ -23,33 +23,10 @@ class VolumeAttachmentArgs:
         :param pulumi.Input[int] volume_id: ID of the Volume.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it.
         """
-        VolumeAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_id=server_id,
-            volume_id=volume_id,
-            automount=automount,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_id: Optional[pulumi.Input[int]] = None,
-             volume_id: Optional[pulumi.Input[int]] = None,
-             automount: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if server_id is None:
-            raise TypeError("Missing 'server_id' argument")
-        if volume_id is None and 'volumeId' in kwargs:
-            volume_id = kwargs['volumeId']
-        if volume_id is None:
-            raise TypeError("Missing 'volume_id' argument")
-
-        _setter("server_id", server_id)
-        _setter("volume_id", volume_id)
+        pulumi.set(__self__, "server_id", server_id)
+        pulumi.set(__self__, "volume_id", volume_id)
         if automount is not None:
-            _setter("automount", automount)
+            pulumi.set(__self__, "automount", automount)
 
     @property
     @pulumi.getter(name="serverId")
@@ -100,31 +77,12 @@ class _VolumeAttachmentState:
         :param pulumi.Input[int] server_id: Server to attach the Volume to.
         :param pulumi.Input[int] volume_id: ID of the Volume.
         """
-        _VolumeAttachmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automount=automount,
-            server_id=server_id,
-            volume_id=volume_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automount: Optional[pulumi.Input[bool]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             volume_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if volume_id is None and 'volumeId' in kwargs:
-            volume_id = kwargs['volumeId']
-
         if automount is not None:
-            _setter("automount", automount)
+            pulumi.set(__self__, "automount", automount)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if volume_id is not None:
-            _setter("volume_id", volume_id)
+            pulumi.set(__self__, "volume_id", volume_id)
 
     @property
     @pulumi.getter
@@ -254,10 +212,6 @@ class VolumeAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VolumeAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

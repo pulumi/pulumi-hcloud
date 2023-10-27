@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NetworkSubnetArgs', 'NetworkSubnet']
@@ -27,47 +27,12 @@ class NetworkSubnetArgs:
         :param pulumi.Input[str] type: Type of subnet. `server`, `cloud` or `vswitch`
         :param pulumi.Input[int] vswitch_id: ID of the vswitch, Required if type is `vswitch`
         """
-        NetworkSubnetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_range=ip_range,
-            network_id=network_id,
-            network_zone=network_zone,
-            type=type,
-            vswitch_id=vswitch_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_range: Optional[pulumi.Input[str]] = None,
-             network_id: Optional[pulumi.Input[int]] = None,
-             network_zone: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             vswitch_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_range is None and 'ipRange' in kwargs:
-            ip_range = kwargs['ipRange']
-        if ip_range is None:
-            raise TypeError("Missing 'ip_range' argument")
-        if network_id is None and 'networkId' in kwargs:
-            network_id = kwargs['networkId']
-        if network_id is None:
-            raise TypeError("Missing 'network_id' argument")
-        if network_zone is None and 'networkZone' in kwargs:
-            network_zone = kwargs['networkZone']
-        if network_zone is None:
-            raise TypeError("Missing 'network_zone' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if vswitch_id is None and 'vswitchId' in kwargs:
-            vswitch_id = kwargs['vswitchId']
-
-        _setter("ip_range", ip_range)
-        _setter("network_id", network_id)
-        _setter("network_zone", network_zone)
-        _setter("type", type)
+        pulumi.set(__self__, "ip_range", ip_range)
+        pulumi.set(__self__, "network_id", network_id)
+        pulumi.set(__self__, "network_zone", network_zone)
+        pulumi.set(__self__, "type", type)
         if vswitch_id is not None:
-            _setter("vswitch_id", vswitch_id)
+            pulumi.set(__self__, "vswitch_id", vswitch_id)
 
     @property
     @pulumi.getter(name="ipRange")
@@ -147,47 +112,18 @@ class _NetworkSubnetState:
         :param pulumi.Input[str] type: Type of subnet. `server`, `cloud` or `vswitch`
         :param pulumi.Input[int] vswitch_id: ID of the vswitch, Required if type is `vswitch`
         """
-        _NetworkSubnetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            gateway=gateway,
-            ip_range=ip_range,
-            network_id=network_id,
-            network_zone=network_zone,
-            type=type,
-            vswitch_id=vswitch_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             gateway: Optional[pulumi.Input[str]] = None,
-             ip_range: Optional[pulumi.Input[str]] = None,
-             network_id: Optional[pulumi.Input[int]] = None,
-             network_zone: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             vswitch_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_range is None and 'ipRange' in kwargs:
-            ip_range = kwargs['ipRange']
-        if network_id is None and 'networkId' in kwargs:
-            network_id = kwargs['networkId']
-        if network_zone is None and 'networkZone' in kwargs:
-            network_zone = kwargs['networkZone']
-        if vswitch_id is None and 'vswitchId' in kwargs:
-            vswitch_id = kwargs['vswitchId']
-
         if gateway is not None:
-            _setter("gateway", gateway)
+            pulumi.set(__self__, "gateway", gateway)
         if ip_range is not None:
-            _setter("ip_range", ip_range)
+            pulumi.set(__self__, "ip_range", ip_range)
         if network_id is not None:
-            _setter("network_id", network_id)
+            pulumi.set(__self__, "network_id", network_id)
         if network_zone is not None:
-            _setter("network_zone", network_zone)
+            pulumi.set(__self__, "network_zone", network_zone)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if vswitch_id is not None:
-            _setter("vswitch_id", vswitch_id)
+            pulumi.set(__self__, "vswitch_id", vswitch_id)
 
     @property
     @pulumi.getter
@@ -344,10 +280,6 @@ class NetworkSubnet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkSubnetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
