@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LoadBalancerTargetInitArgs', 'LoadBalancerTarget']
@@ -36,49 +36,16 @@ class LoadBalancerTargetInitArgs:
                Load Balancer targets. Only allowed if type is `server` or
                `label_selector`.
         """
-        LoadBalancerTargetInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            load_balancer_id=load_balancer_id,
-            type=type,
-            ip=ip,
-            label_selector=label_selector,
-            server_id=server_id,
-            use_private_ip=use_private_ip,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             load_balancer_id: Optional[pulumi.Input[int]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             ip: Optional[pulumi.Input[str]] = None,
-             label_selector: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             use_private_ip: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if load_balancer_id is None and 'loadBalancerId' in kwargs:
-            load_balancer_id = kwargs['loadBalancerId']
-        if load_balancer_id is None:
-            raise TypeError("Missing 'load_balancer_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if label_selector is None and 'labelSelector' in kwargs:
-            label_selector = kwargs['labelSelector']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if use_private_ip is None and 'usePrivateIp' in kwargs:
-            use_private_ip = kwargs['usePrivateIp']
-
-        _setter("load_balancer_id", load_balancer_id)
-        _setter("type", type)
+        pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        pulumi.set(__self__, "type", type)
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if label_selector is not None:
-            _setter("label_selector", label_selector)
+            pulumi.set(__self__, "label_selector", label_selector)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if use_private_ip is not None:
-            _setter("use_private_ip", use_private_ip)
+            pulumi.set(__self__, "use_private_ip", use_private_ip)
 
     @property
     @pulumi.getter(name="loadBalancerId")
@@ -185,47 +152,18 @@ class _LoadBalancerTargetState:
                Load Balancer targets. Only allowed if type is `server` or
                `label_selector`.
         """
-        _LoadBalancerTargetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip=ip,
-            label_selector=label_selector,
-            load_balancer_id=load_balancer_id,
-            server_id=server_id,
-            type=type,
-            use_private_ip=use_private_ip,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip: Optional[pulumi.Input[str]] = None,
-             label_selector: Optional[pulumi.Input[str]] = None,
-             load_balancer_id: Optional[pulumi.Input[int]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             use_private_ip: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if label_selector is None and 'labelSelector' in kwargs:
-            label_selector = kwargs['labelSelector']
-        if load_balancer_id is None and 'loadBalancerId' in kwargs:
-            load_balancer_id = kwargs['loadBalancerId']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if use_private_ip is None and 'usePrivateIp' in kwargs:
-            use_private_ip = kwargs['usePrivateIp']
-
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if label_selector is not None:
-            _setter("label_selector", label_selector)
+            pulumi.set(__self__, "label_selector", label_selector)
         if load_balancer_id is not None:
-            _setter("load_balancer_id", load_balancer_id)
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if use_private_ip is not None:
-            _setter("use_private_ip", use_private_ip)
+            pulumi.set(__self__, "use_private_ip", use_private_ip)
 
     @property
     @pulumi.getter
@@ -425,10 +363,6 @@ class LoadBalancerTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoadBalancerTargetInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

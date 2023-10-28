@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RdnsArgs', 'Rdns']
@@ -29,53 +29,16 @@ class RdnsArgs:
         :param pulumi.Input[int] primary_ip_id: The Primary IP the `ip_address` belongs to.
         :param pulumi.Input[int] server_id: The server the `ip_address` belongs to.
         """
-        RdnsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dns_ptr=dns_ptr,
-            ip_address=ip_address,
-            floating_ip_id=floating_ip_id,
-            load_balancer_id=load_balancer_id,
-            primary_ip_id=primary_ip_id,
-            server_id=server_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dns_ptr: Optional[pulumi.Input[str]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             floating_ip_id: Optional[pulumi.Input[int]] = None,
-             load_balancer_id: Optional[pulumi.Input[int]] = None,
-             primary_ip_id: Optional[pulumi.Input[int]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dns_ptr is None and 'dnsPtr' in kwargs:
-            dns_ptr = kwargs['dnsPtr']
-        if dns_ptr is None:
-            raise TypeError("Missing 'dns_ptr' argument")
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ip_address is None:
-            raise TypeError("Missing 'ip_address' argument")
-        if floating_ip_id is None and 'floatingIpId' in kwargs:
-            floating_ip_id = kwargs['floatingIpId']
-        if load_balancer_id is None and 'loadBalancerId' in kwargs:
-            load_balancer_id = kwargs['loadBalancerId']
-        if primary_ip_id is None and 'primaryIpId' in kwargs:
-            primary_ip_id = kwargs['primaryIpId']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-
-        _setter("dns_ptr", dns_ptr)
-        _setter("ip_address", ip_address)
+        pulumi.set(__self__, "dns_ptr", dns_ptr)
+        pulumi.set(__self__, "ip_address", ip_address)
         if floating_ip_id is not None:
-            _setter("floating_ip_id", floating_ip_id)
+            pulumi.set(__self__, "floating_ip_id", floating_ip_id)
         if load_balancer_id is not None:
-            _setter("load_balancer_id", load_balancer_id)
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         if primary_ip_id is not None:
-            _setter("primary_ip_id", primary_ip_id)
+            pulumi.set(__self__, "primary_ip_id", primary_ip_id)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
 
     @property
     @pulumi.getter(name="dnsPtr")
@@ -168,51 +131,18 @@ class _RdnsState:
         :param pulumi.Input[int] primary_ip_id: The Primary IP the `ip_address` belongs to.
         :param pulumi.Input[int] server_id: The server the `ip_address` belongs to.
         """
-        _RdnsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dns_ptr=dns_ptr,
-            floating_ip_id=floating_ip_id,
-            ip_address=ip_address,
-            load_balancer_id=load_balancer_id,
-            primary_ip_id=primary_ip_id,
-            server_id=server_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dns_ptr: Optional[pulumi.Input[str]] = None,
-             floating_ip_id: Optional[pulumi.Input[int]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             load_balancer_id: Optional[pulumi.Input[int]] = None,
-             primary_ip_id: Optional[pulumi.Input[int]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dns_ptr is None and 'dnsPtr' in kwargs:
-            dns_ptr = kwargs['dnsPtr']
-        if floating_ip_id is None and 'floatingIpId' in kwargs:
-            floating_ip_id = kwargs['floatingIpId']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if load_balancer_id is None and 'loadBalancerId' in kwargs:
-            load_balancer_id = kwargs['loadBalancerId']
-        if primary_ip_id is None and 'primaryIpId' in kwargs:
-            primary_ip_id = kwargs['primaryIpId']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-
         if dns_ptr is not None:
-            _setter("dns_ptr", dns_ptr)
+            pulumi.set(__self__, "dns_ptr", dns_ptr)
         if floating_ip_id is not None:
-            _setter("floating_ip_id", floating_ip_id)
+            pulumi.set(__self__, "floating_ip_id", floating_ip_id)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if load_balancer_id is not None:
-            _setter("load_balancer_id", load_balancer_id)
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         if primary_ip_id is not None:
-            _setter("primary_ip_id", primary_ip_id)
+            pulumi.set(__self__, "primary_ip_id", primary_ip_id)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
 
     @property
     @pulumi.getter(name="dnsPtr")
@@ -506,10 +436,6 @@ class Rdns(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RdnsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

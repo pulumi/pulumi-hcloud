@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,33 +27,14 @@ class FirewallArgs:
         :param pulumi.Input[str] name: Name of the Firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]] rules: Configuration of a Rule from this Firewall.
         """
-        FirewallArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_tos=apply_tos,
-            labels=labels,
-            name=name,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_tos is None and 'applyTos' in kwargs:
-            apply_tos = kwargs['applyTos']
-
         if apply_tos is not None:
-            _setter("apply_tos", apply_tos)
+            pulumi.set(__self__, "apply_tos", apply_tos)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="applyTos")
@@ -118,33 +99,14 @@ class _FirewallState:
         :param pulumi.Input[str] name: Name of the Firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]] rules: Configuration of a Rule from this Firewall.
         """
-        _FirewallState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_tos=apply_tos,
-            labels=labels,
-            name=name,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_tos is None and 'applyTos' in kwargs:
-            apply_tos = kwargs['applyTos']
-
         if apply_tos is not None:
-            _setter("apply_tos", apply_tos)
+            pulumi.set(__self__, "apply_tos", apply_tos)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="applyTos")
@@ -312,10 +274,6 @@ class Firewall(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FirewallArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

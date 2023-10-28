@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PlacementGroupArgs', 'PlacementGroup']
@@ -23,28 +23,11 @@ class PlacementGroupArgs:
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Placement Group.
         """
-        PlacementGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            labels=labels,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -96,31 +79,14 @@ class _PlacementGroupState:
         :param pulumi.Input[str] name: Name of the Placement Group.
         :param pulumi.Input[str] type: Type of the Placement Group.
         """
-        _PlacementGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            labels=labels,
-            name=name,
-            servers=servers,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             servers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if servers is not None:
-            _setter("servers", servers)
+            pulumi.set(__self__, "servers", servers)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -255,10 +221,6 @@ class PlacementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PlacementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

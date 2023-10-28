@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SnapshotArgs', 'Snapshot']
@@ -23,30 +23,11 @@ class SnapshotArgs:
         :param pulumi.Input[str] description: Description of the snapshot.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         """
-        SnapshotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_id=server_id,
-            description=description,
-            labels=labels,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_id: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if server_id is None:
-            raise TypeError("Missing 'server_id' argument")
-
-        _setter("server_id", server_id)
+        pulumi.set(__self__, "server_id", server_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
 
     @property
     @pulumi.getter(name="serverId")
@@ -97,29 +78,12 @@ class _SnapshotState:
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
         """
-        _SnapshotState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            labels=labels,
-            server_id=server_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
 
     @property
     @pulumi.getter
@@ -235,10 +199,6 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

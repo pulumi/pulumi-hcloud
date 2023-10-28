@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,53 +33,18 @@ class LoadBalancerServiceArgs:
         :param pulumi.Input[int] listen_port: Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param pulumi.Input[bool] proxyprotocol: Enable proxyprotocol.
         """
-        LoadBalancerServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            load_balancer_id=load_balancer_id,
-            protocol=protocol,
-            destination_port=destination_port,
-            health_check=health_check,
-            http=http,
-            listen_port=listen_port,
-            proxyprotocol=proxyprotocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             load_balancer_id: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             destination_port: Optional[pulumi.Input[int]] = None,
-             health_check: Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']] = None,
-             http: Optional[pulumi.Input['LoadBalancerServiceHttpArgs']] = None,
-             listen_port: Optional[pulumi.Input[int]] = None,
-             proxyprotocol: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if load_balancer_id is None and 'loadBalancerId' in kwargs:
-            load_balancer_id = kwargs['loadBalancerId']
-        if load_balancer_id is None:
-            raise TypeError("Missing 'load_balancer_id' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if destination_port is None and 'destinationPort' in kwargs:
-            destination_port = kwargs['destinationPort']
-        if health_check is None and 'healthCheck' in kwargs:
-            health_check = kwargs['healthCheck']
-        if listen_port is None and 'listenPort' in kwargs:
-            listen_port = kwargs['listenPort']
-
-        _setter("load_balancer_id", load_balancer_id)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        pulumi.set(__self__, "protocol", protocol)
         if destination_port is not None:
-            _setter("destination_port", destination_port)
+            pulumi.set(__self__, "destination_port", destination_port)
         if health_check is not None:
-            _setter("health_check", health_check)
+            pulumi.set(__self__, "health_check", health_check)
         if http is not None:
-            _setter("http", http)
+            pulumi.set(__self__, "http", http)
         if listen_port is not None:
-            _setter("listen_port", listen_port)
+            pulumi.set(__self__, "listen_port", listen_port)
         if proxyprotocol is not None:
-            _setter("proxyprotocol", proxyprotocol)
+            pulumi.set(__self__, "proxyprotocol", proxyprotocol)
 
     @property
     @pulumi.getter(name="loadBalancerId")
@@ -186,51 +151,20 @@ class _LoadBalancerServiceState:
         :param pulumi.Input[str] protocol: Protocol of the service. `http`, `https` or `tcp`
         :param pulumi.Input[bool] proxyprotocol: Enable proxyprotocol.
         """
-        _LoadBalancerServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_port=destination_port,
-            health_check=health_check,
-            http=http,
-            listen_port=listen_port,
-            load_balancer_id=load_balancer_id,
-            protocol=protocol,
-            proxyprotocol=proxyprotocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_port: Optional[pulumi.Input[int]] = None,
-             health_check: Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']] = None,
-             http: Optional[pulumi.Input['LoadBalancerServiceHttpArgs']] = None,
-             listen_port: Optional[pulumi.Input[int]] = None,
-             load_balancer_id: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             proxyprotocol: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_port is None and 'destinationPort' in kwargs:
-            destination_port = kwargs['destinationPort']
-        if health_check is None and 'healthCheck' in kwargs:
-            health_check = kwargs['healthCheck']
-        if listen_port is None and 'listenPort' in kwargs:
-            listen_port = kwargs['listenPort']
-        if load_balancer_id is None and 'loadBalancerId' in kwargs:
-            load_balancer_id = kwargs['loadBalancerId']
-
         if destination_port is not None:
-            _setter("destination_port", destination_port)
+            pulumi.set(__self__, "destination_port", destination_port)
         if health_check is not None:
-            _setter("health_check", health_check)
+            pulumi.set(__self__, "health_check", health_check)
         if http is not None:
-            _setter("http", http)
+            pulumi.set(__self__, "http", http)
         if listen_port is not None:
-            _setter("listen_port", listen_port)
+            pulumi.set(__self__, "listen_port", listen_port)
         if load_balancer_id is not None:
-            _setter("load_balancer_id", load_balancer_id)
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if proxyprotocol is not None:
-            _setter("proxyprotocol", proxyprotocol)
+            pulumi.set(__self__, "proxyprotocol", proxyprotocol)
 
     @property
     @pulumi.getter(name="destinationPort")
@@ -440,10 +374,6 @@ class LoadBalancerService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoadBalancerServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -466,9 +396,7 @@ class LoadBalancerService(pulumi.CustomResource):
             __props__ = LoadBalancerServiceArgs.__new__(LoadBalancerServiceArgs)
 
             __props__.__dict__["destination_port"] = destination_port
-            health_check = _utilities.configure(health_check, LoadBalancerServiceHealthCheckArgs, True)
             __props__.__dict__["health_check"] = health_check
-            http = _utilities.configure(http, LoadBalancerServiceHttpArgs, True)
             __props__.__dict__["http"] = http
             __props__.__dict__["listen_port"] = listen_port
             if load_balancer_id is None and not opts.urn:

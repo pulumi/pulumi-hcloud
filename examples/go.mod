@@ -13,9 +13,9 @@ replace (
 require (
 	github.com/pulumi/pulumi-hcloud/provider v0.0.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.63.1
-	github.com/pulumi/pulumi/pkg/v3 v3.90.1
-	github.com/pulumi/pulumi/sdk/v3 v3.90.1
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.63.2
+	github.com/pulumi/pulumi/pkg/v3 v3.91.1
+	github.com/pulumi/pulumi/sdk/v3 v3.91.1
 )
 
 require (

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServerNetworkInitArgs', 'ServerNetwork']
@@ -40,44 +40,15 @@ class ServerNetworkInitArgs:
                *Note*: if the `ip` property is missing, the Server is currently added
                to the last created subnet.
         """
-        ServerNetworkInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_id=server_id,
-            alias_ips=alias_ips,
-            ip=ip,
-            network_id=network_id,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_id: Optional[pulumi.Input[int]] = None,
-             alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             ip: Optional[pulumi.Input[str]] = None,
-             network_id: Optional[pulumi.Input[int]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if server_id is None:
-            raise TypeError("Missing 'server_id' argument")
-        if alias_ips is None and 'aliasIps' in kwargs:
-            alias_ips = kwargs['aliasIps']
-        if network_id is None and 'networkId' in kwargs:
-            network_id = kwargs['networkId']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
-        _setter("server_id", server_id)
+        pulumi.set(__self__, "server_id", server_id)
         if alias_ips is not None:
-            _setter("alias_ips", alias_ips)
+            pulumi.set(__self__, "alias_ips", alias_ips)
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if network_id is not None:
-            _setter("network_id", network_id)
+            pulumi.set(__self__, "network_id", network_id)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="serverId")
@@ -183,49 +154,18 @@ class _ServerNetworkState:
                *Note*: if the `ip` property is missing, the Server is currently added
                to the last created subnet.
         """
-        _ServerNetworkState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alias_ips=alias_ips,
-            ip=ip,
-            mac_address=mac_address,
-            network_id=network_id,
-            server_id=server_id,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             ip: Optional[pulumi.Input[str]] = None,
-             mac_address: Optional[pulumi.Input[str]] = None,
-             network_id: Optional[pulumi.Input[int]] = None,
-             server_id: Optional[pulumi.Input[int]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alias_ips is None and 'aliasIps' in kwargs:
-            alias_ips = kwargs['aliasIps']
-        if mac_address is None and 'macAddress' in kwargs:
-            mac_address = kwargs['macAddress']
-        if network_id is None and 'networkId' in kwargs:
-            network_id = kwargs['networkId']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
         if alias_ips is not None:
-            _setter("alias_ips", alias_ips)
+            pulumi.set(__self__, "alias_ips", alias_ips)
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if mac_address is not None:
-            _setter("mac_address", mac_address)
+            pulumi.set(__self__, "mac_address", mac_address)
         if network_id is not None:
-            _setter("network_id", network_id)
+            pulumi.set(__self__, "network_id", network_id)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="aliasIps")
@@ -422,10 +362,6 @@ class ServerNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerNetworkInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
