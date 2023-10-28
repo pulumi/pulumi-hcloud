@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PrimaryIpArgs', 'PrimaryIp']
@@ -34,58 +34,19 @@ class PrimaryIpArgs:
         :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
         :param pulumi.Input[str] name: Name of the Primary IP.
         """
-        PrimaryIpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assignee_type=assignee_type,
-            auto_delete=auto_delete,
-            type=type,
-            assignee_id=assignee_id,
-            datacenter=datacenter,
-            delete_protection=delete_protection,
-            labels=labels,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assignee_type: Optional[pulumi.Input[str]] = None,
-             auto_delete: Optional[pulumi.Input[bool]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             assignee_id: Optional[pulumi.Input[int]] = None,
-             datacenter: Optional[pulumi.Input[str]] = None,
-             delete_protection: Optional[pulumi.Input[bool]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assignee_type is None and 'assigneeType' in kwargs:
-            assignee_type = kwargs['assigneeType']
-        if assignee_type is None:
-            raise TypeError("Missing 'assignee_type' argument")
-        if auto_delete is None and 'autoDelete' in kwargs:
-            auto_delete = kwargs['autoDelete']
-        if auto_delete is None:
-            raise TypeError("Missing 'auto_delete' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if assignee_id is None and 'assigneeId' in kwargs:
-            assignee_id = kwargs['assigneeId']
-        if delete_protection is None and 'deleteProtection' in kwargs:
-            delete_protection = kwargs['deleteProtection']
-
-        _setter("assignee_type", assignee_type)
-        _setter("auto_delete", auto_delete)
-        _setter("type", type)
+        pulumi.set(__self__, "assignee_type", assignee_type)
+        pulumi.set(__self__, "auto_delete", auto_delete)
+        pulumi.set(__self__, "type", type)
         if assignee_id is not None:
-            _setter("assignee_id", assignee_id)
+            pulumi.set(__self__, "assignee_id", assignee_id)
         if datacenter is not None:
-            _setter("datacenter", datacenter)
+            pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
-            _setter("delete_protection", delete_protection)
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="assigneeType")
@@ -212,67 +173,26 @@ class _PrimaryIpState:
         :param pulumi.Input[str] name: Name of the Primary IP.
         :param pulumi.Input[str] type: Type of the Primary IP. `ipv4` or `ipv6`
         """
-        _PrimaryIpState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assignee_id=assignee_id,
-            assignee_type=assignee_type,
-            auto_delete=auto_delete,
-            datacenter=datacenter,
-            delete_protection=delete_protection,
-            ip_address=ip_address,
-            ip_network=ip_network,
-            labels=labels,
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assignee_id: Optional[pulumi.Input[int]] = None,
-             assignee_type: Optional[pulumi.Input[str]] = None,
-             auto_delete: Optional[pulumi.Input[bool]] = None,
-             datacenter: Optional[pulumi.Input[str]] = None,
-             delete_protection: Optional[pulumi.Input[bool]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             ip_network: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assignee_id is None and 'assigneeId' in kwargs:
-            assignee_id = kwargs['assigneeId']
-        if assignee_type is None and 'assigneeType' in kwargs:
-            assignee_type = kwargs['assigneeType']
-        if auto_delete is None and 'autoDelete' in kwargs:
-            auto_delete = kwargs['autoDelete']
-        if delete_protection is None and 'deleteProtection' in kwargs:
-            delete_protection = kwargs['deleteProtection']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ip_network is None and 'ipNetwork' in kwargs:
-            ip_network = kwargs['ipNetwork']
-
         if assignee_id is not None:
-            _setter("assignee_id", assignee_id)
+            pulumi.set(__self__, "assignee_id", assignee_id)
         if assignee_type is not None:
-            _setter("assignee_type", assignee_type)
+            pulumi.set(__self__, "assignee_type", assignee_type)
         if auto_delete is not None:
-            _setter("auto_delete", auto_delete)
+            pulumi.set(__self__, "auto_delete", auto_delete)
         if datacenter is not None:
-            _setter("datacenter", datacenter)
+            pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
-            _setter("delete_protection", delete_protection)
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if ip_network is not None:
-            _setter("ip_network", ip_network)
+            pulumi.set(__self__, "ip_network", ip_network)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="assigneeId")
@@ -520,10 +440,6 @@ class PrimaryIp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PrimaryIpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
