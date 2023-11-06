@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -166,12 +165,6 @@ func (o LookupServerResultOutput) ToLookupServerResultOutput() LookupServerResul
 
 func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx context.Context) LookupServerResultOutput {
 	return o
-}
-
-func (o LookupServerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerResult] {
-	return pulumix.Output[LookupServerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string) The backup window of the server, if enabled.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Hetzner Cloud Certificate.
@@ -127,12 +126,6 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupC
 
 func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
 	return o
-}
-
-func (o LookupCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCertificateResult] {
-	return pulumix.Output[LookupCertificateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string) PEM encoded TLS certificate.

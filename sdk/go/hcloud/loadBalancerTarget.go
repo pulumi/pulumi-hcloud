@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Adds a target to a Hetzner Cloud Load Balancer.
@@ -253,12 +252,6 @@ func (i *LoadBalancerTarget) ToLoadBalancerTargetOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTargetOutput)
 }
 
-func (i *LoadBalancerTarget) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerTarget] {
-	return pulumix.Output[*LoadBalancerTarget]{
-		OutputState: i.ToLoadBalancerTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerTargetArrayInput is an input type that accepts LoadBalancerTargetArray and LoadBalancerTargetArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerTargetArrayInput` via:
 //
@@ -282,12 +275,6 @@ func (i LoadBalancerTargetArray) ToLoadBalancerTargetArrayOutput() LoadBalancerT
 
 func (i LoadBalancerTargetArray) ToLoadBalancerTargetArrayOutputWithContext(ctx context.Context) LoadBalancerTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTargetArrayOutput)
-}
-
-func (i LoadBalancerTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerTarget] {
-	return pulumix.Output[[]*LoadBalancerTarget]{
-		OutputState: i.ToLoadBalancerTargetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LoadBalancerTargetMapInput is an input type that accepts LoadBalancerTargetMap and LoadBalancerTargetMapOutput values.
@@ -315,12 +302,6 @@ func (i LoadBalancerTargetMap) ToLoadBalancerTargetMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTargetMapOutput)
 }
 
-func (i LoadBalancerTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerTarget] {
-	return pulumix.Output[map[string]*LoadBalancerTarget]{
-		OutputState: i.ToLoadBalancerTargetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerTargetOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerTargetOutput) ElementType() reflect.Type {
@@ -333,12 +314,6 @@ func (o LoadBalancerTargetOutput) ToLoadBalancerTargetOutput() LoadBalancerTarge
 
 func (o LoadBalancerTargetOutput) ToLoadBalancerTargetOutputWithContext(ctx context.Context) LoadBalancerTargetOutput {
 	return o
-}
-
-func (o LoadBalancerTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerTarget] {
-	return pulumix.Output[*LoadBalancerTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IP address for an IP Target. Required if
@@ -392,12 +367,6 @@ func (o LoadBalancerTargetArrayOutput) ToLoadBalancerTargetArrayOutputWithContex
 	return o
 }
 
-func (o LoadBalancerTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerTarget] {
-	return pulumix.Output[[]*LoadBalancerTarget]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoadBalancerTargetArrayOutput) Index(i pulumi.IntInput) LoadBalancerTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancerTarget {
 		return vs[0].([]*LoadBalancerTarget)[vs[1].(int)]
@@ -416,12 +385,6 @@ func (o LoadBalancerTargetMapOutput) ToLoadBalancerTargetMapOutput() LoadBalance
 
 func (o LoadBalancerTargetMapOutput) ToLoadBalancerTargetMapOutputWithContext(ctx context.Context) LoadBalancerTargetMapOutput {
 	return o
-}
-
-func (o LoadBalancerTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerTarget] {
-	return pulumix.Output[map[string]*LoadBalancerTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerTargetMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerTargetOutput {

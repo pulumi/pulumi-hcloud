@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Hetzner Cloud Primary IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
@@ -255,12 +254,6 @@ func (i *PrimaryIp) ToPrimaryIpOutputWithContext(ctx context.Context) PrimaryIpO
 	return pulumi.ToOutputWithContext(ctx, i).(PrimaryIpOutput)
 }
 
-func (i *PrimaryIp) ToOutput(ctx context.Context) pulumix.Output[*PrimaryIp] {
-	return pulumix.Output[*PrimaryIp]{
-		OutputState: i.ToPrimaryIpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrimaryIpArrayInput is an input type that accepts PrimaryIpArray and PrimaryIpArrayOutput values.
 // You can construct a concrete instance of `PrimaryIpArrayInput` via:
 //
@@ -284,12 +277,6 @@ func (i PrimaryIpArray) ToPrimaryIpArrayOutput() PrimaryIpArrayOutput {
 
 func (i PrimaryIpArray) ToPrimaryIpArrayOutputWithContext(ctx context.Context) PrimaryIpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrimaryIpArrayOutput)
-}
-
-func (i PrimaryIpArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrimaryIp] {
-	return pulumix.Output[[]*PrimaryIp]{
-		OutputState: i.ToPrimaryIpArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrimaryIpMapInput is an input type that accepts PrimaryIpMap and PrimaryIpMapOutput values.
@@ -317,12 +304,6 @@ func (i PrimaryIpMap) ToPrimaryIpMapOutputWithContext(ctx context.Context) Prima
 	return pulumi.ToOutputWithContext(ctx, i).(PrimaryIpMapOutput)
 }
 
-func (i PrimaryIpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrimaryIp] {
-	return pulumix.Output[map[string]*PrimaryIp]{
-		OutputState: i.ToPrimaryIpMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrimaryIpOutput struct{ *pulumi.OutputState }
 
 func (PrimaryIpOutput) ElementType() reflect.Type {
@@ -335,12 +316,6 @@ func (o PrimaryIpOutput) ToPrimaryIpOutput() PrimaryIpOutput {
 
 func (o PrimaryIpOutput) ToPrimaryIpOutputWithContext(ctx context.Context) PrimaryIpOutput {
 	return o
-}
-
-func (o PrimaryIpOutput) ToOutput(ctx context.Context) pulumix.Output[*PrimaryIp] {
-	return pulumix.Output[*PrimaryIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the assigned resource
@@ -408,12 +383,6 @@ func (o PrimaryIpArrayOutput) ToPrimaryIpArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PrimaryIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrimaryIp] {
-	return pulumix.Output[[]*PrimaryIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrimaryIpArrayOutput) Index(i pulumi.IntInput) PrimaryIpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrimaryIp {
 		return vs[0].([]*PrimaryIp)[vs[1].(int)]
@@ -432,12 +401,6 @@ func (o PrimaryIpMapOutput) ToPrimaryIpMapOutput() PrimaryIpMapOutput {
 
 func (o PrimaryIpMapOutput) ToPrimaryIpMapOutputWithContext(ctx context.Context) PrimaryIpMapOutput {
 	return o
-}
-
-func (o PrimaryIpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrimaryIp] {
-	return pulumix.Output[map[string]*PrimaryIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrimaryIpMapOutput) MapIndex(k pulumi.StringInput) PrimaryIpOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Upload a TLS certificate to Hetzner Cloud.
@@ -189,12 +188,6 @@ func (i *UploadedCertificate) ToUploadedCertificateOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UploadedCertificateOutput)
 }
 
-func (i *UploadedCertificate) ToOutput(ctx context.Context) pulumix.Output[*UploadedCertificate] {
-	return pulumix.Output[*UploadedCertificate]{
-		OutputState: i.ToUploadedCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UploadedCertificateArrayInput is an input type that accepts UploadedCertificateArray and UploadedCertificateArrayOutput values.
 // You can construct a concrete instance of `UploadedCertificateArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i UploadedCertificateArray) ToUploadedCertificateArrayOutput() UploadedCer
 
 func (i UploadedCertificateArray) ToUploadedCertificateArrayOutputWithContext(ctx context.Context) UploadedCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UploadedCertificateArrayOutput)
-}
-
-func (i UploadedCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*UploadedCertificate] {
-	return pulumix.Output[[]*UploadedCertificate]{
-		OutputState: i.ToUploadedCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UploadedCertificateMapInput is an input type that accepts UploadedCertificateMap and UploadedCertificateMapOutput values.
@@ -251,12 +238,6 @@ func (i UploadedCertificateMap) ToUploadedCertificateMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(UploadedCertificateMapOutput)
 }
 
-func (i UploadedCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UploadedCertificate] {
-	return pulumix.Output[map[string]*UploadedCertificate]{
-		OutputState: i.ToUploadedCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UploadedCertificateOutput struct{ *pulumi.OutputState }
 
 func (UploadedCertificateOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o UploadedCertificateOutput) ToUploadedCertificateOutput() UploadedCertifi
 
 func (o UploadedCertificateOutput) ToUploadedCertificateOutputWithContext(ctx context.Context) UploadedCertificateOutput {
 	return o
-}
-
-func (o UploadedCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*UploadedCertificate] {
-	return pulumix.Output[*UploadedCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // PEM encoded TLS certificate.
@@ -341,12 +316,6 @@ func (o UploadedCertificateArrayOutput) ToUploadedCertificateArrayOutputWithCont
 	return o
 }
 
-func (o UploadedCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UploadedCertificate] {
-	return pulumix.Output[[]*UploadedCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UploadedCertificateArrayOutput) Index(i pulumi.IntInput) UploadedCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UploadedCertificate {
 		return vs[0].([]*UploadedCertificate)[vs[1].(int)]
@@ -365,12 +334,6 @@ func (o UploadedCertificateMapOutput) ToUploadedCertificateMapOutput() UploadedC
 
 func (o UploadedCertificateMapOutput) ToUploadedCertificateMapOutputWithContext(ctx context.Context) UploadedCertificateMapOutput {
 	return o
-}
-
-func (o UploadedCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UploadedCertificate] {
-	return pulumix.Output[map[string]*UploadedCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UploadedCertificateMapOutput) MapIndex(k pulumi.StringInput) UploadedCertificateOutput {

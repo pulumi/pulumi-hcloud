@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a list of available Hetzner Cloud Datacenters.
@@ -90,12 +89,6 @@ func (o GetDatacentersResultOutput) ToGetDatacentersResultOutput() GetDatacenter
 
 func (o GetDatacentersResultOutput) ToGetDatacentersResultOutputWithContext(ctx context.Context) GetDatacentersResultOutput {
 	return o
-}
-
-func (o GetDatacentersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDatacentersResult] {
-	return pulumix.Output[GetDatacentersResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.

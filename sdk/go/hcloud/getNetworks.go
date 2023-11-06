@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Hetzner Cloud Networks.
@@ -104,12 +103,6 @@ func (o GetNetworksResultOutput) ToGetNetworksResultOutput() GetNetworksResultOu
 
 func (o GetNetworksResultOutput) ToGetNetworksResultOutputWithContext(ctx context.Context) GetNetworksResultOutput {
 	return o
-}
-
-func (o GetNetworksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworksResult] {
-	return pulumix.Output[GetNetworksResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.
