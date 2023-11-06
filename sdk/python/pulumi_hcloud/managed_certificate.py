@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ManagedCertificateArgs', 'ManagedCertificate']
@@ -25,11 +25,30 @@ class ManagedCertificateArgs:
                certificate should be created with.
         :param pulumi.Input[str] name: Name of the Certificate.
         """
-        pulumi.set(__self__, "domain_names", domain_names)
+        ManagedCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_names=domain_names,
+            labels=labels,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_names is None and 'domainNames' in kwargs:
+            domain_names = kwargs['domainNames']
+        if domain_names is None:
+            raise TypeError("Missing 'domain_names' argument")
+
+        _setter("domain_names", domain_names)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="domainNames")
@@ -95,24 +114,57 @@ class _ManagedCertificateState:
         :param pulumi.Input[str] not_valid_after: (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
         :param pulumi.Input[str] not_valid_before: (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
         """
+        _ManagedCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            created=created,
+            domain_names=domain_names,
+            fingerprint=fingerprint,
+            labels=labels,
+            name=name,
+            not_valid_after=not_valid_after,
+            not_valid_before=not_valid_before,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             created: Optional[pulumi.Input[str]] = None,
+             domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fingerprint: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             not_valid_after: Optional[pulumi.Input[str]] = None,
+             not_valid_before: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_names is None and 'domainNames' in kwargs:
+            domain_names = kwargs['domainNames']
+        if not_valid_after is None and 'notValidAfter' in kwargs:
+            not_valid_after = kwargs['notValidAfter']
+        if not_valid_before is None and 'notValidBefore' in kwargs:
+            not_valid_before = kwargs['notValidBefore']
+
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if domain_names is not None:
-            pulumi.set(__self__, "domain_names", domain_names)
+            _setter("domain_names", domain_names)
         if fingerprint is not None:
-            pulumi.set(__self__, "fingerprint", fingerprint)
+            _setter("fingerprint", fingerprint)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if not_valid_after is not None:
-            pulumi.set(__self__, "not_valid_after", not_valid_after)
+            _setter("not_valid_after", not_valid_after)
         if not_valid_before is not None:
-            pulumi.set(__self__, "not_valid_before", not_valid_before)
+            _setter("not_valid_before", not_valid_before)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -277,6 +329,10 @@ class ManagedCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

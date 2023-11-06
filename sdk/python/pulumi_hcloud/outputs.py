@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -80,10 +80,25 @@ class FirewallApplyTo(dict):
         :param int server: ID of the server you want to apply the firewall to (only one of `server`
                and `label_selector`can be applied in one block)
         """
+        FirewallApplyTo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_selector=label_selector,
+            server=server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_selector: Optional[str] = None,
+             server: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label_selector is None and 'labelSelector' in kwargs:
+            label_selector = kwargs['labelSelector']
+
         if label_selector is not None:
-            pulumi.set(__self__, "label_selector", label_selector)
+            _setter("label_selector", label_selector)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
 
     @property
     @pulumi.getter(name="labelSelector")
@@ -143,16 +158,45 @@ class FirewallRule(dict):
                85.
         :param Sequence[str] source_ips: List of CIDRs that are allowed within this Firewall Rule
         """
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "protocol", protocol)
+        FirewallRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            protocol=protocol,
+            description=description,
+            destination_ips=destination_ips,
+            port=port,
+            source_ips=source_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: Optional[str] = None,
+             protocol: Optional[str] = None,
+             description: Optional[str] = None,
+             destination_ips: Optional[Sequence[str]] = None,
+             port: Optional[str] = None,
+             source_ips: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if destination_ips is None and 'destinationIps' in kwargs:
+            destination_ips = kwargs['destinationIps']
+        if source_ips is None and 'sourceIps' in kwargs:
+            source_ips = kwargs['sourceIps']
+
+        _setter("direction", direction)
+        _setter("protocol", protocol)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_ips is not None:
-            pulumi.set(__self__, "destination_ips", destination_ips)
+            _setter("destination_ips", destination_ips)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if source_ips is not None:
-            pulumi.set(__self__, "source_ips", source_ips)
+            _setter("source_ips", source_ips)
 
     @property
     @pulumi.getter
@@ -213,8 +257,19 @@ class LoadBalancerAlgorithm(dict):
         """
         :param str type: Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
+        LoadBalancerAlgorithm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -242,14 +297,43 @@ class LoadBalancerServiceHealthCheck(dict):
         :param 'LoadBalancerServiceHealthCheckHttpArgs' http: HTTP configuration. Required if `protocol` is `http`.
         :param int retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout", timeout)
+        LoadBalancerServiceHealthCheck._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interval=interval,
+            port=port,
+            protocol=protocol,
+            timeout=timeout,
+            http=http,
+            retries=retries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interval: Optional[int] = None,
+             port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             timeout: Optional[int] = None,
+             http: Optional['outputs.LoadBalancerServiceHealthCheckHttp'] = None,
+             retries: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+
+        _setter("interval", interval)
+        _setter("port", port)
+        _setter("protocol", protocol)
+        _setter("timeout", timeout)
         if http is not None:
-            pulumi.set(__self__, "http", http)
+            _setter("http", http)
         if retries is not None:
-            pulumi.set(__self__, "retries", retries)
+            _setter("retries", retries)
 
     @property
     @pulumi.getter
@@ -332,16 +416,37 @@ class LoadBalancerServiceHealthCheckHttp(dict):
         :param Sequence[str] status_codes: We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         :param bool tls: Enable TLS certificate checking.
         """
+        LoadBalancerServiceHealthCheckHttp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            path=path,
+            response=response,
+            status_codes=status_codes,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[str] = None,
+             path: Optional[str] = None,
+             response: Optional[str] = None,
+             status_codes: Optional[Sequence[str]] = None,
+             tls: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if status_codes is None and 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if response is not None:
-            pulumi.set(__self__, "response", response)
+            _setter("response", response)
         if status_codes is not None:
-            pulumi.set(__self__, "status_codes", status_codes)
+            _setter("status_codes", status_codes)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -422,16 +527,43 @@ class LoadBalancerServiceHttp(dict):
         :param bool redirect_http: Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
         :param bool sticky_sessions: Enable sticky sessions
         """
+        LoadBalancerServiceHttp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            cookie_lifetime=cookie_lifetime,
+            cookie_name=cookie_name,
+            redirect_http=redirect_http,
+            sticky_sessions=sticky_sessions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[Sequence[int]] = None,
+             cookie_lifetime: Optional[int] = None,
+             cookie_name: Optional[str] = None,
+             redirect_http: Optional[bool] = None,
+             sticky_sessions: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cookie_lifetime is None and 'cookieLifetime' in kwargs:
+            cookie_lifetime = kwargs['cookieLifetime']
+        if cookie_name is None and 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if redirect_http is None and 'redirectHttp' in kwargs:
+            redirect_http = kwargs['redirectHttp']
+        if sticky_sessions is None and 'stickySessions' in kwargs:
+            sticky_sessions = kwargs['stickySessions']
+
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if cookie_lifetime is not None:
-            pulumi.set(__self__, "cookie_lifetime", cookie_lifetime)
+            _setter("cookie_lifetime", cookie_lifetime)
         if cookie_name is not None:
-            pulumi.set(__self__, "cookie_name", cookie_name)
+            _setter("cookie_name", cookie_name)
         if redirect_http is not None:
-            pulumi.set(__self__, "redirect_http", redirect_http)
+            _setter("redirect_http", redirect_http)
         if sticky_sessions is not None:
-            pulumi.set(__self__, "sticky_sessions", sticky_sessions)
+            _setter("sticky_sessions", sticky_sessions)
 
     @property
     @pulumi.getter
@@ -502,11 +634,32 @@ class LoadBalancerTarget(dict):
         """
         :param str type: Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
-        pulumi.set(__self__, "type", type)
+        LoadBalancerTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            server_id=server_id,
+            use_private_ip=use_private_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             server_id: Optional[int] = None,
+             use_private_ip: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if use_private_ip is None and 'usePrivateIp' in kwargs:
+            use_private_ip = kwargs['usePrivateIp']
+
+        _setter("type", type)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if use_private_ip is not None:
-            pulumi.set(__self__, "use_private_ip", use_private_ip)
+            _setter("use_private_ip", use_private_ip)
 
     @property
     @pulumi.getter
@@ -564,13 +717,38 @@ class ServerNetwork(dict):
         :param str ip: Specify the IP the server should get in the network
         :param str mac_address: (Optional, string) The MAC address the private interface of the server has
         """
-        pulumi.set(__self__, "network_id", network_id)
+        ServerNetwork._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_id=network_id,
+            alias_ips=alias_ips,
+            ip=ip,
+            mac_address=mac_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_id: Optional[int] = None,
+             alias_ips: Optional[Sequence[str]] = None,
+             ip: Optional[str] = None,
+             mac_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if network_id is None:
+            raise TypeError("Missing 'network_id' argument")
+        if alias_ips is None and 'aliasIps' in kwargs:
+            alias_ips = kwargs['aliasIps']
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+
+        _setter("network_id", network_id)
         if alias_ips is not None:
-            pulumi.set(__self__, "alias_ips", alias_ips)
+            _setter("alias_ips", alias_ips)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
 
     @property
     @pulumi.getter(name="networkId")
@@ -631,14 +809,35 @@ class ServerPublicNet(dict):
                  ipv4_enabled: Optional[bool] = None,
                  ipv6: Optional[int] = None,
                  ipv6_enabled: Optional[bool] = None):
+        ServerPublicNet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4=ipv4,
+            ipv4_enabled=ipv4_enabled,
+            ipv6=ipv6,
+            ipv6_enabled=ipv6_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4: Optional[int] = None,
+             ipv4_enabled: Optional[bool] = None,
+             ipv6: Optional[int] = None,
+             ipv6_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ipv4_enabled is None and 'ipv4Enabled' in kwargs:
+            ipv4_enabled = kwargs['ipv4Enabled']
+        if ipv6_enabled is None and 'ipv6Enabled' in kwargs:
+            ipv6_enabled = kwargs['ipv6Enabled']
+
         if ipv4 is not None:
-            pulumi.set(__self__, "ipv4", ipv4)
+            _setter("ipv4", ipv4)
         if ipv4_enabled is not None:
-            pulumi.set(__self__, "ipv4_enabled", ipv4_enabled)
+            _setter("ipv4_enabled", ipv4_enabled)
         if ipv6 is not None:
-            pulumi.set(__self__, "ipv6", ipv6)
+            _setter("ipv6", ipv6)
         if ipv6_enabled is not None:
-            pulumi.set(__self__, "ipv6_enabled", ipv6_enabled)
+            _setter("ipv6_enabled", ipv6_enabled)
 
     @property
     @pulumi.getter
@@ -674,17 +873,70 @@ class GetCertificatesCertificateResult(dict):
                  not_valid_before: str,
                  type: str,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "created", created)
-        pulumi.set(__self__, "domain_names", domain_names)
-        pulumi.set(__self__, "fingerprint", fingerprint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "not_valid_after", not_valid_after)
-        pulumi.set(__self__, "not_valid_before", not_valid_before)
-        pulumi.set(__self__, "type", type)
+        GetCertificatesCertificateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            created=created,
+            domain_names=domain_names,
+            fingerprint=fingerprint,
+            id=id,
+            labels=labels,
+            not_valid_after=not_valid_after,
+            not_valid_before=not_valid_before,
+            type=type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[str] = None,
+             created: Optional[str] = None,
+             domain_names: Optional[Sequence[str]] = None,
+             fingerprint: Optional[str] = None,
+             id: Optional[int] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             not_valid_after: Optional[str] = None,
+             not_valid_before: Optional[str] = None,
+             type: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if created is None:
+            raise TypeError("Missing 'created' argument")
+        if domain_names is None and 'domainNames' in kwargs:
+            domain_names = kwargs['domainNames']
+        if domain_names is None:
+            raise TypeError("Missing 'domain_names' argument")
+        if fingerprint is None:
+            raise TypeError("Missing 'fingerprint' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if not_valid_after is None and 'notValidAfter' in kwargs:
+            not_valid_after = kwargs['notValidAfter']
+        if not_valid_after is None:
+            raise TypeError("Missing 'not_valid_after' argument")
+        if not_valid_before is None and 'notValidBefore' in kwargs:
+            not_valid_before = kwargs['notValidBefore']
+        if not_valid_before is None:
+            raise TypeError("Missing 'not_valid_before' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("certificate", certificate)
+        _setter("created", created)
+        _setter("domain_names", domain_names)
+        _setter("fingerprint", fingerprint)
+        _setter("id", id)
+        _setter("labels", labels)
+        _setter("not_valid_after", not_valid_after)
+        _setter("not_valid_before", not_valid_before)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -746,12 +998,49 @@ class GetDatacentersDatacenterResult(dict):
                  location: Mapping[str, Any],
                  name: str,
                  supported_server_type_ids: Sequence[int]):
-        pulumi.set(__self__, "available_server_type_ids", available_server_type_ids)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "supported_server_type_ids", supported_server_type_ids)
+        GetDatacentersDatacenterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_server_type_ids=available_server_type_ids,
+            description=description,
+            id=id,
+            location=location,
+            name=name,
+            supported_server_type_ids=supported_server_type_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_server_type_ids: Optional[Sequence[int]] = None,
+             description: Optional[str] = None,
+             id: Optional[int] = None,
+             location: Optional[Mapping[str, Any]] = None,
+             name: Optional[str] = None,
+             supported_server_type_ids: Optional[Sequence[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if available_server_type_ids is None and 'availableServerTypeIds' in kwargs:
+            available_server_type_ids = kwargs['availableServerTypeIds']
+        if available_server_type_ids is None:
+            raise TypeError("Missing 'available_server_type_ids' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if supported_server_type_ids is None and 'supportedServerTypeIds' in kwargs:
+            supported_server_type_ids = kwargs['supportedServerTypeIds']
+        if supported_server_type_ids is None:
+            raise TypeError("Missing 'supported_server_type_ids' argument")
+
+        _setter("available_server_type_ids", available_server_type_ids)
+        _setter("description", description)
+        _setter("id", id)
+        _setter("location", location)
+        _setter("name", name)
+        _setter("supported_server_type_ids", supported_server_type_ids)
 
     @property
     @pulumi.getter(name="availableServerTypeIds")
@@ -794,8 +1083,27 @@ class GetFirewallApplyToResult(dict):
                referenced
         :param int server: (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
         """
-        pulumi.set(__self__, "label_selector", label_selector)
-        pulumi.set(__self__, "server", server)
+        GetFirewallApplyToResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_selector=label_selector,
+            server=server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_selector: Optional[str] = None,
+             server: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label_selector is None and 'labelSelector' in kwargs:
+            label_selector = kwargs['labelSelector']
+        if label_selector is None:
+            raise TypeError("Missing 'label_selector' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+
+        _setter("label_selector", label_selector)
+        _setter("server", server)
 
     @property
     @pulumi.getter(name="labelSelector")
@@ -832,17 +1140,44 @@ class GetFirewallRuleResult(dict):
         :param str protocol: (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param Sequence[str] source_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
         """
-        pulumi.set(__self__, "direction", direction)
+        GetFirewallRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            description=description,
+            destination_ips=destination_ips,
+            port=port,
+            protocol=protocol,
+            source_ips=source_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: Optional[str] = None,
+             description: Optional[str] = None,
+             destination_ips: Optional[Sequence[str]] = None,
+             port: Optional[str] = None,
+             protocol: Optional[str] = None,
+             source_ips: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if destination_ips is None and 'destinationIps' in kwargs:
+            destination_ips = kwargs['destinationIps']
+        if source_ips is None and 'sourceIps' in kwargs:
+            source_ips = kwargs['sourceIps']
+
+        _setter("direction", direction)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_ips is not None:
-            pulumi.set(__self__, "destination_ips", destination_ips)
+            _setter("destination_ips", destination_ips)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if source_ips is not None:
-            pulumi.set(__self__, "source_ips", source_ips)
+            _setter("source_ips", source_ips)
 
     @property
     @pulumi.getter
@@ -901,15 +1236,38 @@ class GetFirewallsFirewallResult(dict):
                  id: Optional[int] = None,
                  labels: Optional[Mapping[str, Any]] = None,
                  rules: Optional[Sequence['outputs.GetFirewallsFirewallRuleResult']] = None):
-        pulumi.set(__self__, "name", name)
+        GetFirewallsFirewallResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            apply_tos=apply_tos,
+            id=id,
+            labels=labels,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             apply_tos: Optional[Sequence['outputs.GetFirewallsFirewallApplyToResult']] = None,
+             id: Optional[int] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             rules: Optional[Sequence['outputs.GetFirewallsFirewallRuleResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if apply_tos is None and 'applyTos' in kwargs:
+            apply_tos = kwargs['applyTos']
+
+        _setter("name", name)
         if apply_tos is not None:
-            pulumi.set(__self__, "apply_tos", apply_tos)
+            _setter("apply_tos", apply_tos)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -942,8 +1300,27 @@ class GetFirewallsFirewallApplyToResult(dict):
     def __init__(__self__, *,
                  label_selector: str,
                  server: int):
-        pulumi.set(__self__, "label_selector", label_selector)
-        pulumi.set(__self__, "server", server)
+        GetFirewallsFirewallApplyToResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_selector=label_selector,
+            server=server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_selector: Optional[str] = None,
+             server: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label_selector is None and 'labelSelector' in kwargs:
+            label_selector = kwargs['labelSelector']
+        if label_selector is None:
+            raise TypeError("Missing 'label_selector' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+
+        _setter("label_selector", label_selector)
+        _setter("server", server)
 
     @property
     @pulumi.getter(name="labelSelector")
@@ -965,17 +1342,44 @@ class GetFirewallsFirewallRuleResult(dict):
                  port: Optional[str] = None,
                  protocol: Optional[str] = None,
                  source_ips: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "direction", direction)
+        GetFirewallsFirewallRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            description=description,
+            destination_ips=destination_ips,
+            port=port,
+            protocol=protocol,
+            source_ips=source_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: Optional[str] = None,
+             description: Optional[str] = None,
+             destination_ips: Optional[Sequence[str]] = None,
+             port: Optional[str] = None,
+             protocol: Optional[str] = None,
+             source_ips: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if destination_ips is None and 'destinationIps' in kwargs:
+            destination_ips = kwargs['destinationIps']
+        if source_ips is None and 'sourceIps' in kwargs:
+            source_ips = kwargs['sourceIps']
+
+        _setter("direction", direction)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_ips is not None:
-            pulumi.set(__self__, "destination_ips", destination_ips)
+            _setter("destination_ips", destination_ips)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if source_ips is not None:
-            pulumi.set(__self__, "source_ips", source_ips)
+            _setter("source_ips", source_ips)
 
     @property
     @pulumi.getter
@@ -1021,17 +1425,74 @@ class GetFloatingIpsFloatingIpResult(dict):
                  server_id: int,
                  type: str,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "delete_protection", delete_protection)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "home_location", home_location)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "ip_network", ip_network)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "server_id", server_id)
-        pulumi.set(__self__, "type", type)
+        GetFloatingIpsFloatingIpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_protection=delete_protection,
+            description=description,
+            home_location=home_location,
+            id=id,
+            ip_address=ip_address,
+            ip_network=ip_network,
+            labels=labels,
+            server_id=server_id,
+            type=type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_protection: Optional[bool] = None,
+             description: Optional[str] = None,
+             home_location: Optional[str] = None,
+             id: Optional[int] = None,
+             ip_address: Optional[str] = None,
+             ip_network: Optional[str] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             server_id: Optional[int] = None,
+             type: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if delete_protection is None:
+            raise TypeError("Missing 'delete_protection' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if home_location is None and 'homeLocation' in kwargs:
+            home_location = kwargs['homeLocation']
+        if home_location is None:
+            raise TypeError("Missing 'home_location' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if ip_network is None and 'ipNetwork' in kwargs:
+            ip_network = kwargs['ipNetwork']
+        if ip_network is None:
+            raise TypeError("Missing 'ip_network' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("delete_protection", delete_protection)
+        _setter("description", description)
+        _setter("home_location", home_location)
+        _setter("id", id)
+        _setter("ip_address", ip_address)
+        _setter("ip_network", ip_network)
+        _setter("labels", labels)
+        _setter("server_id", server_id)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deleteProtection")
@@ -1099,19 +1560,80 @@ class GetImagesImageResult(dict):
                  rapid_deploy: bool,
                  type: str,
                  selector: Optional[str] = None):
-        pulumi.set(__self__, "architecture", architecture)
-        pulumi.set(__self__, "created", created)
-        pulumi.set(__self__, "deprecated", deprecated)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "os_flavor", os_flavor)
-        pulumi.set(__self__, "os_version", os_version)
-        pulumi.set(__self__, "rapid_deploy", rapid_deploy)
-        pulumi.set(__self__, "type", type)
+        GetImagesImageResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            architecture=architecture,
+            created=created,
+            deprecated=deprecated,
+            description=description,
+            id=id,
+            labels=labels,
+            name=name,
+            os_flavor=os_flavor,
+            os_version=os_version,
+            rapid_deploy=rapid_deploy,
+            type=type,
+            selector=selector,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             architecture: Optional[str] = None,
+             created: Optional[str] = None,
+             deprecated: Optional[str] = None,
+             description: Optional[str] = None,
+             id: Optional[int] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             name: Optional[str] = None,
+             os_flavor: Optional[str] = None,
+             os_version: Optional[str] = None,
+             rapid_deploy: Optional[bool] = None,
+             type: Optional[str] = None,
+             selector: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if architecture is None:
+            raise TypeError("Missing 'architecture' argument")
+        if created is None:
+            raise TypeError("Missing 'created' argument")
+        if deprecated is None:
+            raise TypeError("Missing 'deprecated' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if os_flavor is None and 'osFlavor' in kwargs:
+            os_flavor = kwargs['osFlavor']
+        if os_flavor is None:
+            raise TypeError("Missing 'os_flavor' argument")
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if os_version is None:
+            raise TypeError("Missing 'os_version' argument")
+        if rapid_deploy is None and 'rapidDeploy' in kwargs:
+            rapid_deploy = kwargs['rapidDeploy']
+        if rapid_deploy is None:
+            raise TypeError("Missing 'rapid_deploy' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("architecture", architecture)
+        _setter("created", created)
+        _setter("deprecated", deprecated)
+        _setter("description", description)
+        _setter("id", id)
+        _setter("labels", labels)
+        _setter("name", name)
+        _setter("os_flavor", os_flavor)
+        _setter("os_version", os_version)
+        _setter("rapid_deploy", rapid_deploy)
+        _setter("type", type)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
 
     @property
     @pulumi.getter
@@ -1184,7 +1706,20 @@ class GetLoadBalancerAlgorithmResult(dict):
         """
         :param str type: (string) Type of the target. `server` or `label_selector`
         """
-        pulumi.set(__self__, "type", type)
+        GetLoadBalancerAlgorithmResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1212,12 +1747,51 @@ class GetLoadBalancerServiceResult(dict):
         :param str protocol: (string) Protocol the health check uses. `http`, `https` or `tcp`
         :param bool proxyprotocol: (bool) Enable proxyprotocol.
         """
-        pulumi.set(__self__, "destination_port", destination_port)
-        pulumi.set(__self__, "health_checks", health_checks)
-        pulumi.set(__self__, "https", https)
-        pulumi.set(__self__, "listen_port", listen_port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "proxyprotocol", proxyprotocol)
+        GetLoadBalancerServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_port=destination_port,
+            health_checks=health_checks,
+            https=https,
+            listen_port=listen_port,
+            protocol=protocol,
+            proxyprotocol=proxyprotocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_port: Optional[int] = None,
+             health_checks: Optional[Sequence['outputs.GetLoadBalancerServiceHealthCheckResult']] = None,
+             https: Optional[Sequence['outputs.GetLoadBalancerServiceHttpResult']] = None,
+             listen_port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             proxyprotocol: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if destination_port is None:
+            raise TypeError("Missing 'destination_port' argument")
+        if health_checks is None and 'healthChecks' in kwargs:
+            health_checks = kwargs['healthChecks']
+        if health_checks is None:
+            raise TypeError("Missing 'health_checks' argument")
+        if https is None:
+            raise TypeError("Missing 'https' argument")
+        if listen_port is None and 'listenPort' in kwargs:
+            listen_port = kwargs['listenPort']
+        if listen_port is None:
+            raise TypeError("Missing 'listen_port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if proxyprotocol is None:
+            raise TypeError("Missing 'proxyprotocol' argument")
+
+        _setter("destination_port", destination_port)
+        _setter("health_checks", health_checks)
+        _setter("https", https)
+        _setter("listen_port", listen_port)
+        _setter("protocol", protocol)
+        _setter("proxyprotocol", proxyprotocol)
 
     @property
     @pulumi.getter(name="destinationPort")
@@ -1285,12 +1859,45 @@ class GetLoadBalancerServiceHealthCheckResult(dict):
         :param int retries: (int) Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         :param int timeout: (int) Timeout when a health check try will be canceled if there is no response, in seconds.
         """
-        pulumi.set(__self__, "https", https)
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "retries", retries)
-        pulumi.set(__self__, "timeout", timeout)
+        GetLoadBalancerServiceHealthCheckResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            https=https,
+            interval=interval,
+            port=port,
+            protocol=protocol,
+            retries=retries,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             https: Optional[Sequence['outputs.GetLoadBalancerServiceHealthCheckHttpResult']] = None,
+             interval: Optional[int] = None,
+             port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             retries: Optional[int] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if https is None:
+            raise TypeError("Missing 'https' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if retries is None:
+            raise TypeError("Missing 'retries' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+
+        _setter("https", https)
+        _setter("interval", interval)
+        _setter("port", port)
+        _setter("protocol", protocol)
+        _setter("retries", retries)
+        _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1356,11 +1963,42 @@ class GetLoadBalancerServiceHealthCheckHttpResult(dict):
         :param Sequence[int] status_codes: (list[int]) We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         :param bool tls: (bool) Enable TLS certificate checking.
         """
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "response", response)
-        pulumi.set(__self__, "status_codes", status_codes)
-        pulumi.set(__self__, "tls", tls)
+        GetLoadBalancerServiceHealthCheckHttpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            path=path,
+            response=response,
+            status_codes=status_codes,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[str] = None,
+             path: Optional[str] = None,
+             response: Optional[str] = None,
+             status_codes: Optional[Sequence[int]] = None,
+             tls: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if response is None:
+            raise TypeError("Missing 'response' argument")
+        if status_codes is None and 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+        if status_codes is None:
+            raise TypeError("Missing 'status_codes' argument")
+        if tls is None:
+            raise TypeError("Missing 'tls' argument")
+
+        _setter("domain", domain)
+        _setter("path", path)
+        _setter("response", response)
+        _setter("status_codes", status_codes)
+        _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -1418,11 +2056,48 @@ class GetLoadBalancerServiceHttpResult(dict):
         :param bool redirect_http: (string) Determine if all requests from port 80 should be redirected to port 443.
         :param bool sticky_sessions: (string) Determine if sticky sessions are enabled or not.
         """
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "cookie_lifetime", cookie_lifetime)
-        pulumi.set(__self__, "cookie_name", cookie_name)
-        pulumi.set(__self__, "redirect_http", redirect_http)
-        pulumi.set(__self__, "sticky_sessions", sticky_sessions)
+        GetLoadBalancerServiceHttpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            cookie_lifetime=cookie_lifetime,
+            cookie_name=cookie_name,
+            redirect_http=redirect_http,
+            sticky_sessions=sticky_sessions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[Sequence[str]] = None,
+             cookie_lifetime: Optional[int] = None,
+             cookie_name: Optional[str] = None,
+             redirect_http: Optional[bool] = None,
+             sticky_sessions: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if cookie_lifetime is None and 'cookieLifetime' in kwargs:
+            cookie_lifetime = kwargs['cookieLifetime']
+        if cookie_lifetime is None:
+            raise TypeError("Missing 'cookie_lifetime' argument")
+        if cookie_name is None and 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if cookie_name is None:
+            raise TypeError("Missing 'cookie_name' argument")
+        if redirect_http is None and 'redirectHttp' in kwargs:
+            redirect_http = kwargs['redirectHttp']
+        if redirect_http is None:
+            raise TypeError("Missing 'redirect_http' argument")
+        if sticky_sessions is None and 'stickySessions' in kwargs:
+            sticky_sessions = kwargs['stickySessions']
+        if sticky_sessions is None:
+            raise TypeError("Missing 'sticky_sessions' argument")
+
+        _setter("certificates", certificates)
+        _setter("cookie_lifetime", cookie_lifetime)
+        _setter("cookie_name", cookie_name)
+        _setter("redirect_http", redirect_http)
+        _setter("sticky_sessions", sticky_sessions)
 
     @property
     @pulumi.getter
@@ -1476,9 +2151,34 @@ class GetLoadBalancerTargetResult(dict):
         :param int server_id: (int) ID of the server which should be a target for this Load Balancer.
         :param str type: (string) Type of the target. `server` or `label_selector`
         """
-        pulumi.set(__self__, "label_selector", label_selector)
-        pulumi.set(__self__, "server_id", server_id)
-        pulumi.set(__self__, "type", type)
+        GetLoadBalancerTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_selector=label_selector,
+            server_id=server_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_selector: Optional[str] = None,
+             server_id: Optional[int] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label_selector is None and 'labelSelector' in kwargs:
+            label_selector = kwargs['labelSelector']
+        if label_selector is None:
+            raise TypeError("Missing 'label_selector' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("label_selector", label_selector)
+        _setter("server_id", server_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="labelSelector")
@@ -1522,21 +2222,94 @@ class GetLoadBalancersLoadBalancerResult(dict):
                  services: Sequence['outputs.GetLoadBalancersLoadBalancerServiceResult'],
                  targets: Sequence['outputs.GetLoadBalancersLoadBalancerTargetResult'],
                  name: Optional[str] = None):
-        pulumi.set(__self__, "algorithms", algorithms)
-        pulumi.set(__self__, "delete_protection", delete_protection)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ipv4", ipv4)
-        pulumi.set(__self__, "ipv6", ipv6)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "network_id", network_id)
-        pulumi.set(__self__, "network_ip", network_ip)
-        pulumi.set(__self__, "network_zone", network_zone)
-        pulumi.set(__self__, "services", services)
-        pulumi.set(__self__, "targets", targets)
+        GetLoadBalancersLoadBalancerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithms=algorithms,
+            delete_protection=delete_protection,
+            id=id,
+            ipv4=ipv4,
+            ipv6=ipv6,
+            labels=labels,
+            load_balancer_type=load_balancer_type,
+            location=location,
+            network_id=network_id,
+            network_ip=network_ip,
+            network_zone=network_zone,
+            services=services,
+            targets=targets,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithms: Optional[Sequence['outputs.GetLoadBalancersLoadBalancerAlgorithmResult']] = None,
+             delete_protection: Optional[bool] = None,
+             id: Optional[int] = None,
+             ipv4: Optional[str] = None,
+             ipv6: Optional[str] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             load_balancer_type: Optional[str] = None,
+             location: Optional[str] = None,
+             network_id: Optional[int] = None,
+             network_ip: Optional[str] = None,
+             network_zone: Optional[str] = None,
+             services: Optional[Sequence['outputs.GetLoadBalancersLoadBalancerServiceResult']] = None,
+             targets: Optional[Sequence['outputs.GetLoadBalancersLoadBalancerTargetResult']] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if algorithms is None:
+            raise TypeError("Missing 'algorithms' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if delete_protection is None:
+            raise TypeError("Missing 'delete_protection' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ipv4 is None:
+            raise TypeError("Missing 'ipv4' argument")
+        if ipv6 is None:
+            raise TypeError("Missing 'ipv6' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if load_balancer_type is None:
+            raise TypeError("Missing 'load_balancer_type' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if network_id is None:
+            raise TypeError("Missing 'network_id' argument")
+        if network_ip is None and 'networkIp' in kwargs:
+            network_ip = kwargs['networkIp']
+        if network_ip is None:
+            raise TypeError("Missing 'network_ip' argument")
+        if network_zone is None and 'networkZone' in kwargs:
+            network_zone = kwargs['networkZone']
+        if network_zone is None:
+            raise TypeError("Missing 'network_zone' argument")
+        if services is None:
+            raise TypeError("Missing 'services' argument")
+        if targets is None:
+            raise TypeError("Missing 'targets' argument")
+
+        _setter("algorithms", algorithms)
+        _setter("delete_protection", delete_protection)
+        _setter("id", id)
+        _setter("ipv4", ipv4)
+        _setter("ipv6", ipv6)
+        _setter("labels", labels)
+        _setter("load_balancer_type", load_balancer_type)
+        _setter("location", location)
+        _setter("network_id", network_id)
+        _setter("network_ip", network_ip)
+        _setter("network_zone", network_zone)
+        _setter("services", services)
+        _setter("targets", targets)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1613,7 +2386,20 @@ class GetLoadBalancersLoadBalancerResult(dict):
 class GetLoadBalancersLoadBalancerAlgorithmResult(dict):
     def __init__(__self__, *,
                  type: str):
-        pulumi.set(__self__, "type", type)
+        GetLoadBalancersLoadBalancerAlgorithmResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1630,12 +2416,51 @@ class GetLoadBalancersLoadBalancerServiceResult(dict):
                  listen_port: int,
                  protocol: str,
                  proxyprotocol: bool):
-        pulumi.set(__self__, "destination_port", destination_port)
-        pulumi.set(__self__, "health_checks", health_checks)
-        pulumi.set(__self__, "https", https)
-        pulumi.set(__self__, "listen_port", listen_port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "proxyprotocol", proxyprotocol)
+        GetLoadBalancersLoadBalancerServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_port=destination_port,
+            health_checks=health_checks,
+            https=https,
+            listen_port=listen_port,
+            protocol=protocol,
+            proxyprotocol=proxyprotocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_port: Optional[int] = None,
+             health_checks: Optional[Sequence['outputs.GetLoadBalancersLoadBalancerServiceHealthCheckResult']] = None,
+             https: Optional[Sequence['outputs.GetLoadBalancersLoadBalancerServiceHttpResult']] = None,
+             listen_port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             proxyprotocol: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if destination_port is None:
+            raise TypeError("Missing 'destination_port' argument")
+        if health_checks is None and 'healthChecks' in kwargs:
+            health_checks = kwargs['healthChecks']
+        if health_checks is None:
+            raise TypeError("Missing 'health_checks' argument")
+        if https is None:
+            raise TypeError("Missing 'https' argument")
+        if listen_port is None and 'listenPort' in kwargs:
+            listen_port = kwargs['listenPort']
+        if listen_port is None:
+            raise TypeError("Missing 'listen_port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if proxyprotocol is None:
+            raise TypeError("Missing 'proxyprotocol' argument")
+
+        _setter("destination_port", destination_port)
+        _setter("health_checks", health_checks)
+        _setter("https", https)
+        _setter("listen_port", listen_port)
+        _setter("protocol", protocol)
+        _setter("proxyprotocol", proxyprotocol)
 
     @property
     @pulumi.getter(name="destinationPort")
@@ -1677,12 +2502,45 @@ class GetLoadBalancersLoadBalancerServiceHealthCheckResult(dict):
                  protocol: str,
                  retries: int,
                  timeout: int):
-        pulumi.set(__self__, "https", https)
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "retries", retries)
-        pulumi.set(__self__, "timeout", timeout)
+        GetLoadBalancersLoadBalancerServiceHealthCheckResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            https=https,
+            interval=interval,
+            port=port,
+            protocol=protocol,
+            retries=retries,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             https: Optional[Sequence['outputs.GetLoadBalancersLoadBalancerServiceHealthCheckHttpResult']] = None,
+             interval: Optional[int] = None,
+             port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             retries: Optional[int] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if https is None:
+            raise TypeError("Missing 'https' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if retries is None:
+            raise TypeError("Missing 'retries' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+
+        _setter("https", https)
+        _setter("interval", interval)
+        _setter("port", port)
+        _setter("protocol", protocol)
+        _setter("retries", retries)
+        _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1723,11 +2581,42 @@ class GetLoadBalancersLoadBalancerServiceHealthCheckHttpResult(dict):
                  response: str,
                  status_codes: Sequence[int],
                  tls: bool):
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "response", response)
-        pulumi.set(__self__, "status_codes", status_codes)
-        pulumi.set(__self__, "tls", tls)
+        GetLoadBalancersLoadBalancerServiceHealthCheckHttpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            path=path,
+            response=response,
+            status_codes=status_codes,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[str] = None,
+             path: Optional[str] = None,
+             response: Optional[str] = None,
+             status_codes: Optional[Sequence[int]] = None,
+             tls: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if response is None:
+            raise TypeError("Missing 'response' argument")
+        if status_codes is None and 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+        if status_codes is None:
+            raise TypeError("Missing 'status_codes' argument")
+        if tls is None:
+            raise TypeError("Missing 'tls' argument")
+
+        _setter("domain", domain)
+        _setter("path", path)
+        _setter("response", response)
+        _setter("status_codes", status_codes)
+        _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -1763,11 +2652,48 @@ class GetLoadBalancersLoadBalancerServiceHttpResult(dict):
                  cookie_name: str,
                  redirect_http: bool,
                  sticky_sessions: bool):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "cookie_lifetime", cookie_lifetime)
-        pulumi.set(__self__, "cookie_name", cookie_name)
-        pulumi.set(__self__, "redirect_http", redirect_http)
-        pulumi.set(__self__, "sticky_sessions", sticky_sessions)
+        GetLoadBalancersLoadBalancerServiceHttpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            cookie_lifetime=cookie_lifetime,
+            cookie_name=cookie_name,
+            redirect_http=redirect_http,
+            sticky_sessions=sticky_sessions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[Sequence[str]] = None,
+             cookie_lifetime: Optional[int] = None,
+             cookie_name: Optional[str] = None,
+             redirect_http: Optional[bool] = None,
+             sticky_sessions: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if cookie_lifetime is None and 'cookieLifetime' in kwargs:
+            cookie_lifetime = kwargs['cookieLifetime']
+        if cookie_lifetime is None:
+            raise TypeError("Missing 'cookie_lifetime' argument")
+        if cookie_name is None and 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if cookie_name is None:
+            raise TypeError("Missing 'cookie_name' argument")
+        if redirect_http is None and 'redirectHttp' in kwargs:
+            redirect_http = kwargs['redirectHttp']
+        if redirect_http is None:
+            raise TypeError("Missing 'redirect_http' argument")
+        if sticky_sessions is None and 'stickySessions' in kwargs:
+            sticky_sessions = kwargs['stickySessions']
+        if sticky_sessions is None:
+            raise TypeError("Missing 'sticky_sessions' argument")
+
+        _setter("certificates", certificates)
+        _setter("cookie_lifetime", cookie_lifetime)
+        _setter("cookie_name", cookie_name)
+        _setter("redirect_http", redirect_http)
+        _setter("sticky_sessions", sticky_sessions)
 
     @property
     @pulumi.getter
@@ -1801,9 +2727,34 @@ class GetLoadBalancersLoadBalancerTargetResult(dict):
                  label_selector: str,
                  server_id: int,
                  type: str):
-        pulumi.set(__self__, "label_selector", label_selector)
-        pulumi.set(__self__, "server_id", server_id)
-        pulumi.set(__self__, "type", type)
+        GetLoadBalancersLoadBalancerTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_selector=label_selector,
+            server_id=server_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_selector: Optional[str] = None,
+             server_id: Optional[int] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label_selector is None and 'labelSelector' in kwargs:
+            label_selector = kwargs['labelSelector']
+        if label_selector is None:
+            raise TypeError("Missing 'label_selector' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("label_selector", label_selector)
+        _setter("server_id", server_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="labelSelector")
@@ -1832,14 +2783,57 @@ class GetLocationsLocationResult(dict):
                  longitude: float,
                  name: str,
                  network_zone: str):
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "latitude", latitude)
-        pulumi.set(__self__, "longitude", longitude)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "network_zone", network_zone)
+        GetLocationsLocationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            city=city,
+            country=country,
+            description=description,
+            id=id,
+            latitude=latitude,
+            longitude=longitude,
+            name=name,
+            network_zone=network_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             city: Optional[str] = None,
+             country: Optional[str] = None,
+             description: Optional[str] = None,
+             id: Optional[int] = None,
+             latitude: Optional[float] = None,
+             longitude: Optional[float] = None,
+             name: Optional[str] = None,
+             network_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if country is None:
+            raise TypeError("Missing 'country' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if latitude is None:
+            raise TypeError("Missing 'latitude' argument")
+        if longitude is None:
+            raise TypeError("Missing 'longitude' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if network_zone is None and 'networkZone' in kwargs:
+            network_zone = kwargs['networkZone']
+        if network_zone is None:
+            raise TypeError("Missing 'network_zone' argument")
+
+        _setter("city", city)
+        _setter("country", country)
+        _setter("description", description)
+        _setter("id", id)
+        _setter("latitude", latitude)
+        _setter("longitude", longitude)
+        _setter("name", name)
+        _setter("network_zone", network_zone)
 
     @property
     @pulumi.getter
@@ -1891,15 +2885,48 @@ class GetNetworksNetworkResult(dict):
                  ip_range: Optional[str] = None,
                  labels: Optional[Mapping[str, Any]] = None,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "delete_protection", delete_protection)
-        pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
-        pulumi.set(__self__, "id", id)
+        GetNetworksNetworkResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_protection=delete_protection,
+            expose_routes_to_vswitch=expose_routes_to_vswitch,
+            id=id,
+            ip_range=ip_range,
+            labels=labels,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_protection: Optional[bool] = None,
+             expose_routes_to_vswitch: Optional[bool] = None,
+             id: Optional[int] = None,
+             ip_range: Optional[str] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if delete_protection is None:
+            raise TypeError("Missing 'delete_protection' argument")
+        if expose_routes_to_vswitch is None and 'exposeRoutesToVswitch' in kwargs:
+            expose_routes_to_vswitch = kwargs['exposeRoutesToVswitch']
+        if expose_routes_to_vswitch is None:
+            raise TypeError("Missing 'expose_routes_to_vswitch' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ip_range is None and 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+
+        _setter("delete_protection", delete_protection)
+        _setter("expose_routes_to_vswitch", expose_routes_to_vswitch)
+        _setter("id", id)
         if ip_range is not None:
-            pulumi.set(__self__, "ip_range", ip_range)
+            _setter("ip_range", ip_range)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deleteProtection")
@@ -1940,14 +2967,37 @@ class GetPlacementGroupsPlacementGroupResult(dict):
                  id: Optional[int] = None,
                  labels: Optional[Mapping[str, Any]] = None,
                  type: Optional[str] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "servers", servers)
+        GetPlacementGroupsPlacementGroupResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            servers=servers,
+            id=id,
+            labels=labels,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             servers: Optional[Sequence[int]] = None,
+             id: Optional[int] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if servers is None:
+            raise TypeError("Missing 'servers' argument")
+
+        _setter("name", name)
+        _setter("servers", servers)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1989,18 +3039,81 @@ class GetPrimaryIpsPrimaryIpResult(dict):
                  labels: Mapping[str, Any],
                  type: str,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "assignee_id", assignee_id)
-        pulumi.set(__self__, "assignee_type", assignee_type)
-        pulumi.set(__self__, "auto_delete", auto_delete)
-        pulumi.set(__self__, "datacenter", datacenter)
-        pulumi.set(__self__, "delete_protection", delete_protection)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "ip_network", ip_network)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "type", type)
+        GetPrimaryIpsPrimaryIpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignee_id=assignee_id,
+            assignee_type=assignee_type,
+            auto_delete=auto_delete,
+            datacenter=datacenter,
+            delete_protection=delete_protection,
+            id=id,
+            ip_address=ip_address,
+            ip_network=ip_network,
+            labels=labels,
+            type=type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignee_id: Optional[int] = None,
+             assignee_type: Optional[str] = None,
+             auto_delete: Optional[bool] = None,
+             datacenter: Optional[str] = None,
+             delete_protection: Optional[bool] = None,
+             id: Optional[int] = None,
+             ip_address: Optional[str] = None,
+             ip_network: Optional[str] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             type: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if assignee_id is None and 'assigneeId' in kwargs:
+            assignee_id = kwargs['assigneeId']
+        if assignee_id is None:
+            raise TypeError("Missing 'assignee_id' argument")
+        if assignee_type is None and 'assigneeType' in kwargs:
+            assignee_type = kwargs['assigneeType']
+        if assignee_type is None:
+            raise TypeError("Missing 'assignee_type' argument")
+        if auto_delete is None and 'autoDelete' in kwargs:
+            auto_delete = kwargs['autoDelete']
+        if auto_delete is None:
+            raise TypeError("Missing 'auto_delete' argument")
+        if datacenter is None:
+            raise TypeError("Missing 'datacenter' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if delete_protection is None:
+            raise TypeError("Missing 'delete_protection' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if ip_network is None and 'ipNetwork' in kwargs:
+            ip_network = kwargs['ipNetwork']
+        if ip_network is None:
+            raise TypeError("Missing 'ip_network' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("assignee_id", assignee_id)
+        _setter("assignee_type", assignee_type)
+        _setter("auto_delete", auto_delete)
+        _setter("datacenter", datacenter)
+        _setter("delete_protection", delete_protection)
+        _setter("id", id)
+        _setter("ip_address", ip_address)
+        _setter("ip_network", ip_network)
+        _setter("labels", labels)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="assigneeId")
@@ -2074,19 +3187,92 @@ class GetServerTypesServerTypeResult(dict):
                  name: str,
                  storage_type: str,
                  unavailable_after: str):
-        pulumi.set(__self__, "architecture", architecture)
-        pulumi.set(__self__, "cores", cores)
-        pulumi.set(__self__, "cpu_type", cpu_type)
-        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "disk", disk)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "included_traffic", included_traffic)
-        pulumi.set(__self__, "is_deprecated", is_deprecated)
-        pulumi.set(__self__, "memory", memory)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "storage_type", storage_type)
-        pulumi.set(__self__, "unavailable_after", unavailable_after)
+        GetServerTypesServerTypeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            architecture=architecture,
+            cores=cores,
+            cpu_type=cpu_type,
+            deprecation_announced=deprecation_announced,
+            description=description,
+            disk=disk,
+            id=id,
+            included_traffic=included_traffic,
+            is_deprecated=is_deprecated,
+            memory=memory,
+            name=name,
+            storage_type=storage_type,
+            unavailable_after=unavailable_after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             architecture: Optional[str] = None,
+             cores: Optional[int] = None,
+             cpu_type: Optional[str] = None,
+             deprecation_announced: Optional[str] = None,
+             description: Optional[str] = None,
+             disk: Optional[int] = None,
+             id: Optional[int] = None,
+             included_traffic: Optional[int] = None,
+             is_deprecated: Optional[bool] = None,
+             memory: Optional[int] = None,
+             name: Optional[str] = None,
+             storage_type: Optional[str] = None,
+             unavailable_after: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if architecture is None:
+            raise TypeError("Missing 'architecture' argument")
+        if cores is None:
+            raise TypeError("Missing 'cores' argument")
+        if cpu_type is None and 'cpuType' in kwargs:
+            cpu_type = kwargs['cpuType']
+        if cpu_type is None:
+            raise TypeError("Missing 'cpu_type' argument")
+        if deprecation_announced is None and 'deprecationAnnounced' in kwargs:
+            deprecation_announced = kwargs['deprecationAnnounced']
+        if deprecation_announced is None:
+            raise TypeError("Missing 'deprecation_announced' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if disk is None:
+            raise TypeError("Missing 'disk' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if included_traffic is None and 'includedTraffic' in kwargs:
+            included_traffic = kwargs['includedTraffic']
+        if included_traffic is None:
+            raise TypeError("Missing 'included_traffic' argument")
+        if is_deprecated is None and 'isDeprecated' in kwargs:
+            is_deprecated = kwargs['isDeprecated']
+        if is_deprecated is None:
+            raise TypeError("Missing 'is_deprecated' argument")
+        if memory is None:
+            raise TypeError("Missing 'memory' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if storage_type is None:
+            raise TypeError("Missing 'storage_type' argument")
+        if unavailable_after is None and 'unavailableAfter' in kwargs:
+            unavailable_after = kwargs['unavailableAfter']
+        if unavailable_after is None:
+            raise TypeError("Missing 'unavailable_after' argument")
+
+        _setter("architecture", architecture)
+        _setter("cores", cores)
+        _setter("cpu_type", cpu_type)
+        _setter("deprecation_announced", deprecation_announced)
+        _setter("description", description)
+        _setter("disk", disk)
+        _setter("id", id)
+        _setter("included_traffic", included_traffic)
+        _setter("is_deprecated", is_deprecated)
+        _setter("memory", memory)
+        _setter("name", name)
+        _setter("storage_type", storage_type)
+        _setter("unavailable_after", unavailable_after)
 
     @property
     @pulumi.getter
@@ -2176,26 +3362,127 @@ class GetServersServerResult(dict):
                  server_type: str,
                  status: str,
                  placement_group_id: Optional[int] = None):
-        pulumi.set(__self__, "backup_window", backup_window)
-        pulumi.set(__self__, "backups", backups)
-        pulumi.set(__self__, "datacenter", datacenter)
-        pulumi.set(__self__, "delete_protection", delete_protection)
-        pulumi.set(__self__, "firewall_ids", firewall_ids)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "ipv4_address", ipv4_address)
-        pulumi.set(__self__, "ipv6_address", ipv6_address)
-        pulumi.set(__self__, "ipv6_network", ipv6_network)
-        pulumi.set(__self__, "iso", iso)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rebuild_protection", rebuild_protection)
-        pulumi.set(__self__, "rescue", rescue)
-        pulumi.set(__self__, "server_type", server_type)
-        pulumi.set(__self__, "status", status)
+        GetServersServerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_window=backup_window,
+            backups=backups,
+            datacenter=datacenter,
+            delete_protection=delete_protection,
+            firewall_ids=firewall_ids,
+            id=id,
+            image=image,
+            ipv4_address=ipv4_address,
+            ipv6_address=ipv6_address,
+            ipv6_network=ipv6_network,
+            iso=iso,
+            labels=labels,
+            location=location,
+            name=name,
+            rebuild_protection=rebuild_protection,
+            rescue=rescue,
+            server_type=server_type,
+            status=status,
+            placement_group_id=placement_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_window: Optional[str] = None,
+             backups: Optional[bool] = None,
+             datacenter: Optional[str] = None,
+             delete_protection: Optional[bool] = None,
+             firewall_ids: Optional[Sequence[int]] = None,
+             id: Optional[int] = None,
+             image: Optional[str] = None,
+             ipv4_address: Optional[str] = None,
+             ipv6_address: Optional[str] = None,
+             ipv6_network: Optional[str] = None,
+             iso: Optional[str] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             rebuild_protection: Optional[bool] = None,
+             rescue: Optional[str] = None,
+             server_type: Optional[str] = None,
+             status: Optional[str] = None,
+             placement_group_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backup_window is None and 'backupWindow' in kwargs:
+            backup_window = kwargs['backupWindow']
+        if backup_window is None:
+            raise TypeError("Missing 'backup_window' argument")
+        if backups is None:
+            raise TypeError("Missing 'backups' argument")
+        if datacenter is None:
+            raise TypeError("Missing 'datacenter' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if delete_protection is None:
+            raise TypeError("Missing 'delete_protection' argument")
+        if firewall_ids is None and 'firewallIds' in kwargs:
+            firewall_ids = kwargs['firewallIds']
+        if firewall_ids is None:
+            raise TypeError("Missing 'firewall_ids' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if ipv4_address is None and 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+        if ipv4_address is None:
+            raise TypeError("Missing 'ipv4_address' argument")
+        if ipv6_address is None and 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+        if ipv6_address is None:
+            raise TypeError("Missing 'ipv6_address' argument")
+        if ipv6_network is None and 'ipv6Network' in kwargs:
+            ipv6_network = kwargs['ipv6Network']
+        if ipv6_network is None:
+            raise TypeError("Missing 'ipv6_network' argument")
+        if iso is None:
+            raise TypeError("Missing 'iso' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if rebuild_protection is None and 'rebuildProtection' in kwargs:
+            rebuild_protection = kwargs['rebuildProtection']
+        if rebuild_protection is None:
+            raise TypeError("Missing 'rebuild_protection' argument")
+        if rescue is None:
+            raise TypeError("Missing 'rescue' argument")
+        if server_type is None and 'serverType' in kwargs:
+            server_type = kwargs['serverType']
+        if server_type is None:
+            raise TypeError("Missing 'server_type' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if placement_group_id is None and 'placementGroupId' in kwargs:
+            placement_group_id = kwargs['placementGroupId']
+
+        _setter("backup_window", backup_window)
+        _setter("backups", backups)
+        _setter("datacenter", datacenter)
+        _setter("delete_protection", delete_protection)
+        _setter("firewall_ids", firewall_ids)
+        _setter("id", id)
+        _setter("image", image)
+        _setter("ipv4_address", ipv4_address)
+        _setter("ipv6_address", ipv6_address)
+        _setter("ipv6_network", ipv6_network)
+        _setter("iso", iso)
+        _setter("labels", labels)
+        _setter("location", location)
+        _setter("name", name)
+        _setter("rebuild_protection", rebuild_protection)
+        _setter("rescue", rescue)
+        _setter("server_type", server_type)
+        _setter("status", status)
         if placement_group_id is not None:
-            pulumi.set(__self__, "placement_group_id", placement_group_id)
+            _setter("placement_group_id", placement_group_id)
 
     @property
     @pulumi.getter(name="backupWindow")
@@ -2301,11 +3588,42 @@ class GetSshKeysSshKeyResult(dict):
                  labels: Mapping[str, Any],
                  name: str,
                  public_key: str):
-        pulumi.set(__self__, "fingerprint", fingerprint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "public_key", public_key)
+        GetSshKeysSshKeyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fingerprint=fingerprint,
+            id=id,
+            labels=labels,
+            name=name,
+            public_key=public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fingerprint: Optional[str] = None,
+             id: Optional[int] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             name: Optional[str] = None,
+             public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if fingerprint is None:
+            raise TypeError("Missing 'fingerprint' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
+
+        _setter("fingerprint", fingerprint)
+        _setter("id", id)
+        _setter("labels", labels)
+        _setter("name", name)
+        _setter("public_key", public_key)
 
     @property
     @pulumi.getter
@@ -2344,16 +3662,59 @@ class GetVolumesVolumeResult(dict):
                  size: int,
                  location: Optional[str] = None,
                  server_id: Optional[int] = None):
-        pulumi.set(__self__, "delete_protection", delete_protection)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "linux_device", linux_device)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "size", size)
+        GetVolumesVolumeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_protection=delete_protection,
+            id=id,
+            labels=labels,
+            linux_device=linux_device,
+            name=name,
+            size=size,
+            location=location,
+            server_id=server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_protection: Optional[bool] = None,
+             id: Optional[int] = None,
+             labels: Optional[Mapping[str, Any]] = None,
+             linux_device: Optional[str] = None,
+             name: Optional[str] = None,
+             size: Optional[int] = None,
+             location: Optional[str] = None,
+             server_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if delete_protection is None:
+            raise TypeError("Missing 'delete_protection' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if linux_device is None and 'linuxDevice' in kwargs:
+            linux_device = kwargs['linuxDevice']
+        if linux_device is None:
+            raise TypeError("Missing 'linux_device' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
+        _setter("delete_protection", delete_protection)
+        _setter("id", id)
+        _setter("labels", labels)
+        _setter("linux_device", linux_device)
+        _setter("name", name)
+        _setter("size", size)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
 
     @property
     @pulumi.getter(name="deleteProtection")
