@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Hetzner Cloud Firewall.
@@ -105,12 +104,6 @@ func (o GetFirewallsResultOutput) ToGetFirewallsResultOutput() GetFirewallsResul
 
 func (o GetFirewallsResultOutput) ToGetFirewallsResultOutputWithContext(ctx context.Context) GetFirewallsResultOutput {
 	return o
-}
-
-func (o GetFirewallsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallsResult] {
-	return pulumix.Output[GetFirewallsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list) List of all matching firewalls. See `data.hcloud_firewall` for schema.

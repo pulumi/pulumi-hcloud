@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -103,12 +102,6 @@ func (o GetServersResultOutput) ToGetServersResultOutput() GetServersResultOutpu
 
 func (o GetServersResultOutput) ToGetServersResultOutputWithContext(ctx context.Context) GetServersResultOutput {
 	return o
-}
-
-func (o GetServersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServersResult] {
-	return pulumix.Output[GetServersResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

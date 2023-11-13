@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Define services for Hetzner Cloud Load Balancers.
@@ -227,12 +226,6 @@ func (i *LoadBalancerService) ToLoadBalancerServiceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceOutput)
 }
 
-func (i *LoadBalancerService) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerService] {
-	return pulumix.Output[*LoadBalancerService]{
-		OutputState: i.ToLoadBalancerServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerServiceArrayInput is an input type that accepts LoadBalancerServiceArray and LoadBalancerServiceArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerServiceArrayInput` via:
 //
@@ -256,12 +249,6 @@ func (i LoadBalancerServiceArray) ToLoadBalancerServiceArrayOutput() LoadBalance
 
 func (i LoadBalancerServiceArray) ToLoadBalancerServiceArrayOutputWithContext(ctx context.Context) LoadBalancerServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceArrayOutput)
-}
-
-func (i LoadBalancerServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerService] {
-	return pulumix.Output[[]*LoadBalancerService]{
-		OutputState: i.ToLoadBalancerServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LoadBalancerServiceMapInput is an input type that accepts LoadBalancerServiceMap and LoadBalancerServiceMapOutput values.
@@ -289,12 +276,6 @@ func (i LoadBalancerServiceMap) ToLoadBalancerServiceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerServiceMapOutput)
 }
 
-func (i LoadBalancerServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerService] {
-	return pulumix.Output[map[string]*LoadBalancerService]{
-		OutputState: i.ToLoadBalancerServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerServiceOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerServiceOutput) ElementType() reflect.Type {
@@ -307,12 +288,6 @@ func (o LoadBalancerServiceOutput) ToLoadBalancerServiceOutput() LoadBalancerSer
 
 func (o LoadBalancerServiceOutput) ToLoadBalancerServiceOutputWithContext(ctx context.Context) LoadBalancerServiceOutput {
 	return o
-}
-
-func (o LoadBalancerServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerService] {
-	return pulumix.Output[*LoadBalancerService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
@@ -364,12 +339,6 @@ func (o LoadBalancerServiceArrayOutput) ToLoadBalancerServiceArrayOutputWithCont
 	return o
 }
 
-func (o LoadBalancerServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerService] {
-	return pulumix.Output[[]*LoadBalancerService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoadBalancerServiceArrayOutput) Index(i pulumi.IntInput) LoadBalancerServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancerService {
 		return vs[0].([]*LoadBalancerService)[vs[1].(int)]
@@ -388,12 +357,6 @@ func (o LoadBalancerServiceMapOutput) ToLoadBalancerServiceMapOutput() LoadBalan
 
 func (o LoadBalancerServiceMapOutput) ToLoadBalancerServiceMapOutputWithContext(ctx context.Context) LoadBalancerServiceMapOutput {
 	return o
-}
-
-func (o LoadBalancerServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerService] {
-	return pulumix.Output[map[string]*LoadBalancerService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerServiceMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerServiceOutput {
