@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Hetzner Cloud Certificates.
@@ -100,12 +99,6 @@ func (o GetCertificatesResultOutput) ToGetCertificatesResultOutput() GetCertific
 
 func (o GetCertificatesResultOutput) ToGetCertificatesResultOutputWithContext(ctx context.Context) GetCertificatesResultOutput {
 	return o
-}
-
-func (o GetCertificatesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificatesResult] {
-	return pulumix.Output[GetCertificatesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list) List of all matching certificates. See `data.hcloud_certificate` for schema.
