@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Obtain a Hetzner Cloud managed TLS certificate.
@@ -174,12 +173,6 @@ func (i *ManagedCertificate) ToManagedCertificateOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedCertificateOutput)
 }
 
-func (i *ManagedCertificate) ToOutput(ctx context.Context) pulumix.Output[*ManagedCertificate] {
-	return pulumix.Output[*ManagedCertificate]{
-		OutputState: i.ToManagedCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedCertificateArrayInput is an input type that accepts ManagedCertificateArray and ManagedCertificateArrayOutput values.
 // You can construct a concrete instance of `ManagedCertificateArrayInput` via:
 //
@@ -203,12 +196,6 @@ func (i ManagedCertificateArray) ToManagedCertificateArrayOutput() ManagedCertif
 
 func (i ManagedCertificateArray) ToManagedCertificateArrayOutputWithContext(ctx context.Context) ManagedCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedCertificateArrayOutput)
-}
-
-func (i ManagedCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedCertificate] {
-	return pulumix.Output[[]*ManagedCertificate]{
-		OutputState: i.ToManagedCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedCertificateMapInput is an input type that accepts ManagedCertificateMap and ManagedCertificateMapOutput values.
@@ -236,12 +223,6 @@ func (i ManagedCertificateMap) ToManagedCertificateMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedCertificateMapOutput)
 }
 
-func (i ManagedCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedCertificate] {
-	return pulumix.Output[map[string]*ManagedCertificate]{
-		OutputState: i.ToManagedCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedCertificateOutput struct{ *pulumi.OutputState }
 
 func (ManagedCertificateOutput) ElementType() reflect.Type {
@@ -254,12 +235,6 @@ func (o ManagedCertificateOutput) ToManagedCertificateOutput() ManagedCertificat
 
 func (o ManagedCertificateOutput) ToManagedCertificateOutputWithContext(ctx context.Context) ManagedCertificateOutput {
 	return o
-}
-
-func (o ManagedCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedCertificate] {
-	return pulumix.Output[*ManagedCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string) PEM encoded TLS certificate.
@@ -322,12 +297,6 @@ func (o ManagedCertificateArrayOutput) ToManagedCertificateArrayOutputWithContex
 	return o
 }
 
-func (o ManagedCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedCertificate] {
-	return pulumix.Output[[]*ManagedCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedCertificateArrayOutput) Index(i pulumi.IntInput) ManagedCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedCertificate {
 		return vs[0].([]*ManagedCertificate)[vs[1].(int)]
@@ -346,12 +315,6 @@ func (o ManagedCertificateMapOutput) ToManagedCertificateMapOutput() ManagedCert
 
 func (o ManagedCertificateMapOutput) ToManagedCertificateMapOutputWithContext(ctx context.Context) ManagedCertificateMapOutput {
 	return o
-}
-
-func (o ManagedCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedCertificate] {
-	return pulumix.Output[map[string]*ManagedCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedCertificateMapOutput) MapIndex(k pulumi.StringInput) ManagedCertificateOutput {

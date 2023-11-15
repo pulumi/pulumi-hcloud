@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches resource to a Hetzner Cloud Firewall.
@@ -223,12 +222,6 @@ func (i *FirewallAttachment) ToFirewallAttachmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallAttachmentOutput)
 }
 
-func (i *FirewallAttachment) ToOutput(ctx context.Context) pulumix.Output[*FirewallAttachment] {
-	return pulumix.Output[*FirewallAttachment]{
-		OutputState: i.ToFirewallAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallAttachmentArrayInput is an input type that accepts FirewallAttachmentArray and FirewallAttachmentArrayOutput values.
 // You can construct a concrete instance of `FirewallAttachmentArrayInput` via:
 //
@@ -252,12 +245,6 @@ func (i FirewallAttachmentArray) ToFirewallAttachmentArrayOutput() FirewallAttac
 
 func (i FirewallAttachmentArray) ToFirewallAttachmentArrayOutputWithContext(ctx context.Context) FirewallAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallAttachmentArrayOutput)
-}
-
-func (i FirewallAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallAttachment] {
-	return pulumix.Output[[]*FirewallAttachment]{
-		OutputState: i.ToFirewallAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FirewallAttachmentMapInput is an input type that accepts FirewallAttachmentMap and FirewallAttachmentMapOutput values.
@@ -285,12 +272,6 @@ func (i FirewallAttachmentMap) ToFirewallAttachmentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallAttachmentMapOutput)
 }
 
-func (i FirewallAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallAttachment] {
-	return pulumix.Output[map[string]*FirewallAttachment]{
-		OutputState: i.ToFirewallAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallAttachmentOutput struct{ *pulumi.OutputState }
 
 func (FirewallAttachmentOutput) ElementType() reflect.Type {
@@ -303,12 +284,6 @@ func (o FirewallAttachmentOutput) ToFirewallAttachmentOutput() FirewallAttachmen
 
 func (o FirewallAttachmentOutput) ToFirewallAttachmentOutputWithContext(ctx context.Context) FirewallAttachmentOutput {
 	return o
-}
-
-func (o FirewallAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallAttachment] {
-	return pulumix.Output[*FirewallAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the firewall the resources
@@ -343,12 +318,6 @@ func (o FirewallAttachmentArrayOutput) ToFirewallAttachmentArrayOutputWithContex
 	return o
 }
 
-func (o FirewallAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallAttachment] {
-	return pulumix.Output[[]*FirewallAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallAttachmentArrayOutput) Index(i pulumi.IntInput) FirewallAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FirewallAttachment {
 		return vs[0].([]*FirewallAttachment)[vs[1].(int)]
@@ -367,12 +336,6 @@ func (o FirewallAttachmentMapOutput) ToFirewallAttachmentMapOutput() FirewallAtt
 
 func (o FirewallAttachmentMapOutput) ToFirewallAttachmentMapOutputWithContext(ctx context.Context) FirewallAttachmentMapOutput {
 	return o
-}
-
-func (o FirewallAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallAttachment] {
-	return pulumix.Output[map[string]*FirewallAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallAttachmentMapOutput) MapIndex(k pulumi.StringInput) FirewallAttachmentOutput {

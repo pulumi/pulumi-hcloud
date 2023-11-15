@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -149,12 +148,6 @@ func (o LookupSshKeyResultOutput) ToLookupSshKeyResultOutput() LookupSshKeyResul
 
 func (o LookupSshKeyResultOutput) ToLookupSshKeyResultOutputWithContext(ctx context.Context) LookupSshKeyResultOutput {
 	return o
-}
-
-func (o LookupSshKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSshKeyResult] {
-	return pulumix.Output[LookupSshKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string) Fingerprint of the SSH Key.

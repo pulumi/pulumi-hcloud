@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
@@ -266,12 +265,6 @@ func (i *LoadBalancerNetwork) ToLoadBalancerNetworkOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkOutput)
 }
 
-func (i *LoadBalancerNetwork) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerNetwork] {
-	return pulumix.Output[*LoadBalancerNetwork]{
-		OutputState: i.ToLoadBalancerNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerNetworkArrayInput is an input type that accepts LoadBalancerNetworkArray and LoadBalancerNetworkArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerNetworkArrayInput` via:
 //
@@ -295,12 +288,6 @@ func (i LoadBalancerNetworkArray) ToLoadBalancerNetworkArrayOutput() LoadBalance
 
 func (i LoadBalancerNetworkArray) ToLoadBalancerNetworkArrayOutputWithContext(ctx context.Context) LoadBalancerNetworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkArrayOutput)
-}
-
-func (i LoadBalancerNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerNetwork] {
-	return pulumix.Output[[]*LoadBalancerNetwork]{
-		OutputState: i.ToLoadBalancerNetworkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LoadBalancerNetworkMapInput is an input type that accepts LoadBalancerNetworkMap and LoadBalancerNetworkMapOutput values.
@@ -328,12 +315,6 @@ func (i LoadBalancerNetworkMap) ToLoadBalancerNetworkMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNetworkMapOutput)
 }
 
-func (i LoadBalancerNetworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerNetwork] {
-	return pulumix.Output[map[string]*LoadBalancerNetwork]{
-		OutputState: i.ToLoadBalancerNetworkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerNetworkOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerNetworkOutput) ElementType() reflect.Type {
@@ -346,12 +327,6 @@ func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkOutput() LoadBalancerNet
 
 func (o LoadBalancerNetworkOutput) ToLoadBalancerNetworkOutputWithContext(ctx context.Context) LoadBalancerNetworkOutput {
 	return o
-}
-
-func (o LoadBalancerNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerNetwork] {
-	return pulumix.Output[*LoadBalancerNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable or disable the
@@ -406,12 +381,6 @@ func (o LoadBalancerNetworkArrayOutput) ToLoadBalancerNetworkArrayOutputWithCont
 	return o
 }
 
-func (o LoadBalancerNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerNetwork] {
-	return pulumix.Output[[]*LoadBalancerNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoadBalancerNetworkArrayOutput) Index(i pulumi.IntInput) LoadBalancerNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancerNetwork {
 		return vs[0].([]*LoadBalancerNetwork)[vs[1].(int)]
@@ -430,12 +399,6 @@ func (o LoadBalancerNetworkMapOutput) ToLoadBalancerNetworkMapOutput() LoadBalan
 
 func (o LoadBalancerNetworkMapOutput) ToLoadBalancerNetworkMapOutputWithContext(ctx context.Context) LoadBalancerNetworkMapOutput {
 	return o
-}
-
-func (o LoadBalancerNetworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerNetwork] {
-	return pulumix.Output[map[string]*LoadBalancerNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerNetworkMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerNetworkOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Hetzner Cloud Placement Group.
@@ -130,12 +129,6 @@ func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutput() L
 
 func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWithContext(ctx context.Context) LookupPlacementGroupResultOutput {
 	return o
-}
-
-func (o LookupPlacementGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPlacementGroupResult] {
-	return pulumix.Output[LookupPlacementGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (int) Unique ID of the Placement Group.

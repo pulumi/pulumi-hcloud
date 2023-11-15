@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Hetzner Cloud Primary IPs.
@@ -100,12 +99,6 @@ func (o GetPrimaryIpsResultOutput) ToGetPrimaryIpsResultOutput() GetPrimaryIpsRe
 
 func (o GetPrimaryIpsResultOutput) ToGetPrimaryIpsResultOutputWithContext(ctx context.Context) GetPrimaryIpsResultOutput {
 	return o
-}
-
-func (o GetPrimaryIpsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrimaryIpsResult] {
-	return pulumix.Output[GetPrimaryIpsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.
