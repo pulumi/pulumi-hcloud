@@ -3088,23 +3088,23 @@
             "properties": {
                 "assigneeId": {
                     "type": "integer",
-                    "description": "ID of the assigned resource\n"
+                    "description": "(int) ID of the assigned resource\n"
                 },
                 "assigneeType": {
                     "type": "string",
-                    "description": "The type of the assigned resource. Currently supported: `server`\n"
+                    "description": "(string) The type of the assigned resource. Currently supported: `server`\n"
                 },
                 "autoDelete": {
                     "type": "boolean",
-                    "description": "Whether auto delete is enabled.\n`Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.\n"
+                    "description": "(bool) Whether auto delete is enabled.\n`Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.\n"
                 },
                 "datacenter": {
                     "type": "string",
-                    "description": "The datacenter name to create the resource in.\n"
+                    "description": "(string, optional) The datacenter name to create the resource in.\n"
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Whether delete protection is enabled.\n"
+                    "description": "(bool) Whether delete protection is enabled.\n"
                 },
                 "ipAddress": {
                     "type": "string",
@@ -3119,15 +3119,15 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Description of the Primary IP.\n"
+                    "description": "(string) Description of the Primary IP.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the Primary IP.\n"
+                    "description": "(string) Name of the Primary IP.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of the Primary IP. `ipv4` or `ipv6`\n"
+                    "description": "(string) Type of the Primary IP. `ipv4` or `ipv6`\n"
                 }
             },
             "required": [
@@ -3143,39 +3143,39 @@
             "inputProperties": {
                 "assigneeId": {
                     "type": "integer",
-                    "description": "ID of the assigned resource\n"
+                    "description": "(int) ID of the assigned resource\n"
                 },
                 "assigneeType": {
                     "type": "string",
-                    "description": "The type of the assigned resource. Currently supported: `server`\n"
+                    "description": "(string) The type of the assigned resource. Currently supported: `server`\n"
                 },
                 "autoDelete": {
                     "type": "boolean",
-                    "description": "Whether auto delete is enabled.\n`Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.\n"
+                    "description": "(bool) Whether auto delete is enabled.\n`Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.\n"
                 },
                 "datacenter": {
                     "type": "string",
-                    "description": "The datacenter name to create the resource in.\n",
+                    "description": "(string, optional) The datacenter name to create the resource in.\n",
                     "willReplaceOnChanges": true
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Whether delete protection is enabled.\n"
+                    "description": "(bool) Whether delete protection is enabled.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Description of the Primary IP.\n"
+                    "description": "(string) Description of the Primary IP.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the Primary IP.\n"
+                    "description": "(string) Name of the Primary IP.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of the Primary IP. `ipv4` or `ipv6`\n",
+                    "description": "(string) Type of the Primary IP. `ipv4` or `ipv6`\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -3189,24 +3189,24 @@
                 "properties": {
                     "assigneeId": {
                         "type": "integer",
-                        "description": "ID of the assigned resource\n"
+                        "description": "(int) ID of the assigned resource\n"
                     },
                     "assigneeType": {
                         "type": "string",
-                        "description": "The type of the assigned resource. Currently supported: `server`\n"
+                        "description": "(string) The type of the assigned resource. Currently supported: `server`\n"
                     },
                     "autoDelete": {
                         "type": "boolean",
-                        "description": "Whether auto delete is enabled.\n`Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.\n"
+                        "description": "(bool) Whether auto delete is enabled.\n`Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.\n"
                     },
                     "datacenter": {
                         "type": "string",
-                        "description": "The datacenter name to create the resource in.\n",
+                        "description": "(string, optional) The datacenter name to create the resource in.\n",
                         "willReplaceOnChanges": true
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Whether delete protection is enabled.\n"
+                        "description": "(bool) Whether delete protection is enabled.\n"
                     },
                     "ipAddress": {
                         "type": "string",
@@ -3221,15 +3221,15 @@
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
                         },
-                        "description": "Description of the Primary IP.\n"
+                        "description": "(string) Description of the Primary IP.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the Primary IP.\n"
+                        "description": "(string) Name of the Primary IP.\n"
                     },
                     "type": {
                         "type": "string",
-                        "description": "Type of the Primary IP. `ipv4` or `ipv6`\n",
+                        "description": "(string) Type of the Primary IP. `ipv4` or `ipv6`\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -3444,7 +3444,7 @@
                 },
                 "shutdownBeforeDeletion": {
                     "type": "boolean",
-                    "description": "Whether to try shutting the server down gracefully before deleting it.\n"
+                    "description": "(bool) Whether to try shutting the server down gracefully before deleting it.\n"
                 },
                 "sshKeys": {
                     "type": "array",
@@ -3562,7 +3562,7 @@
                 },
                 "shutdownBeforeDeletion": {
                     "type": "boolean",
-                    "description": "Whether to try shutting the server down gracefully before deleting it.\n"
+                    "description": "(bool) Whether to try shutting the server down gracefully before deleting it.\n"
                 },
                 "sshKeys": {
                     "type": "array",
@@ -3688,7 +3688,7 @@
                     },
                     "shutdownBeforeDeletion": {
                         "type": "boolean",
-                        "description": "Whether to try shutting the server down gracefully before deleting it.\n"
+                        "description": "(bool) Whether to try shutting the server down gracefully before deleting it.\n"
                     },
                     "sshKeys": {
                         "type": "array",
