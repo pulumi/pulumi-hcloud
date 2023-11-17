@@ -20,14 +20,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     public static final PrimaryIpState Empty = new PrimaryIpState();
 
     /**
-     * ID of the assigned resource
+     * (int) ID of the assigned resource
      * 
      */
     @Import(name="assigneeId")
     private @Nullable Output<Integer> assigneeId;
 
     /**
-     * @return ID of the assigned resource
+     * @return (int) ID of the assigned resource
      * 
      */
     public Optional<Output<Integer>> assigneeId() {
@@ -35,14 +35,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the assigned resource. Currently supported: `server`
+     * (string) The type of the assigned resource. Currently supported: `server`
      * 
      */
     @Import(name="assigneeType")
     private @Nullable Output<String> assigneeType;
 
     /**
-     * @return The type of the assigned resource. Currently supported: `server`
+     * @return (string) The type of the assigned resource. Currently supported: `server`
      * 
      */
     public Optional<Output<String>> assigneeType() {
@@ -50,7 +50,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether auto delete is enabled.
+     * (bool) Whether auto delete is enabled.
      * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
@@ -58,7 +58,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> autoDelete;
 
     /**
-     * @return Whether auto delete is enabled.
+     * @return (bool) Whether auto delete is enabled.
      * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
@@ -67,14 +67,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The datacenter name to create the resource in.
+     * (string, optional) The datacenter name to create the resource in.
      * 
      */
     @Import(name="datacenter")
     private @Nullable Output<String> datacenter;
 
     /**
-     * @return The datacenter name to create the resource in.
+     * @return (string, optional) The datacenter name to create the resource in.
      * 
      */
     public Optional<Output<String>> datacenter() {
@@ -82,14 +82,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether delete protection is enabled.
+     * (bool) Whether delete protection is enabled.
      * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return Whether delete protection is enabled.
+     * @return (bool) Whether delete protection is enabled.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -127,14 +127,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description of the Primary IP.
+     * (string) Description of the Primary IP.
      * 
      */
     @Import(name="labels")
     private @Nullable Output<Map<String,Object>> labels;
 
     /**
-     * @return Description of the Primary IP.
+     * @return (string) Description of the Primary IP.
      * 
      */
     public Optional<Output<Map<String,Object>>> labels() {
@@ -142,14 +142,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Primary IP.
+     * (string) Name of the Primary IP.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Primary IP.
+     * @return (string) Name of the Primary IP.
      * 
      */
     public Optional<Output<String>> name() {
@@ -157,14 +157,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the Primary IP. `ipv4` or `ipv6`
+     * (string) Type of the Primary IP. `ipv4` or `ipv6`
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the Primary IP. `ipv4` or `ipv6`
+     * @return (string) Type of the Primary IP. `ipv4` or `ipv6`
      * 
      */
     public Optional<Output<String>> type() {
@@ -205,7 +205,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeId ID of the assigned resource
+         * @param assigneeId (int) ID of the assigned resource
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeId ID of the assigned resource
+         * @param assigneeId (int) ID of the assigned resource
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeType The type of the assigned resource. Currently supported: `server`
+         * @param assigneeType (string) The type of the assigned resource. Currently supported: `server`
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeType The type of the assigned resource. Currently supported: `server`
+         * @param assigneeType (string) The type of the assigned resource. Currently supported: `server`
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDelete Whether auto delete is enabled.
+         * @param autoDelete (bool) Whether auto delete is enabled.
          * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
          * 
          * @return builder
@@ -259,7 +259,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDelete Whether auto delete is enabled.
+         * @param autoDelete (bool) Whether auto delete is enabled.
          * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
          * 
          * @return builder
@@ -270,7 +270,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datacenter The datacenter name to create the resource in.
+         * @param datacenter (string, optional) The datacenter name to create the resource in.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datacenter The datacenter name to create the resource in.
+         * @param datacenter (string, optional) The datacenter name to create the resource in.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Whether delete protection is enabled.
+         * @param deleteProtection (bool) Whether delete protection is enabled.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Whether delete protection is enabled.
+         * @param deleteProtection (bool) Whether delete protection is enabled.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels Description of the Primary IP.
+         * @param labels (string) Description of the Primary IP.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels Description of the Primary IP.
+         * @param labels (string) Description of the Primary IP.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Primary IP.
+         * @param name (string) Name of the Primary IP.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Primary IP.
+         * @param name (string) Name of the Primary IP.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Primary IP. `ipv4` or `ipv6`
+         * @param type (string) Type of the Primary IP. `ipv4` or `ipv6`
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Primary IP. `ipv4` or `ipv6`
+         * @param type (string) Type of the Primary IP. `ipv4` or `ipv6`
          * 
          * @return builder
          * 

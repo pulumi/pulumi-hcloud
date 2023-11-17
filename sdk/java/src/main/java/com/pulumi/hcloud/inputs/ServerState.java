@@ -363,14 +363,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to try shutting the server down gracefully before deleting it.
+     * (bool) Whether to try shutting the server down gracefully before deleting it.
      * 
      */
     @Import(name="shutdownBeforeDeletion")
     private @Nullable Output<Boolean> shutdownBeforeDeletion;
 
     /**
-     * @return Whether to try shutting the server down gracefully before deleting it.
+     * @return (bool) Whether to try shutting the server down gracefully before deleting it.
      * 
      */
     public Optional<Output<Boolean>> shutdownBeforeDeletion() {
@@ -963,7 +963,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shutdownBeforeDeletion Whether to try shutting the server down gracefully before deleting it.
+         * @param shutdownBeforeDeletion (bool) Whether to try shutting the server down gracefully before deleting it.
          * 
          * @return builder
          * 
@@ -974,7 +974,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shutdownBeforeDeletion Whether to try shutting the server down gracefully before deleting it.
+         * @param shutdownBeforeDeletion (bool) Whether to try shutting the server down gracefully before deleting it.
          * 
          * @return builder
          * 

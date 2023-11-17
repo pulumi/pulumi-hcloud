@@ -83,35 +83,35 @@ import javax.annotation.Nullable;
 @ResourceType(type="hcloud:index/primaryIp:PrimaryIp")
 public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
-     * ID of the assigned resource
+     * (int) ID of the assigned resource
      * 
      */
     @Export(name="assigneeId", refs={Integer.class}, tree="[0]")
     private Output<Integer> assigneeId;
 
     /**
-     * @return ID of the assigned resource
+     * @return (int) ID of the assigned resource
      * 
      */
     public Output<Integer> assigneeId() {
         return this.assigneeId;
     }
     /**
-     * The type of the assigned resource. Currently supported: `server`
+     * (string) The type of the assigned resource. Currently supported: `server`
      * 
      */
     @Export(name="assigneeType", refs={String.class}, tree="[0]")
     private Output<String> assigneeType;
 
     /**
-     * @return The type of the assigned resource. Currently supported: `server`
+     * @return (string) The type of the assigned resource. Currently supported: `server`
      * 
      */
     public Output<String> assigneeType() {
         return this.assigneeType;
     }
     /**
-     * Whether auto delete is enabled.
+     * (bool) Whether auto delete is enabled.
      * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
@@ -119,7 +119,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     private Output<Boolean> autoDelete;
 
     /**
-     * @return Whether auto delete is enabled.
+     * @return (bool) Whether auto delete is enabled.
      * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
@@ -127,28 +127,28 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
         return this.autoDelete;
     }
     /**
-     * The datacenter name to create the resource in.
+     * (string, optional) The datacenter name to create the resource in.
      * 
      */
     @Export(name="datacenter", refs={String.class}, tree="[0]")
     private Output<String> datacenter;
 
     /**
-     * @return The datacenter name to create the resource in.
+     * @return (string, optional) The datacenter name to create the resource in.
      * 
      */
     public Output<String> datacenter() {
         return this.datacenter;
     }
     /**
-     * Whether delete protection is enabled.
+     * (bool) Whether delete protection is enabled.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
-     * @return Whether delete protection is enabled.
+     * @return (bool) Whether delete protection is enabled.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {
@@ -183,42 +183,42 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
         return this.ipNetwork;
     }
     /**
-     * Description of the Primary IP.
+     * (string) Description of the Primary IP.
      * 
      */
     @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> labels;
 
     /**
-     * @return Description of the Primary IP.
+     * @return (string) Description of the Primary IP.
      * 
      */
     public Output<Optional<Map<String,Object>>> labels() {
         return Codegen.optional(this.labels);
     }
     /**
-     * Name of the Primary IP.
+     * (string) Name of the Primary IP.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Primary IP.
+     * @return (string) Name of the Primary IP.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Type of the Primary IP. `ipv4` or `ipv6`
+     * (string) Type of the Primary IP. `ipv4` or `ipv6`
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Primary IP. `ipv4` or `ipv6`
+     * @return (string) Type of the Primary IP. `ipv4` or `ipv6`
      * 
      */
     public Output<String> type() {

@@ -304,7 +304,7 @@ namespace Pulumi.HCloud
         public Output<string> ServerType { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to try shutting the server down gracefully before deleting it.
+        /// (bool) Whether to try shutting the server down gracefully before deleting it.
         /// </summary>
         [Output("shutdownBeforeDeletion")]
         public Output<bool?> ShutdownBeforeDeletion { get; private set; } = null!;
@@ -505,7 +505,7 @@ namespace Pulumi.HCloud
         public Input<string> ServerType { get; set; } = null!;
 
         /// <summary>
-        /// Whether to try shutting the server down gracefully before deleting it.
+        /// (bool) Whether to try shutting the server down gracefully before deleting it.
         /// </summary>
         [Input("shutdownBeforeDeletion")]
         public Input<bool>? ShutdownBeforeDeletion { get; set; }
@@ -691,7 +691,7 @@ namespace Pulumi.HCloud
         public Input<string>? ServerType { get; set; }
 
         /// <summary>
-        /// Whether to try shutting the server down gracefully before deleting it.
+        /// (bool) Whether to try shutting the server down gracefully before deleting it.
         /// </summary>
         [Input("shutdownBeforeDeletion")]
         public Input<bool>? ShutdownBeforeDeletion { get; set; }

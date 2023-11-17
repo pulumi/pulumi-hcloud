@@ -229,7 +229,7 @@ type Server struct {
 	Rescue pulumi.StringPtrOutput `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
 	ServerType pulumi.StringOutput `pulumi:"serverType"`
-	// Whether to try shutting the server down gracefully before deleting it.
+	// (bool) Whether to try shutting the server down gracefully before deleting it.
 	ShutdownBeforeDeletion pulumi.BoolPtrOutput     `pulumi:"shutdownBeforeDeletion"`
 	SshKeys                pulumi.StringArrayOutput `pulumi:"sshKeys"`
 	// (string) The status of the server.
@@ -321,7 +321,7 @@ type serverState struct {
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
 	ServerType *string `pulumi:"serverType"`
-	// Whether to try shutting the server down gracefully before deleting it.
+	// (bool) Whether to try shutting the server down gracefully before deleting it.
 	ShutdownBeforeDeletion *bool    `pulumi:"shutdownBeforeDeletion"`
 	SshKeys                []string `pulumi:"sshKeys"`
 	// (string) The status of the server.
@@ -381,7 +381,7 @@ type ServerState struct {
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.
 	ServerType pulumi.StringPtrInput
-	// Whether to try shutting the server down gracefully before deleting it.
+	// (bool) Whether to try shutting the server down gracefully before deleting it.
 	ShutdownBeforeDeletion pulumi.BoolPtrInput
 	SshKeys                pulumi.StringArrayInput
 	// (string) The status of the server.
@@ -435,7 +435,7 @@ type serverArgs struct {
 	Rescue *string `pulumi:"rescue"`
 	// Name of the server type this server should be created with.
 	ServerType string `pulumi:"serverType"`
-	// Whether to try shutting the server down gracefully before deleting it.
+	// (bool) Whether to try shutting the server down gracefully before deleting it.
 	ShutdownBeforeDeletion *bool    `pulumi:"shutdownBeforeDeletion"`
 	SshKeys                []string `pulumi:"sshKeys"`
 	// Cloud-Init user data to use during server creation
@@ -484,7 +484,7 @@ type ServerArgs struct {
 	Rescue pulumi.StringPtrInput
 	// Name of the server type this server should be created with.
 	ServerType pulumi.StringInput
-	// Whether to try shutting the server down gracefully before deleting it.
+	// (bool) Whether to try shutting the server down gracefully before deleting it.
 	ShutdownBeforeDeletion pulumi.BoolPtrInput
 	SshKeys                pulumi.StringArrayInput
 	// Cloud-Init user data to use during server creation
@@ -694,7 +694,7 @@ func (o ServerOutput) ServerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServerType }).(pulumi.StringOutput)
 }
 
-// Whether to try shutting the server down gracefully before deleting it.
+// (bool) Whether to try shutting the server down gracefully before deleting it.
 func (o ServerOutput) ShutdownBeforeDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.ShutdownBeforeDeletion }).(pulumi.BoolPtrOutput)
 }

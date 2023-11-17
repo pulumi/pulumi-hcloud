@@ -71,32 +71,32 @@ namespace Pulumi.HCloud
     public partial class PrimaryIp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the assigned resource
+        /// (int) ID of the assigned resource
         /// </summary>
         [Output("assigneeId")]
         public Output<int> AssigneeId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `server`
+        /// (string) The type of the assigned resource. Currently supported: `server`
         /// </summary>
         [Output("assigneeType")]
         public Output<string> AssigneeType { get; private set; } = null!;
 
         /// <summary>
-        /// Whether auto delete is enabled.
+        /// (bool) Whether auto delete is enabled.
         /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Output("autoDelete")]
         public Output<bool> AutoDelete { get; private set; } = null!;
 
         /// <summary>
-        /// The datacenter name to create the resource in.
+        /// (string, optional) The datacenter name to create the resource in.
         /// </summary>
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
 
         /// <summary>
-        /// Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -114,19 +114,19 @@ namespace Pulumi.HCloud
         public Output<string> IpNetwork { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the Primary IP.
+        /// (string) Description of the Primary IP.
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Primary IP.
+        /// (string) Name of the Primary IP.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Primary IP. `ipv4` or `ipv6`
+        /// (string) Type of the Primary IP. `ipv4` or `ipv6`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -178,32 +178,32 @@ namespace Pulumi.HCloud
     public sealed class PrimaryIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the assigned resource
+        /// (int) ID of the assigned resource
         /// </summary>
         [Input("assigneeId")]
         public Input<int>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `server`
+        /// (string) The type of the assigned resource. Currently supported: `server`
         /// </summary>
         [Input("assigneeType", required: true)]
         public Input<string> AssigneeType { get; set; } = null!;
 
         /// <summary>
-        /// Whether auto delete is enabled.
+        /// (bool) Whether auto delete is enabled.
         /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Input("autoDelete", required: true)]
         public Input<bool> AutoDelete { get; set; } = null!;
 
         /// <summary>
-        /// The datacenter name to create the resource in.
+        /// (string, optional) The datacenter name to create the resource in.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.HCloud
         private InputMap<object>? _labels;
 
         /// <summary>
-        /// Description of the Primary IP.
+        /// (string) Description of the Primary IP.
         /// </summary>
         public InputMap<object> Labels
         {
@@ -221,13 +221,13 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Name of the Primary IP.
+        /// (string) Name of the Primary IP.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of the Primary IP. `ipv4` or `ipv6`
+        /// (string) Type of the Primary IP. `ipv4` or `ipv6`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -241,32 +241,32 @@ namespace Pulumi.HCloud
     public sealed class PrimaryIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the assigned resource
+        /// (int) ID of the assigned resource
         /// </summary>
         [Input("assigneeId")]
         public Input<int>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `server`
+        /// (string) The type of the assigned resource. Currently supported: `server`
         /// </summary>
         [Input("assigneeType")]
         public Input<string>? AssigneeType { get; set; }
 
         /// <summary>
-        /// Whether auto delete is enabled.
+        /// (bool) Whether auto delete is enabled.
         /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Input("autoDelete")]
         public Input<bool>? AutoDelete { get; set; }
 
         /// <summary>
-        /// The datacenter name to create the resource in.
+        /// (string, optional) The datacenter name to create the resource in.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Whether delete protection is enabled.
+        /// (bool) Whether delete protection is enabled.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.HCloud
         private InputMap<object>? _labels;
 
         /// <summary>
-        /// Description of the Primary IP.
+        /// (string) Description of the Primary IP.
         /// </summary>
         public InputMap<object> Labels
         {
@@ -296,13 +296,13 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Name of the Primary IP.
+        /// (string) Name of the Primary IP.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of the Primary IP. `ipv4` or `ipv6`
+        /// (string) Type of the Primary IP. `ipv4` or `ipv6`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

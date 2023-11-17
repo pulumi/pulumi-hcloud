@@ -505,14 +505,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.serverType;
     }
     /**
-     * Whether to try shutting the server down gracefully before deleting it.
+     * (bool) Whether to try shutting the server down gracefully before deleting it.
      * 
      */
     @Export(name="shutdownBeforeDeletion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> shutdownBeforeDeletion;
 
     /**
-     * @return Whether to try shutting the server down gracefully before deleting it.
+     * @return (bool) Whether to try shutting the server down gracefully before deleting it.
      * 
      */
     public Output<Optional<Boolean>> shutdownBeforeDeletion() {

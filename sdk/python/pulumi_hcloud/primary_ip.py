@@ -24,15 +24,15 @@ class PrimaryIpArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrimaryIp resource.
-        :param pulumi.Input[str] assignee_type: The type of the assigned resource. Currently supported: `server`
-        :param pulumi.Input[bool] auto_delete: Whether auto delete is enabled.
+        :param pulumi.Input[str] assignee_type: (string) The type of the assigned resource. Currently supported: `server`
+        :param pulumi.Input[bool] auto_delete: (bool) Whether auto delete is enabled.
                `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-        :param pulumi.Input[str] type: Type of the Primary IP. `ipv4` or `ipv6`
-        :param pulumi.Input[int] assignee_id: ID of the assigned resource
-        :param pulumi.Input[str] datacenter: The datacenter name to create the resource in.
-        :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
-        :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
-        :param pulumi.Input[str] name: Name of the Primary IP.
+        :param pulumi.Input[str] type: (string) Type of the Primary IP. `ipv4` or `ipv6`
+        :param pulumi.Input[int] assignee_id: (int) ID of the assigned resource
+        :param pulumi.Input[str] datacenter: (string, optional) The datacenter name to create the resource in.
+        :param pulumi.Input[bool] delete_protection: (bool) Whether delete protection is enabled.
+        :param pulumi.Input[Mapping[str, Any]] labels: (string) Description of the Primary IP.
+        :param pulumi.Input[str] name: (string) Name of the Primary IP.
         """
         pulumi.set(__self__, "assignee_type", assignee_type)
         pulumi.set(__self__, "auto_delete", auto_delete)
@@ -52,7 +52,7 @@ class PrimaryIpArgs:
     @pulumi.getter(name="assigneeType")
     def assignee_type(self) -> pulumi.Input[str]:
         """
-        The type of the assigned resource. Currently supported: `server`
+        (string) The type of the assigned resource. Currently supported: `server`
         """
         return pulumi.get(self, "assignee_type")
 
@@ -64,7 +64,7 @@ class PrimaryIpArgs:
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> pulumi.Input[bool]:
         """
-        Whether auto delete is enabled.
+        (bool) Whether auto delete is enabled.
         `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         """
         return pulumi.get(self, "auto_delete")
@@ -77,7 +77,7 @@ class PrimaryIpArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the Primary IP. `ipv4` or `ipv6`
+        (string) Type of the Primary IP. `ipv4` or `ipv6`
         """
         return pulumi.get(self, "type")
 
@@ -89,7 +89,7 @@ class PrimaryIpArgs:
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> Optional[pulumi.Input[int]]:
         """
-        ID of the assigned resource
+        (int) ID of the assigned resource
         """
         return pulumi.get(self, "assignee_id")
 
@@ -101,7 +101,7 @@ class PrimaryIpArgs:
     @pulumi.getter
     def datacenter(self) -> Optional[pulumi.Input[str]]:
         """
-        The datacenter name to create the resource in.
+        (string, optional) The datacenter name to create the resource in.
         """
         return pulumi.get(self, "datacenter")
 
@@ -113,7 +113,7 @@ class PrimaryIpArgs:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether delete protection is enabled.
+        (bool) Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -125,7 +125,7 @@ class PrimaryIpArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Description of the Primary IP.
+        (string) Description of the Primary IP.
         """
         return pulumi.get(self, "labels")
 
@@ -137,7 +137,7 @@ class PrimaryIpArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Primary IP.
+        (string) Name of the Primary IP.
         """
         return pulumi.get(self, "name")
 
@@ -161,17 +161,17 @@ class _PrimaryIpState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PrimaryIp resources.
-        :param pulumi.Input[int] assignee_id: ID of the assigned resource
-        :param pulumi.Input[str] assignee_type: The type of the assigned resource. Currently supported: `server`
-        :param pulumi.Input[bool] auto_delete: Whether auto delete is enabled.
+        :param pulumi.Input[int] assignee_id: (int) ID of the assigned resource
+        :param pulumi.Input[str] assignee_type: (string) The type of the assigned resource. Currently supported: `server`
+        :param pulumi.Input[bool] auto_delete: (bool) Whether auto delete is enabled.
                `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the resource in.
-        :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
+        :param pulumi.Input[str] datacenter: (string, optional) The datacenter name to create the resource in.
+        :param pulumi.Input[bool] delete_protection: (bool) Whether delete protection is enabled.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Primary IP.
         :param pulumi.Input[str] ip_network: (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
-        :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
-        :param pulumi.Input[str] name: Name of the Primary IP.
-        :param pulumi.Input[str] type: Type of the Primary IP. `ipv4` or `ipv6`
+        :param pulumi.Input[Mapping[str, Any]] labels: (string) Description of the Primary IP.
+        :param pulumi.Input[str] name: (string) Name of the Primary IP.
+        :param pulumi.Input[str] type: (string) Type of the Primary IP. `ipv4` or `ipv6`
         """
         if assignee_id is not None:
             pulumi.set(__self__, "assignee_id", assignee_id)
@@ -198,7 +198,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> Optional[pulumi.Input[int]]:
         """
-        ID of the assigned resource
+        (int) ID of the assigned resource
         """
         return pulumi.get(self, "assignee_id")
 
@@ -210,7 +210,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="assigneeType")
     def assignee_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the assigned resource. Currently supported: `server`
+        (string) The type of the assigned resource. Currently supported: `server`
         """
         return pulumi.get(self, "assignee_type")
 
@@ -222,7 +222,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether auto delete is enabled.
+        (bool) Whether auto delete is enabled.
         `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         """
         return pulumi.get(self, "auto_delete")
@@ -235,7 +235,7 @@ class _PrimaryIpState:
     @pulumi.getter
     def datacenter(self) -> Optional[pulumi.Input[str]]:
         """
-        The datacenter name to create the resource in.
+        (string, optional) The datacenter name to create the resource in.
         """
         return pulumi.get(self, "datacenter")
 
@@ -247,7 +247,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether delete protection is enabled.
+        (bool) Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -283,7 +283,7 @@ class _PrimaryIpState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Description of the Primary IP.
+        (string) Description of the Primary IP.
         """
         return pulumi.get(self, "labels")
 
@@ -295,7 +295,7 @@ class _PrimaryIpState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Primary IP.
+        (string) Name of the Primary IP.
         """
         return pulumi.get(self, "name")
 
@@ -307,7 +307,7 @@ class _PrimaryIpState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the Primary IP. `ipv4` or `ipv6`
+        (string) Type of the Primary IP. `ipv4` or `ipv6`
         """
         return pulumi.get(self, "type")
 
@@ -373,15 +373,15 @@ class PrimaryIp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] assignee_id: ID of the assigned resource
-        :param pulumi.Input[str] assignee_type: The type of the assigned resource. Currently supported: `server`
-        :param pulumi.Input[bool] auto_delete: Whether auto delete is enabled.
+        :param pulumi.Input[int] assignee_id: (int) ID of the assigned resource
+        :param pulumi.Input[str] assignee_type: (string) The type of the assigned resource. Currently supported: `server`
+        :param pulumi.Input[bool] auto_delete: (bool) Whether auto delete is enabled.
                `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the resource in.
-        :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
-        :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
-        :param pulumi.Input[str] name: Name of the Primary IP.
-        :param pulumi.Input[str] type: Type of the Primary IP. `ipv4` or `ipv6`
+        :param pulumi.Input[str] datacenter: (string, optional) The datacenter name to create the resource in.
+        :param pulumi.Input[bool] delete_protection: (bool) Whether delete protection is enabled.
+        :param pulumi.Input[Mapping[str, Any]] labels: (string) Description of the Primary IP.
+        :param pulumi.Input[str] name: (string) Name of the Primary IP.
+        :param pulumi.Input[str] type: (string) Type of the Primary IP. `ipv4` or `ipv6`
         """
         ...
     @overload
@@ -505,17 +505,17 @@ class PrimaryIp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] assignee_id: ID of the assigned resource
-        :param pulumi.Input[str] assignee_type: The type of the assigned resource. Currently supported: `server`
-        :param pulumi.Input[bool] auto_delete: Whether auto delete is enabled.
+        :param pulumi.Input[int] assignee_id: (int) ID of the assigned resource
+        :param pulumi.Input[str] assignee_type: (string) The type of the assigned resource. Currently supported: `server`
+        :param pulumi.Input[bool] auto_delete: (bool) Whether auto delete is enabled.
                `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the resource in.
-        :param pulumi.Input[bool] delete_protection: Whether delete protection is enabled.
+        :param pulumi.Input[str] datacenter: (string, optional) The datacenter name to create the resource in.
+        :param pulumi.Input[bool] delete_protection: (bool) Whether delete protection is enabled.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Primary IP.
         :param pulumi.Input[str] ip_network: (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
-        :param pulumi.Input[Mapping[str, Any]] labels: Description of the Primary IP.
-        :param pulumi.Input[str] name: Name of the Primary IP.
-        :param pulumi.Input[str] type: Type of the Primary IP. `ipv4` or `ipv6`
+        :param pulumi.Input[Mapping[str, Any]] labels: (string) Description of the Primary IP.
+        :param pulumi.Input[str] name: (string) Name of the Primary IP.
+        :param pulumi.Input[str] type: (string) Type of the Primary IP. `ipv4` or `ipv6`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -537,7 +537,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> pulumi.Output[int]:
         """
-        ID of the assigned resource
+        (int) ID of the assigned resource
         """
         return pulumi.get(self, "assignee_id")
 
@@ -545,7 +545,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="assigneeType")
     def assignee_type(self) -> pulumi.Output[str]:
         """
-        The type of the assigned resource. Currently supported: `server`
+        (string) The type of the assigned resource. Currently supported: `server`
         """
         return pulumi.get(self, "assignee_type")
 
@@ -553,7 +553,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> pulumi.Output[bool]:
         """
-        Whether auto delete is enabled.
+        (bool) Whether auto delete is enabled.
         `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         """
         return pulumi.get(self, "auto_delete")
@@ -562,7 +562,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter
     def datacenter(self) -> pulumi.Output[str]:
         """
-        The datacenter name to create the resource in.
+        (string, optional) The datacenter name to create the resource in.
         """
         return pulumi.get(self, "datacenter")
 
@@ -570,7 +570,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether delete protection is enabled.
+        (bool) Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -594,7 +594,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        Description of the Primary IP.
+        (string) Description of the Primary IP.
         """
         return pulumi.get(self, "labels")
 
@@ -602,7 +602,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Primary IP.
+        (string) Name of the Primary IP.
         """
         return pulumi.get(self, "name")
 
@@ -610,7 +610,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the Primary IP. `ipv4` or `ipv6`
+        (string) Type of the Primary IP. `ipv4` or `ipv6`
         """
         return pulumi.get(self, "type")
 

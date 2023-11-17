@@ -220,7 +220,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly serverType!: pulumi.Output<string>;
     /**
-     * Whether to try shutting the server down gracefully before deleting it.
+     * (bool) Whether to try shutting the server down gracefully before deleting it.
      */
     public readonly shutdownBeforeDeletion!: pulumi.Output<boolean | undefined>;
     public readonly sshKeys!: pulumi.Output<string[] | undefined>;
@@ -406,7 +406,7 @@ export interface ServerState {
      */
     serverType?: pulumi.Input<string>;
     /**
-     * Whether to try shutting the server down gracefully before deleting it.
+     * (bool) Whether to try shutting the server down gracefully before deleting it.
      */
     shutdownBeforeDeletion?: pulumi.Input<boolean>;
     sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
@@ -499,7 +499,7 @@ export interface ServerArgs {
      */
     serverType: pulumi.Input<string>;
     /**
-     * Whether to try shutting the server down gracefully before deleting it.
+     * (bool) Whether to try shutting the server down gracefully before deleting it.
      */
     shutdownBeforeDeletion?: pulumi.Input<boolean>;
     sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
