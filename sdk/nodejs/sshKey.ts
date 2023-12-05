@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * // Create a new SSH key
- * const _default = new hcloud.SshKey("default", {publicKey: fs.readFileSync("~/.ssh/id_rsa.pub")});
+ * const _default = new hcloud.SshKey("default", {publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8")});
  * ```
  *
  * ## Import
