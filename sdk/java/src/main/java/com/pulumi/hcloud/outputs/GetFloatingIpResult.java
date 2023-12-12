@@ -257,20 +257,20 @@ public final class GetFloatingIpResult {
             return this;
         }
         public GetFloatingIpResult build() {
-            final var o = new GetFloatingIpResult();
-            o.deleteProtection = deleteProtection;
-            o.description = description;
-            o.homeLocation = homeLocation;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.ipNetwork = ipNetwork;
-            o.labels = labels;
-            o.name = name;
-            o.selector = selector;
-            o.serverId = serverId;
-            o.type = type;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetFloatingIpResult();
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.description = description;
+            _resultValue.homeLocation = homeLocation;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.ipNetwork = ipNetwork;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            _resultValue.selector = selector;
+            _resultValue.serverId = serverId;
+            _resultValue.type = type;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

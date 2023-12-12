@@ -99,14 +99,14 @@ public final class GetLoadBalancersLoadBalancerServiceHealthCheck {
             return this;
         }
         public GetLoadBalancersLoadBalancerServiceHealthCheck build() {
-            final var o = new GetLoadBalancersLoadBalancerServiceHealthCheck();
-            o.https = https;
-            o.interval = interval;
-            o.port = port;
-            o.protocol = protocol;
-            o.retries = retries;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new GetLoadBalancersLoadBalancerServiceHealthCheck();
+            _resultValue.https = https;
+            _resultValue.interval = interval;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.retries = retries;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

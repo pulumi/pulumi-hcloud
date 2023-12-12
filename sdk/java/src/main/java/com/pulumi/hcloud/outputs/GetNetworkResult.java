@@ -161,16 +161,16 @@ public final class GetNetworkResult {
             return this;
         }
         public GetNetworkResult build() {
-            final var o = new GetNetworkResult();
-            o.deleteProtection = deleteProtection;
-            o.exposeRoutesToVswitch = exposeRoutesToVswitch;
-            o.id = id;
-            o.ipRange = ipRange;
-            o.labels = labels;
-            o.mostRecent = mostRecent;
-            o.name = name;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetNetworkResult();
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.exposeRoutesToVswitch = exposeRoutesToVswitch;
+            _resultValue.id = id;
+            _resultValue.ipRange = ipRange;
+            _resultValue.labels = labels;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.name = name;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

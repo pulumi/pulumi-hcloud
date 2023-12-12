@@ -88,13 +88,13 @@ public final class GetLoadBalancersLoadBalancerServiceHealthCheckHttp {
             return this;
         }
         public GetLoadBalancersLoadBalancerServiceHealthCheckHttp build() {
-            final var o = new GetLoadBalancersLoadBalancerServiceHealthCheckHttp();
-            o.domain = domain;
-            o.path = path;
-            o.response = response;
-            o.statusCodes = statusCodes;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new GetLoadBalancersLoadBalancerServiceHealthCheckHttp();
+            _resultValue.domain = domain;
+            _resultValue.path = path;
+            _resultValue.response = response;
+            _resultValue.statusCodes = statusCodes;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

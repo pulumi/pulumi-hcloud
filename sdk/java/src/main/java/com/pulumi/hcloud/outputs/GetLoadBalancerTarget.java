@@ -85,11 +85,11 @@ public final class GetLoadBalancerTarget {
             return this;
         }
         public GetLoadBalancerTarget build() {
-            final var o = new GetLoadBalancerTarget();
-            o.labelSelector = labelSelector;
-            o.serverId = serverId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLoadBalancerTarget();
+            _resultValue.labelSelector = labelSelector;
+            _resultValue.serverId = serverId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

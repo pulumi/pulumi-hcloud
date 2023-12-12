@@ -95,12 +95,12 @@ public final class GetPlacementGroupsResult {
             return this;
         }
         public GetPlacementGroupsResult build() {
-            final var o = new GetPlacementGroupsResult();
-            o.id = id;
-            o.mostRecent = mostRecent;
-            o.placementGroups = placementGroups;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetPlacementGroupsResult();
+            _resultValue.id = id;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.placementGroups = placementGroups;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

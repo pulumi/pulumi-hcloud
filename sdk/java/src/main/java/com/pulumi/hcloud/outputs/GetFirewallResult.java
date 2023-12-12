@@ -159,15 +159,15 @@ public final class GetFirewallResult {
             return this;
         }
         public GetFirewallResult build() {
-            final var o = new GetFirewallResult();
-            o.applyTos = applyTos;
-            o.id = id;
-            o.labels = labels;
-            o.mostRecent = mostRecent;
-            o.name = name;
-            o.rules = rules;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetFirewallResult();
+            _resultValue.applyTos = applyTos;
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.name = name;
+            _resultValue.rules = rules;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

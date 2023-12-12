@@ -246,27 +246,27 @@ public final class GetServersServer {
             return this;
         }
         public GetServersServer build() {
-            final var o = new GetServersServer();
-            o.backupWindow = backupWindow;
-            o.backups = backups;
-            o.datacenter = datacenter;
-            o.deleteProtection = deleteProtection;
-            o.firewallIds = firewallIds;
-            o.id = id;
-            o.image = image;
-            o.ipv4Address = ipv4Address;
-            o.ipv6Address = ipv6Address;
-            o.ipv6Network = ipv6Network;
-            o.iso = iso;
-            o.labels = labels;
-            o.location = location;
-            o.name = name;
-            o.placementGroupId = placementGroupId;
-            o.rebuildProtection = rebuildProtection;
-            o.rescue = rescue;
-            o.serverType = serverType;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetServersServer();
+            _resultValue.backupWindow = backupWindow;
+            _resultValue.backups = backups;
+            _resultValue.datacenter = datacenter;
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.firewallIds = firewallIds;
+            _resultValue.id = id;
+            _resultValue.image = image;
+            _resultValue.ipv4Address = ipv4Address;
+            _resultValue.ipv6Address = ipv6Address;
+            _resultValue.ipv6Network = ipv6Network;
+            _resultValue.iso = iso;
+            _resultValue.labels = labels;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.placementGroupId = placementGroupId;
+            _resultValue.rebuildProtection = rebuildProtection;
+            _resultValue.rescue = rescue;
+            _resultValue.serverType = serverType;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -95,12 +95,12 @@ public final class GetFirewallsResult {
             return this;
         }
         public GetFirewallsResult build() {
-            final var o = new GetFirewallsResult();
-            o.firewalls = firewalls;
-            o.id = id;
-            o.mostRecent = mostRecent;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetFirewallsResult();
+            _resultValue.firewalls = firewalls;
+            _resultValue.id = id;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

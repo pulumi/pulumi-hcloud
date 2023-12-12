@@ -315,23 +315,23 @@ public final class GetLoadBalancerResult {
             return this;
         }
         public GetLoadBalancerResult build() {
-            final var o = new GetLoadBalancerResult();
-            o.algorithms = algorithms;
-            o.deleteProtection = deleteProtection;
-            o.id = id;
-            o.ipv4 = ipv4;
-            o.ipv6 = ipv6;
-            o.labels = labels;
-            o.loadBalancerType = loadBalancerType;
-            o.location = location;
-            o.name = name;
-            o.networkId = networkId;
-            o.networkIp = networkIp;
-            o.networkZone = networkZone;
-            o.services = services;
-            o.targets = targets;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetLoadBalancerResult();
+            _resultValue.algorithms = algorithms;
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.id = id;
+            _resultValue.ipv4 = ipv4;
+            _resultValue.ipv6 = ipv6;
+            _resultValue.labels = labels;
+            _resultValue.loadBalancerType = loadBalancerType;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.networkId = networkId;
+            _resultValue.networkIp = networkIp;
+            _resultValue.networkZone = networkZone;
+            _resultValue.services = services;
+            _resultValue.targets = targets;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

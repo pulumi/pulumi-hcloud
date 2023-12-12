@@ -46,9 +46,9 @@ public final class GetLoadBalancerAlgorithm {
             return this;
         }
         public GetLoadBalancerAlgorithm build() {
-            final var o = new GetLoadBalancerAlgorithm();
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLoadBalancerAlgorithm();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

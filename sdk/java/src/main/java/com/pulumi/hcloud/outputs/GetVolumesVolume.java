@@ -121,16 +121,16 @@ public final class GetVolumesVolume {
             return this;
         }
         public GetVolumesVolume build() {
-            final var o = new GetVolumesVolume();
-            o.deleteProtection = deleteProtection;
-            o.id = id;
-            o.labels = labels;
-            o.linuxDevice = linuxDevice;
-            o.location = location;
-            o.name = name;
-            o.serverId = serverId;
-            o.size = size;
-            return o;
+            final var _resultValue = new GetVolumesVolume();
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.linuxDevice = linuxDevice;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.serverId = serverId;
+            _resultValue.size = size;
+            return _resultValue;
         }
     }
 }

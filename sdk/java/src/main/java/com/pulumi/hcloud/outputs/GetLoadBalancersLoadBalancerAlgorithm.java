@@ -38,9 +38,9 @@ public final class GetLoadBalancersLoadBalancerAlgorithm {
             return this;
         }
         public GetLoadBalancersLoadBalancerAlgorithm build() {
-            final var o = new GetLoadBalancersLoadBalancerAlgorithm();
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLoadBalancersLoadBalancerAlgorithm();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

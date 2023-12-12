@@ -83,11 +83,11 @@ public final class GetCertificatesResult {
             return this;
         }
         public GetCertificatesResult build() {
-            final var o = new GetCertificatesResult();
-            o.certificates = certificates;
-            o.id = id;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetCertificatesResult();
+            _resultValue.certificates = certificates;
+            _resultValue.id = id;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

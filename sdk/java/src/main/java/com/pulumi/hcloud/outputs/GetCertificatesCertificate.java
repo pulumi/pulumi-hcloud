@@ -146,18 +146,18 @@ public final class GetCertificatesCertificate {
             return this;
         }
         public GetCertificatesCertificate build() {
-            final var o = new GetCertificatesCertificate();
-            o.certificate = certificate;
-            o.created = created;
-            o.domainNames = domainNames;
-            o.fingerprint = fingerprint;
-            o.id = id;
-            o.labels = labels;
-            o.name = name;
-            o.notValidAfter = notValidAfter;
-            o.notValidBefore = notValidBefore;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetCertificatesCertificate();
+            _resultValue.certificate = certificate;
+            _resultValue.created = created;
+            _resultValue.domainNames = domainNames;
+            _resultValue.fingerprint = fingerprint;
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            _resultValue.notValidAfter = notValidAfter;
+            _resultValue.notValidBefore = notValidBefore;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

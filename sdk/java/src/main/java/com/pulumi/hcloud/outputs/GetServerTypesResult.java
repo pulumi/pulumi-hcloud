@@ -149,13 +149,13 @@ public final class GetServerTypesResult {
             return serverTypes(List.of(serverTypes));
         }
         public GetServerTypesResult build() {
-            final var o = new GetServerTypesResult();
-            o.descriptions = descriptions;
-            o.id = id;
-            o.names = names;
-            o.serverTypeIds = serverTypeIds;
-            o.serverTypes = serverTypes;
-            return o;
+            final var _resultValue = new GetServerTypesResult();
+            _resultValue.descriptions = descriptions;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            _resultValue.serverTypeIds = serverTypeIds;
+            _resultValue.serverTypes = serverTypes;
+            return _resultValue;
         }
     }
 }

@@ -97,12 +97,12 @@ public final class GetServersResult {
             return withStatuses(List.of(withStatuses));
         }
         public GetServersResult build() {
-            final var o = new GetServersResult();
-            o.id = id;
-            o.servers = servers;
-            o.withSelector = withSelector;
-            o.withStatuses = withStatuses;
-            return o;
+            final var _resultValue = new GetServersResult();
+            _resultValue.id = id;
+            _resultValue.servers = servers;
+            _resultValue.withSelector = withSelector;
+            _resultValue.withStatuses = withStatuses;
+            return _resultValue;
         }
     }
 }

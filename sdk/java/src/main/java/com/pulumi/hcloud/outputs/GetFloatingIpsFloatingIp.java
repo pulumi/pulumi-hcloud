@@ -143,18 +143,18 @@ public final class GetFloatingIpsFloatingIp {
             return this;
         }
         public GetFloatingIpsFloatingIp build() {
-            final var o = new GetFloatingIpsFloatingIp();
-            o.deleteProtection = deleteProtection;
-            o.description = description;
-            o.homeLocation = homeLocation;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.ipNetwork = ipNetwork;
-            o.labels = labels;
-            o.name = name;
-            o.serverId = serverId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetFloatingIpsFloatingIp();
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.description = description;
+            _resultValue.homeLocation = homeLocation;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.ipNetwork = ipNetwork;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            _resultValue.serverId = serverId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

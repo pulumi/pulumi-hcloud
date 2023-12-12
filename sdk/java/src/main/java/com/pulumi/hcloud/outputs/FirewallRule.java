@@ -156,14 +156,14 @@ public final class FirewallRule {
             return sourceIps(List.of(sourceIps));
         }
         public FirewallRule build() {
-            final var o = new FirewallRule();
-            o.description = description;
-            o.destinationIps = destinationIps;
-            o.direction = direction;
-            o.port = port;
-            o.protocol = protocol;
-            o.sourceIps = sourceIps;
-            return o;
+            final var _resultValue = new FirewallRule();
+            _resultValue.description = description;
+            _resultValue.destinationIps = destinationIps;
+            _resultValue.direction = direction;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.sourceIps = sourceIps;
+            return _resultValue;
         }
     }
 }

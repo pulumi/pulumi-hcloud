@@ -50,10 +50,10 @@ public final class GetFirewallsFirewallApplyTo {
             return this;
         }
         public GetFirewallsFirewallApplyTo build() {
-            final var o = new GetFirewallsFirewallApplyTo();
-            o.labelSelector = labelSelector;
-            o.server = server;
-            return o;
+            final var _resultValue = new GetFirewallsFirewallApplyTo();
+            _resultValue.labelSelector = labelSelector;
+            _resultValue.server = server;
+            return _resultValue;
         }
     }
 }

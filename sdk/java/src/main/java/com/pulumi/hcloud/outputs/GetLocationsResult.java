@@ -161,13 +161,13 @@ public final class GetLocationsResult {
             return names(List.of(names));
         }
         public GetLocationsResult build() {
-            final var o = new GetLocationsResult();
-            o.descriptions = descriptions;
-            o.id = id;
-            o.locationIds = locationIds;
-            o.locations = locations;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetLocationsResult();
+            _resultValue.descriptions = descriptions;
+            _resultValue.id = id;
+            _resultValue.locationIds = locationIds;
+            _resultValue.locations = locations;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

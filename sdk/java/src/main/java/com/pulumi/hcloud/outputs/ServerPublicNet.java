@@ -74,12 +74,12 @@ public final class ServerPublicNet {
             return this;
         }
         public ServerPublicNet build() {
-            final var o = new ServerPublicNet();
-            o.ipv4 = ipv4;
-            o.ipv4Enabled = ipv4Enabled;
-            o.ipv6 = ipv6;
-            o.ipv6Enabled = ipv6Enabled;
-            return o;
+            final var _resultValue = new ServerPublicNet();
+            _resultValue.ipv4 = ipv4;
+            _resultValue.ipv4Enabled = ipv4Enabled;
+            _resultValue.ipv6 = ipv6;
+            _resultValue.ipv6Enabled = ipv6Enabled;
+            return _resultValue;
         }
     }
 }

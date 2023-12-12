@@ -128,13 +128,13 @@ public final class GetLoadBalancerServiceHttp {
             return this;
         }
         public GetLoadBalancerServiceHttp build() {
-            final var o = new GetLoadBalancerServiceHttp();
-            o.certificates = certificates;
-            o.cookieLifetime = cookieLifetime;
-            o.cookieName = cookieName;
-            o.redirectHttp = redirectHttp;
-            o.stickySessions = stickySessions;
-            return o;
+            final var _resultValue = new GetLoadBalancerServiceHttp();
+            _resultValue.certificates = certificates;
+            _resultValue.cookieLifetime = cookieLifetime;
+            _resultValue.cookieName = cookieName;
+            _resultValue.redirectHttp = redirectHttp;
+            _resultValue.stickySessions = stickySessions;
+            return _resultValue;
         }
     }
 }

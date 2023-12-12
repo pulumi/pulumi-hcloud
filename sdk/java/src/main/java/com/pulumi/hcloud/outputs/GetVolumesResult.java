@@ -97,12 +97,12 @@ public final class GetVolumesResult {
             return withStatuses(List.of(withStatuses));
         }
         public GetVolumesResult build() {
-            final var o = new GetVolumesResult();
-            o.id = id;
-            o.volumes = volumes;
-            o.withSelector = withSelector;
-            o.withStatuses = withStatuses;
-            return o;
+            final var _resultValue = new GetVolumesResult();
+            _resultValue.id = id;
+            _resultValue.volumes = volumes;
+            _resultValue.withSelector = withSelector;
+            _resultValue.withStatuses = withStatuses;
+            return _resultValue;
         }
     }
 }

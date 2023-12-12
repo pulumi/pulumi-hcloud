@@ -68,10 +68,10 @@ public final class GetFirewallApplyTo {
             return this;
         }
         public GetFirewallApplyTo build() {
-            final var o = new GetFirewallApplyTo();
-            o.labelSelector = labelSelector;
-            o.server = server;
-            return o;
+            final var _resultValue = new GetFirewallApplyTo();
+            _resultValue.labelSelector = labelSelector;
+            _resultValue.server = server;
+            return _resultValue;
         }
     }
 }

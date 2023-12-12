@@ -110,12 +110,12 @@ public final class ServerNetwork {
             return this;
         }
         public ServerNetwork build() {
-            final var o = new ServerNetwork();
-            o.aliasIps = aliasIps;
-            o.ip = ip;
-            o.macAddress = macAddress;
-            o.networkId = networkId;
-            return o;
+            final var _resultValue = new ServerNetwork();
+            _resultValue.aliasIps = aliasIps;
+            _resultValue.ip = ip;
+            _resultValue.macAddress = macAddress;
+            _resultValue.networkId = networkId;
+            return _resultValue;
         }
     }
 }

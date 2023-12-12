@@ -104,14 +104,14 @@ public final class GetLoadBalancersLoadBalancerService {
             return this;
         }
         public GetLoadBalancersLoadBalancerService build() {
-            final var o = new GetLoadBalancersLoadBalancerService();
-            o.destinationPort = destinationPort;
-            o.healthChecks = healthChecks;
-            o.https = https;
-            o.listenPort = listenPort;
-            o.protocol = protocol;
-            o.proxyprotocol = proxyprotocol;
-            return o;
+            final var _resultValue = new GetLoadBalancersLoadBalancerService();
+            _resultValue.destinationPort = destinationPort;
+            _resultValue.healthChecks = healthChecks;
+            _resultValue.https = https;
+            _resultValue.listenPort = listenPort;
+            _resultValue.protocol = protocol;
+            _resultValue.proxyprotocol = proxyprotocol;
+            return _resultValue;
         }
     }
 }
