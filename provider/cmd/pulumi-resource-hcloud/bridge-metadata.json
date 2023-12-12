@@ -567,6 +567,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "hcloud:index/certificate:Certificate": "hcloud_certificate",
