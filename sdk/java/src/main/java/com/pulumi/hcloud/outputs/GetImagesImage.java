@@ -177,20 +177,20 @@ public final class GetImagesImage {
             return this;
         }
         public GetImagesImage build() {
-            final var o = new GetImagesImage();
-            o.architecture = architecture;
-            o.created = created;
-            o.deprecated = deprecated;
-            o.description = description;
-            o.id = id;
-            o.labels = labels;
-            o.name = name;
-            o.osFlavor = osFlavor;
-            o.osVersion = osVersion;
-            o.rapidDeploy = rapidDeploy;
-            o.selector = selector;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetImagesImage();
+            _resultValue.architecture = architecture;
+            _resultValue.created = created;
+            _resultValue.deprecated = deprecated;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            _resultValue.osFlavor = osFlavor;
+            _resultValue.osVersion = osVersion;
+            _resultValue.rapidDeploy = rapidDeploy;
+            _resultValue.selector = selector;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

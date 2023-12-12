@@ -316,25 +316,25 @@ public final class GetImageResult {
             return withStatuses(List.of(withStatuses));
         }
         public GetImageResult build() {
-            final var o = new GetImageResult();
-            o.architecture = architecture;
-            o.created = created;
-            o.deprecated = deprecated;
-            o.description = description;
-            o.id = id;
-            o.includeDeprecated = includeDeprecated;
-            o.labels = labels;
-            o.mostRecent = mostRecent;
-            o.name = name;
-            o.osFlavor = osFlavor;
-            o.osVersion = osVersion;
-            o.rapidDeploy = rapidDeploy;
-            o.selector = selector;
-            o.type = type;
-            o.withArchitecture = withArchitecture;
-            o.withSelector = withSelector;
-            o.withStatuses = withStatuses;
-            return o;
+            final var _resultValue = new GetImageResult();
+            _resultValue.architecture = architecture;
+            _resultValue.created = created;
+            _resultValue.deprecated = deprecated;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.includeDeprecated = includeDeprecated;
+            _resultValue.labels = labels;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.name = name;
+            _resultValue.osFlavor = osFlavor;
+            _resultValue.osVersion = osVersion;
+            _resultValue.rapidDeploy = rapidDeploy;
+            _resultValue.selector = selector;
+            _resultValue.type = type;
+            _resultValue.withArchitecture = withArchitecture;
+            _resultValue.withSelector = withSelector;
+            _resultValue.withStatuses = withStatuses;
+            return _resultValue;
         }
     }
 }

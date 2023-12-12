@@ -153,15 +153,15 @@ public final class GetSshKeyResult {
             return this;
         }
         public GetSshKeyResult build() {
-            final var o = new GetSshKeyResult();
-            o.fingerprint = fingerprint;
-            o.id = id;
-            o.labels = labels;
-            o.name = name;
-            o.publicKey = publicKey;
-            o.selector = selector;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetSshKeyResult();
+            _resultValue.fingerprint = fingerprint;
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            _resultValue.publicKey = publicKey;
+            _resultValue.selector = selector;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

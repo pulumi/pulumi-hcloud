@@ -134,15 +134,15 @@ public final class GetImagesResult {
             return withStatuses(List.of(withStatuses));
         }
         public GetImagesResult build() {
-            final var o = new GetImagesResult();
-            o.id = id;
-            o.images = images;
-            o.includeDeprecated = includeDeprecated;
-            o.mostRecent = mostRecent;
-            o.withArchitectures = withArchitectures;
-            o.withSelector = withSelector;
-            o.withStatuses = withStatuses;
-            return o;
+            final var _resultValue = new GetImagesResult();
+            _resultValue.id = id;
+            _resultValue.images = images;
+            _resultValue.includeDeprecated = includeDeprecated;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.withArchitectures = withArchitectures;
+            _resultValue.withSelector = withSelector;
+            _resultValue.withStatuses = withStatuses;
+            return _resultValue;
         }
     }
 }

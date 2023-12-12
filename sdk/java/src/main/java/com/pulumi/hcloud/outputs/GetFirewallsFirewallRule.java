@@ -102,14 +102,14 @@ public final class GetFirewallsFirewallRule {
             return sourceIps(List.of(sourceIps));
         }
         public GetFirewallsFirewallRule build() {
-            final var o = new GetFirewallsFirewallRule();
-            o.description = description;
-            o.destinationIps = destinationIps;
-            o.direction = direction;
-            o.port = port;
-            o.protocol = protocol;
-            o.sourceIps = sourceIps;
-            return o;
+            final var _resultValue = new GetFirewallsFirewallRule();
+            _resultValue.description = description;
+            _resultValue.destinationIps = destinationIps;
+            _resultValue.direction = direction;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.sourceIps = sourceIps;
+            return _resultValue;
         }
     }
 }

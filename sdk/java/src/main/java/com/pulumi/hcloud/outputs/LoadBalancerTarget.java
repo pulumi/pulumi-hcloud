@@ -84,11 +84,11 @@ public final class LoadBalancerTarget {
             return this;
         }
         public LoadBalancerTarget build() {
-            final var o = new LoadBalancerTarget();
-            o.serverId = serverId;
-            o.type = type;
-            o.usePrivateIp = usePrivateIp;
-            return o;
+            final var _resultValue = new LoadBalancerTarget();
+            _resultValue.serverId = serverId;
+            _resultValue.type = type;
+            _resultValue.usePrivateIp = usePrivateIp;
+            return _resultValue;
         }
     }
 }

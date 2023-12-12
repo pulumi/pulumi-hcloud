@@ -260,21 +260,21 @@ public final class GetServerTypeResult {
             return this;
         }
         public GetServerTypeResult build() {
-            final var o = new GetServerTypeResult();
-            o.architecture = architecture;
-            o.cores = cores;
-            o.cpuType = cpuType;
-            o.deprecationAnnounced = deprecationAnnounced;
-            o.description = description;
-            o.disk = disk;
-            o.id = id;
-            o.includedTraffic = includedTraffic;
-            o.isDeprecated = isDeprecated;
-            o.memory = memory;
-            o.name = name;
-            o.storageType = storageType;
-            o.unavailableAfter = unavailableAfter;
-            return o;
+            final var _resultValue = new GetServerTypeResult();
+            _resultValue.architecture = architecture;
+            _resultValue.cores = cores;
+            _resultValue.cpuType = cpuType;
+            _resultValue.deprecationAnnounced = deprecationAnnounced;
+            _resultValue.description = description;
+            _resultValue.disk = disk;
+            _resultValue.id = id;
+            _resultValue.includedTraffic = includedTraffic;
+            _resultValue.isDeprecated = isDeprecated;
+            _resultValue.memory = memory;
+            _resultValue.name = name;
+            _resultValue.storageType = storageType;
+            _resultValue.unavailableAfter = unavailableAfter;
+            return _resultValue;
         }
     }
 }

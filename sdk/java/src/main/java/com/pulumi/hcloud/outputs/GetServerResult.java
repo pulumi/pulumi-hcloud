@@ -438,30 +438,30 @@ public final class GetServerResult {
             return withStatuses(List.of(withStatuses));
         }
         public GetServerResult build() {
-            final var o = new GetServerResult();
-            o.backupWindow = backupWindow;
-            o.backups = backups;
-            o.datacenter = datacenter;
-            o.deleteProtection = deleteProtection;
-            o.firewallIds = firewallIds;
-            o.id = id;
-            o.image = image;
-            o.ipv4Address = ipv4Address;
-            o.ipv6Address = ipv6Address;
-            o.ipv6Network = ipv6Network;
-            o.iso = iso;
-            o.labels = labels;
-            o.location = location;
-            o.name = name;
-            o.placementGroupId = placementGroupId;
-            o.rebuildProtection = rebuildProtection;
-            o.rescue = rescue;
-            o.selector = selector;
-            o.serverType = serverType;
-            o.status = status;
-            o.withSelector = withSelector;
-            o.withStatuses = withStatuses;
-            return o;
+            final var _resultValue = new GetServerResult();
+            _resultValue.backupWindow = backupWindow;
+            _resultValue.backups = backups;
+            _resultValue.datacenter = datacenter;
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.firewallIds = firewallIds;
+            _resultValue.id = id;
+            _resultValue.image = image;
+            _resultValue.ipv4Address = ipv4Address;
+            _resultValue.ipv6Address = ipv6Address;
+            _resultValue.ipv6Network = ipv6Network;
+            _resultValue.iso = iso;
+            _resultValue.labels = labels;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.placementGroupId = placementGroupId;
+            _resultValue.rebuildProtection = rebuildProtection;
+            _resultValue.rescue = rescue;
+            _resultValue.selector = selector;
+            _resultValue.serverType = serverType;
+            _resultValue.status = status;
+            _resultValue.withSelector = withSelector;
+            _resultValue.withStatuses = withStatuses;
+            return _resultValue;
         }
     }
 }

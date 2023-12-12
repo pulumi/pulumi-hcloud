@@ -146,15 +146,15 @@ public final class GetPlacementGroupResult {
             return this;
         }
         public GetPlacementGroupResult build() {
-            final var o = new GetPlacementGroupResult();
-            o.id = id;
-            o.labels = labels;
-            o.mostRecent = mostRecent;
-            o.name = name;
-            o.servers = servers;
-            o.type = type;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetPlacementGroupResult();
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.name = name;
+            _resultValue.servers = servers;
+            _resultValue.type = type;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

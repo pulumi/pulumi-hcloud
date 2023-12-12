@@ -83,11 +83,11 @@ public final class GetSshKeysResult {
             return this;
         }
         public GetSshKeysResult build() {
-            final var o = new GetSshKeysResult();
-            o.id = id;
-            o.sshKeys = sshKeys;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetSshKeysResult();
+            _resultValue.id = id;
+            _resultValue.sshKeys = sshKeys;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

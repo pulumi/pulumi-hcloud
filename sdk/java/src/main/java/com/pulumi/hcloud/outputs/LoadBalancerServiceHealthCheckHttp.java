@@ -129,13 +129,13 @@ public final class LoadBalancerServiceHealthCheckHttp {
             return this;
         }
         public LoadBalancerServiceHealthCheckHttp build() {
-            final var o = new LoadBalancerServiceHealthCheckHttp();
-            o.domain = domain;
-            o.path = path;
-            o.response = response;
-            o.statusCodes = statusCodes;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new LoadBalancerServiceHealthCheckHttp();
+            _resultValue.domain = domain;
+            _resultValue.path = path;
+            _resultValue.response = response;
+            _resultValue.statusCodes = statusCodes;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

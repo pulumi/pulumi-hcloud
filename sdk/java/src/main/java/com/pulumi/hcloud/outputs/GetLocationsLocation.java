@@ -117,16 +117,16 @@ public final class GetLocationsLocation {
             return this;
         }
         public GetLocationsLocation build() {
-            final var o = new GetLocationsLocation();
-            o.city = city;
-            o.country = country;
-            o.description = description;
-            o.id = id;
-            o.latitude = latitude;
-            o.longitude = longitude;
-            o.name = name;
-            o.networkZone = networkZone;
-            return o;
+            final var _resultValue = new GetLocationsLocation();
+            _resultValue.city = city;
+            _resultValue.country = country;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.latitude = latitude;
+            _resultValue.longitude = longitude;
+            _resultValue.name = name;
+            _resultValue.networkZone = networkZone;
+            return _resultValue;
         }
     }
 }

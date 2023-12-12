@@ -145,14 +145,14 @@ public final class LoadBalancerServiceHealthCheck {
             return this;
         }
         public LoadBalancerServiceHealthCheck build() {
-            final var o = new LoadBalancerServiceHealthCheck();
-            o.http = http;
-            o.interval = interval;
-            o.port = port;
-            o.protocol = protocol;
-            o.retries = retries;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new LoadBalancerServiceHealthCheck();
+            _resultValue.http = http;
+            _resultValue.interval = interval;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.retries = retries;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

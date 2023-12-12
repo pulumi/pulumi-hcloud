@@ -234,19 +234,19 @@ public final class GetVolumeResult {
             return withStatuses(List.of(withStatuses));
         }
         public GetVolumeResult build() {
-            final var o = new GetVolumeResult();
-            o.deleteProtection = deleteProtection;
-            o.id = id;
-            o.labels = labels;
-            o.linuxDevice = linuxDevice;
-            o.location = location;
-            o.name = name;
-            o.selector = selector;
-            o.serverId = serverId;
-            o.size = size;
-            o.withSelector = withSelector;
-            o.withStatuses = withStatuses;
-            return o;
+            final var _resultValue = new GetVolumeResult();
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.linuxDevice = linuxDevice;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.selector = selector;
+            _resultValue.serverId = serverId;
+            _resultValue.size = size;
+            _resultValue.withSelector = withSelector;
+            _resultValue.withStatuses = withStatuses;
+            return _resultValue;
         }
     }
 }

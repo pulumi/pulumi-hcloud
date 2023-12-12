@@ -161,13 +161,13 @@ public final class GetDatacentersResult {
             return names(List.of(names));
         }
         public GetDatacentersResult build() {
-            final var o = new GetDatacentersResult();
-            o.datacenterIds = datacenterIds;
-            o.datacenters = datacenters;
-            o.descriptions = descriptions;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetDatacentersResult();
+            _resultValue.datacenterIds = datacenterIds;
+            _resultValue.datacenters = datacenters;
+            _resultValue.descriptions = descriptions;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

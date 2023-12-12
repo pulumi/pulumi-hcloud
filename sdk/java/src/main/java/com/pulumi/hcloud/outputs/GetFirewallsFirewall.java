@@ -96,13 +96,13 @@ public final class GetFirewallsFirewall {
             return rules(List.of(rules));
         }
         public GetFirewallsFirewall build() {
-            final var o = new GetFirewallsFirewall();
-            o.applyTos = applyTos;
-            o.id = id;
-            o.labels = labels;
-            o.name = name;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new GetFirewallsFirewall();
+            _resultValue.applyTos = applyTos;
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

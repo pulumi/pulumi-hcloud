@@ -154,19 +154,19 @@ public final class GetPrimaryIpsPrimaryIp {
             return this;
         }
         public GetPrimaryIpsPrimaryIp build() {
-            final var o = new GetPrimaryIpsPrimaryIp();
-            o.assigneeId = assigneeId;
-            o.assigneeType = assigneeType;
-            o.autoDelete = autoDelete;
-            o.datacenter = datacenter;
-            o.deleteProtection = deleteProtection;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.ipNetwork = ipNetwork;
-            o.labels = labels;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetPrimaryIpsPrimaryIp();
+            _resultValue.assigneeId = assigneeId;
+            _resultValue.assigneeType = assigneeType;
+            _resultValue.autoDelete = autoDelete;
+            _resultValue.datacenter = datacenter;
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.ipNetwork = ipNetwork;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -151,14 +151,14 @@ public final class GetDatacenterResult {
             return supportedServerTypeIds(List.of(supportedServerTypeIds));
         }
         public GetDatacenterResult build() {
-            final var o = new GetDatacenterResult();
-            o.availableServerTypeIds = availableServerTypeIds;
-            o.description = description;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.supportedServerTypeIds = supportedServerTypeIds;
-            return o;
+            final var _resultValue = new GetDatacenterResult();
+            _resultValue.availableServerTypeIds = availableServerTypeIds;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.supportedServerTypeIds = supportedServerTypeIds;
+            return _resultValue;
         }
     }
 }

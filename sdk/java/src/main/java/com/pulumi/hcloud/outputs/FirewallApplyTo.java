@@ -72,10 +72,10 @@ public final class FirewallApplyTo {
             return this;
         }
         public FirewallApplyTo build() {
-            final var o = new FirewallApplyTo();
-            o.labelSelector = labelSelector;
-            o.server = server;
-            return o;
+            final var _resultValue = new FirewallApplyTo();
+            _resultValue.labelSelector = labelSelector;
+            _resultValue.server = server;
+            return _resultValue;
         }
     }
 }

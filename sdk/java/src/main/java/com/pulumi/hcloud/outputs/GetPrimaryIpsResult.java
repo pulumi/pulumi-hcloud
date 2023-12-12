@@ -83,11 +83,11 @@ public final class GetPrimaryIpsResult {
             return this;
         }
         public GetPrimaryIpsResult build() {
-            final var o = new GetPrimaryIpsResult();
-            o.id = id;
-            o.primaryIps = primaryIps;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetPrimaryIpsResult();
+            _resultValue.id = id;
+            _resultValue.primaryIps = primaryIps;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

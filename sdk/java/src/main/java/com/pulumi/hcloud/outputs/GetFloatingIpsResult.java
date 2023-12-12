@@ -83,11 +83,11 @@ public final class GetFloatingIpsResult {
             return this;
         }
         public GetFloatingIpsResult build() {
-            final var o = new GetFloatingIpsResult();
-            o.floatingIps = floatingIps;
-            o.id = id;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetFloatingIpsResult();
+            _resultValue.floatingIps = floatingIps;
+            _resultValue.id = id;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }

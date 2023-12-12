@@ -99,14 +99,14 @@ public final class GetNetworksNetwork {
             return this;
         }
         public GetNetworksNetwork build() {
-            final var o = new GetNetworksNetwork();
-            o.deleteProtection = deleteProtection;
-            o.exposeRoutesToVswitch = exposeRoutesToVswitch;
-            o.id = id;
-            o.ipRange = ipRange;
-            o.labels = labels;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworksNetwork();
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.exposeRoutesToVswitch = exposeRoutesToVswitch;
+            _resultValue.id = id;
+            _resultValue.ipRange = ipRange;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

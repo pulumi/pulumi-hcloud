@@ -83,11 +83,11 @@ public final class GetLoadBalancersResult {
             return this;
         }
         public GetLoadBalancersResult build() {
-            final var o = new GetLoadBalancersResult();
-            o.id = id;
-            o.loadBalancers = loadBalancers;
-            o.withSelector = withSelector;
-            return o;
+            final var _resultValue = new GetLoadBalancersResult();
+            _resultValue.id = id;
+            _resultValue.loadBalancers = loadBalancers;
+            _resultValue.withSelector = withSelector;
+            return _resultValue;
         }
     }
 }
