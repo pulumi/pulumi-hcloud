@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetLoadBalancersLoadBalancerServiceHealthCheckHttp;
 import java.lang.Integer;
 import java.lang.String;
@@ -67,7 +68,10 @@ public final class GetLoadBalancersLoadBalancerServiceHealthCheck {
 
         @CustomType.Setter
         public Builder https(List<GetLoadBalancersLoadBalancerServiceHealthCheckHttp> https) {
-            this.https = Objects.requireNonNull(https);
+            if (https == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancerServiceHealthCheck", "https");
+            }
+            this.https = https;
             return this;
         }
         public Builder https(GetLoadBalancersLoadBalancerServiceHealthCheckHttp... https) {
@@ -75,27 +79,42 @@ public final class GetLoadBalancersLoadBalancerServiceHealthCheck {
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancerServiceHealthCheck", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancerServiceHealthCheck", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancerServiceHealthCheck", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder retries(Integer retries) {
-            this.retries = Objects.requireNonNull(retries);
+            if (retries == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancerServiceHealthCheck", "retries");
+            }
+            this.retries = retries;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+            if (timeout == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancerServiceHealthCheck", "timeout");
+            }
+            this.timeout = timeout;
             return this;
         }
         public GetLoadBalancersLoadBalancerServiceHealthCheck build() {

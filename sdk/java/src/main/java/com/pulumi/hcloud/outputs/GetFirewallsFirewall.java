@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetFirewallsFirewallApplyTo;
 import com.pulumi.hcloud.outputs.GetFirewallsFirewallRule;
 import java.lang.Integer;
@@ -66,6 +67,7 @@ public final class GetFirewallsFirewall {
 
         @CustomType.Setter
         public Builder applyTos(@Nullable List<GetFirewallsFirewallApplyTo> applyTos) {
+
             this.applyTos = applyTos;
             return this;
         }
@@ -74,21 +76,27 @@ public final class GetFirewallsFirewall {
         }
         @CustomType.Setter
         public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder labels(@Nullable Map<String,Object> labels) {
+
             this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFirewallsFirewall", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<GetFirewallsFirewallRule> rules) {
+
             this.rules = rules;
             return this;
         }

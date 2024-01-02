@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class NetworkSubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkSubnetArgs build() {
-            $.ipRange = Objects.requireNonNull($.ipRange, "expected parameter 'ipRange' to be non-null");
-            $.networkId = Objects.requireNonNull($.networkId, "expected parameter 'networkId' to be non-null");
-            $.networkZone = Objects.requireNonNull($.networkZone, "expected parameter 'networkZone' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.ipRange == null) {
+                throw new MissingRequiredPropertyException("NetworkSubnetArgs", "ipRange");
+            }
+            if ($.networkId == null) {
+                throw new MissingRequiredPropertyException("NetworkSubnetArgs", "networkId");
+            }
+            if ($.networkZone == null) {
+                throw new MissingRequiredPropertyException("NetworkSubnetArgs", "networkZone");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("NetworkSubnetArgs", "type");
+            }
             return $;
         }
     }

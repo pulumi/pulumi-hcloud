@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.inputs.LoadBalancerServiceHealthCheckArgs;
 import com.pulumi.hcloud.inputs.LoadBalancerServiceHttpArgs;
 import java.lang.Boolean;
@@ -302,8 +303,12 @@ public final class LoadBalancerServiceArgs extends com.pulumi.resources.Resource
         }
 
         public LoadBalancerServiceArgs build() {
-            $.loadBalancerId = Objects.requireNonNull($.loadBalancerId, "expected parameter 'loadBalancerId' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.loadBalancerId == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerServiceArgs", "loadBalancerId");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerServiceArgs", "protocol");
+            }
             return $;
         }
     }

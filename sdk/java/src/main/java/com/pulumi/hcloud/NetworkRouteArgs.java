@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class NetworkRouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkRouteArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.gateway = Objects.requireNonNull($.gateway, "expected parameter 'gateway' to be non-null");
-            $.networkId = Objects.requireNonNull($.networkId, "expected parameter 'networkId' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("NetworkRouteArgs", "destination");
+            }
+            if ($.gateway == null) {
+                throw new MissingRequiredPropertyException("NetworkRouteArgs", "gateway");
+            }
+            if ($.networkId == null) {
+                throw new MissingRequiredPropertyException("NetworkRouteArgs", "networkId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -88,6 +89,7 @@ public final class ServerNetwork {
 
         @CustomType.Setter
         public Builder aliasIps(@Nullable List<String> aliasIps) {
+
             this.aliasIps = aliasIps;
             return this;
         }
@@ -96,17 +98,22 @@ public final class ServerNetwork {
         }
         @CustomType.Setter
         public Builder ip(@Nullable String ip) {
+
             this.ip = ip;
             return this;
         }
         @CustomType.Setter
         public Builder macAddress(@Nullable String macAddress) {
+
             this.macAddress = macAddress;
             return this;
         }
         @CustomType.Setter
         public Builder networkId(Integer networkId) {
-            this.networkId = Objects.requireNonNull(networkId);
+            if (networkId == null) {
+              throw new MissingRequiredPropertyException("ServerNetwork", "networkId");
+            }
+            this.networkId = networkId;
             return this;
         }
         public ServerNetwork build() {

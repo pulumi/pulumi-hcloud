@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetDatacentersDatacenter;
 import java.lang.String;
 import java.util.List;
@@ -125,6 +126,7 @@ public final class GetDatacentersResult {
 
         @CustomType.Setter
         public Builder datacenterIds(@Nullable List<String> datacenterIds) {
+
             this.datacenterIds = datacenterIds;
             return this;
         }
@@ -133,7 +135,10 @@ public final class GetDatacentersResult {
         }
         @CustomType.Setter
         public Builder datacenters(List<GetDatacentersDatacenter> datacenters) {
-            this.datacenters = Objects.requireNonNull(datacenters);
+            if (datacenters == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersResult", "datacenters");
+            }
+            this.datacenters = datacenters;
             return this;
         }
         public Builder datacenters(GetDatacentersDatacenter... datacenters) {
@@ -141,7 +146,10 @@ public final class GetDatacentersResult {
         }
         @CustomType.Setter
         public Builder descriptions(List<String> descriptions) {
-            this.descriptions = Objects.requireNonNull(descriptions);
+            if (descriptions == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersResult", "descriptions");
+            }
+            this.descriptions = descriptions;
             return this;
         }
         public Builder descriptions(String... descriptions) {
@@ -149,12 +157,18 @@ public final class GetDatacentersResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

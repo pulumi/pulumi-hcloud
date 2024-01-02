@@ -103,6 +103,7 @@ public final class LoadBalancerServiceHttp {
 
         @CustomType.Setter
         public Builder certificates(@Nullable List<Integer> certificates) {
+
             this.certificates = certificates;
             return this;
         }
@@ -111,21 +112,25 @@ public final class LoadBalancerServiceHttp {
         }
         @CustomType.Setter
         public Builder cookieLifetime(@Nullable Integer cookieLifetime) {
+
             this.cookieLifetime = cookieLifetime;
             return this;
         }
         @CustomType.Setter
         public Builder cookieName(@Nullable String cookieName) {
+
             this.cookieName = cookieName;
             return this;
         }
         @CustomType.Setter
         public Builder redirectHttp(@Nullable Boolean redirectHttp) {
+
             this.redirectHttp = redirectHttp;
             return this;
         }
         @CustomType.Setter
         public Builder stickySessions(@Nullable Boolean stickySessions) {
+
             this.stickySessions = stickySessions;
             return this;
         }

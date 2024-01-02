@@ -5,6 +5,7 @@ package com.pulumi.hcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.inputs.LoadBalancerServiceHealthCheckHttpArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,10 +264,18 @@ public final class LoadBalancerServiceHealthCheckArgs extends com.pulumi.resourc
         }
 
         public LoadBalancerServiceHealthCheckArgs build() {
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.timeout = Objects.requireNonNull($.timeout, "expected parameter 'timeout' to be non-null");
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheckArgs", "interval");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheckArgs", "port");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheckArgs", "protocol");
+            }
+            if ($.timeout == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheckArgs", "timeout");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.inputs.ServerNetworkArgs;
 import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
 import java.lang.Boolean;
@@ -838,7 +839,9 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServerArgs build() {
-            $.serverType = Objects.requireNonNull($.serverType, "expected parameter 'serverType' to be non-null");
+            if ($.serverType == null) {
+                throw new MissingRequiredPropertyException("ServerArgs", "serverType");
+            }
             return $;
         }
     }

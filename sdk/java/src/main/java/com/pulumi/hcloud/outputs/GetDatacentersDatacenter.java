@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
@@ -68,7 +69,10 @@ public final class GetDatacentersDatacenter {
 
         @CustomType.Setter
         public Builder availableServerTypeIds(List<Integer> availableServerTypeIds) {
-            this.availableServerTypeIds = Objects.requireNonNull(availableServerTypeIds);
+            if (availableServerTypeIds == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersDatacenter", "availableServerTypeIds");
+            }
+            this.availableServerTypeIds = availableServerTypeIds;
             return this;
         }
         public Builder availableServerTypeIds(Integer... availableServerTypeIds) {
@@ -76,27 +80,42 @@ public final class GetDatacentersDatacenter {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersDatacenter", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersDatacenter", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(Map<String,Object> location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersDatacenter", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersDatacenter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder supportedServerTypeIds(List<Integer> supportedServerTypeIds) {
-            this.supportedServerTypeIds = Objects.requireNonNull(supportedServerTypeIds);
+            if (supportedServerTypeIds == null) {
+              throw new MissingRequiredPropertyException("GetDatacentersDatacenter", "supportedServerTypeIds");
+            }
+            this.supportedServerTypeIds = supportedServerTypeIds;
             return this;
         }
         public Builder supportedServerTypeIds(Integer... supportedServerTypeIds) {
