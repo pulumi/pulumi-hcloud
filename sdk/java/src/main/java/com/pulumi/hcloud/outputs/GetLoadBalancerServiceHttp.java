@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -101,7 +102,10 @@ public final class GetLoadBalancerServiceHttp {
 
         @CustomType.Setter
         public Builder certificates(List<String> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHttp", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(String... certificates) {
@@ -109,22 +113,34 @@ public final class GetLoadBalancerServiceHttp {
         }
         @CustomType.Setter
         public Builder cookieLifetime(Integer cookieLifetime) {
-            this.cookieLifetime = Objects.requireNonNull(cookieLifetime);
+            if (cookieLifetime == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHttp", "cookieLifetime");
+            }
+            this.cookieLifetime = cookieLifetime;
             return this;
         }
         @CustomType.Setter
         public Builder cookieName(String cookieName) {
-            this.cookieName = Objects.requireNonNull(cookieName);
+            if (cookieName == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHttp", "cookieName");
+            }
+            this.cookieName = cookieName;
             return this;
         }
         @CustomType.Setter
         public Builder redirectHttp(Boolean redirectHttp) {
-            this.redirectHttp = Objects.requireNonNull(redirectHttp);
+            if (redirectHttp == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHttp", "redirectHttp");
+            }
+            this.redirectHttp = redirectHttp;
             return this;
         }
         @CustomType.Setter
         public Builder stickySessions(Boolean stickySessions) {
-            this.stickySessions = Objects.requireNonNull(stickySessions);
+            if (stickySessions == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHttp", "stickySessions");
+            }
+            this.stickySessions = stickySessions;
             return this;
         }
         public GetLoadBalancerServiceHttp build() {

@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
@@ -153,7 +154,9 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnapshotArgs build() {
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "serverId");
+            }
             return $;
         }
     }

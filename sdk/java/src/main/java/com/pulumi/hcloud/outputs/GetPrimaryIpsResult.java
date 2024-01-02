@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetPrimaryIpsPrimaryIp;
 import java.lang.String;
 import java.util.List;
@@ -66,12 +67,18 @@ public final class GetPrimaryIpsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder primaryIps(List<GetPrimaryIpsPrimaryIp> primaryIps) {
-            this.primaryIps = Objects.requireNonNull(primaryIps);
+            if (primaryIps == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsResult", "primaryIps");
+            }
+            this.primaryIps = primaryIps;
             return this;
         }
         public Builder primaryIps(GetPrimaryIpsPrimaryIp... primaryIps) {
@@ -79,6 +86,7 @@ public final class GetPrimaryIpsResult {
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }

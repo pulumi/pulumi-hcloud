@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RdnsArgs build() {
-            $.dnsPtr = Objects.requireNonNull($.dnsPtr, "expected parameter 'dnsPtr' to be non-null");
-            $.ipAddress = Objects.requireNonNull($.ipAddress, "expected parameter 'ipAddress' to be non-null");
+            if ($.dnsPtr == null) {
+                throw new MissingRequiredPropertyException("RdnsArgs", "dnsPtr");
+            }
+            if ($.ipAddress == null) {
+                throw new MissingRequiredPropertyException("RdnsArgs", "ipAddress");
+            }
             return $;
         }
     }

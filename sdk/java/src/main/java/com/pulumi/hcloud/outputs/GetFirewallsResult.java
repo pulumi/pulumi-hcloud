@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetFirewallsFirewall;
 import java.lang.Boolean;
 import java.lang.String;
@@ -73,7 +74,10 @@ public final class GetFirewallsResult {
 
         @CustomType.Setter
         public Builder firewalls(List<GetFirewallsFirewall> firewalls) {
-            this.firewalls = Objects.requireNonNull(firewalls);
+            if (firewalls == null) {
+              throw new MissingRequiredPropertyException("GetFirewallsResult", "firewalls");
+            }
+            this.firewalls = firewalls;
             return this;
         }
         public Builder firewalls(GetFirewallsFirewall... firewalls) {
@@ -81,16 +85,21 @@ public final class GetFirewallsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFirewallsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }

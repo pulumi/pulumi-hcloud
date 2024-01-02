@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.inputs.LoadBalancerAlgorithmArgs;
 import com.pulumi.hcloud.inputs.LoadBalancerTargetArgs;
 import java.lang.Boolean;
@@ -361,7 +362,9 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LoadBalancerArgs build() {
-            $.loadBalancerType = Objects.requireNonNull($.loadBalancerType, "expected parameter 'loadBalancerType' to be non-null");
+            if ($.loadBalancerType == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerArgs", "loadBalancerType");
+            }
             return $;
         }
     }

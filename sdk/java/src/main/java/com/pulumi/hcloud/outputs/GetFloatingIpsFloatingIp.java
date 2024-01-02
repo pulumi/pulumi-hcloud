@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Object;
@@ -94,52 +95,80 @@ public final class GetFloatingIpsFloatingIp {
 
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
-            this.deleteProtection = Objects.requireNonNull(deleteProtection);
+            if (deleteProtection == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "deleteProtection");
+            }
+            this.deleteProtection = deleteProtection;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder homeLocation(String homeLocation) {
-            this.homeLocation = Objects.requireNonNull(homeLocation);
+            if (homeLocation == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "homeLocation");
+            }
+            this.homeLocation = homeLocation;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder ipNetwork(String ipNetwork) {
-            this.ipNetwork = Objects.requireNonNull(ipNetwork);
+            if (ipNetwork == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "ipNetwork");
+            }
+            this.ipNetwork = ipNetwork;
             return this;
         }
         @CustomType.Setter
         public Builder labels(Map<String,Object> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder serverId(Integer serverId) {
-            this.serverId = Objects.requireNonNull(serverId);
+            if (serverId == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "serverId");
+            }
+            this.serverId = serverId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetFloatingIpsFloatingIp build() {

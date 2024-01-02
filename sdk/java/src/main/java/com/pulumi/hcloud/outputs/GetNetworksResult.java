@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetNetworksNetwork;
 import java.lang.String;
 import java.util.List;
@@ -66,12 +67,18 @@ public final class GetNetworksResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworksResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networks(List<GetNetworksNetwork> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetNetworksResult", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(GetNetworksNetwork... networks) {
@@ -79,6 +86,7 @@ public final class GetNetworksResult {
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }

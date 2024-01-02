@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetLoadBalancerServiceHealthCheck;
 import com.pulumi.hcloud.outputs.GetLoadBalancerServiceHttp;
 import java.lang.Boolean;
@@ -117,12 +118,18 @@ public final class GetLoadBalancerService {
 
         @CustomType.Setter
         public Builder destinationPort(Integer destinationPort) {
-            this.destinationPort = Objects.requireNonNull(destinationPort);
+            if (destinationPort == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerService", "destinationPort");
+            }
+            this.destinationPort = destinationPort;
             return this;
         }
         @CustomType.Setter
         public Builder healthChecks(List<GetLoadBalancerServiceHealthCheck> healthChecks) {
-            this.healthChecks = Objects.requireNonNull(healthChecks);
+            if (healthChecks == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerService", "healthChecks");
+            }
+            this.healthChecks = healthChecks;
             return this;
         }
         public Builder healthChecks(GetLoadBalancerServiceHealthCheck... healthChecks) {
@@ -130,7 +137,10 @@ public final class GetLoadBalancerService {
         }
         @CustomType.Setter
         public Builder https(List<GetLoadBalancerServiceHttp> https) {
-            this.https = Objects.requireNonNull(https);
+            if (https == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerService", "https");
+            }
+            this.https = https;
             return this;
         }
         public Builder https(GetLoadBalancerServiceHttp... https) {
@@ -138,17 +148,26 @@ public final class GetLoadBalancerService {
         }
         @CustomType.Setter
         public Builder listenPort(Integer listenPort) {
-            this.listenPort = Objects.requireNonNull(listenPort);
+            if (listenPort == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerService", "listenPort");
+            }
+            this.listenPort = listenPort;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerService", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder proxyprotocol(Boolean proxyprotocol) {
-            this.proxyprotocol = Objects.requireNonNull(proxyprotocol);
+            if (proxyprotocol == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerService", "proxyprotocol");
+            }
+            this.proxyprotocol = proxyprotocol;
             return this;
         }
         public GetLoadBalancerService build() {

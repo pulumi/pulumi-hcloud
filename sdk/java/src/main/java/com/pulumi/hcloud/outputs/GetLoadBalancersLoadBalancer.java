@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetLoadBalancersLoadBalancerAlgorithm;
 import com.pulumi.hcloud.outputs.GetLoadBalancersLoadBalancerService;
 import com.pulumi.hcloud.outputs.GetLoadBalancersLoadBalancerTarget;
@@ -122,7 +123,10 @@ public final class GetLoadBalancersLoadBalancer {
 
         @CustomType.Setter
         public Builder algorithms(List<GetLoadBalancersLoadBalancerAlgorithm> algorithms) {
-            this.algorithms = Objects.requireNonNull(algorithms);
+            if (algorithms == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "algorithms");
+            }
+            this.algorithms = algorithms;
             return this;
         }
         public Builder algorithms(GetLoadBalancersLoadBalancerAlgorithm... algorithms) {
@@ -130,62 +134,96 @@ public final class GetLoadBalancersLoadBalancer {
         }
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
-            this.deleteProtection = Objects.requireNonNull(deleteProtection);
+            if (deleteProtection == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "deleteProtection");
+            }
+            this.deleteProtection = deleteProtection;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4(String ipv4) {
-            this.ipv4 = Objects.requireNonNull(ipv4);
+            if (ipv4 == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "ipv4");
+            }
+            this.ipv4 = ipv4;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6(String ipv6) {
-            this.ipv6 = Objects.requireNonNull(ipv6);
+            if (ipv6 == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "ipv6");
+            }
+            this.ipv6 = ipv6;
             return this;
         }
         @CustomType.Setter
         public Builder labels(Map<String,Object> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerType(String loadBalancerType) {
-            this.loadBalancerType = Objects.requireNonNull(loadBalancerType);
+            if (loadBalancerType == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "loadBalancerType");
+            }
+            this.loadBalancerType = loadBalancerType;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkId(Integer networkId) {
-            this.networkId = Objects.requireNonNull(networkId);
+            if (networkId == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "networkId");
+            }
+            this.networkId = networkId;
             return this;
         }
         @CustomType.Setter
         public Builder networkIp(String networkIp) {
-            this.networkIp = Objects.requireNonNull(networkIp);
+            if (networkIp == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "networkIp");
+            }
+            this.networkIp = networkIp;
             return this;
         }
         @CustomType.Setter
         public Builder networkZone(String networkZone) {
-            this.networkZone = Objects.requireNonNull(networkZone);
+            if (networkZone == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "networkZone");
+            }
+            this.networkZone = networkZone;
             return this;
         }
         @CustomType.Setter
         public Builder services(List<GetLoadBalancersLoadBalancerService> services) {
-            this.services = Objects.requireNonNull(services);
+            if (services == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "services");
+            }
+            this.services = services;
             return this;
         }
         public Builder services(GetLoadBalancersLoadBalancerService... services) {
@@ -193,7 +231,10 @@ public final class GetLoadBalancersLoadBalancer {
         }
         @CustomType.Setter
         public Builder targets(List<GetLoadBalancersLoadBalancerTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "targets");
+            }
+            this.targets = targets;
             return this;
         }
         public Builder targets(GetLoadBalancersLoadBalancerTarget... targets) {

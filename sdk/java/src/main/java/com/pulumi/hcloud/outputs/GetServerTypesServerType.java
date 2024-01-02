@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -108,67 +109,106 @@ public final class GetServerTypesServerType {
 
         @CustomType.Setter
         public Builder architecture(String architecture) {
-            this.architecture = Objects.requireNonNull(architecture);
+            if (architecture == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "architecture");
+            }
+            this.architecture = architecture;
             return this;
         }
         @CustomType.Setter
         public Builder cores(Integer cores) {
-            this.cores = Objects.requireNonNull(cores);
+            if (cores == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "cores");
+            }
+            this.cores = cores;
             return this;
         }
         @CustomType.Setter
         public Builder cpuType(String cpuType) {
-            this.cpuType = Objects.requireNonNull(cpuType);
+            if (cpuType == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "cpuType");
+            }
+            this.cpuType = cpuType;
             return this;
         }
         @CustomType.Setter
         public Builder deprecationAnnounced(String deprecationAnnounced) {
-            this.deprecationAnnounced = Objects.requireNonNull(deprecationAnnounced);
+            if (deprecationAnnounced == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "deprecationAnnounced");
+            }
+            this.deprecationAnnounced = deprecationAnnounced;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder disk(Integer disk) {
-            this.disk = Objects.requireNonNull(disk);
+            if (disk == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "disk");
+            }
+            this.disk = disk;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includedTraffic(Integer includedTraffic) {
-            this.includedTraffic = Objects.requireNonNull(includedTraffic);
+            if (includedTraffic == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "includedTraffic");
+            }
+            this.includedTraffic = includedTraffic;
             return this;
         }
         @CustomType.Setter
         public Builder isDeprecated(Boolean isDeprecated) {
-            this.isDeprecated = Objects.requireNonNull(isDeprecated);
+            if (isDeprecated == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "isDeprecated");
+            }
+            this.isDeprecated = isDeprecated;
             return this;
         }
         @CustomType.Setter
         public Builder memory(Integer memory) {
-            this.memory = Objects.requireNonNull(memory);
+            if (memory == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "memory");
+            }
+            this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder unavailableAfter(String unavailableAfter) {
-            this.unavailableAfter = Objects.requireNonNull(unavailableAfter);
+            if (unavailableAfter == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesServerType", "unavailableAfter");
+            }
+            this.unavailableAfter = unavailableAfter;
             return this;
         }
         public GetServerTypesServerType build() {

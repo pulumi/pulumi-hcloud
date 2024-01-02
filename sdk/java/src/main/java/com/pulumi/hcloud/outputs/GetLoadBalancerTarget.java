@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetLoadBalancerTarget {
 
         @CustomType.Setter
         public Builder labelSelector(String labelSelector) {
-            this.labelSelector = Objects.requireNonNull(labelSelector);
+            if (labelSelector == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerTarget", "labelSelector");
+            }
+            this.labelSelector = labelSelector;
             return this;
         }
         @CustomType.Setter
         public Builder serverId(Integer serverId) {
-            this.serverId = Objects.requireNonNull(serverId);
+            if (serverId == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerTarget", "serverId");
+            }
+            this.serverId = serverId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerTarget", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetLoadBalancerTarget build() {

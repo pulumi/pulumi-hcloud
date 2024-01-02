@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Object;
@@ -149,27 +150,42 @@ public final class GetServersServer {
 
         @CustomType.Setter
         public Builder backupWindow(String backupWindow) {
-            this.backupWindow = Objects.requireNonNull(backupWindow);
+            if (backupWindow == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "backupWindow");
+            }
+            this.backupWindow = backupWindow;
             return this;
         }
         @CustomType.Setter
         public Builder backups(Boolean backups) {
-            this.backups = Objects.requireNonNull(backups);
+            if (backups == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "backups");
+            }
+            this.backups = backups;
             return this;
         }
         @CustomType.Setter
         public Builder datacenter(String datacenter) {
-            this.datacenter = Objects.requireNonNull(datacenter);
+            if (datacenter == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "datacenter");
+            }
+            this.datacenter = datacenter;
             return this;
         }
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
-            this.deleteProtection = Objects.requireNonNull(deleteProtection);
+            if (deleteProtection == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "deleteProtection");
+            }
+            this.deleteProtection = deleteProtection;
             return this;
         }
         @CustomType.Setter
         public Builder firewallIds(List<Integer> firewallIds) {
-            this.firewallIds = Objects.requireNonNull(firewallIds);
+            if (firewallIds == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "firewallIds");
+            }
+            this.firewallIds = firewallIds;
             return this;
         }
         public Builder firewallIds(Integer... firewallIds) {
@@ -177,72 +193,112 @@ public final class GetServersServer {
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Address(String ipv4Address) {
-            this.ipv4Address = Objects.requireNonNull(ipv4Address);
+            if (ipv4Address == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "ipv4Address");
+            }
+            this.ipv4Address = ipv4Address;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Address(String ipv6Address) {
-            this.ipv6Address = Objects.requireNonNull(ipv6Address);
+            if (ipv6Address == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "ipv6Address");
+            }
+            this.ipv6Address = ipv6Address;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Network(String ipv6Network) {
-            this.ipv6Network = Objects.requireNonNull(ipv6Network);
+            if (ipv6Network == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "ipv6Network");
+            }
+            this.ipv6Network = ipv6Network;
             return this;
         }
         @CustomType.Setter
         public Builder iso(String iso) {
-            this.iso = Objects.requireNonNull(iso);
+            if (iso == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "iso");
+            }
+            this.iso = iso;
             return this;
         }
         @CustomType.Setter
         public Builder labels(Map<String,Object> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder placementGroupId(@Nullable Integer placementGroupId) {
+
             this.placementGroupId = placementGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder rebuildProtection(Boolean rebuildProtection) {
-            this.rebuildProtection = Objects.requireNonNull(rebuildProtection);
+            if (rebuildProtection == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "rebuildProtection");
+            }
+            this.rebuildProtection = rebuildProtection;
             return this;
         }
         @CustomType.Setter
         public Builder rescue(String rescue) {
-            this.rescue = Objects.requireNonNull(rescue);
+            if (rescue == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "rescue");
+            }
+            this.rescue = rescue;
             return this;
         }
         @CustomType.Setter
         public Builder serverType(String serverType) {
-            this.serverType = Objects.requireNonNull(serverType);
+            if (serverType == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "serverType");
+            }
+            this.serverType = serverType;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetServersServer build() {

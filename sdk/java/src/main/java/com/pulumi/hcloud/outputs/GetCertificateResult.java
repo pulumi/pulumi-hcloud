@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
@@ -172,17 +173,26 @@ public final class GetCertificateResult {
 
         @CustomType.Setter
         public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+            if (certificate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificate");
+            }
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder created(String created) {
-            this.created = Objects.requireNonNull(created);
+            if (created == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "created");
+            }
+            this.created = created;
             return this;
         }
         @CustomType.Setter
         public Builder domainNames(List<String> domainNames) {
-            this.domainNames = Objects.requireNonNull(domainNames);
+            if (domainNames == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "domainNames");
+            }
+            this.domainNames = domainNames;
             return this;
         }
         public Builder domainNames(String... domainNames) {
@@ -190,41 +200,61 @@ public final class GetCertificateResult {
         }
         @CustomType.Setter
         public Builder fingerprint(String fingerprint) {
-            this.fingerprint = Objects.requireNonNull(fingerprint);
+            if (fingerprint == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "fingerprint");
+            }
+            this.fingerprint = fingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder labels(Map<String,Object> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notValidAfter(String notValidAfter) {
-            this.notValidAfter = Objects.requireNonNull(notValidAfter);
+            if (notValidAfter == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "notValidAfter");
+            }
+            this.notValidAfter = notValidAfter;
             return this;
         }
         @CustomType.Setter
         public Builder notValidBefore(String notValidBefore) {
-            this.notValidBefore = Objects.requireNonNull(notValidBefore);
+            if (notValidBefore == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "notValidBefore");
+            }
+            this.notValidBefore = notValidBefore;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }

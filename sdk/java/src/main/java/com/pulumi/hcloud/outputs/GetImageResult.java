@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Object;
@@ -229,86 +230,125 @@ public final class GetImageResult {
 
         @CustomType.Setter
         public Builder architecture(String architecture) {
-            this.architecture = Objects.requireNonNull(architecture);
+            if (architecture == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "architecture");
+            }
+            this.architecture = architecture;
             return this;
         }
         @CustomType.Setter
         public Builder created(String created) {
-            this.created = Objects.requireNonNull(created);
+            if (created == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "created");
+            }
+            this.created = created;
             return this;
         }
         @CustomType.Setter
         public Builder deprecated(String deprecated) {
-            this.deprecated = Objects.requireNonNull(deprecated);
+            if (deprecated == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "deprecated");
+            }
+            this.deprecated = deprecated;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+
             this.includeDeprecated = includeDeprecated;
             return this;
         }
         @CustomType.Setter
         public Builder labels(Map<String,Object> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder osFlavor(String osFlavor) {
-            this.osFlavor = Objects.requireNonNull(osFlavor);
+            if (osFlavor == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "osFlavor");
+            }
+            this.osFlavor = osFlavor;
             return this;
         }
         @CustomType.Setter
         public Builder osVersion(String osVersion) {
-            this.osVersion = Objects.requireNonNull(osVersion);
+            if (osVersion == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "osVersion");
+            }
+            this.osVersion = osVersion;
             return this;
         }
         @CustomType.Setter
         public Builder rapidDeploy(Boolean rapidDeploy) {
-            this.rapidDeploy = Objects.requireNonNull(rapidDeploy);
+            if (rapidDeploy == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "rapidDeploy");
+            }
+            this.rapidDeploy = rapidDeploy;
             return this;
         }
         @CustomType.Setter
         public Builder selector(@Nullable String selector) {
+
             this.selector = selector;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder withArchitecture(@Nullable String withArchitecture) {
+
             this.withArchitecture = withArchitecture;
             return this;
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }
         @CustomType.Setter
         public Builder withStatuses(@Nullable List<String> withStatuses) {
+
             this.withStatuses = withStatuses;
             return this;
         }

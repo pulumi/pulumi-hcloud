@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
@@ -109,8 +110,12 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.certificate = Objects.requireNonNull($.certificate, "expected parameter 'certificate' to be non-null");
-            $.privateKey = Objects.requireNonNull($.privateKey, "expected parameter 'privateKey' to be non-null");
+            if ($.certificate == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "certificate");
+            }
+            if ($.privateKey == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "privateKey");
+            }
             return $;
         }
     }

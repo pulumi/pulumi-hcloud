@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Object;
@@ -122,41 +123,55 @@ public final class GetNetworkResult {
 
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
-            this.deleteProtection = Objects.requireNonNull(deleteProtection);
+            if (deleteProtection == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "deleteProtection");
+            }
+            this.deleteProtection = deleteProtection;
             return this;
         }
         @CustomType.Setter
         public Builder exposeRoutesToVswitch(Boolean exposeRoutesToVswitch) {
-            this.exposeRoutesToVswitch = Objects.requireNonNull(exposeRoutesToVswitch);
+            if (exposeRoutesToVswitch == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "exposeRoutesToVswitch");
+            }
+            this.exposeRoutesToVswitch = exposeRoutesToVswitch;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipRange(@Nullable String ipRange) {
+
             this.ipRange = ipRange;
             return this;
         }
         @CustomType.Setter
         public Builder labels(@Nullable Map<String,Object> labels) {
+
             this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }

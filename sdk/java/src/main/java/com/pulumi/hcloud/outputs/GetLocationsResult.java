@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetLocationsLocation;
 import java.lang.String;
 import java.util.List;
@@ -125,7 +126,10 @@ public final class GetLocationsResult {
 
         @CustomType.Setter
         public Builder descriptions(List<String> descriptions) {
-            this.descriptions = Objects.requireNonNull(descriptions);
+            if (descriptions == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "descriptions");
+            }
+            this.descriptions = descriptions;
             return this;
         }
         public Builder descriptions(String... descriptions) {
@@ -133,11 +137,15 @@ public final class GetLocationsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder locationIds(@Nullable List<String> locationIds) {
+
             this.locationIds = locationIds;
             return this;
         }
@@ -146,7 +154,10 @@ public final class GetLocationsResult {
         }
         @CustomType.Setter
         public Builder locations(List<GetLocationsLocation> locations) {
-            this.locations = Objects.requireNonNull(locations);
+            if (locations == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "locations");
+            }
+            this.locations = locations;
             return this;
         }
         public Builder locations(GetLocationsLocation... locations) {
@@ -154,7 +165,10 @@ public final class GetLocationsResult {
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

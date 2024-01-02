@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class VolumeAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         public VolumeAttachmentArgs build() {
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
-            $.volumeId = Objects.requireNonNull($.volumeId, "expected parameter 'volumeId' to be non-null");
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("VolumeAttachmentArgs", "serverId");
+            }
+            if ($.volumeId == null) {
+                throw new MissingRequiredPropertyException("VolumeAttachmentArgs", "volumeId");
+            }
             return $;
         }
     }

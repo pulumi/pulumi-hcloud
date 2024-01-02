@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -186,7 +187,9 @@ public final class FirewallAttachmentArgs extends com.pulumi.resources.ResourceA
         }
 
         public FirewallAttachmentArgs build() {
-            $.firewallId = Objects.requireNonNull($.firewallId, "expected parameter 'firewallId' to be non-null");
+            if ($.firewallId == null) {
+                throw new MissingRequiredPropertyException("FirewallAttachmentArgs", "firewallId");
+            }
             return $;
         }
     }
