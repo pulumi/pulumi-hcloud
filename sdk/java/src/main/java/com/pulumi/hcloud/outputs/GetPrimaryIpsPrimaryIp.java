@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Object;
@@ -100,57 +101,88 @@ public final class GetPrimaryIpsPrimaryIp {
 
         @CustomType.Setter
         public Builder assigneeId(Integer assigneeId) {
-            this.assigneeId = Objects.requireNonNull(assigneeId);
+            if (assigneeId == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "assigneeId");
+            }
+            this.assigneeId = assigneeId;
             return this;
         }
         @CustomType.Setter
         public Builder assigneeType(String assigneeType) {
-            this.assigneeType = Objects.requireNonNull(assigneeType);
+            if (assigneeType == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "assigneeType");
+            }
+            this.assigneeType = assigneeType;
             return this;
         }
         @CustomType.Setter
         public Builder autoDelete(Boolean autoDelete) {
-            this.autoDelete = Objects.requireNonNull(autoDelete);
+            if (autoDelete == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "autoDelete");
+            }
+            this.autoDelete = autoDelete;
             return this;
         }
         @CustomType.Setter
         public Builder datacenter(String datacenter) {
-            this.datacenter = Objects.requireNonNull(datacenter);
+            if (datacenter == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "datacenter");
+            }
+            this.datacenter = datacenter;
             return this;
         }
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
-            this.deleteProtection = Objects.requireNonNull(deleteProtection);
+            if (deleteProtection == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "deleteProtection");
+            }
+            this.deleteProtection = deleteProtection;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder ipNetwork(String ipNetwork) {
-            this.ipNetwork = Objects.requireNonNull(ipNetwork);
+            if (ipNetwork == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "ipNetwork");
+            }
+            this.ipNetwork = ipNetwork;
             return this;
         }
         @CustomType.Setter
         public Builder labels(Map<String,Object> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetPrimaryIpsPrimaryIp build() {

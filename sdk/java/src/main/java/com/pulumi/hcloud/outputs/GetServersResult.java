@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetServersServer;
 import java.lang.String;
 import java.util.List;
@@ -72,12 +73,18 @@ public final class GetServersResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder servers(List<GetServersServer> servers) {
-            this.servers = Objects.requireNonNull(servers);
+            if (servers == null) {
+              throw new MissingRequiredPropertyException("GetServersResult", "servers");
+            }
+            this.servers = servers;
             return this;
         }
         public Builder servers(GetServersServer... servers) {
@@ -85,11 +92,13 @@ public final class GetServersResult {
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }
         @CustomType.Setter
         public Builder withStatuses(@Nullable List<String> withStatuses) {
+
             this.withStatuses = withStatuses;
             return this;
         }

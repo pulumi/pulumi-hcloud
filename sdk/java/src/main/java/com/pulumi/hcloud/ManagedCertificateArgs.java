@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.List;
@@ -172,7 +173,9 @@ public final class ManagedCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         public ManagedCertificateArgs build() {
-            $.domainNames = Objects.requireNonNull($.domainNames, "expected parameter 'domainNames' to be non-null");
+            if ($.domainNames == null) {
+                throw new MissingRequiredPropertyException("ManagedCertificateArgs", "domainNames");
+            }
             return $;
         }
     }

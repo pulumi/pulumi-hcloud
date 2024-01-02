@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FloatingIpAssignmentArgs extends com.pulumi.resources.Resourc
         }
 
         public FloatingIpAssignmentArgs build() {
-            $.floatingIpId = Objects.requireNonNull($.floatingIpId, "expected parameter 'floatingIpId' to be non-null");
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.floatingIpId == null) {
+                throw new MissingRequiredPropertyException("FloatingIpAssignmentArgs", "floatingIpId");
+            }
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("FloatingIpAssignmentArgs", "serverId");
+            }
             return $;
         }
     }

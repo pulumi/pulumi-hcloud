@@ -5,6 +5,7 @@ package com.pulumi.hcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,7 +200,9 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServerNetworkArgs build() {
-            $.networkId = Objects.requireNonNull($.networkId, "expected parameter 'networkId' to be non-null");
+            if ($.networkId == null) {
+                throw new MissingRequiredPropertyException("ServerNetworkArgs", "networkId");
+            }
             return $;
         }
     }

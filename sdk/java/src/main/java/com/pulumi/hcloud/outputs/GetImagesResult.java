@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetImagesImage;
 import java.lang.Boolean;
 import java.lang.String;
@@ -91,12 +92,18 @@ public final class GetImagesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImagesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder images(List<GetImagesImage> images) {
-            this.images = Objects.requireNonNull(images);
+            if (images == null) {
+              throw new MissingRequiredPropertyException("GetImagesResult", "images");
+            }
+            this.images = images;
             return this;
         }
         public Builder images(GetImagesImage... images) {
@@ -104,16 +111,19 @@ public final class GetImagesResult {
         }
         @CustomType.Setter
         public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+
             this.includeDeprecated = includeDeprecated;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder withArchitectures(@Nullable List<String> withArchitectures) {
+
             this.withArchitectures = withArchitectures;
             return this;
         }
@@ -122,11 +132,13 @@ public final class GetImagesResult {
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }
         @CustomType.Setter
         public Builder withStatuses(@Nullable List<String> withStatuses) {
+
             this.withStatuses = withStatuses;
             return this;
         }

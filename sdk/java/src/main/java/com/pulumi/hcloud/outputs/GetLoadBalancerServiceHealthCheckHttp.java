@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -101,22 +102,34 @@ public final class GetLoadBalancerServiceHealthCheckHttp {
 
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHealthCheckHttp", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHealthCheckHttp", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder response(String response) {
-            this.response = Objects.requireNonNull(response);
+            if (response == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHealthCheckHttp", "response");
+            }
+            this.response = response;
             return this;
         }
         @CustomType.Setter
         public Builder statusCodes(List<Integer> statusCodes) {
-            this.statusCodes = Objects.requireNonNull(statusCodes);
+            if (statusCodes == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHealthCheckHttp", "statusCodes");
+            }
+            this.statusCodes = statusCodes;
             return this;
         }
         public Builder statusCodes(Integer... statusCodes) {
@@ -124,7 +137,10 @@ public final class GetLoadBalancerServiceHealthCheckHttp {
         }
         @CustomType.Setter
         public Builder tls(Boolean tls) {
-            this.tls = Objects.requireNonNull(tls);
+            if (tls == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHealthCheckHttp", "tls");
+            }
+            this.tls = tls;
             return this;
         }
         public GetLoadBalancerServiceHealthCheckHttp build() {

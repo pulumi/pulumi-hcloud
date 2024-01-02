@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetPlacementGroupsPlacementGroup;
 import java.lang.Boolean;
 import java.lang.String;
@@ -73,17 +74,24 @@ public final class GetPlacementGroupsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPlacementGroupsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder placementGroups(List<GetPlacementGroupsPlacementGroup> placementGroups) {
-            this.placementGroups = Objects.requireNonNull(placementGroups);
+            if (placementGroups == null) {
+              throw new MissingRequiredPropertyException("GetPlacementGroupsResult", "placementGroups");
+            }
+            this.placementGroups = placementGroups;
             return this;
         }
         public Builder placementGroups(GetPlacementGroupsPlacementGroup... placementGroups) {
@@ -91,6 +99,7 @@ public final class GetPlacementGroupsResult {
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }

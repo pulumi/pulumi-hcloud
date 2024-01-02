@@ -5,6 +5,7 @@ package com.pulumi.hcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -282,7 +283,9 @@ public final class GetFirewallRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public GetFirewallRuleArgs build() {
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("GetFirewallRuleArgs", "direction");
+            }
             return $;
         }
     }

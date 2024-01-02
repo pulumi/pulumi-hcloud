@@ -102,21 +102,25 @@ public final class LoadBalancerServiceHealthCheckHttp {
 
         @CustomType.Setter
         public Builder domain(@Nullable String domain) {
+
             this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder response(@Nullable String response) {
+
             this.response = response;
             return this;
         }
         @CustomType.Setter
         public Builder statusCodes(@Nullable List<String> statusCodes) {
+
             this.statusCodes = statusCodes;
             return this;
         }
@@ -125,6 +129,7 @@ public final class LoadBalancerServiceHealthCheckHttp {
         }
         @CustomType.Setter
         public Builder tls(@Nullable Boolean tls) {
+
             this.tls = tls;
             return this;
         }

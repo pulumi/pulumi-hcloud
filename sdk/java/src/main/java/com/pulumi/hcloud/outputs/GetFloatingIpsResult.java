@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetFloatingIpsFloatingIp;
 import java.lang.String;
 import java.util.List;
@@ -66,7 +67,10 @@ public final class GetFloatingIpsResult {
 
         @CustomType.Setter
         public Builder floatingIps(List<GetFloatingIpsFloatingIp> floatingIps) {
-            this.floatingIps = Objects.requireNonNull(floatingIps);
+            if (floatingIps == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsResult", "floatingIps");
+            }
+            this.floatingIps = floatingIps;
             return this;
         }
         public Builder floatingIps(GetFloatingIpsFloatingIp... floatingIps) {
@@ -74,11 +78,15 @@ public final class GetFloatingIpsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFloatingIpsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }

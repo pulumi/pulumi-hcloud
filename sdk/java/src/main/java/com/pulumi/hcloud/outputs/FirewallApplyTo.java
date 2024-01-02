@@ -63,11 +63,13 @@ public final class FirewallApplyTo {
 
         @CustomType.Setter
         public Builder labelSelector(@Nullable String labelSelector) {
+
             this.labelSelector = labelSelector;
             return this;
         }
         @CustomType.Setter
         public Builder server(@Nullable Integer server) {
+
             this.server = server;
             return this;
         }

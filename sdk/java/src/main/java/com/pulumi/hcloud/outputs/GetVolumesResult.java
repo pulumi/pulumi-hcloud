@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetVolumesVolume;
 import java.lang.String;
 import java.util.List;
@@ -72,12 +73,18 @@ public final class GetVolumesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVolumesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder volumes(List<GetVolumesVolume> volumes) {
-            this.volumes = Objects.requireNonNull(volumes);
+            if (volumes == null) {
+              throw new MissingRequiredPropertyException("GetVolumesResult", "volumes");
+            }
+            this.volumes = volumes;
             return this;
         }
         public Builder volumes(GetVolumesVolume... volumes) {
@@ -85,11 +92,13 @@ public final class GetVolumesResult {
         }
         @CustomType.Setter
         public Builder withSelector(@Nullable String withSelector) {
+
             this.withSelector = withSelector;
             return this;
         }
         @CustomType.Setter
         public Builder withStatuses(@Nullable List<String> withStatuses) {
+
             this.withStatuses = withStatuses;
             return this;
         }

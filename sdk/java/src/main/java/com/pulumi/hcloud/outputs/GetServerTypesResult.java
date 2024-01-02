@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetServerTypesServerType;
 import java.lang.String;
 import java.util.List;
@@ -113,7 +114,10 @@ public final class GetServerTypesResult {
 
         @CustomType.Setter
         public Builder descriptions(List<String> descriptions) {
-            this.descriptions = Objects.requireNonNull(descriptions);
+            if (descriptions == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesResult", "descriptions");
+            }
+            this.descriptions = descriptions;
             return this;
         }
         public Builder descriptions(String... descriptions) {
@@ -121,12 +125,18 @@ public final class GetServerTypesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
@@ -134,6 +144,7 @@ public final class GetServerTypesResult {
         }
         @CustomType.Setter
         public Builder serverTypeIds(@Nullable List<String> serverTypeIds) {
+
             this.serverTypeIds = serverTypeIds;
             return this;
         }
@@ -142,7 +153,10 @@ public final class GetServerTypesResult {
         }
         @CustomType.Setter
         public Builder serverTypes(List<GetServerTypesServerType> serverTypes) {
-            this.serverTypes = Objects.requireNonNull(serverTypes);
+            if (serverTypes == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesResult", "serverTypes");
+            }
+            this.serverTypes = serverTypes;
             return this;
         }
         public Builder serverTypes(GetServerTypesServerType... serverTypes) {

@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
@@ -152,7 +153,9 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SshKeyArgs build() {
-            $.publicKey = Objects.requireNonNull($.publicKey, "expected parameter 'publicKey' to be non-null");
+            if ($.publicKey == null) {
+                throw new MissingRequiredPropertyException("SshKeyArgs", "publicKey");
+            }
             return $;
         }
     }

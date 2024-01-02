@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,18 @@ public final class GetFirewallApplyTo {
 
         @CustomType.Setter
         public Builder labelSelector(String labelSelector) {
-            this.labelSelector = Objects.requireNonNull(labelSelector);
+            if (labelSelector == null) {
+              throw new MissingRequiredPropertyException("GetFirewallApplyTo", "labelSelector");
+            }
+            this.labelSelector = labelSelector;
             return this;
         }
         @CustomType.Setter
         public Builder server(Integer server) {
-            this.server = Objects.requireNonNull(server);
+            if (server == null) {
+              throw new MissingRequiredPropertyException("GetFirewallApplyTo", "server");
+            }
+            this.server = server;
             return this;
         }
         public GetFirewallApplyTo build() {

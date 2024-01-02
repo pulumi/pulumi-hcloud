@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -94,8 +95,12 @@ public final class GetFirewallApplyTo extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetFirewallApplyTo build() {
-            $.labelSelector = Objects.requireNonNull($.labelSelector, "expected parameter 'labelSelector' to be non-null");
-            $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
+            if ($.labelSelector == null) {
+                throw new MissingRequiredPropertyException("GetFirewallApplyTo", "labelSelector");
+            }
+            if ($.server == null) {
+                throw new MissingRequiredPropertyException("GetFirewallApplyTo", "server");
+            }
             return $;
         }
     }

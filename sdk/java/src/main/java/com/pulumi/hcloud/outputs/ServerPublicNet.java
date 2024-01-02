@@ -55,21 +55,25 @@ public final class ServerPublicNet {
 
         @CustomType.Setter
         public Builder ipv4(@Nullable Integer ipv4) {
+
             this.ipv4 = ipv4;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Enabled(@Nullable Boolean ipv4Enabled) {
+
             this.ipv4Enabled = ipv4Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6(@Nullable Integer ipv6) {
+
             this.ipv6 = ipv6;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Enabled(@Nullable Boolean ipv6Enabled) {
+
             this.ipv6Enabled = ipv6Enabled;
             return this;
         }

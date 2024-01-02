@@ -5,6 +5,7 @@ package com.pulumi.hcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Object;
@@ -343,9 +344,15 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PrimaryIpArgs build() {
-            $.assigneeType = Objects.requireNonNull($.assigneeType, "expected parameter 'assigneeType' to be non-null");
-            $.autoDelete = Objects.requireNonNull($.autoDelete, "expected parameter 'autoDelete' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.assigneeType == null) {
+                throw new MissingRequiredPropertyException("PrimaryIpArgs", "assigneeType");
+            }
+            if ($.autoDelete == null) {
+                throw new MissingRequiredPropertyException("PrimaryIpArgs", "autoDelete");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("PrimaryIpArgs", "type");
+            }
             return $;
         }
     }

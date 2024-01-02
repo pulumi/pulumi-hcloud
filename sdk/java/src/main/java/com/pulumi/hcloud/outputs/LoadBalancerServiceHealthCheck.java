@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.LoadBalancerServiceHealthCheckHttp;
 import java.lang.Integer;
 import java.lang.String;
@@ -116,32 +117,46 @@ public final class LoadBalancerServiceHealthCheck {
 
         @CustomType.Setter
         public Builder http(@Nullable LoadBalancerServiceHealthCheckHttp http) {
+
             this.http = http;
             return this;
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheck", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheck", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheck", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder retries(@Nullable Integer retries) {
+
             this.retries = retries;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+            if (timeout == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheck", "timeout");
+            }
+            this.timeout = timeout;
             return this;
         }
         public LoadBalancerServiceHealthCheck build() {
