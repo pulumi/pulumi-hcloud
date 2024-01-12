@@ -18,6 +18,13 @@ public final class Config {
         return Codegen.stringProp("endpoint").config(config).get();
     }
 /**
+ * The type of function to be used during the polling.
+ * 
+ */
+    public Optional<String> pollFunction() {
+        return Codegen.stringProp("pollFunction").config(config).get();
+    }
+/**
  * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
  * limiting errors.
  * 

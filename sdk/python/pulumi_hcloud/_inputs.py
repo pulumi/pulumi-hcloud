@@ -530,7 +530,6 @@ class ServerNetworkArgs:
                  mac_address: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] network_id: ID of the network
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_ips: Alias IPs the server should have in the Network.
         :param pulumi.Input[str] ip: Specify the IP the server should get in the network
         :param pulumi.Input[str] mac_address: (Optional, string) The MAC address the private interface of the server has
         """
@@ -557,9 +556,6 @@ class ServerNetworkArgs:
     @property
     @pulumi.getter(name="aliasIps")
     def alias_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Alias IPs the server should have in the Network.
-        """
         return pulumi.get(self, "alias_ips")
 
     @alias_ips.setter

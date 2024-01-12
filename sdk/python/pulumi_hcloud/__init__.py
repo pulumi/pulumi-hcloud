@@ -12,8 +12,6 @@ from .floating_ip import *
 from .floating_ip_assignment import *
 from .get_certificate import *
 from .get_certificates import *
-from .get_datacenter import *
-from .get_datacenters import *
 from .get_firewall import *
 from .get_firewalls import *
 from .get_floating_ip import *
@@ -22,8 +20,6 @@ from .get_image import *
 from .get_images import *
 from .get_load_balancer import *
 from .get_load_balancers import *
-from .get_location import *
-from .get_locations import *
 from .get_network import *
 from .get_networks import *
 from .get_placement_group import *

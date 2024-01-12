@@ -55,9 +55,21 @@ public final class GetNetworkPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * @deprecated
+     * This attribute has no purpose.
+     * 
+     */
+    @Deprecated /* This attribute has no purpose. */
     @Import(name="mostRecent")
     private @Nullable Boolean mostRecent;
 
+    /**
+     * @deprecated
+     * This attribute has no purpose.
+     * 
+     */
+    @Deprecated /* This attribute has no purpose. */
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
@@ -148,6 +160,14 @@ public final class GetNetworkPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This attribute has no purpose.
+         * 
+         */
+        @Deprecated /* This attribute has no purpose. */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
             return this;

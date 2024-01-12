@@ -36,7 +36,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
      * 
@@ -45,7 +45,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection.
+     * @return Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
      * 
@@ -197,7 +197,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection.
+         * @param deleteProtection Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
          * 
@@ -210,7 +210,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection.
+         * @param deleteProtection Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
          * 

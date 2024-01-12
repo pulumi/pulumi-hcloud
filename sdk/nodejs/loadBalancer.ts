@@ -70,7 +70,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly algorithm!: pulumi.Output<outputs.LoadBalancerAlgorithm>;
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface LoadBalancerState {
      */
     algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm>;
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
@@ -225,7 +225,7 @@ export interface LoadBalancerArgs {
      */
     algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm>;
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**

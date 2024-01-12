@@ -13,9 +13,6 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class ServerNetwork
     {
-        /// <summary>
-        /// Alias IPs the server should have in the Network.
-        /// </summary>
         public readonly ImmutableArray<string> AliasIps;
         /// <summary>
         /// Specify the IP the server should get in the network

@@ -24,7 +24,7 @@ class FloatingIpArgs:
         """
         The set of arguments for constructing a FloatingIp resource.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -61,7 +61,7 @@ class FloatingIpArgs:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -144,7 +144,7 @@ class _FloatingIpState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FloatingIp resources.
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
@@ -177,7 +177,7 @@ class _FloatingIpState:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -322,7 +322,7 @@ class FloatingIp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -429,7 +429,7 @@ class FloatingIp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
@@ -458,7 +458,7 @@ class FloatingIp(pulumi.CustomResource):
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 

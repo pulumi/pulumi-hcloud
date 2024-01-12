@@ -11,17 +11,15 @@ import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworksNetwork {
     private Boolean deleteProtection;
     private Boolean exposeRoutesToVswitch;
     private Integer id;
-    private @Nullable String ipRange;
-    private @Nullable Map<String,Object> labels;
-    private @Nullable String name;
+    private String ipRange;
+    private Map<String,Object> labels;
+    private String name;
 
     private GetNetworksNetwork() {}
     public Boolean deleteProtection() {
@@ -33,14 +31,14 @@ public final class GetNetworksNetwork {
     public Integer id() {
         return this.id;
     }
-    public Optional<String> ipRange() {
-        return Optional.ofNullable(this.ipRange);
+    public String ipRange() {
+        return this.ipRange;
     }
     public Map<String,Object> labels() {
-        return this.labels == null ? Map.of() : this.labels;
+        return this.labels;
     }
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
 
     public static Builder builder() {
@@ -55,9 +53,9 @@ public final class GetNetworksNetwork {
         private Boolean deleteProtection;
         private Boolean exposeRoutesToVswitch;
         private Integer id;
-        private @Nullable String ipRange;
-        private @Nullable Map<String,Object> labels;
-        private @Nullable String name;
+        private String ipRange;
+        private Map<String,Object> labels;
+        private String name;
         public Builder() {}
         public Builder(GetNetworksNetwork defaults) {
     	      Objects.requireNonNull(defaults);
@@ -94,20 +92,26 @@ public final class GetNetworksNetwork {
             return this;
         }
         @CustomType.Setter
-        public Builder ipRange(@Nullable String ipRange) {
-
+        public Builder ipRange(String ipRange) {
+            if (ipRange == null) {
+              throw new MissingRequiredPropertyException("GetNetworksNetwork", "ipRange");
+            }
             this.ipRange = ipRange;
             return this;
         }
         @CustomType.Setter
-        public Builder labels(@Nullable Map<String,Object> labels) {
-
+        public Builder labels(Map<String,Object> labels) {
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetNetworksNetwork", "labels");
+            }
             this.labels = labels;
             return this;
         }
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-
+        public Builder name(String name) {
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworksNetwork", "name");
+            }
             this.name = name;
             return this;
         }

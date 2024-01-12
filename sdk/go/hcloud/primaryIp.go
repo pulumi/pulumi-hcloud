@@ -86,7 +86,7 @@ type PrimaryIp struct {
 	AutoDelete pulumi.BoolOutput `pulumi:"autoDelete"`
 	// The datacenter name to create the resource in.
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
-	// Whether delete protection is enabled.
+	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// (string) IP Address of the Primary IP.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
@@ -148,7 +148,7 @@ type primaryIpState struct {
 	AutoDelete *bool `pulumi:"autoDelete"`
 	// The datacenter name to create the resource in.
 	Datacenter *string `pulumi:"datacenter"`
-	// Whether delete protection is enabled.
+	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// (string) IP Address of the Primary IP.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -172,7 +172,7 @@ type PrimaryIpState struct {
 	AutoDelete pulumi.BoolPtrInput
 	// The datacenter name to create the resource in.
 	Datacenter pulumi.StringPtrInput
-	// Whether delete protection is enabled.
+	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// (string) IP Address of the Primary IP.
 	IpAddress pulumi.StringPtrInput
@@ -200,7 +200,7 @@ type primaryIpArgs struct {
 	AutoDelete bool `pulumi:"autoDelete"`
 	// The datacenter name to create the resource in.
 	Datacenter *string `pulumi:"datacenter"`
-	// Whether delete protection is enabled.
+	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Primary IP.
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -221,7 +221,7 @@ type PrimaryIpArgs struct {
 	AutoDelete pulumi.BoolInput
 	// The datacenter name to create the resource in.
 	Datacenter pulumi.StringPtrInput
-	// Whether delete protection is enabled.
+	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Primary IP.
 	Labels pulumi.MapInput
@@ -339,7 +339,7 @@ func (o PrimaryIpOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.Datacenter }).(pulumi.StringOutput)
 }
 
-// Whether delete protection is enabled.
+// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 func (o PrimaryIpOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
 }

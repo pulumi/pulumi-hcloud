@@ -194,7 +194,7 @@ namespace Pulumi.HCloud
         public Output<string> Datacenter { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -277,6 +277,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Output("placementGroupId")]
         public Output<int?> PlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// (int) The size of the primary disk in GB.
+        /// </summary>
+        [Output("primaryDiskSize")]
+        public Output<int> PrimaryDiskSize { get; private set; } = null!;
 
         /// <summary>
         /// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
@@ -389,7 +395,7 @@ namespace Pulumi.HCloud
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -557,7 +563,7 @@ namespace Pulumi.HCloud
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -658,6 +664,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("placementGroupId")]
         public Input<int>? PlacementGroupId { get; set; }
+
+        /// <summary>
+        /// (int) The size of the primary disk in GB.
+        /// </summary>
+        [Input("primaryDiskSize")]
+        public Input<int>? PrimaryDiskSize { get; set; }
 
         [Input("publicNets")]
         private InputList<Inputs.ServerPublicNetGetArgs>? _publicNets;

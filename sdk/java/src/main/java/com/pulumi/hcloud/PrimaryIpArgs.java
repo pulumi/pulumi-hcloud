@@ -83,14 +83,14 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether delete protection is enabled.
+     * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return Whether delete protection is enabled.
+     * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -260,7 +260,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Whether delete protection is enabled.
+         * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Whether delete protection is enabled.
+         * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 

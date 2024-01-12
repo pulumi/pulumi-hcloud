@@ -21,7 +21,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, backup_window=None, backups=None, datacenter=None, delete_protection=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, placement_group_id=None, rebuild_protection=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, backup_window=None, backups=None, datacenter=None, delete_protection=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, placement_group_id=None, primary_disk_size=None, rebuild_protection=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
         if backup_window and not isinstance(backup_window, str):
             raise TypeError("Expected argument 'backup_window' to be a str")
         pulumi.set(__self__, "backup_window", backup_window)
@@ -67,6 +67,9 @@ class GetServerResult:
         if placement_group_id and not isinstance(placement_group_id, int):
             raise TypeError("Expected argument 'placement_group_id' to be a int")
         pulumi.set(__self__, "placement_group_id", placement_group_id)
+        if primary_disk_size and not isinstance(primary_disk_size, int):
+            raise TypeError("Expected argument 'primary_disk_size' to be a int")
+        pulumi.set(__self__, "primary_disk_size", primary_disk_size)
         if rebuild_protection and not isinstance(rebuild_protection, bool):
             raise TypeError("Expected argument 'rebuild_protection' to be a bool")
         pulumi.set(__self__, "rebuild_protection", rebuild_protection)
@@ -210,6 +213,14 @@ class GetServerResult:
         return pulumi.get(self, "placement_group_id")
 
     @property
+    @pulumi.getter(name="primaryDiskSize")
+    def primary_disk_size(self) -> int:
+        """
+        (int) The size of the primary disk in GB.
+        """
+        return pulumi.get(self, "primary_disk_size")
+
+    @property
     @pulumi.getter(name="rebuildProtection")
     def rebuild_protection(self) -> bool:
         """
@@ -278,6 +289,7 @@ class AwaitableGetServerResult(GetServerResult):
             location=self.location,
             name=self.name,
             placement_group_id=self.placement_group_id,
+            primary_disk_size=self.primary_disk_size,
             rebuild_protection=self.rebuild_protection,
             rescue=self.rescue,
             selector=self.selector,
@@ -339,6 +351,7 @@ def get_server(id: Optional[int] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         placement_group_id=pulumi.get(__ret__, 'placement_group_id'),
+        primary_disk_size=pulumi.get(__ret__, 'primary_disk_size'),
         rebuild_protection=pulumi.get(__ret__, 'rebuild_protection'),
         rescue=pulumi.get(__ret__, 'rescue'),
         selector=pulumi.get(__ret__, 'selector'),

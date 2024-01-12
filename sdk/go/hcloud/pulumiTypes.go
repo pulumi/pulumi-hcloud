@@ -1184,7 +1184,6 @@ func (o LoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) LoadBalancer
 }
 
 type ServerNetworkType struct {
-	// Alias IPs the server should have in the Network.
 	AliasIps []string `pulumi:"aliasIps"`
 	// Specify the IP the server should get in the network
 	Ip *string `pulumi:"ip"`
@@ -1206,7 +1205,6 @@ type ServerNetworkTypeInput interface {
 }
 
 type ServerNetworkTypeArgs struct {
-	// Alias IPs the server should have in the Network.
 	AliasIps pulumi.StringArrayInput `pulumi:"aliasIps"`
 	// Specify the IP the server should get in the network
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
@@ -1267,7 +1265,6 @@ func (o ServerNetworkTypeOutput) ToServerNetworkTypeOutputWithContext(ctx contex
 	return o
 }
 
-// Alias IPs the server should have in the Network.
 func (o ServerNetworkTypeOutput) AliasIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerNetworkType) []string { return v.AliasIps }).(pulumi.StringArrayOutput)
 }
@@ -1565,130 +1562,6 @@ func (o GetCertificatesCertificateArrayOutput) Index(i pulumi.IntInput) GetCerti
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificatesCertificate {
 		return vs[0].([]GetCertificatesCertificate)[vs[1].(int)]
 	}).(GetCertificatesCertificateOutput)
-}
-
-type GetDatacentersDatacenter struct {
-	AvailableServerTypeIds []int                  `pulumi:"availableServerTypeIds"`
-	Description            string                 `pulumi:"description"`
-	Id                     int                    `pulumi:"id"`
-	Location               map[string]interface{} `pulumi:"location"`
-	Name                   string                 `pulumi:"name"`
-	SupportedServerTypeIds []int                  `pulumi:"supportedServerTypeIds"`
-}
-
-// GetDatacentersDatacenterInput is an input type that accepts GetDatacentersDatacenterArgs and GetDatacentersDatacenterOutput values.
-// You can construct a concrete instance of `GetDatacentersDatacenterInput` via:
-//
-//	GetDatacentersDatacenterArgs{...}
-type GetDatacentersDatacenterInput interface {
-	pulumi.Input
-
-	ToGetDatacentersDatacenterOutput() GetDatacentersDatacenterOutput
-	ToGetDatacentersDatacenterOutputWithContext(context.Context) GetDatacentersDatacenterOutput
-}
-
-type GetDatacentersDatacenterArgs struct {
-	AvailableServerTypeIds pulumi.IntArrayInput `pulumi:"availableServerTypeIds"`
-	Description            pulumi.StringInput   `pulumi:"description"`
-	Id                     pulumi.IntInput      `pulumi:"id"`
-	Location               pulumi.MapInput      `pulumi:"location"`
-	Name                   pulumi.StringInput   `pulumi:"name"`
-	SupportedServerTypeIds pulumi.IntArrayInput `pulumi:"supportedServerTypeIds"`
-}
-
-func (GetDatacentersDatacenterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatacentersDatacenter)(nil)).Elem()
-}
-
-func (i GetDatacentersDatacenterArgs) ToGetDatacentersDatacenterOutput() GetDatacentersDatacenterOutput {
-	return i.ToGetDatacentersDatacenterOutputWithContext(context.Background())
-}
-
-func (i GetDatacentersDatacenterArgs) ToGetDatacentersDatacenterOutputWithContext(ctx context.Context) GetDatacentersDatacenterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatacentersDatacenterOutput)
-}
-
-// GetDatacentersDatacenterArrayInput is an input type that accepts GetDatacentersDatacenterArray and GetDatacentersDatacenterArrayOutput values.
-// You can construct a concrete instance of `GetDatacentersDatacenterArrayInput` via:
-//
-//	GetDatacentersDatacenterArray{ GetDatacentersDatacenterArgs{...} }
-type GetDatacentersDatacenterArrayInput interface {
-	pulumi.Input
-
-	ToGetDatacentersDatacenterArrayOutput() GetDatacentersDatacenterArrayOutput
-	ToGetDatacentersDatacenterArrayOutputWithContext(context.Context) GetDatacentersDatacenterArrayOutput
-}
-
-type GetDatacentersDatacenterArray []GetDatacentersDatacenterInput
-
-func (GetDatacentersDatacenterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatacentersDatacenter)(nil)).Elem()
-}
-
-func (i GetDatacentersDatacenterArray) ToGetDatacentersDatacenterArrayOutput() GetDatacentersDatacenterArrayOutput {
-	return i.ToGetDatacentersDatacenterArrayOutputWithContext(context.Background())
-}
-
-func (i GetDatacentersDatacenterArray) ToGetDatacentersDatacenterArrayOutputWithContext(ctx context.Context) GetDatacentersDatacenterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatacentersDatacenterArrayOutput)
-}
-
-type GetDatacentersDatacenterOutput struct{ *pulumi.OutputState }
-
-func (GetDatacentersDatacenterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatacentersDatacenter)(nil)).Elem()
-}
-
-func (o GetDatacentersDatacenterOutput) ToGetDatacentersDatacenterOutput() GetDatacentersDatacenterOutput {
-	return o
-}
-
-func (o GetDatacentersDatacenterOutput) ToGetDatacentersDatacenterOutputWithContext(ctx context.Context) GetDatacentersDatacenterOutput {
-	return o
-}
-
-func (o GetDatacentersDatacenterOutput) AvailableServerTypeIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v GetDatacentersDatacenter) []int { return v.AvailableServerTypeIds }).(pulumi.IntArrayOutput)
-}
-
-func (o GetDatacentersDatacenterOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatacentersDatacenter) string { return v.Description }).(pulumi.StringOutput)
-}
-
-func (o GetDatacentersDatacenterOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDatacentersDatacenter) int { return v.Id }).(pulumi.IntOutput)
-}
-
-func (o GetDatacentersDatacenterOutput) Location() pulumi.MapOutput {
-	return o.ApplyT(func(v GetDatacentersDatacenter) map[string]interface{} { return v.Location }).(pulumi.MapOutput)
-}
-
-func (o GetDatacentersDatacenterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatacentersDatacenter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetDatacentersDatacenterOutput) SupportedServerTypeIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v GetDatacentersDatacenter) []int { return v.SupportedServerTypeIds }).(pulumi.IntArrayOutput)
-}
-
-type GetDatacentersDatacenterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDatacentersDatacenterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatacentersDatacenter)(nil)).Elem()
-}
-
-func (o GetDatacentersDatacenterArrayOutput) ToGetDatacentersDatacenterArrayOutput() GetDatacentersDatacenterArrayOutput {
-	return o
-}
-
-func (o GetDatacentersDatacenterArrayOutput) ToGetDatacentersDatacenterArrayOutputWithContext(ctx context.Context) GetDatacentersDatacenterArrayOutput {
-	return o
-}
-
-func (o GetDatacentersDatacenterArrayOutput) Index(i pulumi.IntInput) GetDatacentersDatacenterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatacentersDatacenter {
-		return vs[0].([]GetDatacentersDatacenter)[vs[1].(int)]
-	}).(GetDatacentersDatacenterOutput)
 }
 
 type GetFirewallApplyTo struct {
@@ -4217,149 +4090,13 @@ func (o GetLoadBalancersLoadBalancerTargetArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetLoadBalancersLoadBalancerTargetOutput)
 }
 
-type GetLocationsLocation struct {
-	City        string  `pulumi:"city"`
-	Country     string  `pulumi:"country"`
-	Description string  `pulumi:"description"`
-	Id          int     `pulumi:"id"`
-	Latitude    float64 `pulumi:"latitude"`
-	Longitude   float64 `pulumi:"longitude"`
-	Name        string  `pulumi:"name"`
-	NetworkZone string  `pulumi:"networkZone"`
-}
-
-// GetLocationsLocationInput is an input type that accepts GetLocationsLocationArgs and GetLocationsLocationOutput values.
-// You can construct a concrete instance of `GetLocationsLocationInput` via:
-//
-//	GetLocationsLocationArgs{...}
-type GetLocationsLocationInput interface {
-	pulumi.Input
-
-	ToGetLocationsLocationOutput() GetLocationsLocationOutput
-	ToGetLocationsLocationOutputWithContext(context.Context) GetLocationsLocationOutput
-}
-
-type GetLocationsLocationArgs struct {
-	City        pulumi.StringInput  `pulumi:"city"`
-	Country     pulumi.StringInput  `pulumi:"country"`
-	Description pulumi.StringInput  `pulumi:"description"`
-	Id          pulumi.IntInput     `pulumi:"id"`
-	Latitude    pulumi.Float64Input `pulumi:"latitude"`
-	Longitude   pulumi.Float64Input `pulumi:"longitude"`
-	Name        pulumi.StringInput  `pulumi:"name"`
-	NetworkZone pulumi.StringInput  `pulumi:"networkZone"`
-}
-
-func (GetLocationsLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLocationsLocation)(nil)).Elem()
-}
-
-func (i GetLocationsLocationArgs) ToGetLocationsLocationOutput() GetLocationsLocationOutput {
-	return i.ToGetLocationsLocationOutputWithContext(context.Background())
-}
-
-func (i GetLocationsLocationArgs) ToGetLocationsLocationOutputWithContext(ctx context.Context) GetLocationsLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLocationsLocationOutput)
-}
-
-// GetLocationsLocationArrayInput is an input type that accepts GetLocationsLocationArray and GetLocationsLocationArrayOutput values.
-// You can construct a concrete instance of `GetLocationsLocationArrayInput` via:
-//
-//	GetLocationsLocationArray{ GetLocationsLocationArgs{...} }
-type GetLocationsLocationArrayInput interface {
-	pulumi.Input
-
-	ToGetLocationsLocationArrayOutput() GetLocationsLocationArrayOutput
-	ToGetLocationsLocationArrayOutputWithContext(context.Context) GetLocationsLocationArrayOutput
-}
-
-type GetLocationsLocationArray []GetLocationsLocationInput
-
-func (GetLocationsLocationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLocationsLocation)(nil)).Elem()
-}
-
-func (i GetLocationsLocationArray) ToGetLocationsLocationArrayOutput() GetLocationsLocationArrayOutput {
-	return i.ToGetLocationsLocationArrayOutputWithContext(context.Background())
-}
-
-func (i GetLocationsLocationArray) ToGetLocationsLocationArrayOutputWithContext(ctx context.Context) GetLocationsLocationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLocationsLocationArrayOutput)
-}
-
-type GetLocationsLocationOutput struct{ *pulumi.OutputState }
-
-func (GetLocationsLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLocationsLocation)(nil)).Elem()
-}
-
-func (o GetLocationsLocationOutput) ToGetLocationsLocationOutput() GetLocationsLocationOutput {
-	return o
-}
-
-func (o GetLocationsLocationOutput) ToGetLocationsLocationOutputWithContext(ctx context.Context) GetLocationsLocationOutput {
-	return o
-}
-
-func (o GetLocationsLocationOutput) City() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationsLocation) string { return v.City }).(pulumi.StringOutput)
-}
-
-func (o GetLocationsLocationOutput) Country() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationsLocation) string { return v.Country }).(pulumi.StringOutput)
-}
-
-func (o GetLocationsLocationOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationsLocation) string { return v.Description }).(pulumi.StringOutput)
-}
-
-func (o GetLocationsLocationOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLocationsLocation) int { return v.Id }).(pulumi.IntOutput)
-}
-
-func (o GetLocationsLocationOutput) Latitude() pulumi.Float64Output {
-	return o.ApplyT(func(v GetLocationsLocation) float64 { return v.Latitude }).(pulumi.Float64Output)
-}
-
-func (o GetLocationsLocationOutput) Longitude() pulumi.Float64Output {
-	return o.ApplyT(func(v GetLocationsLocation) float64 { return v.Longitude }).(pulumi.Float64Output)
-}
-
-func (o GetLocationsLocationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationsLocation) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetLocationsLocationOutput) NetworkZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationsLocation) string { return v.NetworkZone }).(pulumi.StringOutput)
-}
-
-type GetLocationsLocationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetLocationsLocationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLocationsLocation)(nil)).Elem()
-}
-
-func (o GetLocationsLocationArrayOutput) ToGetLocationsLocationArrayOutput() GetLocationsLocationArrayOutput {
-	return o
-}
-
-func (o GetLocationsLocationArrayOutput) ToGetLocationsLocationArrayOutputWithContext(ctx context.Context) GetLocationsLocationArrayOutput {
-	return o
-}
-
-func (o GetLocationsLocationArrayOutput) Index(i pulumi.IntInput) GetLocationsLocationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationsLocation {
-		return vs[0].([]GetLocationsLocation)[vs[1].(int)]
-	}).(GetLocationsLocationOutput)
-}
-
 type GetNetworksNetwork struct {
 	DeleteProtection      bool                   `pulumi:"deleteProtection"`
 	ExposeRoutesToVswitch bool                   `pulumi:"exposeRoutesToVswitch"`
 	Id                    int                    `pulumi:"id"`
-	IpRange               *string                `pulumi:"ipRange"`
+	IpRange               string                 `pulumi:"ipRange"`
 	Labels                map[string]interface{} `pulumi:"labels"`
-	Name                  *string                `pulumi:"name"`
+	Name                  string                 `pulumi:"name"`
 }
 
 // GetNetworksNetworkInput is an input type that accepts GetNetworksNetworkArgs and GetNetworksNetworkOutput values.
@@ -4374,12 +4111,12 @@ type GetNetworksNetworkInput interface {
 }
 
 type GetNetworksNetworkArgs struct {
-	DeleteProtection      pulumi.BoolInput      `pulumi:"deleteProtection"`
-	ExposeRoutesToVswitch pulumi.BoolInput      `pulumi:"exposeRoutesToVswitch"`
-	Id                    pulumi.IntInput       `pulumi:"id"`
-	IpRange               pulumi.StringPtrInput `pulumi:"ipRange"`
-	Labels                pulumi.MapInput       `pulumi:"labels"`
-	Name                  pulumi.StringPtrInput `pulumi:"name"`
+	DeleteProtection      pulumi.BoolInput   `pulumi:"deleteProtection"`
+	ExposeRoutesToVswitch pulumi.BoolInput   `pulumi:"exposeRoutesToVswitch"`
+	Id                    pulumi.IntInput    `pulumi:"id"`
+	IpRange               pulumi.StringInput `pulumi:"ipRange"`
+	Labels                pulumi.MapInput    `pulumi:"labels"`
+	Name                  pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetNetworksNetworkArgs) ElementType() reflect.Type {
@@ -4445,16 +4182,16 @@ func (o GetNetworksNetworkOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNetworksNetwork) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o GetNetworksNetworkOutput) IpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetNetworksNetwork) *string { return v.IpRange }).(pulumi.StringPtrOutput)
+func (o GetNetworksNetworkOutput) IpRange() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksNetwork) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
 func (o GetNetworksNetworkOutput) Labels() pulumi.MapOutput {
 	return o.ApplyT(func(v GetNetworksNetwork) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
 }
 
-func (o GetNetworksNetworkOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetNetworksNetwork) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o GetNetworksNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksNetwork) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type GetNetworksNetworkArrayOutput struct{ *pulumi.OutputState }
@@ -4478,11 +4215,11 @@ func (o GetNetworksNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworksNetwo
 }
 
 type GetPlacementGroupsPlacementGroup struct {
-	Id      *int                   `pulumi:"id"`
+	Id      int                    `pulumi:"id"`
 	Labels  map[string]interface{} `pulumi:"labels"`
 	Name    string                 `pulumi:"name"`
 	Servers []int                  `pulumi:"servers"`
-	Type    *string                `pulumi:"type"`
+	Type    string                 `pulumi:"type"`
 }
 
 // GetPlacementGroupsPlacementGroupInput is an input type that accepts GetPlacementGroupsPlacementGroupArgs and GetPlacementGroupsPlacementGroupOutput values.
@@ -4497,11 +4234,11 @@ type GetPlacementGroupsPlacementGroupInput interface {
 }
 
 type GetPlacementGroupsPlacementGroupArgs struct {
-	Id      pulumi.IntPtrInput    `pulumi:"id"`
-	Labels  pulumi.MapInput       `pulumi:"labels"`
-	Name    pulumi.StringInput    `pulumi:"name"`
-	Servers pulumi.IntArrayInput  `pulumi:"servers"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Id      pulumi.IntInput      `pulumi:"id"`
+	Labels  pulumi.MapInput      `pulumi:"labels"`
+	Name    pulumi.StringInput   `pulumi:"name"`
+	Servers pulumi.IntArrayInput `pulumi:"servers"`
+	Type    pulumi.StringInput   `pulumi:"type"`
 }
 
 func (GetPlacementGroupsPlacementGroupArgs) ElementType() reflect.Type {
@@ -4555,8 +4292,8 @@ func (o GetPlacementGroupsPlacementGroupOutput) ToGetPlacementGroupsPlacementGro
 	return o
 }
 
-func (o GetPlacementGroupsPlacementGroupOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetPlacementGroupsPlacementGroup) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o GetPlacementGroupsPlacementGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPlacementGroupsPlacementGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
 func (o GetPlacementGroupsPlacementGroupOutput) Labels() pulumi.MapOutput {
@@ -4571,8 +4308,8 @@ func (o GetPlacementGroupsPlacementGroupOutput) Servers() pulumi.IntArrayOutput 
 	return o.ApplyT(func(v GetPlacementGroupsPlacementGroup) []int { return v.Servers }).(pulumi.IntArrayOutput)
 }
 
-func (o GetPlacementGroupsPlacementGroupOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetPlacementGroupsPlacementGroup) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o GetPlacementGroupsPlacementGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlacementGroupsPlacementGroup) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GetPlacementGroupsPlacementGroupArrayOutput struct{ *pulumi.OutputState }
@@ -4931,6 +4668,7 @@ type GetServersServer struct {
 	Location          string                 `pulumi:"location"`
 	Name              string                 `pulumi:"name"`
 	PlacementGroupId  *int                   `pulumi:"placementGroupId"`
+	PrimaryDiskSize   int                    `pulumi:"primaryDiskSize"`
 	RebuildProtection bool                   `pulumi:"rebuildProtection"`
 	Rescue            string                 `pulumi:"rescue"`
 	ServerType        string                 `pulumi:"serverType"`
@@ -4964,6 +4702,7 @@ type GetServersServerArgs struct {
 	Location          pulumi.StringInput   `pulumi:"location"`
 	Name              pulumi.StringInput   `pulumi:"name"`
 	PlacementGroupId  pulumi.IntPtrInput   `pulumi:"placementGroupId"`
+	PrimaryDiskSize   pulumi.IntInput      `pulumi:"primaryDiskSize"`
 	RebuildProtection pulumi.BoolInput     `pulumi:"rebuildProtection"`
 	Rescue            pulumi.StringInput   `pulumi:"rescue"`
 	ServerType        pulumi.StringInput   `pulumi:"serverType"`
@@ -5079,6 +4818,10 @@ func (o GetServersServerOutput) Name() pulumi.StringOutput {
 
 func (o GetServersServerOutput) PlacementGroupId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetServersServer) *int { return v.PlacementGroupId }).(pulumi.IntPtrOutput)
+}
+
+func (o GetServersServerOutput) PrimaryDiskSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServersServer) int { return v.PrimaryDiskSize }).(pulumi.IntOutput)
 }
 
 func (o GetServersServerOutput) RebuildProtection() pulumi.BoolOutput {
@@ -5392,8 +5135,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerPublicNetArrayInput)(nil)).Elem(), ServerPublicNetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatesCertificateInput)(nil)).Elem(), GetCertificatesCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatesCertificateArrayInput)(nil)).Elem(), GetCertificatesCertificateArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatacentersDatacenterInput)(nil)).Elem(), GetDatacentersDatacenterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatacentersDatacenterArrayInput)(nil)).Elem(), GetDatacentersDatacenterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallApplyToInput)(nil)).Elem(), GetFirewallApplyToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallApplyToArrayInput)(nil)).Elem(), GetFirewallApplyToArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallRuleInput)(nil)).Elem(), GetFirewallRuleArgs{})
@@ -5434,8 +5175,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerServiceHttpArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerServiceHttpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerTargetInput)(nil)).Elem(), GetLoadBalancersLoadBalancerTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerTargetArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerTargetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationsLocationInput)(nil)).Elem(), GetLocationsLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationsLocationArrayInput)(nil)).Elem(), GetLocationsLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkInput)(nil)).Elem(), GetNetworksNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkArrayInput)(nil)).Elem(), GetNetworksNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPlacementGroupsPlacementGroupInput)(nil)).Elem(), GetPlacementGroupsPlacementGroupArgs{})
@@ -5470,8 +5209,6 @@ func init() {
 	pulumi.RegisterOutputType(ServerPublicNetArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificatesCertificateOutput{})
 	pulumi.RegisterOutputType(GetCertificatesCertificateArrayOutput{})
-	pulumi.RegisterOutputType(GetDatacentersDatacenterOutput{})
-	pulumi.RegisterOutputType(GetDatacentersDatacenterArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallApplyToOutput{})
 	pulumi.RegisterOutputType(GetFirewallApplyToArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallRuleOutput{})
@@ -5512,8 +5249,6 @@ func init() {
 	pulumi.RegisterOutputType(GetLoadBalancersLoadBalancerServiceHttpArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancersLoadBalancerTargetOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancersLoadBalancerTargetArrayOutput{})
-	pulumi.RegisterOutputType(GetLocationsLocationOutput{})
-	pulumi.RegisterOutputType(GetLocationsLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworksNetworkOutput{})
 	pulumi.RegisterOutputType(GetNetworksNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetPlacementGroupsPlacementGroupOutput{})

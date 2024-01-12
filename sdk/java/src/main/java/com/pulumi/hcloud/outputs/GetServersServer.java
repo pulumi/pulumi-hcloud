@@ -32,6 +32,7 @@ public final class GetServersServer {
     private String location;
     private String name;
     private @Nullable Integer placementGroupId;
+    private Integer primaryDiskSize;
     private Boolean rebuildProtection;
     private String rescue;
     private String serverType;
@@ -83,6 +84,9 @@ public final class GetServersServer {
     public Optional<Integer> placementGroupId() {
         return Optional.ofNullable(this.placementGroupId);
     }
+    public Integer primaryDiskSize() {
+        return this.primaryDiskSize;
+    }
     public Boolean rebuildProtection() {
         return this.rebuildProtection;
     }
@@ -120,6 +124,7 @@ public final class GetServersServer {
         private String location;
         private String name;
         private @Nullable Integer placementGroupId;
+        private Integer primaryDiskSize;
         private Boolean rebuildProtection;
         private String rescue;
         private String serverType;
@@ -142,6 +147,7 @@ public final class GetServersServer {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.placementGroupId = defaults.placementGroupId;
+    	      this.primaryDiskSize = defaults.primaryDiskSize;
     	      this.rebuildProtection = defaults.rebuildProtection;
     	      this.rescue = defaults.rescue;
     	      this.serverType = defaults.serverType;
@@ -270,6 +276,14 @@ public final class GetServersServer {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryDiskSize(Integer primaryDiskSize) {
+            if (primaryDiskSize == null) {
+              throw new MissingRequiredPropertyException("GetServersServer", "primaryDiskSize");
+            }
+            this.primaryDiskSize = primaryDiskSize;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rebuildProtection(Boolean rebuildProtection) {
             if (rebuildProtection == null) {
               throw new MissingRequiredPropertyException("GetServersServer", "rebuildProtection");
@@ -318,6 +332,7 @@ public final class GetServersServer {
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.placementGroupId = placementGroupId;
+            _resultValue.primaryDiskSize = primaryDiskSize;
             _resultValue.rebuildProtection = rebuildProtection;
             _resultValue.rescue = rescue;
             _resultValue.serverType = serverType;

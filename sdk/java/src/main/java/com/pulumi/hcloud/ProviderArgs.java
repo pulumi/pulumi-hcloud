@@ -31,6 +31,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The type of function to be used during the polling.
+     * 
+     */
+    @Import(name="pollFunction")
+    private @Nullable Output<String> pollFunction;
+
+    /**
+     * @return The type of function to be used during the polling.
+     * 
+     */
+    public Optional<Output<String>> pollFunction() {
+        return Optional.ofNullable(this.pollFunction);
+    }
+
+    /**
      * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
      * limiting errors.
      * 
@@ -66,6 +81,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProviderArgs(ProviderArgs $) {
         this.endpoint = $.endpoint;
+        this.pollFunction = $.pollFunction;
         this.pollInterval = $.pollInterval;
         this.token = $.token;
     }
@@ -107,6 +123,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param pollFunction The type of function to be used during the polling.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pollFunction(@Nullable Output<String> pollFunction) {
+            $.pollFunction = pollFunction;
+            return this;
+        }
+
+        /**
+         * @param pollFunction The type of function to be used during the polling.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pollFunction(String pollFunction) {
+            return pollFunction(Output.of(pollFunction));
         }
 
         /**

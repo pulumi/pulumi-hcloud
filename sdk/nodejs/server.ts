@@ -146,7 +146,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly datacenter!: pulumi.Output<string>;
     /**
-     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
      */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -202,6 +202,10 @@ export class Server extends pulumi.CustomResource {
      * Placement Group ID the server added to on creation.
      */
     public readonly placementGroupId!: pulumi.Output<number | undefined>;
+    /**
+     * (int) The size of the primary disk in GB.
+     */
+    public /*out*/ readonly primaryDiskSize!: pulumi.Output<number>;
     /**
      * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
@@ -264,6 +268,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networks"] = state ? state.networks : undefined;
             resourceInputs["placementGroupId"] = state ? state.placementGroupId : undefined;
+            resourceInputs["primaryDiskSize"] = state ? state.primaryDiskSize : undefined;
             resourceInputs["publicNets"] = state ? state.publicNets : undefined;
             resourceInputs["rebuildProtection"] = state ? state.rebuildProtection : undefined;
             resourceInputs["rescue"] = state ? state.rescue : undefined;
@@ -302,6 +307,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["ipv4Address"] = undefined /*out*/;
             resourceInputs["ipv6Address"] = undefined /*out*/;
             resourceInputs["ipv6Network"] = undefined /*out*/;
+            resourceInputs["primaryDiskSize"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -332,7 +338,7 @@ export interface ServerState {
      */
     datacenter?: pulumi.Input<string>;
     /**
-     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
@@ -389,6 +395,10 @@ export interface ServerState {
      */
     placementGroupId?: pulumi.Input<number>;
     /**
+     * (int) The size of the primary disk in GB.
+     */
+    primaryDiskSize?: pulumi.Input<number>;
+    /**
      * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
@@ -437,7 +447,7 @@ export interface ServerArgs {
      */
     datacenter?: pulumi.Input<string>;
     /**
-     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**

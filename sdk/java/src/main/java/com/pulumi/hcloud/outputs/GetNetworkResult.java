@@ -35,14 +35,20 @@ public final class GetNetworkResult {
      * @return IPv4 prefix of the Network.
      * 
      */
-    private @Nullable String ipRange;
-    private @Nullable Map<String,Object> labels;
+    private String ipRange;
+    private Map<String,Object> labels;
+    /**
+     * @deprecated
+     * This attribute has no purpose.
+     * 
+     */
+    @Deprecated /* This attribute has no purpose. */
     private @Nullable Boolean mostRecent;
     /**
      * @return Name of the Network.
      * 
      */
-    private @Nullable String name;
+    private String name;
     private @Nullable String withSelector;
 
     private GetNetworkResult() {}
@@ -71,12 +77,18 @@ public final class GetNetworkResult {
      * @return IPv4 prefix of the Network.
      * 
      */
-    public Optional<String> ipRange() {
-        return Optional.ofNullable(this.ipRange);
+    public String ipRange() {
+        return this.ipRange;
     }
     public Map<String,Object> labels() {
-        return this.labels == null ? Map.of() : this.labels;
+        return this.labels;
     }
+    /**
+     * @deprecated
+     * This attribute has no purpose.
+     * 
+     */
+    @Deprecated /* This attribute has no purpose. */
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
@@ -84,8 +96,8 @@ public final class GetNetworkResult {
      * @return Name of the Network.
      * 
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
@@ -103,10 +115,10 @@ public final class GetNetworkResult {
         private Boolean deleteProtection;
         private Boolean exposeRoutesToVswitch;
         private Integer id;
-        private @Nullable String ipRange;
-        private @Nullable Map<String,Object> labels;
+        private String ipRange;
+        private Map<String,Object> labels;
         private @Nullable Boolean mostRecent;
-        private @Nullable String name;
+        private String name;
         private @Nullable String withSelector;
         public Builder() {}
         public Builder(GetNetworkResult defaults) {
@@ -146,14 +158,18 @@ public final class GetNetworkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ipRange(@Nullable String ipRange) {
-
+        public Builder ipRange(String ipRange) {
+            if (ipRange == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "ipRange");
+            }
             this.ipRange = ipRange;
             return this;
         }
         @CustomType.Setter
-        public Builder labels(@Nullable Map<String,Object> labels) {
-
+        public Builder labels(Map<String,Object> labels) {
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "labels");
+            }
             this.labels = labels;
             return this;
         }
@@ -164,8 +180,10 @@ public final class GetNetworkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-
+        public Builder name(String name) {
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "name");
+            }
             this.name = name;
             return this;
         }

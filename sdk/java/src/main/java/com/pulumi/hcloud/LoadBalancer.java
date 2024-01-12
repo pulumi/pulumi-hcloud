@@ -93,14 +93,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.algorithm;
     }
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection.
+     * @return Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {

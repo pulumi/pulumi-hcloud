@@ -28,6 +28,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly string Location;
         public readonly string Name;
         public readonly int? PlacementGroupId;
+        public readonly int PrimaryDiskSize;
         public readonly bool RebuildProtection;
         public readonly string Rescue;
         public readonly string ServerType;
@@ -65,6 +66,8 @@ namespace Pulumi.HCloud.Outputs
 
             int? placementGroupId,
 
+            int primaryDiskSize,
+
             bool rebuildProtection,
 
             string rescue,
@@ -88,6 +91,7 @@ namespace Pulumi.HCloud.Outputs
             Location = location;
             Name = name;
             PlacementGroupId = placementGroupId;
+            PrimaryDiskSize = primaryDiskSize;
             RebuildProtection = rebuildProtection;
             Rescue = rescue;
             ServerType = serverType;

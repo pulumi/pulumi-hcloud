@@ -106,6 +106,8 @@ type LookupServerResult struct {
 	Name string `pulumi:"name"`
 	// (Optional, string) Placement Group ID the server is assigned to.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
+	// (int) The size of the primary disk in GB.
+	PrimaryDiskSize int `pulumi:"primaryDiskSize"`
 	// (bool) Whether rebuild protection is enabled.
 	RebuildProtection bool   `pulumi:"rebuildProtection"`
 	Rescue            string `pulumi:"rescue"`
@@ -240,6 +242,11 @@ func (o LookupServerResultOutput) Name() pulumi.StringOutput {
 // (Optional, string) Placement Group ID the server is assigned to.
 func (o LookupServerResultOutput) PlacementGroupId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *int { return v.PlacementGroupId }).(pulumi.IntPtrOutput)
+}
+
+// (int) The size of the primary disk in GB.
+func (o LookupServerResultOutput) PrimaryDiskSize() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServerResult) int { return v.PrimaryDiskSize }).(pulumi.IntOutput)
 }
 
 // (bool) Whether rebuild protection is enabled.

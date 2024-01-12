@@ -19,6 +19,17 @@ Object.defineProperty(exports, "endpoint", {
 });
 
 /**
+ * The type of function to be used during the polling.
+ */
+export declare const pollFunction: string | undefined;
+Object.defineProperty(exports, "pollFunction", {
+    get() {
+        return __config.get("pollFunction");
+    },
+    enumerable: true,
+});
+
+/**
  * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
  * limiting errors.
  */

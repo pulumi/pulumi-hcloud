@@ -42,7 +42,7 @@ namespace Pulumi.HCloud
     public partial class Network : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enable or disable delete protection.
+        /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.HCloud
     public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable delete protection.
+        /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.HCloud
     public sealed class NetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable delete protection.
+        /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }

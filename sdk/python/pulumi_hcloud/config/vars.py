@@ -23,6 +23,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('endpoint')
 
     @property
+    def poll_function(self) -> Optional[str]:
+        """
+        The type of function to be used during the polling.
+        """
+        return __config__.get('pollFunction')
+
+    @property
     def poll_interval(self) -> Optional[str]:
         """
         The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate

@@ -91,14 +91,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+     * Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+     * @return Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -301,6 +301,21 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (int) The size of the primary disk in GB.
+     * 
+     */
+    @Import(name="primaryDiskSize")
+    private @Nullable Output<Integer> primaryDiskSize;
+
+    /**
+     * @return (int) The size of the primary disk in GB.
+     * 
+     */
+    public Optional<Output<Integer>> primaryDiskSize() {
+        return Optional.ofNullable(this.primaryDiskSize);
+    }
+
+    /**
      * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 &amp; ipv6) ips getting auto generated.
      * 
@@ -435,6 +450,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.networks = $.networks;
         this.placementGroupId = $.placementGroupId;
+        this.primaryDiskSize = $.primaryDiskSize;
         this.publicNets = $.publicNets;
         this.rebuildProtection = $.rebuildProtection;
         this.rescue = $.rescue;
@@ -556,7 +572,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 
@@ -567,7 +583,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 
@@ -863,6 +879,27 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder placementGroupId(Integer placementGroupId) {
             return placementGroupId(Output.of(placementGroupId));
+        }
+
+        /**
+         * @param primaryDiskSize (int) The size of the primary disk in GB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDiskSize(@Nullable Output<Integer> primaryDiskSize) {
+            $.primaryDiskSize = primaryDiskSize;
+            return this;
+        }
+
+        /**
+         * @param primaryDiskSize (int) The size of the primary disk in GB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDiskSize(Integer primaryDiskSize) {
+            return primaryDiskSize(Output.of(primaryDiskSize));
         }
 
         /**

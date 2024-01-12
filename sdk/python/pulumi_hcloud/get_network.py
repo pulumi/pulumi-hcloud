@@ -73,7 +73,7 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter(name="ipRange")
-    def ip_range(self) -> Optional[str]:
+    def ip_range(self) -> str:
         """
         IPv4 prefix of the Network.
         """
@@ -81,17 +81,20 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Mapping[str, Any]]:
+    def labels(self) -> Mapping[str, Any]:
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="mostRecent")
     def most_recent(self) -> Optional[bool]:
+        warnings.warn("""This attribute has no purpose.""", DeprecationWarning)
+        pulumi.log.warn("""most_recent is deprecated: This attribute has no purpose.""")
+
         return pulumi.get(self, "most_recent")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         Name of the Network.
         """

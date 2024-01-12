@@ -71,7 +71,7 @@ type LookupPlacementGroupArgs struct {
 // A collection of values returned by getPlacementGroup.
 type LookupPlacementGroupResult struct {
 	// (int) Unique ID of the Placement Group.
-	Id *int `pulumi:"id"`
+	Id int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)
 	Labels     map[string]interface{} `pulumi:"labels"`
 	MostRecent *bool                  `pulumi:"mostRecent"`
@@ -79,7 +79,7 @@ type LookupPlacementGroupResult struct {
 	Name    string `pulumi:"name"`
 	Servers []int  `pulumi:"servers"`
 	// (string)  Type of the Placement Group.
-	Type         *string `pulumi:"type"`
+	Type         string  `pulumi:"type"`
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -132,8 +132,8 @@ func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWith
 }
 
 // (int) Unique ID of the Placement Group.
-func (o LookupPlacementGroupResultOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupPlacementGroupResult) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o LookupPlacementGroupResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
 // (map) User-defined labels (key-value pairs)
@@ -155,8 +155,8 @@ func (o LookupPlacementGroupResultOutput) Servers() pulumi.IntArrayOutput {
 }
 
 // (string)  Type of the Placement Group.
-func (o LookupPlacementGroupResultOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPlacementGroupResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o LookupPlacementGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func (o LookupPlacementGroupResultOutput) WithSelector() pulumi.StringPtrOutput {

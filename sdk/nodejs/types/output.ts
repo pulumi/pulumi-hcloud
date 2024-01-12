@@ -61,15 +61,6 @@ export interface GetCertificatesCertificate {
     type: string;
 }
 
-export interface GetDatacentersDatacenter {
-    availableServerTypeIds: number[];
-    description: string;
-    id: number;
-    location: {[key: string]: any};
-    name: string;
-    supportedServerTypeIds: number[];
-}
-
 export interface GetFirewallApplyTo {
     /**
      * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
@@ -345,32 +336,21 @@ export interface GetLoadBalancersLoadBalancerTarget {
     type: string;
 }
 
-export interface GetLocationsLocation {
-    city: string;
-    country: string;
-    description: string;
-    id: number;
-    latitude: number;
-    longitude: number;
-    name: string;
-    networkZone: string;
-}
-
 export interface GetNetworksNetwork {
     deleteProtection: boolean;
     exposeRoutesToVswitch: boolean;
     id: number;
-    ipRange?: string;
-    labels?: {[key: string]: any};
-    name?: string;
+    ipRange: string;
+    labels: {[key: string]: any};
+    name: string;
 }
 
 export interface GetPlacementGroupsPlacementGroup {
-    id?: number;
-    labels?: {[key: string]: any};
+    id: number;
+    labels: {[key: string]: any};
     name: string;
     servers: number[];
-    type?: string;
+    type: string;
 }
 
 export interface GetPrimaryIpsPrimaryIp {
@@ -419,6 +399,7 @@ export interface GetServersServer {
     location: string;
     name: string;
     placementGroupId?: number;
+    primaryDiskSize: number;
     rebuildProtection: boolean;
     rescue: string;
     serverType: string;
@@ -537,9 +518,6 @@ export interface LoadBalancerTarget {
 }
 
 export interface ServerNetwork {
-    /**
-     * Alias IPs the server should have in the Network.
-     */
     aliasIps: string[];
     /**
      * Specify the IP the server should get in the network

@@ -93,6 +93,11 @@ public final class GetServerResult {
      */
     private @Nullable Integer placementGroupId;
     /**
+     * @return (int) The size of the primary disk in GB.
+     * 
+     */
+    private Integer primaryDiskSize;
+    /**
      * @return (bool) Whether rebuild protection is enabled.
      * 
      */
@@ -225,6 +230,13 @@ public final class GetServerResult {
         return Optional.ofNullable(this.placementGroupId);
     }
     /**
+     * @return (int) The size of the primary disk in GB.
+     * 
+     */
+    public Integer primaryDiskSize() {
+        return this.primaryDiskSize;
+    }
+    /**
      * @return (bool) Whether rebuild protection is enabled.
      * 
      */
@@ -288,6 +300,7 @@ public final class GetServerResult {
         private String location;
         private String name;
         private @Nullable Integer placementGroupId;
+        private Integer primaryDiskSize;
         private Boolean rebuildProtection;
         private String rescue;
         private @Nullable String selector;
@@ -313,6 +326,7 @@ public final class GetServerResult {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.placementGroupId = defaults.placementGroupId;
+    	      this.primaryDiskSize = defaults.primaryDiskSize;
     	      this.rebuildProtection = defaults.rebuildProtection;
     	      this.rescue = defaults.rescue;
     	      this.selector = defaults.selector;
@@ -444,6 +458,14 @@ public final class GetServerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryDiskSize(Integer primaryDiskSize) {
+            if (primaryDiskSize == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "primaryDiskSize");
+            }
+            this.primaryDiskSize = primaryDiskSize;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rebuildProtection(Boolean rebuildProtection) {
             if (rebuildProtection == null) {
               throw new MissingRequiredPropertyException("GetServerResult", "rebuildProtection");
@@ -513,6 +535,7 @@ public final class GetServerResult {
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.placementGroupId = placementGroupId;
+            _resultValue.primaryDiskSize = primaryDiskSize;
             _resultValue.rebuildProtection = rebuildProtection;
             _resultValue.rescue = rescue;
             _resultValue.selector = selector;

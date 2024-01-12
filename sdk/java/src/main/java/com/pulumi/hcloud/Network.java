@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="hcloud:index/network:Network")
 public class Network extends com.pulumi.resources.CustomResource {
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection.
+     * @return Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {

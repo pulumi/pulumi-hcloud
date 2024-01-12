@@ -60,7 +60,7 @@ import (
 type FloatingIp struct {
 	pulumi.CustomResourceState
 
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -113,7 +113,7 @@ func GetFloatingIp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FloatingIp resources.
 type floatingIpState struct {
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description *string `pulumi:"description"`
@@ -134,7 +134,7 @@ type floatingIpState struct {
 }
 
 type FloatingIpState struct {
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Floating IP.
 	Description pulumi.StringPtrInput
@@ -159,7 +159,7 @@ func (FloatingIpState) ElementType() reflect.Type {
 }
 
 type floatingIpArgs struct {
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description *string `pulumi:"description"`
@@ -177,7 +177,7 @@ type floatingIpArgs struct {
 
 // The set of arguments for constructing a FloatingIp resource.
 type FloatingIpArgs struct {
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Floating IP.
 	Description pulumi.StringPtrInput
@@ -280,7 +280,7 @@ func (o FloatingIpOutput) ToFloatingIpOutputWithContext(ctx context.Context) Flo
 	return o
 }
 
-// Enable or disable delete protection.
+// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 func (o FloatingIpOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FloatingIp) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
 }

@@ -64,7 +64,7 @@ type Volume struct {
 
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount pulumi.BoolPtrOutput `pulumi:"automount"`
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	//
 	// **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
@@ -119,7 +119,7 @@ func GetVolume(ctx *pulumi.Context,
 type volumeState struct {
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount *bool `pulumi:"automount"`
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	//
 	// **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -142,7 +142,7 @@ type volumeState struct {
 type VolumeState struct {
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount pulumi.BoolPtrInput
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	//
 	// **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
 	DeleteProtection pulumi.BoolPtrInput
@@ -169,7 +169,7 @@ func (VolumeState) ElementType() reflect.Type {
 type volumeArgs struct {
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount *bool `pulumi:"automount"`
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	//
 	// **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -191,7 +191,7 @@ type volumeArgs struct {
 type VolumeArgs struct {
 	// Automount the volume upon attaching it (server_id must be provided).
 	Automount pulumi.BoolPtrInput
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	//
 	// **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
 	DeleteProtection pulumi.BoolPtrInput
@@ -301,7 +301,7 @@ func (o VolumeOutput) Automount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.Automount }).(pulumi.BoolPtrOutput)
 }
 
-// Enable or disable delete protection.
+// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 //
 // **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
 func (o VolumeOutput) DeleteProtection() pulumi.BoolPtrOutput {

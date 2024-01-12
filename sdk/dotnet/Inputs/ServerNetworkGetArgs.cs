@@ -14,10 +14,6 @@ namespace Pulumi.HCloud.Inputs
     {
         [Input("aliasIps")]
         private InputList<string>? _aliasIps;
-
-        /// <summary>
-        /// Alias IPs the server should have in the Network.
-        /// </summary>
         public InputList<string> AliasIps
         {
             get => _aliasIps ?? (_aliasIps = new InputList<string>());
