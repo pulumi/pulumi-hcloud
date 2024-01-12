@@ -57,6 +57,10 @@
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
             },
+            "pollFunction": {
+                "type": "string",
+                "description": "The type of function to be used during the polling.\n"
+            },
             "pollInterval": {
                 "type": "string",
                 "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate\nlimiting errors.\n"
@@ -284,8 +288,7 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Alias IPs the server should have in the Network.\n"
+                    }
                 },
                 "ip": {
                     "type": "string",
@@ -390,51 +393,6 @@
                 "notValidAfter",
                 "notValidBefore",
                 "type"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
-        "hcloud:index/getDatacentersDatacenter:getDatacentersDatacenter": {
-            "properties": {
-                "availableServerTypeIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "description": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "location": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                },
-                "supportedServerTypeIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "availableServerTypeIds",
-                "description",
-                "id",
-                "location",
-                "name",
-                "supportedServerTypeIds"
             ],
             "language": {
                 "nodejs": {
@@ -1200,50 +1158,6 @@
                 }
             }
         },
-        "hcloud:index/getLocationsLocation:getLocationsLocation": {
-            "properties": {
-                "city": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "latitude": {
-                    "type": "number"
-                },
-                "longitude": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "networkZone": {
-                    "type": "string"
-                }
-            },
-            "type": "object",
-            "required": [
-                "city",
-                "country",
-                "description",
-                "id",
-                "latitude",
-                "longitude",
-                "name",
-                "networkZone"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
         "hcloud:index/getNetworksNetwork:getNetworksNetwork": {
             "properties": {
                 "deleteProtection": {
@@ -1272,7 +1186,10 @@
             "required": [
                 "deleteProtection",
                 "exposeRoutesToVswitch",
-                "id"
+                "id",
+                "ipRange",
+                "labels",
+                "name"
             ],
             "language": {
                 "nodejs": {
@@ -1306,8 +1223,11 @@
             },
             "type": "object",
             "required": [
+                "id",
+                "labels",
                 "name",
-                "servers"
+                "servers",
+                "type"
             ],
             "language": {
                 "nodejs": {
@@ -1490,6 +1410,9 @@
                 "placementGroupId": {
                     "type": "integer"
                 },
+                "primaryDiskSize": {
+                    "type": "integer"
+                },
                 "rebuildProtection": {
                     "type": "boolean"
                 },
@@ -1519,6 +1442,7 @@
                 "labels",
                 "location",
                 "name",
+                "primaryDiskSize",
                 "rebuildProtection",
                 "rescue",
                 "serverType",
@@ -1618,6 +1542,10 @@
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
             },
+            "pollFunction": {
+                "type": "string",
+                "description": "The type of function to be used during the polling.\n"
+            },
             "pollInterval": {
                 "type": "string",
                 "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate\nlimiting errors.\n"
@@ -1632,6 +1560,10 @@
             "endpoint": {
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
+            },
+            "pollFunction": {
+                "type": "string",
+                "description": "The type of function to be used during the polling.\n"
             },
             "pollInterval": {
                 "type": "string",
@@ -1955,7 +1887,7 @@
             "properties": {
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "description": {
                     "type": "string",
@@ -2004,7 +1936,7 @@
             "inputProperties": {
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "description": {
                     "type": "string",
@@ -2044,7 +1976,7 @@
                 "properties": {
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection.\n"
+                        "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "description": {
                         "type": "string",
@@ -2143,7 +2075,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "ipv4": {
                     "type": "string",
@@ -2212,7 +2144,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -2259,7 +2191,7 @@
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection.\n"
+                        "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "ipv4": {
                         "type": "string",
@@ -2752,7 +2684,7 @@
             "properties": {
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "exposeRoutesToVswitch": {
                     "type": "boolean",
@@ -2781,7 +2713,7 @@
             "inputProperties": {
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "exposeRoutesToVswitch": {
                     "type": "boolean",
@@ -2812,7 +2744,7 @@
                 "properties": {
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection.\n"
+                        "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "exposeRoutesToVswitch": {
                         "type": "boolean",
@@ -3104,7 +3036,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Whether delete protection is enabled.\n"
+                    "description": "Whether delete protection is enabled. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "ipAddress": {
                     "type": "string",
@@ -3160,7 +3092,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Whether delete protection is enabled.\n"
+                    "description": "Whether delete protection is enabled. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -3206,7 +3138,7 @@
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Whether delete protection is enabled.\n"
+                        "description": "Whether delete protection is enabled. See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "ipAddress": {
                         "type": "string",
@@ -3361,7 +3293,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
+                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "firewallIds": {
                     "type": "array",
@@ -3423,6 +3355,10 @@
                     "type": "integer",
                     "description": "Placement Group ID the server added to on creation.\n"
                 },
+                "primaryDiskSize": {
+                    "type": "integer",
+                    "description": "(int) The size of the primary disk in GB.\n"
+                },
                 "publicNets": {
                     "type": "array",
                     "items": {
@@ -3470,6 +3406,7 @@
                 "ipv6Network",
                 "location",
                 "name",
+                "primaryDiskSize",
                 "serverType",
                 "status"
             ],
@@ -3489,7 +3426,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
+                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "firewallIds": {
                     "type": "array",
@@ -3603,7 +3540,7 @@
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
+                        "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "firewallIds": {
                         "type": "array",
@@ -3666,6 +3603,10 @@
                     "placementGroupId": {
                         "type": "integer",
                         "description": "Placement Group ID the server added to on creation.\n"
+                    },
+                    "primaryDiskSize": {
+                        "type": "integer",
+                        "description": "(int) The size of the primary disk in GB.\n"
                     },
                     "publicNets": {
                         "type": "array",
@@ -4109,7 +4050,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
                 },
                 "format": {
                     "type": "string",
@@ -4157,7 +4098,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
                 },
                 "format": {
                     "type": "string",
@@ -4200,7 +4141,7 @@
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
+                        "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
                     },
                     "format": {
                         "type": "string",
@@ -4421,134 +4362,6 @@
                 "type": "object",
                 "required": [
                     "certificates",
-                    "id"
-                ]
-            }
-        },
-        "hcloud:index/getDatacenter:getDatacenter": {
-            "description": "Provides details about a specific Hetzner Cloud Datacenter.\nUse this resource to get detailed information about specific datacenter.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ds1 = hcloud.getDatacenter({\n    name: \"fsn1-dc8\",\n});\nconst ds2 = hcloud.getDatacenter({\n    id: 4,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nds1 = hcloud.get_datacenter(name=\"fsn1-dc8\")\nds2 = hcloud.get_datacenter(id=4)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var ds1 = HCloud.GetDatacenter.Invoke(new()\n    {\n        Name = \"fsn1-dc8\",\n    });\n\n    var ds2 = HCloud.GetDatacenter.Invoke(new()\n    {\n        Id = 4,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tName: pulumi.StringRef(\"fsn1-dc8\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tId: pulumi.IntRef(4),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetDatacenterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()\n            .name(\"fsn1-dc8\")\n            .build());\n\n        final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()\n            .id(4)\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  ds1:\n    fn::invoke:\n      Function: hcloud:getDatacenter\n      Arguments:\n        name: fsn1-dc8\n  ds2:\n    fn::invoke:\n      Function: hcloud:getDatacenter\n      Arguments:\n        id: 4\n```\n{{% /example %}}\n{{% /examples %}}",
-            "inputs": {
-                "description": "A collection of arguments for invoking getDatacenter.\n",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "description": "ID of the datacenter.\n"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Name of the datacenter.\n"
-                    }
-                },
-                "type": "object"
-            },
-            "outputs": {
-                "description": "A collection of values returned by getDatacenter.\n",
-                "properties": {
-                    "availableServerTypeIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "integer"
-                        },
-                        "description": "(list) List of available server types.\n"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "(string) Description of the datacenter.\n"
-                    },
-                    "id": {
-                        "type": "integer",
-                        "description": "(int) Unique ID of the datacenter.\n"
-                    },
-                    "location": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "$ref": "pulumi.json#/Any"
-                        },
-                        "description": "(map) Physical datacenter location.\n"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "(string) Name of the datacenter.\n"
-                    },
-                    "supportedServerTypeIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "integer"
-                        },
-                        "description": "(list) List of server types supported by the datacenter.\n"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "availableServerTypeIds",
-                    "description",
-                    "id",
-                    "location",
-                    "name",
-                    "supportedServerTypeIds"
-                ]
-            }
-        },
-        "hcloud:index/getDatacenters:getDatacenters": {
-            "description": "Provides a list of available Hetzner Cloud Datacenters.\nThis resource may be useful to create highly available infrastructure, distributed across several datacenters.\n",
-            "inputs": {
-                "description": "A collection of arguments for invoking getDatacenters.\n",
-                "properties": {
-                    "datacenterIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "(list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.\n",
-                        "deprecationMessage": "Use datacenters list instead"
-                    }
-                },
-                "type": "object"
-            },
-            "outputs": {
-                "description": "A collection of values returned by getDatacenters.\n",
-                "properties": {
-                    "datacenterIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "(list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.\n",
-                        "deprecationMessage": "Use datacenters list instead"
-                    },
-                    "datacenters": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/hcloud:index/getDatacentersDatacenter:getDatacentersDatacenter"
-                        },
-                        "description": "(list) List of all datacenters. See `data.hcloud_datacenter` for schema.\n"
-                    },
-                    "descriptions": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "(list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.\n",
-                        "deprecationMessage": "Use datacenters list instead"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
-                    },
-                    "names": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "(list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.\n",
-                        "deprecationMessage": "Use datacenters list instead"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "datacenters",
-                    "descriptions",
-                    "names",
                     "id"
                 ]
             }
@@ -5177,135 +4990,6 @@
                 ]
             }
         },
-        "hcloud:index/getLocation:getLocation": {
-            "description": "Provides details about a specific Hetzner Cloud Location.\nUse this resource to get detailed information about specific location.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst l1 = hcloud.getLocation({\n    name: \"fsn1\",\n});\nconst l2 = hcloud.getLocation({\n    id: 1,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nl1 = hcloud.get_location(name=\"fsn1\")\nl2 = hcloud.get_location(id=1)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var l1 = HCloud.GetLocation.Invoke(new()\n    {\n        Name = \"fsn1\",\n    });\n\n    var l2 = HCloud.GetLocation.Invoke(new()\n    {\n        Id = 1,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetLocation(ctx, \u0026hcloud.GetLocationArgs{\n\t\t\tName: pulumi.StringRef(\"fsn1\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetLocation(ctx, \u0026hcloud.GetLocationArgs{\n\t\t\tId: pulumi.IntRef(1),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetLocationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()\n            .name(\"fsn1\")\n            .build());\n\n        final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()\n            .id(1)\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  l1:\n    fn::invoke:\n      Function: hcloud:getLocation\n      Arguments:\n        name: fsn1\n  l2:\n    fn::invoke:\n      Function: hcloud:getLocation\n      Arguments:\n        id: 1\n```\n{{% /example %}}\n{{% /examples %}}",
-            "inputs": {
-                "description": "A collection of arguments for invoking getLocation.\n",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "description": "ID of the location.\n"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Name of the location.\n"
-                    }
-                },
-                "type": "object"
-            },
-            "outputs": {
-                "description": "A collection of values returned by getLocation.\n",
-                "properties": {
-                    "city": {
-                        "type": "string",
-                        "description": "(string) City of the location.\n"
-                    },
-                    "country": {
-                        "type": "string",
-                        "description": "(string) Country of the location.\n"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "(string) Description of the location.\n"
-                    },
-                    "id": {
-                        "type": "integer",
-                        "description": "(int) Unique ID of the location.\n"
-                    },
-                    "latitude": {
-                        "type": "number",
-                        "description": "(float) Latitude of the city.\n"
-                    },
-                    "longitude": {
-                        "type": "number",
-                        "description": "(float) Longitude of the city.\n"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "(string) Name of the location.\n"
-                    },
-                    "networkZone": {
-                        "type": "string",
-                        "description": "(string) Network Zone of the location.\n"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "city",
-                    "country",
-                    "description",
-                    "id",
-                    "latitude",
-                    "longitude",
-                    "name",
-                    "networkZone"
-                ]
-            }
-        },
-        "hcloud:index/getLocations:getLocations": {
-            "description": "Provides a list of available Hetzner Cloud Locations.\nThis resource may be useful to create highly available infrastructure, distributed across several locations.\n",
-            "inputs": {
-                "description": "A collection of arguments for invoking getLocations.\n",
-                "properties": {
-                    "locationIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "(list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.\n",
-                        "deprecationMessage": "Use locations list instead"
-                    }
-                },
-                "type": "object"
-            },
-            "outputs": {
-                "description": "A collection of values returned by getLocations.\n",
-                "properties": {
-                    "descriptions": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "(list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.\n",
-                        "deprecationMessage": "Use locations list instead"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
-                    },
-                    "locationIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "(list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.\n",
-                        "deprecationMessage": "Use locations list instead"
-                    },
-                    "locations": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/hcloud:index/getLocationsLocation:getLocationsLocation"
-                        },
-                        "description": "(list) List of all locations. See `data.hcloud_location` for schema.\n"
-                    },
-                    "names": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "(list) List of location names. **Deprecated**: Use `locations` attribute instead.\n",
-                        "deprecationMessage": "Use locations list instead"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "descriptions",
-                    "locations",
-                    "names",
-                    "id"
-                ]
-            }
-        },
         "hcloud:index/getNetwork:getNetwork": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst network1 = hcloud.getNetwork({\n    id: 1234,\n});\nconst network2 = hcloud.getNetwork({\n    name: \"my-network\",\n});\nconst network3 = hcloud.getNetwork({\n    withSelector: \"key=value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nnetwork1 = hcloud.get_network(id=1234)\nnetwork2 = hcloud.get_network(name=\"my-network\")\nnetwork3 = hcloud.get_network(with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var network1 = HCloud.GetNetwork.Invoke(new()\n    {\n        Id = 1234,\n    });\n\n    var network2 = HCloud.GetNetwork.Invoke(new()\n    {\n        Name = \"my-network\",\n    });\n\n    var network3 = HCloud.GetNetwork.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.LookupNetwork(ctx, \u0026hcloud.LookupNetworkArgs{\n\t\t\tId: pulumi.IntRef(1234),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupNetwork(ctx, \u0026hcloud.LookupNetworkArgs{\n\t\t\tName: pulumi.StringRef(\"my-network\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupNetwork(ctx, \u0026hcloud.LookupNetworkArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetNetworkArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()\n            .id(\"1234\")\n            .build());\n\n        final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()\n            .name(\"my-network\")\n            .build());\n\n        final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  network1:\n    fn::invoke:\n      Function: hcloud:getNetwork\n      Arguments:\n        id: '1234'\n  network2:\n    fn::invoke:\n      Function: hcloud:getNetwork\n      Arguments:\n        name: my-network\n  network3:\n    fn::invoke:\n      Function: hcloud:getNetwork\n      Arguments:\n        withSelector: key=value\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -5326,7 +5010,8 @@
                         }
                     },
                     "mostRecent": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "deprecationMessage": "This attribute has no purpose."
                     },
                     "name": {
                         "type": "string",
@@ -5365,7 +5050,8 @@
                         }
                     },
                     "mostRecent": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "deprecationMessage": "This attribute has no purpose."
                     },
                     "name": {
                         "type": "string",
@@ -5379,7 +5065,10 @@
                 "required": [
                     "deleteProtection",
                     "exposeRoutesToVswitch",
-                    "id"
+                    "id",
+                    "ipRange",
+                    "labels",
+                    "name"
                 ]
             }
         },
@@ -5492,8 +5181,11 @@
                 },
                 "type": "object",
                 "required": [
+                    "id",
+                    "labels",
                     "name",
-                    "servers"
+                    "servers",
+                    "type"
                 ]
             }
         },
@@ -5779,6 +5471,10 @@
                         "type": "integer",
                         "description": "(Optional, string) Placement Group ID the server is assigned to.\n"
                     },
+                    "primaryDiskSize": {
+                        "type": "integer",
+                        "description": "(int) The size of the primary disk in GB.\n"
+                    },
                     "rebuildProtection": {
                         "type": "boolean",
                         "description": "(bool) Whether rebuild protection is enabled.\n"
@@ -5824,6 +5520,7 @@
                     "labels",
                     "location",
                     "name",
+                    "primaryDiskSize",
                     "rebuildProtection",
                     "rescue",
                     "serverType",
