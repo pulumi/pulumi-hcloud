@@ -68,7 +68,7 @@ type LoadBalancer struct {
 
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm LoadBalancerAlgorithmOutput `pulumi:"algorithm"`
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 pulumi.StringOutput `pulumi:"ipv4"`
@@ -127,7 +127,7 @@ func GetLoadBalancer(ctx *pulumi.Context,
 type loadBalancerState struct {
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm *LoadBalancerAlgorithm `pulumi:"algorithm"`
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 *string `pulumi:"ipv4"`
@@ -154,7 +154,7 @@ type loadBalancerState struct {
 type LoadBalancerState struct {
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm LoadBalancerAlgorithmPtrInput
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 pulumi.StringPtrInput
@@ -185,7 +185,7 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm *LoadBalancerAlgorithm `pulumi:"algorithm"`
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]interface{} `pulumi:"labels"`
@@ -205,7 +205,7 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// Configuration of the algorithm the Load Balancer use.
 	Algorithm LoadBalancerAlgorithmPtrInput
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.MapInput
@@ -313,7 +313,7 @@ func (o LoadBalancerOutput) Algorithm() LoadBalancerAlgorithmOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAlgorithmOutput { return v.Algorithm }).(LoadBalancerAlgorithmOutput)
 }
 
-// Enable or disable delete protection.
+// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 func (o LoadBalancerOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
 }

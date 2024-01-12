@@ -16,6 +16,36 @@ public final class GetLocationsPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetLocationsPlainArgs Empty = new GetLocationsPlainArgs();
 
     /**
+     * (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+     * 
+     * @deprecated
+     * Use locations list instead
+     * 
+     */
+    @Deprecated /* Use locations list instead */
+    @Import(name="descriptions")
+    private @Nullable List<String> descriptions;
+
+    /**
+     * @return (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+     * 
+     * @deprecated
+     * Use locations list instead
+     * 
+     */
+    @Deprecated /* Use locations list instead */
+    public Optional<List<String>> descriptions() {
+        return Optional.ofNullable(this.descriptions);
+    }
+
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
      * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
@@ -38,10 +68,36 @@ public final class GetLocationsPlainArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.locationIds);
     }
 
+    /**
+     * (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+     * 
+     * @deprecated
+     * Use locations list instead
+     * 
+     */
+    @Deprecated /* Use locations list instead */
+    @Import(name="names")
+    private @Nullable List<String> names;
+
+    /**
+     * @return (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+     * 
+     * @deprecated
+     * Use locations list instead
+     * 
+     */
+    @Deprecated /* Use locations list instead */
+    public Optional<List<String>> names() {
+        return Optional.ofNullable(this.names);
+    }
+
     private GetLocationsPlainArgs() {}
 
     private GetLocationsPlainArgs(GetLocationsPlainArgs $) {
+        this.descriptions = $.descriptions;
+        this.id = $.id;
         this.locationIds = $.locationIds;
+        this.names = $.names;
     }
 
     public static Builder builder() {
@@ -60,6 +116,40 @@ public final class GetLocationsPlainArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetLocationsPlainArgs defaults) {
             $ = new GetLocationsPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param descriptions (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder descriptions(@Nullable List<String> descriptions) {
+            $.descriptions = descriptions;
+            return this;
+        }
+
+        /**
+         * @param descriptions (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder descriptions(String... descriptions) {
+            return descriptions(List.of(descriptions));
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
         }
 
         /**
@@ -89,6 +179,35 @@ public final class GetLocationsPlainArgs extends com.pulumi.resources.InvokeArgs
         @Deprecated /* Use locations list instead */
         public Builder locationIds(String... locationIds) {
             return locationIds(List.of(locationIds));
+        }
+
+        /**
+         * @param names (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder names(@Nullable List<String> names) {
+            $.names = names;
+            return this;
+        }
+
+        /**
+         * @param names (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder names(String... names) {
+            return names(List.of(names));
         }
 
         public GetLocationsPlainArgs build() {

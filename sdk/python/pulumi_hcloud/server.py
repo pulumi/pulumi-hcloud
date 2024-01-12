@@ -43,7 +43,7 @@ class ServerArgs:
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
                to the `firewall_ids` argument which were received from the server.
@@ -158,7 +158,7 @@ class ServerArgs:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -379,6 +379,7 @@ class _ServerState:
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
                  placement_group_id: Optional[pulumi.Input[int]] = None,
+                 primary_disk_size: Optional[pulumi.Input[int]] = None,
                  public_nets: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
@@ -393,7 +394,7 @@ class _ServerState:
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
                to the `firewall_ids` argument which were received from the server.
@@ -410,6 +411,7 @@ class _ServerState:
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
+        :param pulumi.Input[int] primary_disk_size: (int) The size of the primary disk in GB.
         :param pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
@@ -458,6 +460,8 @@ class _ServerState:
             pulumi.set(__self__, "networks", networks)
         if placement_group_id is not None:
             pulumi.set(__self__, "placement_group_id", placement_group_id)
+        if primary_disk_size is not None:
+            pulumi.set(__self__, "primary_disk_size", primary_disk_size)
         if public_nets is not None:
             pulumi.set(__self__, "public_nets", public_nets)
         if rebuild_protection is not None:
@@ -530,7 +534,7 @@ class _ServerState:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -694,6 +698,18 @@ class _ServerState:
     @placement_group_id.setter
     def placement_group_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "placement_group_id", value)
+
+    @property
+    @pulumi.getter(name="primaryDiskSize")
+    def primary_disk_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        (int) The size of the primary disk in GB.
+        """
+        return pulumi.get(self, "primary_disk_size")
+
+    @primary_disk_size.setter
+    def primary_disk_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "primary_disk_size", value)
 
     @property
     @pulumi.getter(name="publicNets")
@@ -909,7 +925,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
                to the `firewall_ids` argument which were received from the server.
@@ -1096,6 +1112,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["ipv4_address"] = None
             __props__.__dict__["ipv6_address"] = None
             __props__.__dict__["ipv6_network"] = None
+            __props__.__dict__["primary_disk_size"] = None
             __props__.__dict__["status"] = None
         super(Server, __self__).__init__(
             'hcloud:index/server:Server',
@@ -1125,6 +1142,7 @@ class Server(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
             placement_group_id: Optional[pulumi.Input[int]] = None,
+            primary_disk_size: Optional[pulumi.Input[int]] = None,
             public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]]] = None,
             rebuild_protection: Optional[pulumi.Input[bool]] = None,
             rescue: Optional[pulumi.Input[str]] = None,
@@ -1144,7 +1162,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
         :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
                to the `firewall_ids` argument which were received from the server.
@@ -1161,6 +1179,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
+        :param pulumi.Input[int] primary_disk_size: (int) The size of the primary disk in GB.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
@@ -1192,6 +1211,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["networks"] = networks
         __props__.__dict__["placement_group_id"] = placement_group_id
+        __props__.__dict__["primary_disk_size"] = primary_disk_size
         __props__.__dict__["public_nets"] = public_nets
         __props__.__dict__["rebuild_protection"] = rebuild_protection
         __props__.__dict__["rescue"] = rescue
@@ -1241,7 +1261,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+        Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -1349,6 +1369,14 @@ class Server(pulumi.CustomResource):
         Placement Group ID the server added to on creation.
         """
         return pulumi.get(self, "placement_group_id")
+
+    @property
+    @pulumi.getter(name="primaryDiskSize")
+    def primary_disk_size(self) -> pulumi.Output[int]:
+        """
+        (int) The size of the primary disk in GB.
+        """
+        return pulumi.get(self, "primary_disk_size")
 
     @property
     @pulumi.getter(name="publicNets")

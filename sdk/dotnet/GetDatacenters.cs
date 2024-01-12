@@ -42,6 +42,35 @@ namespace Pulumi.HCloud
             set => _datacenterIds = value;
         }
 
+        [Input("descriptions")]
+        private List<string>? _descriptions;
+
+        /// <summary>
+        /// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+        /// </summary>
+        [Obsolete(@"Use datacenters list instead")]
+        public List<string> Descriptions
+        {
+            get => _descriptions ?? (_descriptions = new List<string>());
+            set => _descriptions = value;
+        }
+
+        [Input("id")]
+        public string? Id { get; set; }
+
+        [Input("names")]
+        private List<string>? _names;
+
+        /// <summary>
+        /// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+        /// </summary>
+        [Obsolete(@"Use datacenters list instead")]
+        public List<string> Names
+        {
+            get => _names ?? (_names = new List<string>());
+            set => _names = value;
+        }
+
         public GetDatacentersArgs()
         {
         }
@@ -61,6 +90,35 @@ namespace Pulumi.HCloud
         {
             get => _datacenterIds ?? (_datacenterIds = new InputList<string>());
             set => _datacenterIds = value;
+        }
+
+        [Input("descriptions")]
+        private InputList<string>? _descriptions;
+
+        /// <summary>
+        /// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+        /// </summary>
+        [Obsolete(@"Use datacenters list instead")]
+        public InputList<string> Descriptions
+        {
+            get => _descriptions ?? (_descriptions = new InputList<string>());
+            set => _descriptions = value;
+        }
+
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("names")]
+        private InputList<string>? _names;
+
+        /// <summary>
+        /// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+        /// </summary>
+        [Obsolete(@"Use datacenters list instead")]
+        public InputList<string> Names
+        {
+            get => _names ?? (_names = new InputList<string>());
+            set => _names = value;
         }
 
         public GetDatacentersInvokeArgs()
@@ -85,10 +143,7 @@ namespace Pulumi.HCloud
         /// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
         /// </summary>
         public readonly ImmutableArray<string> Descriptions;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
         /// </summary>
@@ -102,7 +157,7 @@ namespace Pulumi.HCloud
 
             ImmutableArray<string> descriptions,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names)
         {

@@ -15,13 +15,12 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+	"github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 
 	hcloud "github.com/pulumi/pulumi-hcloud/provider"
-	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
 )
 
 func main() {
 	// Modify the path to point to the new provider
-	tfgen.Main("hcloud", version.Version, hcloud.Provider())
+	tfgen.MainWithMuxer("hcloud", hcloud.Provider())
 }

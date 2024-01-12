@@ -190,13 +190,13 @@ namespace Pulumi.HCloud
         /// <summary>
         /// IPv4 prefix of the Network.
         /// </summary>
-        public readonly string? IpRange;
-        public readonly ImmutableDictionary<string, object>? Labels;
+        public readonly string IpRange;
+        public readonly ImmutableDictionary<string, object> Labels;
         public readonly bool? MostRecent;
         /// <summary>
         /// Name of the Network.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         public readonly string? WithSelector;
 
         [OutputConstructor]
@@ -207,13 +207,13 @@ namespace Pulumi.HCloud
 
             int id,
 
-            string? ipRange,
+            string ipRange,
 
-            ImmutableDictionary<string, object>? labels,
+            ImmutableDictionary<string, object> labels,
 
             bool? mostRecent,
 
-            string? name,
+            string name,
 
             string? withSelector)
         {

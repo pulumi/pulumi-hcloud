@@ -189,7 +189,7 @@ type Server struct {
 	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
 	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
-	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayOutput `pulumi:"firewallIds"`
@@ -220,6 +220,8 @@ type Server struct {
 	Networks ServerNetworkTypeArrayOutput `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrOutput `pulumi:"placementGroupId"`
+	// (int) The size of the primary disk in GB.
+	PrimaryDiskSize pulumi.IntOutput `pulumi:"primaryDiskSize"`
 	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
 	// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 	PublicNets ServerPublicNetArrayOutput `pulumi:"publicNets"`
@@ -281,7 +283,7 @@ type serverState struct {
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter *string `pulumi:"datacenter"`
-	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds []int `pulumi:"firewallIds"`
@@ -312,6 +314,8 @@ type serverState struct {
 	Networks []ServerNetworkType `pulumi:"networks"`
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
+	// (int) The size of the primary disk in GB.
+	PrimaryDiskSize *int `pulumi:"primaryDiskSize"`
 	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
 	// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 	PublicNets []ServerPublicNet `pulumi:"publicNets"`
@@ -341,7 +345,7 @@ type ServerState struct {
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter pulumi.StringPtrInput
-	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
@@ -372,6 +376,8 @@ type ServerState struct {
 	Networks ServerNetworkTypeArrayInput
 	// Placement Group ID the server added to on creation.
 	PlacementGroupId pulumi.IntPtrInput
+	// (int) The size of the primary disk in GB.
+	PrimaryDiskSize pulumi.IntPtrInput
 	// In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
 	// If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
 	PublicNets ServerPublicNetArrayInput
@@ -401,7 +407,7 @@ type serverArgs struct {
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter *string `pulumi:"datacenter"`
-	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds []int `pulumi:"firewallIds"`
@@ -450,7 +456,7 @@ type ServerArgs struct {
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
 	Datacenter pulumi.StringPtrInput
-	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// Firewall IDs the server should be attached to on creation.
 	FirewallIds pulumi.IntArrayInput
@@ -600,7 +606,7 @@ func (o ServerOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Datacenter }).(pulumi.StringOutput)
 }
 
-// Enable or disable delete protection (Needs to be the same as `rebuildProtection`).
+// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 func (o ServerOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
 }
@@ -671,6 +677,11 @@ func (o ServerOutput) Networks() ServerNetworkTypeArrayOutput {
 // Placement Group ID the server added to on creation.
 func (o ServerOutput) PlacementGroupId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.IntPtrOutput { return v.PlacementGroupId }).(pulumi.IntPtrOutput)
+}
+
+// (int) The size of the primary disk in GB.
+func (o ServerOutput) PrimaryDiskSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *Server) pulumi.IntOutput { return v.PrimaryDiskSize }).(pulumi.IntOutput)
 }
 
 // In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).

@@ -65,7 +65,7 @@ export interface GetDatacenterResult {
     /**
      * (map) Physical datacenter location.
      */
-    readonly location: {[key: string]: any};
+    readonly location: {[key: string]: string};
     /**
      * (string) Name of the datacenter.
      */

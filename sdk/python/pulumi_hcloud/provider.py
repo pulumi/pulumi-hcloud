@@ -15,17 +15,21 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 poll_function: Optional[pulumi.Input[str]] = None,
                  poll_interval: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] endpoint: The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+        :param pulumi.Input[str] poll_function: The type of function to be used during the polling.
         :param pulumi.Input[str] poll_interval: The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
                limiting errors.
         :param pulumi.Input[str] token: The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if poll_function is not None:
+            pulumi.set(__self__, "poll_function", poll_function)
         if poll_interval is not None:
             pulumi.set(__self__, "poll_interval", poll_interval)
         if token is not None:
@@ -42,6 +46,18 @@ class ProviderArgs:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="pollFunction")
+    def poll_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of function to be used during the polling.
+        """
+        return pulumi.get(self, "poll_function")
+
+    @poll_function.setter
+    def poll_function(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "poll_function", value)
 
     @property
     @pulumi.getter(name="pollInterval")
@@ -75,6 +91,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 poll_function: Optional[pulumi.Input[str]] = None,
                  poll_interval: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -87,6 +104,7 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint: The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
+        :param pulumi.Input[str] poll_function: The type of function to be used during the polling.
         :param pulumi.Input[str] poll_interval: The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
                limiting errors.
         :param pulumi.Input[str] token: The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
@@ -119,6 +137,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 poll_function: Optional[pulumi.Input[str]] = None,
                  poll_interval: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -131,6 +150,7 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             __props__.__dict__["endpoint"] = endpoint
+            __props__.__dict__["poll_function"] = poll_function
             __props__.__dict__["poll_interval"] = poll_interval
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token"])
@@ -148,6 +168,14 @@ class Provider(pulumi.ProviderResource):
         The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="pollFunction")
+    def poll_function(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of function to be used during the polling.
+        """
+        return pulumi.get(self, "poll_function")
 
     @property
     @pulumi.getter(name="pollInterval")

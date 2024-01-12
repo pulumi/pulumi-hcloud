@@ -25,6 +25,12 @@ namespace Pulumi.HCloud
         public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The type of function to be used during the polling.
+        /// </summary>
+        [Output("pollFunction")]
+        public Output<string?> PollFunction { get; private set; } = null!;
+
+        /// <summary>
         /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
         /// limiting errors.
         /// </summary>
@@ -74,6 +80,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The type of function to be used during the polling.
+        /// </summary>
+        [Input("pollFunction")]
+        public Input<string>? PollFunction { get; set; }
 
         /// <summary>
         /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate

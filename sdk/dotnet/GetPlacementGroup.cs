@@ -174,11 +174,11 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Unique ID of the Placement Group.
         /// </summary>
-        public readonly int? Id;
+        public readonly int Id;
         /// <summary>
         /// (map) User-defined labels (key-value pairs)
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Labels;
+        public readonly ImmutableDictionary<string, object> Labels;
         public readonly bool? MostRecent;
         /// <summary>
         /// (string) Name of the Placement Group.
@@ -188,14 +188,14 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (string)  Type of the Placement Group.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
         public readonly string? WithSelector;
 
         [OutputConstructor]
         private GetPlacementGroupResult(
-            int? id,
+            int id,
 
-            ImmutableDictionary<string, object>? labels,
+            ImmutableDictionary<string, object> labels,
 
             bool? mostRecent,
 
@@ -203,7 +203,7 @@ namespace Pulumi.HCloud
 
             ImmutableArray<int> servers,
 
-            string? type,
+            string type,
 
             string? withSelector)
         {

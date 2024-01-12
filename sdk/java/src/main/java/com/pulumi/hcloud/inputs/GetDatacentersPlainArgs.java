@@ -38,10 +38,66 @@ public final class GetDatacentersPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.datacenterIds);
     }
 
+    /**
+     * (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+     * 
+     * @deprecated
+     * Use datacenters list instead
+     * 
+     */
+    @Deprecated /* Use datacenters list instead */
+    @Import(name="descriptions")
+    private @Nullable List<String> descriptions;
+
+    /**
+     * @return (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+     * 
+     * @deprecated
+     * Use datacenters list instead
+     * 
+     */
+    @Deprecated /* Use datacenters list instead */
+    public Optional<List<String>> descriptions() {
+        return Optional.ofNullable(this.descriptions);
+    }
+
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+     * 
+     * @deprecated
+     * Use datacenters list instead
+     * 
+     */
+    @Deprecated /* Use datacenters list instead */
+    @Import(name="names")
+    private @Nullable List<String> names;
+
+    /**
+     * @return (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+     * 
+     * @deprecated
+     * Use datacenters list instead
+     * 
+     */
+    @Deprecated /* Use datacenters list instead */
+    public Optional<List<String>> names() {
+        return Optional.ofNullable(this.names);
+    }
+
     private GetDatacentersPlainArgs() {}
 
     private GetDatacentersPlainArgs(GetDatacentersPlainArgs $) {
         this.datacenterIds = $.datacenterIds;
+        this.descriptions = $.descriptions;
+        this.id = $.id;
+        this.names = $.names;
     }
 
     public static Builder builder() {
@@ -89,6 +145,69 @@ public final class GetDatacentersPlainArgs extends com.pulumi.resources.InvokeAr
         @Deprecated /* Use datacenters list instead */
         public Builder datacenterIds(String... datacenterIds) {
             return datacenterIds(List.of(datacenterIds));
+        }
+
+        /**
+         * @param descriptions (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use datacenters list instead
+         * 
+         */
+        @Deprecated /* Use datacenters list instead */
+        public Builder descriptions(@Nullable List<String> descriptions) {
+            $.descriptions = descriptions;
+            return this;
+        }
+
+        /**
+         * @param descriptions (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use datacenters list instead
+         * 
+         */
+        @Deprecated /* Use datacenters list instead */
+        public Builder descriptions(String... descriptions) {
+            return descriptions(List.of(descriptions));
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @param names (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use datacenters list instead
+         * 
+         */
+        @Deprecated /* Use datacenters list instead */
+        public Builder names(@Nullable List<String> names) {
+            $.names = names;
+            return this;
+        }
+
+        /**
+         * @param names (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use datacenters list instead
+         * 
+         */
+        @Deprecated /* Use datacenters list instead */
+        public Builder names(String... names) {
+            return names(List.of(names));
         }
 
         public GetDatacentersPlainArgs build() {

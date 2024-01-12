@@ -17,6 +17,36 @@ public final class GetLocationsArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLocationsArgs Empty = new GetLocationsArgs();
 
     /**
+     * (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+     * 
+     * @deprecated
+     * Use locations list instead
+     * 
+     */
+    @Deprecated /* Use locations list instead */
+    @Import(name="descriptions")
+    private @Nullable Output<List<String>> descriptions;
+
+    /**
+     * @return (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+     * 
+     * @deprecated
+     * Use locations list instead
+     * 
+     */
+    @Deprecated /* Use locations list instead */
+    public Optional<Output<List<String>>> descriptions() {
+        return Optional.ofNullable(this.descriptions);
+    }
+
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
      * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      * 
      * @deprecated
@@ -39,10 +69,36 @@ public final class GetLocationsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.locationIds);
     }
 
+    /**
+     * (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+     * 
+     * @deprecated
+     * Use locations list instead
+     * 
+     */
+    @Deprecated /* Use locations list instead */
+    @Import(name="names")
+    private @Nullable Output<List<String>> names;
+
+    /**
+     * @return (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+     * 
+     * @deprecated
+     * Use locations list instead
+     * 
+     */
+    @Deprecated /* Use locations list instead */
+    public Optional<Output<List<String>>> names() {
+        return Optional.ofNullable(this.names);
+    }
+
     private GetLocationsArgs() {}
 
     private GetLocationsArgs(GetLocationsArgs $) {
+        this.descriptions = $.descriptions;
+        this.id = $.id;
         this.locationIds = $.locationIds;
+        this.names = $.names;
     }
 
     public static Builder builder() {
@@ -61,6 +117,58 @@ public final class GetLocationsArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetLocationsArgs defaults) {
             $ = new GetLocationsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param descriptions (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder descriptions(@Nullable Output<List<String>> descriptions) {
+            $.descriptions = descriptions;
+            return this;
+        }
+
+        /**
+         * @param descriptions (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder descriptions(List<String> descriptions) {
+            return descriptions(Output.of(descriptions));
+        }
+
+        /**
+         * @param descriptions (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder descriptions(String... descriptions) {
+            return descriptions(List.of(descriptions));
+        }
+
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         /**
@@ -104,6 +212,49 @@ public final class GetLocationsArgs extends com.pulumi.resources.InvokeArgs {
         @Deprecated /* Use locations list instead */
         public Builder locationIds(String... locationIds) {
             return locationIds(List.of(locationIds));
+        }
+
+        /**
+         * @param names (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder names(@Nullable Output<List<String>> names) {
+            $.names = names;
+            return this;
+        }
+
+        /**
+         * @param names (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder names(List<String> names) {
+            return names(Output.of(names));
+        }
+
+        /**
+         * @param names (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use locations list instead
+         * 
+         */
+        @Deprecated /* Use locations list instead */
+        public Builder names(String... names) {
+            return names(List.of(names));
         }
 
         public GetLocationsArgs build() {

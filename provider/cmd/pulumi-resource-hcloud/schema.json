@@ -57,6 +57,10 @@
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
             },
+            "pollFunction": {
+                "type": "string",
+                "description": "The type of function to be used during the polling.\n"
+            },
             "pollInterval": {
                 "type": "string",
                 "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate\nlimiting errors.\n"
@@ -284,8 +288,7 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Alias IPs the server should have in the Network.\n"
+                    }
                 },
                 "ip": {
                     "type": "string",
@@ -414,7 +417,7 @@
                 "location": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     }
                 },
                 "name": {
@@ -1272,7 +1275,10 @@
             "required": [
                 "deleteProtection",
                 "exposeRoutesToVswitch",
-                "id"
+                "id",
+                "ipRange",
+                "labels",
+                "name"
             ],
             "language": {
                 "nodejs": {
@@ -1306,8 +1312,11 @@
             },
             "type": "object",
             "required": [
+                "id",
+                "labels",
                 "name",
-                "servers"
+                "servers",
+                "type"
             ],
             "language": {
                 "nodejs": {
@@ -1490,6 +1499,9 @@
                 "placementGroupId": {
                     "type": "integer"
                 },
+                "primaryDiskSize": {
+                    "type": "integer"
+                },
                 "rebuildProtection": {
                     "type": "boolean"
                 },
@@ -1519,6 +1531,7 @@
                 "labels",
                 "location",
                 "name",
+                "primaryDiskSize",
                 "rebuildProtection",
                 "rescue",
                 "serverType",
@@ -1618,6 +1631,10 @@
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
             },
+            "pollFunction": {
+                "type": "string",
+                "description": "The type of function to be used during the polling.\n"
+            },
             "pollInterval": {
                 "type": "string",
                 "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate\nlimiting errors.\n"
@@ -1632,6 +1649,10 @@
             "endpoint": {
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
+            },
+            "pollFunction": {
+                "type": "string",
+                "description": "The type of function to be used during the polling.\n"
             },
             "pollInterval": {
                 "type": "string",
@@ -1955,7 +1976,7 @@
             "properties": {
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "description": {
                     "type": "string",
@@ -2004,7 +2025,7 @@
             "inputProperties": {
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "description": {
                     "type": "string",
@@ -2044,7 +2065,7 @@
                 "properties": {
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection.\n"
+                        "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "description": {
                         "type": "string",
@@ -2143,7 +2164,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "ipv4": {
                     "type": "string",
@@ -2212,7 +2233,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -2259,7 +2280,7 @@
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection.\n"
+                        "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "ipv4": {
                         "type": "string",
@@ -2752,7 +2773,7 @@
             "properties": {
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "exposeRoutesToVswitch": {
                     "type": "boolean",
@@ -2781,7 +2802,7 @@
             "inputProperties": {
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "exposeRoutesToVswitch": {
                     "type": "boolean",
@@ -2812,7 +2833,7 @@
                 "properties": {
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection.\n"
+                        "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "exposeRoutesToVswitch": {
                         "type": "boolean",
@@ -3104,7 +3125,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Whether delete protection is enabled.\n"
+                    "description": "Whether delete protection is enabled. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "ipAddress": {
                     "type": "string",
@@ -3160,7 +3181,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Whether delete protection is enabled.\n"
+                    "description": "Whether delete protection is enabled. See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -3206,7 +3227,7 @@
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Whether delete protection is enabled.\n"
+                        "description": "Whether delete protection is enabled. See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "ipAddress": {
                         "type": "string",
@@ -3361,7 +3382,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
+                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "firewallIds": {
                     "type": "array",
@@ -3423,6 +3444,10 @@
                     "type": "integer",
                     "description": "Placement Group ID the server added to on creation.\n"
                 },
+                "primaryDiskSize": {
+                    "type": "integer",
+                    "description": "(int) The size of the primary disk in GB.\n"
+                },
                 "publicNets": {
                     "type": "array",
                     "items": {
@@ -3470,6 +3495,7 @@
                 "ipv6Network",
                 "location",
                 "name",
+                "primaryDiskSize",
                 "serverType",
                 "status"
             ],
@@ -3489,7 +3515,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
+                    "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See \"Delete Protection\" in the Provider Docs for details.\n"
                 },
                 "firewallIds": {
                     "type": "array",
@@ -3603,7 +3629,7 @@
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`).\n"
+                        "description": "Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See \"Delete Protection\" in the Provider Docs for details.\n"
                     },
                     "firewallIds": {
                         "type": "array",
@@ -3666,6 +3692,10 @@
                     "placementGroupId": {
                         "type": "integer",
                         "description": "Placement Group ID the server added to on creation.\n"
+                    },
+                    "primaryDiskSize": {
+                        "type": "integer",
+                        "description": "(int) The size of the primary disk in GB.\n"
                     },
                     "publicNets": {
                         "type": "array",
@@ -4109,7 +4139,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
                 },
                 "format": {
                     "type": "string",
@@ -4157,7 +4187,7 @@
                 },
                 "deleteProtection": {
                     "type": "boolean",
-                    "description": "Enable or disable delete protection.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
+                    "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
                 },
                 "format": {
                     "type": "string",
@@ -4200,7 +4230,7 @@
                     },
                     "deleteProtection": {
                         "type": "boolean",
-                        "description": "Enable or disable delete protection.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
+                        "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n\n**Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.\n"
                     },
                     "format": {
                         "type": "string",
@@ -4462,7 +4492,7 @@
                     "location": {
                         "type": "object",
                         "additionalProperties": {
-                            "$ref": "pulumi.json#/Any"
+                            "type": "string"
                         },
                         "description": "(map) Physical datacenter location.\n"
                     },
@@ -4501,6 +4531,25 @@
                         },
                         "description": "(list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.\n",
                         "deprecationMessage": "Use datacenters list instead"
+                    },
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.\n",
+                        "deprecationMessage": "Use datacenters list instead"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.\n",
+                        "deprecationMessage": "Use datacenters list instead"
                     }
                 },
                 "type": "object"
@@ -4532,8 +4581,7 @@
                         "deprecationMessage": "Use datacenters list instead"
                     },
                     "id": {
-                        "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                        "type": "string"
                     },
                     "names": {
                         "type": "array",
@@ -4546,10 +4594,7 @@
                 },
                 "type": "object",
                 "required": [
-                    "datacenters",
-                    "descriptions",
-                    "names",
-                    "id"
+                    "datacenters"
                 ]
             }
         },
@@ -5247,12 +5292,31 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getLocations.\n",
                 "properties": {
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
                     "locationIds": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "(list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of location names. **Deprecated**: Use `locations` attribute instead.\n",
                         "deprecationMessage": "Use locations list instead"
                     }
                 },
@@ -5270,8 +5334,7 @@
                         "deprecationMessage": "Use locations list instead"
                     },
                     "id": {
-                        "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                        "type": "string"
                     },
                     "locationIds": {
                         "type": "array",
@@ -5299,10 +5362,7 @@
                 },
                 "type": "object",
                 "required": [
-                    "descriptions",
-                    "locations",
-                    "names",
-                    "id"
+                    "locations"
                 ]
             }
         },
@@ -5326,7 +5386,8 @@
                         }
                     },
                     "mostRecent": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "deprecationMessage": "This attribute has no purpose."
                     },
                     "name": {
                         "type": "string",
@@ -5365,7 +5426,8 @@
                         }
                     },
                     "mostRecent": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "deprecationMessage": "This attribute has no purpose."
                     },
                     "name": {
                         "type": "string",
@@ -5379,7 +5441,10 @@
                 "required": [
                     "deleteProtection",
                     "exposeRoutesToVswitch",
-                    "id"
+                    "id",
+                    "ipRange",
+                    "labels",
+                    "name"
                 ]
             }
         },
@@ -5492,8 +5557,11 @@
                 },
                 "type": "object",
                 "required": [
+                    "id",
+                    "labels",
                     "name",
-                    "servers"
+                    "servers",
+                    "type"
                 ]
             }
         },
@@ -5779,6 +5847,10 @@
                         "type": "integer",
                         "description": "(Optional, string) Placement Group ID the server is assigned to.\n"
                     },
+                    "primaryDiskSize": {
+                        "type": "integer",
+                        "description": "(int) The size of the primary disk in GB.\n"
+                    },
                     "rebuildProtection": {
                         "type": "boolean",
                         "description": "(bool) Whether rebuild protection is enabled.\n"
@@ -5824,6 +5896,7 @@
                     "labels",
                     "location",
                     "name",
+                    "primaryDiskSize",
                     "rebuildProtection",
                     "rescue",
                     "serverType",

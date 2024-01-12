@@ -63,9 +63,10 @@ type LookupNetworkArgs struct {
 	// ID of the Network.
 	Id *int `pulumi:"id"`
 	// IPv4 prefix of the Network.
-	IpRange    *string                `pulumi:"ipRange"`
-	Labels     map[string]interface{} `pulumi:"labels"`
-	MostRecent *bool                  `pulumi:"mostRecent"`
+	IpRange *string                `pulumi:"ipRange"`
+	Labels  map[string]interface{} `pulumi:"labels"`
+	// Deprecated: This attribute has no purpose.
+	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the Network.
 	Name *string `pulumi:"name"`
 	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -81,11 +82,12 @@ type LookupNetworkResult struct {
 	// Unique ID of the Network.
 	Id int `pulumi:"id"`
 	// IPv4 prefix of the Network.
-	IpRange    *string                `pulumi:"ipRange"`
-	Labels     map[string]interface{} `pulumi:"labels"`
-	MostRecent *bool                  `pulumi:"mostRecent"`
+	IpRange string                 `pulumi:"ipRange"`
+	Labels  map[string]interface{} `pulumi:"labels"`
+	// Deprecated: This attribute has no purpose.
+	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the Network.
-	Name         *string `pulumi:"name"`
+	Name         string  `pulumi:"name"`
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -107,9 +109,10 @@ type LookupNetworkOutputArgs struct {
 	// ID of the Network.
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// IPv4 prefix of the Network.
-	IpRange    pulumi.StringPtrInput `pulumi:"ipRange"`
-	Labels     pulumi.MapInput       `pulumi:"labels"`
-	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	IpRange pulumi.StringPtrInput `pulumi:"ipRange"`
+	Labels  pulumi.MapInput       `pulumi:"labels"`
+	// Deprecated: This attribute has no purpose.
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the Network.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -151,21 +154,22 @@ func (o LookupNetworkResultOutput) Id() pulumi.IntOutput {
 }
 
 // IPv4 prefix of the Network.
-func (o LookupNetworkResultOutput) IpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNetworkResult) *string { return v.IpRange }).(pulumi.StringPtrOutput)
+func (o LookupNetworkResultOutput) IpRange() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkResult) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
 func (o LookupNetworkResultOutput) Labels() pulumi.MapOutput {
 	return o.ApplyT(func(v LookupNetworkResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
 }
 
+// Deprecated: This attribute has no purpose.
 func (o LookupNetworkResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupNetworkResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
 // Name of the Network.
-func (o LookupNetworkResultOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNetworkResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o LookupNetworkResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o LookupNetworkResultOutput) WithSelector() pulumi.StringPtrOutput {

@@ -131,6 +131,10 @@ export interface GetServerResult {
      */
     readonly placementGroupId?: number;
     /**
+     * (int) The size of the primary disk in GB.
+     */
+    readonly primaryDiskSize: number;
+    /**
      * (bool) Whether rebuild protection is enabled.
      */
     readonly rebuildProtection: boolean;

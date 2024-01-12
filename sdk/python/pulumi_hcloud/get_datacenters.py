@@ -60,7 +60,7 @@ class GetDatacentersResult:
 
     @property
     @pulumi.getter
-    def descriptions(self) -> Sequence[str]:
+    def descriptions(self) -> Optional[Sequence[str]]:
         """
         (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
         """
@@ -71,15 +71,12 @@ class GetDatacentersResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
         """
@@ -103,6 +100,9 @@ class AwaitableGetDatacentersResult(GetDatacentersResult):
 
 
 def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
+                    descriptions: Optional[Sequence[str]] = None,
+                    id: Optional[str] = None,
+                    names: Optional[Sequence[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatacentersResult:
     """
     Provides a list of available Hetzner Cloud Datacenters.
@@ -110,9 +110,14 @@ def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
 
 
     :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
+    :param Sequence[str] descriptions: (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+    :param Sequence[str] names: (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
     """
     __args__ = dict()
     __args__['datacenterIds'] = datacenter_ids
+    __args__['descriptions'] = descriptions
+    __args__['id'] = id
+    __args__['names'] = names
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('hcloud:index/getDatacenters:getDatacenters', __args__, opts=opts, typ=GetDatacentersResult).value
 
@@ -126,6 +131,9 @@ def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
 
 @_utilities.lift_output_func(get_datacenters)
 def get_datacenters_output(datacenter_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                           descriptions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                           id: Optional[pulumi.Input[Optional[str]]] = None,
+                           names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatacentersResult]:
     """
     Provides a list of available Hetzner Cloud Datacenters.
@@ -133,5 +141,7 @@ def get_datacenters_output(datacenter_ids: Optional[pulumi.Input[Optional[Sequen
 
 
     :param Sequence[str] datacenter_ids: (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
+    :param Sequence[str] descriptions: (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+    :param Sequence[str] names: (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
     """
     ...

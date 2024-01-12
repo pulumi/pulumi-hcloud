@@ -18,17 +18,9 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServerNetworkArgs Empty = new ServerNetworkArgs();
 
-    /**
-     * Alias IPs the server should have in the Network.
-     * 
-     */
     @Import(name="aliasIps")
     private @Nullable Output<List<String>> aliasIps;
 
-    /**
-     * @return Alias IPs the server should have in the Network.
-     * 
-     */
     public Optional<Output<List<String>>> aliasIps() {
         return Optional.ofNullable(this.aliasIps);
     }
@@ -105,33 +97,15 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ServerNetworkArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aliasIps Alias IPs the server should have in the Network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasIps(@Nullable Output<List<String>> aliasIps) {
             $.aliasIps = aliasIps;
             return this;
         }
 
-        /**
-         * @param aliasIps Alias IPs the server should have in the Network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasIps(List<String> aliasIps) {
             return aliasIps(Output.of(aliasIps));
         }
 
-        /**
-         * @param aliasIps Alias IPs the server should have in the Network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasIps(String... aliasIps) {
             return aliasIps(List.of(aliasIps));
         }

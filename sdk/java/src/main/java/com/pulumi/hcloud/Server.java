@@ -251,14 +251,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.datacenter;
     }
     /**
-     * Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+     * Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+     * @return Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {
@@ -445,6 +445,20 @@ public class Server extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> placementGroupId() {
         return Codegen.optional(this.placementGroupId);
+    }
+    /**
+     * (int) The size of the primary disk in GB.
+     * 
+     */
+    @Export(name="primaryDiskSize", refs={Integer.class}, tree="[0]")
+    private Output<Integer> primaryDiskSize;
+
+    /**
+     * @return (int) The size of the primary disk in GB.
+     * 
+     */
+    public Output<Integer> primaryDiskSize() {
+        return this.primaryDiskSize;
     }
     /**
      * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).

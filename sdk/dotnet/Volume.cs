@@ -57,7 +57,7 @@ namespace Pulumi.HCloud
         public Output<bool?> Automount { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable delete protection.
+        /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// 
         /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         /// </summary>
@@ -159,7 +159,7 @@ namespace Pulumi.HCloud
         public Input<bool>? Automount { get; set; }
 
         /// <summary>
-        /// Enable or disable delete protection.
+        /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// 
         /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         /// </summary>
@@ -223,7 +223,7 @@ namespace Pulumi.HCloud
         public Input<bool>? Automount { get; set; }
 
         /// <summary>
-        /// Enable or disable delete protection.
+        /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// 
         /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         /// </summary>

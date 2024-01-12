@@ -16,6 +16,9 @@ export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getDatacenters:getDatacenters", {
         "datacenterIds": args.datacenterIds,
+        "descriptions": args.descriptions,
+        "id": args.id,
+        "names": args.names,
     }, opts);
 }
 
@@ -29,6 +32,19 @@ export interface GetDatacentersArgs {
      * @deprecated Use datacenters list instead
      */
     datacenterIds?: string[];
+    /**
+     * (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+     *
+     * @deprecated Use datacenters list instead
+     */
+    descriptions?: string[];
+    id?: string;
+    /**
+     * (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+     *
+     * @deprecated Use datacenters list instead
+     */
+    names?: string[];
 }
 
 /**
@@ -50,17 +66,14 @@ export interface GetDatacentersResult {
      *
      * @deprecated Use datacenters list instead
      */
-    readonly descriptions: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly descriptions?: string[];
+    readonly id?: string;
     /**
      * (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
      *
      * @deprecated Use datacenters list instead
      */
-    readonly names: string[];
+    readonly names?: string[];
 }
 /**
  * Provides a list of available Hetzner Cloud Datacenters.
@@ -80,4 +93,17 @@ export interface GetDatacentersOutputArgs {
      * @deprecated Use datacenters list instead
      */
     datacenterIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+     *
+     * @deprecated Use datacenters list instead
+     */
+    descriptions?: pulumi.Input<pulumi.Input<string>[]>;
+    id?: pulumi.Input<string>;
+    /**
+     * (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+     *
+     * @deprecated Use datacenters list instead
+     */
+    names?: pulumi.Input<pulumi.Input<string>[]>;
 }

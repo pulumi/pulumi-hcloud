@@ -560,7 +560,6 @@ class ServerNetwork(dict):
                  mac_address: Optional[str] = None):
         """
         :param int network_id: ID of the network
-        :param Sequence[str] alias_ips: Alias IPs the server should have in the Network.
         :param str ip: Specify the IP the server should get in the network
         :param str mac_address: (Optional, string) The MAC address the private interface of the server has
         """
@@ -583,9 +582,6 @@ class ServerNetwork(dict):
     @property
     @pulumi.getter(name="aliasIps")
     def alias_ips(self) -> Optional[Sequence[str]]:
-        """
-        Alias IPs the server should have in the Network.
-        """
         return pulumi.get(self, "alias_ips")
 
     @property
@@ -743,7 +739,7 @@ class GetDatacentersDatacenterResult(dict):
                  available_server_type_ids: Sequence[int],
                  description: str,
                  id: int,
-                 location: Mapping[str, Any],
+                 location: Mapping[str, str],
                  name: str,
                  supported_server_type_ids: Sequence[int]):
         pulumi.set(__self__, "available_server_type_ids", available_server_type_ids)
@@ -770,7 +766,7 @@ class GetDatacentersDatacenterResult(dict):
 
     @property
     @pulumi.getter
-    def location(self) -> Mapping[str, Any]:
+    def location(self) -> Mapping[str, str]:
         return pulumi.get(self, "location")
 
     @property
@@ -1888,18 +1884,15 @@ class GetNetworksNetworkResult(dict):
                  delete_protection: bool,
                  expose_routes_to_vswitch: bool,
                  id: int,
-                 ip_range: Optional[str] = None,
-                 labels: Optional[Mapping[str, Any]] = None,
-                 name: Optional[str] = None):
+                 ip_range: str,
+                 labels: Mapping[str, Any],
+                 name: str):
         pulumi.set(__self__, "delete_protection", delete_protection)
         pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
         pulumi.set(__self__, "id", id)
-        if ip_range is not None:
-            pulumi.set(__self__, "ip_range", ip_range)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "ip_range", ip_range)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="deleteProtection")
@@ -1918,36 +1911,43 @@ class GetNetworksNetworkResult(dict):
 
     @property
     @pulumi.getter(name="ipRange")
-    def ip_range(self) -> Optional[str]:
+    def ip_range(self) -> str:
         return pulumi.get(self, "ip_range")
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Mapping[str, Any]]:
+    def labels(self) -> Mapping[str, Any]:
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class GetPlacementGroupsPlacementGroupResult(dict):
     def __init__(__self__, *,
+                 id: int,
+                 labels: Mapping[str, Any],
                  name: str,
                  servers: Sequence[int],
-                 id: Optional[int] = None,
-                 labels: Optional[Mapping[str, Any]] = None,
-                 type: Optional[str] = None):
+                 type: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "labels", labels)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "servers", servers)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter
@@ -1961,17 +1961,7 @@ class GetPlacementGroupsPlacementGroupResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def labels(self) -> Optional[Mapping[str, Any]]:
-        return pulumi.get(self, "labels")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         return pulumi.get(self, "type")
 
 
@@ -2171,6 +2161,7 @@ class GetServersServerResult(dict):
                  labels: Mapping[str, Any],
                  location: str,
                  name: str,
+                 primary_disk_size: int,
                  rebuild_protection: bool,
                  rescue: str,
                  server_type: str,
@@ -2190,6 +2181,7 @@ class GetServersServerResult(dict):
         pulumi.set(__self__, "labels", labels)
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_disk_size", primary_disk_size)
         pulumi.set(__self__, "rebuild_protection", rebuild_protection)
         pulumi.set(__self__, "rescue", rescue)
         pulumi.set(__self__, "server_type", server_type)
@@ -2266,6 +2258,11 @@ class GetServersServerResult(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryDiskSize")
+    def primary_disk_size(self) -> int:
+        return pulumi.get(self, "primary_disk_size")
 
     @property
     @pulumi.getter(name="rebuildProtection")

@@ -16,7 +16,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly ImmutableArray<int> AvailableServerTypeIds;
         public readonly string Description;
         public readonly int Id;
-        public readonly ImmutableDictionary<string, object> Location;
+        public readonly ImmutableDictionary<string, string> Location;
         public readonly string Name;
         public readonly ImmutableArray<int> SupportedServerTypeIds;
 
@@ -28,7 +28,7 @@ namespace Pulumi.HCloud.Outputs
 
             int id,
 
-            ImmutableDictionary<string, object> location,
+            ImmutableDictionary<string, string> location,
 
             string name,
 

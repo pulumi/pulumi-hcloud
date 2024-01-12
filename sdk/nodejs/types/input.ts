@@ -219,9 +219,6 @@ export interface LoadBalancerTarget {
 }
 
 export interface ServerNetwork {
-    /**
-     * Alias IPs the server should have in the Network.
-     */
     aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify the IP the server should get in the network

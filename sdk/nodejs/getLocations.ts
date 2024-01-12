@@ -15,7 +15,10 @@ export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOption
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getLocations:getLocations", {
+        "descriptions": args.descriptions,
+        "id": args.id,
         "locationIds": args.locationIds,
+        "names": args.names,
     }, opts);
 }
 
@@ -24,11 +27,24 @@ export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOption
  */
 export interface GetLocationsArgs {
     /**
+     * (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+     *
+     * @deprecated Use locations list instead
+     */
+    descriptions?: string[];
+    id?: string;
+    /**
      * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      *
      * @deprecated Use locations list instead
      */
     locationIds?: string[];
+    /**
+     * (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+     *
+     * @deprecated Use locations list instead
+     */
+    names?: string[];
 }
 
 /**
@@ -40,11 +56,8 @@ export interface GetLocationsResult {
      *
      * @deprecated Use locations list instead
      */
-    readonly descriptions: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly descriptions?: string[];
+    readonly id?: string;
     /**
      * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      *
@@ -60,7 +73,7 @@ export interface GetLocationsResult {
      *
      * @deprecated Use locations list instead
      */
-    readonly names: string[];
+    readonly names?: string[];
 }
 /**
  * Provides a list of available Hetzner Cloud Locations.
@@ -75,9 +88,22 @@ export function getLocationsOutput(args?: GetLocationsOutputArgs, opts?: pulumi.
  */
 export interface GetLocationsOutputArgs {
     /**
+     * (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+     *
+     * @deprecated Use locations list instead
+     */
+    descriptions?: pulumi.Input<pulumi.Input<string>[]>;
+    id?: pulumi.Input<string>;
+    /**
      * (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
      *
      * @deprecated Use locations list instead
      */
     locationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+     *
+     * @deprecated Use locations list instead
+     */
+    names?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -52,7 +52,7 @@ import (
 type Network struct {
 	pulumi.CustomResourceState
 
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
 	ExposeRoutesToVswitch pulumi.BoolPtrOutput `pulumi:"exposeRoutesToVswitch"`
@@ -97,7 +97,7 @@ func GetNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Network resources.
 type networkState struct {
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
 	ExposeRoutesToVswitch *bool `pulumi:"exposeRoutesToVswitch"`
@@ -110,7 +110,7 @@ type networkState struct {
 }
 
 type NetworkState struct {
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
 	ExposeRoutesToVswitch pulumi.BoolPtrInput
@@ -127,7 +127,7 @@ func (NetworkState) ElementType() reflect.Type {
 }
 
 type networkArgs struct {
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
 	ExposeRoutesToVswitch *bool `pulumi:"exposeRoutesToVswitch"`
@@ -141,7 +141,7 @@ type networkArgs struct {
 
 // The set of arguments for constructing a Network resource.
 type NetworkArgs struct {
-	// Enable or disable delete protection.
+	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
 	ExposeRoutesToVswitch pulumi.BoolPtrInput
@@ -240,7 +240,7 @@ func (o NetworkOutput) ToNetworkOutputWithContext(ctx context.Context) NetworkOu
 	return o
 }
 
-// Enable or disable delete protection.
+// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 func (o NetworkOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
 }

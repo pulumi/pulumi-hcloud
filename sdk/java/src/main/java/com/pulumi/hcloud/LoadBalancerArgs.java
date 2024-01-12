@@ -38,14 +38,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection.
+     * @return Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -199,7 +199,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection.
+         * @param deleteProtection Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection.
+         * @param deleteProtection Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 

@@ -568,6 +568,63 @@
         }
     },
     "auto-settings": {},
+    "mux": {
+        "resources": {
+            "hcloud:index/certificate:Certificate": 0,
+            "hcloud:index/firewall:Firewall": 0,
+            "hcloud:index/firewallAttachment:FirewallAttachment": 0,
+            "hcloud:index/floatingIp:FloatingIp": 0,
+            "hcloud:index/floatingIpAssignment:FloatingIpAssignment": 0,
+            "hcloud:index/loadBalancer:LoadBalancer": 0,
+            "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork": 0,
+            "hcloud:index/loadBalancerService:LoadBalancerService": 0,
+            "hcloud:index/loadBalancerTarget:LoadBalancerTarget": 0,
+            "hcloud:index/managedCertificate:ManagedCertificate": 0,
+            "hcloud:index/network:Network": 0,
+            "hcloud:index/networkRoute:NetworkRoute": 0,
+            "hcloud:index/networkSubnet:NetworkSubnet": 0,
+            "hcloud:index/placementGroup:PlacementGroup": 0,
+            "hcloud:index/primaryIp:PrimaryIp": 0,
+            "hcloud:index/rdns:Rdns": 0,
+            "hcloud:index/server:Server": 0,
+            "hcloud:index/serverNetwork:ServerNetwork": 0,
+            "hcloud:index/snapshot:Snapshot": 0,
+            "hcloud:index/sshKey:SshKey": 0,
+            "hcloud:index/uploadedCertificate:UploadedCertificate": 0,
+            "hcloud:index/volume:Volume": 0,
+            "hcloud:index/volumeAttachment:VolumeAttachment": 0
+        },
+        "functions": {
+            "hcloud:index/getCertificate:getCertificate": 0,
+            "hcloud:index/getCertificates:getCertificates": 0,
+            "hcloud:index/getDatacenter:getDatacenter": 1,
+            "hcloud:index/getDatacenters:getDatacenters": 1,
+            "hcloud:index/getFirewall:getFirewall": 0,
+            "hcloud:index/getFirewalls:getFirewalls": 0,
+            "hcloud:index/getFloatingIp:getFloatingIp": 0,
+            "hcloud:index/getFloatingIps:getFloatingIps": 0,
+            "hcloud:index/getImage:getImage": 0,
+            "hcloud:index/getImages:getImages": 0,
+            "hcloud:index/getLoadBalancer:getLoadBalancer": 0,
+            "hcloud:index/getLoadBalancers:getLoadBalancers": 0,
+            "hcloud:index/getLocation:getLocation": 1,
+            "hcloud:index/getLocations:getLocations": 1,
+            "hcloud:index/getNetwork:getNetwork": 0,
+            "hcloud:index/getNetworks:getNetworks": 0,
+            "hcloud:index/getPlacementGroup:getPlacementGroup": 0,
+            "hcloud:index/getPlacementGroups:getPlacementGroups": 0,
+            "hcloud:index/getPrimaryIp:getPrimaryIp": 0,
+            "hcloud:index/getPrimaryIps:getPrimaryIps": 0,
+            "hcloud:index/getServer:getServer": 0,
+            "hcloud:index/getServerType:getServerType": 0,
+            "hcloud:index/getServerTypes:getServerTypes": 0,
+            "hcloud:index/getServers:getServers": 0,
+            "hcloud:index/getSshKey:getSshKey": 0,
+            "hcloud:index/getSshKeys:getSshKeys": 0,
+            "hcloud:index/getVolume:getVolume": 0,
+            "hcloud:index/getVolumes:getVolumes": 0
+        }
+    },
     "renames": {
         "resources": {
             "hcloud:index/certificate:Certificate": "hcloud_certificate",
@@ -905,6 +962,7 @@
                 "ipv6Address": "ipv6_address",
                 "ipv6Network": "ipv6_network",
                 "placementGroupId": "placement_group_id",
+                "primaryDiskSize": "primary_disk_size",
                 "rebuildProtection": "rebuild_protection",
                 "serverType": "server_type",
                 "withSelector": "with_selector",
@@ -942,6 +1000,7 @@
                 "ipv6Address": "ipv6_address",
                 "ipv6Network": "ipv6_network",
                 "placementGroupId": "placement_group_id",
+                "primaryDiskSize": "primary_disk_size",
                 "rebuildProtection": "rebuild_protection",
                 "serverType": "server_type"
             },
@@ -1045,6 +1104,7 @@
                 "keepDisk": "keep_disk",
                 "networks": "network",
                 "placementGroupId": "placement_group_id",
+                "primaryDiskSize": "primary_disk_size",
                 "publicNets": "public_net",
                 "rebuildProtection": "rebuild_protection",
                 "serverType": "server_type",
@@ -1081,10 +1141,12 @@
                 "volumeId": "volume_id"
             },
             "hcloud:index:Provider": {
+                "pollFunction": "poll_function",
                 "pollInterval": "poll_interval"
             }
         },
         "renamedConfigProperties": {
+            "pollFunction": "poll_function",
             "pollInterval": "poll_interval"
         }
     }

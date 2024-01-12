@@ -30,6 +30,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
     /**
+     * The type of function to be used during the polling.
+     */
+    public readonly pollFunction!: pulumi.Output<string | undefined>;
+    /**
      * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
      * limiting errors.
      */
@@ -51,6 +55,7 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["pollFunction"] = args ? args.pollFunction : undefined;
             resourceInputs["pollInterval"] = args ? args.pollInterval : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
@@ -69,6 +74,10 @@ export interface ProviderArgs {
      * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The type of function to be used during the polling.
+     */
+    pollFunction?: pulumi.Input<string>;
     /**
      * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
      * limiting errors.

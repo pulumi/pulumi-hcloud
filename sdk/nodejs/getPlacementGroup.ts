@@ -70,11 +70,11 @@ export interface GetPlacementGroupResult {
     /**
      * (int) Unique ID of the Placement Group.
      */
-    readonly id?: number;
+    readonly id: number;
     /**
      * (map) User-defined labels (key-value pairs)
      */
-    readonly labels?: {[key: string]: any};
+    readonly labels: {[key: string]: any};
     readonly mostRecent?: boolean;
     /**
      * (string) Name of the Placement Group.
@@ -84,7 +84,7 @@ export interface GetPlacementGroupResult {
     /**
      * (string)  Type of the Placement Group.
      */
-    readonly type?: string;
+    readonly type: string;
     readonly withSelector?: string;
 }
 /**

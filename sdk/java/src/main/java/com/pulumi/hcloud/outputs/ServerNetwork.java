@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerNetwork {
-    /**
-     * @return Alias IPs the server should have in the Network.
-     * 
-     */
     private @Nullable List<String> aliasIps;
     /**
      * @return Specify the IP the server should get in the network
@@ -36,10 +32,6 @@ public final class ServerNetwork {
     private Integer networkId;
 
     private ServerNetwork() {}
-    /**
-     * @return Alias IPs the server should have in the Network.
-     * 
-     */
     public List<String> aliasIps() {
         return this.aliasIps == null ? List.of() : this.aliasIps;
     }

@@ -69,14 +69,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+     * Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+     * @return Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -440,7 +440,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`).
+         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 

@@ -66,7 +66,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly automount!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      *
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
      */
@@ -151,7 +151,7 @@ export interface VolumeState {
      */
     automount?: pulumi.Input<boolean>;
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      *
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
      */
@@ -195,7 +195,7 @@ export interface VolumeArgs {
      */
     automount?: pulumi.Input<boolean>;
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      *
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
      */

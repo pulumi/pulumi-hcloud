@@ -26,7 +26,7 @@ class VolumeArgs:
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[int] size: Size of the volume (in GB).
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
@@ -79,7 +79,7 @@ class VolumeArgs:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 
         **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         """
@@ -165,7 +165,7 @@ class _VolumeState:
         """
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
@@ -211,7 +211,7 @@ class _VolumeState:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 
         **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         """
@@ -350,7 +350,7 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
@@ -463,7 +463,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automount: Automount the volume upon attaching it (server_id must be provided).
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
@@ -501,7 +501,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 
         **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         """

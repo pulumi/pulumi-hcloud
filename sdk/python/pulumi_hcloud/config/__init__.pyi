@@ -14,6 +14,11 @@ endpoint: Optional[str]
 The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
 """
 
+pollFunction: Optional[str]
+"""
+The type of function to be used during the polling.
+"""
+
 pollInterval: Optional[str]
 """
 The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate

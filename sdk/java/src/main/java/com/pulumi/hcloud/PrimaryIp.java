@@ -141,14 +141,14 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
         return this.datacenter;
     }
     /**
-     * Whether delete protection is enabled.
+     * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
-     * @return Whether delete protection is enabled.
+     * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {

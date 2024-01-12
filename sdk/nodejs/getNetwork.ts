@@ -49,6 +49,9 @@ export interface GetNetworkArgs {
      */
     ipRange?: string;
     labels?: {[key: string]: any};
+    /**
+     * @deprecated This attribute has no purpose.
+     */
     mostRecent?: boolean;
     /**
      * Name of the Network.
@@ -79,13 +82,16 @@ export interface GetNetworkResult {
     /**
      * IPv4 prefix of the Network.
      */
-    readonly ipRange?: string;
-    readonly labels?: {[key: string]: any};
+    readonly ipRange: string;
+    readonly labels: {[key: string]: any};
+    /**
+     * @deprecated This attribute has no purpose.
+     */
     readonly mostRecent?: boolean;
     /**
      * Name of the Network.
      */
-    readonly name?: string;
+    readonly name: string;
     readonly withSelector?: string;
 }
 /**
@@ -123,6 +129,9 @@ export interface GetNetworkOutputArgs {
      */
     ipRange?: pulumi.Input<string>;
     labels?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * @deprecated This attribute has no purpose.
+     */
     mostRecent?: pulumi.Input<boolean>;
     /**
      * Name of the Network.

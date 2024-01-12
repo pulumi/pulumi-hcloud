@@ -67,7 +67,7 @@ class GetDatacenterResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Mapping[str, Any]:
+    def location(self) -> Mapping[str, str]:
         """
         (map) Physical datacenter location.
         """

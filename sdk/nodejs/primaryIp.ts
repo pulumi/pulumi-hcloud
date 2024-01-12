@@ -93,7 +93,7 @@ export class PrimaryIp extends pulumi.CustomResource {
      */
     public readonly datacenter!: pulumi.Output<string>;
     /**
-     * Whether delete protection is enabled.
+     * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
      */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface PrimaryIpState {
      */
     datacenter?: pulumi.Input<string>;
     /**
-     * Whether delete protection is enabled.
+     * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
@@ -236,7 +236,7 @@ export interface PrimaryIpArgs {
      */
     datacenter?: pulumi.Input<string>;
     /**
-     * Whether delete protection is enabled.
+     * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**

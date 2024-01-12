@@ -140,7 +140,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (map) Physical datacenter location.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Location;
+        public readonly ImmutableDictionary<string, string> Location;
         /// <summary>
         /// (string) Name of the datacenter.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.HCloud
 
             int id,
 
-            ImmutableDictionary<string, object> location,
+            ImmutableDictionary<string, string> location,
 
             string name,
 

@@ -244,6 +244,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly int? PlacementGroupId;
         /// <summary>
+        /// (int) The size of the primary disk in GB.
+        /// </summary>
+        public readonly int PrimaryDiskSize;
+        /// <summary>
         /// (bool) Whether rebuild protection is enabled.
         /// </summary>
         public readonly bool RebuildProtection;
@@ -292,6 +296,8 @@ namespace Pulumi.HCloud
 
             int? placementGroupId,
 
+            int primaryDiskSize,
+
             bool rebuildProtection,
 
             string rescue,
@@ -321,6 +327,7 @@ namespace Pulumi.HCloud
             Location = location;
             Name = name;
             PlacementGroupId = placementGroupId;
+            PrimaryDiskSize = primaryDiskSize;
             RebuildProtection = rebuildProtection;
             Rescue = rescue;
             Selector = selector;

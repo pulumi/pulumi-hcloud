@@ -72,7 +72,7 @@ type GetDatacenterResult struct {
 	// (int) Unique ID of the datacenter.
 	Id int `pulumi:"id"`
 	// (map) Physical datacenter location.
-	Location map[string]interface{} `pulumi:"location"`
+	Location map[string]string `pulumi:"location"`
 	// (string) Name of the datacenter.
 	Name string `pulumi:"name"`
 	// (list) List of server types supported by the datacenter.
@@ -135,8 +135,8 @@ func (o GetDatacenterResultOutput) Id() pulumi.IntOutput {
 }
 
 // (map) Physical datacenter location.
-func (o GetDatacenterResultOutput) Location() pulumi.MapOutput {
-	return o.ApplyT(func(v GetDatacenterResult) map[string]interface{} { return v.Location }).(pulumi.MapOutput)
+func (o GetDatacenterResultOutput) Location() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetDatacenterResult) map[string]string { return v.Location }).(pulumi.StringMapOutput)
 }
 
 // (string) Name of the datacenter.

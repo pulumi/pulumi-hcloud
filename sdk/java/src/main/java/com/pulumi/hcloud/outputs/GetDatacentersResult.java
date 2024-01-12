@@ -9,6 +9,7 @@ import com.pulumi.hcloud.outputs.GetDatacentersDatacenter;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -35,12 +36,8 @@ public final class GetDatacentersResult {
      * 
      */
     @Deprecated /* Use datacenters list instead */
-    private List<String> descriptions;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
+    private @Nullable List<String> descriptions;
+    private @Nullable String id;
     /**
      * @return (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
      * 
@@ -49,7 +46,7 @@ public final class GetDatacentersResult {
      * 
      */
     @Deprecated /* Use datacenters list instead */
-    private List<String> names;
+    private @Nullable List<String> names;
 
     private GetDatacentersResult() {}
     /**
@@ -79,14 +76,10 @@ public final class GetDatacentersResult {
      */
     @Deprecated /* Use datacenters list instead */
     public List<String> descriptions() {
-        return this.descriptions;
+        return this.descriptions == null ? List.of() : this.descriptions;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
@@ -97,7 +90,7 @@ public final class GetDatacentersResult {
      */
     @Deprecated /* Use datacenters list instead */
     public List<String> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
 
     public static Builder builder() {
@@ -111,9 +104,9 @@ public final class GetDatacentersResult {
     public static final class Builder {
         private @Nullable List<String> datacenterIds;
         private List<GetDatacentersDatacenter> datacenters;
-        private List<String> descriptions;
-        private String id;
-        private List<String> names;
+        private @Nullable List<String> descriptions;
+        private @Nullable String id;
+        private @Nullable List<String> names;
         public Builder() {}
         public Builder(GetDatacentersResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -145,10 +138,8 @@ public final class GetDatacentersResult {
             return datacenters(List.of(datacenters));
         }
         @CustomType.Setter
-        public Builder descriptions(List<String> descriptions) {
-            if (descriptions == null) {
-              throw new MissingRequiredPropertyException("GetDatacentersResult", "descriptions");
-            }
+        public Builder descriptions(@Nullable List<String> descriptions) {
+
             this.descriptions = descriptions;
             return this;
         }
@@ -156,18 +147,14 @@ public final class GetDatacentersResult {
             return descriptions(List.of(descriptions));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetDatacentersResult", "id");
-            }
+        public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<String> names) {
-            if (names == null) {
-              throw new MissingRequiredPropertyException("GetDatacentersResult", "names");
-            }
+        public Builder names(@Nullable List<String> names) {
+
             this.names = names;
             return this;
         }

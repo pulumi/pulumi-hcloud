@@ -21,12 +21,12 @@ public final class GetPlacementGroupResult {
      * @return (int) Unique ID of the Placement Group.
      * 
      */
-    private @Nullable Integer id;
+    private Integer id;
     /**
      * @return (map) User-defined labels (key-value pairs)
      * 
      */
-    private @Nullable Map<String,Object> labels;
+    private Map<String,Object> labels;
     private @Nullable Boolean mostRecent;
     /**
      * @return (string) Name of the Placement Group.
@@ -38,7 +38,7 @@ public final class GetPlacementGroupResult {
      * @return (string)  Type of the Placement Group.
      * 
      */
-    private @Nullable String type;
+    private String type;
     private @Nullable String withSelector;
 
     private GetPlacementGroupResult() {}
@@ -46,15 +46,15 @@ public final class GetPlacementGroupResult {
      * @return (int) Unique ID of the Placement Group.
      * 
      */
-    public Optional<Integer> id() {
-        return Optional.ofNullable(this.id);
+    public Integer id() {
+        return this.id;
     }
     /**
      * @return (map) User-defined labels (key-value pairs)
      * 
      */
     public Map<String,Object> labels() {
-        return this.labels == null ? Map.of() : this.labels;
+        return this.labels;
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
@@ -73,8 +73,8 @@ public final class GetPlacementGroupResult {
      * @return (string)  Type of the Placement Group.
      * 
      */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
+    public String type() {
+        return this.type;
     }
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
@@ -89,12 +89,12 @@ public final class GetPlacementGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Integer id;
-        private @Nullable Map<String,Object> labels;
+        private Integer id;
+        private Map<String,Object> labels;
         private @Nullable Boolean mostRecent;
         private String name;
         private List<Integer> servers;
-        private @Nullable String type;
+        private String type;
         private @Nullable String withSelector;
         public Builder() {}
         public Builder(GetPlacementGroupResult defaults) {
@@ -109,14 +109,18 @@ public final class GetPlacementGroupResult {
         }
 
         @CustomType.Setter
-        public Builder id(@Nullable Integer id) {
-
+        public Builder id(Integer id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPlacementGroupResult", "id");
+            }
             this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder labels(@Nullable Map<String,Object> labels) {
-
+        public Builder labels(Map<String,Object> labels) {
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetPlacementGroupResult", "labels");
+            }
             this.labels = labels;
             return this;
         }
@@ -146,8 +150,10 @@ public final class GetPlacementGroupResult {
             return servers(List.of(servers));
         }
         @CustomType.Setter
-        public Builder type(@Nullable String type) {
-
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetPlacementGroupResult", "type");
+            }
             this.type = type;
             return this;
         }

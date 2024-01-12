@@ -29,6 +29,15 @@ type GetDatacentersArgs struct {
 	//
 	// Deprecated: Use datacenters list instead
 	DatacenterIds []string `pulumi:"datacenterIds"`
+	// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+	//
+	// Deprecated: Use datacenters list instead
+	Descriptions []string `pulumi:"descriptions"`
+	Id           *string  `pulumi:"id"`
+	// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+	//
+	// Deprecated: Use datacenters list instead
+	Names []string `pulumi:"names"`
 }
 
 // A collection of values returned by getDatacenters.
@@ -43,8 +52,7 @@ type GetDatacentersResult struct {
 	//
 	// Deprecated: Use datacenters list instead
 	Descriptions []string `pulumi:"descriptions"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id           *string  `pulumi:"id"`
 	// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
 	//
 	// Deprecated: Use datacenters list instead
@@ -70,6 +78,15 @@ type GetDatacentersOutputArgs struct {
 	//
 	// Deprecated: Use datacenters list instead
 	DatacenterIds pulumi.StringArrayInput `pulumi:"datacenterIds"`
+	// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
+	//
+	// Deprecated: Use datacenters list instead
+	Descriptions pulumi.StringArrayInput `pulumi:"descriptions"`
+	Id           pulumi.StringPtrInput   `pulumi:"id"`
+	// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+	//
+	// Deprecated: Use datacenters list instead
+	Names pulumi.StringArrayInput `pulumi:"names"`
 }
 
 func (GetDatacentersOutputArgs) ElementType() reflect.Type {
@@ -110,9 +127,8 @@ func (o GetDatacentersResultOutput) Descriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDatacentersResult) []string { return v.Descriptions }).(pulumi.StringArrayOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
-func (o GetDatacentersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatacentersResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetDatacentersResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDatacentersResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.

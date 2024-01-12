@@ -11,23 +11,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlacementGroupsPlacementGroup {
-    private @Nullable Integer id;
-    private @Nullable Map<String,Object> labels;
+    private Integer id;
+    private Map<String,Object> labels;
     private String name;
     private List<Integer> servers;
-    private @Nullable String type;
+    private String type;
 
     private GetPlacementGroupsPlacementGroup() {}
-    public Optional<Integer> id() {
-        return Optional.ofNullable(this.id);
+    public Integer id() {
+        return this.id;
     }
     public Map<String,Object> labels() {
-        return this.labels == null ? Map.of() : this.labels;
+        return this.labels;
     }
     public String name() {
         return this.name;
@@ -35,8 +33,8 @@ public final class GetPlacementGroupsPlacementGroup {
     public List<Integer> servers() {
         return this.servers;
     }
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -48,11 +46,11 @@ public final class GetPlacementGroupsPlacementGroup {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Integer id;
-        private @Nullable Map<String,Object> labels;
+        private Integer id;
+        private Map<String,Object> labels;
         private String name;
         private List<Integer> servers;
-        private @Nullable String type;
+        private String type;
         public Builder() {}
         public Builder(GetPlacementGroupsPlacementGroup defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,14 +62,18 @@ public final class GetPlacementGroupsPlacementGroup {
         }
 
         @CustomType.Setter
-        public Builder id(@Nullable Integer id) {
-
+        public Builder id(Integer id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPlacementGroupsPlacementGroup", "id");
+            }
             this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder labels(@Nullable Map<String,Object> labels) {
-
+        public Builder labels(Map<String,Object> labels) {
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetPlacementGroupsPlacementGroup", "labels");
+            }
             this.labels = labels;
             return this;
         }
@@ -95,8 +97,10 @@ public final class GetPlacementGroupsPlacementGroup {
             return servers(List.of(servers));
         }
         @CustomType.Setter
-        public Builder type(@Nullable String type) {
-
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetPlacementGroupsPlacementGroup", "type");
+            }
             this.type = type;
             return this;
         }

@@ -6,7 +6,6 @@ package com.pulumi.hcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +32,7 @@ public final class GetDatacenterResult {
      * @return (map) Physical datacenter location.
      * 
      */
-    private Map<String,Object> location;
+    private Map<String,String> location;
     /**
      * @return (string) Name of the datacenter.
      * 
@@ -71,7 +70,7 @@ public final class GetDatacenterResult {
      * @return (map) Physical datacenter location.
      * 
      */
-    public Map<String,Object> location() {
+    public Map<String,String> location() {
         return this.location;
     }
     /**
@@ -101,7 +100,7 @@ public final class GetDatacenterResult {
         private List<Integer> availableServerTypeIds;
         private String description;
         private Integer id;
-        private Map<String,Object> location;
+        private Map<String,String> location;
         private String name;
         private List<Integer> supportedServerTypeIds;
         public Builder() {}
@@ -143,7 +142,7 @@ public final class GetDatacenterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder location(Map<String,Object> location) {
+        public Builder location(Map<String,String> location) {
             if (location == null) {
               throw new MissingRequiredPropertyException("GetDatacenterResult", "location");
             }

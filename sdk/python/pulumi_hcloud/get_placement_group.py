@@ -46,7 +46,7 @@ class GetPlacementGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> int:
         """
         (int) Unique ID of the Placement Group.
         """
@@ -54,7 +54,7 @@ class GetPlacementGroupResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Mapping[str, Any]]:
+    def labels(self) -> Mapping[str, Any]:
         """
         (map) User-defined labels (key-value pairs)
         """
@@ -80,7 +80,7 @@ class GetPlacementGroupResult:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
         (string)  Type of the Placement Group.
         """

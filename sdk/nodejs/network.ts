@@ -53,7 +53,7 @@ export class Network extends pulumi.CustomResource {
     }
 
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -112,7 +112,7 @@ export class Network extends pulumi.CustomResource {
  */
 export interface NetworkState {
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
@@ -138,7 +138,7 @@ export interface NetworkState {
  */
 export interface NetworkArgs {
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**

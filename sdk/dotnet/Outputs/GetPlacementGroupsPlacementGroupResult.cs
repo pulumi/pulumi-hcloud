@@ -13,23 +13,23 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetPlacementGroupsPlacementGroupResult
     {
-        public readonly int? Id;
-        public readonly ImmutableDictionary<string, object>? Labels;
+        public readonly int Id;
+        public readonly ImmutableDictionary<string, object> Labels;
         public readonly string Name;
         public readonly ImmutableArray<int> Servers;
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private GetPlacementGroupsPlacementGroupResult(
-            int? id,
+            int id,
 
-            ImmutableDictionary<string, object>? labels,
+            ImmutableDictionary<string, object> labels,
 
             string name,
 
             ImmutableArray<int> servers,
 
-            string? type)
+            string type)
         {
             Id = id;
             Labels = labels;

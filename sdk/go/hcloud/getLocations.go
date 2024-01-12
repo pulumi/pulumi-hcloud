@@ -25,10 +25,19 @@ func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsArgs struct {
+	// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+	//
+	// Deprecated: Use locations list instead
+	Descriptions []string `pulumi:"descriptions"`
+	Id           *string  `pulumi:"id"`
 	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
 	//
 	// Deprecated: Use locations list instead
 	LocationIds []string `pulumi:"locationIds"`
+	// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+	//
+	// Deprecated: Use locations list instead
+	Names []string `pulumi:"names"`
 }
 
 // A collection of values returned by getLocations.
@@ -37,8 +46,7 @@ type GetLocationsResult struct {
 	//
 	// Deprecated: Use locations list instead
 	Descriptions []string `pulumi:"descriptions"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id           *string  `pulumi:"id"`
 	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
 	//
 	// Deprecated: Use locations list instead
@@ -66,10 +74,19 @@ func GetLocationsOutput(ctx *pulumi.Context, args GetLocationsOutputArgs, opts .
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsOutputArgs struct {
+	// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
+	//
+	// Deprecated: Use locations list instead
+	Descriptions pulumi.StringArrayInput `pulumi:"descriptions"`
+	Id           pulumi.StringPtrInput   `pulumi:"id"`
 	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
 	//
 	// Deprecated: Use locations list instead
 	LocationIds pulumi.StringArrayInput `pulumi:"locationIds"`
+	// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
+	//
+	// Deprecated: Use locations list instead
+	Names pulumi.StringArrayInput `pulumi:"names"`
 }
 
 func (GetLocationsOutputArgs) ElementType() reflect.Type {
@@ -98,9 +115,8 @@ func (o GetLocationsResultOutput) Descriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationsResult) []string { return v.Descriptions }).(pulumi.StringArrayOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
-func (o GetLocationsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocationsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.

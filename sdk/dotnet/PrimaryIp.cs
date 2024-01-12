@@ -96,7 +96,7 @@ namespace Pulumi.HCloud
         public Output<string> Datacenter { get; private set; } = null!;
 
         /// <summary>
-        /// Whether delete protection is enabled.
+        /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.HCloud
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Whether delete protection is enabled.
+        /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.HCloud
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Whether delete protection is enabled.
+        /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }

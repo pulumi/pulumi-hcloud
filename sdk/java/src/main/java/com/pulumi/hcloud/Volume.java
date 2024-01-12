@@ -87,7 +87,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automount);
     }
     /**
-     * Enable or disable delete protection.
+     * Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
      * 
@@ -96,7 +96,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection.
+     * @return Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
      * 

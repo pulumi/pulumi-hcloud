@@ -28,7 +28,7 @@ class LoadBalancerArgs:
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
@@ -81,7 +81,7 @@ class LoadBalancerArgs:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -168,7 +168,7 @@ class _LoadBalancerState:
         """
         Input properties used for looking up and filtering LoadBalancer resources.
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
         :param pulumi.Input[str] ipv6: (string) IPv6 Address of the Load Balancer.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -223,7 +223,7 @@ class _LoadBalancerState:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -398,7 +398,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']] algorithm: Configuration of the algorithm the Load Balancer use.
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
@@ -516,7 +516,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerAlgorithmArgs']] algorithm: Configuration of the algorithm the Load Balancer use.
-        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection.
+        :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
         :param pulumi.Input[str] ipv6: (string) IPv6 Address of the Load Balancer.
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
@@ -557,7 +557,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable or disable delete protection.
+        Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
