@@ -43,8 +43,7 @@ var metadata []byte
 func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P: pfbridge.MuxShimWithPF(context.Background(),
-			shimv2.NewProvider(hcloud.Provider(),
-				shimv2.WithDiffStrategy(shimv2.PlanState)),
+			shimv2.NewProvider(hcloud.Provider(), shimv2.WithDiffStrategy(shimv2.PlanState)),
 			hcloud.NewPluginProvider()),
 		Name:         "hcloud",
 		Description:  "A Pulumi package for creating and managing hcloud cloud resources.",

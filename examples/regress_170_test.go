@@ -18,10 +18,12 @@ import (
 	"context"
 	"testing"
 
+	"github.com/stretchr/testify/require"
+
 	provider "github.com/pulumi/pulumi-hcloud/provider"
 	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
+	pf "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
@@ -110,6 +112,10 @@ func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
 
 	version.Version = "0.0.1"
 	info := provider.Provider()
+	info.Version = version.Version
 
-	return tfbridge.NewProvider(ctx, nil, "hcloud", version.Version, info.P, info, nil)
+	server, err := pf.MakeMuxedServer(ctx, "hcloud", info, []byte("{}"))(nil)
+	require.NoError(t, err)
+
+	return server
 }
