@@ -53,6 +53,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:   "https://github.com/pulumi/pulumi-hcloud",
 		GitHubOrg:    "hetznercloud",
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		Version:      version.Version,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"hcloud_certificate": {
 				Fields: map[string]*tfbridge.SchemaInfo{
