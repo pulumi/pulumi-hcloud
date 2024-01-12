@@ -17,10 +17,11 @@
 package main
 
 import (
+	"context"
 	_ "embed"
+
 	hcloud "github.com/pulumi/pulumi-hcloud/provider"
-	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 )
 
 //go:embed schema-embed.json
@@ -28,5 +29,5 @@ var pulumiSchema []byte
 
 func main() {
 	// Modify the path to point to the new provider
-	tfbridge.Main("hcloud", version.Version, hcloud.Provider(), pulumiSchema)
+	tfbridge.MainWithMuxer(context.Background(), "hcloud", hcloud.Provider(), pulumiSchema)
 }

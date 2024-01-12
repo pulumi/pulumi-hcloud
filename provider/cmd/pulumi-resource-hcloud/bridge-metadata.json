@@ -204,6 +204,44 @@
                     }
                 }
             },
+            "hcloud_datacenter": {
+                "current": "hcloud:index/getDatacenter:getDatacenter",
+                "fields": {
+                    "available_server_type_ids": {
+                        "maxItemsOne": false
+                    },
+                    "supported_server_type_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "hcloud_datacenters": {
+                "current": "hcloud:index/getDatacenters:getDatacenters",
+                "fields": {
+                    "datacenter_ids": {
+                        "maxItemsOne": false
+                    },
+                    "datacenters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "available_server_type_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "supported_server_type_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "descriptions": {
+                        "maxItemsOne": false
+                    },
+                    "names": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "hcloud_firewall": {
                 "current": "hcloud:index/getFirewall:getFirewall",
                 "fields": {
@@ -383,6 +421,26 @@
                     }
                 }
             },
+            "hcloud_location": {
+                "current": "hcloud:index/getLocation:getLocation"
+            },
+            "hcloud_locations": {
+                "current": "hcloud:index/getLocations:getLocations",
+                "fields": {
+                    "descriptions": {
+                        "maxItemsOne": false
+                    },
+                    "location_ids": {
+                        "maxItemsOne": false
+                    },
+                    "locations": {
+                        "maxItemsOne": false
+                    },
+                    "names": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "hcloud_network": {
                 "current": "hcloud:index/getNetwork:getNetwork"
             },
@@ -510,6 +568,63 @@
         }
     },
     "auto-settings": {},
+    "mux": {
+        "resources": {
+            "hcloud:index/certificate:Certificate": 0,
+            "hcloud:index/firewall:Firewall": 0,
+            "hcloud:index/firewallAttachment:FirewallAttachment": 0,
+            "hcloud:index/floatingIp:FloatingIp": 0,
+            "hcloud:index/floatingIpAssignment:FloatingIpAssignment": 0,
+            "hcloud:index/loadBalancer:LoadBalancer": 0,
+            "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork": 0,
+            "hcloud:index/loadBalancerService:LoadBalancerService": 0,
+            "hcloud:index/loadBalancerTarget:LoadBalancerTarget": 0,
+            "hcloud:index/managedCertificate:ManagedCertificate": 0,
+            "hcloud:index/network:Network": 0,
+            "hcloud:index/networkRoute:NetworkRoute": 0,
+            "hcloud:index/networkSubnet:NetworkSubnet": 0,
+            "hcloud:index/placementGroup:PlacementGroup": 0,
+            "hcloud:index/primaryIp:PrimaryIp": 0,
+            "hcloud:index/rdns:Rdns": 0,
+            "hcloud:index/server:Server": 0,
+            "hcloud:index/serverNetwork:ServerNetwork": 0,
+            "hcloud:index/snapshot:Snapshot": 0,
+            "hcloud:index/sshKey:SshKey": 0,
+            "hcloud:index/uploadedCertificate:UploadedCertificate": 0,
+            "hcloud:index/volume:Volume": 0,
+            "hcloud:index/volumeAttachment:VolumeAttachment": 0
+        },
+        "functions": {
+            "hcloud:index/getCertificate:getCertificate": 0,
+            "hcloud:index/getCertificates:getCertificates": 0,
+            "hcloud:index/getDatacenter:getDatacenter": 1,
+            "hcloud:index/getDatacenters:getDatacenters": 1,
+            "hcloud:index/getFirewall:getFirewall": 0,
+            "hcloud:index/getFirewalls:getFirewalls": 0,
+            "hcloud:index/getFloatingIp:getFloatingIp": 0,
+            "hcloud:index/getFloatingIps:getFloatingIps": 0,
+            "hcloud:index/getImage:getImage": 0,
+            "hcloud:index/getImages:getImages": 0,
+            "hcloud:index/getLoadBalancer:getLoadBalancer": 0,
+            "hcloud:index/getLoadBalancers:getLoadBalancers": 0,
+            "hcloud:index/getLocation:getLocation": 1,
+            "hcloud:index/getLocations:getLocations": 1,
+            "hcloud:index/getNetwork:getNetwork": 0,
+            "hcloud:index/getNetworks:getNetworks": 0,
+            "hcloud:index/getPlacementGroup:getPlacementGroup": 0,
+            "hcloud:index/getPlacementGroups:getPlacementGroups": 0,
+            "hcloud:index/getPrimaryIp:getPrimaryIp": 0,
+            "hcloud:index/getPrimaryIps:getPrimaryIps": 0,
+            "hcloud:index/getServer:getServer": 0,
+            "hcloud:index/getServerType:getServerType": 0,
+            "hcloud:index/getServerTypes:getServerTypes": 0,
+            "hcloud:index/getServers:getServers": 0,
+            "hcloud:index/getSshKey:getSshKey": 0,
+            "hcloud:index/getSshKeys:getSshKeys": 0,
+            "hcloud:index/getVolume:getVolume": 0,
+            "hcloud:index/getVolumes:getVolumes": 0
+        }
+    },
     "renames": {
         "resources": {
             "hcloud:index/certificate:Certificate": "hcloud_certificate",
@@ -539,6 +654,8 @@
         "functions": {
             "hcloud:index/getCertificate:getCertificate": "hcloud_certificate",
             "hcloud:index/getCertificates:getCertificates": "hcloud_certificates",
+            "hcloud:index/getDatacenter:getDatacenter": "hcloud_datacenter",
+            "hcloud:index/getDatacenters:getDatacenters": "hcloud_datacenters",
             "hcloud:index/getFirewall:getFirewall": "hcloud_firewall",
             "hcloud:index/getFirewalls:getFirewalls": "hcloud_firewalls",
             "hcloud:index/getFloatingIp:getFloatingIp": "hcloud_floating_ip",
@@ -547,6 +664,8 @@
             "hcloud:index/getImages:getImages": "hcloud_images",
             "hcloud:index/getLoadBalancer:getLoadBalancer": "hcloud_load_balancer",
             "hcloud:index/getLoadBalancers:getLoadBalancers": "hcloud_load_balancers",
+            "hcloud:index/getLocation:getLocation": "hcloud_location",
+            "hcloud:index/getLocations:getLocations": "hcloud_locations",
             "hcloud:index/getNetwork:getNetwork": "hcloud_network",
             "hcloud:index/getNetworks:getNetworks": "hcloud_networks",
             "hcloud:index/getPlacementGroup:getPlacementGroup": "hcloud_placement_group",
@@ -631,6 +750,17 @@
                 "domainNames": "domain_names",
                 "notValidAfter": "not_valid_after",
                 "notValidBefore": "not_valid_before"
+            },
+            "hcloud:index/getDatacenter:getDatacenter": {
+                "availableServerTypeIds": "available_server_type_ids",
+                "supportedServerTypeIds": "supported_server_type_ids"
+            },
+            "hcloud:index/getDatacenters:getDatacenters": {
+                "datacenterIds": "datacenter_ids"
+            },
+            "hcloud:index/getDatacentersDatacenter:getDatacentersDatacenter": {
+                "availableServerTypeIds": "available_server_type_ids",
+                "supportedServerTypeIds": "supported_server_type_ids"
             },
             "hcloud:index/getFirewall:getFirewall": {
                 "applyTos": "apply_to",
@@ -769,6 +899,15 @@
             "hcloud:index/getLoadBalancersLoadBalancerTarget:getLoadBalancersLoadBalancerTarget": {
                 "labelSelector": "label_selector",
                 "serverId": "server_id"
+            },
+            "hcloud:index/getLocation:getLocation": {
+                "networkZone": "network_zone"
+            },
+            "hcloud:index/getLocations:getLocations": {
+                "locationIds": "location_ids"
+            },
+            "hcloud:index/getLocationsLocation:getLocationsLocation": {
+                "networkZone": "network_zone"
             },
             "hcloud:index/getNetwork:getNetwork": {
                 "deleteProtection": "delete_protection",

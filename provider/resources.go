@@ -15,13 +15,14 @@
 package hcloud
 
 import (
+	"context"
+	_ "embed" // embed is used to store bridge-metadata.json in the compiled binary
 	"fmt"
-	// embed is used to store bridge-metadata.json in the compiled binary
-	_ "embed"
 	"path"
 
 	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
 	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -41,8 +42,10 @@ var metadata []byte
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
-		P: shimv2.NewProvider(hcloud.Provider(),
-			shimv2.WithDiffStrategy(shimv2.PlanState)),
+		P: pfbridge.MuxShimWithPF(context.Background(),
+			shimv2.NewProvider(hcloud.Provider(),
+				shimv2.WithDiffStrategy(shimv2.PlanState)),
+			hcloud.NewPluginProvider()),
 		Name:         "hcloud",
 		Description:  "A Pulumi package for creating and managing hcloud cloud resources.",
 		Keywords:     []string{"pulumi", "hcloud"},

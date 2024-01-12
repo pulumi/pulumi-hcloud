@@ -400,6 +400,51 @@
                 }
             }
         },
+        "hcloud:index/getDatacentersDatacenter:getDatacentersDatacenter": {
+            "properties": {
+                "availableServerTypeIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "location": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "supportedServerTypeIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "availableServerTypeIds",
+                "description",
+                "id",
+                "location",
+                "name",
+                "supportedServerTypeIds"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "hcloud:index/getFirewallApplyTo:getFirewallApplyTo": {
             "properties": {
                 "labelSelector": {
@@ -1151,6 +1196,50 @@
                 "labelSelector",
                 "serverId",
                 "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getLocationsLocation:getLocationsLocation": {
+            "properties": {
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkZone": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "city",
+                "country",
+                "description",
+                "id",
+                "latitude",
+                "longitude",
+                "name",
+                "networkZone"
             ],
             "language": {
                 "nodejs": {
@@ -4366,6 +4455,149 @@
                 ]
             }
         },
+        "hcloud:index/getDatacenter:getDatacenter": {
+            "description": "Provides details about a specific Hetzner Cloud Datacenter.\nUse this resource to get detailed information about specific datacenter.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst ds1 = hcloud.getDatacenter({\n    name: \"fsn1-dc8\",\n});\nconst ds2 = hcloud.getDatacenter({\n    id: 4,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nds1 = hcloud.get_datacenter(name=\"fsn1-dc8\")\nds2 = hcloud.get_datacenter(id=4)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var ds1 = HCloud.GetDatacenter.Invoke(new()\n    {\n        Name = \"fsn1-dc8\",\n    });\n\n    var ds2 = HCloud.GetDatacenter.Invoke(new()\n    {\n        Id = 4,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tName: pulumi.StringRef(\"fsn1-dc8\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tId: pulumi.IntRef(4),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetDatacenterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()\n            .name(\"fsn1-dc8\")\n            .build());\n\n        final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()\n            .id(4)\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  ds1:\n    fn::invoke:\n      Function: hcloud:getDatacenter\n      Arguments:\n        name: fsn1-dc8\n  ds2:\n    fn::invoke:\n      Function: hcloud:getDatacenter\n      Arguments:\n        id: 4\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDatacenter.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the datacenter.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the datacenter.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDatacenter.\n",
+                "properties": {
+                    "availableServerTypeIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "(list) List of available server types.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "(string) Description of the datacenter.\n"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "description": "(int) Unique ID of the datacenter.\n"
+                    },
+                    "location": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "(map) Physical datacenter location.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "(string) Name of the datacenter.\n"
+                    },
+                    "supportedServerTypeIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "(list) List of server types supported by the datacenter.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "availableServerTypeIds",
+                    "description",
+                    "id",
+                    "location",
+                    "name",
+                    "supportedServerTypeIds"
+                ]
+            }
+        },
+        "hcloud:index/getDatacenters:getDatacenters": {
+            "description": "Provides a list of available Hetzner Cloud Datacenters.\nThis resource may be useful to create highly available infrastructure, distributed across several datacenters.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDatacenters.\n",
+                "properties": {
+                    "datacenterIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.\n",
+                        "deprecationMessage": "Use datacenters list instead"
+                    },
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.\n",
+                        "deprecationMessage": "Use datacenters list instead"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.\n",
+                        "deprecationMessage": "Use datacenters list instead"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDatacenters.\n",
+                "properties": {
+                    "datacenterIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.\n",
+                        "deprecationMessage": "Use datacenters list instead"
+                    },
+                    "datacenters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getDatacentersDatacenter:getDatacentersDatacenter"
+                        },
+                        "description": "(list) List of all datacenters. See `data.hcloud_datacenter` for schema.\n"
+                    },
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.\n",
+                        "deprecationMessage": "Use datacenters list instead"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.\n",
+                        "deprecationMessage": "Use datacenters list instead"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "datacenters"
+                ]
+            }
+        },
         "hcloud:index/getFirewall:getFirewall": {
             "description": "Provides details about a specific Hetzner Cloud Firewall.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst sampleFirewall1 = hcloud.getFirewall({\n    name: \"sample-firewall-1\",\n});\nconst sampleFirewall2 = hcloud.getFirewall({\n    id: 4711,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nsample_firewall1 = hcloud.get_firewall(name=\"sample-firewall-1\")\nsample_firewall2 = hcloud.get_firewall(id=4711)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sampleFirewall1 = HCloud.GetFirewall.Invoke(new()\n    {\n        Name = \"sample-firewall-1\",\n    });\n\n    var sampleFirewall2 = HCloud.GetFirewall.Invoke(new()\n    {\n        Id = 4711,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.LookupFirewall(ctx, \u0026hcloud.LookupFirewallArgs{\n\t\t\tName: pulumi.StringRef(\"sample-firewall-1\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupFirewall(ctx, \u0026hcloud.LookupFirewallArgs{\n\t\t\tId: pulumi.IntRef(4711),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetFirewallArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var sampleFirewall1 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()\n            .name(\"sample-firewall-1\")\n            .build());\n\n        final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()\n            .id(\"4711\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  sampleFirewall1:\n    fn::invoke:\n      Function: hcloud:getFirewall\n      Arguments:\n        name: sample-firewall-1\n  sampleFirewall2:\n    fn::invoke:\n      Function: hcloud:getFirewall\n      Arguments:\n        id: '4711'\n```\n",
             "inputs": {
@@ -4987,6 +5219,150 @@
                 "required": [
                     "loadBalancers",
                     "id"
+                ]
+            }
+        },
+        "hcloud:index/getLocation:getLocation": {
+            "description": "Provides details about a specific Hetzner Cloud Location.\nUse this resource to get detailed information about specific location.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst l1 = hcloud.getLocation({\n    name: \"fsn1\",\n});\nconst l2 = hcloud.getLocation({\n    id: 1,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nl1 = hcloud.get_location(name=\"fsn1\")\nl2 = hcloud.get_location(id=1)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var l1 = HCloud.GetLocation.Invoke(new()\n    {\n        Name = \"fsn1\",\n    });\n\n    var l2 = HCloud.GetLocation.Invoke(new()\n    {\n        Id = 1,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetLocation(ctx, \u0026hcloud.GetLocationArgs{\n\t\t\tName: pulumi.StringRef(\"fsn1\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetLocation(ctx, \u0026hcloud.GetLocationArgs{\n\t\t\tId: pulumi.IntRef(1),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetLocationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()\n            .name(\"fsn1\")\n            .build());\n\n        final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()\n            .id(1)\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  l1:\n    fn::invoke:\n      Function: hcloud:getLocation\n      Arguments:\n        name: fsn1\n  l2:\n    fn::invoke:\n      Function: hcloud:getLocation\n      Arguments:\n        id: 1\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocation.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the location.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the location.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocation.\n",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "(string) City of the location.\n"
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "(string) Country of the location.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "(string) Description of the location.\n"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "description": "(int) Unique ID of the location.\n"
+                    },
+                    "latitude": {
+                        "type": "number",
+                        "description": "(float) Latitude of the city.\n"
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "description": "(float) Longitude of the city.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "(string) Name of the location.\n"
+                    },
+                    "networkZone": {
+                        "type": "string",
+                        "description": "(string) Network Zone of the location.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "city",
+                    "country",
+                    "description",
+                    "id",
+                    "latitude",
+                    "longitude",
+                    "name",
+                    "networkZone"
+                ]
+            }
+        },
+        "hcloud:index/getLocations:getLocations": {
+            "description": "Provides a list of available Hetzner Cloud Locations.\nThis resource may be useful to create highly available infrastructure, distributed across several locations.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocations.\n",
+                "properties": {
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "locationIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of location names. **Deprecated**: Use `locations` attribute instead.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocations.\n",
+                "properties": {
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "locationIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    },
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getLocationsLocation:getLocationsLocation"
+                        },
+                        "description": "(list) List of all locations. See `data.hcloud_location` for schema.\n"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(list) List of location names. **Deprecated**: Use `locations` attribute instead.\n",
+                        "deprecationMessage": "Use locations list instead"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "locations"
                 ]
             }
         },
