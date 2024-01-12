@@ -40,6 +40,16 @@ export const getCertificates: typeof import("./getCertificates").getCertificates
 export const getCertificatesOutput: typeof import("./getCertificates").getCertificatesOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificates","getCertificatesOutput"], () => require("./getCertificates"));
 
+export { GetDatacenterArgs, GetDatacenterResult, GetDatacenterOutputArgs } from "./getDatacenter";
+export const getDatacenter: typeof import("./getDatacenter").getDatacenter = null as any;
+export const getDatacenterOutput: typeof import("./getDatacenter").getDatacenterOutput = null as any;
+utilities.lazyLoad(exports, ["getDatacenter","getDatacenterOutput"], () => require("./getDatacenter"));
+
+export { GetDatacentersArgs, GetDatacentersResult, GetDatacentersOutputArgs } from "./getDatacenters";
+export const getDatacenters: typeof import("./getDatacenters").getDatacenters = null as any;
+export const getDatacentersOutput: typeof import("./getDatacenters").getDatacentersOutput = null as any;
+utilities.lazyLoad(exports, ["getDatacenters","getDatacentersOutput"], () => require("./getDatacenters"));
+
 export { GetFirewallArgs, GetFirewallResult, GetFirewallOutputArgs } from "./getFirewall";
 export const getFirewall: typeof import("./getFirewall").getFirewall = null as any;
 export const getFirewallOutput: typeof import("./getFirewall").getFirewallOutput = null as any;
@@ -79,6 +89,16 @@ export { GetLoadBalancersArgs, GetLoadBalancersResult, GetLoadBalancersOutputArg
 export const getLoadBalancers: typeof import("./getLoadBalancers").getLoadBalancers = null as any;
 export const getLoadBalancersOutput: typeof import("./getLoadBalancers").getLoadBalancersOutput = null as any;
 utilities.lazyLoad(exports, ["getLoadBalancers","getLoadBalancersOutput"], () => require("./getLoadBalancers"));
+
+export { GetLocationArgs, GetLocationResult, GetLocationOutputArgs } from "./getLocation";
+export const getLocation: typeof import("./getLocation").getLocation = null as any;
+export const getLocationOutput: typeof import("./getLocation").getLocationOutput = null as any;
+utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("./getLocation"));
+
+export { GetLocationsArgs, GetLocationsResult, GetLocationsOutputArgs } from "./getLocations";
+export const getLocations: typeof import("./getLocations").getLocations = null as any;
+export const getLocationsOutput: typeof import("./getLocations").getLocationsOutput = null as any;
+utilities.lazyLoad(exports, ["getLocations","getLocationsOutput"], () => require("./getLocations"));
 
 export { GetNetworkArgs, GetNetworkResult, GetNetworkOutputArgs } from "./getNetwork";
 export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;

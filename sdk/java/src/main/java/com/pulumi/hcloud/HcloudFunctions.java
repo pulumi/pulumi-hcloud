@@ -12,6 +12,10 @@ import com.pulumi.hcloud.inputs.GetCertificateArgs;
 import com.pulumi.hcloud.inputs.GetCertificatePlainArgs;
 import com.pulumi.hcloud.inputs.GetCertificatesArgs;
 import com.pulumi.hcloud.inputs.GetCertificatesPlainArgs;
+import com.pulumi.hcloud.inputs.GetDatacenterArgs;
+import com.pulumi.hcloud.inputs.GetDatacenterPlainArgs;
+import com.pulumi.hcloud.inputs.GetDatacentersArgs;
+import com.pulumi.hcloud.inputs.GetDatacentersPlainArgs;
 import com.pulumi.hcloud.inputs.GetFirewallArgs;
 import com.pulumi.hcloud.inputs.GetFirewallPlainArgs;
 import com.pulumi.hcloud.inputs.GetFirewallsArgs;
@@ -28,6 +32,10 @@ import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
 import com.pulumi.hcloud.inputs.GetLoadBalancerPlainArgs;
 import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
 import com.pulumi.hcloud.inputs.GetLoadBalancersPlainArgs;
+import com.pulumi.hcloud.inputs.GetLocationArgs;
+import com.pulumi.hcloud.inputs.GetLocationPlainArgs;
+import com.pulumi.hcloud.inputs.GetLocationsArgs;
+import com.pulumi.hcloud.inputs.GetLocationsPlainArgs;
 import com.pulumi.hcloud.inputs.GetNetworkArgs;
 import com.pulumi.hcloud.inputs.GetNetworkPlainArgs;
 import com.pulumi.hcloud.inputs.GetNetworksArgs;
@@ -58,6 +66,8 @@ import com.pulumi.hcloud.inputs.GetVolumesArgs;
 import com.pulumi.hcloud.inputs.GetVolumesPlainArgs;
 import com.pulumi.hcloud.outputs.GetCertificateResult;
 import com.pulumi.hcloud.outputs.GetCertificatesResult;
+import com.pulumi.hcloud.outputs.GetDatacenterResult;
+import com.pulumi.hcloud.outputs.GetDatacentersResult;
 import com.pulumi.hcloud.outputs.GetFirewallResult;
 import com.pulumi.hcloud.outputs.GetFirewallsResult;
 import com.pulumi.hcloud.outputs.GetFloatingIpResult;
@@ -66,6 +76,8 @@ import com.pulumi.hcloud.outputs.GetImageResult;
 import com.pulumi.hcloud.outputs.GetImagesResult;
 import com.pulumi.hcloud.outputs.GetLoadBalancerResult;
 import com.pulumi.hcloud.outputs.GetLoadBalancersResult;
+import com.pulumi.hcloud.outputs.GetLocationResult;
+import com.pulumi.hcloud.outputs.GetLocationsResult;
 import com.pulumi.hcloud.outputs.GetNetworkResult;
 import com.pulumi.hcloud.outputs.GetNetworksResult;
 import com.pulumi.hcloud.outputs.GetPlacementGroupResult;
@@ -538,6 +550,306 @@ public final class HcloudFunctions {
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Datacenter.
+     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name(&#34;fsn1-dc8&#34;)
+     *             .build());
+     * 
+     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDatacenterResult> getDatacenter() {
+        return getDatacenter(GetDatacenterArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Datacenter.
+     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name(&#34;fsn1-dc8&#34;)
+     *             .build());
+     * 
+     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDatacenterResult> getDatacenterPlain() {
+        return getDatacenterPlain(GetDatacenterPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Datacenter.
+     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name(&#34;fsn1-dc8&#34;)
+     *             .build());
+     * 
+     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDatacenterResult> getDatacenter(GetDatacenterArgs args) {
+        return getDatacenter(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Datacenter.
+     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name(&#34;fsn1-dc8&#34;)
+     *             .build());
+     * 
+     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDatacenterResult> getDatacenterPlain(GetDatacenterPlainArgs args) {
+        return getDatacenterPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Datacenter.
+     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name(&#34;fsn1-dc8&#34;)
+     *             .build());
+     * 
+     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDatacenterResult> getDatacenter(GetDatacenterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getDatacenter:getDatacenter", TypeShape.of(GetDatacenterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Datacenter.
+     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name(&#34;fsn1-dc8&#34;)
+     *             .build());
+     * 
+     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDatacenterResult> getDatacenterPlain(GetDatacenterPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getDatacenter:getDatacenter", TypeShape.of(GetDatacenterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Datacenters.
+     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     */
+    public static Output<GetDatacentersResult> getDatacenters() {
+        return getDatacenters(GetDatacentersArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Datacenters.
+     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     */
+    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain() {
+        return getDatacentersPlain(GetDatacentersPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Datacenters.
+     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     */
+    public static Output<GetDatacentersResult> getDatacenters(GetDatacentersArgs args) {
+        return getDatacenters(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Datacenters.
+     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     */
+    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(GetDatacentersPlainArgs args) {
+        return getDatacentersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Datacenters.
+     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     */
+    public static Output<GetDatacentersResult> getDatacenters(GetDatacentersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Datacenters.
+     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     */
+    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(GetDatacentersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific Hetzner Cloud Firewall.
@@ -2620,6 +2932,306 @@ public final class HcloudFunctions {
      */
     public static CompletableFuture<GetLoadBalancersResult> getLoadBalancersPlain(GetLoadBalancersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getLoadBalancers:getLoadBalancers", TypeShape.of(GetLoadBalancersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Location.
+     * Use this resource to get detailed information about specific location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name(&#34;fsn1&#34;)
+     *             .build());
+     * 
+     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocationResult> getLocation() {
+        return getLocation(GetLocationArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Location.
+     * Use this resource to get detailed information about specific location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name(&#34;fsn1&#34;)
+     *             .build());
+     * 
+     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocationResult> getLocationPlain() {
+        return getLocationPlain(GetLocationPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Location.
+     * Use this resource to get detailed information about specific location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name(&#34;fsn1&#34;)
+     *             .build());
+     * 
+     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocationResult> getLocation(GetLocationArgs args) {
+        return getLocation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Location.
+     * Use this resource to get detailed information about specific location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name(&#34;fsn1&#34;)
+     *             .build());
+     * 
+     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args) {
+        return getLocationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Location.
+     * Use this resource to get detailed information about specific location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name(&#34;fsn1&#34;)
+     *             .build());
+     * 
+     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Location.
+     * Use this resource to get detailed information about specific location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name(&#34;fsn1&#34;)
+     *             .build());
+     * 
+     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Locations.
+     * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     */
+    public static Output<GetLocationsResult> getLocations() {
+        return getLocations(GetLocationsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Locations.
+     * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     */
+    public static CompletableFuture<GetLocationsResult> getLocationsPlain() {
+        return getLocationsPlain(GetLocationsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Locations.
+     * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     */
+    public static Output<GetLocationsResult> getLocations(GetLocationsArgs args) {
+        return getLocations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Locations.
+     * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     */
+    public static CompletableFuture<GetLocationsResult> getLocationsPlain(GetLocationsPlainArgs args) {
+        return getLocationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Locations.
+     * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     */
+    public static Output<GetLocationsResult> getLocations(GetLocationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Locations.
+     * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     */
+    public static CompletableFuture<GetLocationsResult> getLocationsPlain(GetLocationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

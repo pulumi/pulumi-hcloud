@@ -21,6 +21,7 @@ __all__ = [
     'ServerNetwork',
     'ServerPublicNet',
     'GetCertificatesCertificateResult',
+    'GetDatacentersDatacenterResult',
     'GetFirewallApplyToResult',
     'GetFirewallRuleResult',
     'GetFirewallsFirewallResult',
@@ -41,6 +42,7 @@ __all__ = [
     'GetLoadBalancersLoadBalancerServiceHealthCheckHttpResult',
     'GetLoadBalancersLoadBalancerServiceHttpResult',
     'GetLoadBalancersLoadBalancerTargetResult',
+    'GetLocationsLocationResult',
     'GetNetworksNetworkResult',
     'GetPlacementGroupsPlacementGroupResult',
     'GetPrimaryIpsPrimaryIpResult',
@@ -729,6 +731,53 @@ class GetCertificatesCertificateResult(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDatacentersDatacenterResult(dict):
+    def __init__(__self__, *,
+                 available_server_type_ids: Sequence[int],
+                 description: str,
+                 id: int,
+                 location: Mapping[str, str],
+                 name: str,
+                 supported_server_type_ids: Sequence[int]):
+        pulumi.set(__self__, "available_server_type_ids", available_server_type_ids)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "supported_server_type_ids", supported_server_type_ids)
+
+    @property
+    @pulumi.getter(name="availableServerTypeIds")
+    def available_server_type_ids(self) -> Sequence[int]:
+        return pulumi.get(self, "available_server_type_ids")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Mapping[str, str]:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="supportedServerTypeIds")
+    def supported_server_type_ids(self) -> Sequence[int]:
+        return pulumi.get(self, "supported_server_type_ids")
 
 
 @pulumi.output_type
@@ -1766,6 +1815,67 @@ class GetLoadBalancersLoadBalancerTargetResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetLocationsLocationResult(dict):
+    def __init__(__self__, *,
+                 city: str,
+                 country: str,
+                 description: str,
+                 id: int,
+                 latitude: float,
+                 longitude: float,
+                 name: str,
+                 network_zone: str):
+        pulumi.set(__self__, "city", city)
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_zone", network_zone)
+
+    @property
+    @pulumi.getter
+    def city(self) -> str:
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter
+    def country(self) -> str:
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> float:
+        return pulumi.get(self, "latitude")
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> float:
+        return pulumi.get(self, "longitude")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkZone")
+    def network_zone(self) -> str:
+        return pulumi.get(self, "network_zone")
 
 
 @pulumi.output_type

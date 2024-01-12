@@ -61,6 +61,15 @@ export interface GetCertificatesCertificate {
     type: string;
 }
 
+export interface GetDatacentersDatacenter {
+    availableServerTypeIds: number[];
+    description: string;
+    id: number;
+    location: {[key: string]: string};
+    name: string;
+    supportedServerTypeIds: number[];
+}
+
 export interface GetFirewallApplyTo {
     /**
      * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
@@ -334,6 +343,17 @@ export interface GetLoadBalancersLoadBalancerTarget {
     labelSelector: string;
     serverId: number;
     type: string;
+}
+
+export interface GetLocationsLocation {
+    city: string;
+    country: string;
+    description: string;
+    id: number;
+    latitude: number;
+    longitude: number;
+    name: string;
+    networkZone: string;
 }
 
 export interface GetNetworksNetwork {
