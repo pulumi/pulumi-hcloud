@@ -16,16 +16,19 @@ package hcloud
 
 import (
 	"context"
-	_ "embed" // embed is used to store bridge-metadata.json in the compiled binary
 	"fmt"
 	"path"
 
+	_ "embed" // embed is used to store bridge-metadata.json in the compiled binary
+
 	"github.com/hetznercloud/terraform-provider-hcloud/hcloud"
-	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
+
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+
+	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
 )
 
 // all of the token components used below.

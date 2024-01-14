@@ -18,10 +18,12 @@ package main
 
 import (
 	"context"
+
 	_ "embed"
 
-	hcloud "github.com/pulumi/pulumi-hcloud/provider"
 	"github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+
+	hcloud "github.com/pulumi/pulumi-hcloud/provider"
 )
 
 //go:embed schema-embed.json
