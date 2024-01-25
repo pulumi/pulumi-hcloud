@@ -227,6 +227,9 @@ export class Server extends pulumi.CustomResource {
      * Whether to try shutting the server down gracefully before deleting it.
      */
     public readonly shutdownBeforeDeletion!: pulumi.Output<boolean | undefined>;
+    /**
+     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
+     */
     public readonly sshKeys!: pulumi.Output<string[] | undefined>;
     /**
      * (string) The status of the server.
@@ -419,6 +422,9 @@ export interface ServerState {
      * Whether to try shutting the server down gracefully before deleting it.
      */
     shutdownBeforeDeletion?: pulumi.Input<boolean>;
+    /**
+     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
+     */
     sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (string) The status of the server.
@@ -512,6 +518,9 @@ export interface ServerArgs {
      * Whether to try shutting the server down gracefully before deleting it.
      */
     shutdownBeforeDeletion?: pulumi.Input<boolean>;
+    /**
+     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
+     */
     sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Cloud-Init user data to use during server creation
