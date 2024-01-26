@@ -310,9 +310,17 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.shutdownBeforeDeletion);
     }
 
+    /**
+     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+     * 
+     */
     @Import(name="sshKeys")
     private @Nullable Output<List<String>> sshKeys;
 
+    /**
+     * @return SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+     * 
+     */
     public Optional<Output<List<String>>> sshKeys() {
         return Optional.ofNullable(this.sshKeys);
     }
@@ -804,15 +812,33 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
             return shutdownBeforeDeletion(Output.of(shutdownBeforeDeletion));
         }
 
+        /**
+         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshKeys(@Nullable Output<List<String>> sshKeys) {
             $.sshKeys = sshKeys;
             return this;
         }
 
+        /**
+         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshKeys(List<String> sshKeys) {
             return sshKeys(Output.of(sshKeys));
         }
 
+        /**
+         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshKeys(String... sshKeys) {
             return sshKeys(List.of(sshKeys));
         }
