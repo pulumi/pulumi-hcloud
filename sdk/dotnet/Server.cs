@@ -315,6 +315,9 @@ namespace Pulumi.HCloud
         [Output("shutdownBeforeDeletion")]
         public Output<bool?> ShutdownBeforeDeletion { get; private set; } = null!;
 
+        /// <summary>
+        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        /// </summary>
         [Output("sshKeys")]
         public Output<ImmutableArray<string>> SshKeys { get; private set; } = null!;
 
@@ -518,6 +521,10 @@ namespace Pulumi.HCloud
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
@@ -710,6 +717,10 @@ namespace Pulumi.HCloud
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());

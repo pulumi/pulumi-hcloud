@@ -532,9 +532,17 @@ public class Server extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> shutdownBeforeDeletion() {
         return Codegen.optional(this.shutdownBeforeDeletion);
     }
+    /**
+     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+     * 
+     */
     @Export(name="sshKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sshKeys;
 
+    /**
+     * @return SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+     * 
+     */
     public Output<Optional<List<String>>> sshKeys() {
         return Codegen.optional(this.sshKeys);
     }

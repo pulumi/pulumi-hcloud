@@ -62,6 +62,7 @@ class ServerArgs:
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
         pulumi.set(__self__, "server_type", server_type)
@@ -339,6 +340,9 @@ class ServerArgs:
     @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
@@ -418,6 +422,7 @@ class _ServerState:
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
         :param pulumi.Input[str] status: (string) The status of the server.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
@@ -775,6 +780,9 @@ class _ServerState:
     @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
@@ -945,6 +953,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
         ...
@@ -1186,6 +1195,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
         :param pulumi.Input[str] status: (string) The status of the server.
         :param pulumi.Input[str] user_data: Cloud-Init user data to use during server creation
         """
@@ -1422,6 +1432,9 @@ class Server(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        """
         return pulumi.get(self, "ssh_keys")
 
     @property

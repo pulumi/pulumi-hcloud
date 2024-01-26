@@ -232,8 +232,9 @@ type Server struct {
 	// Name of the server type this server should be created with.
 	ServerType pulumi.StringOutput `pulumi:"serverType"`
 	// Whether to try shutting the server down gracefully before deleting it.
-	ShutdownBeforeDeletion pulumi.BoolPtrOutput     `pulumi:"shutdownBeforeDeletion"`
-	SshKeys                pulumi.StringArrayOutput `pulumi:"sshKeys"`
+	ShutdownBeforeDeletion pulumi.BoolPtrOutput `pulumi:"shutdownBeforeDeletion"`
+	// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
+	SshKeys pulumi.StringArrayOutput `pulumi:"sshKeys"`
 	// (string) The status of the server.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Cloud-Init user data to use during server creation
@@ -326,8 +327,9 @@ type serverState struct {
 	// Name of the server type this server should be created with.
 	ServerType *string `pulumi:"serverType"`
 	// Whether to try shutting the server down gracefully before deleting it.
-	ShutdownBeforeDeletion *bool    `pulumi:"shutdownBeforeDeletion"`
-	SshKeys                []string `pulumi:"sshKeys"`
+	ShutdownBeforeDeletion *bool `pulumi:"shutdownBeforeDeletion"`
+	// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
+	SshKeys []string `pulumi:"sshKeys"`
 	// (string) The status of the server.
 	Status *string `pulumi:"status"`
 	// Cloud-Init user data to use during server creation
@@ -389,7 +391,8 @@ type ServerState struct {
 	ServerType pulumi.StringPtrInput
 	// Whether to try shutting the server down gracefully before deleting it.
 	ShutdownBeforeDeletion pulumi.BoolPtrInput
-	SshKeys                pulumi.StringArrayInput
+	// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
+	SshKeys pulumi.StringArrayInput
 	// (string) The status of the server.
 	Status pulumi.StringPtrInput
 	// Cloud-Init user data to use during server creation
@@ -442,8 +445,9 @@ type serverArgs struct {
 	// Name of the server type this server should be created with.
 	ServerType string `pulumi:"serverType"`
 	// Whether to try shutting the server down gracefully before deleting it.
-	ShutdownBeforeDeletion *bool    `pulumi:"shutdownBeforeDeletion"`
-	SshKeys                []string `pulumi:"sshKeys"`
+	ShutdownBeforeDeletion *bool `pulumi:"shutdownBeforeDeletion"`
+	// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
+	SshKeys []string `pulumi:"sshKeys"`
 	// Cloud-Init user data to use during server creation
 	UserData *string `pulumi:"userData"`
 }
@@ -492,7 +496,8 @@ type ServerArgs struct {
 	ServerType pulumi.StringInput
 	// Whether to try shutting the server down gracefully before deleting it.
 	ShutdownBeforeDeletion pulumi.BoolPtrInput
-	SshKeys                pulumi.StringArrayInput
+	// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
+	SshKeys pulumi.StringArrayInput
 	// Cloud-Init user data to use during server creation
 	UserData pulumi.StringPtrInput
 }
@@ -710,6 +715,7 @@ func (o ServerOutput) ShutdownBeforeDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.ShutdownBeforeDeletion }).(pulumi.BoolPtrOutput)
 }
 
+// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
 func (o ServerOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
