@@ -15,6 +15,10 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworksNetwork {
     private Boolean deleteProtection;
+    /**
+     * @return Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     * 
+     */
     private Boolean exposeRoutesToVswitch;
     private Integer id;
     private String ipRange;
@@ -25,6 +29,10 @@ public final class GetNetworksNetwork {
     public Boolean deleteProtection() {
         return this.deleteProtection;
     }
+    /**
+     * @return Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     * 
+     */
     public Boolean exposeRoutesToVswitch() {
         return this.exposeRoutesToVswitch;
     }

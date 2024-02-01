@@ -358,6 +358,9 @@ export interface GetLocationsLocation {
 
 export interface GetNetworksNetwork {
     deleteProtection: boolean;
+    /**
+     * Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+     */
     exposeRoutesToVswitch: boolean;
     id: number;
     ipRange: string;
