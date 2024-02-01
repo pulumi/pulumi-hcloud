@@ -1253,7 +1253,8 @@
                     "type": "boolean"
                 },
                 "exposeRoutesToVswitch": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.\n"
                 },
                 "id": {
                     "type": "integer"
