@@ -14,6 +14,9 @@ namespace Pulumi.HCloud.Outputs
     public sealed class GetNetworksNetworkResult
     {
         public readonly bool DeleteProtection;
+        /// <summary>
+        /// Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        /// </summary>
         public readonly bool ExposeRoutesToVswitch;
         public readonly int Id;
         public readonly string IpRange;

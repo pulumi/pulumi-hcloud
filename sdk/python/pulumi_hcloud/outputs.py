@@ -1887,6 +1887,9 @@ class GetNetworksNetworkResult(dict):
                  ip_range: str,
                  labels: Mapping[str, Any],
                  name: str):
+        """
+        :param bool expose_routes_to_vswitch: Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        """
         pulumi.set(__self__, "delete_protection", delete_protection)
         pulumi.set(__self__, "expose_routes_to_vswitch", expose_routes_to_vswitch)
         pulumi.set(__self__, "id", id)
@@ -1902,6 +1905,9 @@ class GetNetworksNetworkResult(dict):
     @property
     @pulumi.getter(name="exposeRoutesToVswitch")
     def expose_routes_to_vswitch(self) -> bool:
+        """
+        Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
+        """
         return pulumi.get(self, "expose_routes_to_vswitch")
 
     @property
