@@ -4351,7 +4351,8 @@ func (o GetLocationsLocationArrayOutput) Index(i pulumi.IntInput) GetLocationsLo
 }
 
 type GetNetworksNetwork struct {
-	DeleteProtection      bool                   `pulumi:"deleteProtection"`
+	DeleteProtection bool `pulumi:"deleteProtection"`
+	// Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
 	ExposeRoutesToVswitch bool                   `pulumi:"exposeRoutesToVswitch"`
 	Id                    int                    `pulumi:"id"`
 	IpRange               string                 `pulumi:"ipRange"`
@@ -4371,7 +4372,8 @@ type GetNetworksNetworkInput interface {
 }
 
 type GetNetworksNetworkArgs struct {
-	DeleteProtection      pulumi.BoolInput   `pulumi:"deleteProtection"`
+	DeleteProtection pulumi.BoolInput `pulumi:"deleteProtection"`
+	// Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
 	ExposeRoutesToVswitch pulumi.BoolInput   `pulumi:"exposeRoutesToVswitch"`
 	Id                    pulumi.IntInput    `pulumi:"id"`
 	IpRange               pulumi.StringInput `pulumi:"ipRange"`
@@ -4434,6 +4436,7 @@ func (o GetNetworksNetworkOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNetworksNetwork) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }
 
+// Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
 func (o GetNetworksNetworkOutput) ExposeRoutesToVswitch() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNetworksNetwork) bool { return v.ExposeRoutesToVswitch }).(pulumi.BoolOutput)
 }
