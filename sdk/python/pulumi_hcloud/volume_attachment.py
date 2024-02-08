@@ -154,10 +154,10 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Volume Attachments can be imported using the `volume_id`
+        Volume Attachments can be imported using the `volume_id`:
 
         ```sh
-         $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
+        $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -196,10 +196,10 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Volume Attachments can be imported using the `volume_id`
+        Volume Attachments can be imported using the `volume_id`:
 
         ```sh
-         $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
+        $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
         ```
 
         :param str resource_name: The name of the resource.

@@ -23,10 +23,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Network Route entries can be imported using a compound ID with the following format`<network-id>-<destination>`
+ * Network Route entries can be imported using a compound ID with the following format:
+ *
+ *  `<network-id>-<destination>`
  *
  * ```sh
- *  $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
+ * $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
  * ```
  */
 export class NetworkRoute extends pulumi.CustomResource {

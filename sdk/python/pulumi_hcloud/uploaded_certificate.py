@@ -264,10 +264,12 @@ class UploadedCertificate(pulumi.CustomResource):
 
         ## Import
 
-        Uploaded certificates can be imported using their `id`hcl
+        Uploaded certificates can be imported using their `id`:
+
+         hcl
 
         ```sh
-         $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
+        $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
         ```
 
         :param str resource_name: The name of the resource.
@@ -289,10 +291,12 @@ class UploadedCertificate(pulumi.CustomResource):
 
         ## Import
 
-        Uploaded certificates can be imported using their `id`hcl
+        Uploaded certificates can be imported using their `id`:
+
+         hcl
 
         ```sh
-         $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
+        $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
         ```
 
         :param str resource_name: The name of the resource.

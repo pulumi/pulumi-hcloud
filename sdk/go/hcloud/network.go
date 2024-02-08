@@ -42,12 +42,10 @@ import (
 //
 // ## Import
 //
-// Networks can be imported using its `id`
+// Networks can be imported using its `id`:
 //
 // ```sh
-//
-//	$ pulumi import hcloud:index/network:Network myip id
-//
+// $ pulumi import hcloud:index/network:Network myip id
 // ```
 type Network struct {
 	pulumi.CustomResourceState

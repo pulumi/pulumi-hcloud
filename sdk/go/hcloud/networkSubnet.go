@@ -51,12 +51,12 @@ import (
 //
 // ## Import
 //
-// Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
+// Network Subnet entries can be imported using a compound ID with the following format:
+//
+//	`<network-id>-<ip_range>`
 //
 // ```sh
-//
-//	$ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
-//
+// $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
 // ```
 type NetworkSubnet struct {
 	pulumi.CustomResourceState

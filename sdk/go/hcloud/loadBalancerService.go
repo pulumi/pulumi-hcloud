@@ -69,12 +69,12 @@ import (
 //
 // ## Import
 //
-// Load Balancer Service entries can be imported using a compound ID with the following format`<load-balancer-id>__<listen-port>`
+// Load Balancer Service entries can be imported using a compound ID with the following format:
+//
+//	`<load-balancer-id>__<listen-port>`
 //
 // ```sh
-//
-//	$ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
-//
+// $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
 // ```
 type LoadBalancerService struct {
 	pulumi.CustomResourceState

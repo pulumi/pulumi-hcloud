@@ -38,10 +38,10 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Snapshots can be imported using its image `id`
+    /// Snapshots can be imported using its image `id`:
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/snapshot:Snapshot myimage id
+    /// $ pulumi import hcloud:index/snapshot:Snapshot myimage id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/snapshot:Snapshot")]

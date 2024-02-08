@@ -53,12 +53,10 @@ import (
 //
 // ## Import
 //
-// Placement Groups can be imported using its `id`
+// Placement Groups can be imported using its `id`:
 //
 // ```sh
-//
-//	$ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group id
-//
+// $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group id
 // ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState

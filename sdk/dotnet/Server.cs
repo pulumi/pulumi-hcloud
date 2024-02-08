@@ -160,10 +160,10 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Servers can be imported using the server `id`
+    /// Servers can be imported using the server `id`:
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/server:Server myserver id
+    /// $ pulumi import hcloud:index/server:Server myserver id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/server:Server")]

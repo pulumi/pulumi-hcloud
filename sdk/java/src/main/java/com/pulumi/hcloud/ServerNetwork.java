@@ -75,10 +75,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Server Network entries can be imported using a compound ID with the following format`&lt;server-id&gt;-&lt;network-id&gt;`
+ * Server Network entries can be imported using a compound ID with the following format:
+ * 
+ *  `&lt;server-id&gt;-&lt;network-id&gt;`
  * 
  * ```sh
- *  $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+ * $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
  * ```
  * 
  */
