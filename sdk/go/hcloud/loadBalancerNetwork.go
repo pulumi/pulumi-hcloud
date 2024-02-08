@@ -66,12 +66,12 @@ import (
 //
 // ## Import
 //
-// Load Balancer Network entries can be imported using a compound ID with the following format`<load-balancer-id>-<network-id>`
+// Load Balancer Network entries can be imported using a compound ID with the following format:
+//
+//	`<load-balancer-id>-<network-id>`
 //
 // ```sh
-//
-//	$ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
-//
+// $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
 // ```
 type LoadBalancerNetwork struct {
 	pulumi.CustomResourceState

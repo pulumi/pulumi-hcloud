@@ -169,12 +169,10 @@ import (
 //
 // ## Import
 //
-// Servers can be imported using the server `id`
+// Servers can be imported using the server `id`:
 //
 // ```sh
-//
-//	$ pulumi import hcloud:index/server:Server myserver id
-//
+// $ pulumi import hcloud:index/server:Server myserver id
 // ```
 type Server struct {
 	pulumi.CustomResourceState

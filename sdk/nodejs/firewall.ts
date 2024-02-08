@@ -43,10 +43,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Firewalls can be imported using its `id`
+ * Firewalls can be imported using its `id`:
  *
  * ```sh
- *  $ pulumi import hcloud:index/firewall:Firewall myfirewall id
+ * $ pulumi import hcloud:index/firewall:Firewall myfirewall id
  * ```
  */
 export class Firewall extends pulumi.CustomResource {

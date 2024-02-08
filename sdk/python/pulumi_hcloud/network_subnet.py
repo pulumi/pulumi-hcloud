@@ -225,10 +225,12 @@ class NetworkSubnet(pulumi.CustomResource):
 
         ## Import
 
-        Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
+        Network Subnet entries can be imported using a compound ID with the following format:
+
+         `<network-id>-<ip_range>`
 
         ```sh
-         $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+        $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
         ```
 
         :param str resource_name: The name of the resource.
@@ -264,10 +266,12 @@ class NetworkSubnet(pulumi.CustomResource):
 
         ## Import
 
-        Network Subnet entries can be imported using a compound ID with the following format`<network-id>-<ip_range>`
+        Network Subnet entries can be imported using a compound ID with the following format:
+
+         `<network-id>-<ip_range>`
 
         ```sh
-         $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+        $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
         ```
 
         :param str resource_name: The name of the resource.

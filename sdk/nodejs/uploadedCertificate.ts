@@ -9,10 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Uploaded certificates can be imported using their `id`hcl
+ * Uploaded certificates can be imported using their `id`:
+ *
+ *  hcl
  *
  * ```sh
- *  $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
+ * $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
  * ```
  */
 export class UploadedCertificate extends pulumi.CustomResource {

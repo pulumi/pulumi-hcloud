@@ -75,10 +75,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Load Balancer Network entries can be imported using a compound ID with the following format`&lt;load-balancer-id&gt;-&lt;network-id&gt;`
+ * Load Balancer Network entries can be imported using a compound ID with the following format:
+ * 
+ *  `&lt;load-balancer-id&gt;-&lt;network-id&gt;`
  * 
  * ```sh
- *  $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+ * $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
  * ```
  * 
  */

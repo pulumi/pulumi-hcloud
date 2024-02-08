@@ -236,10 +236,12 @@ class ManagedCertificate(pulumi.CustomResource):
 
         ## Import
 
-        Managed certificates can be imported using their `id`hcl
+        Managed certificates can be imported using their `id`:
+
+         hcl
 
         ```sh
-         $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
+        $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
         ```
 
         :param str resource_name: The name of the resource.
@@ -261,10 +263,12 @@ class ManagedCertificate(pulumi.CustomResource):
 
         ## Import
 
-        Managed certificates can be imported using their `id`hcl
+        Managed certificates can be imported using their `id`:
+
+         hcl
 
         ```sh
-         $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
+        $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
         ```
 
         :param str resource_name: The name of the resource.
