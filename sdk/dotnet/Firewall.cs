@@ -65,10 +65,10 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Firewalls can be imported using its `id`
+    /// Firewalls can be imported using its `id`:
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/firewall:Firewall myfirewall id
+    /// $ pulumi import hcloud:index/firewall:Firewall myfirewall id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/firewall:Firewall")]

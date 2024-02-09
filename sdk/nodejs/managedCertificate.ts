@@ -9,10 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Managed certificates can be imported using their `id`hcl
+ * Managed certificates can be imported using their `id`:
+ *
+ *  hcl
  *
  * ```sh
- *  $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
+ * $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
  * ```
  */
 export class ManagedCertificate extends pulumi.CustomResource {

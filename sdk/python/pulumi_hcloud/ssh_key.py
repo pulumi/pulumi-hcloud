@@ -162,10 +162,10 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        SSH keys can be imported using the SSH key `id`
+        SSH keys can be imported using the SSH key `id`:
 
         ```sh
-         $ pulumi import hcloud:index/sshKey:SshKey mykey id
+        $ pulumi import hcloud:index/sshKey:SshKey mykey id
         ```
 
         :param str resource_name: The name of the resource.
@@ -195,10 +195,10 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        SSH keys can be imported using the SSH key `id`
+        SSH keys can be imported using the SSH key `id`:
 
         ```sh
-         $ pulumi import hcloud:index/sshKey:SshKey mykey id
+        $ pulumi import hcloud:index/sshKey:SshKey mykey id
         ```
 
         :param str resource_name: The name of the resource.

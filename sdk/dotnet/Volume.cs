@@ -41,10 +41,10 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Volumes can be imported using their `id`
+    /// Volumes can be imported using their `id`:
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/volume:Volume myvolume id
+    /// $ pulumi import hcloud:index/volume:Volume myvolume id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/volume:Volume")]

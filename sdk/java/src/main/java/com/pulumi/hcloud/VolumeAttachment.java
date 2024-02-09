@@ -66,10 +66,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Volume Attachments can be imported using the `volume_id`
+ * Volume Attachments can be imported using the `volume_id`:
  * 
  * ```sh
- *  $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment &lt;volume_id&gt;
+ * $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment &lt;volume_id&gt;
  * ```
  * 
  */
