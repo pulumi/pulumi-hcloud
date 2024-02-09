@@ -61,10 +61,10 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Primary IPs can be imported using its `id`
+    /// Primary IPs can be imported using its `id`:
     /// 
     /// ```sh
-    ///  $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
+    /// $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/primaryIp:PrimaryIp")]

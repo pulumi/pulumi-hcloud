@@ -178,28 +178,32 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Reverse DNS entries can be imported using a compound ID with the following format`&lt;prefix (s for server/ f for floating ip / l for load balancer)&gt;-&lt;server, floating ip or load balancer ID&gt;-&lt;IP address&gt;` import reverse dns entry on server with id 123, ip 192.168.100.1
+ * Reverse DNS entries can be imported using a compound ID with the following format:
+ * 
+ *  `&lt;prefix (s for server/ f for floating ip / l for load balancer)&gt;-&lt;server, floating ip or load balancer ID&gt;-&lt;IP address&gt;`
+ * 
+ *  import reverse dns entry on server with id 123, ip 192.168.100.1
  * 
  * ```sh
- *  $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+ * $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
  * ```
  * 
  *  import reverse dns entry on primary ip with id 123, ip 2001:db8::1
  * 
  * ```sh
- *  $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
  * ```
  * 
  *  import reverse dns entry on floating ip with id 123, ip 2001:db8::1
  * 
  * ```sh
- *  $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
  * ```
  * 
  *  import reverse dns entry on load balancer with id 123, ip 2001:db8::1
  * 
  * ```sh
- *  $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
  * ```
  * 
  */

@@ -59,10 +59,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Network Subnet entries can be imported using a compound ID with the following format`&lt;network-id&gt;-&lt;ip_range&gt;`
+ * Network Subnet entries can be imported using a compound ID with the following format:
+ * 
+ *  `&lt;network-id&gt;-&lt;ip_range&gt;`
  * 
  * ```sh
- *  $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+ * $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
  * ```
  * 
  */

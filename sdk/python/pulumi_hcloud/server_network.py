@@ -287,10 +287,12 @@ class ServerNetwork(pulumi.CustomResource):
 
         ## Import
 
-        Server Network entries can be imported using a compound ID with the following format`<server-id>-<network-id>`
+        Server Network entries can be imported using a compound ID with the following format:
+
+         `<server-id>-<network-id>`
 
         ```sh
-         $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+        $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
         ```
 
         :param str resource_name: The name of the resource.
@@ -346,10 +348,12 @@ class ServerNetwork(pulumi.CustomResource):
 
         ## Import
 
-        Server Network entries can be imported using a compound ID with the following format`<server-id>-<network-id>`
+        Server Network entries can be imported using a compound ID with the following format:
+
+         `<server-id>-<network-id>`
 
         ```sh
-         $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+        $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
         ```
 
         :param str resource_name: The name of the resource.

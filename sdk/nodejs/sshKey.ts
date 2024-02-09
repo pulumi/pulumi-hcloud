@@ -20,10 +20,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * SSH keys can be imported using the SSH key `id`
+ * SSH keys can be imported using the SSH key `id`:
  *
  * ```sh
- *  $ pulumi import hcloud:index/sshKey:SshKey mykey id
+ * $ pulumi import hcloud:index/sshKey:SshKey mykey id
  * ```
  */
 export class SshKey extends pulumi.CustomResource {

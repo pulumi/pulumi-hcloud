@@ -148,10 +148,10 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        Snapshots can be imported using its image `id`
+        Snapshots can be imported using its image `id`:
 
         ```sh
-         $ pulumi import hcloud:index/snapshot:Snapshot myimage id
+        $ pulumi import hcloud:index/snapshot:Snapshot myimage id
         ```
 
         :param str resource_name: The name of the resource.
@@ -183,10 +183,10 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        Snapshots can be imported using its image `id`
+        Snapshots can be imported using its image `id`:
 
         ```sh
-         $ pulumi import hcloud:index/snapshot:Snapshot myimage id
+        $ pulumi import hcloud:index/snapshot:Snapshot myimage id
         ```
 
         :param str resource_name: The name of the resource.

@@ -341,10 +341,10 @@ class Volume(pulumi.CustomResource):
 
         ## Import
 
-        Volumes can be imported using their `id`
+        Volumes can be imported using their `id`:
 
         ```sh
-         $ pulumi import hcloud:index/volume:Volume myvolume id
+        $ pulumi import hcloud:index/volume:Volume myvolume id
         ```
 
         :param str resource_name: The name of the resource.
@@ -387,10 +387,10 @@ class Volume(pulumi.CustomResource):
 
         ## Import
 
-        Volumes can be imported using their `id`
+        Volumes can be imported using their `id`:
 
         ```sh
-         $ pulumi import hcloud:index/volume:Volume myvolume id
+        $ pulumi import hcloud:index/volume:Volume myvolume id
         ```
 
         :param str resource_name: The name of the resource.

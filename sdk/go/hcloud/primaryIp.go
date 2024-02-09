@@ -67,12 +67,10 @@ import (
 //
 // ## Import
 //
-// Primary IPs can be imported using its `id`
+// Primary IPs can be imported using its `id`:
 //
 // ```sh
-//
-//	$ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
-//
+// $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
 // ```
 type PrimaryIp struct {
 	pulumi.CustomResourceState
