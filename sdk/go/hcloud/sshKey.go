@@ -38,6 +38,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new SSH key
 //			_, err := hcloud.NewSshKey(ctx, "default", &hcloud.SshKeyArgs{
 //				PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
 //			})

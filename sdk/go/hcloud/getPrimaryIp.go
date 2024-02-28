@@ -58,6 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Link a server to an existing primary IP
 //			_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				ServerType: pulumi.String("cx11"),
