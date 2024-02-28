@@ -89,6 +89,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a new server from the snapshot
 //			_, err = hcloud.NewServer(ctx, "fromSnapshot", &hcloud.ServerArgs{
 //				Image:      *pulumi.Int(packerSnapshot.Id),
 //				ServerType: pulumi.String("cx11"),
@@ -126,6 +127,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Assign existing ipv4 only
 //			_, err := hcloud.NewServer(ctx, "serverTestServer", &hcloud.ServerArgs{
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
@@ -138,6 +140,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Link a managed ipv4 but autogenerate ipv6
 //			_, err = hcloud.NewServer(ctx, "serverTestIndex/serverServer", &hcloud.ServerArgs{
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
@@ -150,6 +153,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Assign & create auto-generated ipv4 & ipv6
 //			_, err = hcloud.NewServer(ctx, "serverTestHcloudIndex/serverServer", &hcloud.ServerArgs{
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
