@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,12 +64,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Load Balancer Network entries can be imported using a compound ID with the following format:
 //
-//	`<load-balancer-id>-<network-id>`
+// `<load-balancer-id>-<network-id>`
 //
 // ```sh
 // $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654

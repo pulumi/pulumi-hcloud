@@ -102,6 +102,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -117,6 +118,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
             floating_ip_id=master.id,
             server_id=node1.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -142,6 +144,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -157,6 +160,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
             floating_ip_id=master.id,
             server_id=node1.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

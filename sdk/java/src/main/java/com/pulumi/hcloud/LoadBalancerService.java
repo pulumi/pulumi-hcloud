@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Define services for Hetzner Cloud Load Balancers.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,12 +79,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Load Balancer Service entries can be imported using a compound ID with the following format:
  * 
- *  `&lt;load-balancer-id&gt;__&lt;listen-port&gt;`
+ * `&lt;load-balancer-id&gt;__&lt;listen-port&gt;`
  * 
  * ```sh
  * $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80

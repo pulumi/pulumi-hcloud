@@ -266,6 +266,7 @@ class ServerNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -284,12 +285,13 @@ class ServerNetwork(pulumi.CustomResource):
             network_id=mynet.id,
             ip="10.0.1.5")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Server Network entries can be imported using a compound ID with the following format:
 
-         `<server-id>-<network-id>`
+        `<server-id>-<network-id>`
 
         ```sh
         $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
@@ -327,6 +329,7 @@ class ServerNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -345,12 +348,13 @@ class ServerNetwork(pulumi.CustomResource):
             network_id=mynet.id,
             ip="10.0.1.5")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Server Network entries can be imported using a compound ID with the following format:
 
-         `<server-id>-<network-id>`
+        `<server-id>-<network-id>`
 
         ```sh
         $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654

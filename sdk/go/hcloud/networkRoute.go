@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,12 +48,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Network Route entries can be imported using a compound ID with the following format:
 //
-//	`<network-id>-<destination>`
+// `<network-id>-<destination>`
 //
 // ```sh
 // $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16

@@ -254,6 +254,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -272,12 +273,13 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             network_id=mynet.id,
             ip="10.0.1.5")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Load Balancer Network entries can be imported using a compound ID with the following format:
 
-         `<load-balancer-id>-<network-id>`
+        `<load-balancer-id>-<network-id>`
 
         ```sh
         $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
@@ -315,6 +317,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -333,12 +336,13 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             network_id=mynet.id,
             ip="10.0.1.5")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Load Balancer Network entries can be imported using a compound ID with the following format:
 
-         `<load-balancer-id>-<network-id>`
+        `<load-balancer-id>-<network-id>`
 
         ```sh
         $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654

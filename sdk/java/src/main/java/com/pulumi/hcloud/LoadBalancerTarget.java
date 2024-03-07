@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Adds a target to a Hetzner Cloud Load Balancer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,20 +66,21 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Load Balancer Target entries can be imported using a compound ID with the following format:
  * 
- *  `&lt;load-balancer-id&gt;__&lt;type&gt;__&lt;identifier&gt;`
+ * `&lt;load-balancer-id&gt;__&lt;type&gt;__&lt;identifier&gt;`
  * 
- *  Where _identifier_ depends on the _type_:
+ * Where _identifier_ depends on the _type_:
  * 
- *  - `server`: server id, for example: `123`
+ * - `server`: server id, for example: `123`
  * 
- *  - `label_selector`: label selector, for example: `foo=bar`
+ * - `label_selector`: label selector, for example: `foo=bar`
  * 
- *  - `ip`: ip address, for example: `203.0.113.123`
+ * - `ip`: ip address, for example: `203.0.113.123`
  * 
  * ```sh
  * $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerservertarget 123__server__321

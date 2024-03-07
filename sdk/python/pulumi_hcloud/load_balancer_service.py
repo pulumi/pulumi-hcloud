@@ -269,6 +269,7 @@ class LoadBalancerService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -297,12 +298,13 @@ class LoadBalancerService(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Load Balancer Service entries can be imported using a compound ID with the following format:
 
-         `<load-balancer-id>__<listen-port>`
+        `<load-balancer-id>__<listen-port>`
 
         ```sh
         $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
@@ -329,6 +331,7 @@ class LoadBalancerService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -357,12 +360,13 @@ class LoadBalancerService(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Load Balancer Service entries can be imported using a compound ID with the following format:
 
-         `<load-balancer-id>__<listen-port>`
+        `<load-balancer-id>__<listen-port>`
 
         ```sh
         $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80

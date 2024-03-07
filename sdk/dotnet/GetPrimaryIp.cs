@@ -21,7 +21,6 @@ namespace Pulumi.HCloud
         /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
         /// Currently, Primary IPs can be only attached to servers.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
         /// 
         /// # Data Source: hcloud.PrimaryIp
@@ -29,9 +28,10 @@ namespace Pulumi.HCloud
         /// Provides details about a Hetzner Cloud Primary IP.
         /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
         /// 
-        /// {{% example %}}
+        /// 
         /// ### Additional Examples
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,8 +76,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrimaryIpResult> InvokeAsync(GetPrimaryIpArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryIpResult>("hcloud:index/getPrimaryIp:getPrimaryIp", args ?? new GetPrimaryIpArgs(), options.WithDefaults());
@@ -92,7 +91,6 @@ namespace Pulumi.HCloud
         /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
         /// Currently, Primary IPs can be only attached to servers.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
         /// 
         /// # Data Source: hcloud.PrimaryIp
@@ -100,9 +98,10 @@ namespace Pulumi.HCloud
         /// Provides details about a Hetzner Cloud Primary IP.
         /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
         /// 
-        /// {{% example %}}
+        /// 
         /// ### Additional Examples
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -147,8 +146,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrimaryIpResult> Invoke(GetPrimaryIpInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryIpResult>("hcloud:index/getPrimaryIp:getPrimaryIp", args ?? new GetPrimaryIpInvokeArgs(), options.WithDefaults());

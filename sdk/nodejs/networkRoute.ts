@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -20,12 +21,13 @@ import * as utilities from "./utilities";
  *     gateway: "10.0.1.1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Network Route entries can be imported using a compound ID with the following format:
  *
- *  `<network-id>-<destination>`
+ * `<network-id>-<destination>`
  *
  * ```sh
  * $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
