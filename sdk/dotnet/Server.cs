@@ -13,7 +13,83 @@ namespace Pulumi.HCloud
     /// Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
     /// 
     /// ## Example Usage
+    /// 
+    /// ### Basic server creation
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new server running debian
+    ///     var node1 = new HCloud.Server("node1", new()
+    ///     {
+    ///         Image = "debian-11",
+    ///         PublicNets = new[]
+    ///         {
+    ///             new HCloud.Inputs.ServerPublicNetArgs
+    ///             {
+    ///                 Ipv4Enabled = true,
+    ///                 Ipv6Enabled = true,
+    ///             },
+    ///         },
+    ///         ServerType = "cx11",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //## Server creation with one linked primary ip (ipv4)
+    ///     var primaryIp1 = new HCloud.PrimaryIp("primaryIp1", new()
+    ///     {
+    ///         Datacenter = "fsn1-dc14",
+    ///         Type = "ipv4",
+    ///         AssigneeType = "server",
+    ///         AutoDelete = true,
+    ///         Labels = 
+    ///         {
+    ///             { "hallo", "welt" },
+    ///         },
+    ///     });
+    /// 
+    ///     var serverTest = new HCloud.Server("serverTest", new()
+    ///     {
+    ///         Image = "ubuntu-20.04",
+    ///         ServerType = "cx11",
+    ///         Datacenter = "fsn1-dc14",
+    ///         Labels = 
+    ///         {
+    ///             { "test", "tessst1" },
+    ///         },
+    ///         PublicNets = new[]
+    ///         {
+    ///             new HCloud.Inputs.ServerPublicNetArgs
+    ///             {
+    ///                 Ipv4Enabled = true,
+    ///                 Ipv4 = primaryIp1.Id,
+    ///                 Ipv6Enabled = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ### Server creation with network
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,8 +139,11 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Server creation from snapshot
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,6 +175,8 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Primary IPs
     /// 
     /// When creating a server without linking at least one ´primary_ip´, it automatically creates &amp; assigns two (ipv4 &amp; ipv6).
@@ -103,6 +184,7 @@ namespace Pulumi.HCloud
     /// 
     /// ### Examples
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -157,6 +239,7 @@ namespace Pulumi.HCloud
     ///     //...
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

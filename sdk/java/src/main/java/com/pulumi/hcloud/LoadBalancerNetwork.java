@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,12 +74,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Load Balancer Network entries can be imported using a compound ID with the following format:
  * 
- *  `&lt;load-balancer-id&gt;-&lt;network-id&gt;`
+ * `&lt;load-balancer-id&gt;-&lt;network-id&gt;`
  * 
  * ```sh
  * $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654

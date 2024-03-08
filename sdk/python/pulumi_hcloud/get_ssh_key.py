@@ -119,6 +119,7 @@ def get_ssh_key(fingerprint: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -133,6 +134,7 @@ def get_ssh_key(fingerprint: Optional[str] = None,
         ssh_key3.id,
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str fingerprint: Fingerprint of the SSH Key.
@@ -169,6 +171,7 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -183,6 +186,7 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
         ssh_key3.id,
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str fingerprint: Fingerprint of the SSH Key.

@@ -230,6 +230,7 @@ def get_image(id: Optional[int] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -240,6 +241,7 @@ def get_image(id: Optional[int] = None,
     image3 = hcloud.get_image(with_selector="key=value")
     main = hcloud.Server("main", image=image1.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the Image.
@@ -295,6 +297,7 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -305,6 +308,7 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     image3 = hcloud.get_image(with_selector="key=value")
     main = hcloud.Server("main", image=image1.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the Image.

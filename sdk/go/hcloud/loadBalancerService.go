@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,12 +67,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Load Balancer Service entries can be imported using a compound ID with the following format:
 //
-//	`<load-balancer-id>__<listen-port>`
+// `<load-balancer-id>__<listen-port>`
 //
 // ```sh
 // $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80

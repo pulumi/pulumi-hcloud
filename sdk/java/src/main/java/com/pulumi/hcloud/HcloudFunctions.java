@@ -97,6 +97,8 @@ import java.util.concurrent.CompletableFuture;
 public final class HcloudFunctions {
     /**
      * Provides details about a specific Hetzner Cloud Certificate.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +131,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate() {
@@ -136,6 +139,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Certificate.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -168,6 +173,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain() {
@@ -175,6 +181,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Certificate.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -207,6 +215,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -214,6 +223,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Certificate.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,6 +257,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -253,6 +265,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Certificate.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -285,6 +299,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -292,6 +307,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Certificate.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -324,6 +341,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -333,6 +351,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -361,6 +381,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificatesResult> getCertificates() {
@@ -370,6 +391,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -398,6 +421,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain() {
@@ -407,6 +431,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -435,6 +461,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args) {
@@ -444,6 +471,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -472,6 +501,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args) {
@@ -481,6 +511,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -509,6 +541,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOptions options) {
@@ -518,6 +551,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -546,6 +581,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args, InvokeOptions options) {
@@ -556,6 +592,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific datacenter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -588,6 +626,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatacenterResult> getDatacenter() {
@@ -598,6 +637,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific datacenter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -630,6 +671,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatacenterResult> getDatacenterPlain() {
@@ -640,6 +682,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific datacenter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -672,6 +716,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatacenterResult> getDatacenter(GetDatacenterArgs args) {
@@ -682,6 +727,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific datacenter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -714,6 +761,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatacenterResult> getDatacenterPlain(GetDatacenterPlainArgs args) {
@@ -724,6 +772,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific datacenter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -756,6 +806,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatacenterResult> getDatacenter(GetDatacenterArgs args, InvokeOptions options) {
@@ -766,6 +817,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific datacenter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -798,6 +851,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatacenterResult> getDatacenterPlain(GetDatacenterPlainArgs args, InvokeOptions options) {
@@ -853,6 +907,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Firewall.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -885,6 +941,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallResult> getFirewall() {
@@ -892,6 +949,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Firewall.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -924,6 +983,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain() {
@@ -931,6 +991,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Firewall.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -963,6 +1025,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args) {
@@ -970,6 +1033,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Firewall.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1002,6 +1067,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args) {
@@ -1009,6 +1075,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Firewall.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1041,6 +1109,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args, InvokeOptions options) {
@@ -1048,6 +1117,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Firewall.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1080,6 +1151,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args, InvokeOptions options) {
@@ -1089,6 +1161,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1117,6 +1191,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallsResult> getFirewalls() {
@@ -1126,6 +1201,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1154,6 +1231,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallsResult> getFirewallsPlain() {
@@ -1163,6 +1241,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1191,6 +1271,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallsResult> getFirewalls(GetFirewallsArgs args) {
@@ -1200,6 +1281,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1228,6 +1311,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallsResult> getFirewallsPlain(GetFirewallsPlainArgs args) {
@@ -1237,6 +1321,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1265,6 +1351,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallsResult> getFirewalls(GetFirewallsArgs args, InvokeOptions options) {
@@ -1274,6 +1361,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1302,6 +1391,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallsResult> getFirewallsPlain(GetFirewallsPlainArgs args, InvokeOptions options) {
@@ -1317,7 +1407,9 @@ public final class HcloudFunctions {
      * # Data Source: hcloud.FloatingIp
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1361,6 +1453,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFloatingIpResult> getFloatingIp() {
@@ -1376,7 +1469,9 @@ public final class HcloudFunctions {
      * # Data Source: hcloud.FloatingIp
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1420,6 +1515,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFloatingIpResult> getFloatingIpPlain() {
@@ -1435,7 +1531,9 @@ public final class HcloudFunctions {
      * # Data Source: hcloud.FloatingIp
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1479,6 +1577,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFloatingIpResult> getFloatingIp(GetFloatingIpArgs args) {
@@ -1494,7 +1593,9 @@ public final class HcloudFunctions {
      * # Data Source: hcloud.FloatingIp
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1538,6 +1639,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFloatingIpResult> getFloatingIpPlain(GetFloatingIpPlainArgs args) {
@@ -1553,7 +1655,9 @@ public final class HcloudFunctions {
      * # Data Source: hcloud.FloatingIp
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1597,6 +1701,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFloatingIpResult> getFloatingIp(GetFloatingIpArgs args, InvokeOptions options) {
@@ -1612,7 +1717,9 @@ public final class HcloudFunctions {
      * # Data Source: hcloud.FloatingIp
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1656,6 +1763,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFloatingIpResult> getFloatingIpPlain(GetFloatingIpPlainArgs args, InvokeOptions options) {
@@ -1665,6 +1773,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1693,6 +1803,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFloatingIpsResult> getFloatingIps() {
@@ -1702,6 +1813,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1730,6 +1843,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFloatingIpsResult> getFloatingIpsPlain() {
@@ -1739,6 +1853,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1767,6 +1883,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFloatingIpsResult> getFloatingIps(GetFloatingIpsArgs args) {
@@ -1776,6 +1893,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1804,6 +1923,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFloatingIpsResult> getFloatingIpsPlain(GetFloatingIpsPlainArgs args) {
@@ -1813,6 +1933,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1841,6 +1963,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFloatingIpsResult> getFloatingIps(GetFloatingIpsArgs args, InvokeOptions options) {
@@ -1850,6 +1973,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1878,6 +2003,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFloatingIpsResult> getFloatingIpsPlain(GetFloatingIpsPlainArgs args, InvokeOptions options) {
@@ -1885,6 +2011,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1928,6 +2056,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage() {
@@ -1935,6 +2064,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1978,6 +2109,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain() {
@@ -1985,6 +2117,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2028,6 +2162,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
@@ -2035,6 +2170,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2078,6 +2215,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -2085,6 +2223,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2128,6 +2268,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
@@ -2135,6 +2276,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2178,6 +2321,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -2187,6 +2331,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2219,6 +2365,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagesResult> getImages() {
@@ -2228,6 +2375,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2260,6 +2409,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain() {
@@ -2269,6 +2419,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2301,6 +2453,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args) {
@@ -2310,6 +2463,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2342,6 +2497,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args) {
@@ -2351,6 +2507,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2383,6 +2541,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
@@ -2392,6 +2551,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2424,6 +2585,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {
@@ -2433,6 +2595,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Load Balancer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2469,6 +2633,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer() {
@@ -2478,6 +2643,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Load Balancer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2514,6 +2681,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain() {
@@ -2523,6 +2691,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Load Balancer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2559,6 +2729,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args) {
@@ -2568,6 +2739,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Load Balancer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2604,6 +2777,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args) {
@@ -2613,6 +2787,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Load Balancer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2649,6 +2825,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args, InvokeOptions options) {
@@ -2658,6 +2835,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Load Balancer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2694,6 +2873,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args, InvokeOptions options) {
@@ -2703,6 +2883,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2733,6 +2915,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancersResult> getLoadBalancers() {
@@ -2742,6 +2925,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2772,6 +2957,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancersResult> getLoadBalancersPlain() {
@@ -2781,6 +2967,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2811,6 +2999,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancersResult> getLoadBalancers(GetLoadBalancersArgs args) {
@@ -2820,6 +3009,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2850,6 +3041,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancersResult> getLoadBalancersPlain(GetLoadBalancersPlainArgs args) {
@@ -2859,6 +3051,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2889,6 +3083,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancersResult> getLoadBalancers(GetLoadBalancersArgs args, InvokeOptions options) {
@@ -2898,6 +3093,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2928,6 +3125,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancersResult> getLoadBalancersPlain(GetLoadBalancersPlainArgs args, InvokeOptions options) {
@@ -2938,6 +3136,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2970,6 +3170,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationResult> getLocation() {
@@ -2980,6 +3181,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3012,6 +3215,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationResult> getLocationPlain() {
@@ -3022,6 +3226,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3054,6 +3260,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationResult> getLocation(GetLocationArgs args) {
@@ -3064,6 +3271,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3096,6 +3305,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args) {
@@ -3106,6 +3316,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3138,6 +3350,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOptions options) {
@@ -3148,6 +3361,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3180,6 +3395,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args, InvokeOptions options) {
@@ -3235,6 +3451,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3271,6 +3489,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkResult> getNetwork() {
@@ -3278,6 +3497,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3314,6 +3535,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain() {
@@ -3321,6 +3543,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3357,6 +3581,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args) {
@@ -3364,6 +3589,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3400,6 +3627,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args) {
@@ -3407,6 +3635,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3443,6 +3673,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOptions options) {
@@ -3450,6 +3681,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3486,6 +3719,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args, InvokeOptions options) {
@@ -3495,6 +3729,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3525,6 +3761,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworksResult> getNetworks() {
@@ -3534,6 +3771,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3564,6 +3803,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworksResult> getNetworksPlain() {
@@ -3573,6 +3813,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3603,6 +3845,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworksResult> getNetworks(GetNetworksArgs args) {
@@ -3612,6 +3855,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3642,6 +3887,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworksResult> getNetworksPlain(GetNetworksPlainArgs args) {
@@ -3651,6 +3897,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3681,6 +3929,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworksResult> getNetworks(GetNetworksArgs args, InvokeOptions options) {
@@ -3690,6 +3939,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3720,6 +3971,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworksResult> getNetworksPlain(GetNetworksPlainArgs args, InvokeOptions options) {
@@ -3727,6 +3979,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Placement Group.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3759,6 +4013,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup() {
@@ -3766,6 +4021,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Placement Group.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3798,6 +4055,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain() {
@@ -3805,6 +4063,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Placement Group.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3837,6 +4097,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args) {
@@ -3844,6 +4105,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Placement Group.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3876,6 +4139,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args) {
@@ -3883,6 +4147,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Placement Group.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3915,6 +4181,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args, InvokeOptions options) {
@@ -3922,6 +4189,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Placement Group.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3954,6 +4223,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args, InvokeOptions options) {
@@ -3963,6 +4233,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3993,6 +4265,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlacementGroupsResult> getPlacementGroups() {
@@ -4002,6 +4275,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4032,6 +4307,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlacementGroupsResult> getPlacementGroupsPlain() {
@@ -4041,6 +4317,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4071,6 +4349,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlacementGroupsResult> getPlacementGroups(GetPlacementGroupsArgs args) {
@@ -4080,6 +4359,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4110,6 +4391,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlacementGroupsResult> getPlacementGroupsPlain(GetPlacementGroupsPlainArgs args) {
@@ -4119,6 +4401,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4149,6 +4433,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlacementGroupsResult> getPlacementGroups(GetPlacementGroupsArgs args, InvokeOptions options) {
@@ -4158,6 +4443,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4188,6 +4475,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlacementGroupsResult> getPlacementGroupsPlain(GetPlacementGroupsPlainArgs args, InvokeOptions options) {
@@ -4209,7 +4497,10 @@ public final class HcloudFunctions {
      * 
      * Provides details about a Hetzner Cloud Primary IP.
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4259,6 +4550,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrimaryIpResult> getPrimaryIp() {
@@ -4280,7 +4572,10 @@ public final class HcloudFunctions {
      * 
      * Provides details about a Hetzner Cloud Primary IP.
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4330,6 +4625,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrimaryIpResult> getPrimaryIpPlain() {
@@ -4351,7 +4647,10 @@ public final class HcloudFunctions {
      * 
      * Provides details about a Hetzner Cloud Primary IP.
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4401,6 +4700,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrimaryIpResult> getPrimaryIp(GetPrimaryIpArgs args) {
@@ -4422,7 +4722,10 @@ public final class HcloudFunctions {
      * 
      * Provides details about a Hetzner Cloud Primary IP.
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4472,6 +4775,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrimaryIpResult> getPrimaryIpPlain(GetPrimaryIpPlainArgs args) {
@@ -4493,7 +4797,10 @@ public final class HcloudFunctions {
      * 
      * Provides details about a Hetzner Cloud Primary IP.
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4543,6 +4850,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrimaryIpResult> getPrimaryIp(GetPrimaryIpArgs args, InvokeOptions options) {
@@ -4564,7 +4872,10 @@ public final class HcloudFunctions {
      * 
      * Provides details about a Hetzner Cloud Primary IP.
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
      * ### Additional Examples
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4614,6 +4925,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrimaryIpResult> getPrimaryIpPlain(GetPrimaryIpPlainArgs args, InvokeOptions options) {
@@ -4623,6 +4935,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4651,6 +4965,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrimaryIpsResult> getPrimaryIps() {
@@ -4660,6 +4975,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4688,6 +5005,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrimaryIpsResult> getPrimaryIpsPlain() {
@@ -4697,6 +5015,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4725,6 +5045,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrimaryIpsResult> getPrimaryIps(GetPrimaryIpsArgs args) {
@@ -4734,6 +5055,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4762,6 +5085,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrimaryIpsResult> getPrimaryIpsPlain(GetPrimaryIpsPlainArgs args) {
@@ -4771,6 +5095,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4799,6 +5125,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrimaryIpsResult> getPrimaryIps(GetPrimaryIpsArgs args, InvokeOptions options) {
@@ -4808,6 +5135,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4836,6 +5165,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrimaryIpsResult> getPrimaryIpsPlain(GetPrimaryIpsPlainArgs args, InvokeOptions options) {
@@ -4843,6 +5173,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4879,6 +5211,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer() {
@@ -4886,6 +5219,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4922,6 +5257,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain() {
@@ -4929,6 +5265,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4965,6 +5303,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
@@ -4972,6 +5311,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5008,6 +5349,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -5015,6 +5357,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5051,6 +5395,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
@@ -5058,6 +5403,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5094,6 +5441,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {
@@ -5104,6 +5452,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5136,6 +5486,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerTypeResult> getServerType() {
@@ -5146,6 +5497,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5178,6 +5531,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerTypeResult> getServerTypePlain() {
@@ -5188,6 +5542,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5220,6 +5576,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerTypeResult> getServerType(GetServerTypeArgs args) {
@@ -5230,6 +5587,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5262,6 +5621,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerTypeResult> getServerTypePlain(GetServerTypePlainArgs args) {
@@ -5272,6 +5632,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5304,6 +5666,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerTypeResult> getServerType(GetServerTypeArgs args, InvokeOptions options) {
@@ -5314,6 +5677,8 @@ public final class HcloudFunctions {
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5346,6 +5711,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerTypeResult> getServerTypePlain(GetServerTypePlainArgs args, InvokeOptions options) {
@@ -5395,6 +5761,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5423,6 +5791,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServersResult> getServers() {
@@ -5430,6 +5799,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5458,6 +5829,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServersResult> getServersPlain() {
@@ -5465,6 +5837,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5493,6 +5867,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServersResult> getServers(GetServersArgs args) {
@@ -5500,6 +5875,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5528,6 +5905,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServersResult> getServersPlain(GetServersPlainArgs args) {
@@ -5535,6 +5913,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5563,6 +5943,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServersResult> getServers(GetServersArgs args, InvokeOptions options) {
@@ -5570,6 +5951,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5598,6 +5981,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServersResult> getServersPlain(GetServersPlainArgs args, InvokeOptions options) {
@@ -5605,6 +5989,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5654,6 +6040,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeyResult> getSshKey() {
@@ -5661,6 +6048,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5710,6 +6099,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeyResult> getSshKeyPlain() {
@@ -5717,6 +6107,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5766,6 +6158,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeyResult> getSshKey(GetSshKeyArgs args) {
@@ -5773,6 +6166,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5822,6 +6217,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeyResult> getSshKeyPlain(GetSshKeyPlainArgs args) {
@@ -5829,6 +6225,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5878,6 +6276,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeyResult> getSshKey(GetSshKeyArgs args, InvokeOptions options) {
@@ -5885,6 +6284,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5934,6 +6335,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeyResult> getSshKeyPlain(GetSshKeyPlainArgs args, InvokeOptions options) {
@@ -5941,6 +6343,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5977,6 +6381,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeysResult> getSshKeys() {
@@ -5984,6 +6389,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6020,6 +6427,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain() {
@@ -6027,6 +6435,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6063,6 +6473,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeysResult> getSshKeys(GetSshKeysArgs args) {
@@ -6070,6 +6481,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6106,6 +6519,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(GetSshKeysPlainArgs args) {
@@ -6113,6 +6527,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6149,6 +6565,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeysResult> getSshKeys(GetSshKeysArgs args, InvokeOptions options) {
@@ -6156,6 +6573,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6192,6 +6611,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(GetSshKeysPlainArgs args, InvokeOptions options) {
@@ -6199,6 +6619,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6235,6 +6657,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeResult> getVolume() {
@@ -6242,6 +6665,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6278,6 +6703,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain() {
@@ -6285,6 +6711,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6321,6 +6749,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args) {
@@ -6328,6 +6757,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6364,6 +6795,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args) {
@@ -6371,6 +6803,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6407,6 +6841,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOptions options) {
@@ -6414,6 +6849,8 @@ public final class HcloudFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6450,6 +6887,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args, InvokeOptions options) {
@@ -6459,6 +6897,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6489,6 +6929,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumesResult> getVolumes() {
@@ -6498,6 +6939,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6528,6 +6971,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumesResult> getVolumesPlain() {
@@ -6537,6 +6981,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6567,6 +7013,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumesResult> getVolumes(GetVolumesArgs args) {
@@ -6576,6 +7023,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6606,6 +7055,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumesResult> getVolumesPlain(GetVolumesPlainArgs args) {
@@ -6615,6 +7065,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6645,6 +7097,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumesResult> getVolumes(GetVolumesArgs args, InvokeOptions options) {
@@ -6654,6 +7107,8 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6684,6 +7139,7 @@ public final class HcloudFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumesResult> getVolumesPlain(GetVolumesPlainArgs args, InvokeOptions options) {

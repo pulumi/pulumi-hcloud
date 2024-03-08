@@ -15,10 +15,9 @@ namespace Pulumi.HCloud
         /// Provides details about a specific Hetzner Cloud Location.
         /// Use this resource to get detailed information about specific location.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocationResult> InvokeAsync(GetLocationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationArgs(), options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.HCloud
         /// Provides details about a specific Hetzner Cloud Location.
         /// Use this resource to get detailed information about specific location.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());

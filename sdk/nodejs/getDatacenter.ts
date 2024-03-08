@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -21,6 +22,7 @@ import * as utilities from "./utilities";
  *     id: 4,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDatacenter(args?: GetDatacenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacenterResult> {
     args = args || {};
@@ -81,6 +83,7 @@ export interface GetDatacenterResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -92,6 +95,7 @@ export interface GetDatacenterResult {
  *     id: 4,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDatacenterOutput(args?: GetDatacenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacenterResult> {
     return pulumi.output(args).apply((a: any) => getDatacenter(a, opts))

@@ -15,10 +15,9 @@ namespace Pulumi.HCloud
         /// Provides details about multiple Hetzner Cloud Primary IPs.
         /// 
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrimaryIpsResult> InvokeAsync(GetPrimaryIpsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.HCloud
         /// Provides details about multiple Hetzner Cloud Primary IPs.
         /// 
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrimaryIpsResult> Invoke(GetPrimaryIpsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsInvokeArgs(), options.WithDefaults());

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,12 +74,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Server Network entries can be imported using a compound ID with the following format:
  * 
- *  `&lt;server-id&gt;-&lt;network-id&gt;`
+ * `&lt;server-id&gt;-&lt;network-id&gt;`
  * 
  * ```sh
  * $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654

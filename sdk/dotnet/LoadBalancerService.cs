@@ -14,6 +14,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,12 +60,13 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Load Balancer Service entries can be imported using a compound ID with the following format:
     /// 
-    ///  `&lt;load-balancer-id&gt;__&lt;listen-port&gt;`
+    /// `&lt;load-balancer-id&gt;__&lt;listen-port&gt;`
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80

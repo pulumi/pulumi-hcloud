@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -21,6 +22,7 @@ import * as utilities from "./utilities";
  *     id: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocation(args?: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
     args = args || {};
@@ -89,6 +91,7 @@ export interface GetLocationResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -100,6 +103,7 @@ export interface GetLocationResult {
  *     id: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocationOutput(args?: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
     return pulumi.output(args).apply((a: any) => getLocation(a, opts))

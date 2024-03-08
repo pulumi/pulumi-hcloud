@@ -20,8 +20,10 @@ import * as utilities from "./utilities";
  *
  * Provides details about a Hetzner Cloud Primary IP.
  * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+ *
  * ### Additional Examples
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -48,6 +50,7 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrimaryIp(args?: GetPrimaryIpArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryIpResult> {
     args = args || {};
@@ -154,8 +157,10 @@ export interface GetPrimaryIpResult {
  *
  * Provides details about a Hetzner Cloud Primary IP.
  * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+ *
  * ### Additional Examples
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -182,6 +187,7 @@ export interface GetPrimaryIpResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpResult> {
     return pulumi.output(args).apply((a: any) => getPrimaryIp(a, opts))

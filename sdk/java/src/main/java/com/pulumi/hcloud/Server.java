@@ -25,7 +25,96 @@ import javax.annotation.Nullable;
  * Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
  * 
  * ## Example Usage
+ * 
+ * ### Basic server creation
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.hcloud.Server;
+ * import com.pulumi.hcloud.ServerArgs;
+ * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
+ *             .image(&#34;debian-11&#34;)
+ *             .publicNets(ServerPublicNetArgs.builder()
+ *                 .ipv4Enabled(true)
+ *                 .ipv6Enabled(true)
+ *                 .build())
+ *             .serverType(&#34;cx11&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.hcloud.PrimaryIp;
+ * import com.pulumi.hcloud.PrimaryIpArgs;
+ * import com.pulumi.hcloud.Server;
+ * import com.pulumi.hcloud.ServerArgs;
+ * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var primaryIp1 = new PrimaryIp(&#34;primaryIp1&#34;, PrimaryIpArgs.builder()        
+ *             .datacenter(&#34;fsn1-dc14&#34;)
+ *             .type(&#34;ipv4&#34;)
+ *             .assigneeType(&#34;server&#34;)
+ *             .autoDelete(true)
+ *             .labels(Map.of(&#34;hallo&#34;, &#34;welt&#34;))
+ *             .build());
+ * 
+ *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
+ *             .image(&#34;ubuntu-20.04&#34;)
+ *             .serverType(&#34;cx11&#34;)
+ *             .datacenter(&#34;fsn1-dc14&#34;)
+ *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+ *             .publicNets(ServerPublicNetArgs.builder()
+ *                 .ipv4Enabled(true)
+ *                 .ipv4(primaryIp1.id())
+ *                 .ipv6Enabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * ### Server creation with network
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,7 +171,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Server creation from snapshot
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -124,12 +217,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Primary IPs
  * 
  * When creating a server without linking at least one ´primary_ip´, it automatically creates &amp; assigns two (ipv4 &amp; ipv6).
  * With the public_net block, you can enable or link primary ips. If you don&#39;t define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
  * 
  * ### Examples
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -178,6 +275,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
