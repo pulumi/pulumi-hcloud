@@ -83,6 +83,7 @@ def get_volumes(with_selector: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -90,6 +91,7 @@ def get_volumes(with_selector: Optional[str] = None,
     volume_ = hcloud.get_volumes()
     volume3 = hcloud.get_volumes(with_selector="key=value")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -117,6 +119,7 @@ def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -124,6 +127,7 @@ def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
     volume_ = hcloud.get_volumes()
     volume3 = hcloud.get_volumes(with_selector="key=value")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)

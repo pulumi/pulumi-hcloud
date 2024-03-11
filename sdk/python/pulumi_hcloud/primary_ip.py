@@ -338,6 +338,7 @@ class PrimaryIp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -362,6 +363,7 @@ class PrimaryIp(pulumi.CustomResource):
                 ipv4=main.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -397,6 +399,7 @@ class PrimaryIp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -421,6 +424,7 @@ class PrimaryIp(pulumi.CustomResource):
                 ipv4=main.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

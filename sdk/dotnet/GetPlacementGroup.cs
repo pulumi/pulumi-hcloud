@@ -14,6 +14,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Placement Group.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,6 +35,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
@@ -41,6 +43,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Placement Group.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,6 +64,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("hcloud:index/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());

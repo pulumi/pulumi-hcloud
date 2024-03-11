@@ -169,6 +169,7 @@ def get_volume(id: Optional[int] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -177,6 +178,7 @@ def get_volume(id: Optional[int] = None,
     volume2 = hcloud.get_volume(name="my-volume")
     volume3 = hcloud.get_volume(with_selector="key=value")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the volume.
@@ -223,6 +225,7 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -231,6 +234,7 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     volume2 = hcloud.get_volume(name="my-volume")
     volume3 = hcloud.get_volume(with_selector="key=value")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the volume.

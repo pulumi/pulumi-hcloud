@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -21,12 +22,13 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.1.0/24",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Network Subnet entries can be imported using a compound ID with the following format:
  *
- *  `<network-id>-<ip_range>`
+ * `<network-id>-<ip_range>`
  *
  * ```sh
  * $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24

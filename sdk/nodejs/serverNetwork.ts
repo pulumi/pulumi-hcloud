@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -30,12 +31,13 @@ import * as utilities from "./utilities";
  *     ip: "10.0.1.5",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Server Network entries can be imported using a compound ID with the following format:
  *
- *  `<server-id>-<network-id>`
+ * `<server-id>-<network-id>`
  *
  * ```sh
  * $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654

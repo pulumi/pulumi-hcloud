@@ -845,7 +845,54 @@ class Server(pulumi.CustomResource):
         Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 
         ## Example Usage
+
+        ### Basic server creation
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Create a new server running debian
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            public_nets=[hcloud.ServerPublicNetArgs(
+                ipv4_enabled=True,
+                ipv6_enabled=True,
+            )],
+            server_type="cx11")
+        ```
+        <!--End PulumiCodeChooser -->
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        ### Server creation with one linked primary ip (ipv4)
+        primary_ip1 = hcloud.PrimaryIp("primaryIp1",
+            datacenter="fsn1-dc14",
+            type="ipv4",
+            assignee_type="server",
+            auto_delete=True,
+            labels={
+                "hallo": "welt",
+            })
+        server_test = hcloud.Server("serverTest",
+            image="ubuntu-20.04",
+            server_type="cx11",
+            datacenter="fsn1-dc14",
+            labels={
+                "test": "tessst1",
+            },
+            public_nets=[hcloud.ServerPublicNetArgs(
+                ipv4_enabled=True,
+                ipv4=primary_ip1.id,
+                ipv6_enabled=False,
+            )])
+        ```
+        <!--End PulumiCodeChooser -->
         ### Server creation with network
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -870,8 +917,11 @@ class Server(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server creation from snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -887,6 +937,8 @@ class Server(pulumi.CustomResource):
                 ipv6_enabled=True,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Primary IPs
 
         When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
@@ -894,6 +946,7 @@ class Server(pulumi.CustomResource):
 
         ### Examples
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -919,6 +972,7 @@ class Server(pulumi.CustomResource):
         )])
         #...
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -966,7 +1020,54 @@ class Server(pulumi.CustomResource):
         Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 
         ## Example Usage
+
+        ### Basic server creation
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        # Create a new server running debian
+        node1 = hcloud.Server("node1",
+            image="debian-11",
+            public_nets=[hcloud.ServerPublicNetArgs(
+                ipv4_enabled=True,
+                ipv6_enabled=True,
+            )],
+            server_type="cx11")
+        ```
+        <!--End PulumiCodeChooser -->
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        ### Server creation with one linked primary ip (ipv4)
+        primary_ip1 = hcloud.PrimaryIp("primaryIp1",
+            datacenter="fsn1-dc14",
+            type="ipv4",
+            assignee_type="server",
+            auto_delete=True,
+            labels={
+                "hallo": "welt",
+            })
+        server_test = hcloud.Server("serverTest",
+            image="ubuntu-20.04",
+            server_type="cx11",
+            datacenter="fsn1-dc14",
+            labels={
+                "test": "tessst1",
+            },
+            public_nets=[hcloud.ServerPublicNetArgs(
+                ipv4_enabled=True,
+                ipv4=primary_ip1.id,
+                ipv6_enabled=False,
+            )])
+        ```
+        <!--End PulumiCodeChooser -->
         ### Server creation with network
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -991,8 +1092,11 @@ class Server(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server creation from snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -1008,6 +1112,8 @@ class Server(pulumi.CustomResource):
                 ipv6_enabled=True,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Primary IPs
 
         When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
@@ -1015,6 +1121,7 @@ class Server(pulumi.CustomResource):
 
         ### Examples
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -1040,6 +1147,7 @@ class Server(pulumi.CustomResource):
         )])
         #...
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

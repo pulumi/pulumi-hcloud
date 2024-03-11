@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFloatingIps(args?: GetFloatingIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpsResult> {
     args = args || {};
@@ -58,6 +60,7 @@ export interface GetFloatingIpsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -66,6 +69,7 @@ export interface GetFloatingIpsResult {
  *     withSelector: "key=value",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFloatingIpsOutput(args?: GetFloatingIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpsResult> {
     return pulumi.output(args).apply((a: any) => getFloatingIps(a, opts))

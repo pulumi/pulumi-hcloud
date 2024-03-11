@@ -15,7 +15,94 @@ import (
 // Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 //
 // ## Example Usage
+//
+// ### Basic server creation
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new server running debian
+//			_, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Image: pulumi.String("debian-11"),
+//				PublicNets: hcloud.ServerPublicNetArray{
+//					&hcloud.ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv6Enabled: pulumi.Bool(true),
+//					},
+//				},
+//				ServerType: pulumi.String("cx11"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ## Server creation with one linked primary ip (ipv4)
+//			primaryIp1, err := hcloud.NewPrimaryIp(ctx, "primaryIp1", &hcloud.PrimaryIpArgs{
+//				Datacenter:   pulumi.String("fsn1-dc14"),
+//				Type:         pulumi.String("ipv4"),
+//				AssigneeType: pulumi.String("server"),
+//				AutoDelete:   pulumi.Bool(true),
+//				Labels: pulumi.Map{
+//					"hallo": pulumi.Any("welt"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
+//				Image:      pulumi.String("ubuntu-20.04"),
+//				ServerType: pulumi.String("cx11"),
+//				Datacenter: pulumi.String("fsn1-dc14"),
+//				Labels: pulumi.Map{
+//					"test": pulumi.Any("tessst1"),
+//				},
+//				PublicNets: hcloud.ServerPublicNetArray{
+//					&hcloud.ServerPublicNetArgs{
+//						Ipv4Enabled: pulumi.Bool(true),
+//						Ipv4:        primaryIp1.ID(),
+//						Ipv6Enabled: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 // ### Server creation with network
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,8 +155,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Server creation from snapshot
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,6 +198,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Primary IPs
 //
 // When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
@@ -115,6 +207,7 @@ import (
 //
 // ### Examples
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -170,6 +263,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

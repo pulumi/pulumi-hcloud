@@ -136,6 +136,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -145,6 +146,7 @@ class Snapshot(pulumi.CustomResource):
             server_type="cx11")
         my_snapshot = hcloud.Snapshot("my-snapshot", server_id=node1.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -171,6 +173,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -180,6 +183,7 @@ class Snapshot(pulumi.CustomResource):
             server_type="cx11")
         my_snapshot = hcloud.Snapshot("my-snapshot", server_id=node1.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

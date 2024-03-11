@@ -15,10 +15,9 @@ namespace Pulumi.HCloud
         /// Provides details about multiple Hetzner Cloud volumes.
         /// 
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +35,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVolumesResult> InvokeAsync(GetVolumesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.HCloud
         /// Provides details about multiple Hetzner Cloud volumes.
         /// 
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +64,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVolumesResult> Invoke(GetVolumesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesInvokeArgs(), options.WithDefaults());

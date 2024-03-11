@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -24,6 +25,7 @@ import * as utilities from "./utilities";
  *     format: "ext4",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

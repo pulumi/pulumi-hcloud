@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCertificates(args?: GetCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificatesResult> {
     args = args || {};
@@ -58,6 +60,7 @@ export interface GetCertificatesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -66,6 +69,7 @@ export interface GetCertificatesResult {
  *     withSelector: "key=value",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCertificatesOutput(args?: GetCertificatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificatesResult> {
     return pulumi.output(args).apply((a: any) => getCertificates(a, opts))

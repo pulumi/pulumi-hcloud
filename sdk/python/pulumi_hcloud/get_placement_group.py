@@ -117,6 +117,7 @@ def get_placement_group(id: Optional[int] = None,
     """
     Provides details about a specific Hetzner Cloud Placement Group.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -124,6 +125,7 @@ def get_placement_group(id: Optional[int] = None,
     sample_placement_group1 = hcloud.get_placement_group(name="sample-placement-group-1")
     sample_placement_group2 = hcloud.get_placement_group(id=4711)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the placement group.
@@ -164,6 +166,7 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     """
     Provides details about a specific Hetzner Cloud Placement Group.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -171,6 +174,7 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     sample_placement_group1 = hcloud.get_placement_group(name="sample-placement-group-1")
     sample_placement_group2 = hcloud.get_placement_group(id=4711)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the placement group.

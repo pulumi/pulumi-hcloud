@@ -262,6 +262,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -277,20 +278,21 @@ class LoadBalancerTarget(pulumi.CustomResource):
             load_balancer_id=load_balancer.id,
             server_id=my_server.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Load Balancer Target entries can be imported using a compound ID with the following format:
 
-         `<load-balancer-id>__<type>__<identifier>`
+        `<load-balancer-id>__<type>__<identifier>`
 
-         Where _identifier_ depends on the _type_:
+        Where _identifier_ depends on the _type_:
 
-         - `server`: server id, for example: `123`
+        - `server`: server id, for example: `123`
 
-         - `label_selector`: label selector, for example: `foo=bar`
+        - `label_selector`: label selector, for example: `foo=bar`
 
-         - `ip`: ip address, for example: `203.0.113.123`
+        - `ip`: ip address, for example: `203.0.113.123`
 
         ```sh
         $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerservertarget 123__server__321
@@ -331,6 +333,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -346,20 +349,21 @@ class LoadBalancerTarget(pulumi.CustomResource):
             load_balancer_id=load_balancer.id,
             server_id=my_server.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Load Balancer Target entries can be imported using a compound ID with the following format:
 
-         `<load-balancer-id>__<type>__<identifier>`
+        `<load-balancer-id>__<type>__<identifier>`
 
-         Where _identifier_ depends on the _type_:
+        Where _identifier_ depends on the _type_:
 
-         - `server`: server id, for example: `123`
+        - `server`: server id, for example: `123`
 
-         - `label_selector`: label selector, for example: `foo=bar`
+        - `label_selector`: label selector, for example: `foo=bar`
 
-         - `ip`: ip address, for example: `203.0.113.123`
+        - `ip`: ip address, for example: `203.0.113.123`
 
         ```sh
         $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerservertarget 123__server__321

@@ -202,12 +202,14 @@ class Network(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
 
         priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -236,12 +238,14 @@ class Network(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
 
         priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

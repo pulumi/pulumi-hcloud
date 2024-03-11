@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,6 +61,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
