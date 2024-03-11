@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetFloatingIps(ctx *pulumi.Context, args *GetFloatingIpsArgs, opts ...pulumi.InvokeOption) (*GetFloatingIpsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFloatingIpsResult

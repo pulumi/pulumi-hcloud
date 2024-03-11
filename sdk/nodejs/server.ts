@@ -10,7 +10,57 @@ import * as utilities from "./utilities";
  * Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
  *
  * ## Example Usage
+ *
+ * ### Basic server creation
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * // Create a new server running debian
+ * const node1 = new hcloud.Server("node1", {
+ *     image: "debian-11",
+ *     publicNets: [{
+ *         ipv4Enabled: true,
+ *         ipv6Enabled: true,
+ *     }],
+ *     serverType: "cx11",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * //## Server creation with one linked primary ip (ipv4)
+ * const primaryIp1 = new hcloud.PrimaryIp("primaryIp1", {
+ *     datacenter: "fsn1-dc14",
+ *     type: "ipv4",
+ *     assigneeType: "server",
+ *     autoDelete: true,
+ *     labels: {
+ *         hallo: "welt",
+ *     },
+ * });
+ * const serverTest = new hcloud.Server("serverTest", {
+ *     image: "ubuntu-20.04",
+ *     serverType: "cx11",
+ *     datacenter: "fsn1-dc14",
+ *     labels: {
+ *         test: "tessst1",
+ *     },
+ *     publicNets: [{
+ *         ipv4Enabled: true,
+ *         ipv4: primaryIp1.id,
+ *         ipv6Enabled: false,
+ *     }],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  * ### Server creation with network
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -38,8 +88,11 @@ import * as utilities from "./utilities";
  *     dependsOn: [network_subnet],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Server creation from snapshot
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -58,6 +111,8 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Primary IPs
  *
  * When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
@@ -65,6 +120,7 @@ import * as utilities from "./utilities";
  *
  * ### Examples
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -90,6 +146,7 @@ import * as utilities from "./utilities";
  * }]});
  * //...
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -19,8 +19,10 @@ import (
 // specified in that `FirewallAttachment`.
 //
 // ## Example Usage
+//
 // ### Attach Servers
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,8 +60,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Attach Label Selectors
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,6 +105,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type FirewallAttachment struct {
 	pulumi.CustomResourceState
 

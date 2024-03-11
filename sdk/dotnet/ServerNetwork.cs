@@ -14,6 +14,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,12 +51,13 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Server Network entries can be imported using a compound ID with the following format:
     /// 
-    ///  `&lt;server-id&gt;-&lt;network-id&gt;`
+    /// `&lt;server-id&gt;-&lt;network-id&gt;`
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654

@@ -300,6 +300,7 @@ class FloatingIp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -311,6 +312,7 @@ class FloatingIp(pulumi.CustomResource):
             type="ipv4",
             server_id=node1.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -341,6 +343,7 @@ class FloatingIp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -352,6 +355,7 @@ class FloatingIp(pulumi.CustomResource):
             type="ipv4",
             server_id=node1.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

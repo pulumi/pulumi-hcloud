@@ -151,8 +151,10 @@ class FirewallAttachment(pulumi.CustomResource):
         specified in that `FirewallAttachment`.
 
         ## Example Usage
+
         ### Attach Servers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -165,8 +167,11 @@ class FirewallAttachment(pulumi.CustomResource):
             firewall_id=basic_firewall.id,
             server_ids=[test_server.id])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Attach Label Selectors
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -182,6 +187,7 @@ class FirewallAttachment(pulumi.CustomResource):
             firewall_id=basic_firewall.id,
             label_selectors=["firewall-attachment=test-server"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,8 +212,10 @@ class FirewallAttachment(pulumi.CustomResource):
         specified in that `FirewallAttachment`.
 
         ## Example Usage
+
         ### Attach Servers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -220,8 +228,11 @@ class FirewallAttachment(pulumi.CustomResource):
             firewall_id=basic_firewall.id,
             server_ids=[test_server.id])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Attach Label Selectors
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -237,6 +248,7 @@ class FirewallAttachment(pulumi.CustomResource):
             firewall_id=basic_firewall.id,
             label_selectors=["firewall-attachment=test-server"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param FirewallAttachmentArgs args: The arguments to use to populate this resource's properties.

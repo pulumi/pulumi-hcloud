@@ -26,8 +26,10 @@ import (
 //
 // Provides details about a Hetzner Cloud Primary IP.
 // This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+//
 // ### Additional Examples
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,6 +82,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupPrimaryIp(ctx *pulumi.Context, args *LookupPrimaryIpArgs, opts ...pulumi.InvokeOption) (*LookupPrimaryIpResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrimaryIpResult

@@ -148,6 +148,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -162,6 +163,7 @@ class PlacementGroup(pulumi.CustomResource):
             server_type="cx11",
             placement_group_id=my_placement_group.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -188,6 +190,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -202,6 +205,7 @@ class PlacementGroup(pulumi.CustomResource):
             server_type="cx11",
             placement_group_id=my_placement_group.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

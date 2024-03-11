@@ -195,8 +195,10 @@ def get_primary_ip(assignee_id: Optional[int] = None,
 
     Provides details about a Hetzner Cloud Primary IP.
     This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+
     ### Additional Examples
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -216,6 +218,7 @@ def get_primary_ip(assignee_id: Optional[int] = None,
             ipv4=hcloud_primary_ip["ip_1"]["id"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int assignee_id: (int) ID of the assigned resource.
@@ -271,8 +274,10 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
 
     Provides details about a Hetzner Cloud Primary IP.
     This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+
     ### Additional Examples
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -292,6 +297,7 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
             ipv4=hcloud_primary_ip["ip_1"]["id"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int assignee_id: (int) ID of the assigned resource.

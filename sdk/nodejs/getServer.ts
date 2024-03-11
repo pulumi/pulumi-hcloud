@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -21,6 +22,7 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     args = args || {};
@@ -157,6 +159,7 @@ export interface GetServerResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -171,6 +174,7 @@ export interface GetServerResult {
  *     withSelector: "key=value",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerOutput(args?: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

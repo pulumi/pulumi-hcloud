@@ -211,6 +211,7 @@ class NetworkSubnet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -222,12 +223,13 @@ class NetworkSubnet(pulumi.CustomResource):
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Network Subnet entries can be imported using a compound ID with the following format:
 
-         `<network-id>-<ip_range>`
+        `<network-id>-<ip_range>`
 
         ```sh
         $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
@@ -252,6 +254,7 @@ class NetworkSubnet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -263,12 +266,13 @@ class NetworkSubnet(pulumi.CustomResource):
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Network Subnet entries can be imported using a compound ID with the following format:
 
-         `<network-id>-<ip_range>`
+        `<network-id>-<ip_range>`
 
         ```sh
         $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24

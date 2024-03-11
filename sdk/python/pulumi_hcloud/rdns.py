@@ -236,6 +236,7 @@ class Rdns(pulumi.CustomResource):
 
         For servers:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -248,9 +249,11 @@ class Rdns(pulumi.CustomResource):
             ip_address=node1.ipv4_address,
             dns_ptr="example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         For Primary IPs:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -263,9 +266,11 @@ class Rdns(pulumi.CustomResource):
             ip_address=primary1_primary_ip.ip_address,
             dns_ptr="example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         For Floating IPs:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -278,9 +283,11 @@ class Rdns(pulumi.CustomResource):
             floating_ip_id=floating1.id,
             ip_address=floating1.ip_address)
         ```
+        <!--End PulumiCodeChooser -->
 
         For Load Balancers:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -293,32 +300,33 @@ class Rdns(pulumi.CustomResource):
             ip_address=load_balancer1.ipv4,
             load_balancer_id=load_balancer1.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Reverse DNS entries can be imported using a compound ID with the following format:
 
-         `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
+        `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
 
-         import reverse dns entry on server with id 123, ip 192.168.100.1
+        import reverse dns entry on server with id 123, ip 192.168.100.1
 
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
         ```
 
-         import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+        import reverse dns entry on primary ip with id 123, ip 2001:db8::1
 
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
         ```
 
-         import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+        import reverse dns entry on floating ip with id 123, ip 2001:db8::1
 
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
         ```
 
-         import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+        import reverse dns entry on load balancer with id 123, ip 2001:db8::1
 
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
@@ -346,6 +354,7 @@ class Rdns(pulumi.CustomResource):
 
         For servers:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -358,9 +367,11 @@ class Rdns(pulumi.CustomResource):
             ip_address=node1.ipv4_address,
             dns_ptr="example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         For Primary IPs:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -373,9 +384,11 @@ class Rdns(pulumi.CustomResource):
             ip_address=primary1_primary_ip.ip_address,
             dns_ptr="example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         For Floating IPs:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -388,9 +401,11 @@ class Rdns(pulumi.CustomResource):
             floating_ip_id=floating1.id,
             ip_address=floating1.ip_address)
         ```
+        <!--End PulumiCodeChooser -->
 
         For Load Balancers:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -403,32 +418,33 @@ class Rdns(pulumi.CustomResource):
             ip_address=load_balancer1.ipv4,
             load_balancer_id=load_balancer1.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Reverse DNS entries can be imported using a compound ID with the following format:
 
-         `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
+        `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
 
-         import reverse dns entry on server with id 123, ip 192.168.100.1
+        import reverse dns entry on server with id 123, ip 192.168.100.1
 
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
         ```
 
-         import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+        import reverse dns entry on primary ip with id 123, ip 2001:db8::1
 
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
         ```
 
-         import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+        import reverse dns entry on floating ip with id 123, ip 2001:db8::1
 
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
         ```
 
-         import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+        import reverse dns entry on load balancer with id 123, ip 2001:db8::1
 
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1

@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -20,6 +21,7 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVolumes(args?: GetVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumesResult> {
     args = args || {};
@@ -65,6 +67,7 @@ export interface GetVolumesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -74,6 +77,7 @@ export interface GetVolumesResult {
  *     withSelector: "key=value",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVolumesOutput(args?: GetVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumesResult> {
     return pulumi.output(args).apply((a: any) => getVolumes(a, opts))

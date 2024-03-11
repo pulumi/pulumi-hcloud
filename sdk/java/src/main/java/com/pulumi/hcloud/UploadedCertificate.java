@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * Uploaded certificates can be imported using their `id`:
  * 
- *  hcl
+ * hcl
  * 
  * ```sh
  * $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id

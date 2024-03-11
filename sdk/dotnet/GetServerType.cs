@@ -15,10 +15,9 @@ namespace Pulumi.HCloud
         /// Provides details about a specific Hetzner Cloud Server Type.
         /// Use this resource to get detailed information about specific Server Type.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerTypeResult> InvokeAsync(GetServerTypeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeArgs(), options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.HCloud
         /// Provides details about a specific Hetzner Cloud Server Type.
         /// Use this resource to get detailed information about specific Server Type.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerTypeResult> Invoke(GetServerTypeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeInvokeArgs(), options.WithDefaults());

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Hetzner Cloud Network Route to represent a Network route in the Hetzner Cloud.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,12 +56,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Network Route entries can be imported using a compound ID with the following format:
  * 
- *  `&lt;network-id&gt;-&lt;destination&gt;`
+ * `&lt;network-id&gt;-&lt;destination&gt;`
  * 
  * ```sh
  * $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16

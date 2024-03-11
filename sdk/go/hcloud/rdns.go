@@ -18,6 +18,7 @@ import (
 //
 // For servers:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,9 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // For Primary IPs:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,9 +88,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // For Floating IPs:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,9 +125,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // For Load Balancers:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -155,32 +162,33 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Reverse DNS entries can be imported using a compound ID with the following format:
 //
-//	`<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
+// `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
 //
-//	import reverse dns entry on server with id 123, ip 192.168.100.1
+// import reverse dns entry on server with id 123, ip 192.168.100.1
 //
 // ```sh
 // $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
 // ```
 //
-//	import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+// import reverse dns entry on primary ip with id 123, ip 2001:db8::1
 //
 // ```sh
 // $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
 // ```
 //
-//	import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+// import reverse dns entry on floating ip with id 123, ip 2001:db8::1
 //
 // ```sh
 // $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
 // ```
 //
-//	import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+// import reverse dns entry on load balancer with id 123, ip 2001:db8::1
 //
 // ```sh
 // $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1

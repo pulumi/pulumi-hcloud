@@ -18,7 +18,7 @@ import (
 //
 // Managed certificates can be imported using their `id`:
 //
-//	hcl
+// hcl
 //
 // ```sh
 // $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
