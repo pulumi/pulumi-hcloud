@@ -156,7 +156,7 @@ export interface GetImagesImage {
     osVersion: string;
     rapidDeploy: boolean;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     selector?: string;
     type: string;
@@ -535,7 +535,7 @@ export interface LoadBalancerTarget {
      */
     type: string;
     /**
-     * @deprecated Does not work. Use the hcloud_load_balancer_target resource instead.
+     * @deprecated Does not work. Use the hcloud.LoadBalancerTarget resource instead.
      */
     usePrivateIp?: boolean;
 }

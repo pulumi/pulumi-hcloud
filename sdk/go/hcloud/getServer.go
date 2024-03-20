@@ -68,7 +68,7 @@ type LookupServerArgs struct {
 	Name *string `pulumi:"name"`
 	// (Optional, string) Placement Group ID the server is assigned to.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
-	// Deprecated: Please use the with_selector property instead.
+	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
 	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
 	WithSelector *string `pulumi:"withSelector"`
@@ -113,7 +113,7 @@ type LookupServerResult struct {
 	// (bool) Whether rebuild protection is enabled.
 	RebuildProtection bool   `pulumi:"rebuildProtection"`
 	Rescue            string `pulumi:"rescue"`
-	// Deprecated: Please use the with_selector property instead.
+	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
 	// (string) Name of the server type.
 	ServerType string `pulumi:"serverType"`
@@ -144,7 +144,7 @@ type LookupServerOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// (Optional, string) Placement Group ID the server is assigned to.
 	PlacementGroupId pulumi.IntPtrInput `pulumi:"placementGroupId"`
-	// Deprecated: Please use the with_selector property instead.
+	// Deprecated: Please use the withSelector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
@@ -260,7 +260,7 @@ func (o LookupServerResultOutput) Rescue() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Rescue }).(pulumi.StringOutput)
 }
 
-// Deprecated: Please use the with_selector property instead.
+// Deprecated: Please use the withSelector property instead.
 func (o LookupServerResultOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
