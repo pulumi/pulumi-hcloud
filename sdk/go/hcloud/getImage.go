@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
-//				Image: *pulumi.Int(image1.Id),
+//				Image: pulumi.Int(image1.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -77,7 +77,7 @@ type GetImageArgs struct {
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the Image.
 	Name *string `pulumi:"name"`
-	// Deprecated: Please use the with_selector property instead.
+	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
 	// Select only images with this architecture, could be `x86` (default) or `arm`.
 	WithArchitecture *string `pulumi:"withArchitecture"`
@@ -110,7 +110,7 @@ type GetImageResult struct {
 	OsVersion string `pulumi:"osVersion"`
 	// (bool) Indicates that rapid deploy of the image is available.
 	RapidDeploy bool `pulumi:"rapidDeploy"`
-	// Deprecated: Please use the with_selector property instead.
+	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
 	// (string) Type of the Image, could be `system`, `backup` or `snapshot`.
 	Type             string   `pulumi:"type"`
@@ -142,7 +142,7 @@ type GetImageOutputArgs struct {
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the Image.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Deprecated: Please use the with_selector property instead.
+	// Deprecated: Please use the withSelector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// Select only images with this architecture, could be `x86` (default) or `arm`.
 	WithArchitecture pulumi.StringPtrInput `pulumi:"withArchitecture"`
@@ -228,7 +228,7 @@ func (o GetImageResultOutput) RapidDeploy() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageResult) bool { return v.RapidDeploy }).(pulumi.BoolOutput)
 }
 
-// Deprecated: Please use the with_selector property instead.
+// Deprecated: Please use the withSelector property instead.
 func (o GetImageResultOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }

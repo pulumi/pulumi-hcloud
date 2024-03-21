@@ -23,7 +23,7 @@ export function getServerTypes(args?: GetServerTypesArgs, opts?: pulumi.InvokeOp
  */
 export interface GetServerTypesArgs {
     /**
-     * @deprecated Use server_types list instead
+     * @deprecated Use serverTypes list instead
      */
     serverTypeIds?: string[];
 }
@@ -33,7 +33,7 @@ export interface GetServerTypesArgs {
  */
 export interface GetServerTypesResult {
     /**
-     * @deprecated Use server_types list instead
+     * @deprecated Use serverTypes list instead
      */
     readonly descriptions: string[];
     /**
@@ -41,11 +41,11 @@ export interface GetServerTypesResult {
      */
     readonly id: string;
     /**
-     * @deprecated Use server_types list instead
+     * @deprecated Use serverTypes list instead
      */
     readonly names: string[];
     /**
-     * @deprecated Use server_types list instead
+     * @deprecated Use serverTypes list instead
      */
     readonly serverTypeIds?: string[];
     /**
@@ -65,7 +65,7 @@ export function getServerTypesOutput(args?: GetServerTypesOutputArgs, opts?: pul
  */
 export interface GetServerTypesOutputArgs {
     /**
-     * @deprecated Use server_types list instead
+     * @deprecated Use serverTypes list instead
      */
     serverTypeIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

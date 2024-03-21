@@ -181,7 +181,7 @@ import (
 //			}
 //			// Create a new server from the snapshot
 //			_, err = hcloud.NewServer(ctx, "fromSnapshot", &hcloud.ServerArgs{
-//				Image:      *pulumi.Int(packerSnapshot.Id),
+//				Image:      pulumi.Int(packerSnapshot.Id),
 //				ServerType: pulumi.String("cx11"),
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{

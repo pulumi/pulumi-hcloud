@@ -62,7 +62,7 @@ export interface GetSshKeyArgs {
      */
     name?: string;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     selector?: string;
     /**
@@ -93,7 +93,7 @@ export interface GetSshKeyResult {
      */
     readonly publicKey: string;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     readonly selector?: string;
     readonly withSelector?: string;
@@ -147,7 +147,7 @@ export interface GetSshKeyOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     selector?: pulumi.Input<string>;
     /**
