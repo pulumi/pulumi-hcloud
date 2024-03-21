@@ -42,19 +42,19 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @deprecated
-     * Does not work. Use the hcloud_load_balancer_target resource instead.
+     * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
      * 
      */
-    @Deprecated /* Does not work. Use the hcloud_load_balancer_target resource instead. */
+    @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
     @Import(name="usePrivateIp")
     private @Nullable Output<Boolean> usePrivateIp;
 
     /**
      * @deprecated
-     * Does not work. Use the hcloud_load_balancer_target resource instead.
+     * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
      * 
      */
-    @Deprecated /* Does not work. Use the hcloud_load_balancer_target resource instead. */
+    @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
     public Optional<Output<Boolean>> usePrivateIp() {
         return Optional.ofNullable(this.usePrivateIp);
     }
@@ -119,10 +119,10 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          * @deprecated
-         * Does not work. Use the hcloud_load_balancer_target resource instead.
+         * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
          * 
          */
-        @Deprecated /* Does not work. Use the hcloud_load_balancer_target resource instead. */
+        @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
         public Builder usePrivateIp(@Nullable Output<Boolean> usePrivateIp) {
             $.usePrivateIp = usePrivateIp;
             return this;
@@ -132,10 +132,10 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          * @deprecated
-         * Does not work. Use the hcloud_load_balancer_target resource instead.
+         * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
          * 
          */
-        @Deprecated /* Does not work. Use the hcloud_load_balancer_target resource instead. */
+        @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
         public Builder usePrivateIp(Boolean usePrivateIp) {
             return usePrivateIp(Output.of(usePrivateIp));
         }

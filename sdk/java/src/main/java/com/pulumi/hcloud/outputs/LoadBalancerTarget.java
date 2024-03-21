@@ -22,10 +22,10 @@ public final class LoadBalancerTarget {
     private String type;
     /**
      * @deprecated
-     * Does not work. Use the hcloud_load_balancer_target resource instead.
+     * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
      * 
      */
-    @Deprecated /* Does not work. Use the hcloud_load_balancer_target resource instead. */
+    @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
     private @Nullable Boolean usePrivateIp;
 
     private LoadBalancerTarget() {}
@@ -41,10 +41,10 @@ public final class LoadBalancerTarget {
     }
     /**
      * @deprecated
-     * Does not work. Use the hcloud_load_balancer_target resource instead.
+     * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
      * 
      */
-    @Deprecated /* Does not work. Use the hcloud_load_balancer_target resource instead. */
+    @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
     public Optional<Boolean> usePrivateIp() {
         return Optional.ofNullable(this.usePrivateIp);
     }

@@ -41,7 +41,7 @@ import (
 //				splat0 = append(splat0, val0.Name)
 //			}
 //			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
-//				SshKeys: []*pulumi.String(splat0),
+//				SshKeys: splat0,
 //			})
 //			if err != nil {
 //				return err

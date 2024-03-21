@@ -55,7 +55,7 @@ export interface GetServerArgs {
      */
     placementGroupId?: number;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     selector?: string;
     /**
@@ -142,7 +142,7 @@ export interface GetServerResult {
     readonly rebuildProtection: boolean;
     readonly rescue: string;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     readonly selector?: string;
     /**
@@ -197,7 +197,7 @@ export interface GetServerOutputArgs {
      */
     placementGroupId?: pulumi.Input<number>;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     selector?: pulumi.Input<string>;
     /**

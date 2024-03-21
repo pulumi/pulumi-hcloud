@@ -63,7 +63,7 @@ export interface GetImageArgs {
      */
     name?: string;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     selector?: string;
     /**
@@ -124,7 +124,7 @@ export interface GetImageResult {
      */
     readonly rapidDeploy: boolean;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     readonly selector?: string;
     /**
@@ -182,7 +182,7 @@ export interface GetImageOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Please use the with_selector property instead.
+     * @deprecated Please use the withSelector property instead.
      */
     selector?: pulumi.Input<string>;
     /**
