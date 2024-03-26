@@ -274,7 +274,7 @@
                 },
                 "usePrivateIp": {
                     "type": "boolean",
-                    "deprecationMessage": "Does not work. Use the hcloud.LoadBalancerTarget resource instead."
+                    "deprecationMessage": "Does not work. Use the hcloud_load_balancer_target resource instead."
                 }
             },
             "type": "object",
@@ -2211,7 +2211,7 @@
                     "items": {
                         "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                     },
-                    "deprecationMessage": "Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets."
+                    "deprecationMessage": "Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets."
                 }
             },
             "required": [
@@ -2266,7 +2266,7 @@
                     "items": {
                         "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                     },
-                    "deprecationMessage": "Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets."
+                    "deprecationMessage": "Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets."
                 }
             },
             "requiredInputs": [
@@ -2329,7 +2329,7 @@
                         "items": {
                             "$ref": "#/types/hcloud:index/LoadBalancerTarget:LoadBalancerTarget"
                         },
-                        "deprecationMessage": "Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets."
+                        "deprecationMessage": "Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets."
                     }
                 },
                 "type": "object"
