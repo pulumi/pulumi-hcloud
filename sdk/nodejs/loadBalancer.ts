@@ -112,7 +112,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly networkZone!: pulumi.Output<string>;
     /**
-     * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+     * @deprecated Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
      */
     public readonly targets!: pulumi.Output<outputs.LoadBalancerTarget[]>;
 
@@ -213,7 +213,7 @@ export interface LoadBalancerState {
      */
     networkZone?: pulumi.Input<string>;
     /**
-     * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+     * @deprecated Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[]>;
 }
@@ -251,7 +251,7 @@ export interface LoadBalancerArgs {
      */
     networkZone?: pulumi.Input<string>;
     /**
-     * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+     * @deprecated Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[]>;
 }

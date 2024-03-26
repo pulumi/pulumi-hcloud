@@ -88,7 +88,7 @@ type LoadBalancer struct {
 	NetworkIp pulumi.StringOutput `pulumi:"networkIp"`
 	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringOutput `pulumi:"networkZone"`
-	// Deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayOutput `pulumi:"targets"`
 }
 
@@ -147,7 +147,7 @@ type loadBalancerState struct {
 	NetworkIp *string `pulumi:"networkIp"`
 	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone *string `pulumi:"networkZone"`
-	// Deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets []LoadBalancerTargetType `pulumi:"targets"`
 }
 
@@ -174,7 +174,7 @@ type LoadBalancerState struct {
 	NetworkIp pulumi.StringPtrInput
 	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringPtrInput
-	// Deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayInput
 }
 
@@ -197,7 +197,7 @@ type loadBalancerArgs struct {
 	Name *string `pulumi:"name"`
 	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone *string `pulumi:"networkZone"`
-	// Deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets []LoadBalancerTargetType `pulumi:"targets"`
 }
 
@@ -217,7 +217,7 @@ type LoadBalancerArgs struct {
 	Name pulumi.StringPtrInput
 	// The Network Zone of the Load Balancer. Require when no location is set.
 	NetworkZone pulumi.StringPtrInput
-	// Deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+	// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 	Targets LoadBalancerTargetTypeArrayInput
 }
 
@@ -363,7 +363,7 @@ func (o LoadBalancerOutput) NetworkZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.NetworkZone }).(pulumi.StringOutput)
 }
 
-// Deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+// Deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.
 func (o LoadBalancerOutput) Targets() LoadBalancerTargetTypeArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTargetTypeArrayOutput { return v.Targets }).(LoadBalancerTargetTypeArrayOutput)
 }

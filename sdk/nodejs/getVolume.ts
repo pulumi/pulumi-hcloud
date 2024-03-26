@@ -56,7 +56,7 @@ export interface GetVolumeArgs {
      */
     name?: string;
     /**
-     * @deprecated Please use the withSelector property instead.
+     * @deprecated Please use the with_selector property instead.
      */
     selector?: string;
     /**
@@ -102,7 +102,7 @@ export interface GetVolumeResult {
      */
     readonly name: string;
     /**
-     * @deprecated Please use the withSelector property instead.
+     * @deprecated Please use the with_selector property instead.
      */
     readonly selector?: string;
     /**
@@ -157,7 +157,7 @@ export interface GetVolumeOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Please use the withSelector property instead.
+     * @deprecated Please use the with_selector property instead.
      */
     selector?: pulumi.Input<string>;
     /**

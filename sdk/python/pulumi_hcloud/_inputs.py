@@ -482,8 +482,8 @@ class LoadBalancerTargetArgs:
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
         if use_private_ip is not None:
-            warnings.warn("""Does not work. Use the LoadBalancerTarget resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""use_private_ip is deprecated: Does not work. Use the LoadBalancerTarget resource instead.""")
+            warnings.warn("""Does not work. Use the hcloud_load_balancer_target resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""use_private_ip is deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.""")
         if use_private_ip is not None:
             pulumi.set(__self__, "use_private_ip", use_private_ip)
 
@@ -511,8 +511,8 @@ class LoadBalancerTargetArgs:
     @property
     @pulumi.getter(name="usePrivateIp")
     def use_private_ip(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""Does not work. Use the LoadBalancerTarget resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""use_private_ip is deprecated: Does not work. Use the LoadBalancerTarget resource instead.""")
+        warnings.warn("""Does not work. Use the hcloud_load_balancer_target resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""use_private_ip is deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.""")
 
         return pulumi.get(self, "use_private_ip")
 

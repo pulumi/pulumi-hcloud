@@ -223,7 +223,7 @@ namespace Pulumi.HCloud
 
         [Input("targets")]
         private InputList<Inputs.LoadBalancerTargetArgs>? _targets;
-        [Obsolete(@"Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.")]
+        [Obsolete(@"Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.")]
         public InputList<Inputs.LoadBalancerTargetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.LoadBalancerTargetArgs>());
@@ -312,7 +312,7 @@ namespace Pulumi.HCloud
 
         [Input("targets")]
         private InputList<Inputs.LoadBalancerTargetGetArgs>? _targets;
-        [Obsolete(@"Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.")]
+        [Obsolete(@"Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.")]
         public InputList<Inputs.LoadBalancerTargetGetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.LoadBalancerTargetGetArgs>());

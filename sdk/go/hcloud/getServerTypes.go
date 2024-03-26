@@ -24,19 +24,19 @@ func GetServerTypes(ctx *pulumi.Context, args *GetServerTypesArgs, opts ...pulum
 
 // A collection of arguments for invoking getServerTypes.
 type GetServerTypesArgs struct {
-	// Deprecated: Use serverTypes list instead
+	// Deprecated: Use server_types list instead
 	ServerTypeIds []string `pulumi:"serverTypeIds"`
 }
 
 // A collection of values returned by getServerTypes.
 type GetServerTypesResult struct {
-	// Deprecated: Use serverTypes list instead
+	// Deprecated: Use server_types list instead
 	Descriptions []string `pulumi:"descriptions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Deprecated: Use serverTypes list instead
+	// Deprecated: Use server_types list instead
 	Names []string `pulumi:"names"`
-	// Deprecated: Use serverTypes list instead
+	// Deprecated: Use server_types list instead
 	ServerTypeIds []string `pulumi:"serverTypeIds"`
 	// (list) List of all server types. See `data.hcloud_type` for schema.
 	ServerTypes []GetServerTypesServerType `pulumi:"serverTypes"`
@@ -57,7 +57,7 @@ func GetServerTypesOutput(ctx *pulumi.Context, args GetServerTypesOutputArgs, op
 
 // A collection of arguments for invoking getServerTypes.
 type GetServerTypesOutputArgs struct {
-	// Deprecated: Use serverTypes list instead
+	// Deprecated: Use server_types list instead
 	ServerTypeIds pulumi.StringArrayInput `pulumi:"serverTypeIds"`
 }
 
@@ -80,7 +80,7 @@ func (o GetServerTypesResultOutput) ToGetServerTypesResultOutputWithContext(ctx 
 	return o
 }
 
-// Deprecated: Use serverTypes list instead
+// Deprecated: Use server_types list instead
 func (o GetServerTypesResultOutput) Descriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []string { return v.Descriptions }).(pulumi.StringArrayOutput)
 }
@@ -90,12 +90,12 @@ func (o GetServerTypesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Deprecated: Use serverTypes list instead
+// Deprecated: Use server_types list instead
 func (o GetServerTypesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: Use serverTypes list instead
+// Deprecated: Use server_types list instead
 func (o GetServerTypesResultOutput) ServerTypeIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []string { return v.ServerTypeIds }).(pulumi.StringArrayOutput)
 }
