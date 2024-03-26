@@ -68,7 +68,7 @@ type LookupVolumeArgs struct {
 	Location *string `pulumi:"location"`
 	// Name of the volume.
 	Name *string `pulumi:"name"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// (Optional, int) Server ID the volume is attached to
 	ServerId *int `pulumi:"serverId"`
@@ -92,7 +92,7 @@ type LookupVolumeResult struct {
 	Location *string `pulumi:"location"`
 	// (string) Name of the volume.
 	Name string `pulumi:"name"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// (Optional, int) Server ID the volume is attached to
 	ServerId *int `pulumi:"serverId"`
@@ -123,7 +123,7 @@ type LookupVolumeOutputArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Name of the volume.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// (Optional, int) Server ID the volume is attached to
 	ServerId pulumi.IntPtrInput `pulumi:"serverId"`
@@ -182,7 +182,7 @@ func (o LookupVolumeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Deprecated: Please use the withSelector property instead.
+// Deprecated: Please use the with_selector property instead.
 func (o LookupVolumeResultOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }

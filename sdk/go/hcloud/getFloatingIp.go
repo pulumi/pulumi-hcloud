@@ -84,7 +84,7 @@ type LookupFloatingIpArgs struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// Name of the Floating IP.
 	Name *string `pulumi:"name"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
@@ -108,7 +108,7 @@ type LookupFloatingIpResult struct {
 	Labels map[string]interface{} `pulumi:"labels"`
 	// (string) Name of the Floating IP.
 	Name *string `pulumi:"name"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// (int) Server to assign the Floating IP is assigned to.
 	ServerId int `pulumi:"serverId"`
@@ -138,7 +138,7 @@ type LookupFloatingIpOutputArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Name of the Floating IP.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
@@ -203,7 +203,7 @@ func (o LookupFloatingIpResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFloatingIpResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: Please use the withSelector property instead.
+// Deprecated: Please use the with_selector property instead.
 func (o LookupFloatingIpResultOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFloatingIpResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }

@@ -1075,7 +1075,7 @@ type LoadBalancerTargetType struct {
 	ServerId *int `pulumi:"serverId"`
 	// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 	Type string `pulumi:"type"`
-	// Deprecated: Does not work. Use the LoadBalancerTarget resource instead.
+	// Deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.
 	UsePrivateIp *bool `pulumi:"usePrivateIp"`
 }
 
@@ -1094,7 +1094,7 @@ type LoadBalancerTargetTypeArgs struct {
 	ServerId pulumi.IntPtrInput `pulumi:"serverId"`
 	// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 	Type pulumi.StringInput `pulumi:"type"`
-	// Deprecated: Does not work. Use the LoadBalancerTarget resource instead.
+	// Deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.
 	UsePrivateIp pulumi.BoolPtrInput `pulumi:"usePrivateIp"`
 }
 
@@ -1158,7 +1158,7 @@ func (o LoadBalancerTargetTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerTargetType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Deprecated: Does not work. Use the LoadBalancerTarget resource instead.
+// Deprecated: Does not work. Use the hcloud_load_balancer_target resource instead.
 func (o LoadBalancerTargetTypeOutput) UsePrivateIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerTargetType) *bool { return v.UsePrivateIp }).(pulumi.BoolPtrOutput)
 }
@@ -2440,7 +2440,7 @@ type GetImagesImage struct {
 	OsFlavor     string                 `pulumi:"osFlavor"`
 	OsVersion    string                 `pulumi:"osVersion"`
 	RapidDeploy  bool                   `pulumi:"rapidDeploy"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	Type     string  `pulumi:"type"`
 }
@@ -2467,7 +2467,7 @@ type GetImagesImageArgs struct {
 	OsFlavor     pulumi.StringInput `pulumi:"osFlavor"`
 	OsVersion    pulumi.StringInput `pulumi:"osVersion"`
 	RapidDeploy  pulumi.BoolInput   `pulumi:"rapidDeploy"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	Type     pulumi.StringInput    `pulumi:"type"`
 }
@@ -2563,7 +2563,7 @@ func (o GetImagesImageOutput) RapidDeploy() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImagesImage) bool { return v.RapidDeploy }).(pulumi.BoolOutput)
 }
 
-// Deprecated: Please use the withSelector property instead.
+// Deprecated: Please use the with_selector property instead.
 func (o GetImagesImageOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImagesImage) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }

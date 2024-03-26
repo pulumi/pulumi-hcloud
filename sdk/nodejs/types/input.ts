@@ -213,7 +213,7 @@ export interface LoadBalancerTarget {
      */
     type: pulumi.Input<string>;
     /**
-     * @deprecated Does not work. Use the hcloud.LoadBalancerTarget resource instead.
+     * @deprecated Does not work. Use the hcloud_load_balancer_target resource instead.
      */
     usePrivateIp?: pulumi.Input<boolean>;
 }

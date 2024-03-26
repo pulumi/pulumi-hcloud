@@ -48,8 +48,8 @@ class LoadBalancerArgs:
         if network_zone is not None:
             pulumi.set(__self__, "network_zone", network_zone)
         if targets is not None:
-            warnings.warn("""Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
-            pulumi.log.warn("""targets is deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""")
+            warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+            pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
 
@@ -140,8 +140,8 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
-        warnings.warn("""Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
-        pulumi.log.warn("""targets is deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""")
+        warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+        pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
 
         return pulumi.get(self, "targets")
 
@@ -202,8 +202,8 @@ class _LoadBalancerState:
         if network_zone is not None:
             pulumi.set(__self__, "network_zone", network_zone)
         if targets is not None:
-            warnings.warn("""Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
-            pulumi.log.warn("""targets is deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""")
+            warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+            pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
 
@@ -342,8 +342,8 @@ class _LoadBalancerState:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
-        warnings.warn("""Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
-        pulumi.log.warn("""targets is deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""")
+        warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+        pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
 
         return pulumi.get(self, "targets")
 
@@ -640,8 +640,8 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Sequence['outputs.LoadBalancerTarget']]:
-        warnings.warn("""Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
-        pulumi.log.warn("""targets is deprecated: Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""")
+        warnings.warn("""Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""", DeprecationWarning)
+        pulumi.log.warn("""targets is deprecated: Use hcloud_load_balancer_target resource instead. This allows the full control over the selected targets.""")
 
         return pulumi.get(self, "targets")
 

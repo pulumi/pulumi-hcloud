@@ -84,7 +84,7 @@ type LookupSshKeyArgs struct {
 	Id *int `pulumi:"id"`
 	// Name of the SSH Key.
 	Name *string `pulumi:"name"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector *string `pulumi:"selector"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
@@ -101,7 +101,7 @@ type LookupSshKeyResult struct {
 	Name string `pulumi:"name"`
 	// (string) Public Key of the SSH Key.
 	PublicKey string `pulumi:"publicKey"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector     *string `pulumi:"selector"`
 	WithSelector *string `pulumi:"withSelector"`
 }
@@ -127,7 +127,7 @@ type LookupSshKeyOutputArgs struct {
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Name of the SSH Key.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Deprecated: Please use the withSelector property instead.
+	// Deprecated: Please use the with_selector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
@@ -176,7 +176,7 @@ func (o LookupSshKeyResultOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSshKeyResult) string { return v.PublicKey }).(pulumi.StringOutput)
 }
 
-// Deprecated: Please use the withSelector property instead.
+// Deprecated: Please use the with_selector property instead.
 func (o LookupSshKeyResultOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSshKeyResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
