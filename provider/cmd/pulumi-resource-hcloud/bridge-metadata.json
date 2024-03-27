@@ -640,7 +640,7 @@
             "hcloud:index/server:Server": 0,
             "hcloud:index/serverNetwork:ServerNetwork": 0,
             "hcloud:index/snapshot:Snapshot": 0,
-            "hcloud:index/sshKey:SshKey": 0,
+            "hcloud:index/sshKey:SshKey": 1,
             "hcloud:index/uploadedCertificate:UploadedCertificate": 0,
             "hcloud:index/volume:Volume": 0,
             "hcloud:index/volumeAttachment:VolumeAttachment": 0
@@ -670,8 +670,8 @@
             "hcloud:index/getServerType:getServerType": 0,
             "hcloud:index/getServerTypes:getServerTypes": 0,
             "hcloud:index/getServers:getServers": 0,
-            "hcloud:index/getSshKey:getSshKey": 0,
-            "hcloud:index/getSshKeys:getSshKeys": 0,
+            "hcloud:index/getSshKey:getSshKey": 1,
+            "hcloud:index/getSshKeys:getSshKeys": 1,
             "hcloud:index/getVolume:getVolume": 0,
             "hcloud:index/getVolumes:getVolumes": 0
         }

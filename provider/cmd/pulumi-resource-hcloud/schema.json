@@ -105,7 +105,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`\nis `out`)\n"
+                    "description": "List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`\nis `out`)\n"
                 },
                 "direction": {
                     "type": "string",
@@ -113,7 +113,7 @@
                 },
                 "port": {
                     "type": "string",
-                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`\nto allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and\n85.\n"
+                    "description": "Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`\nto allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.\n"
                 },
                 "protocol": {
                     "type": "string",
@@ -124,7 +124,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of CIDRs that are allowed within this Firewall Rule\n"
+                    "description": "List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`\nis `in`)\n"
                 }
             },
             "type": "object",
@@ -1547,22 +1547,27 @@
         "hcloud:index/getSshKeysSshKey:getSshKeysSshKey": {
             "properties": {
                 "fingerprint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Fingerprint of the SSH key.\n"
                 },
                 "id": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the SSH key.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
-                    }
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the SSH key.\n"
                 },
                 "publicKey": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Public key of the SSH key pair.\n"
                 }
             },
             "type": "object",
@@ -2157,7 +2162,7 @@
             }
         },
         "hcloud:index/loadBalancer:LoadBalancer": {
-            "description": "Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myserver = new hcloud.Server(\"myserver\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-18.04\",\n});\nconst loadBalancer = new hcloud.LoadBalancer(\"loadBalancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n    targets: [{\n        type: \"server\",\n        serverId: myserver.id,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmyserver = hcloud.Server(\"myserver\",\n    server_type=\"cx11\",\n    image=\"ubuntu-18.04\")\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\",\n    targets=[hcloud.LoadBalancerTargetArgs(\n        type=\"server\",\n        server_id=myserver.id,\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myserver = new HCloud.Server(\"myserver\", new()\n    {\n        ServerType = \"cx11\",\n        Image = \"ubuntu-18.04\",\n    });\n\n    var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new()\n    {\n        LoadBalancerType = \"lb11\",\n        Location = \"nbg1\",\n        Targets = new[]\n        {\n            new HCloud.Inputs.LoadBalancerTargetArgs\n            {\n                Type = \"server\",\n                ServerId = myserver.Id,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyserver, err := hcloud.NewServer(ctx, \"myserver\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-18.04\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t\tTargets: hcloud.LoadBalancerTargetTypeArray{\n\t\t\t\t\u0026hcloud.LoadBalancerTargetTypeArgs{\n\t\t\t\t\tType:     pulumi.String(\"server\"),\n\t\t\t\t\tServerId: myserver.ID(),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.hcloud.LoadBalancer;\nimport com.pulumi.hcloud.LoadBalancerArgs;\nimport com.pulumi.hcloud.inputs.LoadBalancerTargetArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myserver = new Server(\"myserver\", ServerArgs.builder()        \n            .serverType(\"cx11\")\n            .image(\"ubuntu-18.04\")\n            .build());\n\n        var loadBalancer = new LoadBalancer(\"loadBalancer\", LoadBalancerArgs.builder()        \n            .loadBalancerType(\"lb11\")\n            .location(\"nbg1\")\n            .targets(LoadBalancerTargetArgs.builder()\n                .type(\"server\")\n                .serverId(myserver.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myserver:\n    type: hcloud:Server\n    properties:\n      serverType: cx11\n      image: ubuntu-18.04\n  loadBalancer:\n    type: hcloud:LoadBalancer\n    properties:\n      loadBalancerType: lb11\n      location: nbg1\n      targets:\n        - type: server\n          serverId: ${myserver.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nLoad Balancers can be imported using its `id`:\n\n```sh\n$ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer id\n```\n\n",
+            "description": "Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst myServer = new hcloud.Server(\"myServer\", {\n    serverType: \"cx11\",\n    image: \"ubuntu-18.04\",\n});\nconst loadBalancer = new hcloud.LoadBalancer(\"loadBalancer\", {\n    loadBalancerType: \"lb11\",\n    location: \"nbg1\",\n});\nconst loadBalancerTarget = new hcloud.LoadBalancerTarget(\"loadBalancerTarget\", {\n    type: \"server\",\n    loadBalancerId: loadBalancer.id,\n    serverId: myServer.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmy_server = hcloud.Server(\"myServer\",\n    server_type=\"cx11\",\n    image=\"ubuntu-18.04\")\nload_balancer = hcloud.LoadBalancer(\"loadBalancer\",\n    load_balancer_type=\"lb11\",\n    location=\"nbg1\")\nload_balancer_target = hcloud.LoadBalancerTarget(\"loadBalancerTarget\",\n    type=\"server\",\n    load_balancer_id=load_balancer.id,\n    server_id=my_server.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myServer = new HCloud.Server(\"myServer\", new()\n    {\n        ServerType = \"cx11\",\n        Image = \"ubuntu-18.04\",\n    });\n\n    var loadBalancer = new HCloud.LoadBalancer(\"loadBalancer\", new()\n    {\n        LoadBalancerType = \"lb11\",\n        Location = \"nbg1\",\n    });\n\n    var loadBalancerTarget = new HCloud.LoadBalancerTarget(\"loadBalancerTarget\", new()\n    {\n        Type = \"server\",\n        LoadBalancerId = loadBalancer.Id,\n        ServerId = myServer.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyServer, err := hcloud.NewServer(ctx, \"myServer\", \u0026hcloud.ServerArgs{\n\t\t\tServerType: pulumi.String(\"cx11\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-18.04\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tloadBalancer, err := hcloud.NewLoadBalancer(ctx, \"loadBalancer\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tLocation:         pulumi.String(\"nbg1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancerTarget(ctx, \"loadBalancerTarget\", \u0026hcloud.LoadBalancerTargetArgs{\n\t\t\tType:           pulumi.String(\"server\"),\n\t\t\tLoadBalancerId: loadBalancer.ID(),\n\t\t\tServerId:       myServer.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.hcloud.LoadBalancer;\nimport com.pulumi.hcloud.LoadBalancerArgs;\nimport com.pulumi.hcloud.LoadBalancerTarget;\nimport com.pulumi.hcloud.LoadBalancerTargetArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myServer = new Server(\"myServer\", ServerArgs.builder()        \n            .serverType(\"cx11\")\n            .image(\"ubuntu-18.04\")\n            .build());\n\n        var loadBalancer = new LoadBalancer(\"loadBalancer\", LoadBalancerArgs.builder()        \n            .loadBalancerType(\"lb11\")\n            .location(\"nbg1\")\n            .build());\n\n        var loadBalancerTarget = new LoadBalancerTarget(\"loadBalancerTarget\", LoadBalancerTargetArgs.builder()        \n            .type(\"server\")\n            .loadBalancerId(loadBalancer.id())\n            .serverId(myServer.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myServer:\n    type: hcloud:Server\n    properties:\n      serverType: cx11\n      image: ubuntu-18.04\n  loadBalancer:\n    type: hcloud:LoadBalancer\n    properties:\n      loadBalancerType: lb11\n      location: nbg1\n  loadBalancerTarget:\n    type: hcloud:LoadBalancerTarget\n    properties:\n      type: server\n      loadBalancerId: ${loadBalancer.id}\n      serverId: ${myServer.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nLoad Balancers can be imported using its `id`:\n\n```sh\n$ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer id\n```\n\n",
             "properties": {
                 "algorithm": {
                     "$ref": "#/types/hcloud:index/LoadBalancerAlgorithm:LoadBalancerAlgorithm",
@@ -2336,7 +2341,7 @@
             }
         },
         "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork": {
-            "description": "Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst lb1 = new hcloud.LoadBalancer(\"lb1\", {\n    loadBalancerType: \"lb11\",\n    networkZone: \"eu-central\",\n});\nconst mynet = new hcloud.Network(\"mynet\", {ipRange: \"10.0.0.0/8\"});\nconst foonet = new hcloud.NetworkSubnet(\"foonet\", {\n    networkId: mynet.id,\n    type: \"cloud\",\n    networkZone: \"eu-central\",\n    ipRange: \"10.0.1.0/24\",\n});\nconst srvnetwork = new hcloud.LoadBalancerNetwork(\"srvnetwork\", {\n    loadBalancerId: lb1.id,\n    networkId: mynet.id,\n    ip: \"10.0.1.5\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nlb1 = hcloud.LoadBalancer(\"lb1\",\n    load_balancer_type=\"lb11\",\n    network_zone=\"eu-central\")\nmynet = hcloud.Network(\"mynet\", ip_range=\"10.0.0.0/8\")\nfoonet = hcloud.NetworkSubnet(\"foonet\",\n    network_id=mynet.id,\n    type=\"cloud\",\n    network_zone=\"eu-central\",\n    ip_range=\"10.0.1.0/24\")\nsrvnetwork = hcloud.LoadBalancerNetwork(\"srvnetwork\",\n    load_balancer_id=lb1.id,\n    network_id=mynet.id,\n    ip=\"10.0.1.5\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var lb1 = new HCloud.LoadBalancer(\"lb1\", new()\n    {\n        LoadBalancerType = \"lb11\",\n        NetworkZone = \"eu-central\",\n    });\n\n    var mynet = new HCloud.Network(\"mynet\", new()\n    {\n        IpRange = \"10.0.0.0/8\",\n    });\n\n    var foonet = new HCloud.NetworkSubnet(\"foonet\", new()\n    {\n        NetworkId = mynet.Id,\n        Type = \"cloud\",\n        NetworkZone = \"eu-central\",\n        IpRange = \"10.0.1.0/24\",\n    });\n\n    var srvnetwork = new HCloud.LoadBalancerNetwork(\"srvnetwork\", new()\n    {\n        LoadBalancerId = lb1.Id,\n        NetworkId = mynet.Id,\n        Ip = \"10.0.1.5\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tlb1, err := hcloud.NewLoadBalancer(ctx, \"lb1\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tNetworkZone:      pulumi.String(\"eu-central\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tmynet, err := hcloud.NewNetwork(ctx, \"mynet\", \u0026hcloud.NetworkArgs{\n\t\t\tIpRange: pulumi.String(\"10.0.0.0/8\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewNetworkSubnet(ctx, \"foonet\", \u0026hcloud.NetworkSubnetArgs{\n\t\t\tNetworkId:   mynet.ID(),\n\t\t\tType:        pulumi.String(\"cloud\"),\n\t\t\tNetworkZone: pulumi.String(\"eu-central\"),\n\t\t\tIpRange:     pulumi.String(\"10.0.1.0/24\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancerNetwork(ctx, \"srvnetwork\", \u0026hcloud.LoadBalancerNetworkArgs{\n\t\t\tLoadBalancerId: lb1.ID(),\n\t\t\tNetworkId:      mynet.ID(),\n\t\t\tIp:             pulumi.String(\"10.0.1.5\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.LoadBalancer;\nimport com.pulumi.hcloud.LoadBalancerArgs;\nimport com.pulumi.hcloud.Network;\nimport com.pulumi.hcloud.NetworkArgs;\nimport com.pulumi.hcloud.NetworkSubnet;\nimport com.pulumi.hcloud.NetworkSubnetArgs;\nimport com.pulumi.hcloud.LoadBalancerNetwork;\nimport com.pulumi.hcloud.LoadBalancerNetworkArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var lb1 = new LoadBalancer(\"lb1\", LoadBalancerArgs.builder()        \n            .loadBalancerType(\"lb11\")\n            .networkZone(\"eu-central\")\n            .build());\n\n        var mynet = new Network(\"mynet\", NetworkArgs.builder()        \n            .ipRange(\"10.0.0.0/8\")\n            .build());\n\n        var foonet = new NetworkSubnet(\"foonet\", NetworkSubnetArgs.builder()        \n            .networkId(mynet.id())\n            .type(\"cloud\")\n            .networkZone(\"eu-central\")\n            .ipRange(\"10.0.1.0/24\")\n            .build());\n\n        var srvnetwork = new LoadBalancerNetwork(\"srvnetwork\", LoadBalancerNetworkArgs.builder()        \n            .loadBalancerId(lb1.id())\n            .networkId(mynet.id())\n            .ip(\"10.0.1.5\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  lb1:\n    type: hcloud:LoadBalancer\n    properties:\n      loadBalancerType: lb11\n      networkZone: eu-central\n  mynet:\n    type: hcloud:Network\n    properties:\n      ipRange: 10.0.0.0/8\n  foonet:\n    type: hcloud:NetworkSubnet\n    properties:\n      networkId: ${mynet.id}\n      type: cloud\n      networkZone: eu-central\n      ipRange: 10.0.1.0/24\n  srvnetwork:\n    type: hcloud:LoadBalancerNetwork\n    properties:\n      loadBalancerId: ${lb1.id}\n      networkId: ${mynet.id}\n      ip: 10.0.1.5\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nLoad Balancer Network entries can be imported using a compound ID with the following format:\n\n`\u003cload-balancer-id\u003e-\u003cnetwork-id\u003e`\n\n```sh\n$ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654\n```\n\n",
+            "description": "Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst lb1 = new hcloud.LoadBalancer(\"lb1\", {\n    loadBalancerType: \"lb11\",\n    networkZone: \"eu-central\",\n});\nconst mynet = new hcloud.Network(\"mynet\", {ipRange: \"10.0.0.0/8\"});\nconst foonet = new hcloud.NetworkSubnet(\"foonet\", {\n    networkId: mynet.id,\n    type: \"cloud\",\n    networkZone: \"eu-central\",\n    ipRange: \"10.0.1.0/24\",\n});\nconst srvnetwork = new hcloud.LoadBalancerNetwork(\"srvnetwork\", {\n    loadBalancerId: lb1.id,\n    networkId: mynet.id,\n    ip: \"10.0.1.5\",\n}, {\n    dependsOn: [hcloud_network_subnet.srvnetwork],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nlb1 = hcloud.LoadBalancer(\"lb1\",\n    load_balancer_type=\"lb11\",\n    network_zone=\"eu-central\")\nmynet = hcloud.Network(\"mynet\", ip_range=\"10.0.0.0/8\")\nfoonet = hcloud.NetworkSubnet(\"foonet\",\n    network_id=mynet.id,\n    type=\"cloud\",\n    network_zone=\"eu-central\",\n    ip_range=\"10.0.1.0/24\")\nsrvnetwork = hcloud.LoadBalancerNetwork(\"srvnetwork\",\n    load_balancer_id=lb1.id,\n    network_id=mynet.id,\n    ip=\"10.0.1.5\",\n    opts=pulumi.ResourceOptions(depends_on=[hcloud_network_subnet[\"srvnetwork\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var lb1 = new HCloud.LoadBalancer(\"lb1\", new()\n    {\n        LoadBalancerType = \"lb11\",\n        NetworkZone = \"eu-central\",\n    });\n\n    var mynet = new HCloud.Network(\"mynet\", new()\n    {\n        IpRange = \"10.0.0.0/8\",\n    });\n\n    var foonet = new HCloud.NetworkSubnet(\"foonet\", new()\n    {\n        NetworkId = mynet.Id,\n        Type = \"cloud\",\n        NetworkZone = \"eu-central\",\n        IpRange = \"10.0.1.0/24\",\n    });\n\n    var srvnetwork = new HCloud.LoadBalancerNetwork(\"srvnetwork\", new()\n    {\n        LoadBalancerId = lb1.Id,\n        NetworkId = mynet.Id,\n        Ip = \"10.0.1.5\",\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            hcloud_network_subnet.Srvnetwork,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tlb1, err := hcloud.NewLoadBalancer(ctx, \"lb1\", \u0026hcloud.LoadBalancerArgs{\n\t\t\tLoadBalancerType: pulumi.String(\"lb11\"),\n\t\t\tNetworkZone:      pulumi.String(\"eu-central\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tmynet, err := hcloud.NewNetwork(ctx, \"mynet\", \u0026hcloud.NetworkArgs{\n\t\t\tIpRange: pulumi.String(\"10.0.0.0/8\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewNetworkSubnet(ctx, \"foonet\", \u0026hcloud.NetworkSubnetArgs{\n\t\t\tNetworkId:   mynet.ID(),\n\t\t\tType:        pulumi.String(\"cloud\"),\n\t\t\tNetworkZone: pulumi.String(\"eu-central\"),\n\t\t\tIpRange:     pulumi.String(\"10.0.1.0/24\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewLoadBalancerNetwork(ctx, \"srvnetwork\", \u0026hcloud.LoadBalancerNetworkArgs{\n\t\t\tLoadBalancerId: lb1.ID(),\n\t\t\tNetworkId:      mynet.ID(),\n\t\t\tIp:             pulumi.String(\"10.0.1.5\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\thcloud_network_subnet.Srvnetwork,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.LoadBalancer;\nimport com.pulumi.hcloud.LoadBalancerArgs;\nimport com.pulumi.hcloud.Network;\nimport com.pulumi.hcloud.NetworkArgs;\nimport com.pulumi.hcloud.NetworkSubnet;\nimport com.pulumi.hcloud.NetworkSubnetArgs;\nimport com.pulumi.hcloud.LoadBalancerNetwork;\nimport com.pulumi.hcloud.LoadBalancerNetworkArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var lb1 = new LoadBalancer(\"lb1\", LoadBalancerArgs.builder()        \n            .loadBalancerType(\"lb11\")\n            .networkZone(\"eu-central\")\n            .build());\n\n        var mynet = new Network(\"mynet\", NetworkArgs.builder()        \n            .ipRange(\"10.0.0.0/8\")\n            .build());\n\n        var foonet = new NetworkSubnet(\"foonet\", NetworkSubnetArgs.builder()        \n            .networkId(mynet.id())\n            .type(\"cloud\")\n            .networkZone(\"eu-central\")\n            .ipRange(\"10.0.1.0/24\")\n            .build());\n\n        var srvnetwork = new LoadBalancerNetwork(\"srvnetwork\", LoadBalancerNetworkArgs.builder()        \n            .loadBalancerId(lb1.id())\n            .networkId(mynet.id())\n            .ip(\"10.0.1.5\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(hcloud_network_subnet.srvnetwork())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  lb1:\n    type: hcloud:LoadBalancer\n    properties:\n      loadBalancerType: lb11\n      networkZone: eu-central\n  mynet:\n    type: hcloud:Network\n    properties:\n      ipRange: 10.0.0.0/8\n  foonet:\n    type: hcloud:NetworkSubnet\n    properties:\n      networkId: ${mynet.id}\n      type: cloud\n      networkZone: eu-central\n      ipRange: 10.0.1.0/24\n  srvnetwork:\n    type: hcloud:LoadBalancerNetwork\n    properties:\n      loadBalancerId: ${lb1.id}\n      networkId: ${mynet.id}\n      ip: 10.0.1.5\n    options:\n      dependson:\n        - ${hcloud_network_subnet.srvnetwork}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nLoad Balancer Network entries can be imported using a compound ID with the following format:\n\n`\u003cload-balancer-id\u003e-\u003cnetwork-id\u003e`\n\n```sh\n$ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654\n```\n\n",
             "properties": {
                 "enablePublicInterface": {
                     "type": "boolean",
@@ -3924,7 +3929,7 @@
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
@@ -3946,7 +3951,7 @@
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "User-defined labels (key-value pairs) should be created with.\n"
                 },
@@ -3956,8 +3961,7 @@
                 },
                 "publicKey": {
                     "type": "string",
-                    "description": "The public key. If this is a file, it can be read using the file interpolation function\n",
-                    "willReplaceOnChanges": true
+                    "description": "The public key. If this is a file, it can be read using the file interpolation function\n"
                 }
             },
             "requiredInputs": [
@@ -3973,7 +3977,7 @@
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
-                            "$ref": "pulumi.json#/Any"
+                            "type": "string"
                         },
                         "description": "User-defined labels (key-value pairs) should be created with.\n"
                     },
@@ -3983,8 +3987,7 @@
                     },
                     "publicKey": {
                         "type": "string",
-                        "description": "The public key. If this is a file, it can be read using the file interpolation function\n",
-                        "willReplaceOnChanges": true
+                        "description": "The public key. If this is a file, it can be read using the file interpolation function\n"
                     }
                 },
                 "type": "object"
@@ -6127,9 +6130,19 @@
                         "type": "integer",
                         "description": "ID of the SSH Key.\n"
                     },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the SSH Key.\n"
+                    },
+                    "publicKey": {
+                        "type": "string",
+                        "description": "(string) Public Key of the SSH Key.\n"
                     },
                     "selector": {
                         "type": "string",
@@ -6156,7 +6169,7 @@
                     "labels": {
                         "type": "object",
                         "additionalProperties": {
-                            "$ref": "pulumi.json#/Any"
+                            "type": "string"
                         }
                     },
                     "name": {
@@ -6190,6 +6203,9 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getSshKeys.\n",
                 "properties": {
+                    "id": {
+                        "type": "string"
+                    },
                     "withSelector": {
                         "type": "string",
                         "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
@@ -6201,8 +6217,7 @@
                 "description": "A collection of values returned by getSshKeys.\n",
                 "properties": {
                     "id": {
-                        "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                        "type": "string"
                     },
                     "sshKeys": {
                         "type": "array",
@@ -6217,8 +6232,7 @@
                 },
                 "type": "object",
                 "required": [
-                    "sshKeys",
-                    "id"
+                    "sshKeys"
                 ]
             }
         },
