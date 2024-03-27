@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,6 +47,13 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="labels")
+    private @Nullable Output<Map<String,String>> labels;
+
+    public Optional<Output<Map<String,String>>> labels() {
+        return Optional.ofNullable(this.labels);
+    }
+
     /**
      * Name of the SSH Key.
      * 
@@ -59,6 +67,21 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * (string) Public Key of the SSH Key.
+     * 
+     */
+    @Import(name="publicKey")
+    private @Nullable Output<String> publicKey;
+
+    /**
+     * @return (string) Public Key of the SSH Key.
+     * 
+     */
+    public Optional<Output<String>> publicKey() {
+        return Optional.ofNullable(this.publicKey);
     }
 
     /**
@@ -100,7 +123,9 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
     private GetSshKeyArgs(GetSshKeyArgs $) {
         this.fingerprint = $.fingerprint;
         this.id = $.id;
+        this.labels = $.labels;
         this.name = $.name;
+        this.publicKey = $.publicKey;
         this.selector = $.selector;
         this.withSelector = $.withSelector;
     }
@@ -165,6 +190,15 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
             return id(Output.of(id));
         }
 
+        public Builder labels(@Nullable Output<Map<String,String>> labels) {
+            $.labels = labels;
+            return this;
+        }
+
+        public Builder labels(Map<String,String> labels) {
+            return labels(Output.of(labels));
+        }
+
         /**
          * @param name Name of the SSH Key.
          * 
@@ -184,6 +218,27 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param publicKey (string) Public Key of the SSH Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicKey(@Nullable Output<String> publicKey) {
+            $.publicKey = publicKey;
+            return this;
+        }
+
+        /**
+         * @param publicKey (string) Public Key of the SSH Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicKey(String publicKey) {
+            return publicKey(Output.of(publicKey));
         }
 
         /**

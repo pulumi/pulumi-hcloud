@@ -66,7 +66,7 @@ type SshKey struct {
 	// (string) The fingerprint of the SSH key
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the SSH key.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The public key. If this is a file, it can be read using the file interpolation function
@@ -109,7 +109,7 @@ type sshKeyState struct {
 	// (string) The fingerprint of the SSH key
 	Fingerprint *string `pulumi:"fingerprint"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the SSH key.
 	Name *string `pulumi:"name"`
 	// The public key. If this is a file, it can be read using the file interpolation function
@@ -120,7 +120,7 @@ type SshKeyState struct {
 	// (string) The fingerprint of the SSH key
 	Fingerprint pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the SSH key.
 	Name pulumi.StringPtrInput
 	// The public key. If this is a file, it can be read using the file interpolation function
@@ -133,7 +133,7 @@ func (SshKeyState) ElementType() reflect.Type {
 
 type sshKeyArgs struct {
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the SSH key.
 	Name *string `pulumi:"name"`
 	// The public key. If this is a file, it can be read using the file interpolation function
@@ -143,7 +143,7 @@ type sshKeyArgs struct {
 // The set of arguments for constructing a SshKey resource.
 type SshKeyArgs struct {
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the SSH key.
 	Name pulumi.StringPtrInput
 	// The public key. If this is a file, it can be read using the file interpolation function
@@ -243,8 +243,8 @@ func (o SshKeyOutput) Fingerprint() pulumi.StringOutput {
 }
 
 // User-defined labels (key-value pairs) should be created with.
-func (o SshKeyOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *SshKey) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o SshKeyOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SshKey) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the SSH key.

@@ -24,7 +24,7 @@ export interface FirewallRule {
      */
     description?: pulumi.Input<string>;
     /**
-     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+     * List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
      * is `out`)
      */
     destinationIps?: pulumi.Input<pulumi.Input<string>[]>;
@@ -34,8 +34,7 @@ export interface FirewallRule {
     direction: pulumi.Input<string>;
     /**
      * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-     * 85.
+     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
      */
     port?: pulumi.Input<string>;
     /**
@@ -43,7 +42,8 @@ export interface FirewallRule {
      */
     protocol: pulumi.Input<string>;
     /**
-     * List of CIDRs that are allowed within this Firewall Rule
+     * List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+     * is `in`)
      */
     sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
 }

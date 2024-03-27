@@ -55,7 +55,9 @@ import (
 //				LoadBalancerId: lb1.ID(),
 //				NetworkId:      mynet.ID(),
 //				Ip:             pulumi.String("10.0.1.5"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				hcloud_network_subnet.Srvnetwork,
+//			}))
 //			if err != nil {
 //				return err
 //			}

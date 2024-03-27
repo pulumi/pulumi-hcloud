@@ -14,6 +14,13 @@ public final class GetSshKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSshKeysPlainArgs Empty = new GetSshKeysPlainArgs();
 
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      * 
@@ -32,6 +39,7 @@ public final class GetSshKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetSshKeysPlainArgs() {}
 
     private GetSshKeysPlainArgs(GetSshKeysPlainArgs $) {
+        this.id = $.id;
         this.withSelector = $.withSelector;
     }
 
@@ -51,6 +59,11 @@ public final class GetSshKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetSshKeysPlainArgs defaults) {
             $ = new GetSshKeysPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
         }
 
         /**

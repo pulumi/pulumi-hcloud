@@ -19,7 +19,7 @@ public final class FirewallRule {
      */
     private @Nullable String description;
     /**
-     * @return (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+     * @return List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
      * is `out`)
      * 
      */
@@ -31,8 +31,7 @@ public final class FirewallRule {
     private String direction;
     /**
      * @return Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-     * 85.
+     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
      * 
      */
     private @Nullable String port;
@@ -42,7 +41,8 @@ public final class FirewallRule {
      */
     private String protocol;
     /**
-     * @return List of CIDRs that are allowed within this Firewall Rule
+     * @return List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+     * is `in`)
      * 
      */
     private @Nullable List<String> sourceIps;
@@ -56,7 +56,7 @@ public final class FirewallRule {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+     * @return List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
      * is `out`)
      * 
      */
@@ -72,8 +72,7 @@ public final class FirewallRule {
     }
     /**
      * @return Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-     * 85.
+     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
      * 
      */
     public Optional<String> port() {
@@ -87,7 +86,8 @@ public final class FirewallRule {
         return this.protocol;
     }
     /**
-     * @return List of CIDRs that are allowed within this Firewall Rule
+     * @return List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+     * is `in`)
      * 
      */
     public List<String> sourceIps() {

@@ -35,10 +35,7 @@ class GetSshKeysResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
@@ -66,7 +63,8 @@ class AwaitableGetSshKeysResult(GetSshKeysResult):
             with_selector=self.with_selector)
 
 
-def get_ssh_keys(with_selector: Optional[str] = None,
+def get_ssh_keys(id: Optional[str] = None,
+                 with_selector: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeysResult:
     """
     ## Example Usage
@@ -86,6 +84,7 @@ def get_ssh_keys(with_selector: Optional[str] = None,
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['withSelector'] = with_selector
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('hcloud:index/getSshKeys:getSshKeys', __args__, opts=opts, typ=GetSshKeysResult).value
@@ -97,7 +96,8 @@ def get_ssh_keys(with_selector: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_ssh_keys)
-def get_ssh_keys_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
+def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                        with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeysResult]:
     """
     ## Example Usage

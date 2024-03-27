@@ -136,12 +136,12 @@ class FirewallRule(dict):
         :param str direction: Direction of the Firewall Rule. `in`
         :param str protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param str description: Description of the firewall rule
-        :param Sequence[str] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+        :param Sequence[str] destination_ips: List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
                is `out`)
         :param str port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-               to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-               85.
-        :param Sequence[str] source_ips: List of CIDRs that are allowed within this Firewall Rule
+               to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+        :param Sequence[str] source_ips: List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+               is `in`)
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "protocol", protocol)
@@ -182,7 +182,7 @@ class FirewallRule(dict):
     @pulumi.getter(name="destinationIps")
     def destination_ips(self) -> Optional[Sequence[str]]:
         """
-        (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+        List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
         is `out`)
         """
         return pulumi.get(self, "destination_ips")
@@ -192,8 +192,7 @@ class FirewallRule(dict):
     def port(self) -> Optional[str]:
         """
         Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-        to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-        85.
+        to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
         """
         return pulumi.get(self, "port")
 
@@ -201,7 +200,8 @@ class FirewallRule(dict):
     @pulumi.getter(name="sourceIps")
     def source_ips(self) -> Optional[Sequence[str]]:
         """
-        List of CIDRs that are allowed within this Firewall Rule
+        List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+        is `in`)
         """
         return pulumi.get(self, "source_ips")
 
@@ -2301,9 +2301,16 @@ class GetSshKeysSshKeyResult(dict):
     def __init__(__self__, *,
                  fingerprint: str,
                  id: int,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  name: str,
                  public_key: str):
+        """
+        :param str fingerprint: Fingerprint of the SSH key.
+        :param int id: ID of the SSH key.
+        :param Mapping[str, str] labels: User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        :param str name: Name of the SSH key.
+        :param str public_key: Public key of the SSH key pair.
+        """
         pulumi.set(__self__, "fingerprint", fingerprint)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "labels", labels)
@@ -2313,26 +2320,41 @@ class GetSshKeysSshKeyResult(dict):
     @property
     @pulumi.getter
     def fingerprint(self) -> str:
+        """
+        Fingerprint of the SSH key.
+        """
         return pulumi.get(self, "fingerprint")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        ID of the SSH key.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the SSH key.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
+        """
+        Public key of the SSH key pair.
+        """
         return pulumi.get(self, "public_key")
 
 

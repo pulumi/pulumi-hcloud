@@ -39,7 +39,9 @@ export function getSshKey(args?: GetSshKeyArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("hcloud:index/getSshKey:getSshKey", {
         "fingerprint": args.fingerprint,
         "id": args.id,
+        "labels": args.labels,
         "name": args.name,
+        "publicKey": args.publicKey,
         "selector": args.selector,
         "withSelector": args.withSelector,
     }, opts);
@@ -57,10 +59,15 @@ export interface GetSshKeyArgs {
      * ID of the SSH Key.
      */
     id?: number;
+    labels?: {[key: string]: string};
     /**
      * Name of the SSH Key.
      */
     name?: string;
+    /**
+     * (string) Public Key of the SSH Key.
+     */
+    publicKey?: string;
     /**
      * @deprecated Please use the withSelector property instead.
      */
@@ -83,7 +90,7 @@ export interface GetSshKeyResult {
      * (int) Unique ID of the SSH Key.
      */
     readonly id: number;
-    readonly labels: {[key: string]: any};
+    readonly labels: {[key: string]: string};
     /**
      * (string) Name of the SSH Key.
      */
@@ -142,10 +149,15 @@ export interface GetSshKeyOutputArgs {
      * ID of the SSH Key.
      */
     id?: pulumi.Input<number>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the SSH Key.
      */
     name?: pulumi.Input<string>;
+    /**
+     * (string) Public Key of the SSH Key.
+     */
+    publicKey?: pulumi.Input<string>;
     /**
      * @deprecated Please use the withSelector property instead.
      */
