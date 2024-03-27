@@ -37,7 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.ServerArgs;
  * import com.pulumi.hcloud.LoadBalancer;
  * import com.pulumi.hcloud.LoadBalancerArgs;
- * import com.pulumi.hcloud.inputs.LoadBalancerTargetArgs;
+ * import com.pulumi.hcloud.LoadBalancerTarget;
+ * import com.pulumi.hcloud.LoadBalancerTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myserver = new Server(&#34;myserver&#34;, ServerArgs.builder()        
+ *         var myServer = new Server(&#34;myServer&#34;, ServerArgs.builder()        
  *             .serverType(&#34;cx11&#34;)
  *             .image(&#34;ubuntu-18.04&#34;)
  *             .build());
@@ -59,10 +60,12 @@ import javax.annotation.Nullable;
  *         var loadBalancer = new LoadBalancer(&#34;loadBalancer&#34;, LoadBalancerArgs.builder()        
  *             .loadBalancerType(&#34;lb11&#34;)
  *             .location(&#34;nbg1&#34;)
- *             .targets(LoadBalancerTargetArgs.builder()
- *                 .type(&#34;server&#34;)
- *                 .serverId(myserver.id())
- *                 .build())
+ *             .build());
+ * 
+ *         var loadBalancerTarget = new LoadBalancerTarget(&#34;loadBalancerTarget&#34;, LoadBalancerTargetArgs.builder()        
+ *             .type(&#34;server&#34;)
+ *             .loadBalancerId(loadBalancer.id())
+ *             .serverId(myServer.id())
  *             .build());
  * 
  *     }

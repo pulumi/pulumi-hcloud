@@ -29,6 +29,8 @@ import * as utilities from "./utilities";
  *     loadBalancerId: lb1.id,
  *     networkId: mynet.id,
  *     ip: "10.0.1.5",
+ * }, {
+ *     dependsOn: [hcloud_network_subnet.srvnetwork],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

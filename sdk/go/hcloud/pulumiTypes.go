@@ -128,18 +128,18 @@ func (o FirewallApplyToArrayOutput) Index(i pulumi.IntInput) FirewallApplyToOutp
 type FirewallRule struct {
 	// Description of the firewall rule
 	Description *string `pulumi:"description"`
-	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+	// List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
 	// is `out`)
 	DestinationIps []string `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
 	Direction string `pulumi:"direction"`
 	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-	// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-	// 85.
+	// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
 	Port *string `pulumi:"port"`
 	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol string `pulumi:"protocol"`
-	// List of CIDRs that are allowed within this Firewall Rule
+	// List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+	// is `in`)
 	SourceIps []string `pulumi:"sourceIps"`
 }
 
@@ -157,18 +157,18 @@ type FirewallRuleInput interface {
 type FirewallRuleArgs struct {
 	// Description of the firewall rule
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+	// List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
 	// is `out`)
 	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
 	// Direction of the Firewall Rule. `in`
 	Direction pulumi.StringInput `pulumi:"direction"`
 	// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-	// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-	// 85.
+	// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// List of CIDRs that are allowed within this Firewall Rule
+	// List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+	// is `in`)
 	SourceIps pulumi.StringArrayInput `pulumi:"sourceIps"`
 }
 
@@ -228,7 +228,7 @@ func (o FirewallRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+// List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
 // is `out`)
 func (o FirewallRuleOutput) DestinationIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallRule) []string { return v.DestinationIps }).(pulumi.StringArrayOutput)
@@ -240,8 +240,7 @@ func (o FirewallRuleOutput) Direction() pulumi.StringOutput {
 }
 
 // Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-// 85.
+// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
 func (o FirewallRuleOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRule) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -251,7 +250,8 @@ func (o FirewallRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// List of CIDRs that are allowed within this Firewall Rule
+// List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+// is `in`)
 func (o FirewallRuleOutput) SourceIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallRule) []string { return v.SourceIps }).(pulumi.StringArrayOutput)
 }
@@ -5124,11 +5124,16 @@ func (o GetServersServerArrayOutput) Index(i pulumi.IntInput) GetServersServerOu
 }
 
 type GetSshKeysSshKey struct {
-	Fingerprint string                 `pulumi:"fingerprint"`
-	Id          int                    `pulumi:"id"`
-	Labels      map[string]interface{} `pulumi:"labels"`
-	Name        string                 `pulumi:"name"`
-	PublicKey   string                 `pulumi:"publicKey"`
+	// Fingerprint of the SSH key.
+	Fingerprint string `pulumi:"fingerprint"`
+	// ID of the SSH key.
+	Id int `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the SSH key.
+	Name string `pulumi:"name"`
+	// Public key of the SSH key pair.
+	PublicKey string `pulumi:"publicKey"`
 }
 
 // GetSshKeysSshKeyInput is an input type that accepts GetSshKeysSshKeyArgs and GetSshKeysSshKeyOutput values.
@@ -5143,11 +5148,16 @@ type GetSshKeysSshKeyInput interface {
 }
 
 type GetSshKeysSshKeyArgs struct {
+	// Fingerprint of the SSH key.
 	Fingerprint pulumi.StringInput `pulumi:"fingerprint"`
-	Id          pulumi.IntInput    `pulumi:"id"`
-	Labels      pulumi.MapInput    `pulumi:"labels"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	PublicKey   pulumi.StringInput `pulumi:"publicKey"`
+	// ID of the SSH key.
+	Id pulumi.IntInput `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the SSH key.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Public key of the SSH key pair.
+	PublicKey pulumi.StringInput `pulumi:"publicKey"`
 }
 
 func (GetSshKeysSshKeyArgs) ElementType() reflect.Type {
@@ -5201,22 +5211,27 @@ func (o GetSshKeysSshKeyOutput) ToGetSshKeysSshKeyOutputWithContext(ctx context.
 	return o
 }
 
+// Fingerprint of the SSH key.
 func (o GetSshKeysSshKeyOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) string { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
+// ID of the SSH key.
 func (o GetSshKeysSshKeyOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o GetSshKeysSshKeyOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetSshKeysSshKey) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+func (o GetSshKeysSshKeyOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSshKeysSshKey) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
+// Name of the SSH key.
 func (o GetSshKeysSshKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Public key of the SSH key pair.
 func (o GetSshKeysSshKeyOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
 }

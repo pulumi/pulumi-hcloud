@@ -81,9 +81,12 @@ type LookupSshKeyArgs struct {
 	// Fingerprint of the SSH Key.
 	Fingerprint *string `pulumi:"fingerprint"`
 	// ID of the SSH Key.
-	Id *int `pulumi:"id"`
+	Id     *int              `pulumi:"id"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the SSH Key.
 	Name *string `pulumi:"name"`
+	// (string) Public Key of the SSH Key.
+	PublicKey *string `pulumi:"publicKey"`
 	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -95,8 +98,8 @@ type LookupSshKeyResult struct {
 	// (string) Fingerprint of the SSH Key.
 	Fingerprint string `pulumi:"fingerprint"`
 	// (int) Unique ID of the SSH Key.
-	Id     int                    `pulumi:"id"`
-	Labels map[string]interface{} `pulumi:"labels"`
+	Id     int               `pulumi:"id"`
+	Labels map[string]string `pulumi:"labels"`
 	// (string) Name of the SSH Key.
 	Name string `pulumi:"name"`
 	// (string) Public Key of the SSH Key.
@@ -124,9 +127,12 @@ type LookupSshKeyOutputArgs struct {
 	// Fingerprint of the SSH Key.
 	Fingerprint pulumi.StringPtrInput `pulumi:"fingerprint"`
 	// ID of the SSH Key.
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id     pulumi.IntPtrInput    `pulumi:"id"`
+	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Name of the SSH Key.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (string) Public Key of the SSH Key.
+	PublicKey pulumi.StringPtrInput `pulumi:"publicKey"`
 	// Deprecated: Please use the withSelector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -162,8 +168,8 @@ func (o LookupSshKeyResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSshKeyResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o LookupSshKeyResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupSshKeyResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupSshKeyResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // (string) Name of the SSH Key.

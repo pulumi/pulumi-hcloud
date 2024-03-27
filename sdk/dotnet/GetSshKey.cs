@@ -125,11 +125,25 @@ namespace Pulumi.HCloud
         [Input("id")]
         public int? Id { get; set; }
 
+        [Input("labels")]
+        private Dictionary<string, string>? _labels;
+        public Dictionary<string, string> Labels
+        {
+            get => _labels ?? (_labels = new Dictionary<string, string>());
+            set => _labels = value;
+        }
+
         /// <summary>
         /// Name of the SSH Key.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// (string) Public Key of the SSH Key.
+        /// </summary>
+        [Input("publicKey")]
+        public string? PublicKey { get; set; }
 
         [Input("selector")]
         public string? Selector { get; set; }
@@ -160,11 +174,25 @@ namespace Pulumi.HCloud
         [Input("id")]
         public Input<int>? Id { get; set; }
 
+        [Input("labels")]
+        private InputMap<string>? _labels;
+        public InputMap<string> Labels
+        {
+            get => _labels ?? (_labels = new InputMap<string>());
+            set => _labels = value;
+        }
+
         /// <summary>
         /// Name of the SSH Key.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// (string) Public Key of the SSH Key.
+        /// </summary>
+        [Input("publicKey")]
+        public Input<string>? PublicKey { get; set; }
 
         [Input("selector")]
         public Input<string>? Selector { get; set; }
@@ -193,7 +221,7 @@ namespace Pulumi.HCloud
         /// (int) Unique ID of the SSH Key.
         /// </summary>
         public readonly int Id;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
         /// (string) Name of the SSH Key.
         /// </summary>
@@ -211,7 +239,7 @@ namespace Pulumi.HCloud
 
             int id,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string name,
 

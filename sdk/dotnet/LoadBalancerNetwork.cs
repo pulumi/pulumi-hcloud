@@ -47,6 +47,12 @@ namespace Pulumi.HCloud
     ///         LoadBalancerId = lb1.Id,
     ///         NetworkId = mynet.Id,
     ///         Ip = "10.0.1.5",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             hcloud_network_subnet.Srvnetwork,
+    ///         },
     ///     });
     /// 
     /// });

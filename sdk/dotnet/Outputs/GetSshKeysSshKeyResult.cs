@@ -13,10 +13,25 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetSshKeysSshKeyResult
     {
+        /// <summary>
+        /// Fingerprint of the SSH key.
+        /// </summary>
         public readonly string Fingerprint;
+        /// <summary>
+        /// ID of the SSH key.
+        /// </summary>
         public readonly int Id;
-        public readonly ImmutableDictionary<string, object> Labels;
+        /// <summary>
+        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Labels;
+        /// <summary>
+        /// Name of the SSH key.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Public key of the SSH key pair.
+        /// </summary>
         public readonly string PublicKey;
 
         [OutputConstructor]
@@ -25,7 +40,7 @@ namespace Pulumi.HCloud.Outputs
 
             int id,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string name,
 

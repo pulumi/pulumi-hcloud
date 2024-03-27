@@ -6,32 +6,71 @@ package com.pulumi.hcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
 
 @CustomType
 public final class GetSshKeysSshKey {
+    /**
+     * @return Fingerprint of the SSH key.
+     * 
+     */
     private String fingerprint;
+    /**
+     * @return ID of the SSH key.
+     * 
+     */
     private Integer id;
-    private Map<String,Object> labels;
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * 
+     */
+    private Map<String,String> labels;
+    /**
+     * @return Name of the SSH key.
+     * 
+     */
     private String name;
+    /**
+     * @return Public key of the SSH key pair.
+     * 
+     */
     private String publicKey;
 
     private GetSshKeysSshKey() {}
+    /**
+     * @return Fingerprint of the SSH key.
+     * 
+     */
     public String fingerprint() {
         return this.fingerprint;
     }
+    /**
+     * @return ID of the SSH key.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
-    public Map<String,Object> labels() {
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * 
+     */
+    public Map<String,String> labels() {
         return this.labels;
     }
+    /**
+     * @return Name of the SSH key.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Public key of the SSH key pair.
+     * 
+     */
     public String publicKey() {
         return this.publicKey;
     }
@@ -47,7 +86,7 @@ public final class GetSshKeysSshKey {
     public static final class Builder {
         private String fingerprint;
         private Integer id;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private String name;
         private String publicKey;
         public Builder() {}
@@ -77,7 +116,7 @@ public final class GetSshKeysSshKey {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetSshKeysSshKey", "labels");
             }

@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.NetworkSubnetArgs;
  * import com.pulumi.hcloud.LoadBalancerNetwork;
  * import com.pulumi.hcloud.LoadBalancerNetworkArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -69,7 +70,9 @@ import javax.annotation.Nullable;
  *             .loadBalancerId(lb1.id())
  *             .networkId(mynet.id())
  *             .ip(&#34;10.0.1.5&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(hcloud_network_subnet.srvnetwork())
+ *                 .build());
  * 
  *     }
  * }

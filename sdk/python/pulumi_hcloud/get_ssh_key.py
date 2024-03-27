@@ -62,7 +62,7 @@ class GetSshKeyResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -112,7 +112,9 @@ class AwaitableGetSshKeyResult(GetSshKeyResult):
 
 def get_ssh_key(fingerprint: Optional[str] = None,
                 id: Optional[int] = None,
+                labels: Optional[Mapping[str, str]] = None,
                 name: Optional[str] = None,
+                public_key: Optional[str] = None,
                 selector: Optional[str] = None,
                 with_selector: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeyResult:
@@ -140,12 +142,15 @@ def get_ssh_key(fingerprint: Optional[str] = None,
     :param str fingerprint: Fingerprint of the SSH Key.
     :param int id: ID of the SSH Key.
     :param str name: Name of the SSH Key.
+    :param str public_key: (string) Public Key of the SSH Key.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
     __args__['fingerprint'] = fingerprint
     __args__['id'] = id
+    __args__['labels'] = labels
     __args__['name'] = name
+    __args__['publicKey'] = public_key
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -164,7 +169,9 @@ def get_ssh_key(fingerprint: Optional[str] = None,
 @_utilities.lift_output_func(get_ssh_key)
 def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[Optional[int]]] = None,
+                       labels: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
+                       public_key: Optional[pulumi.Input[Optional[str]]] = None,
                        selector: Optional[pulumi.Input[Optional[str]]] = None,
                        with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyResult]:
@@ -192,6 +199,7 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
     :param str fingerprint: Fingerprint of the SSH Key.
     :param int id: ID of the SSH Key.
     :param str name: Name of the SSH Key.
+    :param str public_key: (string) Public Key of the SSH Key.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     ...

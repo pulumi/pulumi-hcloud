@@ -14,11 +14,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSshKeysResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
+    private @Nullable String id;
     /**
      * @return (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
      * 
@@ -27,12 +23,8 @@ public final class GetSshKeysResult {
     private @Nullable String withSelector;
 
     private GetSshKeysResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
@@ -54,7 +46,7 @@ public final class GetSshKeysResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private List<GetSshKeysSshKey> sshKeys;
         private @Nullable String withSelector;
         public Builder() {}
@@ -66,10 +58,8 @@ public final class GetSshKeysResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetSshKeysResult", "id");
-            }
+        public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }

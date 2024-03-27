@@ -64,14 +64,14 @@ func GetSshKeys(ctx *pulumi.Context, args *GetSshKeysArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSshKeys.
 type GetSshKeysArgs struct {
+	Id *string `pulumi:"id"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
 // A collection of values returned by getSshKeys.
 type GetSshKeysResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
 	SshKeys      []GetSshKeysSshKey `pulumi:"sshKeys"`
 	WithSelector *string            `pulumi:"withSelector"`
@@ -92,6 +92,7 @@ func GetSshKeysOutput(ctx *pulumi.Context, args GetSshKeysOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSshKeys.
 type GetSshKeysOutputArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
@@ -115,9 +116,8 @@ func (o GetSshKeysResultOutput) ToGetSshKeysResultOutputWithContext(ctx context.
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
-func (o GetSshKeysResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSshKeysResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSshKeysResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSshKeysResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.

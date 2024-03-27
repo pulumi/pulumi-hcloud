@@ -6,7 +6,6 @@ package com.pulumi.hcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -25,7 +24,7 @@ public final class GetSshKeyResult {
      * 
      */
     private Integer id;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     /**
      * @return (string) Name of the SSH Key.
      * 
@@ -60,7 +59,7 @@ public final class GetSshKeyResult {
     public Integer id() {
         return this.id;
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     /**
@@ -101,7 +100,7 @@ public final class GetSshKeyResult {
     public static final class Builder {
         private String fingerprint;
         private Integer id;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private String name;
         private String publicKey;
         private @Nullable String selector;
@@ -135,7 +134,7 @@ public final class GetSshKeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetSshKeyResult", "labels");
             }

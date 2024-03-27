@@ -33,7 +33,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+     * List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
      * is `out`)
      * 
      */
@@ -41,7 +41,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> destinationIps;
 
     /**
-     * @return (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+     * @return List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
      * is `out`)
      * 
      */
@@ -66,8 +66,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-     * 85.
+     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
      * 
      */
     @Import(name="port")
@@ -75,8 +74,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-     * 85.
+     * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
      * 
      */
     public Optional<Output<String>> port() {
@@ -99,14 +97,16 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of CIDRs that are allowed within this Firewall Rule
+     * List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+     * is `in`)
      * 
      */
     @Import(name="sourceIps")
     private @Nullable Output<List<String>> sourceIps;
 
     /**
-     * @return List of CIDRs that are allowed within this Firewall Rule
+     * @return List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+     * is `in`)
      * 
      */
     public Optional<Output<List<String>>> sourceIps() {
@@ -164,7 +164,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationIps (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+         * @param destinationIps List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
          * is `out`)
          * 
          * @return builder
@@ -176,7 +176,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationIps (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+         * @param destinationIps List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
          * is `out`)
          * 
          * @return builder
@@ -187,7 +187,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationIps (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+         * @param destinationIps List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
          * is `out`)
          * 
          * @return builder
@@ -220,8 +220,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param port Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-         * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-         * 85.
+         * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
          * 
          * @return builder
          * 
@@ -233,8 +232,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param port Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-         * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-         * 85.
+         * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
          * 
          * @return builder
          * 
@@ -265,7 +263,8 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceIps List of CIDRs that are allowed within this Firewall Rule
+         * @param sourceIps List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+         * is `in`)
          * 
          * @return builder
          * 
@@ -276,7 +275,8 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceIps List of CIDRs that are allowed within this Firewall Rule
+         * @param sourceIps List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+         * is `in`)
          * 
          * @return builder
          * 
@@ -286,7 +286,8 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceIps List of CIDRs that are allowed within this Firewall Rule
+         * @param sourceIps List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+         * is `in`)
          * 
          * @return builder
          * 

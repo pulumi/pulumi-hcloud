@@ -18,7 +18,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+        /// List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
         /// is `out`)
         /// </summary>
         public readonly ImmutableArray<string> DestinationIps;
@@ -28,8 +28,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly string Direction;
         /// <summary>
         /// Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-        /// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-        /// 85.
+        /// to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
         /// </summary>
         public readonly string? Port;
         /// <summary>
@@ -37,7 +36,8 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// List of CIDRs that are allowed within this Firewall Rule
+        /// List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+        /// is `in`)
         /// </summary>
         public readonly ImmutableArray<string> SourceIps;
 

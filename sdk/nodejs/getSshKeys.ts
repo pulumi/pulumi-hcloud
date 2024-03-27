@@ -27,6 +27,7 @@ export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): 
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getSshKeys:getSshKeys", {
+        "id": args.id,
         "withSelector": args.withSelector,
     }, opts);
 }
@@ -35,6 +36,7 @@ export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getSshKeys.
  */
 export interface GetSshKeysArgs {
+    id?: string;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */
@@ -45,10 +47,7 @@ export interface GetSshKeysArgs {
  * A collection of values returned by getSshKeys.
  */
 export interface GetSshKeysResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly id?: string;
     /**
      * (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
      */
@@ -79,6 +78,7 @@ export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getSshKeys.
  */
 export interface GetSshKeysOutputArgs {
+    id?: pulumi.Input<string>;
     /**
      * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
      */

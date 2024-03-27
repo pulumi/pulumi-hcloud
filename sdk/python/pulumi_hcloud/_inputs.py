@@ -79,12 +79,12 @@ class FirewallRuleArgs:
         :param pulumi.Input[str] direction: Direction of the Firewall Rule. `in`
         :param pulumi.Input[str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
         :param pulumi.Input[str] description: Description of the firewall rule
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ips: (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ips: List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
                is `out`)
         :param pulumi.Input[str] port: Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-               to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-               85.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of CIDRs that are allowed within this Firewall Rule
+               to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ips: List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+               is `in`)
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "protocol", protocol)
@@ -137,7 +137,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="destinationIps")
     def destination_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction`
+        List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
         is `out`)
         """
         return pulumi.get(self, "destination_ips")
@@ -151,8 +151,7 @@ class FirewallRuleArgs:
     def port(self) -> Optional[pulumi.Input[str]]:
         """
         Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-        to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and
-        85.
+        to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
         """
         return pulumi.get(self, "port")
 
@@ -164,7 +163,8 @@ class FirewallRuleArgs:
     @pulumi.getter(name="sourceIps")
     def source_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of CIDRs that are allowed within this Firewall Rule
+        List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+        is `in`)
         """
         return pulumi.get(self, "source_ips")
 

@@ -77,6 +77,9 @@ namespace Pulumi.HCloud
 
     public sealed class GetSshKeysArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public string? Id { get; set; }
+
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
         /// </summary>
@@ -91,6 +94,9 @@ namespace Pulumi.HCloud
 
     public sealed class GetSshKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
         /// </summary>
@@ -107,10 +113,7 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetSshKeysResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
         /// </summary>
@@ -119,7 +122,7 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetSshKeysResult(
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetSshKeysSshKeyResult> sshKeys,
 
