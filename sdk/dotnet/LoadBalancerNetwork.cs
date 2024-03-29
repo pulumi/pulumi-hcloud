@@ -49,9 +49,9 @@ namespace Pulumi.HCloud
     ///         Ip = "10.0.1.5",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             hcloud_network_subnet.Srvnetwork,
+    ///             hcloud_network_subnet.Srvnetwork, 
     ///         },
     ///     });
     /// 
