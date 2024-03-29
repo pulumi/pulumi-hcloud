@@ -4537,6 +4537,7 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
+     *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
@@ -4612,6 +4613,7 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
+     *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
@@ -4687,6 +4689,7 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
+     *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
@@ -4762,6 +4765,7 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
+     *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
@@ -4837,6 +4841,7 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
+     *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
@@ -4912,6 +4917,7 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
+     *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)

@@ -59,6 +59,7 @@ import javax.annotation.Nullable;
  *             .labels(Map.of(&#34;hallo&#34;, &#34;welt&#34;))
  *             .build());
  * 
+ *         // Link a server to a primary IP
  *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
  *             .image(&#34;ubuntu-20.04&#34;)
  *             .serverType(&#34;cx11&#34;)

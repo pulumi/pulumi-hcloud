@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new SSH key
  *         var default_ = new SshKey(&#34;default&#34;, SshKeyArgs.builder()        
  *             .publicKey(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
  *             .build());

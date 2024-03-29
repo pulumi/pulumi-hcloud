@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new server running debian
  *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
  *             .image(&#34;debian-11&#34;)
  *             .publicNets(ServerPublicNetArgs.builder()
@@ -89,6 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         //## Server creation with one linked primary ip (ipv4)
  *         var primaryIp1 = new PrimaryIp(&#34;primaryIp1&#34;, PrimaryIpArgs.builder()        
  *             .datacenter(&#34;fsn1-dc14&#34;)
  *             .type(&#34;ipv4&#34;)
@@ -205,6 +207,7 @@ import javax.annotation.Nullable;
  *             .mostRecent(true)
  *             .build());
  * 
+ *         // Create a new server from the snapshot
  *         var fromSnapshot = new Server(&#34;fromSnapshot&#34;, ServerArgs.builder()        
  *             .image(packerSnapshot.applyValue(getImageResult -&gt; getImageResult.id()))
  *             .serverType(&#34;cx11&#34;)
@@ -249,6 +252,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Assign existing ipv4 only
  *         var serverTestServer = new Server(&#34;serverTestServer&#34;, ServerArgs.builder()        
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)
@@ -257,6 +261,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         //...
+ *         // Link a managed ipv4 but autogenerate ipv6
  *         var serverTestIndex_serverServer = new Server(&#34;serverTestIndex/serverServer&#34;, ServerArgs.builder()        
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)
@@ -265,6 +271,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         //...
+ *         // Assign &amp; create auto-generated ipv4 &amp; ipv6
  *         var serverTestHcloudIndex_serverServer = new Server(&#34;serverTestHcloudIndex/serverServer&#34;, ServerArgs.builder()        
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)
@@ -272,6 +280,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         //...
  *     }
  * }
  * ```
