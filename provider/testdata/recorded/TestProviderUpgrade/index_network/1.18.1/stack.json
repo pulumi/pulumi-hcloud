@@ -1,0 +1,65 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:56:28.828778+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:TYWNVvQRRzQ=:v1:3MHpz8hg4RTDBtnn:dmOR+9kfo2By4/ASt+P3a8SbmTkN6Q=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_networkqrPBRqInZGfG::pulumi:pulumi:Stack::index_networkqrPBRqInZGfG-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T10:56:27.996926Z",
+        "modified": "2024-04-10T10:56:27.996926Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_networkqrPBRqInZGfG::pulumi:providers:hcloud::default",
+        "custom": true,
+        "id": "fdad77bf-8dc4-4155-a890-6abe7e469405",
+        "type": "pulumi:providers:hcloud",
+        "created": "2024-04-10T10:56:28.14483Z",
+        "modified": "2024-04-10T10:56:28.14483Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_networkqrPBRqInZGfG::hcloud:index/network:Network::my_network",
+        "custom": true,
+        "id": "4102461",
+        "type": "hcloud:index/network:Network",
+        "inputs": {
+          "__defaults": [
+            "deleteProtection",
+            "exposeRoutesToVswitch",
+            "name"
+          ],
+          "deleteProtection": false,
+          "exposeRoutesToVswitch": false,
+          "ipRange": "10.0.0.0/16",
+          "name": "my_network-5f36a1b"
+        },
+        "outputs": {
+          "deleteProtection": false,
+          "exposeRoutesToVswitch": false,
+          "id": "4102461",
+          "ipRange": "10.0.0.0/16",
+          "labels": {},
+          "name": "my_network-5f36a1b"
+        },
+        "parent": "urn:pulumi:test::index_networkqrPBRqInZGfG::pulumi:pulumi:Stack::index_networkqrPBRqInZGfG-test",
+        "provider": "urn:pulumi:test::index_networkqrPBRqInZGfG::pulumi:providers:hcloud::default::fdad77bf-8dc4-4155-a890-6abe7e469405",
+        "propertyDependencies": {
+          "ipRange": []
+        },
+        "created": "2024-04-10T10:56:28.828733Z",
+        "modified": "2024-04-10T10:56:28.828733Z"
+      }
+    ]
+  }
+}

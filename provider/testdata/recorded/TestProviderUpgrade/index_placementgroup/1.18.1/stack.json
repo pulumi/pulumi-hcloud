@@ -1,0 +1,60 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:56:36.926652+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:uSJxhZVZhRs=:v1:IQmwn8wGa12iQHqj:X3DlPSuSi9NxhCd3TVW/SYpj0voWGw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_placementgroupCJQxz4fFqv1E::pulumi:pulumi:Stack::index_placementgroupCJQxz4fFqv1E-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T10:56:36.432476Z",
+        "modified": "2024-04-10T10:56:36.432476Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_placementgroupCJQxz4fFqv1E::pulumi:providers:hcloud::default",
+        "custom": true,
+        "id": "02518ba9-0480-444d-9323-76a296c6c9ed",
+        "type": "pulumi:providers:hcloud",
+        "created": "2024-04-10T10:56:36.508265Z",
+        "modified": "2024-04-10T10:56:36.508265Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_placementgroupCJQxz4fFqv1E::hcloud:index/placementGroup:PlacementGroup::placementGroup",
+        "custom": true,
+        "id": "328150",
+        "type": "hcloud:index/placementGroup:PlacementGroup",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "name": "placementGroup-903d7a9",
+          "type": "spread"
+        },
+        "outputs": {
+          "id": "328150",
+          "labels": {},
+          "name": "placementGroup-903d7a9",
+          "servers": [],
+          "type": "spread"
+        },
+        "parent": "urn:pulumi:test::index_placementgroupCJQxz4fFqv1E::pulumi:pulumi:Stack::index_placementgroupCJQxz4fFqv1E-test",
+        "provider": "urn:pulumi:test::index_placementgroupCJQxz4fFqv1E::pulumi:providers:hcloud::default::02518ba9-0480-444d-9323-76a296c6c9ed",
+        "propertyDependencies": {
+          "type": []
+        },
+        "created": "2024-04-10T10:56:36.926614Z",
+        "modified": "2024-04-10T10:56:36.926614Z"
+      }
+    ]
+  }
+}
