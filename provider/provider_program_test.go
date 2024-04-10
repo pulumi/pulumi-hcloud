@@ -19,7 +19,7 @@ import (
 )
 
 const providerName = "hcloud"
-const defaultBaselineVersion = "1.18.0"
+const defaultBaselineVersion = "1.18.1"
 
 var programs = []string{
 	"test-programs/index_network",
@@ -97,6 +97,7 @@ func testProgram(t *testing.T, dir string) {
 	require.NoError(t, err)
 	test := pulumitest.NewPulumiTest(t, dir,
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.SkipInstall(),
 	)
 	test.Up()
 }
