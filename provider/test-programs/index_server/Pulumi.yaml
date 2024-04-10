@@ -1,0 +1,23 @@
+name: index_serveroT5wmFncT0ZX
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/1496c4f3-0aa3-4da6-9d00-c8759e30e614.zip
+outputs:
+  server_ip: ${server.ipv4Address}
+resources:
+  server:
+    properties:
+      image: ubuntu-20.04
+
+      serverType: cx11
+      sshKeys:
+        - ${ssh_key.id}
+    type: hcloud:index/server:Server
+  ssh_key:
+    properties:
+
+      publicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDF4B8a9iPk3d/sSZxBEIjLodGn5f0JTFKzKXX0cvpPN+zeQ8nADzmdezD0KtlS2kz+Ju/IvkBVB2xDF9+3WSuKiEzbn2VTpaqx5KsEjaF7bYid8ovoj84taj6Cymg8aBuU93xcpti5afxkDooqwuKzGZ2OMhpVpRchC+x3iTBwW7Bjzq1NNaztHuEHoxI9kFFQQr9L3lybBaZR/KqakHWNC4+XKrbkaWDpTLpRYNJ4BRpGub+iuoLEKh4BXlnBtA3C0LKt9qWEDcwgfbFkunEbOd7Twv78tadhw8VmuvOvTWoP4KEIy8mpNjSGE3FGPm9RxWyfGWHHCUoRIMX+rICatGM+ChtWH+uigr0nyfw6XDXN/M3pRVtYHdYN/2aSGBpEF6aKZUHfw04gOSLGWqsipRow1Dy81MtRgV8Iv/gvh9QvtuIRyg4EUqbnsKjYTe95jonWKk6K/94L5p4fq7Keknb8UhBB4X6HbZBNWyvNsLuTBI2xHak6I47I7N0d39t7QtrQ+Lxwr2CjMRJ/U/Z1mCZlnoNreR59w61P3sB3Ij5q+uZXAt9KZLztEftQZA8vgVW065aGbySvMxiG2IcQ7kU8HDxHAzCBl9oIP8JXJKcj5nsT00xjOAXq5J8soMHOT62HFJvOQdGox4hdKfYOPudtNRlqtbFKzvFMQCWk8Q== email@example.com
+    type: hcloud:index/sshKey:SshKey
