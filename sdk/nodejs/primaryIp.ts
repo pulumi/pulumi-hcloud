@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const main = new hcloud.PrimaryIp("main", {
+ *     name: "primary_ip_test",
  *     datacenter: "fsn1-dc14",
  *     type: "ipv4",
  *     assigneeType: "server",
@@ -27,7 +28,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * // Link a server to a primary IP
- * const serverTest = new hcloud.Server("serverTest", {
+ * const serverTest = new hcloud.Server("server_test", {
+ *     name: "test-server",
  *     image: "ubuntu-20.04",
  *     serverType: "cx11",
  *     datacenter: "fsn1-dc14",

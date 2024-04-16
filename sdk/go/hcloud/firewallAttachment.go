@@ -35,18 +35,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testServer, err := hcloud.NewServer(ctx, "testServer", &hcloud.ServerArgs{
+//			testServer, err := hcloud.NewServer(ctx, "test_server", &hcloud.ServerArgs{
+//				Name:       pulumi.String("test-server"),
 //				ServerType: pulumi.String("cx11"),
 //				Image:      pulumi.String("ubuntu-20.04"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			basicFirewall, err := hcloud.NewFirewall(ctx, "basicFirewall", nil)
+//			basicFirewall, err := hcloud.NewFirewall(ctx, "basic_firewall", &hcloud.FirewallArgs{
+//				Name: pulumi.String("basic_firewall"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewFirewallAttachment(ctx, "fwRef", &hcloud.FirewallAttachmentArgs{
+//			_, err = hcloud.NewFirewallAttachment(ctx, "fw_ref", &hcloud.FirewallAttachmentArgs{
 //				FirewallId: basicFirewall.ID(),
 //				ServerIds: pulumi.IntArray{
 //					testServer.ID(),
@@ -77,7 +80,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.NewServer(ctx, "testServer", &hcloud.ServerArgs{
+//			_, err := hcloud.NewServer(ctx, "test_server", &hcloud.ServerArgs{
+//				Name:       pulumi.String("test-server"),
 //				ServerType: pulumi.String("cx11"),
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				Labels: pulumi.Map{
@@ -87,11 +91,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			basicFirewall, err := hcloud.NewFirewall(ctx, "basicFirewall", nil)
+//			basicFirewall, err := hcloud.NewFirewall(ctx, "basic_firewall", &hcloud.FirewallArgs{
+//				Name: pulumi.String("basic_firewall"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewFirewallAttachment(ctx, "fwRef", &hcloud.FirewallAttachmentArgs{
+//			_, err = hcloud.NewFirewallAttachment(ctx, "fw_ref", &hcloud.FirewallAttachmentArgs{
 //				FirewallId: basicFirewall.ID(),
 //				LabelSelectors: pulumi.StringArray{
 //					pulumi.String("firewall-attachment=test-server"),

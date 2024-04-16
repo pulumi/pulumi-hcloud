@@ -25,12 +25,14 @@ namespace Pulumi.HCloud
     /// {
     ///     var node1 = new HCloud.Server("node1", new()
     ///     {
+    ///         Name = "node1",
     ///         Image = "debian-11",
     ///         ServerType = "cx11",
     ///     });
     /// 
     ///     var master = new HCloud.Volume("master", new()
     ///     {
+    ///         Name = "volume1",
     ///         Size = 50,
     ///         ServerId = node1.Id,
     ///         Automount = true,

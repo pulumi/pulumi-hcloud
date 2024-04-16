@@ -33,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			main, err := hcloud.NewPrimaryIp(ctx, "main", &hcloud.PrimaryIpArgs{
+//				Name:         pulumi.String("primary_ip_test"),
 //				Datacenter:   pulumi.String("fsn1-dc14"),
 //				Type:         pulumi.String("ipv4"),
 //				AssigneeType: pulumi.String("server"),
@@ -45,7 +46,8 @@ import (
 //				return err
 //			}
 //			// Link a server to a primary IP
-//			_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
+//			_, err = hcloud.NewServer(ctx, "server_test", &hcloud.ServerArgs{
+//				Name:       pulumi.String("test-server"),
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				ServerType: pulumi.String("cx11"),
 //				Datacenter: pulumi.String("fsn1-dc14"),

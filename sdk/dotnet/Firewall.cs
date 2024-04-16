@@ -25,6 +25,7 @@ namespace Pulumi.HCloud
     /// {
     ///     var myfirewall = new HCloud.Firewall("myfirewall", new()
     ///     {
+    ///         Name = "my-firewall",
     ///         Rules = new[]
     ///         {
     ///             new HCloud.Inputs.FirewallRuleArgs
@@ -53,6 +54,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var node1 = new HCloud.Server("node1", new()
     ///     {
+    ///         Name = "node1",
     ///         Image = "debian-11",
     ///         ServerType = "cx11",
     ///         FirewallIds = new[]

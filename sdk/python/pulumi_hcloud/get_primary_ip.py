@@ -207,7 +207,8 @@ def get_primary_ip(assignee_id: Optional[int] = None,
     ip2 = hcloud.get_primary_ip(name="primary_ip_1")
     ip3 = hcloud.get_primary_ip(with_selector="key=value")
     # Link a server to an existing primary IP
-    server_test = hcloud.Server("serverTest",
+    server_test = hcloud.Server("server_test",
+        name="test-server",
         image="ubuntu-20.04",
         server_type="cx11",
         datacenter="fsn1-dc14",
@@ -215,7 +216,7 @@ def get_primary_ip(assignee_id: Optional[int] = None,
             "test": "tessst1",
         },
         public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4=hcloud_primary_ip["ip_1"]["id"],
+            ipv4=ip1_hcloud_primary_ip["id"],
         )])
     ```
     <!--End PulumiCodeChooser -->
@@ -286,7 +287,8 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
     ip2 = hcloud.get_primary_ip(name="primary_ip_1")
     ip3 = hcloud.get_primary_ip(with_selector="key=value")
     # Link a server to an existing primary IP
-    server_test = hcloud.Server("serverTest",
+    server_test = hcloud.Server("server_test",
+        name="test-server",
         image="ubuntu-20.04",
         server_type="cx11",
         datacenter="fsn1-dc14",
@@ -294,7 +296,7 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
             "test": "tessst1",
         },
         public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4=hcloud_primary_ip["ip_1"]["id"],
+            ipv4=ip1_hcloud_primary_ip["id"],
         )])
     ```
     <!--End PulumiCodeChooser -->

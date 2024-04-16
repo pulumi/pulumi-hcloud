@@ -28,7 +28,9 @@ namespace Pulumi.HCloud
     ///     // Create a new server running debian
     ///     var node1 = new HCloud.Server("node1", new()
     ///     {
+    ///         Name = "node1",
     ///         Image = "debian-11",
+    ///         ServerType = "cx11",
     ///         PublicNets = new[]
     ///         {
     ///             new HCloud.Inputs.ServerPublicNetArgs
@@ -37,7 +39,6 @@ namespace Pulumi.HCloud
     ///                 Ipv6Enabled = true,
     ///             },
     ///         },
-    ///         ServerType = "cx11",
     ///     });
     /// 
     /// });
@@ -53,8 +54,9 @@ namespace Pulumi.HCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //## Server creation with one linked primary ip (ipv4)
-    ///     var primaryIp1 = new HCloud.PrimaryIp("primaryIp1", new()
+    ///     var primaryIp1 = new HCloud.PrimaryIp("primary_ip_1", new()
     ///     {
+    ///         Name = "primary_ip_test",
     ///         Datacenter = "fsn1-dc14",
     ///         Type = "ipv4",
     ///         AssigneeType = "server",
@@ -65,8 +67,9 @@ namespace Pulumi.HCloud
     ///         },
     ///     });
     /// 
-    ///     var serverTest = new HCloud.Server("serverTest", new()
+    ///     var serverTest = new HCloud.Server("server_test", new()
     ///     {
+    ///         Name = "test-server",
     ///         Image = "ubuntu-20.04",
     ///         ServerType = "cx11",
     ///         Datacenter = "fsn1-dc14",
@@ -100,6 +103,7 @@ namespace Pulumi.HCloud
     /// {
     ///     var network = new HCloud.Network("network", new()
     ///     {
+    ///         Name = "network",
     ///         IpRange = "10.0.0.0/16",
     ///     });
     /// 
@@ -113,6 +117,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var server = new HCloud.Server("server", new()
     ///     {
+    ///         Name = "server",
     ///         ServerType = "cx11",
     ///         Image = "ubuntu-20.04",
     ///         Location = "nbg1",
@@ -152,6 +157,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Get image infos because we need the ID
     ///     var packerSnapshot = HCloud.GetImage.Invoke(new()
     ///     {
     ///         WithSelector = "app=foobar",
@@ -159,8 +165,9 @@ namespace Pulumi.HCloud
     ///     });
     /// 
     ///     // Create a new server from the snapshot
-    ///     var fromSnapshot = new HCloud.Server("fromSnapshot", new()
+    ///     var fromSnapshot = new HCloud.Server("from_snapshot", new()
     ///     {
+    ///         Name = "from-snapshot",
     ///         Image = packerSnapshot.Apply(getImageResult =&gt; getImageResult.Id),
     ///         ServerType = "cx11",
     ///         PublicNets = new[]
@@ -181,65 +188,6 @@ namespace Pulumi.HCloud
     /// 
     /// When creating a server without linking at least one ´primary_ip´, it automatically creates &amp; assigns two (ipv4 &amp; ipv6).
     /// With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
-    /// 
-    /// ### Examples
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Assign existing ipv4 only
-    ///     var serverTestServer = new HCloud.Server("serverTestServer", new()
-    ///     {
-    ///         PublicNets = new[]
-    ///         {
-    ///             new HCloud.Inputs.ServerPublicNetArgs
-    ///             {
-    ///                 Ipv4Enabled = true,
-    ///                 Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
-    ///                 Ipv6Enabled = false,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     //...
-    ///     // Link a managed ipv4 but autogenerate ipv6
-    ///     var serverTestIndex_serverServer = new HCloud.Server("serverTestIndex/serverServer", new()
-    ///     {
-    ///         PublicNets = new[]
-    ///         {
-    ///             new HCloud.Inputs.ServerPublicNetArgs
-    ///             {
-    ///                 Ipv4Enabled = true,
-    ///                 Ipv4 = hcloud_primary_ip.Primary_ip_1.Id,
-    ///                 Ipv6Enabled = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     //...
-    ///     // Assign &amp; create auto-generated ipv4 &amp; ipv6
-    ///     var serverTestHcloudIndex_serverServer = new HCloud.Server("serverTestHcloudIndex/serverServer", new()
-    ///     {
-    ///         PublicNets = new[]
-    ///         {
-    ///             new HCloud.Inputs.ServerPublicNetArgs
-    ///             {
-    ///                 Ipv4Enabled = true,
-    ///                 Ipv6Enabled = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     //...
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -141,6 +141,7 @@ class VolumeAttachment(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
             server_type="cx11",
             datacenter="nbg1-dc3")
@@ -185,6 +186,7 @@ class VolumeAttachment(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
             server_type="cx11",
             datacenter="nbg1-dc3")

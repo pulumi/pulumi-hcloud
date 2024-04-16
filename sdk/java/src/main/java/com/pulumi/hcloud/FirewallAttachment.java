@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.Server;
  * import com.pulumi.hcloud.ServerArgs;
  * import com.pulumi.hcloud.Firewall;
+ * import com.pulumi.hcloud.FirewallArgs;
  * import com.pulumi.hcloud.FirewallAttachment;
  * import com.pulumi.hcloud.FirewallAttachmentArgs;
  * import java.util.List;
@@ -53,11 +54,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testServer = new Server(&#34;testServer&#34;, ServerArgs.builder()        
+ *             .name(&#34;test-server&#34;)
  *             .serverType(&#34;cx11&#34;)
  *             .image(&#34;ubuntu-20.04&#34;)
  *             .build());
  * 
- *         var basicFirewall = new Firewall(&#34;basicFirewall&#34;);
+ *         var basicFirewall = new Firewall(&#34;basicFirewall&#34;, FirewallArgs.builder()        
+ *             .name(&#34;basic_firewall&#34;)
+ *             .build());
  * 
  *         var fwRef = new FirewallAttachment(&#34;fwRef&#34;, FirewallAttachmentArgs.builder()        
  *             .firewallId(basicFirewall.id())
@@ -81,6 +85,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.Server;
  * import com.pulumi.hcloud.ServerArgs;
  * import com.pulumi.hcloud.Firewall;
+ * import com.pulumi.hcloud.FirewallArgs;
  * import com.pulumi.hcloud.FirewallAttachment;
  * import com.pulumi.hcloud.FirewallAttachmentArgs;
  * import java.util.List;
@@ -97,12 +102,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testServer = new Server(&#34;testServer&#34;, ServerArgs.builder()        
+ *             .name(&#34;test-server&#34;)
  *             .serverType(&#34;cx11&#34;)
  *             .image(&#34;ubuntu-20.04&#34;)
  *             .labels(Map.of(&#34;firewall-attachment&#34;, &#34;test-server&#34;))
  *             .build());
  * 
- *         var basicFirewall = new Firewall(&#34;basicFirewall&#34;);
+ *         var basicFirewall = new Firewall(&#34;basicFirewall&#34;, FirewallArgs.builder()        
+ *             .name(&#34;basic_firewall&#34;)
+ *             .build());
  * 
  *         var fwRef = new FirewallAttachment(&#34;fwRef&#34;, FirewallAttachmentArgs.builder()        
  *             .firewallId(basicFirewall.id())

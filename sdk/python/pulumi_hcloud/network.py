@@ -207,7 +207,9 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
+        priv_net = hcloud.Network("privNet",
+            name="my-net",
+            ip_range="10.0.1.0/24")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -243,7 +245,9 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        priv_net = hcloud.Network("privNet", ip_range="10.0.1.0/24")
+        priv_net = hcloud.Network("privNet",
+            name="my-net",
+            ip_range="10.0.1.0/24")
         ```
         <!--End PulumiCodeChooser -->
 

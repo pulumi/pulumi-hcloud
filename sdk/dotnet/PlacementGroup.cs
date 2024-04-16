@@ -25,6 +25,7 @@ namespace Pulumi.HCloud
     /// {
     ///     var my_placement_group = new HCloud.PlacementGroup("my-placement-group", new()
     ///     {
+    ///         Name = "my-placement-group",
     ///         Type = "spread",
     ///         Labels = 
     ///         {
@@ -34,6 +35,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var node1 = new HCloud.Server("node1", new()
     ///     {
+    ///         Name = "node1",
     ///         Image = "debian-11",
     ///         ServerType = "cx11",
     ///         PlacementGroupId = my_placement_group.Id,

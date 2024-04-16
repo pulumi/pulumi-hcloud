@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const node1 = new hcloud.Server("node1", {
+ *     name: "node1",
  *     image: "debian-11",
  *     serverType: "cx11",
  *     datacenter: "nbg1-dc3",

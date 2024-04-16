@@ -29,14 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			loadBalancer, err := hcloud.NewLoadBalancer(ctx, "loadBalancer", &hcloud.LoadBalancerArgs{
+//			loadBalancer, err := hcloud.NewLoadBalancer(ctx, "load_balancer", &hcloud.LoadBalancerArgs{
+//				Name:             pulumi.String("my-load-balancer"),
 //				LoadBalancerType: pulumi.String("lb11"),
 //				Location:         pulumi.String("nbg1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewLoadBalancerService(ctx, "loadBalancerService", &hcloud.LoadBalancerServiceArgs{
+//			_, err = hcloud.NewLoadBalancerService(ctx, "load_balancer_service", &hcloud.LoadBalancerServiceArgs{
 //				LoadBalancerId: loadBalancer.ID(),
 //				Protocol:       pulumi.String("http"),
 //				Http: &hcloud.LoadBalancerServiceHttpArgs{

@@ -23,13 +23,14 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var loadBalancer = new HCloud.LoadBalancer("loadBalancer", new()
+    ///     var loadBalancer = new HCloud.LoadBalancer("load_balancer", new()
     ///     {
+    ///         Name = "my-load-balancer",
     ///         LoadBalancerType = "lb11",
     ///         Location = "nbg1",
     ///     });
     /// 
-    ///     var loadBalancerService = new HCloud.LoadBalancerService("loadBalancerService", new()
+    ///     var loadBalancerService = new HCloud.LoadBalancerService("load_balancer_service", new()
     ///     {
     ///         LoadBalancerId = loadBalancer.Id,
     ///         Protocol = "http",

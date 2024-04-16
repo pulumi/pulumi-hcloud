@@ -267,13 +267,15 @@ class LoadBalancerTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        my_server = hcloud.Server("myServer",
+        my_server = hcloud.Server("my_server",
+            name="my-server",
             server_type="cx11",
             image="ubuntu-18.04")
-        load_balancer = hcloud.LoadBalancer("loadBalancer",
+        load_balancer = hcloud.LoadBalancer("load_balancer",
+            name="my-load-balancer",
             load_balancer_type="lb11",
             location="nbg1")
-        load_balancer_target = hcloud.LoadBalancerTarget("loadBalancerTarget",
+        load_balancer_target = hcloud.LoadBalancerTarget("load_balancer_target",
             type="server",
             load_balancer_id=load_balancer.id,
             server_id=my_server.id)
@@ -338,13 +340,15 @@ class LoadBalancerTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        my_server = hcloud.Server("myServer",
+        my_server = hcloud.Server("my_server",
+            name="my-server",
             server_type="cx11",
             image="ubuntu-18.04")
-        load_balancer = hcloud.LoadBalancer("loadBalancer",
+        load_balancer = hcloud.LoadBalancer("load_balancer",
+            name="my-load-balancer",
             load_balancer_type="lb11",
             location="nbg1")
-        load_balancer_target = hcloud.LoadBalancerTarget("loadBalancerTarget",
+        load_balancer_target = hcloud.LoadBalancerTarget("load_balancer_target",
             type="server",
             load_balancer_id=load_balancer.id,
             server_id=my_server.id)

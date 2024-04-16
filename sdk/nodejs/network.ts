@@ -14,7 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const privNet = new hcloud.Network("privNet", {ipRange: "10.0.1.0/24"});
+ * const privNet = new hcloud.Network("privNet", {
+ *     name: "my-net",
+ *     ipRange: "10.0.1.0/24",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

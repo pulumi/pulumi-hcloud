@@ -56,8 +56,9 @@ namespace Pulumi.HCloud
         ///     });
         /// 
         ///     // Link a server to an existing primary IP
-        ///     var serverTest = new HCloud.Server("serverTest", new()
+        ///     var serverTest = new HCloud.Server("server_test", new()
         ///     {
+        ///         Name = "test-server",
         ///         Image = "ubuntu-20.04",
         ///         ServerType = "cx11",
         ///         Datacenter = "fsn1-dc14",
@@ -69,7 +70,7 @@ namespace Pulumi.HCloud
         ///         {
         ///             new HCloud.Inputs.ServerPublicNetArgs
         ///             {
-        ///                 Ipv4 = hcloud_primary_ip.Ip_1.Id,
+        ///                 Ipv4 = ip1HcloudPrimaryIp.Id,
         ///             },
         ///         },
         ///     });
@@ -126,8 +127,9 @@ namespace Pulumi.HCloud
         ///     });
         /// 
         ///     // Link a server to an existing primary IP
-        ///     var serverTest = new HCloud.Server("serverTest", new()
+        ///     var serverTest = new HCloud.Server("server_test", new()
         ///     {
+        ///         Name = "test-server",
         ///         Image = "ubuntu-20.04",
         ///         ServerType = "cx11",
         ///         Datacenter = "fsn1-dc14",
@@ -139,7 +141,7 @@ namespace Pulumi.HCloud
         ///         {
         ///             new HCloud.Inputs.ServerPublicNetArgs
         ///             {
-        ///                 Ipv4 = hcloud_primary_ip.Ip_1.Id,
+        ///                 Ipv4 = ip1HcloudPrimaryIp.Id,
         ///             },
         ///         },
         ///     });

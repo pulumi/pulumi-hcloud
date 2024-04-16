@@ -53,12 +53,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new server running debian
  *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
+ *             .name(&#34;node1&#34;)
  *             .image(&#34;debian-11&#34;)
+ *             .serverType(&#34;cx11&#34;)
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)
  *                 .ipv6Enabled(true)
  *                 .build())
- *             .serverType(&#34;cx11&#34;)
  *             .build());
  * 
  *     }
@@ -92,6 +93,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         //## Server creation with one linked primary ip (ipv4)
  *         var primaryIp1 = new PrimaryIp(&#34;primaryIp1&#34;, PrimaryIpArgs.builder()        
+ *             .name(&#34;primary_ip_test&#34;)
  *             .datacenter(&#34;fsn1-dc14&#34;)
  *             .type(&#34;ipv4&#34;)
  *             .assigneeType(&#34;server&#34;)
@@ -100,6 +102,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
+ *             .name(&#34;test-server&#34;)
  *             .image(&#34;ubuntu-20.04&#34;)
  *             .serverType(&#34;cx11&#34;)
  *             .datacenter(&#34;fsn1-dc14&#34;)
@@ -145,6 +148,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var network = new Network(&#34;network&#34;, NetworkArgs.builder()        
+ *             .name(&#34;network&#34;)
  *             .ipRange(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
@@ -156,6 +160,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var server = new Server(&#34;server&#34;, ServerArgs.builder()        
+ *             .name(&#34;server&#34;)
  *             .serverType(&#34;cx11&#34;)
  *             .image(&#34;ubuntu-20.04&#34;)
  *             .location(&#34;nbg1&#34;)
@@ -202,6 +207,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Get image infos because we need the ID
  *         final var packerSnapshot = HcloudFunctions.getImage(GetImageArgs.builder()
  *             .withSelector(&#34;app=foobar&#34;)
  *             .mostRecent(true)
@@ -209,6 +215,7 @@ import javax.annotation.Nullable;
  * 
  *         // Create a new server from the snapshot
  *         var fromSnapshot = new Server(&#34;fromSnapshot&#34;, ServerArgs.builder()        
+ *             .name(&#34;from-snapshot&#34;)
  *             .image(packerSnapshot.applyValue(getImageResult -&gt; getImageResult.id()))
  *             .serverType(&#34;cx11&#34;)
  *             .publicNets(ServerPublicNetArgs.builder()
@@ -226,65 +233,6 @@ import javax.annotation.Nullable;
  * 
  * When creating a server without linking at least one ´primary_ip´, it automatically creates &amp; assigns two (ipv4 &amp; ipv6).
  * With the public_net block, you can enable or link primary ips. If you don&#39;t define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
- * 
- * ### Examples
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.hcloud.Server;
- * import com.pulumi.hcloud.ServerArgs;
- * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Assign existing ipv4 only
- *         var serverTestServer = new Server(&#34;serverTestServer&#34;, ServerArgs.builder()        
- *             .publicNets(ServerPublicNetArgs.builder()
- *                 .ipv4Enabled(true)
- *                 .ipv4(hcloud_primary_ip.primary_ip_1().id())
- *                 .ipv6Enabled(false)
- *                 .build())
- *             .build());
- * 
- *         //...
- *         // Link a managed ipv4 but autogenerate ipv6
- *         var serverTestIndex_serverServer = new Server(&#34;serverTestIndex/serverServer&#34;, ServerArgs.builder()        
- *             .publicNets(ServerPublicNetArgs.builder()
- *                 .ipv4Enabled(true)
- *                 .ipv4(hcloud_primary_ip.primary_ip_1().id())
- *                 .ipv6Enabled(true)
- *                 .build())
- *             .build());
- * 
- *         //...
- *         // Assign &amp; create auto-generated ipv4 &amp; ipv6
- *         var serverTestHcloudIndex_serverServer = new Server(&#34;serverTestHcloudIndex/serverServer&#34;, ServerArgs.builder()        
- *             .publicNets(ServerPublicNetArgs.builder()
- *                 .ipv4Enabled(true)
- *                 .ipv6Enabled(true)
- *                 .build())
- *             .build());
- * 
- *         //...
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

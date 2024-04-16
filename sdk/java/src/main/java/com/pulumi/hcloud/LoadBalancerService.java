@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var loadBalancer = new LoadBalancer(&#34;loadBalancer&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;my-load-balancer&#34;)
  *             .loadBalancerType(&#34;lb11&#34;)
  *             .location(&#34;nbg1&#34;)
  *             .build());

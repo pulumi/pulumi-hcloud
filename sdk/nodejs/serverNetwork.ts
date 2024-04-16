@@ -15,10 +15,14 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const node1 = new hcloud.Server("node1", {
+ *     name: "node1",
  *     image: "debian-11",
  *     serverType: "cx11",
  * });
- * const mynet = new hcloud.Network("mynet", {ipRange: "10.0.0.0/8"});
+ * const mynet = new hcloud.Network("mynet", {
+ *     name: "my-net",
+ *     ipRange: "10.0.0.0/8",
+ * });
  * const foonet = new hcloud.NetworkSubnet("foonet", {
  *     networkId: mynet.id,
  *     type: "cloud",

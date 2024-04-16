@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
+//				Name:    pulumi.String("my-net"),
 //				IpRange: pulumi.String("10.0.0.0/8"),
 //			})
 //			if err != nil {

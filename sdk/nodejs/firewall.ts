@@ -16,26 +16,30 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const myfirewall = new hcloud.Firewall("myfirewall", {rules: [
- *     {
- *         direction: "in",
- *         protocol: "icmp",
- *         sourceIps: [
- *             "0.0.0.0/0",
- *             "::/0",
- *         ],
- *     },
- *     {
- *         direction: "in",
- *         protocol: "tcp",
- *         port: "80-85",
- *         sourceIps: [
- *             "0.0.0.0/0",
- *             "::/0",
- *         ],
- *     },
- * ]});
+ * const myfirewall = new hcloud.Firewall("myfirewall", {
+ *     name: "my-firewall",
+ *     rules: [
+ *         {
+ *             direction: "in",
+ *             protocol: "icmp",
+ *             sourceIps: [
+ *                 "0.0.0.0/0",
+ *                 "::/0",
+ *             ],
+ *         },
+ *         {
+ *             direction: "in",
+ *             protocol: "tcp",
+ *             port: "80-85",
+ *             sourceIps: [
+ *                 "0.0.0.0/0",
+ *                 "::/0",
+ *             ],
+ *         },
+ *     ],
+ * });
  * const node1 = new hcloud.Server("node1", {
+ *     name: "node1",
  *     image: "debian-11",
  *     serverType: "cx11",
  *     firewallIds: [myfirewall.id],

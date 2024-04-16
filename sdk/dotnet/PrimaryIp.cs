@@ -28,6 +28,7 @@ namespace Pulumi.HCloud
     /// {
     ///     var main = new HCloud.PrimaryIp("main", new()
     ///     {
+    ///         Name = "primary_ip_test",
     ///         Datacenter = "fsn1-dc14",
     ///         Type = "ipv4",
     ///         AssigneeType = "server",
@@ -39,8 +40,9 @@ namespace Pulumi.HCloud
     ///     });
     /// 
     ///     // Link a server to a primary IP
-    ///     var serverTest = new HCloud.Server("serverTest", new()
+    ///     var serverTest = new HCloud.Server("server_test", new()
     ///     {
+    ///         Name = "test-server",
     ///         Image = "ubuntu-20.04",
     ///         ServerType = "cx11",
     ///         Datacenter = "fsn1-dc14",

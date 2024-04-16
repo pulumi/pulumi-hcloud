@@ -15,10 +15,14 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const lb1 = new hcloud.LoadBalancer("lb1", {
+ *     name: "lb1",
  *     loadBalancerType: "lb11",
  *     networkZone: "eu-central",
  * });
- * const mynet = new hcloud.Network("mynet", {ipRange: "10.0.0.0/8"});
+ * const mynet = new hcloud.Network("mynet", {
+ *     name: "my-net",
+ *     ipRange: "10.0.0.0/8",
+ * });
  * const foonet = new hcloud.NetworkSubnet("foonet", {
  *     networkId: mynet.id,
  *     type: "cloud",
@@ -30,7 +34,7 @@ import * as utilities from "./utilities";
  *     networkId: mynet.id,
  *     ip: "10.0.1.5",
  * }, {
- *     dependsOn: [hcloud_network_subnet.srvnetwork],
+ *     dependsOn: [srvnetworkHcloudNetworkSubnet],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
