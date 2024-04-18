@@ -18,6 +18,43 @@ import javax.annotation.Nullable;
 /**
  * Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.hcloud.SshKey;
+ * import com.pulumi.hcloud.SshKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create a new SSH key
+ *         var default_ = new SshKey(&#34;default&#34;, SshKeyArgs.builder()        
+ *             .name(&#34;Terraform Example&#34;)
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * SSH keys can be imported using the SSH key `id`:
