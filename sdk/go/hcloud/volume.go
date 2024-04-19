@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Name:       pulumi.String("node1"),
 //				Image:      pulumi.String("debian-11"),
 //				ServerType: pulumi.String("cx11"),
 //			})
@@ -37,6 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewVolume(ctx, "master", &hcloud.VolumeArgs{
+//				Name:      pulumi.String("volume1"),
 //				Size:      pulumi.Int(50),
 //				ServerId:  node1.ID(),
 //				Automount: pulumi.Bool(true),

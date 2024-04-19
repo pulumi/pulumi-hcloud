@@ -44,13 +44,13 @@ namespace Pulumi.HCloud
         ///     });
         /// 
         ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; counter; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
         ///         {
         ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
-        ///             ServerId = hcloud_server.Main.Id,
+        ///             ServerId = mainHcloudServer.Id,
         ///         }));
         ///     }
         /// });
@@ -93,13 +93,13 @@ namespace Pulumi.HCloud
         ///     });
         /// 
         ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; @var.Counter; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; counter; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
         ///         {
         ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
-        ///             ServerId = hcloud_server.Main.Id,
+        ///             ServerId = mainHcloudServer.Id,
         ///         }));
         ///     }
         /// });

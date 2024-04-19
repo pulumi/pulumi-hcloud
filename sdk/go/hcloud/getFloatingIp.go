@@ -48,12 +48,12 @@ import (
 //				return err
 //			}
 //			var main []*hcloud.FloatingIpAssignment
-//			for index := 0; index < _var.Counter; index++ {
+//			for index := 0; index < counter; index++ {
 //				key0 := index
 //				_ := index
 //				__res, err := hcloud.NewFloatingIpAssignment(ctx, fmt.Sprintf("main-%v", key0), &hcloud.FloatingIpAssignmentArgs{
 //					FloatingIpId: pulumi.Int(ip1.Id),
-//					ServerId:     pulumi.Any(hcloud_server.Main.Id),
+//					ServerId:     pulumi.Any(mainHcloudServer.Id),
 //				})
 //				if err != nil {
 //					return err

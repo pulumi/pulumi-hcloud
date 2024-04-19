@@ -15,12 +15,14 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const my_placement_group = new hcloud.PlacementGroup("my-placement-group", {
+ *     name: "my-placement-group",
  *     type: "spread",
  *     labels: {
  *         key: "value",
  *     },
  * });
  * const node1 = new hcloud.Server("node1", {
+ *     name: "node1",
  *     image: "debian-11",
  *     serverType: "cx11",
  *     placementGroupId: my_placement_group.id,

@@ -156,9 +156,12 @@ class SshKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
+        import pulumi_std as std
 
         # Create a new SSH key
-        default = hcloud.SshKey("default", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        default = hcloud.SshKey("default",
+            name="Terraform Example",
+            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -191,9 +194,12 @@ class SshKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
+        import pulumi_std as std
 
         # Create a new SSH key
-        default = hcloud.SshKey("default", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        default = hcloud.SshKey("default",
+            name="Terraform Example",
+            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
         <!--End PulumiCodeChooser -->
 

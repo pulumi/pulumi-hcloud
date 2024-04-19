@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			lb1, err := hcloud.NewLoadBalancer(ctx, "lb1", &hcloud.LoadBalancerArgs{
+//				Name:             pulumi.String("lb1"),
 //				LoadBalancerType: pulumi.String("lb11"),
 //				NetworkZone:      pulumi.String("eu-central"),
 //			})
@@ -37,6 +38,7 @@ import (
 //				return err
 //			}
 //			mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
+//				Name:    pulumi.String("my-net"),
 //				IpRange: pulumi.String("10.0.0.0/8"),
 //			})
 //			if err != nil {
@@ -56,7 +58,7 @@ import (
 //				NetworkId:      mynet.ID(),
 //				Ip:             pulumi.String("10.0.1.5"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				hcloud_network_subnet.Srvnetwork,
+//				srvnetworkHcloudNetworkSubnet,
 //			}))
 //			if err != nil {
 //				return err

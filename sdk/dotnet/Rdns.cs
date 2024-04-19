@@ -27,6 +27,7 @@ namespace Pulumi.HCloud
     /// {
     ///     var node1 = new HCloud.Server("node1", new()
     ///     {
+    ///         Name = "node1",
     ///         Image = "debian-11",
     ///         ServerType = "cx11",
     ///     });
@@ -53,16 +54,16 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary1PrimaryIp = new HCloud.PrimaryIp("primary1PrimaryIp", new()
+    ///     var primary1 = new HCloud.PrimaryIp("primary1", new()
     ///     {
     ///         Datacenter = "nbg1-dc3",
     ///         Type = "ipv4",
     ///     });
     /// 
-    ///     var primary1Rdns = new HCloud.Rdns("primary1Rdns", new()
+    ///     var primary1Rdns = new HCloud.Rdns("primary1", new()
     ///     {
-    ///         PrimaryIpId = primary1PrimaryIp.Id,
-    ///         IpAddress = primary1PrimaryIp.IpAddress,
+    ///         PrimaryIpId = primary1.Id,
+    ///         IpAddress = primary1.IpAddress,
     ///         DnsPtr = "example.com",
     ///     });
     /// 
@@ -87,11 +88,11 @@ namespace Pulumi.HCloud
     ///         Type = "ipv4",
     ///     });
     /// 
-    ///     var floatingMaster = new HCloud.Rdns("floatingMaster", new()
+    ///     var floatingMaster = new HCloud.Rdns("floating_master", new()
     ///     {
-    ///         DnsPtr = "example.com",
     ///         FloatingIpId = floating1.Id,
     ///         IpAddress = floating1.IpAddress,
+    ///         DnsPtr = "example.com",
     ///     });
     /// 
     /// });
@@ -109,17 +110,18 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var loadBalancer1 = new HCloud.LoadBalancer("loadBalancer1", new()
+    ///     var loadBalancer1 = new HCloud.LoadBalancer("load_balancer1", new()
     ///     {
+    ///         Name = "load_balancer1",
     ///         LoadBalancerType = "lb11",
     ///         Location = "fsn1",
     ///     });
     /// 
-    ///     var loadBalancerMaster = new HCloud.Rdns("loadBalancerMaster", new()
+    ///     var loadBalancerMaster = new HCloud.Rdns("load_balancer_master", new()
     ///     {
-    ///         DnsPtr = "example.com",
-    ///         IpAddress = loadBalancer1.Ipv4,
     ///         LoadBalancerId = loadBalancer1.Id,
+    ///         IpAddress = loadBalancer1.Ipv4,
+    ///         DnsPtr = "example.com",
     ///     });
     /// 
     /// });

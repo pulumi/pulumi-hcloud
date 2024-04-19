@@ -16,11 +16,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const loadBalancer = new hcloud.LoadBalancer("loadBalancer", {
+ * const loadBalancer = new hcloud.LoadBalancer("load_balancer", {
+ *     name: "my-load-balancer",
  *     loadBalancerType: "lb11",
  *     location: "nbg1",
  * });
- * const loadBalancerService = new hcloud.LoadBalancerService("loadBalancerService", {
+ * const loadBalancerService = new hcloud.LoadBalancerService("load_balancer_service", {
  *     loadBalancerId: loadBalancer.id,
  *     protocol: "http",
  *     http: {

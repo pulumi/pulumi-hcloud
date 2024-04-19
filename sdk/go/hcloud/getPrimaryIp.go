@@ -61,7 +61,8 @@ import (
 //				return err
 //			}
 //			// Link a server to an existing primary IP
-//			_, err = hcloud.NewServer(ctx, "serverTest", &hcloud.ServerArgs{
+//			_, err = hcloud.NewServer(ctx, "server_test", &hcloud.ServerArgs{
+//				Name:       pulumi.String("test-server"),
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				ServerType: pulumi.String("cx11"),
 //				Datacenter: pulumi.String("fsn1-dc14"),
@@ -70,7 +71,7 @@ import (
 //				},
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
-//						Ipv4: pulumi.Any(hcloud_primary_ip.Ip_1.Id),
+//						Ipv4: pulumi.Any(ip1HcloudPrimaryIp.Id),
 //					},
 //				},
 //			})

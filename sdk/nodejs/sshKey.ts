@@ -12,11 +12,16 @@ import * as utilities from "./utilities";
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
  * import * as hcloud from "@pulumi/hcloud";
+ * import * as std from "@pulumi/std";
  *
  * // Create a new SSH key
- * const _default = new hcloud.SshKey("default", {publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8")});
+ * const _default = new hcloud.SshKey("default", {
+ *     name: "Terraform Example",
+ *     publicKey: std.file({
+ *         input: "~/.ssh/id_rsa.pub",
+ *     }).then(invoke => invoke.result),
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

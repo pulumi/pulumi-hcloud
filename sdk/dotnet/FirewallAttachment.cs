@@ -29,15 +29,19 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testServer = new HCloud.Server("testServer", new()
+    ///     var testServer = new HCloud.Server("test_server", new()
     ///     {
+    ///         Name = "test-server",
     ///         ServerType = "cx11",
     ///         Image = "ubuntu-20.04",
     ///     });
     /// 
-    ///     var basicFirewall = new HCloud.Firewall("basicFirewall");
+    ///     var basicFirewall = new HCloud.Firewall("basic_firewall", new()
+    ///     {
+    ///         Name = "basic_firewall",
+    ///     });
     /// 
-    ///     var fwRef = new HCloud.FirewallAttachment("fwRef", new()
+    ///     var fwRef = new HCloud.FirewallAttachment("fw_ref", new()
     ///     {
     ///         FirewallId = basicFirewall.Id,
     ///         ServerIds = new[]
@@ -61,8 +65,9 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testServer = new HCloud.Server("testServer", new()
+    ///     var testServer = new HCloud.Server("test_server", new()
     ///     {
+    ///         Name = "test-server",
     ///         ServerType = "cx11",
     ///         Image = "ubuntu-20.04",
     ///         Labels = 
@@ -71,9 +76,12 @@ namespace Pulumi.HCloud
     ///         },
     ///     });
     /// 
-    ///     var basicFirewall = new HCloud.Firewall("basicFirewall");
+    ///     var basicFirewall = new HCloud.Firewall("basic_firewall", new()
+    ///     {
+    ///         Name = "basic_firewall",
+    ///     });
     /// 
-    ///     var fwRef = new HCloud.FirewallAttachment("fwRef", new()
+    ///     var fwRef = new HCloud.FirewallAttachment("fw_ref", new()
     ///     {
     ///         FirewallId = basicFirewall.Id,
     ///         LabelSelectors = new[]

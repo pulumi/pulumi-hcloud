@@ -272,9 +272,12 @@ class ServerNetwork(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
             server_type="cx11")
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        mynet = hcloud.Network("mynet",
+            name="my-net",
+            ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
             network_id=mynet.id,
             type="cloud",
@@ -335,9 +338,12 @@ class ServerNetwork(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
             server_type="cx11")
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        mynet = hcloud.Network("mynet",
+            name="my-net",
+            ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
             network_id=mynet.id,
             type="cloud",

@@ -16,15 +16,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const myServer = new hcloud.Server("myServer", {
+ * const myServer = new hcloud.Server("my_server", {
+ *     name: "server-%d",
  *     serverType: "cx11",
  *     image: "ubuntu-18.04",
  * });
- * const loadBalancer = new hcloud.LoadBalancer("loadBalancer", {
+ * const loadBalancer = new hcloud.LoadBalancer("load_balancer", {
+ *     name: "my-load-balancer",
  *     loadBalancerType: "lb11",
  *     location: "nbg1",
  * });
- * const loadBalancerTarget = new hcloud.LoadBalancerTarget("loadBalancerTarget", {
+ * const loadBalancerTarget = new hcloud.LoadBalancerTarget("load_balancer_target", {
  *     type: "server",
  *     loadBalancerId: loadBalancer.id,
  *     serverId: myServer.id,

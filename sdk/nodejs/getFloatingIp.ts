@@ -28,10 +28,10 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * const main: hcloud.FloatingIpAssignment[] = [];
- * for (const range = {value: 0}; range.value < _var.counter; range.value++) {
+ * for (const range = {value: 0}; range.value < counter; range.value++) {
  *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
- *         serverId: hcloud_server.main.id,
+ *         serverId: mainHcloudServer.id,
  *     }));
  * }
  * ```
@@ -150,10 +150,10 @@ export interface GetFloatingIpResult {
  *     withSelector: "key=value",
  * });
  * const main: hcloud.FloatingIpAssignment[] = [];
- * for (const range = {value: 0}; range.value < _var.counter; range.value++) {
+ * for (const range = {value: 0}; range.value < counter; range.value++) {
  *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
- *         serverId: hcloud_server.main.id,
+ *         serverId: mainHcloudServer.id,
  *     }));
  * }
  * ```

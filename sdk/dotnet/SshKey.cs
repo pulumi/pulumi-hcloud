@@ -17,17 +17,21 @@ namespace Pulumi.HCloud
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new SSH key
     ///     var @default = new HCloud.SshKey("default", new()
     ///     {
-    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///         Name = "Terraform Example",
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "~/.ssh/id_rsa.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

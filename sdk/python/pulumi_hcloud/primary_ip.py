@@ -344,6 +344,7 @@ class PrimaryIp(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         main = hcloud.PrimaryIp("main",
+            name="primary_ip_test",
             datacenter="fsn1-dc14",
             type="ipv4",
             assignee_type="server",
@@ -352,7 +353,8 @@ class PrimaryIp(pulumi.CustomResource):
                 "hallo": "welt",
             })
         # Link a server to a primary IP
-        server_test = hcloud.Server("serverTest",
+        server_test = hcloud.Server("server_test",
+            name="test-server",
             image="ubuntu-20.04",
             server_type="cx11",
             datacenter="fsn1-dc14",
@@ -405,6 +407,7 @@ class PrimaryIp(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         main = hcloud.PrimaryIp("main",
+            name="primary_ip_test",
             datacenter="fsn1-dc14",
             type="ipv4",
             assignee_type="server",
@@ -413,7 +416,8 @@ class PrimaryIp(pulumi.CustomResource):
                 "hallo": "welt",
             })
         # Link a server to a primary IP
-        server_test = hcloud.Server("serverTest",
+        server_test = hcloud.Server("server_test",
+            name="test-server",
             image="ubuntu-20.04",
             server_type="cx11",
             datacenter="fsn1-dc14",

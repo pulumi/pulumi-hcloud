@@ -25,12 +25,14 @@ namespace Pulumi.HCloud
     /// {
     ///     var node1 = new HCloud.Server("node1", new()
     ///     {
+    ///         Name = "node1",
     ///         Image = "debian-11",
     ///         ServerType = "cx11",
     ///     });
     /// 
     ///     var mynet = new HCloud.Network("mynet", new()
     ///     {
+    ///         Name = "my-net",
     ///         IpRange = "10.0.0.0/8",
     ///     });
     /// 

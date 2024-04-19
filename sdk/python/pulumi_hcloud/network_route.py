@@ -139,7 +139,9 @@ class NetworkRoute(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        mynet = hcloud.Network("mynet",
+            name="my-net",
+            ip_range="10.0.0.0/8")
         priv_net = hcloud.NetworkRoute("privNet",
             network_id=mynet.id,
             destination="10.100.1.0/24",
@@ -179,7 +181,9 @@ class NetworkRoute(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        mynet = hcloud.Network("mynet",
+            name="my-net",
+            ip_range="10.0.0.0/8")
         priv_net = hcloud.NetworkRoute("privNet",
             network_id=mynet.id,
             destination="10.100.1.0/24",

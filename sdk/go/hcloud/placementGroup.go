@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
+//				Name: pulumi.String("my-placement-group"),
 //				Type: pulumi.String("spread"),
 //				Labels: pulumi.Map{
 //					"key": pulumi.Any("value"),
@@ -39,6 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Name:             pulumi.String("node1"),
 //				Image:            pulumi.String("debian-11"),
 //				ServerType:       pulumi.String("cx11"),
 //				PlacementGroupId: my_placement_group.ID(),

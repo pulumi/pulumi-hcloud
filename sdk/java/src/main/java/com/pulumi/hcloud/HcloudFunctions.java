@@ -1442,10 +1442,10 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
-     *         for (var i = 0; i &lt; var_.counter(); i++) {
+     *         for (var i = 0; i &lt; counter; i++) {
      *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
-     *                 .serverId(hcloud_server.main().id())
+     *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
      *         
@@ -1504,10 +1504,10 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
-     *         for (var i = 0; i &lt; var_.counter(); i++) {
+     *         for (var i = 0; i &lt; counter; i++) {
      *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
-     *                 .serverId(hcloud_server.main().id())
+     *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
      *         
@@ -1566,10 +1566,10 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
-     *         for (var i = 0; i &lt; var_.counter(); i++) {
+     *         for (var i = 0; i &lt; counter; i++) {
      *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
-     *                 .serverId(hcloud_server.main().id())
+     *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
      *         
@@ -1628,10 +1628,10 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
-     *         for (var i = 0; i &lt; var_.counter(); i++) {
+     *         for (var i = 0; i &lt; counter; i++) {
      *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
-     *                 .serverId(hcloud_server.main().id())
+     *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
      *         
@@ -1690,10 +1690,10 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
-     *         for (var i = 0; i &lt; var_.counter(); i++) {
+     *         for (var i = 0; i &lt; counter; i++) {
      *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
-     *                 .serverId(hcloud_server.main().id())
+     *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
      *         
@@ -1752,10 +1752,10 @@ public final class HcloudFunctions {
      *             .withSelector(&#34;key=value&#34;)
      *             .build());
      * 
-     *         for (var i = 0; i &lt; var_.counter(); i++) {
+     *         for (var i = 0; i &lt; counter; i++) {
      *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
-     *                 .serverId(hcloud_server.main().id())
+     *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
      *         
@@ -4539,12 +4539,13 @@ public final class HcloudFunctions {
      * 
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
+     *             .name(&#34;test-server&#34;)
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
      *             .datacenter(&#34;fsn1-dc14&#34;)
      *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(hcloud_primary_ip.ip_1().id())
+     *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
      *             .build());
      * 
@@ -4615,12 +4616,13 @@ public final class HcloudFunctions {
      * 
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
+     *             .name(&#34;test-server&#34;)
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
      *             .datacenter(&#34;fsn1-dc14&#34;)
      *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(hcloud_primary_ip.ip_1().id())
+     *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
      *             .build());
      * 
@@ -4691,12 +4693,13 @@ public final class HcloudFunctions {
      * 
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
+     *             .name(&#34;test-server&#34;)
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
      *             .datacenter(&#34;fsn1-dc14&#34;)
      *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(hcloud_primary_ip.ip_1().id())
+     *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
      *             .build());
      * 
@@ -4767,12 +4770,13 @@ public final class HcloudFunctions {
      * 
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
+     *             .name(&#34;test-server&#34;)
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
      *             .datacenter(&#34;fsn1-dc14&#34;)
      *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(hcloud_primary_ip.ip_1().id())
+     *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
      *             .build());
      * 
@@ -4843,12 +4847,13 @@ public final class HcloudFunctions {
      * 
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
+     *             .name(&#34;test-server&#34;)
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
      *             .datacenter(&#34;fsn1-dc14&#34;)
      *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(hcloud_primary_ip.ip_1().id())
+     *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
      *             .build());
      * 
@@ -4919,12 +4924,13 @@ public final class HcloudFunctions {
      * 
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
+     *             .name(&#34;test-server&#34;)
      *             .image(&#34;ubuntu-20.04&#34;)
      *             .serverType(&#34;cx11&#34;)
      *             .datacenter(&#34;fsn1-dc14&#34;)
      *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(hcloud_primary_ip.ip_1().id())
+     *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
      *             .build());
      * 

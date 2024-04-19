@@ -38,7 +38,8 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * // Link a server to an existing primary IP
- * const serverTest = new hcloud.Server("serverTest", {
+ * const serverTest = new hcloud.Server("server_test", {
+ *     name: "test-server",
  *     image: "ubuntu-20.04",
  *     serverType: "cx11",
  *     datacenter: "fsn1-dc14",
@@ -46,7 +47,7 @@ import * as utilities from "./utilities";
  *         test: "tessst1",
  *     },
  *     publicNets: [{
- *         ipv4: hcloud_primary_ip.ip_1.id,
+ *         ipv4: ip1HcloudPrimaryIp.id,
  *     }],
  * });
  * ```
@@ -175,7 +176,8 @@ export interface GetPrimaryIpResult {
  *     withSelector: "key=value",
  * });
  * // Link a server to an existing primary IP
- * const serverTest = new hcloud.Server("serverTest", {
+ * const serverTest = new hcloud.Server("server_test", {
+ *     name: "test-server",
  *     image: "ubuntu-20.04",
  *     serverType: "cx11",
  *     datacenter: "fsn1-dc14",
@@ -183,7 +185,7 @@ export interface GetPrimaryIpResult {
  *         test: "tessst1",
  *     },
  *     publicNets: [{
- *         ipv4: hcloud_primary_ip.ip_1.id,
+ *         ipv4: ip1HcloudPrimaryIp.id,
  *     }],
  * });
  * ```

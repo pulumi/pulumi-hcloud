@@ -331,9 +331,11 @@ class Volume(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
             server_type="cx11")
         master = hcloud.Volume("master",
+            name="volume1",
             size=50,
             server_id=node1.id,
             automount=True,
@@ -379,9 +381,11 @@ class Volume(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
             server_type="cx11")
         master = hcloud.Volume("master",
+            name="volume1",
             size=50,
             server_id=node1.id,
             automount=True,

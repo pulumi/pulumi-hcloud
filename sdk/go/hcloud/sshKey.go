@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			// Create a new SSH key
-//			_, err := hcloud.NewSshKey(ctx, "default", &hcloud.SshKeyArgs{
-//				PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+//			_, err = hcloud.NewSshKey(ctx, "default", &hcloud.SshKeyArgs{
+//				Name:      pulumi.String("Terraform Example"),
+//				PublicKey: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

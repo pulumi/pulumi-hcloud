@@ -274,10 +274,11 @@ class LoadBalancerService(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        load_balancer = hcloud.LoadBalancer("loadBalancer",
+        load_balancer = hcloud.LoadBalancer("load_balancer",
+            name="my-load-balancer",
             load_balancer_type="lb11",
             location="nbg1")
-        load_balancer_service = hcloud.LoadBalancerService("loadBalancerService",
+        load_balancer_service = hcloud.LoadBalancerService("load_balancer_service",
             load_balancer_id=load_balancer.id,
             protocol="http",
             http=hcloud.LoadBalancerServiceHttpArgs(
@@ -336,10 +337,11 @@ class LoadBalancerService(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        load_balancer = hcloud.LoadBalancer("loadBalancer",
+        load_balancer = hcloud.LoadBalancer("load_balancer",
+            name="my-load-balancer",
             load_balancer_type="lb11",
             location="nbg1")
-        load_balancer_service = hcloud.LoadBalancerService("loadBalancerService",
+        load_balancer_service = hcloud.LoadBalancerService("load_balancer_service",
             load_balancer_id=load_balancer.id,
             protocol="http",
             http=hcloud.LoadBalancerServiceHttpArgs(

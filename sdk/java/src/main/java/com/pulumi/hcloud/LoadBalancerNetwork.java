@@ -51,11 +51,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb1 = new LoadBalancer(&#34;lb1&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;lb1&#34;)
  *             .loadBalancerType(&#34;lb11&#34;)
  *             .networkZone(&#34;eu-central&#34;)
  *             .build());
  * 
  *         var mynet = new Network(&#34;mynet&#34;, NetworkArgs.builder()        
+ *             .name(&#34;my-net&#34;)
  *             .ipRange(&#34;10.0.0.0/8&#34;)
  *             .build());
  * 
@@ -71,7 +73,7 @@ import javax.annotation.Nullable;
  *             .networkId(mynet.id())
  *             .ip(&#34;10.0.1.5&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(hcloud_network_subnet.srvnetwork())
+ *                 .dependsOn(srvnetworkHcloudNetworkSubnet)
  *                 .build());
  * 
  *     }

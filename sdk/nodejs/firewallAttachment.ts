@@ -20,12 +20,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const testServer = new hcloud.Server("testServer", {
+ * const testServer = new hcloud.Server("test_server", {
+ *     name: "test-server",
  *     serverType: "cx11",
  *     image: "ubuntu-20.04",
  * });
- * const basicFirewall = new hcloud.Firewall("basicFirewall", {});
- * const fwRef = new hcloud.FirewallAttachment("fwRef", {
+ * const basicFirewall = new hcloud.Firewall("basic_firewall", {name: "basic_firewall"});
+ * const fwRef = new hcloud.FirewallAttachment("fw_ref", {
  *     firewallId: basicFirewall.id,
  *     serverIds: [testServer.id],
  * });
@@ -39,15 +40,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const testServer = new hcloud.Server("testServer", {
+ * const testServer = new hcloud.Server("test_server", {
+ *     name: "test-server",
  *     serverType: "cx11",
  *     image: "ubuntu-20.04",
  *     labels: {
  *         "firewall-attachment": "test-server",
  *     },
  * });
- * const basicFirewall = new hcloud.Firewall("basicFirewall", {});
- * const fwRef = new hcloud.FirewallAttachment("fwRef", {
+ * const basicFirewall = new hcloud.Firewall("basic_firewall", {name: "basic_firewall"});
+ * const fwRef = new hcloud.FirewallAttachment("fw_ref", {
  *     firewallId: basicFirewall.id,
  *     labelSelectors: ["firewall-attachment=test-server"],
  * });

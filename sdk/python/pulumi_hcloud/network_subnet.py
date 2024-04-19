@@ -216,7 +216,9 @@ class NetworkSubnet(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        mynet = hcloud.Network("mynet",
+            name="my-net",
+            ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
             network_id=mynet.id,
             type="cloud",
@@ -259,7 +261,9 @@ class NetworkSubnet(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        mynet = hcloud.Network("mynet",
+            name="my-net",
+            ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
             network_id=mynet.id,
             type="cloud",

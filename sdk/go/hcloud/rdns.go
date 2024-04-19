@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Name:       pulumi.String("node1"),
 //				Image:      pulumi.String("debian-11"),
 //				ServerType: pulumi.String("cx11"),
 //			})
@@ -68,16 +69,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary1PrimaryIp, err := hcloud.NewPrimaryIp(ctx, "primary1PrimaryIp", &hcloud.PrimaryIpArgs{
+//			primary1, err := hcloud.NewPrimaryIp(ctx, "primary1", &hcloud.PrimaryIpArgs{
 //				Datacenter: pulumi.String("nbg1-dc3"),
 //				Type:       pulumi.String("ipv4"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewRdns(ctx, "primary1Rdns", &hcloud.RdnsArgs{
-//				PrimaryIpId: primary1PrimaryIp.ID(),
-//				IpAddress:   primary1PrimaryIp.IpAddress,
+//			_, err = hcloud.NewRdns(ctx, "primary1", &hcloud.RdnsArgs{
+//				PrimaryIpId: primary1.ID(),
+//				IpAddress:   primary1.IpAddress,
 //				DnsPtr:      pulumi.String("example.com"),
 //			})
 //			if err != nil {
@@ -112,10 +113,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewRdns(ctx, "floatingMaster", &hcloud.RdnsArgs{
-//				DnsPtr:       pulumi.String("example.com"),
+//			_, err = hcloud.NewRdns(ctx, "floating_master", &hcloud.RdnsArgs{
 //				FloatingIpId: floating1.ID(),
 //				IpAddress:    floating1.IpAddress,
+//				DnsPtr:       pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -142,17 +143,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			loadBalancer1, err := hcloud.NewLoadBalancer(ctx, "loadBalancer1", &hcloud.LoadBalancerArgs{
+//			loadBalancer1, err := hcloud.NewLoadBalancer(ctx, "load_balancer1", &hcloud.LoadBalancerArgs{
+//				Name:             pulumi.String("load_balancer1"),
 //				LoadBalancerType: pulumi.String("lb11"),
 //				Location:         pulumi.String("fsn1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewRdns(ctx, "loadBalancerMaster", &hcloud.RdnsArgs{
-//				DnsPtr:         pulumi.String("example.com"),
-//				IpAddress:      loadBalancer1.Ipv4,
+//			_, err = hcloud.NewRdns(ctx, "load_balancer_master", &hcloud.RdnsArgs{
 //				LoadBalancerId: loadBalancer1.ID(),
+//				IpAddress:      loadBalancer1.Ipv4,
+//				DnsPtr:         pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err

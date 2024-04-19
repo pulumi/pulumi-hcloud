@@ -14,7 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const mynet = new hcloud.Network("mynet", {ipRange: "10.0.0.0/8"});
+ * const mynet = new hcloud.Network("mynet", {
+ *     name: "my-net",
+ *     ipRange: "10.0.0.0/8",
+ * });
  * const privNet = new hcloud.NetworkRoute("privNet", {
  *     networkId: mynet.id,
  *     destination: "10.100.1.0/24",

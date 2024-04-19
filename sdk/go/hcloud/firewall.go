@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			myfirewall, err := hcloud.NewFirewall(ctx, "myfirewall", &hcloud.FirewallArgs{
+//				Name: pulumi.String("my-firewall"),
 //				Rules: hcloud.FirewallRuleArray{
 //					&hcloud.FirewallRuleArgs{
 //						Direction: pulumi.String("in"),
@@ -53,6 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
+//				Name:       pulumi.String("node1"),
 //				Image:      pulumi.String("debian-11"),
 //				ServerType: pulumi.String("cx11"),
 //				FirewallIds: pulumi.IntArray{

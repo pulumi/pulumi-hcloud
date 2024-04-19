@@ -25,6 +25,7 @@ namespace Pulumi.HCloud
     /// {
     ///     var privNet = new HCloud.Network("privNet", new()
     ///     {
+    ///         Name = "my-net",
     ///         IpRange = "10.0.1.0/24",
     ///     });
     /// 

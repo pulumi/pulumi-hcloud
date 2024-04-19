@@ -25,12 +25,14 @@ namespace Pulumi.HCloud
     /// {
     ///     var lb1 = new HCloud.LoadBalancer("lb1", new()
     ///     {
+    ///         Name = "lb1",
     ///         LoadBalancerType = "lb11",
     ///         NetworkZone = "eu-central",
     ///     });
     /// 
     ///     var mynet = new HCloud.Network("mynet", new()
     ///     {
+    ///         Name = "my-net",
     ///         IpRange = "10.0.0.0/8",
     ///     });
     /// 
@@ -51,7 +53,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         DependsOn =
     ///         {
-    ///             hcloud_network_subnet.Srvnetwork, 
+    ///             srvnetworkHcloudNetworkSubnet, 
     ///         },
     ///     });
     /// 

@@ -17,6 +17,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const node1 = new hcloud.Server("node1", {
+ *     name: "node1",
  *     image: "debian-11",
  *     serverType: "cx11",
  * });
@@ -35,13 +36,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const primary1PrimaryIp = new hcloud.PrimaryIp("primary1PrimaryIp", {
+ * const primary1 = new hcloud.PrimaryIp("primary1", {
  *     datacenter: "nbg1-dc3",
  *     type: "ipv4",
  * });
- * const primary1Rdns = new hcloud.Rdns("primary1Rdns", {
- *     primaryIpId: primary1PrimaryIp.id,
- *     ipAddress: primary1PrimaryIp.ipAddress,
+ * const primary1Rdns = new hcloud.Rdns("primary1", {
+ *     primaryIpId: primary1.id,
+ *     ipAddress: primary1.ipAddress,
  *     dnsPtr: "example.com",
  * });
  * ```
@@ -58,10 +59,10 @@ import * as utilities from "./utilities";
  *     homeLocation: "nbg1",
  *     type: "ipv4",
  * });
- * const floatingMaster = new hcloud.Rdns("floatingMaster", {
- *     dnsPtr: "example.com",
+ * const floatingMaster = new hcloud.Rdns("floating_master", {
  *     floatingIpId: floating1.id,
  *     ipAddress: floating1.ipAddress,
+ *     dnsPtr: "example.com",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -73,14 +74,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const loadBalancer1 = new hcloud.LoadBalancer("loadBalancer1", {
+ * const loadBalancer1 = new hcloud.LoadBalancer("load_balancer1", {
+ *     name: "load_balancer1",
  *     loadBalancerType: "lb11",
  *     location: "fsn1",
  * });
- * const loadBalancerMaster = new hcloud.Rdns("loadBalancerMaster", {
- *     dnsPtr: "example.com",
- *     ipAddress: loadBalancer1.ipv4,
+ * const loadBalancerMaster = new hcloud.Rdns("load_balancer_master", {
  *     loadBalancerId: loadBalancer1.id,
+ *     ipAddress: loadBalancer1.ipv4,
+ *     dnsPtr: "example.com",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -855,12 +855,13 @@ class Server(pulumi.CustomResource):
 
         # Create a new server running debian
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
+            server_type="cx11",
             public_nets=[hcloud.ServerPublicNetArgs(
                 ipv4_enabled=True,
                 ipv6_enabled=True,
-            )],
-            server_type="cx11")
+            )])
         ```
         <!--End PulumiCodeChooser -->
         <!--Start PulumiCodeChooser -->
@@ -869,7 +870,8 @@ class Server(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         ### Server creation with one linked primary ip (ipv4)
-        primary_ip1 = hcloud.PrimaryIp("primaryIp1",
+        primary_ip1 = hcloud.PrimaryIp("primary_ip_1",
+            name="primary_ip_test",
             datacenter="fsn1-dc14",
             type="ipv4",
             assignee_type="server",
@@ -877,7 +879,8 @@ class Server(pulumi.CustomResource):
             labels={
                 "hallo": "welt",
             })
-        server_test = hcloud.Server("serverTest",
+        server_test = hcloud.Server("server_test",
+            name="test-server",
             image="ubuntu-20.04",
             server_type="cx11",
             datacenter="fsn1-dc14",
@@ -897,13 +900,16 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        network = hcloud.Network("network", ip_range="10.0.0.0/16")
+        network = hcloud.Network("network",
+            name="network",
+            ip_range="10.0.0.0/16")
         network_subnet = hcloud.NetworkSubnet("network-subnet",
             type="cloud",
             network_id=network.id,
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         server = hcloud.Server("server",
+            name="server",
             server_type="cx11",
             image="ubuntu-20.04",
             location="nbg1",
@@ -926,10 +932,12 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
+        # Get image infos because we need the ID
         packer_snapshot = hcloud.get_image(with_selector="app=foobar",
             most_recent=True)
         # Create a new server from the snapshot
-        from_snapshot = hcloud.Server("fromSnapshot",
+        from_snapshot = hcloud.Server("from_snapshot",
+            name="from-snapshot",
             image=packer_snapshot.id,
             server_type="cx11",
             public_nets=[hcloud.ServerPublicNetArgs(
@@ -943,36 +951,6 @@ class Server(pulumi.CustomResource):
 
         When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
         With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
-
-        ### Examples
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        # Assign existing ipv4 only
-        server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=False,
-        )])
-        #...
-        # Link a managed ipv4 but autogenerate ipv6
-        server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=True,
-        )])
-        #...
-        # Assign & create auto-generated ipv4 & ipv6
-        server_test_hcloud_index_server_server = hcloud.Server("serverTestHcloudIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv6_enabled=True,
-        )])
-        #...
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1030,12 +1008,13 @@ class Server(pulumi.CustomResource):
 
         # Create a new server running debian
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
+            server_type="cx11",
             public_nets=[hcloud.ServerPublicNetArgs(
                 ipv4_enabled=True,
                 ipv6_enabled=True,
-            )],
-            server_type="cx11")
+            )])
         ```
         <!--End PulumiCodeChooser -->
         <!--Start PulumiCodeChooser -->
@@ -1044,7 +1023,8 @@ class Server(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         ### Server creation with one linked primary ip (ipv4)
-        primary_ip1 = hcloud.PrimaryIp("primaryIp1",
+        primary_ip1 = hcloud.PrimaryIp("primary_ip_1",
+            name="primary_ip_test",
             datacenter="fsn1-dc14",
             type="ipv4",
             assignee_type="server",
@@ -1052,7 +1032,8 @@ class Server(pulumi.CustomResource):
             labels={
                 "hallo": "welt",
             })
-        server_test = hcloud.Server("serverTest",
+        server_test = hcloud.Server("server_test",
+            name="test-server",
             image="ubuntu-20.04",
             server_type="cx11",
             datacenter="fsn1-dc14",
@@ -1072,13 +1053,16 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        network = hcloud.Network("network", ip_range="10.0.0.0/16")
+        network = hcloud.Network("network",
+            name="network",
+            ip_range="10.0.0.0/16")
         network_subnet = hcloud.NetworkSubnet("network-subnet",
             type="cloud",
             network_id=network.id,
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         server = hcloud.Server("server",
+            name="server",
             server_type="cx11",
             image="ubuntu-20.04",
             location="nbg1",
@@ -1101,10 +1085,12 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
+        # Get image infos because we need the ID
         packer_snapshot = hcloud.get_image(with_selector="app=foobar",
             most_recent=True)
         # Create a new server from the snapshot
-        from_snapshot = hcloud.Server("fromSnapshot",
+        from_snapshot = hcloud.Server("from_snapshot",
+            name="from-snapshot",
             image=packer_snapshot.id,
             server_type="cx11",
             public_nets=[hcloud.ServerPublicNetArgs(
@@ -1118,36 +1104,6 @@ class Server(pulumi.CustomResource):
 
         When creating a server without linking at least one ´primary_ip´, it automatically creates & assigns two (ipv4 & ipv6).
         With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
-
-        ### Examples
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        # Assign existing ipv4 only
-        server_test_server = hcloud.Server("serverTestServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=False,
-        )])
-        #...
-        # Link a managed ipv4 but autogenerate ipv6
-        server_test_index_server_server = hcloud.Server("serverTestIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv4=hcloud_primary_ip["primary_ip_1"]["id"],
-            ipv6_enabled=True,
-        )])
-        #...
-        # Assign & create auto-generated ipv4 & ipv6
-        server_test_hcloud_index_server_server = hcloud.Server("serverTestHcloudIndex/serverServer", public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4_enabled=True,
-            ipv6_enabled=True,
-        )])
-        #...
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

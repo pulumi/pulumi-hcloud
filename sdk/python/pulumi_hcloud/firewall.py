@@ -177,26 +177,29 @@ class Firewall(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        myfirewall = hcloud.Firewall("myfirewall", rules=[
-            hcloud.FirewallRuleArgs(
-                direction="in",
-                protocol="icmp",
-                source_ips=[
-                    "0.0.0.0/0",
-                    "::/0",
-                ],
-            ),
-            hcloud.FirewallRuleArgs(
-                direction="in",
-                protocol="tcp",
-                port="80-85",
-                source_ips=[
-                    "0.0.0.0/0",
-                    "::/0",
-                ],
-            ),
-        ])
+        myfirewall = hcloud.Firewall("myfirewall",
+            name="my-firewall",
+            rules=[
+                hcloud.FirewallRuleArgs(
+                    direction="in",
+                    protocol="icmp",
+                    source_ips=[
+                        "0.0.0.0/0",
+                        "::/0",
+                    ],
+                ),
+                hcloud.FirewallRuleArgs(
+                    direction="in",
+                    protocol="tcp",
+                    port="80-85",
+                    source_ips=[
+                        "0.0.0.0/0",
+                        "::/0",
+                    ],
+                ),
+            ])
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
             server_type="cx11",
             firewall_ids=[myfirewall.id])
@@ -234,26 +237,29 @@ class Firewall(pulumi.CustomResource):
         import pulumi
         import pulumi_hcloud as hcloud
 
-        myfirewall = hcloud.Firewall("myfirewall", rules=[
-            hcloud.FirewallRuleArgs(
-                direction="in",
-                protocol="icmp",
-                source_ips=[
-                    "0.0.0.0/0",
-                    "::/0",
-                ],
-            ),
-            hcloud.FirewallRuleArgs(
-                direction="in",
-                protocol="tcp",
-                port="80-85",
-                source_ips=[
-                    "0.0.0.0/0",
-                    "::/0",
-                ],
-            ),
-        ])
+        myfirewall = hcloud.Firewall("myfirewall",
+            name="my-firewall",
+            rules=[
+                hcloud.FirewallRuleArgs(
+                    direction="in",
+                    protocol="icmp",
+                    source_ips=[
+                        "0.0.0.0/0",
+                        "::/0",
+                    ],
+                ),
+                hcloud.FirewallRuleArgs(
+                    direction="in",
+                    protocol="tcp",
+                    port="80-85",
+                    source_ips=[
+                        "0.0.0.0/0",
+                        "::/0",
+                    ],
+                ),
+            ])
         node1 = hcloud.Server("node1",
+            name="node1",
             image="debian-11",
             server_type="cx11",
             firewall_ids=[myfirewall.id])

@@ -260,9 +260,12 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         lb1 = hcloud.LoadBalancer("lb1",
+            name="lb1",
             load_balancer_type="lb11",
             network_zone="eu-central")
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        mynet = hcloud.Network("mynet",
+            name="my-net",
+            ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
             network_id=mynet.id,
             type="cloud",
@@ -272,7 +275,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             load_balancer_id=lb1.id,
             network_id=mynet.id,
             ip="10.0.1.5",
-            opts=pulumi.ResourceOptions(depends_on=[hcloud_network_subnet["srvnetwork"]]))
+            opts=pulumi.ResourceOptions(depends_on=[srvnetwork_hcloud_network_subnet]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -324,9 +327,12 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         lb1 = hcloud.LoadBalancer("lb1",
+            name="lb1",
             load_balancer_type="lb11",
             network_zone="eu-central")
-        mynet = hcloud.Network("mynet", ip_range="10.0.0.0/8")
+        mynet = hcloud.Network("mynet",
+            name="my-net",
+            ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
             network_id=mynet.id,
             type="cloud",
@@ -336,7 +342,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             load_balancer_id=lb1.id,
             network_id=mynet.id,
             ip="10.0.1.5",
-            opts=pulumi.ResourceOptions(depends_on=[hcloud_network_subnet["srvnetwork"]]))
+            opts=pulumi.ResourceOptions(depends_on=[srvnetwork_hcloud_network_subnet]))
         ```
         <!--End PulumiCodeChooser -->
 
