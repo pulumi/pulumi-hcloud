@@ -134,7 +134,6 @@ class NetworkRoute(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -147,7 +146,6 @@ class NetworkRoute(pulumi.CustomResource):
             destination="10.100.1.0/24",
             gateway="10.0.1.1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -176,7 +174,6 @@ class NetworkRoute(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -189,7 +186,6 @@ class NetworkRoute(pulumi.CustomResource):
             destination="10.100.1.0/24",
             gateway="10.0.1.1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

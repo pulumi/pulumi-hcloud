@@ -113,7 +113,6 @@ def get_images(include_deprecated: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -121,7 +120,6 @@ def get_images(include_deprecated: Optional[bool] = None,
     image2 = hcloud.get_images(with_architectures=["x86"])
     image3 = hcloud.get_images(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool include_deprecated: Also list images that are marked as deprecated.
@@ -161,7 +159,6 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -169,7 +166,6 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]]
     image2 = hcloud.get_images(with_architectures=["x86"])
     image3 = hcloud.get_images(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool include_deprecated: Also list images that are marked as deprecated.

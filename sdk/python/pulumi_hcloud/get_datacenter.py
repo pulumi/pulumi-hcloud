@@ -113,7 +113,6 @@ def get_datacenter(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -121,7 +120,6 @@ def get_datacenter(id: Optional[int] = None,
     ds1 = hcloud.get_datacenter(name="fsn1-dc8")
     ds2 = hcloud.get_datacenter(id=4)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the datacenter.
@@ -152,7 +150,6 @@ def get_datacenter_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -160,7 +157,6 @@ def get_datacenter_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     ds1 = hcloud.get_datacenter(name="fsn1-dc8")
     ds2 = hcloud.get_datacenter(id=4)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the datacenter.

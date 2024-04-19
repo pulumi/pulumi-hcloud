@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworks(args?: GetNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworksResult> {
     args = args || {};
@@ -61,7 +59,6 @@ export interface GetNetworksResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -71,7 +68,6 @@ export interface GetNetworksResult {
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworksOutput(args?: GetNetworksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworksResult> {
     return pulumi.output(args).apply((a: any) => getNetworks(a, opts))

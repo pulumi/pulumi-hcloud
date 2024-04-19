@@ -266,7 +266,6 @@ class ServerNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -288,7 +287,6 @@ class ServerNetwork(pulumi.CustomResource):
             network_id=mynet.id,
             ip="10.0.1.5")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -332,7 +330,6 @@ class ServerNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -354,7 +351,6 @@ class ServerNetwork(pulumi.CustomResource):
             network_id=mynet.id,
             ip="10.0.1.5")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

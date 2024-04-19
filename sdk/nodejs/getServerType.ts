@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  *     id: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerType(args?: GetServerTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypeResult> {
     args = args || {};
@@ -115,7 +113,6 @@ export interface GetServerTypeResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -127,7 +124,6 @@ export interface GetServerTypeResult {
  *     id: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypeResult> {
     return pulumi.output(args).apply((a: any) => getServerType(a, opts))

@@ -73,7 +73,6 @@ def get_networks(with_selector: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -81,7 +80,6 @@ def get_networks(with_selector: Optional[str] = None,
     network2 = hcloud.get_network()
     network3 = hcloud.get_network(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -105,7 +103,6 @@ def get_networks_output(with_selector: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -113,7 +110,6 @@ def get_networks_output(with_selector: Optional[pulumi.Input[Optional[str]]] = N
     network2 = hcloud.get_network()
     network3 = hcloud.get_network(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
