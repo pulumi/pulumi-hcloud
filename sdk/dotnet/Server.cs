@@ -138,7 +138,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         DependsOn =
     ///         {
-    ///             network_subnet, 
+    ///             network_subnet,
     ///         },
     ///     });
     /// 
