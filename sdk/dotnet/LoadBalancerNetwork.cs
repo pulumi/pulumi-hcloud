@@ -53,7 +53,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         DependsOn =
     ///         {
-    ///             srvnetworkHcloudNetworkSubnet, 
+    ///             srvnetworkHcloudNetworkSubnet,
     ///         },
     ///     });
     /// 
