@@ -69,7 +69,6 @@ def get_ssh_keys(id: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -78,7 +77,6 @@ def get_ssh_keys(id: Optional[str] = None,
     keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
     main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
@@ -102,7 +100,6 @@ def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -111,7 +108,6 @@ def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
     main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)

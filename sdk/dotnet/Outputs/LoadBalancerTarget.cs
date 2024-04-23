@@ -15,7 +15,7 @@ namespace Pulumi.HCloud.Outputs
     {
         public readonly int? ServerId;
         /// <summary>
-        /// Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+        /// (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         /// </summary>
         public readonly string Type;
         public readonly bool? UsePrivateIp;

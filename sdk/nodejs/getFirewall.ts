@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides details about a specific Hetzner Cloud Firewall.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     id: 4711,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     args = args || {};
@@ -102,7 +100,6 @@ export interface GetFirewallResult {
 /**
  * Provides details about a specific Hetzner Cloud Firewall.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -114,7 +111,6 @@ export interface GetFirewallResult {
  *     id: 4711,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
     return pulumi.output(args).apply((a: any) => getFirewall(a, opts))

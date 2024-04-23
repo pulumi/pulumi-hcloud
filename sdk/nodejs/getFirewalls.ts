@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewalls(args?: GetFirewallsArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallsResult> {
     args = args || {};
@@ -66,7 +64,6 @@ export interface GetFirewallsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -75,7 +72,6 @@ export interface GetFirewallsResult {
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallsOutput(args?: GetFirewallsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallsResult> {
     return pulumi.output(args).apply((a: any) => getFirewalls(a, opts))

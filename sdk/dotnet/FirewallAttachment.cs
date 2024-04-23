@@ -20,7 +20,6 @@ namespace Pulumi.HCloud
     /// 
     /// ### Attach Servers
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,11 +51,9 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Attach Label Selectors
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,7 +89,6 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [HCloudResourceType("hcloud:index/firewallAttachment:FirewallAttachment")]
     public partial class FirewallAttachment : global::Pulumi.CustomResource

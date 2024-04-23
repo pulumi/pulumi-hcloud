@@ -14,7 +14,6 @@ namespace Pulumi.HCloud
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.HCloud
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -74,7 +71,6 @@ namespace Pulumi.HCloud
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());

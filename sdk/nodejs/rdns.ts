@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * For servers:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -27,11 +26,9 @@ import * as utilities from "./utilities";
  *     dnsPtr: "example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * For Primary IPs:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -46,11 +43,9 @@ import * as utilities from "./utilities";
  *     dnsPtr: "example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * For Floating IPs:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -65,11 +60,9 @@ import * as utilities from "./utilities";
  *     dnsPtr: "example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * For Load Balancers:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -85,7 +78,6 @@ import * as utilities from "./utilities";
  *     dnsPtr: "example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

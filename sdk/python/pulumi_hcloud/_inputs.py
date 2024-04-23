@@ -476,7 +476,7 @@ class LoadBalancerTargetArgs:
                  server_id: Optional[pulumi.Input[int]] = None,
                  use_private_ip: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] type: Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+        :param pulumi.Input[str] type: (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
         pulumi.set(__self__, "type", type)
         if server_id is not None:
@@ -491,7 +491,7 @@ class LoadBalancerTargetArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+        (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
         return pulumi.get(self, "type")
 

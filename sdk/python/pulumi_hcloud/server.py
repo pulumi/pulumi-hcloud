@@ -848,7 +848,6 @@ class Server(pulumi.CustomResource):
 
         ### Basic server creation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -863,8 +862,6 @@ class Server(pulumi.CustomResource):
                 ipv6_enabled=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -893,9 +890,7 @@ class Server(pulumi.CustomResource):
                 ipv6_enabled=False,
             )])
         ```
-        <!--End PulumiCodeChooser -->
         ### Server creation with network
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -923,11 +918,9 @@ class Server(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Server creation from snapshot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -945,7 +938,6 @@ class Server(pulumi.CustomResource):
                 ipv6_enabled=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Primary IPs
 
@@ -1001,7 +993,6 @@ class Server(pulumi.CustomResource):
 
         ### Basic server creation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -1016,8 +1007,6 @@ class Server(pulumi.CustomResource):
                 ipv6_enabled=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -1046,9 +1035,7 @@ class Server(pulumi.CustomResource):
                 ipv6_enabled=False,
             )])
         ```
-        <!--End PulumiCodeChooser -->
         ### Server creation with network
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -1076,11 +1063,9 @@ class Server(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Server creation from snapshot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -1098,7 +1083,6 @@ class Server(pulumi.CustomResource):
                 ipv6_enabled=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Primary IPs
 

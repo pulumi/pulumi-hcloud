@@ -135,7 +135,6 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -153,7 +152,6 @@ class VolumeAttachment(pulumi.CustomResource):
             server_id=node1.id,
             automount=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -180,7 +178,6 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -198,7 +195,6 @@ class VolumeAttachment(pulumi.CustomResource):
             server_id=node1.id,
             automount=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

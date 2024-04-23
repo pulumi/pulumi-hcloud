@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  * });
  * const main = new hcloud.Server("main", {sshKeys: allKeys.then(allKeys => allKeys.sshKeys.map(__item => __item.name))});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeysResult> {
     args = args || {};
@@ -57,7 +55,6 @@ export interface GetSshKeysResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -68,7 +65,6 @@ export interface GetSshKeysResult {
  * });
  * const main = new hcloud.Server("main", {sshKeys: allKeys.then(allKeys => allKeys.sshKeys.map(__item => __item.name))});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {
     return pulumi.output(args).apply((a: any) => getSshKeys(a, opts))

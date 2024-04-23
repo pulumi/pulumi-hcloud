@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPrimaryIps(ctx *pulumi.Context, args *GetPrimaryIpsArgs, opts ...pulumi.InvokeOption) (*GetPrimaryIpsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrimaryIpsResult

@@ -191,7 +191,6 @@ def get_floating_ip(id: Optional[int] = None,
     This resource can be useful when you need to determine a Floating IP ID based on the IP address.
 
     ### Additional Examples
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -204,7 +203,6 @@ def get_floating_ip(id: Optional[int] = None,
             floating_ip_id=ip1.id,
             server_id=main_hcloud_server["id"]))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the Floating IP.
@@ -255,7 +253,6 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     This resource can be useful when you need to determine a Floating IP ID based on the IP address.
 
     ### Additional Examples
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -268,7 +265,6 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
             floating_ip_id=ip1.id,
             server_id=main_hcloud_server["id"]))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the Floating IP.

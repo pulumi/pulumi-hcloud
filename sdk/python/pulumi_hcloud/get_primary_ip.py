@@ -198,7 +198,6 @@ def get_primary_ip(assignee_id: Optional[int] = None,
 
     ### Additional Examples
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -219,7 +218,6 @@ def get_primary_ip(assignee_id: Optional[int] = None,
             ipv4=ip1_hcloud_primary_ip["id"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int assignee_id: (int) ID of the assigned resource.
@@ -278,7 +276,6 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
 
     ### Additional Examples
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -299,7 +296,6 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
             ipv4=ip1_hcloud_primary_ip["id"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int assignee_id: (int) ID of the assigned resource.

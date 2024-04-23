@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 public final class LoadBalancerTarget {
     private @Nullable Integer serverId;
     /**
-     * @return Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+     * @return (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
      * 
      */
     private String type;
@@ -33,7 +33,7 @@ public final class LoadBalancerTarget {
         return Optional.ofNullable(this.serverId);
     }
     /**
-     * @return Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+     * @return (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
      * 
      */
     public String type() {

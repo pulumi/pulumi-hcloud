@@ -18,7 +18,6 @@ import (
 //
 // ### Basic server creation
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,8 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,9 +100,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ### Server creation with network
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -160,11 +155,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Server creation from snapshot
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -205,7 +198,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Primary IPs
 //

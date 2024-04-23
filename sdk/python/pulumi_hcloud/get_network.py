@@ -132,7 +132,6 @@ def get_network(id: Optional[int] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -141,7 +140,6 @@ def get_network(id: Optional[int] = None,
     network2 = hcloud.get_network(name="my-network")
     network3 = hcloud.get_network(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the Network.
@@ -181,7 +179,6 @@ def get_network_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -190,7 +187,6 @@ def get_network_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     network2 = hcloud.get_network(name="my-network")
     network3 = hcloud.get_network(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the Network.

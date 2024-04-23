@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPlacementGroups(args?: GetPlacementGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupsResult> {
     args = args || {};
@@ -67,7 +65,6 @@ export interface GetPlacementGroupsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -77,7 +74,6 @@ export interface GetPlacementGroupsResult {
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPlacementGroupsOutput(args?: GetPlacementGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupsResult> {
     return pulumi.output(args).apply((a: any) => getPlacementGroups(a, opts))

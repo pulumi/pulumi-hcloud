@@ -546,7 +546,7 @@ export interface LoadBalancerServiceHttp {
 export interface LoadBalancerTarget {
     serverId?: number;
     /**
-     * Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
+     * (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      */
     type: string;
     /**

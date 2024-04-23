@@ -137,7 +137,6 @@ def get_location(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -145,7 +144,6 @@ def get_location(id: Optional[int] = None,
     l1 = hcloud.get_location(name="fsn1")
     l2 = hcloud.get_location(id=1)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the location.
@@ -178,7 +176,6 @@ def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -186,7 +183,6 @@ def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     l1 = hcloud.get_location(name="fsn1")
     l2 = hcloud.get_location(id=1)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the location.
