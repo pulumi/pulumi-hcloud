@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -30,7 +29,6 @@ import * as utilities from "./utilities";
  *     sshKey3.then(sshKey3 => sshKey3.id),
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSshKey(args?: GetSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeyResult> {
     args = args || {};
@@ -108,7 +106,6 @@ export interface GetSshKeyResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -131,7 +128,6 @@ export interface GetSshKeyResult {
  *     sshKey3.then(sshKey3 => sshKey3.id),
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSshKeyOutput(args?: GetSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeyResult> {
     return pulumi.output(args).apply((a: any) => getSshKey(a, opts))

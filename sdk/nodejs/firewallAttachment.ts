@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ### Attach Servers
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -31,11 +30,9 @@ import * as utilities from "./utilities";
  *     serverIds: [testServer.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Attach Label Selectors
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -54,7 +51,6 @@ import * as utilities from "./utilities";
  *     labelSelectors: ["firewall-attachment=test-server"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class FirewallAttachment extends pulumi.CustomResource {
     /**

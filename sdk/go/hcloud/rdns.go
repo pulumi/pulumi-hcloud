@@ -18,7 +18,6 @@ import (
 //
 // For servers:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // For Primary IPs:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,11 +86,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // For Floating IPs:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,11 +121,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // For Load Balancers:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -164,7 +157,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

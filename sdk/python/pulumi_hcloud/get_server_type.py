@@ -193,7 +193,6 @@ def get_server_type(deprecation_announced: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -201,7 +200,6 @@ def get_server_type(deprecation_announced: Optional[str] = None,
     ds1 = hcloud.get_server_type(name="cx11")
     ds2 = hcloud.get_server_type(id=1)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str deprecation_announced: (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
@@ -245,7 +243,6 @@ def get_server_type_output(deprecation_announced: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -253,7 +250,6 @@ def get_server_type_output(deprecation_announced: Optional[pulumi.Input[Optional
     ds1 = hcloud.get_server_type(name="cx11")
     ds2 = hcloud.get_server_type(id=1)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str deprecation_announced: (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.

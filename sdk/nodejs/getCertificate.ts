@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides details about a specific Hetzner Cloud Certificate.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     id: 4711,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     args = args || {};
@@ -96,7 +94,6 @@ export interface GetCertificateResult {
 /**
  * Provides details about a specific Hetzner Cloud Certificate.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -108,7 +105,6 @@ export interface GetCertificateResult {
  *     id: 4711,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

@@ -236,7 +236,6 @@ class Rdns(pulumi.CustomResource):
 
         For servers:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -250,11 +249,9 @@ class Rdns(pulumi.CustomResource):
             ip_address=node1.ipv4_address,
             dns_ptr="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         For Primary IPs:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -267,11 +264,9 @@ class Rdns(pulumi.CustomResource):
             ip_address=primary1.ip_address,
             dns_ptr="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         For Floating IPs:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -284,11 +279,9 @@ class Rdns(pulumi.CustomResource):
             ip_address=floating1.ip_address,
             dns_ptr="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         For Load Balancers:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -302,7 +295,6 @@ class Rdns(pulumi.CustomResource):
             ip_address=load_balancer1.ipv4,
             dns_ptr="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -356,7 +348,6 @@ class Rdns(pulumi.CustomResource):
 
         For servers:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -370,11 +361,9 @@ class Rdns(pulumi.CustomResource):
             ip_address=node1.ipv4_address,
             dns_ptr="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         For Primary IPs:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -387,11 +376,9 @@ class Rdns(pulumi.CustomResource):
             ip_address=primary1.ip_address,
             dns_ptr="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         For Floating IPs:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -404,11 +391,9 @@ class Rdns(pulumi.CustomResource):
             ip_address=floating1.ip_address,
             dns_ptr="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         For Load Balancers:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -422,7 +407,6 @@ class Rdns(pulumi.CustomResource):
             ip_address=load_balancer1.ipv4,
             dns_ptr="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

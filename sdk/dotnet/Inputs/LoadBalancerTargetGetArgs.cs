@@ -16,7 +16,7 @@ namespace Pulumi.HCloud.Inputs
         public Input<int>? ServerId { get; set; }
 
         /// <summary>
-        /// Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+        /// (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

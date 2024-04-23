@@ -83,14 +83,12 @@ def get_firewalls(most_recent: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
 
     sample_firewall1 = hcloud.get_firewalls(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool most_recent: Sorts list by date.
@@ -118,14 +116,12 @@ def get_firewalls_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
 
     sample_firewall1 = hcloud.get_firewalls(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool most_recent: Sorts list by date.

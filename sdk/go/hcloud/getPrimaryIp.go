@@ -29,7 +29,6 @@ import (
 //
 // ### Additional Examples
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,7 +82,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupPrimaryIp(ctx *pulumi.Context, args *LookupPrimaryIpArgs, opts ...pulumi.InvokeOption) (*LookupPrimaryIpResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrimaryIpResult

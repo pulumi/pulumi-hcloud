@@ -262,7 +262,6 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -280,7 +279,6 @@ class LoadBalancerTarget(pulumi.CustomResource):
             load_balancer_id=load_balancer.id,
             server_id=my_server.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -335,7 +333,6 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -353,7 +350,6 @@ class LoadBalancerTarget(pulumi.CustomResource):
             load_balancer_id=load_balancer.id,
             server_id=my_server.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

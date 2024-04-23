@@ -172,7 +172,6 @@ class Firewall(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -204,7 +203,6 @@ class Firewall(pulumi.CustomResource):
             server_type="cx11",
             firewall_ids=[myfirewall.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -232,7 +230,6 @@ class Firewall(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -264,7 +261,6 @@ class Firewall(pulumi.CustomResource):
             server_type="cx11",
             firewall_ids=[myfirewall.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

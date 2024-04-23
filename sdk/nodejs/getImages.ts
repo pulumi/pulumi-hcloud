@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImages(args?: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
     args = args || {};
@@ -87,7 +85,6 @@ export interface GetImagesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -99,7 +96,6 @@ export interface GetImagesResult {
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImagesOutput(args?: GetImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagesResult> {
     return pulumi.output(args).apply((a: any) => getImages(a, opts))

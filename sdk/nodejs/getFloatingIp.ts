@@ -16,7 +16,6 @@ import * as utilities from "./utilities";
  * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
  *
  * ### Additional Examples
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -35,7 +34,6 @@ import * as utilities from "./utilities";
  *     }));
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFloatingIp(args?: GetFloatingIpArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpResult> {
     args = args || {};
@@ -138,7 +136,6 @@ export interface GetFloatingIpResult {
  * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
  *
  * ### Additional Examples
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -157,7 +154,6 @@ export interface GetFloatingIpResult {
  *     }));
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFloatingIpOutput(args?: GetFloatingIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpResult> {
     return pulumi.output(args).apply((a: any) => getFloatingIp(a, opts))

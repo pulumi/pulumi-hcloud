@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPrimaryIps(args?: GetPrimaryIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryIpsResult> {
     args = args || {};
@@ -60,7 +58,6 @@ export interface GetPrimaryIpsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -69,7 +66,6 @@ export interface GetPrimaryIpsResult {
  *     withSelector: "key=value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPrimaryIpsOutput(args?: GetPrimaryIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpsResult> {
     return pulumi.output(args).apply((a: any) => getPrimaryIps(a, opts))

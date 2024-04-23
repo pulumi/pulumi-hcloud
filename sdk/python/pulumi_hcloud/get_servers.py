@@ -81,14 +81,12 @@ def get_servers(with_selector: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
 
     s3 = hcloud.get_servers(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -114,14 +112,12 @@ def get_servers_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
 
     s3 = hcloud.get_servers(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).

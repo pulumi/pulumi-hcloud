@@ -325,7 +325,6 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -341,7 +340,6 @@ class Volume(pulumi.CustomResource):
             automount=True,
             format="ext4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -375,7 +373,6 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -391,7 +388,6 @@ class Volume(pulumi.CustomResource):
             automount=True,
             format="ext4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
