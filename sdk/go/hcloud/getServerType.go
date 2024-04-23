@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetServerType(ctx *pulumi.Context, args *GetServerTypeArgs, opts ...pulumi.InvokeOption) (*GetServerTypeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerTypeResult

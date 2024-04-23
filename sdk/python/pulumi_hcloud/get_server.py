@@ -309,7 +309,6 @@ def get_server(id: Optional[int] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -318,7 +317,6 @@ def get_server(id: Optional[int] = None,
     s2 = hcloud.get_server(id=123)
     s3 = hcloud.get_server(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the server.
@@ -374,7 +372,6 @@ def get_server_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -383,7 +380,6 @@ def get_server_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     s2 = hcloud.get_server(id=123)
     s3 = hcloud.get_server(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the server.

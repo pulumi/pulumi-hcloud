@@ -1073,7 +1073,7 @@ func (o LoadBalancerServiceHttpPtrOutput) StickySessions() pulumi.BoolPtrOutput 
 
 type LoadBalancerTargetType struct {
 	ServerId *int `pulumi:"serverId"`
-	// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
+	// (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 	Type string `pulumi:"type"`
 	// Deprecated: Does not work. Use the LoadBalancerTarget resource instead.
 	UsePrivateIp *bool `pulumi:"usePrivateIp"`
@@ -1092,7 +1092,7 @@ type LoadBalancerTargetTypeInput interface {
 
 type LoadBalancerTargetTypeArgs struct {
 	ServerId pulumi.IntPtrInput `pulumi:"serverId"`
-	// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
+	// (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 	Type pulumi.StringInput `pulumi:"type"`
 	// Deprecated: Does not work. Use the LoadBalancerTarget resource instead.
 	UsePrivateIp pulumi.BoolPtrInput `pulumi:"usePrivateIp"`
@@ -1153,7 +1153,7 @@ func (o LoadBalancerTargetTypeOutput) ServerId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancerTargetType) *int { return v.ServerId }).(pulumi.IntPtrOutput)
 }
 
-// Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
+// (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
 func (o LoadBalancerTargetTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerTargetType) string { return v.Type }).(pulumi.StringOutput)
 }

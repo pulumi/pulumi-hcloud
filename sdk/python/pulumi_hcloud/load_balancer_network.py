@@ -254,7 +254,6 @@ class LoadBalancerNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -277,7 +276,6 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             ip="10.0.1.5",
             opts=pulumi.ResourceOptions(depends_on=[srvnetwork_hcloud_network_subnet]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -321,7 +319,6 @@ class LoadBalancerNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -344,7 +341,6 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             ip="10.0.1.5",
             opts=pulumi.ResourceOptions(depends_on=[srvnetwork_hcloud_network_subnet]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

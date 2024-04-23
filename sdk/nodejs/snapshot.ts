@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  * });
  * const my_snapshot = new hcloud.Snapshot("my-snapshot", {serverId: node1.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

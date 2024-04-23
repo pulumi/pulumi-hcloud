@@ -152,7 +152,6 @@ class SshKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -163,7 +162,6 @@ class SshKey(pulumi.CustomResource):
             name="Terraform Example",
             public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -190,7 +188,6 @@ class SshKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -201,7 +198,6 @@ class SshKey(pulumi.CustomResource):
             name="Terraform Example",
             public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

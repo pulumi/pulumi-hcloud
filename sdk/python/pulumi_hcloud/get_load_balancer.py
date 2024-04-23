@@ -216,7 +216,6 @@ def get_load_balancer(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -225,7 +224,6 @@ def get_load_balancer(id: Optional[int] = None,
     lb2 = hcloud.get_load_balancer(id=123)
     lb3 = hcloud.get_load_balancer(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the Load Balancer.
@@ -267,7 +265,6 @@ def get_load_balancer_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -276,7 +273,6 @@ def get_load_balancer_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     lb2 = hcloud.get_load_balancer(id=123)
     lb3 = hcloud.get_load_balancer(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: ID of the Load Balancer.

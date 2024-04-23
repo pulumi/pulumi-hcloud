@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  * });
  * const main = new hcloud.Server("main", {image: image1.then(image1 => image1.id)});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     args = args || {};
@@ -138,7 +136,6 @@ export interface GetImageResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -155,7 +152,6 @@ export interface GetImageResult {
  * });
  * const main = new hcloud.Server("main", {image: image1.then(image1 => image1.id)});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))

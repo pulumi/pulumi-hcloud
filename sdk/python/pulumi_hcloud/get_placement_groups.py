@@ -83,7 +83,6 @@ def get_placement_groups(most_recent: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -91,7 +90,6 @@ def get_placement_groups(most_recent: Optional[bool] = None,
     sample_placement_group1 = hcloud.get_placement_groups()
     sample_placement_group2 = hcloud.get_placement_groups(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool most_recent: Sorts list by date.
@@ -119,7 +117,6 @@ def get_placement_groups_output(most_recent: Optional[pulumi.Input[Optional[bool
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -127,7 +124,6 @@ def get_placement_groups_output(most_recent: Optional[pulumi.Input[Optional[bool
     sample_placement_group1 = hcloud.get_placement_groups()
     sample_placement_group2 = hcloud.get_placement_groups(with_selector="key=value")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool most_recent: Sorts list by date.
