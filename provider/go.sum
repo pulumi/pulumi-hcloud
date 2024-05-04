@@ -2297,10 +2297,10 @@ github.com/hashicorp/yamux v0.1.1 h1:yrQxtgseBDrq9Y652vSRDvsKCJKOUD+GzTS4Y0Y8pvE
 github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbgIO0SLnQ=
 github.com/hetznercloud/hcloud-go v1.33.1/go.mod h1:XX/TQub3ge0yWR2yHWmnDVIrB+MQbda1pHxkUmDlUME=
 github.com/hetznercloud/hcloud-go v1.35.0/go.mod h1:mepQwR6va27S3UQthaEPGS86jtzSY9xWL1e9dyxXpgA=
-github.com/hetznercloud/hcloud-go v1.53.0 h1:xThhlJc6MdpvDAqVB7bAw+nAQuCpQMwsf3yanCis4rM=
-github.com/hetznercloud/hcloud-go v1.53.0/go.mod h1:VzDWThl47lOnZXY0q5/LPFD+M62pfe/52TV+mOrpp9Q=
-github.com/hetznercloud/terraform-provider-hcloud v1.46.1 h1:04NLs1IBAZypURjwaHhtOZhBQqRGZ/7cFFzfakPFzCA=
-github.com/hetznercloud/terraform-provider-hcloud v1.46.1/go.mod h1:c4LixeIQiAM5yG09VteDi4emtp8CEO/2vZpfu85VADU=
+github.com/hetznercloud/hcloud-go v1.54.1 h1:Y5k++GWasA3IdwbD3pTUVAG825xHPpQ2WDjtBecBYWQ=
+github.com/hetznercloud/hcloud-go v1.54.1/go.mod h1:VzDWThl47lOnZXY0q5/LPFD+M62pfe/52TV+mOrpp9Q=
+github.com/hetznercloud/terraform-provider-hcloud v1.47.0 h1:f6ZCymgMyRZw4xTmMqtOgIV7hqUO3VMohNYRVENotZs=
+github.com/hetznercloud/terraform-provider-hcloud v1.47.0/go.mod h1:g3iRgxDIrnNbAqpZqVzGigYlGnb3LDeUZuQHWlmUUys=
 github.com/hexops/autogold v1.3.0 h1:IEtGNPxBeBu8RMn8eKWh/Ll9dVNgSnJ7bp/qHgMQ14o=
 github.com/hexops/autogold v1.3.0/go.mod h1:d4hwi2rid66Sag+BVuHgwakW/EmaFr8vdTSbWDbrDRI=
 github.com/hexops/autogold/v2 v2.2.1 h1:JPUXuZQGkcQMv7eeDXuNMovjfoRYaa0yVcm+F3voaGY=

@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/hetznercloud/terraform-provider-hcloud v1.46.1
+	github.com/hetznercloud/terraform-provider-hcloud v1.47.0
 	github.com/pulumi/providertest v0.0.11
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.34.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.81.0
@@ -146,7 +146,7 @@ require (
 	github.com/hashicorp/vault/api v1.8.2 // indirect
 	github.com/hashicorp/vault/sdk v0.6.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/hetznercloud/hcloud-go v1.53.0 // indirect
+	github.com/hetznercloud/hcloud-go v1.54.1 // indirect
 	github.com/huandu/xstrings v1.3.3 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect

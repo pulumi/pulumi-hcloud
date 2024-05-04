@@ -3944,6 +3944,7 @@
             },
             "required": [
                 "fingerprint",
+                "labels",
                 "name",
                 "publicKey"
             ],
