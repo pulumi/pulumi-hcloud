@@ -66,7 +66,7 @@ export class SshKey extends pulumi.CustomResource {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the SSH key.
      */
