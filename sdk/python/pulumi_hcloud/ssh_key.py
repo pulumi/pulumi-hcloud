@@ -286,7 +286,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def labels(self) -> pulumi.Output[Mapping[str, str]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """

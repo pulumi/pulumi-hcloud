@@ -57,7 +57,7 @@ namespace Pulumi.HCloud
         /// User-defined labels (key-value pairs) should be created with.
         /// </summary>
         [Output("labels")]
-        public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Labels { get; private set; } = null!;
 
         /// <summary>
         /// Name of the SSH key.

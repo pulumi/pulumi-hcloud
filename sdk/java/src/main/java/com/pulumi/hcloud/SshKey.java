@@ -12,7 +12,6 @@ import com.pulumi.hcloud.Utilities;
 import com.pulumi.hcloud.inputs.SshKeyState;
 import java.lang.String;
 import java.util.Map;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -85,14 +84,14 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> labels;
+    private Output<Map<String,String>> labels;
 
     /**
      * @return User-defined labels (key-value pairs) should be created with.
      * 
      */
-    public Output<Optional<Map<String,String>>> labels() {
-        return Codegen.optional(this.labels);
+    public Output<Map<String,String>> labels() {
+        return this.labels;
     }
     /**
      * Name of the SSH key.
