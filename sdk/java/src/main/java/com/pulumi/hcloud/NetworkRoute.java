@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mynet = new Network(&#34;mynet&#34;, NetworkArgs.builder()        
- *             .name(&#34;my-net&#34;)
- *             .ipRange(&#34;10.0.0.0/8&#34;)
+ *         var mynet = new Network("mynet", NetworkArgs.builder()        
+ *             .name("my-net")
+ *             .ipRange("10.0.0.0/8")
  *             .build());
  * 
- *         var privNet = new NetworkRoute(&#34;privNet&#34;, NetworkRouteArgs.builder()        
+ *         var privNet = new NetworkRoute("privNet", NetworkRouteArgs.builder()        
  *             .networkId(mynet.id())
- *             .destination(&#34;10.100.1.0/24&#34;)
- *             .gateway(&#34;10.0.1.1&#34;)
+ *             .destination("10.100.1.0/24")
+ *             .gateway("10.0.1.1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
- *             .name(&#34;node1&#34;)
- *             .image(&#34;debian-11&#34;)
- *             .serverType(&#34;cx11&#34;)
+ *         var node1 = new Server("node1", ServerArgs.builder()        
+ *             .name("node1")
+ *             .image("debian-11")
+ *             .serverType("cx11")
  *             .build());
  * 
- *         var my_snapshot = new Snapshot(&#34;my-snapshot&#34;, SnapshotArgs.builder()        
+ *         var my_snapshot = new Snapshot("my-snapshot", SnapshotArgs.builder()        
  *             .serverId(node1.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

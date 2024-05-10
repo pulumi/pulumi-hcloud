@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * For servers:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
- *             .name(&#34;node1&#34;)
- *             .image(&#34;debian-11&#34;)
- *             .serverType(&#34;cx11&#34;)
+ *         var node1 = new Server("node1", ServerArgs.builder()        
+ *             .name("node1")
+ *             .image("debian-11")
+ *             .serverType("cx11")
  *             .build());
  * 
- *         var master = new Rdns(&#34;master&#34;, RdnsArgs.builder()        
+ *         var master = new Rdns("master", RdnsArgs.builder()        
  *             .serverId(node1.id())
  *             .ipAddress(node1.ipv4Address())
- *             .dnsPtr(&#34;example.com&#34;)
+ *             .dnsPtr("example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * For Primary IPs:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,26 +92,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary1 = new PrimaryIp(&#34;primary1&#34;, PrimaryIpArgs.builder()        
- *             .datacenter(&#34;nbg1-dc3&#34;)
- *             .type(&#34;ipv4&#34;)
+ *         var primary1 = new PrimaryIp("primary1", PrimaryIpArgs.builder()        
+ *             .datacenter("nbg1-dc3")
+ *             .type("ipv4")
  *             .build());
  * 
- *         var primary1Rdns = new Rdns(&#34;primary1Rdns&#34;, RdnsArgs.builder()        
+ *         var primary1Rdns = new Rdns("primary1Rdns", RdnsArgs.builder()        
  *             .primaryIpId(primary1.id())
  *             .ipAddress(primary1.ipAddress())
- *             .dnsPtr(&#34;example.com&#34;)
+ *             .dnsPtr("example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * For Floating IPs:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -131,26 +136,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var floating1 = new FloatingIp(&#34;floating1&#34;, FloatingIpArgs.builder()        
- *             .homeLocation(&#34;nbg1&#34;)
- *             .type(&#34;ipv4&#34;)
+ *         var floating1 = new FloatingIp("floating1", FloatingIpArgs.builder()        
+ *             .homeLocation("nbg1")
+ *             .type("ipv4")
  *             .build());
  * 
- *         var floatingMaster = new Rdns(&#34;floatingMaster&#34;, RdnsArgs.builder()        
+ *         var floatingMaster = new Rdns("floatingMaster", RdnsArgs.builder()        
  *             .floatingIpId(floating1.id())
  *             .ipAddress(floating1.ipAddress())
- *             .dnsPtr(&#34;example.com&#34;)
+ *             .dnsPtr("example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * For Load Balancers:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -173,21 +180,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var loadBalancer1 = new LoadBalancer(&#34;loadBalancer1&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;load_balancer1&#34;)
- *             .loadBalancerType(&#34;lb11&#34;)
- *             .location(&#34;fsn1&#34;)
+ *         var loadBalancer1 = new LoadBalancer("loadBalancer1", LoadBalancerArgs.builder()        
+ *             .name("load_balancer1")
+ *             .loadBalancerType("lb11")
+ *             .location("fsn1")
  *             .build());
  * 
- *         var loadBalancerMaster = new Rdns(&#34;loadBalancerMaster&#34;, RdnsArgs.builder()        
+ *         var loadBalancerMaster = new Rdns("loadBalancerMaster", RdnsArgs.builder()        
  *             .loadBalancerId(loadBalancer1.id())
  *             .ipAddress(loadBalancer1.ipv4())
- *             .dnsPtr(&#34;example.com&#34;)
+ *             .dnsPtr("example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

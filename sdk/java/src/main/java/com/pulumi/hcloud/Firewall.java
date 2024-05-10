@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,36 +50,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myfirewall = new Firewall(&#34;myfirewall&#34;, FirewallArgs.builder()        
- *             .name(&#34;my-firewall&#34;)
+ *         var myfirewall = new Firewall("myfirewall", FirewallArgs.builder()        
+ *             .name("my-firewall")
  *             .rules(            
  *                 FirewallRuleArgs.builder()
- *                     .direction(&#34;in&#34;)
- *                     .protocol(&#34;icmp&#34;)
+ *                     .direction("in")
+ *                     .protocol("icmp")
  *                     .sourceIps(                    
- *                         &#34;0.0.0.0/0&#34;,
- *                         &#34;::/0&#34;)
+ *                         "0.0.0.0/0",
+ *                         "::/0")
  *                     .build(),
  *                 FirewallRuleArgs.builder()
- *                     .direction(&#34;in&#34;)
- *                     .protocol(&#34;tcp&#34;)
- *                     .port(&#34;80-85&#34;)
+ *                     .direction("in")
+ *                     .protocol("tcp")
+ *                     .port("80-85")
  *                     .sourceIps(                    
- *                         &#34;0.0.0.0/0&#34;,
- *                         &#34;::/0&#34;)
+ *                         "0.0.0.0/0",
+ *                         "::/0")
  *                     .build())
  *             .build());
  * 
- *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
- *             .name(&#34;node1&#34;)
- *             .image(&#34;debian-11&#34;)
- *             .serverType(&#34;cx11&#34;)
+ *         var node1 = new Server("node1", ServerArgs.builder()        
+ *             .name("node1")
+ *             .image("debian-11")
+ *             .serverType("cx11")
  *             .firewallIds(myfirewall.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

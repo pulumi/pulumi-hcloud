@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,19 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
- *             .name(&#34;node1&#34;)
- *             .image(&#34;debian-11&#34;)
- *             .serverType(&#34;cx11&#34;)
- *             .datacenter(&#34;nbg1-dc3&#34;)
+ *         var node1 = new Server("node1", ServerArgs.builder()        
+ *             .name("node1")
+ *             .image("debian-11")
+ *             .serverType("cx11")
+ *             .datacenter("nbg1-dc3")
  *             .build());
  * 
- *         var master = new Volume(&#34;master&#34;, VolumeArgs.builder()        
- *             .location(&#34;nbg1&#34;)
+ *         var master = new Volume("master", VolumeArgs.builder()        
+ *             .location("nbg1")
  *             .size(10)
  *             .build());
  * 
- *         var main = new VolumeAttachment(&#34;main&#34;, VolumeAttachmentArgs.builder()        
+ *         var main = new VolumeAttachment("main", VolumeAttachmentArgs.builder()        
  *             .volumeId(master.id())
  *             .serverId(node1.id())
  *             .automount(true)
@@ -65,7 +66,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

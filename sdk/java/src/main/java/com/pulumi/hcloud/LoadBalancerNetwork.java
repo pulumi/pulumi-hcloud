@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,35 +51,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb1 = new LoadBalancer(&#34;lb1&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;lb1&#34;)
- *             .loadBalancerType(&#34;lb11&#34;)
- *             .networkZone(&#34;eu-central&#34;)
+ *         var lb1 = new LoadBalancer("lb1", LoadBalancerArgs.builder()        
+ *             .name("lb1")
+ *             .loadBalancerType("lb11")
+ *             .networkZone("eu-central")
  *             .build());
  * 
- *         var mynet = new Network(&#34;mynet&#34;, NetworkArgs.builder()        
- *             .name(&#34;my-net&#34;)
- *             .ipRange(&#34;10.0.0.0/8&#34;)
+ *         var mynet = new Network("mynet", NetworkArgs.builder()        
+ *             .name("my-net")
+ *             .ipRange("10.0.0.0/8")
  *             .build());
  * 
- *         var foonet = new NetworkSubnet(&#34;foonet&#34;, NetworkSubnetArgs.builder()        
+ *         var foonet = new NetworkSubnet("foonet", NetworkSubnetArgs.builder()        
  *             .networkId(mynet.id())
- *             .type(&#34;cloud&#34;)
- *             .networkZone(&#34;eu-central&#34;)
- *             .ipRange(&#34;10.0.1.0/24&#34;)
+ *             .type("cloud")
+ *             .networkZone("eu-central")
+ *             .ipRange("10.0.1.0/24")
  *             .build());
  * 
- *         var srvnetwork = new LoadBalancerNetwork(&#34;srvnetwork&#34;, LoadBalancerNetworkArgs.builder()        
+ *         var srvnetwork = new LoadBalancerNetwork("srvnetwork", LoadBalancerNetworkArgs.builder()        
  *             .loadBalancerId(lb1.id())
  *             .networkId(mynet.id())
- *             .ip(&#34;10.0.1.5&#34;)
+ *             .ip("10.0.1.5")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(srvnetworkHcloudNetworkSubnet)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

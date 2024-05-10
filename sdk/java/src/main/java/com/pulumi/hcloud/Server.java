@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Basic server creation
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,10 +53,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new server running debian
- *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
- *             .name(&#34;node1&#34;)
- *             .image(&#34;debian-11&#34;)
- *             .serverType(&#34;cx11&#34;)
+ *         var node1 = new Server("node1", ServerArgs.builder()        
+ *             .name("node1")
+ *             .image("debian-11")
+ *             .serverType("cx11")
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)
  *                 .ipv6Enabled(true)
@@ -64,10 +65,12 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,21 +95,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         //## Server creation with one linked primary ip (ipv4)
- *         var primaryIp1 = new PrimaryIp(&#34;primaryIp1&#34;, PrimaryIpArgs.builder()        
- *             .name(&#34;primary_ip_test&#34;)
- *             .datacenter(&#34;fsn1-dc14&#34;)
- *             .type(&#34;ipv4&#34;)
- *             .assigneeType(&#34;server&#34;)
+ *         var primaryIp1 = new PrimaryIp("primaryIp1", PrimaryIpArgs.builder()        
+ *             .name("primary_ip_test")
+ *             .datacenter("fsn1-dc14")
+ *             .type("ipv4")
+ *             .assigneeType("server")
  *             .autoDelete(true)
- *             .labels(Map.of(&#34;hallo&#34;, &#34;welt&#34;))
+ *             .labels(Map.of("hallo", "welt"))
  *             .build());
  * 
- *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
- *             .name(&#34;test-server&#34;)
- *             .image(&#34;ubuntu-20.04&#34;)
- *             .serverType(&#34;cx11&#34;)
- *             .datacenter(&#34;fsn1-dc14&#34;)
- *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+ *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+ *             .name("test-server")
+ *             .image("ubuntu-20.04")
+ *             .serverType("cx11")
+ *             .datacenter("fsn1-dc14")
+ *             .labels(Map.of("test", "tessst1"))
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)
  *                 .ipv4(primaryIp1.id())
@@ -116,11 +119,13 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ### Server creation with network
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -147,29 +152,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var network = new Network(&#34;network&#34;, NetworkArgs.builder()        
- *             .name(&#34;network&#34;)
- *             .ipRange(&#34;10.0.0.0/16&#34;)
+ *         var network = new Network("network", NetworkArgs.builder()        
+ *             .name("network")
+ *             .ipRange("10.0.0.0/16")
  *             .build());
  * 
- *         var network_subnet = new NetworkSubnet(&#34;network-subnet&#34;, NetworkSubnetArgs.builder()        
- *             .type(&#34;cloud&#34;)
+ *         var network_subnet = new NetworkSubnet("network-subnet", NetworkSubnetArgs.builder()        
+ *             .type("cloud")
  *             .networkId(network.id())
- *             .networkZone(&#34;eu-central&#34;)
- *             .ipRange(&#34;10.0.1.0/24&#34;)
+ *             .networkZone("eu-central")
+ *             .ipRange("10.0.1.0/24")
  *             .build());
  * 
- *         var server = new Server(&#34;server&#34;, ServerArgs.builder()        
- *             .name(&#34;server&#34;)
- *             .serverType(&#34;cx11&#34;)
- *             .image(&#34;ubuntu-20.04&#34;)
- *             .location(&#34;nbg1&#34;)
+ *         var server = new Server("server", ServerArgs.builder()        
+ *             .name("server")
+ *             .serverType("cx11")
+ *             .image("ubuntu-20.04")
+ *             .location("nbg1")
  *             .networks(ServerNetworkArgs.builder()
  *                 .networkId(network.id())
- *                 .ip(&#34;10.0.1.5&#34;)
+ *                 .ip("10.0.1.5")
  *                 .aliasIps(                
- *                     &#34;10.0.1.6&#34;,
- *                     &#34;10.0.1.7&#34;)
+ *                     "10.0.1.6",
+ *                     "10.0.1.7")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(network_subnet)
@@ -177,13 +182,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Server creation from snapshot
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -209,15 +216,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Get image infos because we need the ID
  *         final var packerSnapshot = HcloudFunctions.getImage(GetImageArgs.builder()
- *             .withSelector(&#34;app=foobar&#34;)
+ *             .withSelector("app=foobar")
  *             .mostRecent(true)
  *             .build());
  * 
  *         // Create a new server from the snapshot
- *         var fromSnapshot = new Server(&#34;fromSnapshot&#34;, ServerArgs.builder()        
- *             .name(&#34;from-snapshot&#34;)
- *             .image(packerSnapshot.applyValue(getImageResult -&gt; getImageResult.id()))
- *             .serverType(&#34;cx11&#34;)
+ *         var fromSnapshot = new Server("fromSnapshot", ServerArgs.builder()        
+ *             .name("from-snapshot")
+ *             .image(packerSnapshot.applyValue(getImageResult -> getImageResult.id()))
+ *             .serverType("cx11")
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)
  *                 .ipv6Enabled(true)
@@ -226,7 +233,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Primary IPs
