@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,37 +50,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var loadBalancer = new LoadBalancer(&#34;loadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;my-load-balancer&#34;)
- *             .loadBalancerType(&#34;lb11&#34;)
- *             .location(&#34;nbg1&#34;)
+ *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()        
+ *             .name("my-load-balancer")
+ *             .loadBalancerType("lb11")
+ *             .location("nbg1")
  *             .build());
  * 
- *         var loadBalancerService = new LoadBalancerService(&#34;loadBalancerService&#34;, LoadBalancerServiceArgs.builder()        
+ *         var loadBalancerService = new LoadBalancerService("loadBalancerService", LoadBalancerServiceArgs.builder()        
  *             .loadBalancerId(loadBalancer.id())
- *             .protocol(&#34;http&#34;)
+ *             .protocol("http")
  *             .http(LoadBalancerServiceHttpArgs.builder()
  *                 .stickySessions(true)
- *                 .cookieName(&#34;EXAMPLE_STICKY&#34;)
+ *                 .cookieName("EXAMPLE_STICKY")
  *                 .build())
  *             .healthCheck(LoadBalancerServiceHealthCheckArgs.builder()
- *                 .protocol(&#34;http&#34;)
+ *                 .protocol("http")
  *                 .port(80)
  *                 .interval(10)
  *                 .timeout(5)
  *                 .http(LoadBalancerServiceHealthCheckHttpArgs.builder()
- *                     .domain(&#34;example.com&#34;)
- *                     .path(&#34;/healthz&#34;)
- *                     .response(&#34;OK&#34;)
+ *                     .domain("example.com")
+ *                     .path("/healthz")
+ *                     .response("OK")
  *                     .tls(true)
- *                     .statusCodes(&#34;200&#34;)
+ *                     .statusCodes("200")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

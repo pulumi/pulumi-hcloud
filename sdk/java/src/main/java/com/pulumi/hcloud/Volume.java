@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
- *             .name(&#34;node1&#34;)
- *             .image(&#34;debian-11&#34;)
- *             .serverType(&#34;cx11&#34;)
+ *         var node1 = new Server("node1", ServerArgs.builder()        
+ *             .name("node1")
+ *             .image("debian-11")
+ *             .serverType("cx11")
  *             .build());
  * 
- *         var master = new Volume(&#34;master&#34;, VolumeArgs.builder()        
- *             .name(&#34;volume1&#34;)
+ *         var master = new Volume("master", VolumeArgs.builder()        
+ *             .name("volume1")
  *             .size(50)
  *             .serverId(node1.id())
  *             .automount(true)
- *             .format(&#34;ext4&#34;)
+ *             .format("ext4")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

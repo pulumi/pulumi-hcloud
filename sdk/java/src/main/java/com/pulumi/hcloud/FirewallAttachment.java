@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Attach Servers
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,30 +54,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testServer = new Server(&#34;testServer&#34;, ServerArgs.builder()        
- *             .name(&#34;test-server&#34;)
- *             .serverType(&#34;cx11&#34;)
- *             .image(&#34;ubuntu-20.04&#34;)
+ *         var testServer = new Server("testServer", ServerArgs.builder()        
+ *             .name("test-server")
+ *             .serverType("cx11")
+ *             .image("ubuntu-20.04")
  *             .build());
  * 
- *         var basicFirewall = new Firewall(&#34;basicFirewall&#34;, FirewallArgs.builder()        
- *             .name(&#34;basic_firewall&#34;)
+ *         var basicFirewall = new Firewall("basicFirewall", FirewallArgs.builder()        
+ *             .name("basic_firewall")
  *             .build());
  * 
- *         var fwRef = new FirewallAttachment(&#34;fwRef&#34;, FirewallAttachmentArgs.builder()        
+ *         var fwRef = new FirewallAttachment("fwRef", FirewallAttachmentArgs.builder()        
  *             .firewallId(basicFirewall.id())
  *             .serverIds(testServer.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Attach Label Selectors
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -101,25 +104,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testServer = new Server(&#34;testServer&#34;, ServerArgs.builder()        
- *             .name(&#34;test-server&#34;)
- *             .serverType(&#34;cx11&#34;)
- *             .image(&#34;ubuntu-20.04&#34;)
- *             .labels(Map.of(&#34;firewall-attachment&#34;, &#34;test-server&#34;))
+ *         var testServer = new Server("testServer", ServerArgs.builder()        
+ *             .name("test-server")
+ *             .serverType("cx11")
+ *             .image("ubuntu-20.04")
+ *             .labels(Map.of("firewall-attachment", "test-server"))
  *             .build());
  * 
- *         var basicFirewall = new Firewall(&#34;basicFirewall&#34;, FirewallArgs.builder()        
- *             .name(&#34;basic_firewall&#34;)
+ *         var basicFirewall = new Firewall("basicFirewall", FirewallArgs.builder()        
+ *             .name("basic_firewall")
  *             .build());
  * 
- *         var fwRef = new FirewallAttachment(&#34;fwRef&#34;, FirewallAttachmentArgs.builder()        
+ *         var fwRef = new FirewallAttachment("fwRef", FirewallAttachmentArgs.builder()        
  *             .firewallId(basicFirewall.id())
- *             .labelSelectors(&#34;firewall-attachment=test-server&#34;)
+ *             .labelSelectors("firewall-attachment=test-server")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

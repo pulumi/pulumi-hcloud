@@ -99,7 +99,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Certificate.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -121,16 +122,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;sample-certificate-1&#34;)
+     *             .name("sample-certificate-1")
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -141,7 +143,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Certificate.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -163,16 +166,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;sample-certificate-1&#34;)
+     *             .name("sample-certificate-1")
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -183,7 +187,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Certificate.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -205,16 +210,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;sample-certificate-1&#34;)
+     *             .name("sample-certificate-1")
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -225,7 +231,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Certificate.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -247,16 +254,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;sample-certificate-1&#34;)
+     *             .name("sample-certificate-1")
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -267,7 +275,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Certificate.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -289,16 +298,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;sample-certificate-1&#34;)
+     *             .name("sample-certificate-1")
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +319,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Certificate.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,16 +342,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;sample-certificate-1&#34;)
+     *             .name("sample-certificate-1")
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -353,7 +365,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -375,12 +388,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificates(GetCertificatesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -393,7 +407,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -415,12 +430,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificates(GetCertificatesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -433,7 +449,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -455,12 +472,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificates(GetCertificatesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -473,7 +491,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -495,12 +514,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificates(GetCertificatesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -513,7 +533,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -535,12 +556,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificates(GetCertificatesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -553,7 +575,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -575,12 +598,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleCertificate1 = HcloudFunctions.getCertificates(GetCertificatesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -594,7 +618,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -616,7 +641,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name(&#34;fsn1-dc8&#34;)
+     *             .name("fsn1-dc8")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
@@ -625,7 +650,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -639,7 +665,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -661,7 +688,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name(&#34;fsn1-dc8&#34;)
+     *             .name("fsn1-dc8")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
@@ -670,7 +697,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -684,7 +712,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -706,7 +735,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name(&#34;fsn1-dc8&#34;)
+     *             .name("fsn1-dc8")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
@@ -715,7 +744,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -729,7 +759,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -751,7 +782,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name(&#34;fsn1-dc8&#34;)
+     *             .name("fsn1-dc8")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
@@ -760,7 +791,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -774,7 +806,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -796,7 +829,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name(&#34;fsn1-dc8&#34;)
+     *             .name("fsn1-dc8")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
@@ -805,7 +838,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -819,7 +853,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -841,7 +876,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name(&#34;fsn1-dc8&#34;)
+     *             .name("fsn1-dc8")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
@@ -850,7 +885,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -909,7 +945,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -931,16 +968,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;sample-firewall-1&#34;)
+     *             .name("sample-firewall-1")
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -951,7 +989,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -973,16 +1012,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;sample-firewall-1&#34;)
+     *             .name("sample-firewall-1")
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -993,7 +1033,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1015,16 +1056,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;sample-firewall-1&#34;)
+     *             .name("sample-firewall-1")
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1035,7 +1077,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1057,16 +1100,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;sample-firewall-1&#34;)
+     *             .name("sample-firewall-1")
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1077,7 +1121,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1099,16 +1144,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;sample-firewall-1&#34;)
+     *             .name("sample-firewall-1")
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1119,7 +1165,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1141,16 +1188,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .name(&#34;sample-firewall-1&#34;)
+     *             .name("sample-firewall-1")
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1163,7 +1211,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1185,12 +1234,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewalls(GetFirewallsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1203,7 +1253,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1225,12 +1276,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewalls(GetFirewallsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1243,7 +1295,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1265,12 +1318,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewalls(GetFirewallsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1283,7 +1337,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1305,12 +1360,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewalls(GetFirewallsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1323,7 +1379,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1345,12 +1402,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewalls(GetFirewallsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1363,7 +1421,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1385,12 +1444,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sampleFirewall1 = HcloudFunctions.getFirewalls(GetFirewallsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1410,7 +1470,8 @@ public final class HcloudFunctions {
      * 
      * ### Additional Examples
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1435,16 +1496,16 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; counter; i++) {
-     *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
+     *         for (var i = 0; i < counter; i++) {
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1452,7 +1513,8 @@ public final class HcloudFunctions {
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1472,7 +1534,8 @@ public final class HcloudFunctions {
      * 
      * ### Additional Examples
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1497,16 +1560,16 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; counter; i++) {
-     *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
+     *         for (var i = 0; i < counter; i++) {
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1514,7 +1577,8 @@ public final class HcloudFunctions {
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1534,7 +1598,8 @@ public final class HcloudFunctions {
      * 
      * ### Additional Examples
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1559,16 +1624,16 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; counter; i++) {
-     *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
+     *         for (var i = 0; i < counter; i++) {
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1576,7 +1641,8 @@ public final class HcloudFunctions {
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1596,7 +1662,8 @@ public final class HcloudFunctions {
      * 
      * ### Additional Examples
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1621,16 +1688,16 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; counter; i++) {
-     *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
+     *         for (var i = 0; i < counter; i++) {
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1638,7 +1705,8 @@ public final class HcloudFunctions {
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1658,7 +1726,8 @@ public final class HcloudFunctions {
      * 
      * ### Additional Examples
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1683,16 +1752,16 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; counter; i++) {
-     *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
+     *         for (var i = 0; i < counter; i++) {
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1700,7 +1769,8 @@ public final class HcloudFunctions {
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1720,7 +1790,8 @@ public final class HcloudFunctions {
      * 
      * ### Additional Examples
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1745,16 +1816,16 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; counter; i++) {
-     *             new FloatingIpAssignment(&#34;main-&#34; + i, FloatingIpAssignmentArgs.builder()            
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -&gt; getFloatingIpResult.id()))
+     *         for (var i = 0; i < counter; i++) {
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1762,7 +1833,8 @@ public final class HcloudFunctions {
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1775,7 +1847,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1797,12 +1870,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getFloatingIps(GetFloatingIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1815,7 +1889,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1837,12 +1912,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getFloatingIps(GetFloatingIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1855,7 +1931,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1877,12 +1954,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getFloatingIps(GetFloatingIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1895,7 +1973,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1917,12 +1996,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getFloatingIps(GetFloatingIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1935,7 +2015,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1957,12 +2038,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getFloatingIps(GetFloatingIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1975,7 +2057,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1997,12 +2080,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getFloatingIps(GetFloatingIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2013,7 +2097,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2037,25 +2122,26 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;ubuntu-18.04&#34;)
-     *             .withArchitecture(&#34;x86&#34;)
+     *             .name("ubuntu-18.04")
+     *             .withArchitecture("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .image(image1.applyValue(getImageResult -&gt; getImageResult.id()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2066,7 +2152,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2090,25 +2177,26 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;ubuntu-18.04&#34;)
-     *             .withArchitecture(&#34;x86&#34;)
+     *             .name("ubuntu-18.04")
+     *             .withArchitecture("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .image(image1.applyValue(getImageResult -&gt; getImageResult.id()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2119,7 +2207,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2143,25 +2232,26 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;ubuntu-18.04&#34;)
-     *             .withArchitecture(&#34;x86&#34;)
+     *             .name("ubuntu-18.04")
+     *             .withArchitecture("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .image(image1.applyValue(getImageResult -&gt; getImageResult.id()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2172,7 +2262,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2196,25 +2287,26 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;ubuntu-18.04&#34;)
-     *             .withArchitecture(&#34;x86&#34;)
+     *             .name("ubuntu-18.04")
+     *             .withArchitecture("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .image(image1.applyValue(getImageResult -&gt; getImageResult.id()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2225,7 +2317,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2249,25 +2342,26 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;ubuntu-18.04&#34;)
-     *             .withArchitecture(&#34;x86&#34;)
+     *             .name("ubuntu-18.04")
+     *             .withArchitecture("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .image(image1.applyValue(getImageResult -&gt; getImageResult.id()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2278,7 +2372,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2302,25 +2397,26 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;ubuntu-18.04&#34;)
-     *             .withArchitecture(&#34;x86&#34;)
+     *             .name("ubuntu-18.04")
+     *             .withArchitecture("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .image(image1.applyValue(getImageResult -&gt; getImageResult.id()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2333,7 +2429,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2355,16 +2452,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withArchitectures(&#34;x86&#34;)
+     *             .withArchitectures("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2377,7 +2475,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2399,16 +2498,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withArchitectures(&#34;x86&#34;)
+     *             .withArchitectures("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2421,7 +2521,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2443,16 +2544,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withArchitectures(&#34;x86&#34;)
+     *             .withArchitectures("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2465,7 +2567,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2487,16 +2590,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withArchitectures(&#34;x86&#34;)
+     *             .withArchitectures("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2509,7 +2613,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2531,16 +2636,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withArchitectures(&#34;x86&#34;)
+     *             .withArchitectures("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2553,7 +2659,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2575,16 +2682,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withArchitectures(&#34;x86&#34;)
+     *             .withArchitectures("x86")
      *             .build());
      * 
      *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2597,7 +2705,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2619,20 +2728,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lb1 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;my-load-balancer&#34;)
+     *             .name("my-load-balancer")
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2645,7 +2755,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2667,20 +2778,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lb1 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;my-load-balancer&#34;)
+     *             .name("my-load-balancer")
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2693,7 +2805,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2715,20 +2828,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lb1 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;my-load-balancer&#34;)
+     *             .name("my-load-balancer")
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2741,7 +2855,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2763,20 +2878,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lb1 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;my-load-balancer&#34;)
+     *             .name("my-load-balancer")
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2789,7 +2905,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2811,20 +2928,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lb1 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;my-load-balancer&#34;)
+     *             .name("my-load-balancer")
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2837,7 +2955,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2859,20 +2978,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lb1 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;my-load-balancer&#34;)
+     *             .name("my-load-balancer")
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2885,7 +3005,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2909,12 +3030,13 @@ public final class HcloudFunctions {
      *         final var lb2 = HcloudFunctions.getLoadBalancers();
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2927,7 +3049,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2951,12 +3074,13 @@ public final class HcloudFunctions {
      *         final var lb2 = HcloudFunctions.getLoadBalancers();
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2969,7 +3093,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2993,12 +3118,13 @@ public final class HcloudFunctions {
      *         final var lb2 = HcloudFunctions.getLoadBalancers();
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3011,7 +3137,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3035,12 +3162,13 @@ public final class HcloudFunctions {
      *         final var lb2 = HcloudFunctions.getLoadBalancers();
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3053,7 +3181,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3077,12 +3206,13 @@ public final class HcloudFunctions {
      *         final var lb2 = HcloudFunctions.getLoadBalancers();
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3095,7 +3225,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3119,12 +3250,13 @@ public final class HcloudFunctions {
      *         final var lb2 = HcloudFunctions.getLoadBalancers();
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3138,7 +3270,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3160,7 +3293,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name(&#34;fsn1&#34;)
+     *             .name("fsn1")
      *             .build());
      * 
      *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
@@ -3169,7 +3302,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3183,7 +3317,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3205,7 +3340,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name(&#34;fsn1&#34;)
+     *             .name("fsn1")
      *             .build());
      * 
      *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
@@ -3214,7 +3349,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3228,7 +3364,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3250,7 +3387,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name(&#34;fsn1&#34;)
+     *             .name("fsn1")
      *             .build());
      * 
      *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
@@ -3259,7 +3396,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3273,7 +3411,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3295,7 +3434,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name(&#34;fsn1&#34;)
+     *             .name("fsn1")
      *             .build());
      * 
      *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
@@ -3304,7 +3443,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3318,7 +3458,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3340,7 +3481,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name(&#34;fsn1&#34;)
+     *             .name("fsn1")
      *             .build());
      * 
      *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
@@ -3349,7 +3490,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3363,7 +3505,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3385,7 +3528,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name(&#34;fsn1&#34;)
+     *             .name("fsn1")
      *             .build());
      * 
      *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
@@ -3394,7 +3537,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3453,7 +3597,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3475,20 +3620,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;my-network&#34;)
+     *             .name("my-network")
      *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3499,7 +3645,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3521,20 +3668,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;my-network&#34;)
+     *             .name("my-network")
      *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3545,7 +3693,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3567,20 +3716,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;my-network&#34;)
+     *             .name("my-network")
      *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3591,7 +3741,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3613,20 +3764,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;my-network&#34;)
+     *             .name("my-network")
      *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3637,7 +3789,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3659,20 +3812,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;my-network&#34;)
+     *             .name("my-network")
      *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3683,7 +3837,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3705,20 +3860,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;my-network&#34;)
+     *             .name("my-network")
      *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3731,7 +3887,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3755,12 +3912,13 @@ public final class HcloudFunctions {
      *         final var network2 = HcloudFunctions.getNetwork();
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3773,7 +3931,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3797,12 +3956,13 @@ public final class HcloudFunctions {
      *         final var network2 = HcloudFunctions.getNetwork();
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3815,7 +3975,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3839,12 +4000,13 @@ public final class HcloudFunctions {
      *         final var network2 = HcloudFunctions.getNetwork();
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3857,7 +4019,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3881,12 +4044,13 @@ public final class HcloudFunctions {
      *         final var network2 = HcloudFunctions.getNetwork();
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3899,7 +4063,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3923,12 +4088,13 @@ public final class HcloudFunctions {
      *         final var network2 = HcloudFunctions.getNetwork();
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3941,7 +4107,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3965,12 +4132,13 @@ public final class HcloudFunctions {
      *         final var network2 = HcloudFunctions.getNetwork();
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3981,7 +4149,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4003,16 +4172,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;sample-placement-group-1&#34;)
+     *             .name("sample-placement-group-1")
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4023,7 +4193,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4045,16 +4216,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;sample-placement-group-1&#34;)
+     *             .name("sample-placement-group-1")
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4065,7 +4237,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4087,16 +4260,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;sample-placement-group-1&#34;)
+     *             .name("sample-placement-group-1")
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4107,7 +4281,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4129,16 +4304,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;sample-placement-group-1&#34;)
+     *             .name("sample-placement-group-1")
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4149,7 +4325,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4171,16 +4348,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;sample-placement-group-1&#34;)
+     *             .name("sample-placement-group-1")
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4191,7 +4369,8 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4213,16 +4392,17 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;sample-placement-group-1&#34;)
+     *             .name("sample-placement-group-1")
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id(&#34;4711&#34;)
+     *             .id("4711")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4235,7 +4415,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4259,12 +4440,13 @@ public final class HcloudFunctions {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4277,7 +4459,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4301,12 +4484,13 @@ public final class HcloudFunctions {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4319,7 +4503,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4343,12 +4528,13 @@ public final class HcloudFunctions {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4361,7 +4547,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4385,12 +4572,13 @@ public final class HcloudFunctions {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4403,7 +4591,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4427,12 +4616,13 @@ public final class HcloudFunctions {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4445,7 +4635,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4469,12 +4660,13 @@ public final class HcloudFunctions {
      *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4501,7 +4693,8 @@ public final class HcloudFunctions {
      * ### Additional Examples
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4526,24 +4719,24 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .name(&#34;primary_ip_1&#34;)
+     *             .name("primary_ip_1")
      *             .build());
      * 
      *         final var ip3 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
-     *             .name(&#34;test-server&#34;)
-     *             .image(&#34;ubuntu-20.04&#34;)
-     *             .serverType(&#34;cx11&#34;)
-     *             .datacenter(&#34;fsn1-dc14&#34;)
-     *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *             .name("test-server")
+     *             .image("ubuntu-20.04")
+     *             .serverType("cx11")
+     *             .datacenter("fsn1-dc14")
+     *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
      *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
@@ -4551,7 +4744,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4578,7 +4772,8 @@ public final class HcloudFunctions {
      * ### Additional Examples
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4603,24 +4798,24 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .name(&#34;primary_ip_1&#34;)
+     *             .name("primary_ip_1")
      *             .build());
      * 
      *         final var ip3 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
-     *             .name(&#34;test-server&#34;)
-     *             .image(&#34;ubuntu-20.04&#34;)
-     *             .serverType(&#34;cx11&#34;)
-     *             .datacenter(&#34;fsn1-dc14&#34;)
-     *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *             .name("test-server")
+     *             .image("ubuntu-20.04")
+     *             .serverType("cx11")
+     *             .datacenter("fsn1-dc14")
+     *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
      *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
@@ -4628,7 +4823,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4655,7 +4851,8 @@ public final class HcloudFunctions {
      * ### Additional Examples
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4680,24 +4877,24 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .name(&#34;primary_ip_1&#34;)
+     *             .name("primary_ip_1")
      *             .build());
      * 
      *         final var ip3 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
-     *             .name(&#34;test-server&#34;)
-     *             .image(&#34;ubuntu-20.04&#34;)
-     *             .serverType(&#34;cx11&#34;)
-     *             .datacenter(&#34;fsn1-dc14&#34;)
-     *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *             .name("test-server")
+     *             .image("ubuntu-20.04")
+     *             .serverType("cx11")
+     *             .datacenter("fsn1-dc14")
+     *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
      *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
@@ -4705,7 +4902,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4732,7 +4930,8 @@ public final class HcloudFunctions {
      * ### Additional Examples
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4757,24 +4956,24 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .name(&#34;primary_ip_1&#34;)
+     *             .name("primary_ip_1")
      *             .build());
      * 
      *         final var ip3 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
-     *             .name(&#34;test-server&#34;)
-     *             .image(&#34;ubuntu-20.04&#34;)
-     *             .serverType(&#34;cx11&#34;)
-     *             .datacenter(&#34;fsn1-dc14&#34;)
-     *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *             .name("test-server")
+     *             .image("ubuntu-20.04")
+     *             .serverType("cx11")
+     *             .datacenter("fsn1-dc14")
+     *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
      *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
@@ -4782,7 +4981,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4809,7 +5009,8 @@ public final class HcloudFunctions {
      * ### Additional Examples
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4834,24 +5035,24 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .name(&#34;primary_ip_1&#34;)
+     *             .name("primary_ip_1")
      *             .build());
      * 
      *         final var ip3 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
-     *             .name(&#34;test-server&#34;)
-     *             .image(&#34;ubuntu-20.04&#34;)
-     *             .serverType(&#34;cx11&#34;)
-     *             .datacenter(&#34;fsn1-dc14&#34;)
-     *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *             .name("test-server")
+     *             .image("ubuntu-20.04")
+     *             .serverType("cx11")
+     *             .datacenter("fsn1-dc14")
+     *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
      *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
@@ -4859,7 +5060,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4886,7 +5088,8 @@ public final class HcloudFunctions {
      * ### Additional Examples
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4911,24 +5114,24 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip1 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .ipAddress(&#34;1.2.3.4&#34;)
+     *             .ipAddress("1.2.3.4")
      *             .build());
      * 
      *         final var ip2 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .name(&#34;primary_ip_1&#34;)
+     *             .name("primary_ip_1")
      *             .build());
      * 
      *         final var ip3 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
-     *             .name(&#34;test-server&#34;)
-     *             .image(&#34;ubuntu-20.04&#34;)
-     *             .serverType(&#34;cx11&#34;)
-     *             .datacenter(&#34;fsn1-dc14&#34;)
-     *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *             .name("test-server")
+     *             .image("ubuntu-20.04")
+     *             .serverType("cx11")
+     *             .datacenter("fsn1-dc14")
+     *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
      *                 .ipv4(ip1HcloudPrimaryIp.id())
      *                 .build())
@@ -4936,7 +5139,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4949,7 +5153,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4971,12 +5176,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getPrimaryIps(GetPrimaryIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4989,7 +5195,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5011,12 +5218,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getPrimaryIps(GetPrimaryIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5029,7 +5237,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5051,12 +5260,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getPrimaryIps(GetPrimaryIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5069,7 +5279,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5091,12 +5302,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getPrimaryIps(GetPrimaryIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5109,7 +5321,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5131,12 +5344,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getPrimaryIps(GetPrimaryIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5149,7 +5363,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5171,12 +5386,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ip2 = HcloudFunctions.getPrimaryIps(GetPrimaryIpsArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5187,7 +5403,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5209,20 +5426,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s1 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;my-server&#34;)
+     *             .name("my-server")
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5233,7 +5451,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5255,20 +5474,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s1 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;my-server&#34;)
+     *             .name("my-server")
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5279,7 +5499,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5301,20 +5522,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s1 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;my-server&#34;)
+     *             .name("my-server")
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5325,7 +5547,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5347,20 +5570,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s1 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;my-server&#34;)
+     *             .name("my-server")
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5371,7 +5595,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5393,20 +5618,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s1 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;my-server&#34;)
+     *             .name("my-server")
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5417,7 +5643,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5439,20 +5666,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s1 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;my-server&#34;)
+     *             .name("my-server")
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id(&#34;123&#34;)
+     *             .id("123")
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5466,7 +5694,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5488,7 +5717,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name(&#34;cx11&#34;)
+     *             .name("cx11")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5497,7 +5726,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5511,7 +5741,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5533,7 +5764,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name(&#34;cx11&#34;)
+     *             .name("cx11")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5542,7 +5773,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5556,7 +5788,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5578,7 +5811,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name(&#34;cx11&#34;)
+     *             .name("cx11")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5587,7 +5820,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5601,7 +5835,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5623,7 +5858,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name(&#34;cx11&#34;)
+     *             .name("cx11")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5632,7 +5867,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5646,7 +5882,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5668,7 +5905,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name(&#34;cx11&#34;)
+     *             .name("cx11")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5677,7 +5914,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5691,7 +5929,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5713,7 +5952,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name(&#34;cx11&#34;)
+     *             .name("cx11")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5722,7 +5961,8 @@ public final class HcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5775,7 +6015,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5797,12 +6038,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = HcloudFunctions.getServers(GetServersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5813,7 +6055,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5835,12 +6078,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = HcloudFunctions.getServers(GetServersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5851,7 +6095,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5873,12 +6118,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = HcloudFunctions.getServers(GetServersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5889,7 +6135,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5911,12 +6158,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = HcloudFunctions.getServers(GetServersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5927,7 +6175,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5949,12 +6198,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = HcloudFunctions.getServers(GetServersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5965,7 +6215,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5987,12 +6238,13 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = HcloudFunctions.getServers(GetServersArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6003,7 +6255,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6027,31 +6280,32 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .name(&#34;my-ssh-key&#34;)
+     *             .name("my-ssh-key")
      *             .build());
      * 
      *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint(&#34;43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8&#34;)
+     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
      *             .build());
      * 
      *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()        
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()))
+     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6062,7 +6316,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6086,31 +6341,32 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .name(&#34;my-ssh-key&#34;)
+     *             .name("my-ssh-key")
      *             .build());
      * 
      *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint(&#34;43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8&#34;)
+     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
      *             .build());
      * 
      *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()        
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()))
+     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6121,7 +6377,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6145,31 +6402,32 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .name(&#34;my-ssh-key&#34;)
+     *             .name("my-ssh-key")
      *             .build());
      * 
      *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint(&#34;43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8&#34;)
+     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
      *             .build());
      * 
      *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()        
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()))
+     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6180,7 +6438,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6204,31 +6463,32 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .name(&#34;my-ssh-key&#34;)
+     *             .name("my-ssh-key")
      *             .build());
      * 
      *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint(&#34;43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8&#34;)
+     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
      *             .build());
      * 
      *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()        
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()))
+     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6239,7 +6499,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6263,31 +6524,32 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .name(&#34;my-ssh-key&#34;)
+     *             .name("my-ssh-key")
      *             .build());
      * 
      *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint(&#34;43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8&#34;)
+     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
      *             .build());
      * 
      *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()        
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()))
+     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6298,7 +6560,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6322,31 +6585,32 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .name(&#34;my-ssh-key&#34;)
+     *             .name("my-ssh-key")
      *             .build());
      * 
      *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint(&#34;43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8&#34;)
+     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
      *             .build());
      * 
      *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()        
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -&gt; getSshKeyResult.id()))
+     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6357,7 +6621,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6383,16 +6648,17 @@ public final class HcloudFunctions {
      *         final var allKeys = HcloudFunctions.getSshKeys();
      * 
      *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
-     *             .withSelector(&#34;foo=bar&#34;)
+     *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6403,7 +6669,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6429,16 +6696,17 @@ public final class HcloudFunctions {
      *         final var allKeys = HcloudFunctions.getSshKeys();
      * 
      *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
-     *             .withSelector(&#34;foo=bar&#34;)
+     *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6449,7 +6717,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6475,16 +6744,17 @@ public final class HcloudFunctions {
      *         final var allKeys = HcloudFunctions.getSshKeys();
      * 
      *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
-     *             .withSelector(&#34;foo=bar&#34;)
+     *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6495,7 +6765,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6521,16 +6792,17 @@ public final class HcloudFunctions {
      *         final var allKeys = HcloudFunctions.getSshKeys();
      * 
      *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
-     *             .withSelector(&#34;foo=bar&#34;)
+     *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6541,7 +6813,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6567,16 +6840,17 @@ public final class HcloudFunctions {
      *         final var allKeys = HcloudFunctions.getSshKeys();
      * 
      *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
-     *             .withSelector(&#34;foo=bar&#34;)
+     *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6587,7 +6861,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6613,16 +6888,17 @@ public final class HcloudFunctions {
      *         final var allKeys = HcloudFunctions.getSshKeys();
      * 
      *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
-     *             .withSelector(&#34;foo=bar&#34;)
+     *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server(&#34;main&#34;, ServerArgs.builder()        
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -&gt; getSshKeysResult.sshKeys()).stream().map(element -&gt; element.name()).collect(toList()))
+     *         var main = new Server("main", ServerArgs.builder()        
+     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6633,7 +6909,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6655,20 +6932,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .name(&#34;my-volume&#34;)
+     *             .name("my-volume")
      *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6679,7 +6957,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6701,20 +6980,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .name(&#34;my-volume&#34;)
+     *             .name("my-volume")
      *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6725,7 +7005,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6747,20 +7028,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .name(&#34;my-volume&#34;)
+     *             .name("my-volume")
      *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6771,7 +7053,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6793,20 +7076,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .name(&#34;my-volume&#34;)
+     *             .name("my-volume")
      *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6817,7 +7101,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6839,20 +7124,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .name(&#34;my-volume&#34;)
+     *             .name("my-volume")
      *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6863,7 +7149,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6885,20 +7172,21 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id(&#34;1234&#34;)
+     *             .id("1234")
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .name(&#34;my-volume&#34;)
+     *             .name("my-volume")
      *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6911,7 +7199,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6935,12 +7224,13 @@ public final class HcloudFunctions {
      *         final var volume_ = HcloudFunctions.getVolumes();
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6953,7 +7243,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6977,12 +7268,13 @@ public final class HcloudFunctions {
      *         final var volume_ = HcloudFunctions.getVolumes();
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6995,7 +7287,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7019,12 +7312,13 @@ public final class HcloudFunctions {
      *         final var volume_ = HcloudFunctions.getVolumes();
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7037,7 +7331,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7061,12 +7356,13 @@ public final class HcloudFunctions {
      *         final var volume_ = HcloudFunctions.getVolumes();
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7079,7 +7375,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7103,12 +7400,13 @@ public final class HcloudFunctions {
      *         final var volume_ = HcloudFunctions.getVolumes();
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7121,7 +7419,8 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7145,12 +7444,13 @@ public final class HcloudFunctions {
      *         final var volume_ = HcloudFunctions.getVolumes();
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
-     *             .withSelector(&#34;key=value&#34;)
+     *             .withSelector("key=value")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

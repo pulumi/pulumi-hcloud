@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,22 +52,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new PrimaryIp(&#34;main&#34;, PrimaryIpArgs.builder()        
- *             .name(&#34;primary_ip_test&#34;)
- *             .datacenter(&#34;fsn1-dc14&#34;)
- *             .type(&#34;ipv4&#34;)
- *             .assigneeType(&#34;server&#34;)
+ *         var main = new PrimaryIp("main", PrimaryIpArgs.builder()        
+ *             .name("primary_ip_test")
+ *             .datacenter("fsn1-dc14")
+ *             .type("ipv4")
+ *             .assigneeType("server")
  *             .autoDelete(true)
- *             .labels(Map.of(&#34;hallo&#34;, &#34;welt&#34;))
+ *             .labels(Map.of("hallo", "welt"))
  *             .build());
  * 
  *         // Link a server to a primary IP
- *         var serverTest = new Server(&#34;serverTest&#34;, ServerArgs.builder()        
- *             .name(&#34;test-server&#34;)
- *             .image(&#34;ubuntu-20.04&#34;)
- *             .serverType(&#34;cx11&#34;)
- *             .datacenter(&#34;fsn1-dc14&#34;)
- *             .labels(Map.of(&#34;test&#34;, &#34;tessst1&#34;))
+ *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+ *             .name("test-server")
+ *             .image("ubuntu-20.04")
+ *             .serverType("cx11")
+ *             .datacenter("fsn1-dc14")
+ *             .labels(Map.of("test", "tessst1"))
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4(main.id())
  *                 .build())
@@ -74,7 +75,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

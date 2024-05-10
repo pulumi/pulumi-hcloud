@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,33 +50,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server(&#34;node1&#34;, ServerArgs.builder()        
- *             .name(&#34;node1&#34;)
- *             .image(&#34;debian-11&#34;)
- *             .serverType(&#34;cx11&#34;)
+ *         var node1 = new Server("node1", ServerArgs.builder()        
+ *             .name("node1")
+ *             .image("debian-11")
+ *             .serverType("cx11")
  *             .build());
  * 
- *         var mynet = new Network(&#34;mynet&#34;, NetworkArgs.builder()        
- *             .name(&#34;my-net&#34;)
- *             .ipRange(&#34;10.0.0.0/8&#34;)
+ *         var mynet = new Network("mynet", NetworkArgs.builder()        
+ *             .name("my-net")
+ *             .ipRange("10.0.0.0/8")
  *             .build());
  * 
- *         var foonet = new NetworkSubnet(&#34;foonet&#34;, NetworkSubnetArgs.builder()        
+ *         var foonet = new NetworkSubnet("foonet", NetworkSubnetArgs.builder()        
  *             .networkId(mynet.id())
- *             .type(&#34;cloud&#34;)
- *             .networkZone(&#34;eu-central&#34;)
- *             .ipRange(&#34;10.0.1.0/24&#34;)
+ *             .type("cloud")
+ *             .networkZone("eu-central")
+ *             .ipRange("10.0.1.0/24")
  *             .build());
  * 
- *         var srvnetwork = new ServerNetwork(&#34;srvnetwork&#34;, ServerNetworkArgs.builder()        
+ *         var srvnetwork = new ServerNetwork("srvnetwork", ServerNetworkArgs.builder()        
  *             .serverId(node1.id())
  *             .networkId(mynet.id())
- *             .ip(&#34;10.0.1.5&#34;)
+ *             .ip("10.0.1.5")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
