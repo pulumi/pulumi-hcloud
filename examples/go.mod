@@ -12,10 +12,10 @@ replace (
 
 require (
 	github.com/pulumi/pulumi-hcloud/provider v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.35.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.35.1-0.20240513144526-3242c866b548
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
-	github.com/pulumi/pulumi/pkg/v3 v3.114.0
-	github.com/pulumi/pulumi/sdk/v3 v3.114.0
+	github.com/pulumi/pulumi/pkg/v3 v3.115.2
+	github.com/pulumi/pulumi/sdk/v3 v3.115.2
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -180,7 +180,7 @@ require (
 	github.com/prometheus/procfs v0.10.1 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.2 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.1-0.20240513144526-3242c866b548 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
