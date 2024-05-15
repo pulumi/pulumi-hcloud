@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/hcloud",
-    "version": "${VERSION}",
+    "version": "1.0.0-alpha.0+dev",
     "description": "A Pulumi package for creating and managing hcloud cloud resources.",
     "keywords": [
         "pulumi",
@@ -22,6 +22,7 @@
     },
     "pulumi": {
         "resource": true,
-        "name": "hcloud"
+        "name": "hcloud",
+        "version": "1.0.0-alpha.0+dev"
     }
 }
