@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
  *             .build());
  * 
- *         var master = new Volume("master", VolumeArgs.builder()        
+ *         var master = new Volume("master", VolumeArgs.builder()
  *             .name("volume1")
  *             .size(50)
  *             .serverId(node1.id())

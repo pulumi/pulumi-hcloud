@@ -54,17 +54,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testServer = new Server("testServer", ServerArgs.builder()        
+ *         var testServer = new Server("testServer", ServerArgs.builder()
  *             .name("test-server")
  *             .serverType("cx11")
  *             .image("ubuntu-20.04")
  *             .build());
  * 
- *         var basicFirewall = new Firewall("basicFirewall", FirewallArgs.builder()        
+ *         var basicFirewall = new Firewall("basicFirewall", FirewallArgs.builder()
  *             .name("basic_firewall")
  *             .build());
  * 
- *         var fwRef = new FirewallAttachment("fwRef", FirewallAttachmentArgs.builder()        
+ *         var fwRef = new FirewallAttachment("fwRef", FirewallAttachmentArgs.builder()
  *             .firewallId(basicFirewall.id())
  *             .serverIds(testServer.id())
  *             .build());
@@ -104,18 +104,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testServer = new Server("testServer", ServerArgs.builder()        
+ *         var testServer = new Server("testServer", ServerArgs.builder()
  *             .name("test-server")
  *             .serverType("cx11")
  *             .image("ubuntu-20.04")
  *             .labels(Map.of("firewall-attachment", "test-server"))
  *             .build());
  * 
- *         var basicFirewall = new Firewall("basicFirewall", FirewallArgs.builder()        
+ *         var basicFirewall = new Firewall("basicFirewall", FirewallArgs.builder()
  *             .name("basic_firewall")
  *             .build());
  * 
- *         var fwRef = new FirewallAttachment("fwRef", FirewallAttachmentArgs.builder()        
+ *         var fwRef = new FirewallAttachment("fwRef", FirewallAttachmentArgs.builder()
  *             .firewallId(basicFirewall.id())
  *             .labelSelectors("firewall-attachment=test-server")
  *             .build());
