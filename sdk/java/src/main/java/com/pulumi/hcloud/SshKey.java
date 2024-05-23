@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new SSH key
- *         var default_ = new SshKey("default", SshKeyArgs.builder()        
+ *         var default_ = new SshKey("default", SshKeyArgs.builder()
  *             .name("Terraform Example")
  *             .publicKey(StdFunctions.file(FileArgs.builder()
  *                 .input("~/.ssh/id_rsa.pub")

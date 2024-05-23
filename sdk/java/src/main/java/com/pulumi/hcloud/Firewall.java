@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myfirewall = new Firewall("myfirewall", FirewallArgs.builder()        
+ *         var myfirewall = new Firewall("myfirewall", FirewallArgs.builder()
  *             .name("my-firewall")
  *             .rules(            
  *                 FirewallRuleArgs.builder()
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
