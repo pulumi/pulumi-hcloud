@@ -48,19 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myServer = new Server("myServer", ServerArgs.builder()        
+ *         var myServer = new Server("myServer", ServerArgs.builder()
  *             .name("my-server")
  *             .serverType("cx11")
  *             .image("ubuntu-18.04")
  *             .build());
  * 
- *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()        
+ *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
  *             .name("my-load-balancer")
  *             .loadBalancerType("lb11")
  *             .location("nbg1")
  *             .build());
  * 
- *         var loadBalancerTarget = new LoadBalancerTarget("loadBalancerTarget", LoadBalancerTargetArgs.builder()        
+ *         var loadBalancerTarget = new LoadBalancerTarget("loadBalancerTarget", LoadBalancerTargetArgs.builder()
  *             .type("server")
  *             .loadBalancerId(loadBalancer.id())
  *             .serverId(myServer.id())

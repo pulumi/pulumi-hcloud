@@ -1504,7 +1504,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         for (var i = 0; i < counter; i++) {
-     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
@@ -1568,7 +1568,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         for (var i = 0; i < counter; i++) {
-     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
@@ -1632,7 +1632,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         for (var i = 0; i < counter; i++) {
-     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
@@ -1696,7 +1696,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         for (var i = 0; i < counter; i++) {
-     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
@@ -1760,7 +1760,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         for (var i = 0; i < counter; i++) {
-     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
@@ -1824,7 +1824,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         for (var i = 0; i < counter; i++) {
-     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()            
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
@@ -2134,7 +2134,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
@@ -2189,7 +2189,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
@@ -2244,7 +2244,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
@@ -2299,7 +2299,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
@@ -2354,7 +2354,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
@@ -2409,7 +2409,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
      *             .build());
      * 
@@ -4731,7 +4731,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
      *             .serverType("cx11")
@@ -4810,7 +4810,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
      *             .serverType("cx11")
@@ -4889,7 +4889,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
      *             .serverType("cx11")
@@ -4968,7 +4968,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
      *             .serverType("cx11")
@@ -5047,7 +5047,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
      *             .serverType("cx11")
@@ -5126,7 +5126,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         // Link a server to an existing primary IP
-     *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
      *             .serverType("cx11")
@@ -6295,7 +6295,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
      *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
      *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
@@ -6356,7 +6356,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
      *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
      *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
@@ -6417,7 +6417,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
      *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
      *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
@@ -6478,7 +6478,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
      *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
      *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
@@ -6539,7 +6539,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
      *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
      *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
@@ -6600,7 +6600,7 @@ public final class HcloudFunctions {
      *             .withSelector("key=value")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
      *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
      *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
@@ -6651,7 +6651,7 @@ public final class HcloudFunctions {
      *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
@@ -6699,7 +6699,7 @@ public final class HcloudFunctions {
      *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
@@ -6747,7 +6747,7 @@ public final class HcloudFunctions {
      *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
@@ -6795,7 +6795,7 @@ public final class HcloudFunctions {
      *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
@@ -6843,7 +6843,7 @@ public final class HcloudFunctions {
      *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
@@ -6891,7 +6891,7 @@ public final class HcloudFunctions {
      *             .withSelector("foo=bar")
      *             .build());
      * 
-     *         var main = new Server("main", ServerArgs.builder()        
+     *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 

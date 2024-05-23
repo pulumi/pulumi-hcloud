@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
  *             .build());
  * 
- *         var master = new FloatingIp("master", FloatingIpArgs.builder()        
+ *         var master = new FloatingIp("master", FloatingIpArgs.builder()
  *             .type("ipv4")
  *             .serverId(node1.id())
  *             .build());

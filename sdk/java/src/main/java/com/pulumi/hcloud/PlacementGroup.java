@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_placement_group = new PlacementGroup("my-placement-group", PlacementGroupArgs.builder()        
+ *         var my_placement_group = new PlacementGroup("my-placement-group", PlacementGroupArgs.builder()
  *             .name("my-placement-group")
  *             .type("spread")
  *             .labels(Map.of("key", "value"))
  *             .build());
  * 
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
