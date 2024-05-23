@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new server running debian
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         //## Server creation with one linked primary ip (ipv4)
- *         var primaryIp1 = new PrimaryIp("primaryIp1", PrimaryIpArgs.builder()        
+ *         var primaryIp1 = new PrimaryIp("primaryIp1", PrimaryIpArgs.builder()
  *             .name("primary_ip_test")
  *             .datacenter("fsn1-dc14")
  *             .type("ipv4")
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *             .labels(Map.of("hallo", "welt"))
  *             .build());
  * 
- *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+ *         var serverTest = new Server("serverTest", ServerArgs.builder()
  *             .name("test-server")
  *             .image("ubuntu-20.04")
  *             .serverType("cx11")
@@ -152,19 +152,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var network = new Network("network", NetworkArgs.builder()        
+ *         var network = new Network("network", NetworkArgs.builder()
  *             .name("network")
  *             .ipRange("10.0.0.0/16")
  *             .build());
  * 
- *         var network_subnet = new NetworkSubnet("network-subnet", NetworkSubnetArgs.builder()        
+ *         var network_subnet = new NetworkSubnet("network-subnet", NetworkSubnetArgs.builder()
  *             .type("cloud")
  *             .networkId(network.id())
  *             .networkZone("eu-central")
  *             .ipRange("10.0.1.0/24")
  *             .build());
  * 
- *         var server = new Server("server", ServerArgs.builder()        
+ *         var server = new Server("server", ServerArgs.builder()
  *             .name("server")
  *             .serverType("cx11")
  *             .image("ubuntu-20.04")
@@ -221,7 +221,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create a new server from the snapshot
- *         var fromSnapshot = new Server("fromSnapshot", ServerArgs.builder()        
+ *         var fromSnapshot = new Server("fromSnapshot", ServerArgs.builder()
  *             .name("from-snapshot")
  *             .image(packerSnapshot.applyValue(getImageResult -> getImageResult.id()))
  *             .serverType("cx11")

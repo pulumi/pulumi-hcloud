@@ -51,25 +51,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb1 = new LoadBalancer("lb1", LoadBalancerArgs.builder()        
+ *         var lb1 = new LoadBalancer("lb1", LoadBalancerArgs.builder()
  *             .name("lb1")
  *             .loadBalancerType("lb11")
  *             .networkZone("eu-central")
  *             .build());
  * 
- *         var mynet = new Network("mynet", NetworkArgs.builder()        
+ *         var mynet = new Network("mynet", NetworkArgs.builder()
  *             .name("my-net")
  *             .ipRange("10.0.0.0/8")
  *             .build());
  * 
- *         var foonet = new NetworkSubnet("foonet", NetworkSubnetArgs.builder()        
+ *         var foonet = new NetworkSubnet("foonet", NetworkSubnetArgs.builder()
  *             .networkId(mynet.id())
  *             .type("cloud")
  *             .networkZone("eu-central")
  *             .ipRange("10.0.1.0/24")
  *             .build());
  * 
- *         var srvnetwork = new LoadBalancerNetwork("srvnetwork", LoadBalancerNetworkArgs.builder()        
+ *         var srvnetwork = new LoadBalancerNetwork("srvnetwork", LoadBalancerNetworkArgs.builder()
  *             .loadBalancerId(lb1.id())
  *             .networkId(mynet.id())
  *             .ip("10.0.1.5")

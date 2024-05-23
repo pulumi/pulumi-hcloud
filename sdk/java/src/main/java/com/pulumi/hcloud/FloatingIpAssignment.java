@@ -45,19 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
  *             .datacenter("fsn1-dc8")
  *             .build());
  * 
- *         var master = new FloatingIp("master", FloatingIpArgs.builder()        
+ *         var master = new FloatingIp("master", FloatingIpArgs.builder()
  *             .type("ipv4")
  *             .homeLocation("nbg1")
  *             .build());
  * 
- *         var main = new FloatingIpAssignment("main", FloatingIpAssignmentArgs.builder()        
+ *         var main = new FloatingIpAssignment("main", FloatingIpAssignmentArgs.builder()
  *             .floatingIpId(master.id())
  *             .serverId(node1.id())
  *             .build());

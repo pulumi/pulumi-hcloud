@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new PrimaryIp("main", PrimaryIpArgs.builder()        
+ *         var main = new PrimaryIp("main", PrimaryIpArgs.builder()
  *             .name("primary_ip_test")
  *             .datacenter("fsn1-dc14")
  *             .type("ipv4")
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Link a server to a primary IP
- *         var serverTest = new Server("serverTest", ServerArgs.builder()        
+ *         var serverTest = new Server("serverTest", ServerArgs.builder()
  *             .name("test-server")
  *             .image("ubuntu-20.04")
  *             .serverType("cx11")

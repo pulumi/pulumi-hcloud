@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
  *             .build());
  * 
- *         var my_snapshot = new Snapshot("my-snapshot", SnapshotArgs.builder()        
+ *         var my_snapshot = new Snapshot("my-snapshot", SnapshotArgs.builder()
  *             .serverId(node1.id())
  *             .build());
  * 

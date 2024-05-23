@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privNet = new Network("privNet", NetworkArgs.builder()        
+ *         var privNet = new Network("privNet", NetworkArgs.builder()
  *             .name("my-net")
  *             .ipRange("10.0.1.0/24")
  *             .build());
