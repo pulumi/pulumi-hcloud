@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
  *             .build());
  * 
- *         var master = new Rdns("master", RdnsArgs.builder()        
+ *         var master = new Rdns("master", RdnsArgs.builder()
  *             .serverId(node1.id())
  *             .ipAddress(node1.ipv4Address())
  *             .dnsPtr("example.com")
@@ -92,12 +92,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary1 = new PrimaryIp("primary1", PrimaryIpArgs.builder()        
+ *         var primary1 = new PrimaryIp("primary1", PrimaryIpArgs.builder()
  *             .datacenter("nbg1-dc3")
  *             .type("ipv4")
  *             .build());
  * 
- *         var primary1Rdns = new Rdns("primary1Rdns", RdnsArgs.builder()        
+ *         var primary1Rdns = new Rdns("primary1Rdns", RdnsArgs.builder()
  *             .primaryIpId(primary1.id())
  *             .ipAddress(primary1.ipAddress())
  *             .dnsPtr("example.com")
@@ -136,12 +136,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var floating1 = new FloatingIp("floating1", FloatingIpArgs.builder()        
+ *         var floating1 = new FloatingIp("floating1", FloatingIpArgs.builder()
  *             .homeLocation("nbg1")
  *             .type("ipv4")
  *             .build());
  * 
- *         var floatingMaster = new Rdns("floatingMaster", RdnsArgs.builder()        
+ *         var floatingMaster = new Rdns("floatingMaster", RdnsArgs.builder()
  *             .floatingIpId(floating1.id())
  *             .ipAddress(floating1.ipAddress())
  *             .dnsPtr("example.com")
@@ -180,13 +180,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var loadBalancer1 = new LoadBalancer("loadBalancer1", LoadBalancerArgs.builder()        
+ *         var loadBalancer1 = new LoadBalancer("loadBalancer1", LoadBalancerArgs.builder()
  *             .name("load_balancer1")
  *             .loadBalancerType("lb11")
  *             .location("fsn1")
  *             .build());
  * 
- *         var loadBalancerMaster = new Rdns("loadBalancerMaster", RdnsArgs.builder()        
+ *         var loadBalancerMaster = new Rdns("loadBalancerMaster", RdnsArgs.builder()
  *             .loadBalancerId(loadBalancer1.id())
  *             .ipAddress(loadBalancer1.ipv4())
  *             .dnsPtr("example.com")

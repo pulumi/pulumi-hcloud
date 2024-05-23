@@ -46,19 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node1 = new Server("node1", ServerArgs.builder()        
+ *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
  *             .serverType("cx11")
  *             .datacenter("nbg1-dc3")
  *             .build());
  * 
- *         var master = new Volume("master", VolumeArgs.builder()        
+ *         var master = new Volume("master", VolumeArgs.builder()
  *             .location("nbg1")
  *             .size(10)
  *             .build());
  * 
- *         var main = new VolumeAttachment("main", VolumeAttachmentArgs.builder()        
+ *         var main = new VolumeAttachment("main", VolumeAttachmentArgs.builder()
  *             .volumeId(master.id())
  *             .serverId(node1.id())
  *             .automount(true)

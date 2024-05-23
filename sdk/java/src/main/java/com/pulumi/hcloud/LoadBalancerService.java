@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()        
+ *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
  *             .name("my-load-balancer")
  *             .loadBalancerType("lb11")
  *             .location("nbg1")
  *             .build());
  * 
- *         var loadBalancerService = new LoadBalancerService("loadBalancerService", LoadBalancerServiceArgs.builder()        
+ *         var loadBalancerService = new LoadBalancerService("loadBalancerService", LoadBalancerServiceArgs.builder()
  *             .loadBalancerId(loadBalancer.id())
  *             .protocol("http")
  *             .http(LoadBalancerServiceHttpArgs.builder()

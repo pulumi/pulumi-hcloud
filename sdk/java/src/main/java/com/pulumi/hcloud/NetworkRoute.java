@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mynet = new Network("mynet", NetworkArgs.builder()        
+ *         var mynet = new Network("mynet", NetworkArgs.builder()
  *             .name("my-net")
  *             .ipRange("10.0.0.0/8")
  *             .build());
  * 
- *         var privNet = new NetworkRoute("privNet", NetworkRouteArgs.builder()        
+ *         var privNet = new NetworkRoute("privNet", NetworkRouteArgs.builder()
  *             .networkId(mynet.id())
  *             .destination("10.100.1.0/24")
  *             .gateway("10.0.1.1")

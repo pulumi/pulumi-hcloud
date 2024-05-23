@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mynet = new Network("mynet", NetworkArgs.builder()        
+ *         var mynet = new Network("mynet", NetworkArgs.builder()
  *             .name("my-net")
  *             .ipRange("10.0.0.0/8")
  *             .build());
  * 
- *         var foonet = new NetworkSubnet("foonet", NetworkSubnetArgs.builder()        
+ *         var foonet = new NetworkSubnet("foonet", NetworkSubnetArgs.builder()
  *             .networkId(mynet.id())
  *             .type("cloud")
  *             .networkZone("eu-central")
