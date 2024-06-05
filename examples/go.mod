@@ -173,7 +173,7 @@ require (
 	github.com/prometheus/procfs v0.10.1 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.2 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.84.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.84.1-0.20240605153435-840f281410a0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
