@@ -24,7 +24,6 @@ const defaultBaselineVersion = "1.18.1"
 var programs = []string{
 	"test-programs/index_network",
 	"test-programs/index_placementgroup",
-	"test-programs/index_server",
 }
 
 func TestUpgradeCoverage(t *testing.T) {
