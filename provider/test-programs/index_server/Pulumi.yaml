@@ -22,5 +22,5 @@ resources:
     type: tls:PrivateKey
   ssh_key:
     properties:
-      publicKey: ${private_key.publicKeyOpenSSH}
+      publicKey: ${private_key.publicKeyOpenssh}
     type: hcloud:index/sshKey:SshKey
