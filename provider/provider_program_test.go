@@ -76,7 +76,7 @@ func testProviderUpgradeWithOpts(
 	}
 	test := pulumitest.NewPulumiTest(t, dir,
 		opttest.DownloadProviderVersion(providerName, baselineVersion),
-		opttest.DownloadProviderVersion("tls", "latest"),
+		opttest.DownloadProviderVersion("tls", "5.0.3"),
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
 	)
 	for k, v := range config {
