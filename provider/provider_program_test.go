@@ -24,6 +24,7 @@ const defaultBaselineVersion = "1.18.1"
 var programs = []string{
 	"test-programs/index_network",
 	"test-programs/index_placementgroup",
+	"test-programs/index_server",
 }
 
 func TestUpgradeCoverage(t *testing.T) {
@@ -75,6 +76,7 @@ func testProviderUpgradeWithOpts(
 	}
 	test := pulumitest.NewPulumiTest(t, dir,
 		opttest.DownloadProviderVersion(providerName, baselineVersion),
+		opttest.DownloadProviderVersion("tls", "latest"),
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
 	)
 	for k, v := range config {
