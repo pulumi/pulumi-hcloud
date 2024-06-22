@@ -86,10 +86,8 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter(name="mostRecent")
+    @_utilities.deprecated("""This attribute has no purpose.""")
     def most_recent(self) -> Optional[bool]:
-        warnings.warn("""This attribute has no purpose.""", DeprecationWarning)
-        pulumi.log.warn("""most_recent is deprecated: This attribute has no purpose.""")
-
         return pulumi.get(self, "most_recent")
 
     @property

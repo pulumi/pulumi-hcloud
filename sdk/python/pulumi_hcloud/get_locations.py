@@ -41,13 +41,11 @@ class GetLocationsResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use locations list instead""")
     def descriptions(self) -> Optional[Sequence[str]]:
         """
         (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
         """
-        warnings.warn("""Use locations list instead""", DeprecationWarning)
-        pulumi.log.warn("""descriptions is deprecated: Use locations list instead""")
-
         return pulumi.get(self, "descriptions")
 
     @property
@@ -57,13 +55,11 @@ class GetLocationsResult:
 
     @property
     @pulumi.getter(name="locationIds")
+    @_utilities.deprecated("""Use locations list instead""")
     def location_ids(self) -> Optional[Sequence[str]]:
         """
         (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
         """
-        warnings.warn("""Use locations list instead""", DeprecationWarning)
-        pulumi.log.warn("""location_ids is deprecated: Use locations list instead""")
-
         return pulumi.get(self, "location_ids")
 
     @property
@@ -76,13 +72,11 @@ class GetLocationsResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use locations list instead""")
     def names(self) -> Optional[Sequence[str]]:
         """
         (list) List of location names. **Deprecated**: Use `locations` attribute instead.
         """
-        warnings.warn("""Use locations list instead""", DeprecationWarning)
-        pulumi.log.warn("""names is deprecated: Use locations list instead""")
-
         return pulumi.get(self, "names")
 
 
