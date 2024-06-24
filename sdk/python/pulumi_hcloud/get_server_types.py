@@ -41,10 +41,8 @@ class GetServerTypesResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use server_types list instead""")
     def descriptions(self) -> Sequence[str]:
-        warnings.warn("""Use server_types list instead""", DeprecationWarning)
-        pulumi.log.warn("""descriptions is deprecated: Use server_types list instead""")
-
         return pulumi.get(self, "descriptions")
 
     @property
@@ -57,18 +55,14 @@ class GetServerTypesResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use server_types list instead""")
     def names(self) -> Sequence[str]:
-        warnings.warn("""Use server_types list instead""", DeprecationWarning)
-        pulumi.log.warn("""names is deprecated: Use server_types list instead""")
-
         return pulumi.get(self, "names")
 
     @property
     @pulumi.getter(name="serverTypeIds")
+    @_utilities.deprecated("""Use server_types list instead""")
     def server_type_ids(self) -> Optional[Sequence[str]]:
-        warnings.warn("""Use server_types list instead""", DeprecationWarning)
-        pulumi.log.warn("""server_type_ids is deprecated: Use server_types list instead""")
-
         return pulumi.get(self, "server_type_ids")
 
     @property

@@ -510,10 +510,8 @@ class LoadBalancerTargetArgs:
 
     @property
     @pulumi.getter(name="usePrivateIp")
+    @_utilities.deprecated("""Does not work. Use the LoadBalancerTarget resource instead.""")
     def use_private_ip(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""Does not work. Use the LoadBalancerTarget resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""use_private_ip is deprecated: Does not work. Use the LoadBalancerTarget resource instead.""")
-
         return pulumi.get(self, "use_private_ip")
 
     @use_private_ip.setter
