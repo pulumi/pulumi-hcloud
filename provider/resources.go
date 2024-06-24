@@ -27,6 +27,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 
 	"github.com/pulumi/pulumi-hcloud/provider/pkg/version"
 )
@@ -63,6 +64,34 @@ func Provider() tfbridge.ProviderInfo {
 					"certificate": {
 						CSharpName: "CertificateContents",
 					},
+				},
+			},
+			"hcloud_server": {
+				// Work around
+				// https://github.com/hetznercloud/terraform-provider-hcloud/issues/650
+				// by applying the fix described in
+				// https://github.com/hetznercloud/terraform-provider-hcloud/issues/650#issuecomment-1497160625.
+				PreCheckCallback: func(
+					ctx context.Context, config resource.PropertyMap, _ resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					const debug = "Fixing up for https://github.com/hetznercloud/terraform-provider-hcloud/issues/650"
+					networksProp, ok := config["networks"]
+					if !ok || !networksProp.IsArray() {
+						return config, nil
+					}
+					networks := networksProp.ArrayValue()
+					for _, networkProp := range networks {
+						if !networkProp.IsObject() {
+							continue
+						}
+						const aliasIps = "aliasIps"
+						network := networkProp.ObjectValue()
+						if _, ok := network[aliasIps]; !ok {
+							tfbridge.GetLogger(ctx).Debug(debug)
+							network[aliasIps] = resource.NewProperty([]resource.PropertyValue{})
+						}
+					}
+					return config, nil
 				},
 			},
 		},
