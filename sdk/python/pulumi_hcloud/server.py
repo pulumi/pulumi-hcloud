@@ -498,13 +498,11 @@ class _ServerState:
 
     @property
     @pulumi.getter(name="backupWindow")
+    @_utilities.deprecated("""You should remove this property from your terraform configuration.""")
     def backup_window(self) -> Optional[pulumi.Input[str]]:
         """
         (string) The backup window of the server, if enabled.
         """
-        warnings.warn("""You should remove this property from your terraform configuration.""", DeprecationWarning)
-        pulumi.log.warn("""backup_window is deprecated: You should remove this property from your terraform configuration.""")
-
         return pulumi.get(self, "backup_window")
 
     @backup_window.setter
@@ -916,7 +914,7 @@ class Server(pulumi.CustomResource):
                     "10.0.1.7",
                 ],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
+            opts = pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
 
         ### Server creation from snapshot
@@ -1061,7 +1059,7 @@ class Server(pulumi.CustomResource):
                     "10.0.1.7",
                 ],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[network_subnet]))
+            opts = pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
 
         ### Server creation from snapshot
@@ -1290,13 +1288,11 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupWindow")
+    @_utilities.deprecated("""You should remove this property from your terraform configuration.""")
     def backup_window(self) -> pulumi.Output[str]:
         """
         (string) The backup window of the server, if enabled.
         """
-        warnings.warn("""You should remove this property from your terraform configuration.""", DeprecationWarning)
-        pulumi.log.warn("""backup_window is deprecated: You should remove this property from your terraform configuration.""")
-
         return pulumi.get(self, "backup_window")
 
     @property

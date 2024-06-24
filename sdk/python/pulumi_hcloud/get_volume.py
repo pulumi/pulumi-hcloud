@@ -106,10 +106,8 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Please use the with_selector property instead.""")
     def selector(self) -> Optional[str]:
-        warnings.warn("""Please use the with_selector property instead.""", DeprecationWarning)
-        pulumi.log.warn("""selector is deprecated: Please use the with_selector property instead.""")
-
         return pulumi.get(self, "selector")
 
     @property

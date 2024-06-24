@@ -41,13 +41,11 @@ class GetDatacentersResult:
 
     @property
     @pulumi.getter(name="datacenterIds")
+    @_utilities.deprecated("""Use datacenters list instead""")
     def datacenter_ids(self) -> Optional[Sequence[str]]:
         """
         (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
         """
-        warnings.warn("""Use datacenters list instead""", DeprecationWarning)
-        pulumi.log.warn("""datacenter_ids is deprecated: Use datacenters list instead""")
-
         return pulumi.get(self, "datacenter_ids")
 
     @property
@@ -60,13 +58,11 @@ class GetDatacentersResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use datacenters list instead""")
     def descriptions(self) -> Optional[Sequence[str]]:
         """
         (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
         """
-        warnings.warn("""Use datacenters list instead""", DeprecationWarning)
-        pulumi.log.warn("""descriptions is deprecated: Use datacenters list instead""")
-
         return pulumi.get(self, "descriptions")
 
     @property
@@ -76,13 +72,11 @@ class GetDatacentersResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use datacenters list instead""")
     def names(self) -> Optional[Sequence[str]]:
         """
         (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
         """
-        warnings.warn("""Use datacenters list instead""", DeprecationWarning)
-        pulumi.log.warn("""names is deprecated: Use datacenters list instead""")
-
         return pulumi.get(self, "names")
 
 
