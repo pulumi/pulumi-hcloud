@@ -9,10 +9,10 @@ replace (
 
 require (
 	github.com/hetznercloud/terraform-provider-hcloud v1.47.0
-	github.com/pulumi/providertest v0.0.13
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.40.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.87.0
-	github.com/pulumi/pulumi/sdk/v3 v3.124.0
+	github.com/pulumi/providertest v0.0.14
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.40.1-0.20240724013245-33763d1356a3
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.87.1-0.20240724013245-33763d1356a3
+	github.com/pulumi/pulumi/sdk/v3 v3.126.0
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -195,7 +195,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.11.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/pulumi-yaml v1.9.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.124.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.126.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
