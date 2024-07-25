@@ -38,7 +38,7 @@ import (
 //			// Create a new SSH key
 //			_, err = hcloud.NewSshKey(ctx, "default", &hcloud.SshKeyArgs{
 //				Name:      pulumi.String("Terraform Example"),
-//				PublicKey: invokeFile.Result,
+//				PublicKey: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
