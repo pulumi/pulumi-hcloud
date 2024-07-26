@@ -273,7 +273,7 @@ class ServerNetwork(pulumi.CustomResource):
         node1 = hcloud.Server("node1",
             name="node1",
             image="debian-11",
-            server_type="cx11")
+            server_type="cx22")
         mynet = hcloud.Network("mynet",
             name="my-net",
             ip_range="10.0.0.0/8")
@@ -337,7 +337,7 @@ class ServerNetwork(pulumi.CustomResource):
         node1 = hcloud.Server("node1",
             name="node1",
             image="debian-11",
-            server_type="cx11")
+            server_type="cx22")
         mynet = hcloud.Network("mynet",
             name="my-net",
             ip_range="10.0.0.0/8")

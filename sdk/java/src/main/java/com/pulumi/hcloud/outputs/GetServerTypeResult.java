@@ -44,9 +44,13 @@ public final class GetServerTypeResult {
      */
     private Integer id;
     /**
-     * @return (int) Free traffic per month in bytes.
+     * @return (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
+     * 
+     * @deprecated
+     * The field is deprecated and will always report 0 after 2024-08-05.
      * 
      */
+    @Deprecated /* The field is deprecated and will always report 0 after 2024-08-05. */
     private Integer includedTraffic;
     /**
      * @return (bool) Deprecation status of server type.
@@ -117,9 +121,13 @@ public final class GetServerTypeResult {
         return this.id;
     }
     /**
-     * @return (int) Free traffic per month in bytes.
+     * @return (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
+     * 
+     * @deprecated
+     * The field is deprecated and will always report 0 after 2024-08-05.
      * 
      */
+    @Deprecated /* The field is deprecated and will always report 0 after 2024-08-05. */
     public Integer includedTraffic() {
         return this.includedTraffic;
     }

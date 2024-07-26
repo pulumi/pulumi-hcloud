@@ -31,7 +31,7 @@ namespace Pulumi.HCloud
     ///     var testServer = new HCloud.Server("test_server", new()
     ///     {
     ///         Name = "test-server",
-    ///         ServerType = "cx11",
+    ///         ServerType = "cx22",
     ///         Image = "ubuntu-20.04",
     ///     });
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.HCloud
     ///     var testServer = new HCloud.Server("test_server", new()
     ///     {
     ///         Name = "test-server",
-    ///         ServerType = "cx11",
+    ///         ServerType = "cx22",
     ///         Image = "ubuntu-20.04",
     ///         Labels = 
     ///         {

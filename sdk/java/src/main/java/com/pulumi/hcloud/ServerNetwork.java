@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
- *             .serverType("cx11")
+ *             .serverType("cx22")
  *             .build());
  * 
  *         var mynet = new Network("mynet", NetworkArgs.builder()

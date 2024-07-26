@@ -200,7 +200,7 @@ class Firewall(pulumi.CustomResource):
         node1 = hcloud.Server("node1",
             name="node1",
             image="debian-11",
-            server_type="cx11",
+            server_type="cx22",
             firewall_ids=[myfirewall.id])
         ```
 
@@ -258,7 +258,7 @@ class Firewall(pulumi.CustomResource):
         node1 = hcloud.Server("node1",
             name="node1",
             image="debian-11",
-            server_type="cx11",
+            server_type="cx22",
             firewall_ids=[myfirewall.id])
         ```
 

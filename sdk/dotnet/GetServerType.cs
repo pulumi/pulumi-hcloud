@@ -27,7 +27,7 @@ namespace Pulumi.HCloud
         /// {
         ///     var ds1 = HCloud.GetServerType.Invoke(new()
         ///     {
-        ///         Name = "cx11",
+        ///         Name = "cx22",
         ///     });
         /// 
         ///     var ds2 = HCloud.GetServerType.Invoke(new()
@@ -57,7 +57,7 @@ namespace Pulumi.HCloud
         /// {
         ///     var ds1 = HCloud.GetServerType.Invoke(new()
         ///     {
-        ///         Name = "cx11",
+        ///         Name = "cx22",
         ///     });
         /// 
         ///     var ds2 = HCloud.GetServerType.Invoke(new()
@@ -167,7 +167,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// (int) Free traffic per month in bytes.
+        /// (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
         /// </summary>
         public readonly int IncludedTraffic;
         /// <summary>

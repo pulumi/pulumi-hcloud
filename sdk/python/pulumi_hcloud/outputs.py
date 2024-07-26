@@ -2117,6 +2117,7 @@ class GetServerTypesServerTypeResult(dict):
 
     @property
     @pulumi.getter(name="includedTraffic")
+    @_utilities.deprecated("""The field is deprecated and will always report 0 after 2024-08-05.""")
     def included_traffic(self) -> int:
         return pulumi.get(self, "included_traffic")
 

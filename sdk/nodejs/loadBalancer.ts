@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const myServer = new hcloud.Server("my_server", {
  *     name: "server-%d",
- *     serverType: "cx11",
+ *     serverType: "cx22",
  *     image: "ubuntu-18.04",
  * });
  * const loadBalancer = new hcloud.LoadBalancer("load_balancer", {

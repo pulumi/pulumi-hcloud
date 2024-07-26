@@ -49,7 +49,7 @@ export interface GetServerTypesResult {
      */
     readonly serverTypeIds?: string[];
     /**
-     * (list) List of all server types. See `data.hcloud_type` for schema.
+     * (list) List of all server types. See `data.hcloud_server_type` for schema.
      */
     readonly serverTypes: outputs.GetServerTypesServerType[];
 }

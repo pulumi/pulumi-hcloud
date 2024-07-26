@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.GetServerType(ctx, &hcloud.GetServerTypeArgs{
-//				Name: pulumi.StringRef("cx11"),
+//				Name: pulumi.StringRef("cx22"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -82,7 +82,9 @@ type GetServerTypeResult struct {
 	Disk int `pulumi:"disk"`
 	// (int) Unique ID of the server_type.
 	Id int `pulumi:"id"`
-	// (int) Free traffic per month in bytes.
+	// (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
+	//
+	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
 	IncludedTraffic int `pulumi:"includedTraffic"`
 	// (bool) Deprecation status of server type.
 	IsDeprecated bool `pulumi:"isDeprecated"`
@@ -173,7 +175,9 @@ func (o GetServerTypeResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypeResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// (int) Free traffic per month in bytes.
+// (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
+//
+// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
 func (o GetServerTypeResultOutput) IncludedTraffic() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypeResult) int { return v.IncludedTraffic }).(pulumi.IntOutput)
 }

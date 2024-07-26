@@ -36,7 +36,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testServer, err := hcloud.NewServer(ctx, "test_server", &hcloud.ServerArgs{
 //				Name:       pulumi.String("test-server"),
-//				ServerType: pulumi.String("cx11"),
+//				ServerType: pulumi.String("cx22"),
 //				Image:      pulumi.String("ubuntu-20.04"),
 //			})
 //			if err != nil {
@@ -79,7 +79,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.NewServer(ctx, "test_server", &hcloud.ServerArgs{
 //				Name:       pulumi.String("test-server"),
-//				ServerType: pulumi.String("cx11"),
+//				ServerType: pulumi.String("cx22"),
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				Labels: pulumi.Map{
 //					"firewall-attachment": pulumi.Any("test-server"),

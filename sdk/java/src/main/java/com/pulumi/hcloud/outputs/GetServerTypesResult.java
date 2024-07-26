@@ -40,7 +40,7 @@ public final class GetServerTypesResult {
     @Deprecated /* Use server_types list instead */
     private @Nullable List<String> serverTypeIds;
     /**
-     * @return (list) List of all server types. See `data.hcloud_type` for schema.
+     * @return (list) List of all server types. See `data.hcloud_server_type` for schema.
      * 
      */
     private List<GetServerTypesServerType> serverTypes;
@@ -81,7 +81,7 @@ public final class GetServerTypesResult {
         return this.serverTypeIds == null ? List.of() : this.serverTypeIds;
     }
     /**
-     * @return (list) List of all server types. See `data.hcloud_type` for schema.
+     * @return (list) List of all server types. See `data.hcloud_server_type` for schema.
      * 
      */
     public List<GetServerTypesServerType> serverTypes() {

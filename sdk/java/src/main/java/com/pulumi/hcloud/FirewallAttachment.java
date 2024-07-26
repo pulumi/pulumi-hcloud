@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testServer = new Server("testServer", ServerArgs.builder()
  *             .name("test-server")
- *             .serverType("cx11")
+ *             .serverType("cx22")
  *             .image("ubuntu-20.04")
  *             .build());
  * 
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testServer = new Server("testServer", ServerArgs.builder()
  *             .name("test-server")
- *             .serverType("cx11")
+ *             .serverType("cx22")
  *             .image("ubuntu-20.04")
  *             .labels(Map.of("firewall-attachment", "test-server"))
  *             .build());

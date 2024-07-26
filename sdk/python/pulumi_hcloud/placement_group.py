@@ -161,7 +161,7 @@ class PlacementGroup(pulumi.CustomResource):
         node1 = hcloud.Server("node1",
             name="node1",
             image="debian-11",
-            server_type="cx11",
+            server_type="cx22",
             placement_group_id=my_placement_group.id)
         ```
 
@@ -203,7 +203,7 @@ class PlacementGroup(pulumi.CustomResource):
         node1 = hcloud.Server("node1",
             name="node1",
             image="debian-11",
-            server_type="cx11",
+            server_type="cx22",
             placement_group_id=my_placement_group.id)
         ```
 

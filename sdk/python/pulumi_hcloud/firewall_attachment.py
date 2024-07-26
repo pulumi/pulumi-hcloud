@@ -160,7 +160,7 @@ class FirewallAttachment(pulumi.CustomResource):
 
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx11",
+            server_type="cx22",
             image="ubuntu-20.04")
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
@@ -176,7 +176,7 @@ class FirewallAttachment(pulumi.CustomResource):
 
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx11",
+            server_type="cx22",
             image="ubuntu-20.04",
             labels={
                 "firewall-attachment": "test-server",
@@ -219,7 +219,7 @@ class FirewallAttachment(pulumi.CustomResource):
 
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx11",
+            server_type="cx22",
             image="ubuntu-20.04")
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
@@ -235,7 +235,7 @@ class FirewallAttachment(pulumi.CustomResource):
 
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx11",
+            server_type="cx22",
             image="ubuntu-20.04",
             labels={
                 "firewall-attachment": "test-server",
