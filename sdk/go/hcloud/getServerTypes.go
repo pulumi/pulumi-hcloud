@@ -38,7 +38,7 @@ type GetServerTypesResult struct {
 	Names []string `pulumi:"names"`
 	// Deprecated: Use serverTypes list instead
 	ServerTypeIds []string `pulumi:"serverTypeIds"`
-	// (list) List of all server types. See `data.hcloud_type` for schema.
+	// (list) List of all server types. See `data.hcloud_server_type` for schema.
 	ServerTypes []GetServerTypesServerType `pulumi:"serverTypes"`
 }
 
@@ -100,7 +100,7 @@ func (o GetServerTypesResultOutput) ServerTypeIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []string { return v.ServerTypeIds }).(pulumi.StringArrayOutput)
 }
 
-// (list) List of all server types. See `data.hcloud_type` for schema.
+// (list) List of all server types. See `data.hcloud_server_type` for schema.
 func (o GetServerTypesResultOutput) ServerTypes() GetServerTypesServerTypeArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []GetServerTypesServerType { return v.ServerTypes }).(GetServerTypesServerTypeArrayOutput)
 }

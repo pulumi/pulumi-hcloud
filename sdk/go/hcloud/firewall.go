@@ -55,7 +55,7 @@ import (
 //			_, err = hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
 //				Name:       pulumi.String("node1"),
 //				Image:      pulumi.String("debian-11"),
-//				ServerType: pulumi.String("cx11"),
+//				ServerType: pulumi.String("cx22"),
 //				FirewallIds: pulumi.IntArray{
 //					myfirewall.ID(),
 //				},

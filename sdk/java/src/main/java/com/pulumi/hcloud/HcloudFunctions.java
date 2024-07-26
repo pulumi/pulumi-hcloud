@@ -4734,7 +4734,7 @@ public final class HcloudFunctions {
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
-     *             .serverType("cx11")
+     *             .serverType("cx22")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -4813,7 +4813,7 @@ public final class HcloudFunctions {
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
-     *             .serverType("cx11")
+     *             .serverType("cx22")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -4892,7 +4892,7 @@ public final class HcloudFunctions {
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
-     *             .serverType("cx11")
+     *             .serverType("cx22")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -4971,7 +4971,7 @@ public final class HcloudFunctions {
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
-     *             .serverType("cx11")
+     *             .serverType("cx22")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -5050,7 +5050,7 @@ public final class HcloudFunctions {
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
-     *             .serverType("cx11")
+     *             .serverType("cx22")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -5129,7 +5129,7 @@ public final class HcloudFunctions {
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
      *             .image("ubuntu-20.04")
-     *             .serverType("cx11")
+     *             .serverType("cx22")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -5717,7 +5717,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx11")
+     *             .name("cx22")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5764,7 +5764,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx11")
+     *             .name("cx22")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5811,7 +5811,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx11")
+     *             .name("cx22")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5858,7 +5858,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx11")
+     *             .name("cx22")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5905,7 +5905,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx11")
+     *             .name("cx22")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
@@ -5952,7 +5952,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx11")
+     *             .name("cx22")
      *             .build());
      * 
      *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()

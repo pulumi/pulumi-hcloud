@@ -69,7 +69,7 @@ class GetServerTypesResult:
     @pulumi.getter(name="serverTypes")
     def server_types(self) -> Sequence['outputs.GetServerTypesServerTypeResult']:
         """
-        (list) List of all server types. See `data.hcloud_type` for schema.
+        (list) List of all server types. See `data.hcloud_server_type` for schema.
         """
         return pulumi.get(self, "server_types")
 

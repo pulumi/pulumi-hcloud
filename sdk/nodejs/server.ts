@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * const node1 = new hcloud.Server("node1", {
  *     name: "node1",
  *     image: "debian-11",
- *     serverType: "cx11",
+ *     serverType: "cx22",
  *     publicNets: [{
  *         ipv4Enabled: true,
  *         ipv6Enabled: true,
@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * const serverTest = new hcloud.Server("server_test", {
  *     name: "test-server",
  *     image: "ubuntu-20.04",
- *     serverType: "cx11",
+ *     serverType: "cx22",
  *     datacenter: "fsn1-dc14",
  *     labels: {
  *         test: "tessst1",
@@ -75,7 +75,7 @@ import * as utilities from "./utilities";
  * });
  * const server = new hcloud.Server("server", {
  *     name: "server",
- *     serverType: "cx11",
+ *     serverType: "cx22",
  *     image: "ubuntu-20.04",
  *     location: "nbg1",
  *     networks: [{
@@ -106,7 +106,7 @@ import * as utilities from "./utilities";
  * const fromSnapshot = new hcloud.Server("from_snapshot", {
  *     name: "from-snapshot",
  *     image: packerSnapshot.then(packerSnapshot => packerSnapshot.id),
- *     serverType: "cx11",
+ *     serverType: "cx22",
  *     publicNets: [{
  *         ipv4Enabled: true,
  *         ipv6Enabled: true,

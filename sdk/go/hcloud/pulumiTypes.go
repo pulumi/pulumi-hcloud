@@ -4757,12 +4757,13 @@ type GetServerTypesServerType struct {
 	Description          string `pulumi:"description"`
 	Disk                 int    `pulumi:"disk"`
 	Id                   int    `pulumi:"id"`
-	IncludedTraffic      int    `pulumi:"includedTraffic"`
-	IsDeprecated         bool   `pulumi:"isDeprecated"`
-	Memory               int    `pulumi:"memory"`
-	Name                 string `pulumi:"name"`
-	StorageType          string `pulumi:"storageType"`
-	UnavailableAfter     string `pulumi:"unavailableAfter"`
+	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
+	IncludedTraffic  int    `pulumi:"includedTraffic"`
+	IsDeprecated     bool   `pulumi:"isDeprecated"`
+	Memory           int    `pulumi:"memory"`
+	Name             string `pulumi:"name"`
+	StorageType      string `pulumi:"storageType"`
+	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
 
 // GetServerTypesServerTypeInput is an input type that accepts GetServerTypesServerTypeArgs and GetServerTypesServerTypeOutput values.
@@ -4784,12 +4785,13 @@ type GetServerTypesServerTypeArgs struct {
 	Description          pulumi.StringInput `pulumi:"description"`
 	Disk                 pulumi.IntInput    `pulumi:"disk"`
 	Id                   pulumi.IntInput    `pulumi:"id"`
-	IncludedTraffic      pulumi.IntInput    `pulumi:"includedTraffic"`
-	IsDeprecated         pulumi.BoolInput   `pulumi:"isDeprecated"`
-	Memory               pulumi.IntInput    `pulumi:"memory"`
-	Name                 pulumi.StringInput `pulumi:"name"`
-	StorageType          pulumi.StringInput `pulumi:"storageType"`
-	UnavailableAfter     pulumi.StringInput `pulumi:"unavailableAfter"`
+	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
+	IncludedTraffic  pulumi.IntInput    `pulumi:"includedTraffic"`
+	IsDeprecated     pulumi.BoolInput   `pulumi:"isDeprecated"`
+	Memory           pulumi.IntInput    `pulumi:"memory"`
+	Name             pulumi.StringInput `pulumi:"name"`
+	StorageType      pulumi.StringInput `pulumi:"storageType"`
+	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
 }
 
 func (GetServerTypesServerTypeArgs) ElementType() reflect.Type {
@@ -4871,6 +4873,7 @@ func (o GetServerTypesServerTypeOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
 func (o GetServerTypesServerTypeOutput) IncludedTraffic() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) int { return v.IncludedTraffic }).(pulumi.IntOutput)
 }

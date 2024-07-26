@@ -19,6 +19,12 @@ public final class GetServerTypesServerType {
     private String description;
     private Integer disk;
     private Integer id;
+    /**
+     * @deprecated
+     * The field is deprecated and will always report 0 after 2024-08-05.
+     * 
+     */
+    @Deprecated /* The field is deprecated and will always report 0 after 2024-08-05. */
     private Integer includedTraffic;
     private Boolean isDeprecated;
     private Integer memory;
@@ -48,6 +54,12 @@ public final class GetServerTypesServerType {
     public Integer id() {
         return this.id;
     }
+    /**
+     * @deprecated
+     * The field is deprecated and will always report 0 after 2024-08-05.
+     * 
+     */
+    @Deprecated /* The field is deprecated and will always report 0 after 2024-08-05. */
     public Integer includedTraffic() {
         return this.includedTraffic;
     }

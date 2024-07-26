@@ -33,7 +33,7 @@ import (
 //			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
 //				Name:       pulumi.String("node1"),
 //				Image:      pulumi.String("debian-11"),
-//				ServerType: pulumi.String("cx11"),
+//				ServerType: pulumi.String("cx22"),
 //			})
 //			if err != nil {
 //				return err

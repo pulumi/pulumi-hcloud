@@ -398,6 +398,9 @@ export interface GetServerTypesServerType {
     description: string;
     disk: number;
     id: number;
+    /**
+     * @deprecated The field is deprecated and will always report 0 after 2024-08-05.
+     */
     includedTraffic: number;
     isDeprecated: boolean;
     memory: number;

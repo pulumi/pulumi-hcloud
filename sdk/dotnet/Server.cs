@@ -29,7 +29,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         Name = "node1",
     ///         Image = "debian-11",
-    ///         ServerType = "cx11",
+    ///         ServerType = "cx22",
     ///         PublicNets = new[]
     ///         {
     ///             new HCloud.Inputs.ServerPublicNetArgs
@@ -68,7 +68,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         Name = "test-server",
     ///         Image = "ubuntu-20.04",
-    ///         ServerType = "cx11",
+    ///         ServerType = "cx22",
     ///         Datacenter = "fsn1-dc14",
     ///         Labels = 
     ///         {
@@ -113,7 +113,7 @@ namespace Pulumi.HCloud
     ///     var server = new HCloud.Server("server", new()
     ///     {
     ///         Name = "server",
-    ///         ServerType = "cx11",
+    ///         ServerType = "cx22",
     ///         Image = "ubuntu-20.04",
     ///         Location = "nbg1",
     ///         Networks = new[]
@@ -162,7 +162,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         Name = "from-snapshot",
     ///         Image = packerSnapshot.Apply(getImageResult =&gt; getImageResult.Id),
-    ///         ServerType = "cx11",
+    ///         ServerType = "cx22",
     ///         PublicNets = new[]
     ///         {
     ///             new HCloud.Inputs.ServerPublicNetArgs

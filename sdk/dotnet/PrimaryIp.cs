@@ -43,7 +43,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         Name = "test-server",
     ///         Image = "ubuntu-20.04",
-    ///         ServerType = "cx11",
+    ///         ServerType = "cx22",
     ///         Datacenter = "fsn1-dc14",
     ///         Labels = 
     ///         {

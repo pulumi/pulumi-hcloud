@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			myServer, err := hcloud.NewServer(ctx, "my_server", &hcloud.ServerArgs{
 //				Name:       pulumi.String("server-%d"),
-//				ServerType: pulumi.String("cx11"),
+//				ServerType: pulumi.String("cx22"),
 //				Image:      pulumi.String("ubuntu-18.04"),
 //			})
 //			if err != nil {

@@ -355,7 +355,7 @@ class PrimaryIp(pulumi.CustomResource):
         server_test = hcloud.Server("server_test",
             name="test-server",
             image="ubuntu-20.04",
-            server_type="cx11",
+            server_type="cx22",
             datacenter="fsn1-dc14",
             labels={
                 "test": "tessst1",
@@ -416,7 +416,7 @@ class PrimaryIp(pulumi.CustomResource):
         server_test = hcloud.Server("server_test",
             name="test-server",
             image="ubuntu-20.04",
-            server_type="cx11",
+            server_type="cx22",
             datacenter="fsn1-dc14",
             labels={
                 "test": "tessst1",

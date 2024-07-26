@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
  *             .image("debian-11")
- *             .serverType("cx11")
+ *             .serverType("cx22")
  *             .datacenter("nbg1-dc3")
  *             .build());
  * 

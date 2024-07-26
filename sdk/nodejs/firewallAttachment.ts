@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *
  * const testServer = new hcloud.Server("test_server", {
  *     name: "test-server",
- *     serverType: "cx11",
+ *     serverType: "cx22",
  *     image: "ubuntu-20.04",
  * });
  * const basicFirewall = new hcloud.Firewall("basic_firewall", {name: "basic_firewall"});
@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  *
  * const testServer = new hcloud.Server("test_server", {
  *     name: "test-server",
- *     serverType: "cx11",
+ *     serverType: "cx22",
  *     image: "ubuntu-20.04",
  *     labels: {
  *         "firewall-attachment": "test-server",

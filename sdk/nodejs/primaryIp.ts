@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  * const serverTest = new hcloud.Server("server_test", {
  *     name: "test-server",
  *     image: "ubuntu-20.04",
- *     serverType: "cx11",
+ *     serverType: "cx22",
  *     datacenter: "fsn1-dc14",
  *     labels: {
  *         test: "tessst1",

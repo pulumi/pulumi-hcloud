@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *         var serverTest = new Server("serverTest", ServerArgs.builder()
  *             .name("test-server")
  *             .image("ubuntu-20.04")
- *             .serverType("cx11")
+ *             .serverType("cx22")
  *             .datacenter("fsn1-dc14")
  *             .labels(Map.of("test", "tessst1"))
  *             .publicNets(ServerPublicNetArgs.builder()

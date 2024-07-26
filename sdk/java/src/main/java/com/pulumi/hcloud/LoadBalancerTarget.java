@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var myServer = new Server("myServer", ServerArgs.builder()
  *             .name("my-server")
- *             .serverType("cx11")
+ *             .serverType("cx22")
  *             .image("ubuntu-18.04")
  *             .build());
  * 

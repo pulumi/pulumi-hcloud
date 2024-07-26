@@ -71,7 +71,7 @@ namespace Pulumi.HCloud
         public readonly ImmutableArray<string> Names;
         public readonly ImmutableArray<string> ServerTypeIds;
         /// <summary>
-        /// (list) List of all server types. See `data.hcloud_type` for schema.
+        /// (list) List of all server types. See `data.hcloud_server_type` for schema.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServerTypesServerTypeResult> ServerTypes;
 

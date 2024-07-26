@@ -854,7 +854,7 @@ class Server(pulumi.CustomResource):
         node1 = hcloud.Server("node1",
             name="node1",
             image="debian-11",
-            server_type="cx11",
+            server_type="cx22",
             public_nets=[hcloud.ServerPublicNetArgs(
                 ipv4_enabled=True,
                 ipv6_enabled=True,
@@ -877,7 +877,7 @@ class Server(pulumi.CustomResource):
         server_test = hcloud.Server("server_test",
             name="test-server",
             image="ubuntu-20.04",
-            server_type="cx11",
+            server_type="cx22",
             datacenter="fsn1-dc14",
             labels={
                 "test": "tessst1",
@@ -903,7 +903,7 @@ class Server(pulumi.CustomResource):
             ip_range="10.0.1.0/24")
         server = hcloud.Server("server",
             name="server",
-            server_type="cx11",
+            server_type="cx22",
             image="ubuntu-20.04",
             location="nbg1",
             networks=[hcloud.ServerNetworkArgs(
@@ -930,7 +930,7 @@ class Server(pulumi.CustomResource):
         from_snapshot = hcloud.Server("from_snapshot",
             name="from-snapshot",
             image=packer_snapshot.id,
-            server_type="cx11",
+            server_type="cx22",
             public_nets=[hcloud.ServerPublicNetArgs(
                 ipv4_enabled=True,
                 ipv6_enabled=True,
@@ -999,7 +999,7 @@ class Server(pulumi.CustomResource):
         node1 = hcloud.Server("node1",
             name="node1",
             image="debian-11",
-            server_type="cx11",
+            server_type="cx22",
             public_nets=[hcloud.ServerPublicNetArgs(
                 ipv4_enabled=True,
                 ipv6_enabled=True,
@@ -1022,7 +1022,7 @@ class Server(pulumi.CustomResource):
         server_test = hcloud.Server("server_test",
             name="test-server",
             image="ubuntu-20.04",
-            server_type="cx11",
+            server_type="cx22",
             datacenter="fsn1-dc14",
             labels={
                 "test": "tessst1",
@@ -1048,7 +1048,7 @@ class Server(pulumi.CustomResource):
             ip_range="10.0.1.0/24")
         server = hcloud.Server("server",
             name="server",
-            server_type="cx11",
+            server_type="cx22",
             image="ubuntu-20.04",
             location="nbg1",
             networks=[hcloud.ServerNetworkArgs(
@@ -1075,7 +1075,7 @@ class Server(pulumi.CustomResource):
         from_snapshot = hcloud.Server("from_snapshot",
             name="from-snapshot",
             image=packer_snapshot.id,
-            server_type="cx11",
+            server_type="cx22",
             public_nets=[hcloud.ServerPublicNetArgs(
                 ipv4_enabled=True,
                 ipv6_enabled=True,

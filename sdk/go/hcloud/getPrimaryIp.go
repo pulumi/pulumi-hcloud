@@ -63,7 +63,7 @@ import (
 //			_, err = hcloud.NewServer(ctx, "server_test", &hcloud.ServerArgs{
 //				Name:       pulumi.String("test-server"),
 //				Image:      pulumi.String("ubuntu-20.04"),
-//				ServerType: pulumi.String("cx11"),
+//				ServerType: pulumi.String("cx22"),
 //				Datacenter: pulumi.String("fsn1-dc14"),
 //				Labels: pulumi.Map{
 //					"test": pulumi.Any("tessst1"),

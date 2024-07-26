@@ -117,9 +117,10 @@ class GetServerTypeResult:
 
     @property
     @pulumi.getter(name="includedTraffic")
+    @_utilities.deprecated("""The field is deprecated and will always report 0 after 2024-08-05.""")
     def included_traffic(self) -> int:
         """
-        (int) Free traffic per month in bytes.
+        (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
         """
         return pulumi.get(self, "included_traffic")
 
@@ -197,7 +198,7 @@ def get_server_type(deprecation_announced: Optional[str] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    ds1 = hcloud.get_server_type(name="cx11")
+    ds1 = hcloud.get_server_type(name="cx22")
     ds2 = hcloud.get_server_type(id=1)
     ```
 
@@ -247,7 +248,7 @@ def get_server_type_output(deprecation_announced: Optional[pulumi.Input[Optional
     import pulumi
     import pulumi_hcloud as hcloud
 
-    ds1 = hcloud.get_server_type(name="cx11")
+    ds1 = hcloud.get_server_type(name="cx22")
     ds2 = hcloud.get_server_type(id=1)
     ```
 

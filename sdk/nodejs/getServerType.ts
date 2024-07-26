@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const ds1 = hcloud.getServerType({
- *     name: "cx11",
+ *     name: "cx22",
  * });
  * const ds2 = hcloud.getServerType({
  *     id: 1,
@@ -86,7 +86,9 @@ export interface GetServerTypeResult {
      */
     readonly id: number;
     /**
-     * (int) Free traffic per month in bytes.
+     * (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
+     *
+     * @deprecated The field is deprecated and will always report 0 after 2024-08-05.
      */
     readonly includedTraffic: number;
     /**
@@ -118,7 +120,7 @@ export interface GetServerTypeResult {
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const ds1 = hcloud.getServerType({
- *     name: "cx11",
+ *     name: "cx22",
  * });
  * const ds2 = hcloud.getServerType({
  *     id: 1,
