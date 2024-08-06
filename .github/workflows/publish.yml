@@ -79,10 +79,12 @@ jobs:
       shell: bash
       run: |
         # Get latest stable release. Return only first column from result (tag).
-        LAST_VERSION=$(gh release view --repo pulumi/pulumi-hcloud --json tagName -q .tagName)
+        LAST_VERSION=$(gh release view --repo pulumi/pulumi-hcloud --json tagName -q .tagName || echo "No stable release" )
         {
           echo 'summary<<EOF'
-          schema-tools compare --provider="hcloud" --old-commit="$LAST_VERSION" --new-commit="--local-path=provider/cmd/pulumi-resource-hcloud/schema.json"
+          if [[ "$LAST_VERSION" != "No stable release" ]]; then
+            schema-tools compare --provider="hcloud" --old-commit="$LAST_VERSION" --new-commit="--local-path=provider/cmd/pulumi-resource-hcloud/schema.json"
+          fi
           echo 'EOF'
         } >> "$GITHUB_OUTPUT"
     - name: Upload Provider Binaries
