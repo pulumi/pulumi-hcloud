@@ -200,7 +200,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerNetwork(String name) {
+    public ServerNetwork(java.lang.String name) {
         this(name, ServerNetworkArgs.Empty);
     }
     /**
@@ -208,7 +208,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerNetwork(String name, ServerNetworkArgs args) {
+    public ServerNetwork(java.lang.String name, ServerNetworkArgs args) {
         this(name, args, null);
     }
     /**
@@ -217,15 +217,22 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerNetwork(String name, ServerNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/serverNetwork:ServerNetwork", name, args == null ? ServerNetworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServerNetwork(java.lang.String name, ServerNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/serverNetwork:ServerNetwork", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerNetwork(String name, Output<String> id, @Nullable ServerNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/serverNetwork:ServerNetwork", name, state, makeResourceOptions(options, id));
+    private ServerNetwork(java.lang.String name, Output<java.lang.String> id, @Nullable ServerNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/serverNetwork:ServerNetwork", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServerNetworkArgs makeArgs(ServerNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerNetworkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -241,7 +248,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerNetwork get(String name, Output<String> id, @Nullable ServerNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerNetwork get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerNetwork(name, id, state, options);
     }
 }

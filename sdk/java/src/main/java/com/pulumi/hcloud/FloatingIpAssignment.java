@@ -112,7 +112,7 @@ public class FloatingIpAssignment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FloatingIpAssignment(String name) {
+    public FloatingIpAssignment(java.lang.String name) {
         this(name, FloatingIpAssignmentArgs.Empty);
     }
     /**
@@ -120,7 +120,7 @@ public class FloatingIpAssignment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FloatingIpAssignment(String name, FloatingIpAssignmentArgs args) {
+    public FloatingIpAssignment(java.lang.String name, FloatingIpAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,15 +129,22 @@ public class FloatingIpAssignment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FloatingIpAssignment(String name, FloatingIpAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/floatingIpAssignment:FloatingIpAssignment", name, args == null ? FloatingIpAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FloatingIpAssignment(java.lang.String name, FloatingIpAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/floatingIpAssignment:FloatingIpAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FloatingIpAssignment(String name, Output<String> id, @Nullable FloatingIpAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/floatingIpAssignment:FloatingIpAssignment", name, state, makeResourceOptions(options, id));
+    private FloatingIpAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable FloatingIpAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/floatingIpAssignment:FloatingIpAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FloatingIpAssignmentArgs makeArgs(FloatingIpAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FloatingIpAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -153,7 +160,7 @@ public class FloatingIpAssignment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FloatingIpAssignment get(String name, Output<String> id, @Nullable FloatingIpAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FloatingIpAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable FloatingIpAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FloatingIpAssignment(name, id, state, options);
     }
 }
