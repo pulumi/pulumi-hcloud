@@ -121,7 +121,7 @@ public class NetworkRoute extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkRoute(String name) {
+    public NetworkRoute(java.lang.String name) {
         this(name, NetworkRouteArgs.Empty);
     }
     /**
@@ -129,7 +129,7 @@ public class NetworkRoute extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkRoute(String name, NetworkRouteArgs args) {
+    public NetworkRoute(java.lang.String name, NetworkRouteArgs args) {
         this(name, args, null);
     }
     /**
@@ -138,15 +138,22 @@ public class NetworkRoute extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkRoute(String name, NetworkRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/networkRoute:NetworkRoute", name, args == null ? NetworkRouteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkRoute(java.lang.String name, NetworkRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/networkRoute:NetworkRoute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkRoute(String name, Output<String> id, @Nullable NetworkRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/networkRoute:NetworkRoute", name, state, makeResourceOptions(options, id));
+    private NetworkRoute(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/networkRoute:NetworkRoute", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkRouteArgs makeArgs(NetworkRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkRouteArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -162,7 +169,7 @@ public class NetworkRoute extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkRoute get(String name, Output<String> id, @Nullable NetworkRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkRoute get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkRoute(name, id, state, options);
     }
 }

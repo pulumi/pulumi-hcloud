@@ -172,7 +172,7 @@ public class UploadedCertificate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UploadedCertificate(String name) {
+    public UploadedCertificate(java.lang.String name) {
         this(name, UploadedCertificateArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class UploadedCertificate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UploadedCertificate(String name, UploadedCertificateArgs args) {
+    public UploadedCertificate(java.lang.String name, UploadedCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,15 +189,22 @@ public class UploadedCertificate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UploadedCertificate(String name, UploadedCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/uploadedCertificate:UploadedCertificate", name, args == null ? UploadedCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UploadedCertificate(java.lang.String name, UploadedCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/uploadedCertificate:UploadedCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UploadedCertificate(String name, Output<String> id, @Nullable UploadedCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/uploadedCertificate:UploadedCertificate", name, state, makeResourceOptions(options, id));
+    private UploadedCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable UploadedCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/uploadedCertificate:UploadedCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UploadedCertificateArgs makeArgs(UploadedCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UploadedCertificateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -216,7 +223,7 @@ public class UploadedCertificate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UploadedCertificate get(String name, Output<String> id, @Nullable UploadedCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UploadedCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable UploadedCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UploadedCertificate(name, id, state, options);
     }
 }

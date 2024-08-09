@@ -112,12 +112,12 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             with_selector=self.with_selector)
 
 
-def get_firewall(apply_tos: Optional[Sequence[pulumi.InputType['GetFirewallApplyToArgs']]] = None,
+def get_firewall(apply_tos: Optional[Sequence[Union['GetFirewallApplyToArgs', 'GetFirewallApplyToArgsDict']]] = None,
                  id: Optional[int] = None,
                  labels: Optional[Mapping[str, Any]] = None,
                  most_recent: Optional[bool] = None,
                  name: Optional[str] = None,
-                 rules: Optional[Sequence[pulumi.InputType['GetFirewallRuleArgs']]] = None,
+                 rules: Optional[Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']]] = None,
                  with_selector: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
     """
@@ -132,12 +132,12 @@ def get_firewall(apply_tos: Optional[Sequence[pulumi.InputType['GetFirewallApply
     ```
 
 
-    :param Sequence[pulumi.InputType['GetFirewallApplyToArgs']] apply_tos: Configuration of the Applied Resources
+    :param Sequence[Union['GetFirewallApplyToArgs', 'GetFirewallApplyToArgsDict']] apply_tos: Configuration of the Applied Resources
     :param int id: ID of the firewall.
     :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
     :param bool most_recent: Return most recent firewall if multiple are found.
     :param str name: Name of the firewall.
-    :param Sequence[pulumi.InputType['GetFirewallRuleArgs']] rules: (string)  Configuration of a Rule from this Firewall.
+    :param Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']] rules: (string)  Configuration of a Rule from this Firewall.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
@@ -162,12 +162,12 @@ def get_firewall(apply_tos: Optional[Sequence[pulumi.InputType['GetFirewallApply
 
 
 @_utilities.lift_output_func(get_firewall)
-def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFirewallApplyToArgs']]]]] = None,
+def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[Union['GetFirewallApplyToArgs', 'GetFirewallApplyToArgsDict']]]]] = None,
                         id: Optional[pulumi.Input[Optional[int]]] = None,
                         labels: Optional[pulumi.Input[Optional[Mapping[str, Any]]]] = None,
                         most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                         name: Optional[pulumi.Input[Optional[str]]] = None,
-                        rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFirewallRuleArgs']]]]] = None,
+                        rules: Optional[pulumi.Input[Optional[Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']]]]] = None,
                         with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
     """
@@ -182,12 +182,12 @@ def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[pulum
     ```
 
 
-    :param Sequence[pulumi.InputType['GetFirewallApplyToArgs']] apply_tos: Configuration of the Applied Resources
+    :param Sequence[Union['GetFirewallApplyToArgs', 'GetFirewallApplyToArgsDict']] apply_tos: Configuration of the Applied Resources
     :param int id: ID of the firewall.
     :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
     :param bool most_recent: Return most recent firewall if multiple are found.
     :param str name: Name of the firewall.
-    :param Sequence[pulumi.InputType['GetFirewallRuleArgs']] rules: (string)  Configuration of a Rule from this Firewall.
+    :param Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']] rules: (string)  Configuration of a Rule from this Firewall.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     ...

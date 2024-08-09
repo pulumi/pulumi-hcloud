@@ -257,8 +257,8 @@ class LoadBalancerService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
-                 health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerServiceHealthCheckArgs']]] = None,
-                 http: Optional[pulumi.Input[pulumi.InputType['LoadBalancerServiceHttpArgs']]] = None,
+                 health_check: Optional[pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
+                 http: Optional[pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
                  listen_port: Optional[pulumi.Input[int]] = None,
                  load_balancer_id: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -280,23 +280,23 @@ class LoadBalancerService(pulumi.CustomResource):
         load_balancer_service = hcloud.LoadBalancerService("load_balancer_service",
             load_balancer_id=load_balancer.id,
             protocol="http",
-            http=hcloud.LoadBalancerServiceHttpArgs(
-                sticky_sessions=True,
-                cookie_name="EXAMPLE_STICKY",
-            ),
-            health_check=hcloud.LoadBalancerServiceHealthCheckArgs(
-                protocol="http",
-                port=80,
-                interval=10,
-                timeout=5,
-                http=hcloud.LoadBalancerServiceHealthCheckHttpArgs(
-                    domain="example.com",
-                    path="/healthz",
-                    response="OK",
-                    tls=True,
-                    status_codes=["200"],
-                ),
-            ))
+            http={
+                "sticky_sessions": True,
+                "cookie_name": "EXAMPLE_STICKY",
+            },
+            health_check={
+                "protocol": "http",
+                "port": 80,
+                "interval": 10,
+                "timeout": 5,
+                "http": {
+                    "domain": "example.com",
+                    "path": "/healthz",
+                    "response": "OK",
+                    "tls": True,
+                    "status_codes": ["200"],
+                },
+            })
         ```
 
         ## Import
@@ -312,8 +312,8 @@ class LoadBalancerService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] destination_port: Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
-        :param pulumi.Input[pulumi.InputType['LoadBalancerServiceHealthCheckArgs']] health_check: Health Check configuration when `protocol` is `http` or `https`.
-        :param pulumi.Input[pulumi.InputType['LoadBalancerServiceHttpArgs']] http: HTTP configuration when `protocol` is `http` or `https`.
+        :param pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']] health_check: Health Check configuration when `protocol` is `http` or `https`.
+        :param pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']] http: HTTP configuration when `protocol` is `http` or `https`.
         :param pulumi.Input[int] listen_port: Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param pulumi.Input[str] load_balancer_id: Id of the load balancer this service belongs to.
         :param pulumi.Input[str] protocol: Protocol of the service. `http`, `https` or `tcp`
@@ -341,23 +341,23 @@ class LoadBalancerService(pulumi.CustomResource):
         load_balancer_service = hcloud.LoadBalancerService("load_balancer_service",
             load_balancer_id=load_balancer.id,
             protocol="http",
-            http=hcloud.LoadBalancerServiceHttpArgs(
-                sticky_sessions=True,
-                cookie_name="EXAMPLE_STICKY",
-            ),
-            health_check=hcloud.LoadBalancerServiceHealthCheckArgs(
-                protocol="http",
-                port=80,
-                interval=10,
-                timeout=5,
-                http=hcloud.LoadBalancerServiceHealthCheckHttpArgs(
-                    domain="example.com",
-                    path="/healthz",
-                    response="OK",
-                    tls=True,
-                    status_codes=["200"],
-                ),
-            ))
+            http={
+                "sticky_sessions": True,
+                "cookie_name": "EXAMPLE_STICKY",
+            },
+            health_check={
+                "protocol": "http",
+                "port": 80,
+                "interval": 10,
+                "timeout": 5,
+                "http": {
+                    "domain": "example.com",
+                    "path": "/healthz",
+                    "response": "OK",
+                    "tls": True,
+                    "status_codes": ["200"],
+                },
+            })
         ```
 
         ## Import
@@ -386,8 +386,8 @@ class LoadBalancerService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
-                 health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerServiceHealthCheckArgs']]] = None,
-                 http: Optional[pulumi.Input[pulumi.InputType['LoadBalancerServiceHttpArgs']]] = None,
+                 health_check: Optional[pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
+                 http: Optional[pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
                  listen_port: Optional[pulumi.Input[int]] = None,
                  load_balancer_id: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -423,8 +423,8 @@ class LoadBalancerService(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             destination_port: Optional[pulumi.Input[int]] = None,
-            health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerServiceHealthCheckArgs']]] = None,
-            http: Optional[pulumi.Input[pulumi.InputType['LoadBalancerServiceHttpArgs']]] = None,
+            health_check: Optional[pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
+            http: Optional[pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
             listen_port: Optional[pulumi.Input[int]] = None,
             load_balancer_id: Optional[pulumi.Input[str]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
@@ -437,8 +437,8 @@ class LoadBalancerService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] destination_port: Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
-        :param pulumi.Input[pulumi.InputType['LoadBalancerServiceHealthCheckArgs']] health_check: Health Check configuration when `protocol` is `http` or `https`.
-        :param pulumi.Input[pulumi.InputType['LoadBalancerServiceHttpArgs']] http: HTTP configuration when `protocol` is `http` or `https`.
+        :param pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']] health_check: Health Check configuration when `protocol` is `http` or `https`.
+        :param pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']] http: HTTP configuration when `protocol` is `http` or `https`.
         :param pulumi.Input[int] listen_port: Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param pulumi.Input[str] load_balancer_id: Id of the load balancer this service belongs to.
         :param pulumi.Input[str] protocol: Protocol of the service. `http`, `https` or `tcp`

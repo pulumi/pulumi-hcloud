@@ -320,7 +320,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Rdns(String name) {
+    public Rdns(java.lang.String name) {
         this(name, RdnsArgs.Empty);
     }
     /**
@@ -328,7 +328,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Rdns(String name, RdnsArgs args) {
+    public Rdns(java.lang.String name, RdnsArgs args) {
         this(name, args, null);
     }
     /**
@@ -337,15 +337,22 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Rdns(String name, RdnsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/rdns:Rdns", name, args == null ? RdnsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Rdns(java.lang.String name, RdnsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/rdns:Rdns", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Rdns(String name, Output<String> id, @Nullable RdnsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/rdns:Rdns", name, state, makeResourceOptions(options, id));
+    private Rdns(java.lang.String name, Output<java.lang.String> id, @Nullable RdnsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/rdns:Rdns", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RdnsArgs makeArgs(RdnsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RdnsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -361,7 +368,7 @@ public class Rdns extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Rdns get(String name, Output<String> id, @Nullable RdnsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Rdns get(java.lang.String name, Output<java.lang.String> id, @Nullable RdnsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Rdns(name, id, state, options);
     }
 }

@@ -182,7 +182,7 @@ public class FirewallAttachment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FirewallAttachment(String name) {
+    public FirewallAttachment(java.lang.String name) {
         this(name, FirewallAttachmentArgs.Empty);
     }
     /**
@@ -190,7 +190,7 @@ public class FirewallAttachment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FirewallAttachment(String name, FirewallAttachmentArgs args) {
+    public FirewallAttachment(java.lang.String name, FirewallAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -199,15 +199,22 @@ public class FirewallAttachment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FirewallAttachment(String name, FirewallAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/firewallAttachment:FirewallAttachment", name, args == null ? FirewallAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FirewallAttachment(java.lang.String name, FirewallAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/firewallAttachment:FirewallAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FirewallAttachment(String name, Output<String> id, @Nullable FirewallAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/firewallAttachment:FirewallAttachment", name, state, makeResourceOptions(options, id));
+    private FirewallAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable FirewallAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/firewallAttachment:FirewallAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FirewallAttachmentArgs makeArgs(FirewallAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FirewallAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -223,7 +230,7 @@ public class FirewallAttachment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FirewallAttachment get(String name, Output<String> id, @Nullable FirewallAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FirewallAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable FirewallAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FirewallAttachment(name, id, state, options);
     }
 }

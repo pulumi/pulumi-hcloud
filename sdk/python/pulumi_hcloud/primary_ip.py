@@ -360,9 +360,9 @@ class PrimaryIp(pulumi.CustomResource):
             labels={
                 "test": "tessst1",
             },
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4=main.id,
-            )])
+            public_nets=[{
+                "ipv4": main.id,
+            }])
         ```
 
         ## Import
@@ -421,9 +421,9 @@ class PrimaryIp(pulumi.CustomResource):
             labels={
                 "test": "tessst1",
             },
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4=main.id,
-            )])
+            public_nets=[{
+                "ipv4": main.id,
+            }])
         ```
 
         ## Import
