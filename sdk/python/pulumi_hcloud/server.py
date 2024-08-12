@@ -829,9 +829,9 @@ class Server(pulumi.CustomResource):
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
+                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
                  placement_group_id: Optional[pulumi.Input[int]] = None,
-                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]]] = None,
+                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
@@ -855,10 +855,10 @@ class Server(pulumi.CustomResource):
             name="node1",
             image="debian-11",
             server_type="cx22",
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4_enabled=True,
-                ipv6_enabled=True,
-            )])
+            public_nets=[{
+                "ipv4_enabled": True,
+                "ipv6_enabled": True,
+            }])
         ```
         ```python
         import pulumi
@@ -882,11 +882,11 @@ class Server(pulumi.CustomResource):
             labels={
                 "test": "tessst1",
             },
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4_enabled=True,
-                ipv4=primary_ip1.id,
-                ipv6_enabled=False,
-            )])
+            public_nets=[{
+                "ipv4_enabled": True,
+                "ipv4": primary_ip1.id,
+                "ipv6_enabled": False,
+            }])
         ```
         ### Server creation with network
         ```python
@@ -906,14 +906,14 @@ class Server(pulumi.CustomResource):
             server_type="cx22",
             image="ubuntu-20.04",
             location="nbg1",
-            networks=[hcloud.ServerNetworkArgs(
-                network_id=network.id,
-                ip="10.0.1.5",
-                alias_ips=[
+            networks=[{
+                "network_id": network.id,
+                "ip": "10.0.1.5",
+                "alias_ips": [
                     "10.0.1.6",
                     "10.0.1.7",
                 ],
-            )],
+            }],
             opts = pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
 
@@ -931,10 +931,10 @@ class Server(pulumi.CustomResource):
             name="from-snapshot",
             image=packer_snapshot.id,
             server_type="cx22",
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4_enabled=True,
-                ipv6_enabled=True,
-            )])
+            public_nets=[{
+                "ipv4_enabled": True,
+                "ipv6_enabled": True,
+            }])
         ```
 
         ## Primary IPs
@@ -967,9 +967,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
@@ -1000,10 +1000,10 @@ class Server(pulumi.CustomResource):
             name="node1",
             image="debian-11",
             server_type="cx22",
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4_enabled=True,
-                ipv6_enabled=True,
-            )])
+            public_nets=[{
+                "ipv4_enabled": True,
+                "ipv6_enabled": True,
+            }])
         ```
         ```python
         import pulumi
@@ -1027,11 +1027,11 @@ class Server(pulumi.CustomResource):
             labels={
                 "test": "tessst1",
             },
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4_enabled=True,
-                ipv4=primary_ip1.id,
-                ipv6_enabled=False,
-            )])
+            public_nets=[{
+                "ipv4_enabled": True,
+                "ipv4": primary_ip1.id,
+                "ipv6_enabled": False,
+            }])
         ```
         ### Server creation with network
         ```python
@@ -1051,14 +1051,14 @@ class Server(pulumi.CustomResource):
             server_type="cx22",
             image="ubuntu-20.04",
             location="nbg1",
-            networks=[hcloud.ServerNetworkArgs(
-                network_id=network.id,
-                ip="10.0.1.5",
-                alias_ips=[
+            networks=[{
+                "network_id": network.id,
+                "ip": "10.0.1.5",
+                "alias_ips": [
                     "10.0.1.6",
                     "10.0.1.7",
                 ],
-            )],
+            }],
             opts = pulumi.ResourceOptions(depends_on=[network_subnet]))
         ```
 
@@ -1076,10 +1076,10 @@ class Server(pulumi.CustomResource):
             name="from-snapshot",
             image=packer_snapshot.id,
             server_type="cx22",
-            public_nets=[hcloud.ServerPublicNetArgs(
-                ipv4_enabled=True,
-                ipv6_enabled=True,
-            )])
+            public_nets=[{
+                "ipv4_enabled": True,
+                "ipv6_enabled": True,
+            }])
         ```
 
         ## Primary IPs
@@ -1122,9 +1122,9 @@ class Server(pulumi.CustomResource):
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
+                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
                  placement_group_id: Optional[pulumi.Input[int]] = None,
-                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]]] = None,
+                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
                  rebuild_protection: Optional[pulumi.Input[bool]] = None,
                  rescue: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
@@ -1195,10 +1195,10 @@ class Server(pulumi.CustomResource):
             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]]] = None,
+            networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
             placement_group_id: Optional[pulumi.Input[int]] = None,
             primary_disk_size: Optional[pulumi.Input[int]] = None,
-            public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]]] = None,
+            public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
             rebuild_protection: Optional[pulumi.Input[bool]] = None,
             rescue: Optional[pulumi.Input[str]] = None,
             server_type: Optional[pulumi.Input[str]] = None,
@@ -1232,10 +1232,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerNetworkArgs']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[int] primary_disk_size: (int) The size of the primary disk in GB.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerPublicNetArgs']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
