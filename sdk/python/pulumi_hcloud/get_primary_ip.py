@@ -214,9 +214,9 @@ def get_primary_ip(assignee_id: Optional[int] = None,
         labels={
             "test": "tessst1",
         },
-        public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4=ip1_hcloud_primary_ip["id"],
-        )])
+        public_nets=[{
+            "ipv4": ip1_hcloud_primary_ip["id"],
+        }])
     ```
 
 
@@ -292,9 +292,9 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
         labels={
             "test": "tessst1",
         },
-        public_nets=[hcloud.ServerPublicNetArgs(
-            ipv4=ip1_hcloud_primary_ip["id"],
-        )])
+        public_nets=[{
+            "ipv4": ip1_hcloud_primary_ip["id"],
+        }])
     ```
 
 

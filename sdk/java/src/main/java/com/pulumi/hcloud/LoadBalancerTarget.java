@@ -204,7 +204,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LoadBalancerTarget(String name) {
+    public LoadBalancerTarget(java.lang.String name) {
         this(name, LoadBalancerTargetArgs.Empty);
     }
     /**
@@ -212,7 +212,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LoadBalancerTarget(String name, LoadBalancerTargetArgs args) {
+    public LoadBalancerTarget(java.lang.String name, LoadBalancerTargetArgs args) {
         this(name, args, null);
     }
     /**
@@ -221,15 +221,22 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LoadBalancerTarget(String name, LoadBalancerTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/loadBalancerTarget:LoadBalancerTarget", name, args == null ? LoadBalancerTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LoadBalancerTarget(java.lang.String name, LoadBalancerTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/loadBalancerTarget:LoadBalancerTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LoadBalancerTarget(String name, Output<String> id, @Nullable LoadBalancerTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("hcloud:index/loadBalancerTarget:LoadBalancerTarget", name, state, makeResourceOptions(options, id));
+    private LoadBalancerTarget(java.lang.String name, Output<java.lang.String> id, @Nullable LoadBalancerTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("hcloud:index/loadBalancerTarget:LoadBalancerTarget", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LoadBalancerTargetArgs makeArgs(LoadBalancerTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LoadBalancerTargetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -245,7 +252,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LoadBalancerTarget get(String name, Output<String> id, @Nullable LoadBalancerTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LoadBalancerTarget get(java.lang.String name, Output<java.lang.String> id, @Nullable LoadBalancerTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LoadBalancerTarget(name, id, state, options);
     }
 }
