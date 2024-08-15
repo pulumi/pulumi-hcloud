@@ -125,7 +125,7 @@ class GetPrimaryIpResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         """
         (string) Description of the Primary IP.
         """

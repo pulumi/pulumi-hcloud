@@ -96,10 +96,10 @@ type GetImageResult struct {
 	// (string) Description of the Image.
 	Description string `pulumi:"description"`
 	// (int) Unique ID of the Image.
-	Id                int                    `pulumi:"id"`
-	IncludeDeprecated *bool                  `pulumi:"includeDeprecated"`
-	Labels            map[string]interface{} `pulumi:"labels"`
-	MostRecent        *bool                  `pulumi:"mostRecent"`
+	Id                int               `pulumi:"id"`
+	IncludeDeprecated *bool             `pulumi:"includeDeprecated"`
+	Labels            map[string]string `pulumi:"labels"`
+	MostRecent        *bool             `pulumi:"mostRecent"`
 	// (string) Name of the Image, only present when the Image is of type `system`.
 	Name string `pulumi:"name"`
 	// (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
@@ -198,8 +198,8 @@ func (o GetImageResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetImageResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetImageResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetImageResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetImageResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetImageResultOutput) MostRecent() pulumi.BoolPtrOutput {

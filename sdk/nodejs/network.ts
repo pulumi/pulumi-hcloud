@@ -70,7 +70,7 @@ export class Network extends pulumi.CustomResource {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the Network to create (must be unique per project).
      */
@@ -129,7 +129,7 @@ export interface NetworkState {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Network to create (must be unique per project).
      */
@@ -155,7 +155,7 @@ export interface NetworkArgs {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Network to create (must be unique per project).
      */

@@ -10,7 +10,6 @@ import com.pulumi.hcloud.outputs.GetLoadBalancersLoadBalancerService;
 import com.pulumi.hcloud.outputs.GetLoadBalancersLoadBalancerTarget;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +24,7 @@ public final class GetLoadBalancersLoadBalancer {
     private Integer id;
     private String ipv4;
     private String ipv6;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     private String loadBalancerType;
     private String location;
     private @Nullable String name;
@@ -51,7 +50,7 @@ public final class GetLoadBalancersLoadBalancer {
     public String ipv6() {
         return this.ipv6;
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     public String loadBalancerType() {
@@ -93,7 +92,7 @@ public final class GetLoadBalancersLoadBalancer {
         private Integer id;
         private String ipv4;
         private String ipv6;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private String loadBalancerType;
         private String location;
         private @Nullable String name;
@@ -165,7 +164,7 @@ public final class GetLoadBalancersLoadBalancer {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancer", "labels");
             }

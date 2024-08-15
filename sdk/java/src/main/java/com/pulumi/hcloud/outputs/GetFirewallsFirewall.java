@@ -8,7 +8,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetFirewallsFirewallApplyTo;
 import com.pulumi.hcloud.outputs.GetFirewallsFirewallRule;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +19,7 @@ import javax.annotation.Nullable;
 public final class GetFirewallsFirewall {
     private @Nullable List<GetFirewallsFirewallApplyTo> applyTos;
     private @Nullable Integer id;
-    private @Nullable Map<String,Object> labels;
+    private @Nullable Map<String,String> labels;
     private String name;
     private @Nullable List<GetFirewallsFirewallRule> rules;
 
@@ -31,7 +30,7 @@ public final class GetFirewallsFirewall {
     public Optional<Integer> id() {
         return Optional.ofNullable(this.id);
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels == null ? Map.of() : this.labels;
     }
     public String name() {
@@ -52,7 +51,7 @@ public final class GetFirewallsFirewall {
     public static final class Builder {
         private @Nullable List<GetFirewallsFirewallApplyTo> applyTos;
         private @Nullable Integer id;
-        private @Nullable Map<String,Object> labels;
+        private @Nullable Map<String,String> labels;
         private String name;
         private @Nullable List<GetFirewallsFirewallRule> rules;
         public Builder() {}
@@ -81,7 +80,7 @@ public final class GetFirewallsFirewall {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(@Nullable Map<String,Object> labels) {
+        public Builder labels(@Nullable Map<String,String> labels) {
 
             this.labels = labels;
             return this;

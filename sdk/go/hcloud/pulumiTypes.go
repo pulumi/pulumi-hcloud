@@ -1417,16 +1417,16 @@ func (o ServerPublicNetArrayOutput) Index(i pulumi.IntInput) ServerPublicNetOutp
 }
 
 type GetCertificatesCertificate struct {
-	Certificate    string                 `pulumi:"certificate"`
-	Created        string                 `pulumi:"created"`
-	DomainNames    []string               `pulumi:"domainNames"`
-	Fingerprint    string                 `pulumi:"fingerprint"`
-	Id             int                    `pulumi:"id"`
-	Labels         map[string]interface{} `pulumi:"labels"`
-	Name           *string                `pulumi:"name"`
-	NotValidAfter  string                 `pulumi:"notValidAfter"`
-	NotValidBefore string                 `pulumi:"notValidBefore"`
-	Type           string                 `pulumi:"type"`
+	Certificate    string            `pulumi:"certificate"`
+	Created        string            `pulumi:"created"`
+	DomainNames    []string          `pulumi:"domainNames"`
+	Fingerprint    string            `pulumi:"fingerprint"`
+	Id             int               `pulumi:"id"`
+	Labels         map[string]string `pulumi:"labels"`
+	Name           *string           `pulumi:"name"`
+	NotValidAfter  string            `pulumi:"notValidAfter"`
+	NotValidBefore string            `pulumi:"notValidBefore"`
+	Type           string            `pulumi:"type"`
 }
 
 // GetCertificatesCertificateInput is an input type that accepts GetCertificatesCertificateArgs and GetCertificatesCertificateOutput values.
@@ -1446,7 +1446,7 @@ type GetCertificatesCertificateArgs struct {
 	DomainNames    pulumi.StringArrayInput `pulumi:"domainNames"`
 	Fingerprint    pulumi.StringInput      `pulumi:"fingerprint"`
 	Id             pulumi.IntInput         `pulumi:"id"`
-	Labels         pulumi.MapInput         `pulumi:"labels"`
+	Labels         pulumi.StringMapInput   `pulumi:"labels"`
 	Name           pulumi.StringPtrInput   `pulumi:"name"`
 	NotValidAfter  pulumi.StringInput      `pulumi:"notValidAfter"`
 	NotValidBefore pulumi.StringInput      `pulumi:"notValidBefore"`
@@ -1524,8 +1524,8 @@ func (o GetCertificatesCertificateOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetCertificatesCertificate) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o GetCertificatesCertificateOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetCertificatesCertificate) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetCertificatesCertificateOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCertificatesCertificate) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetCertificatesCertificateOutput) Name() pulumi.StringPtrOutput {
@@ -1942,7 +1942,7 @@ func (o GetFirewallRuleArrayOutput) Index(i pulumi.IntInput) GetFirewallRuleOutp
 type GetFirewallsFirewall struct {
 	ApplyTos []GetFirewallsFirewallApplyTo `pulumi:"applyTos"`
 	Id       *int                          `pulumi:"id"`
-	Labels   map[string]interface{}        `pulumi:"labels"`
+	Labels   map[string]string             `pulumi:"labels"`
 	Name     string                        `pulumi:"name"`
 	Rules    []GetFirewallsFirewallRule    `pulumi:"rules"`
 }
@@ -1961,7 +1961,7 @@ type GetFirewallsFirewallInput interface {
 type GetFirewallsFirewallArgs struct {
 	ApplyTos GetFirewallsFirewallApplyToArrayInput `pulumi:"applyTos"`
 	Id       pulumi.IntPtrInput                    `pulumi:"id"`
-	Labels   pulumi.MapInput                       `pulumi:"labels"`
+	Labels   pulumi.StringMapInput                 `pulumi:"labels"`
 	Name     pulumi.StringInput                    `pulumi:"name"`
 	Rules    GetFirewallsFirewallRuleArrayInput    `pulumi:"rules"`
 }
@@ -2025,8 +2025,8 @@ func (o GetFirewallsFirewallOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetFirewallsFirewall) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
-func (o GetFirewallsFirewallOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetFirewallsFirewall) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetFirewallsFirewallOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallsFirewall) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetFirewallsFirewallOutput) Name() pulumi.StringOutput {
@@ -2282,16 +2282,16 @@ func (o GetFirewallsFirewallRuleArrayOutput) Index(i pulumi.IntInput) GetFirewal
 }
 
 type GetFloatingIpsFloatingIp struct {
-	DeleteProtection bool                   `pulumi:"deleteProtection"`
-	Description      string                 `pulumi:"description"`
-	HomeLocation     string                 `pulumi:"homeLocation"`
-	Id               int                    `pulumi:"id"`
-	IpAddress        string                 `pulumi:"ipAddress"`
-	IpNetwork        string                 `pulumi:"ipNetwork"`
-	Labels           map[string]interface{} `pulumi:"labels"`
-	Name             *string                `pulumi:"name"`
-	ServerId         int                    `pulumi:"serverId"`
-	Type             string                 `pulumi:"type"`
+	DeleteProtection bool              `pulumi:"deleteProtection"`
+	Description      string            `pulumi:"description"`
+	HomeLocation     string            `pulumi:"homeLocation"`
+	Id               int               `pulumi:"id"`
+	IpAddress        string            `pulumi:"ipAddress"`
+	IpNetwork        string            `pulumi:"ipNetwork"`
+	Labels           map[string]string `pulumi:"labels"`
+	Name             *string           `pulumi:"name"`
+	ServerId         int               `pulumi:"serverId"`
+	Type             string            `pulumi:"type"`
 }
 
 // GetFloatingIpsFloatingIpInput is an input type that accepts GetFloatingIpsFloatingIpArgs and GetFloatingIpsFloatingIpOutput values.
@@ -2312,7 +2312,7 @@ type GetFloatingIpsFloatingIpArgs struct {
 	Id               pulumi.IntInput       `pulumi:"id"`
 	IpAddress        pulumi.StringInput    `pulumi:"ipAddress"`
 	IpNetwork        pulumi.StringInput    `pulumi:"ipNetwork"`
-	Labels           pulumi.MapInput       `pulumi:"labels"`
+	Labels           pulumi.StringMapInput `pulumi:"labels"`
 	Name             pulumi.StringPtrInput `pulumi:"name"`
 	ServerId         pulumi.IntInput       `pulumi:"serverId"`
 	Type             pulumi.StringInput    `pulumi:"type"`
@@ -2393,8 +2393,8 @@ func (o GetFloatingIpsFloatingIpOutput) IpNetwork() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFloatingIpsFloatingIp) string { return v.IpNetwork }).(pulumi.StringOutput)
 }
 
-func (o GetFloatingIpsFloatingIpOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetFloatingIpsFloatingIp) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetFloatingIpsFloatingIpOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFloatingIpsFloatingIp) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetFloatingIpsFloatingIpOutput) Name() pulumi.StringPtrOutput {
@@ -2430,16 +2430,16 @@ func (o GetFloatingIpsFloatingIpArrayOutput) Index(i pulumi.IntInput) GetFloatin
 }
 
 type GetImagesImage struct {
-	Architecture string                 `pulumi:"architecture"`
-	Created      string                 `pulumi:"created"`
-	Deprecated   string                 `pulumi:"deprecated"`
-	Description  string                 `pulumi:"description"`
-	Id           int                    `pulumi:"id"`
-	Labels       map[string]interface{} `pulumi:"labels"`
-	Name         string                 `pulumi:"name"`
-	OsFlavor     string                 `pulumi:"osFlavor"`
-	OsVersion    string                 `pulumi:"osVersion"`
-	RapidDeploy  bool                   `pulumi:"rapidDeploy"`
+	Architecture string            `pulumi:"architecture"`
+	Created      string            `pulumi:"created"`
+	Deprecated   string            `pulumi:"deprecated"`
+	Description  string            `pulumi:"description"`
+	Id           int               `pulumi:"id"`
+	Labels       map[string]string `pulumi:"labels"`
+	Name         string            `pulumi:"name"`
+	OsFlavor     string            `pulumi:"osFlavor"`
+	OsVersion    string            `pulumi:"osVersion"`
+	RapidDeploy  bool              `pulumi:"rapidDeploy"`
 	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
 	Type     string  `pulumi:"type"`
@@ -2457,16 +2457,16 @@ type GetImagesImageInput interface {
 }
 
 type GetImagesImageArgs struct {
-	Architecture pulumi.StringInput `pulumi:"architecture"`
-	Created      pulumi.StringInput `pulumi:"created"`
-	Deprecated   pulumi.StringInput `pulumi:"deprecated"`
-	Description  pulumi.StringInput `pulumi:"description"`
-	Id           pulumi.IntInput    `pulumi:"id"`
-	Labels       pulumi.MapInput    `pulumi:"labels"`
-	Name         pulumi.StringInput `pulumi:"name"`
-	OsFlavor     pulumi.StringInput `pulumi:"osFlavor"`
-	OsVersion    pulumi.StringInput `pulumi:"osVersion"`
-	RapidDeploy  pulumi.BoolInput   `pulumi:"rapidDeploy"`
+	Architecture pulumi.StringInput    `pulumi:"architecture"`
+	Created      pulumi.StringInput    `pulumi:"created"`
+	Deprecated   pulumi.StringInput    `pulumi:"deprecated"`
+	Description  pulumi.StringInput    `pulumi:"description"`
+	Id           pulumi.IntInput       `pulumi:"id"`
+	Labels       pulumi.StringMapInput `pulumi:"labels"`
+	Name         pulumi.StringInput    `pulumi:"name"`
+	OsFlavor     pulumi.StringInput    `pulumi:"osFlavor"`
+	OsVersion    pulumi.StringInput    `pulumi:"osVersion"`
+	RapidDeploy  pulumi.BoolInput      `pulumi:"rapidDeploy"`
 	// Deprecated: Please use the withSelector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	Type     pulumi.StringInput    `pulumi:"type"`
@@ -2543,8 +2543,8 @@ func (o GetImagesImageOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImagesImage) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o GetImagesImageOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetImagesImage) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetImagesImageOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetImagesImage) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetImagesImageOutput) Name() pulumi.StringOutput {
@@ -3360,7 +3360,7 @@ type GetLoadBalancersLoadBalancer struct {
 	Id               int                                     `pulumi:"id"`
 	Ipv4             string                                  `pulumi:"ipv4"`
 	Ipv6             string                                  `pulumi:"ipv6"`
-	Labels           map[string]interface{}                  `pulumi:"labels"`
+	Labels           map[string]string                       `pulumi:"labels"`
 	LoadBalancerType string                                  `pulumi:"loadBalancerType"`
 	Location         string                                  `pulumi:"location"`
 	Name             *string                                 `pulumi:"name"`
@@ -3388,7 +3388,7 @@ type GetLoadBalancersLoadBalancerArgs struct {
 	Id               pulumi.IntInput                                 `pulumi:"id"`
 	Ipv4             pulumi.StringInput                              `pulumi:"ipv4"`
 	Ipv6             pulumi.StringInput                              `pulumi:"ipv6"`
-	Labels           pulumi.MapInput                                 `pulumi:"labels"`
+	Labels           pulumi.StringMapInput                           `pulumi:"labels"`
 	LoadBalancerType pulumi.StringInput                              `pulumi:"loadBalancerType"`
 	Location         pulumi.StringInput                              `pulumi:"location"`
 	Name             pulumi.StringPtrInput                           `pulumi:"name"`
@@ -3470,8 +3470,8 @@ func (o GetLoadBalancersLoadBalancerOutput) Ipv6() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancersLoadBalancer) string { return v.Ipv6 }).(pulumi.StringOutput)
 }
 
-func (o GetLoadBalancersLoadBalancerOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetLoadBalancersLoadBalancer) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetLoadBalancersLoadBalancerOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLoadBalancersLoadBalancer) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetLoadBalancersLoadBalancerOutput) LoadBalancerType() pulumi.StringOutput {
@@ -4353,11 +4353,11 @@ func (o GetLocationsLocationArrayOutput) Index(i pulumi.IntInput) GetLocationsLo
 type GetNetworksNetwork struct {
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
-	ExposeRoutesToVswitch bool                   `pulumi:"exposeRoutesToVswitch"`
-	Id                    int                    `pulumi:"id"`
-	IpRange               string                 `pulumi:"ipRange"`
-	Labels                map[string]interface{} `pulumi:"labels"`
-	Name                  string                 `pulumi:"name"`
+	ExposeRoutesToVswitch bool              `pulumi:"exposeRoutesToVswitch"`
+	Id                    int               `pulumi:"id"`
+	IpRange               string            `pulumi:"ipRange"`
+	Labels                map[string]string `pulumi:"labels"`
+	Name                  string            `pulumi:"name"`
 }
 
 // GetNetworksNetworkInput is an input type that accepts GetNetworksNetworkArgs and GetNetworksNetworkOutput values.
@@ -4374,11 +4374,11 @@ type GetNetworksNetworkInput interface {
 type GetNetworksNetworkArgs struct {
 	DeleteProtection pulumi.BoolInput `pulumi:"deleteProtection"`
 	// Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
-	ExposeRoutesToVswitch pulumi.BoolInput   `pulumi:"exposeRoutesToVswitch"`
-	Id                    pulumi.IntInput    `pulumi:"id"`
-	IpRange               pulumi.StringInput `pulumi:"ipRange"`
-	Labels                pulumi.MapInput    `pulumi:"labels"`
-	Name                  pulumi.StringInput `pulumi:"name"`
+	ExposeRoutesToVswitch pulumi.BoolInput      `pulumi:"exposeRoutesToVswitch"`
+	Id                    pulumi.IntInput       `pulumi:"id"`
+	IpRange               pulumi.StringInput    `pulumi:"ipRange"`
+	Labels                pulumi.StringMapInput `pulumi:"labels"`
+	Name                  pulumi.StringInput    `pulumi:"name"`
 }
 
 func (GetNetworksNetworkArgs) ElementType() reflect.Type {
@@ -4449,8 +4449,8 @@ func (o GetNetworksNetworkOutput) IpRange() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworksNetwork) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
-func (o GetNetworksNetworkOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetNetworksNetwork) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetNetworksNetworkOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNetworksNetwork) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetNetworksNetworkOutput) Name() pulumi.StringOutput {
@@ -4478,11 +4478,11 @@ func (o GetNetworksNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworksNetwo
 }
 
 type GetPlacementGroupsPlacementGroup struct {
-	Id      int                    `pulumi:"id"`
-	Labels  map[string]interface{} `pulumi:"labels"`
-	Name    string                 `pulumi:"name"`
-	Servers []int                  `pulumi:"servers"`
-	Type    string                 `pulumi:"type"`
+	Id      int               `pulumi:"id"`
+	Labels  map[string]string `pulumi:"labels"`
+	Name    string            `pulumi:"name"`
+	Servers []int             `pulumi:"servers"`
+	Type    string            `pulumi:"type"`
 }
 
 // GetPlacementGroupsPlacementGroupInput is an input type that accepts GetPlacementGroupsPlacementGroupArgs and GetPlacementGroupsPlacementGroupOutput values.
@@ -4497,11 +4497,11 @@ type GetPlacementGroupsPlacementGroupInput interface {
 }
 
 type GetPlacementGroupsPlacementGroupArgs struct {
-	Id      pulumi.IntInput      `pulumi:"id"`
-	Labels  pulumi.MapInput      `pulumi:"labels"`
-	Name    pulumi.StringInput   `pulumi:"name"`
-	Servers pulumi.IntArrayInput `pulumi:"servers"`
-	Type    pulumi.StringInput   `pulumi:"type"`
+	Id      pulumi.IntInput       `pulumi:"id"`
+	Labels  pulumi.StringMapInput `pulumi:"labels"`
+	Name    pulumi.StringInput    `pulumi:"name"`
+	Servers pulumi.IntArrayInput  `pulumi:"servers"`
+	Type    pulumi.StringInput    `pulumi:"type"`
 }
 
 func (GetPlacementGroupsPlacementGroupArgs) ElementType() reflect.Type {
@@ -4559,8 +4559,8 @@ func (o GetPlacementGroupsPlacementGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPlacementGroupsPlacementGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o GetPlacementGroupsPlacementGroupOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetPlacementGroupsPlacementGroup) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetPlacementGroupsPlacementGroupOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetPlacementGroupsPlacementGroup) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetPlacementGroupsPlacementGroupOutput) Name() pulumi.StringOutput {
@@ -4596,17 +4596,17 @@ func (o GetPlacementGroupsPlacementGroupArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetPrimaryIpsPrimaryIp struct {
-	AssigneeId       int                    `pulumi:"assigneeId"`
-	AssigneeType     string                 `pulumi:"assigneeType"`
-	AutoDelete       bool                   `pulumi:"autoDelete"`
-	Datacenter       string                 `pulumi:"datacenter"`
-	DeleteProtection bool                   `pulumi:"deleteProtection"`
-	Id               int                    `pulumi:"id"`
-	IpAddress        string                 `pulumi:"ipAddress"`
-	IpNetwork        string                 `pulumi:"ipNetwork"`
-	Labels           map[string]interface{} `pulumi:"labels"`
-	Name             *string                `pulumi:"name"`
-	Type             string                 `pulumi:"type"`
+	AssigneeId       int               `pulumi:"assigneeId"`
+	AssigneeType     string            `pulumi:"assigneeType"`
+	AutoDelete       bool              `pulumi:"autoDelete"`
+	Datacenter       string            `pulumi:"datacenter"`
+	DeleteProtection bool              `pulumi:"deleteProtection"`
+	Id               int               `pulumi:"id"`
+	IpAddress        string            `pulumi:"ipAddress"`
+	IpNetwork        string            `pulumi:"ipNetwork"`
+	Labels           map[string]string `pulumi:"labels"`
+	Name             *string           `pulumi:"name"`
+	Type             string            `pulumi:"type"`
 }
 
 // GetPrimaryIpsPrimaryIpInput is an input type that accepts GetPrimaryIpsPrimaryIpArgs and GetPrimaryIpsPrimaryIpOutput values.
@@ -4629,7 +4629,7 @@ type GetPrimaryIpsPrimaryIpArgs struct {
 	Id               pulumi.IntInput       `pulumi:"id"`
 	IpAddress        pulumi.StringInput    `pulumi:"ipAddress"`
 	IpNetwork        pulumi.StringInput    `pulumi:"ipNetwork"`
-	Labels           pulumi.MapInput       `pulumi:"labels"`
+	Labels           pulumi.StringMapInput `pulumi:"labels"`
 	Name             pulumi.StringPtrInput `pulumi:"name"`
 	Type             pulumi.StringInput    `pulumi:"type"`
 }
@@ -4717,8 +4717,8 @@ func (o GetPrimaryIpsPrimaryIpOutput) IpNetwork() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.IpNetwork }).(pulumi.StringOutput)
 }
 
-func (o GetPrimaryIpsPrimaryIpOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetPrimaryIpsPrimaryIpOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetPrimaryIpsPrimaryIpOutput) Name() pulumi.StringPtrOutput {
@@ -4919,26 +4919,26 @@ func (o GetServerTypesServerTypeArrayOutput) Index(i pulumi.IntInput) GetServerT
 }
 
 type GetServersServer struct {
-	BackupWindow      string                 `pulumi:"backupWindow"`
-	Backups           bool                   `pulumi:"backups"`
-	Datacenter        string                 `pulumi:"datacenter"`
-	DeleteProtection  bool                   `pulumi:"deleteProtection"`
-	FirewallIds       []int                  `pulumi:"firewallIds"`
-	Id                int                    `pulumi:"id"`
-	Image             string                 `pulumi:"image"`
-	Ipv4Address       string                 `pulumi:"ipv4Address"`
-	Ipv6Address       string                 `pulumi:"ipv6Address"`
-	Ipv6Network       string                 `pulumi:"ipv6Network"`
-	Iso               string                 `pulumi:"iso"`
-	Labels            map[string]interface{} `pulumi:"labels"`
-	Location          string                 `pulumi:"location"`
-	Name              string                 `pulumi:"name"`
-	PlacementGroupId  *int                   `pulumi:"placementGroupId"`
-	PrimaryDiskSize   int                    `pulumi:"primaryDiskSize"`
-	RebuildProtection bool                   `pulumi:"rebuildProtection"`
-	Rescue            string                 `pulumi:"rescue"`
-	ServerType        string                 `pulumi:"serverType"`
-	Status            string                 `pulumi:"status"`
+	BackupWindow      string            `pulumi:"backupWindow"`
+	Backups           bool              `pulumi:"backups"`
+	Datacenter        string            `pulumi:"datacenter"`
+	DeleteProtection  bool              `pulumi:"deleteProtection"`
+	FirewallIds       []int             `pulumi:"firewallIds"`
+	Id                int               `pulumi:"id"`
+	Image             string            `pulumi:"image"`
+	Ipv4Address       string            `pulumi:"ipv4Address"`
+	Ipv6Address       string            `pulumi:"ipv6Address"`
+	Ipv6Network       string            `pulumi:"ipv6Network"`
+	Iso               string            `pulumi:"iso"`
+	Labels            map[string]string `pulumi:"labels"`
+	Location          string            `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	PlacementGroupId  *int              `pulumi:"placementGroupId"`
+	PrimaryDiskSize   int               `pulumi:"primaryDiskSize"`
+	RebuildProtection bool              `pulumi:"rebuildProtection"`
+	Rescue            string            `pulumi:"rescue"`
+	ServerType        string            `pulumi:"serverType"`
+	Status            string            `pulumi:"status"`
 }
 
 // GetServersServerInput is an input type that accepts GetServersServerArgs and GetServersServerOutput values.
@@ -4953,26 +4953,26 @@ type GetServersServerInput interface {
 }
 
 type GetServersServerArgs struct {
-	BackupWindow      pulumi.StringInput   `pulumi:"backupWindow"`
-	Backups           pulumi.BoolInput     `pulumi:"backups"`
-	Datacenter        pulumi.StringInput   `pulumi:"datacenter"`
-	DeleteProtection  pulumi.BoolInput     `pulumi:"deleteProtection"`
-	FirewallIds       pulumi.IntArrayInput `pulumi:"firewallIds"`
-	Id                pulumi.IntInput      `pulumi:"id"`
-	Image             pulumi.StringInput   `pulumi:"image"`
-	Ipv4Address       pulumi.StringInput   `pulumi:"ipv4Address"`
-	Ipv6Address       pulumi.StringInput   `pulumi:"ipv6Address"`
-	Ipv6Network       pulumi.StringInput   `pulumi:"ipv6Network"`
-	Iso               pulumi.StringInput   `pulumi:"iso"`
-	Labels            pulumi.MapInput      `pulumi:"labels"`
-	Location          pulumi.StringInput   `pulumi:"location"`
-	Name              pulumi.StringInput   `pulumi:"name"`
-	PlacementGroupId  pulumi.IntPtrInput   `pulumi:"placementGroupId"`
-	PrimaryDiskSize   pulumi.IntInput      `pulumi:"primaryDiskSize"`
-	RebuildProtection pulumi.BoolInput     `pulumi:"rebuildProtection"`
-	Rescue            pulumi.StringInput   `pulumi:"rescue"`
-	ServerType        pulumi.StringInput   `pulumi:"serverType"`
-	Status            pulumi.StringInput   `pulumi:"status"`
+	BackupWindow      pulumi.StringInput    `pulumi:"backupWindow"`
+	Backups           pulumi.BoolInput      `pulumi:"backups"`
+	Datacenter        pulumi.StringInput    `pulumi:"datacenter"`
+	DeleteProtection  pulumi.BoolInput      `pulumi:"deleteProtection"`
+	FirewallIds       pulumi.IntArrayInput  `pulumi:"firewallIds"`
+	Id                pulumi.IntInput       `pulumi:"id"`
+	Image             pulumi.StringInput    `pulumi:"image"`
+	Ipv4Address       pulumi.StringInput    `pulumi:"ipv4Address"`
+	Ipv6Address       pulumi.StringInput    `pulumi:"ipv6Address"`
+	Ipv6Network       pulumi.StringInput    `pulumi:"ipv6Network"`
+	Iso               pulumi.StringInput    `pulumi:"iso"`
+	Labels            pulumi.StringMapInput `pulumi:"labels"`
+	Location          pulumi.StringInput    `pulumi:"location"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+	PlacementGroupId  pulumi.IntPtrInput    `pulumi:"placementGroupId"`
+	PrimaryDiskSize   pulumi.IntInput       `pulumi:"primaryDiskSize"`
+	RebuildProtection pulumi.BoolInput      `pulumi:"rebuildProtection"`
+	Rescue            pulumi.StringInput    `pulumi:"rescue"`
+	ServerType        pulumi.StringInput    `pulumi:"serverType"`
+	Status            pulumi.StringInput    `pulumi:"status"`
 }
 
 func (GetServersServerArgs) ElementType() reflect.Type {
@@ -5070,8 +5070,8 @@ func (o GetServersServerOutput) Iso() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServersServer) string { return v.Iso }).(pulumi.StringOutput)
 }
 
-func (o GetServersServerOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetServersServer) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetServersServerOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetServersServer) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetServersServerOutput) Location() pulumi.StringOutput {
@@ -5260,14 +5260,14 @@ func (o GetSshKeysSshKeyArrayOutput) Index(i pulumi.IntInput) GetSshKeysSshKeyOu
 }
 
 type GetVolumesVolume struct {
-	DeleteProtection bool                   `pulumi:"deleteProtection"`
-	Id               int                    `pulumi:"id"`
-	Labels           map[string]interface{} `pulumi:"labels"`
-	LinuxDevice      string                 `pulumi:"linuxDevice"`
-	Location         *string                `pulumi:"location"`
-	Name             string                 `pulumi:"name"`
-	ServerId         *int                   `pulumi:"serverId"`
-	Size             int                    `pulumi:"size"`
+	DeleteProtection bool              `pulumi:"deleteProtection"`
+	Id               int               `pulumi:"id"`
+	Labels           map[string]string `pulumi:"labels"`
+	LinuxDevice      string            `pulumi:"linuxDevice"`
+	Location         *string           `pulumi:"location"`
+	Name             string            `pulumi:"name"`
+	ServerId         *int              `pulumi:"serverId"`
+	Size             int               `pulumi:"size"`
 }
 
 // GetVolumesVolumeInput is an input type that accepts GetVolumesVolumeArgs and GetVolumesVolumeOutput values.
@@ -5284,7 +5284,7 @@ type GetVolumesVolumeInput interface {
 type GetVolumesVolumeArgs struct {
 	DeleteProtection pulumi.BoolInput      `pulumi:"deleteProtection"`
 	Id               pulumi.IntInput       `pulumi:"id"`
-	Labels           pulumi.MapInput       `pulumi:"labels"`
+	Labels           pulumi.StringMapInput `pulumi:"labels"`
 	LinuxDevice      pulumi.StringInput    `pulumi:"linuxDevice"`
 	Location         pulumi.StringPtrInput `pulumi:"location"`
 	Name             pulumi.StringInput    `pulumi:"name"`
@@ -5351,8 +5351,8 @@ func (o GetVolumesVolumeOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVolumesVolume) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o GetVolumesVolumeOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetVolumesVolume) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetVolumesVolumeOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetVolumesVolume) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o GetVolumesVolumeOutput) LinuxDevice() pulumi.StringOutput {

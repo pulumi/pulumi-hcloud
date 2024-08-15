@@ -37,7 +37,7 @@ type ManagedCertificate struct {
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Certificate.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -91,7 +91,7 @@ type managedCertificateState struct {
 	Fingerprint *string `pulumi:"fingerprint"`
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Certificate.
 	Name *string `pulumi:"name"`
 	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -113,7 +113,7 @@ type ManagedCertificateState struct {
 	Fingerprint pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Certificate.
 	Name pulumi.StringPtrInput
 	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -133,7 +133,7 @@ type managedCertificateArgs struct {
 	DomainNames []string `pulumi:"domainNames"`
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Certificate.
 	Name *string `pulumi:"name"`
 }
@@ -145,7 +145,7 @@ type ManagedCertificateArgs struct {
 	DomainNames pulumi.StringArrayInput
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Certificate.
 	Name pulumi.StringPtrInput
 }
@@ -260,8 +260,8 @@ func (o ManagedCertificateOutput) Fingerprint() pulumi.StringOutput {
 
 // User-defined labels (key-value pairs) the
 // certificate should be created with.
-func (o ManagedCertificateOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagedCertificate) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o ManagedCertificateOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedCertificate) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the Certificate.

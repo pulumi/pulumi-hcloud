@@ -92,10 +92,10 @@ namespace Pulumi.HCloud
         public string? IpRange { get; set; }
 
         [Input("labels")]
-        private Dictionary<string, object>? _labels;
-        public Dictionary<string, object> Labels
+        private Dictionary<string, string>? _labels;
+        public Dictionary<string, string> Labels
         {
-            get => _labels ?? (_labels = new Dictionary<string, object>());
+            get => _labels ?? (_labels = new Dictionary<string, string>());
             set => _labels = value;
         }
 
@@ -135,10 +135,10 @@ namespace Pulumi.HCloud
         public Input<string>? IpRange { get; set; }
 
         [Input("labels")]
-        private InputMap<object>? _labels;
-        public InputMap<object> Labels
+        private InputMap<string>? _labels;
+        public InputMap<string> Labels
         {
-            get => _labels ?? (_labels = new InputMap<object>());
+            get => _labels ?? (_labels = new InputMap<string>());
             set => _labels = value;
         }
 
@@ -183,7 +183,7 @@ namespace Pulumi.HCloud
         /// IPv4 prefix of the Network.
         /// </summary>
         public readonly string IpRange;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         public readonly bool? MostRecent;
         /// <summary>
         /// Name of the Network.
@@ -201,7 +201,7 @@ namespace Pulumi.HCloud
 
             string ipRange,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             bool? mostRecent,
 

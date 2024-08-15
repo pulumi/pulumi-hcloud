@@ -15,7 +15,7 @@ namespace Pulumi.HCloud.Outputs
     {
         public readonly ImmutableArray<Outputs.GetFirewallsFirewallApplyToResult> ApplyTos;
         public readonly int? Id;
-        public readonly ImmutableDictionary<string, object>? Labels;
+        public readonly ImmutableDictionary<string, string>? Labels;
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetFirewallsFirewallRuleResult> Rules;
 
@@ -25,7 +25,7 @@ namespace Pulumi.HCloud.Outputs
 
             int? id,
 
-            ImmutableDictionary<string, object>? labels,
+            ImmutableDictionary<string, string>? labels,
 
             string name,
 

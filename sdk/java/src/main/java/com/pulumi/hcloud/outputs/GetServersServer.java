@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +27,7 @@ public final class GetServersServer {
     private String ipv6Address;
     private String ipv6Network;
     private String iso;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     private String location;
     private String name;
     private @Nullable Integer placementGroupId;
@@ -72,7 +71,7 @@ public final class GetServersServer {
     public String iso() {
         return this.iso;
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     public String location() {
@@ -120,7 +119,7 @@ public final class GetServersServer {
         private String ipv6Address;
         private String ipv6Network;
         private String iso;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private String location;
         private String name;
         private @Nullable Integer placementGroupId;
@@ -246,7 +245,7 @@ public final class GetServersServer {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetServersServer", "labels");
             }

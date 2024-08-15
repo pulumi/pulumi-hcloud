@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -60,7 +59,7 @@ public final class GetPrimaryIpResult {
      * @return (string) Description of the Primary IP.
      * 
      */
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     /**
      * @return (string) Name of the Primary IP.
      * 
@@ -134,7 +133,7 @@ public final class GetPrimaryIpResult {
      * @return (string) Description of the Primary IP.
      * 
      */
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     /**
@@ -172,7 +171,7 @@ public final class GetPrimaryIpResult {
         private Integer id;
         private String ipAddress;
         private String ipNetwork;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private @Nullable String name;
         private String type;
         private @Nullable String withSelector;
@@ -258,7 +257,7 @@ public final class GetPrimaryIpResult {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetPrimaryIpResult", "labels");
             }

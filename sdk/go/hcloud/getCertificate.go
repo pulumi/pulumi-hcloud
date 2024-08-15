@@ -75,7 +75,7 @@ type LookupCertificateResult struct {
 	// (int) Unique ID of the certificate.
 	Id int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs) assigned to the certificate.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// (string) Name of the Certificate.
 	Name *string `pulumi:"name"`
 	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -154,8 +154,8 @@ func (o LookupCertificateResultOutput) Id() pulumi.IntOutput {
 }
 
 // (map) User-defined labels (key-value pairs) assigned to the certificate.
-func (o LookupCertificateResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupCertificateResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupCertificateResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCertificateResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // (string) Name of the Certificate.

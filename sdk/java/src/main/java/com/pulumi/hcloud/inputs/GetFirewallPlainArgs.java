@@ -8,7 +8,6 @@ import com.pulumi.hcloud.inputs.GetFirewallApplyTo;
 import com.pulumi.hcloud.inputs.GetFirewallRule;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -56,13 +55,13 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
      * 
      */
     @Import(name="labels")
-    private @Nullable Map<String,Object> labels;
+    private @Nullable Map<String,String> labels;
 
     /**
      * @return (map) User-defined labels (key-value pairs)
      * 
      */
-    public Optional<Map<String,Object>> labels() {
+    public Optional<Map<String,String>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
@@ -194,7 +193,7 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder labels(@Nullable Map<String,Object> labels) {
+        public Builder labels(@Nullable Map<String,String> labels) {
             $.labels = labels;
             return this;
         }

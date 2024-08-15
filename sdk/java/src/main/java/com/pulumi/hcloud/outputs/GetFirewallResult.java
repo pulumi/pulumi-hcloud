@@ -9,7 +9,6 @@ import com.pulumi.hcloud.outputs.GetFirewallApplyTo;
 import com.pulumi.hcloud.outputs.GetFirewallRule;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +32,7 @@ public final class GetFirewallResult {
      * @return (map) User-defined labels (key-value pairs)
      * 
      */
-    private @Nullable Map<String,Object> labels;
+    private @Nullable Map<String,String> labels;
     private @Nullable Boolean mostRecent;
     /**
      * @return (string) Name of the Firewall.
@@ -66,7 +65,7 @@ public final class GetFirewallResult {
      * @return (map) User-defined labels (key-value pairs)
      * 
      */
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels == null ? Map.of() : this.labels;
     }
     public Optional<Boolean> mostRecent() {
@@ -101,7 +100,7 @@ public final class GetFirewallResult {
     public static final class Builder {
         private @Nullable List<GetFirewallApplyTo> applyTos;
         private @Nullable Integer id;
-        private @Nullable Map<String,Object> labels;
+        private @Nullable Map<String,String> labels;
         private @Nullable Boolean mostRecent;
         private String name;
         private @Nullable List<GetFirewallRule> rules;
@@ -134,7 +133,7 @@ public final class GetFirewallResult {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(@Nullable Map<String,Object> labels) {
+        public Builder labels(@Nullable Map<String,String> labels) {
 
             this.labels = labels;
             return this;

@@ -18,7 +18,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly int Id;
         public readonly string Ipv4;
         public readonly string Ipv6;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         public readonly string LoadBalancerType;
         public readonly string Location;
         public readonly string? Name;
@@ -40,7 +40,7 @@ namespace Pulumi.HCloud.Outputs
 
             string ipv6,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string loadBalancerType,
 

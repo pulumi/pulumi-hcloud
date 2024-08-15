@@ -99,7 +99,7 @@ type LookupServerResult struct {
 	// (string) ID or Name of the mounted ISO image. Architecture of ISO must equal the server (type) architecture.
 	Iso string `pulumi:"iso"`
 	// (map) User-defined labels (key-value pairs)
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// (string) The location name.
 	Location string `pulumi:"location"`
 	// (string) Name of the server.
@@ -225,8 +225,8 @@ func (o LookupServerResultOutput) Iso() pulumi.StringOutput {
 }
 
 // (map) User-defined labels (key-value pairs)
-func (o LookupServerResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupServerResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupServerResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServerResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // (string) The location name.

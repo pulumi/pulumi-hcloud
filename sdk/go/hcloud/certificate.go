@@ -21,7 +21,7 @@ type Certificate struct {
 	Created        pulumi.StringOutput      `pulumi:"created"`
 	DomainNames    pulumi.StringArrayOutput `pulumi:"domainNames"`
 	Fingerprint    pulumi.StringOutput      `pulumi:"fingerprint"`
-	Labels         pulumi.MapOutput         `pulumi:"labels"`
+	Labels         pulumi.StringMapOutput   `pulumi:"labels"`
 	Name           pulumi.StringOutput      `pulumi:"name"`
 	NotValidAfter  pulumi.StringOutput      `pulumi:"notValidAfter"`
 	NotValidBefore pulumi.StringOutput      `pulumi:"notValidBefore"`
@@ -72,16 +72,16 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	Certificate    *string                `pulumi:"certificate"`
-	Created        *string                `pulumi:"created"`
-	DomainNames    []string               `pulumi:"domainNames"`
-	Fingerprint    *string                `pulumi:"fingerprint"`
-	Labels         map[string]interface{} `pulumi:"labels"`
-	Name           *string                `pulumi:"name"`
-	NotValidAfter  *string                `pulumi:"notValidAfter"`
-	NotValidBefore *string                `pulumi:"notValidBefore"`
-	PrivateKey     *string                `pulumi:"privateKey"`
-	Type           *string                `pulumi:"type"`
+	Certificate    *string           `pulumi:"certificate"`
+	Created        *string           `pulumi:"created"`
+	DomainNames    []string          `pulumi:"domainNames"`
+	Fingerprint    *string           `pulumi:"fingerprint"`
+	Labels         map[string]string `pulumi:"labels"`
+	Name           *string           `pulumi:"name"`
+	NotValidAfter  *string           `pulumi:"notValidAfter"`
+	NotValidBefore *string           `pulumi:"notValidBefore"`
+	PrivateKey     *string           `pulumi:"privateKey"`
+	Type           *string           `pulumi:"type"`
 }
 
 type CertificateState struct {
@@ -89,7 +89,7 @@ type CertificateState struct {
 	Created        pulumi.StringPtrInput
 	DomainNames    pulumi.StringArrayInput
 	Fingerprint    pulumi.StringPtrInput
-	Labels         pulumi.MapInput
+	Labels         pulumi.StringMapInput
 	Name           pulumi.StringPtrInput
 	NotValidAfter  pulumi.StringPtrInput
 	NotValidBefore pulumi.StringPtrInput
@@ -102,16 +102,16 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	Certificate string                 `pulumi:"certificate"`
-	Labels      map[string]interface{} `pulumi:"labels"`
-	Name        *string                `pulumi:"name"`
-	PrivateKey  string                 `pulumi:"privateKey"`
+	Certificate string            `pulumi:"certificate"`
+	Labels      map[string]string `pulumi:"labels"`
+	Name        *string           `pulumi:"name"`
+	PrivateKey  string            `pulumi:"privateKey"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	Certificate pulumi.StringInput
-	Labels      pulumi.MapInput
+	Labels      pulumi.StringMapInput
 	Name        pulumi.StringPtrInput
 	PrivateKey  pulumi.StringInput
 }
@@ -219,8 +219,8 @@ func (o CertificateOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-func (o CertificateOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o CertificateOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o CertificateOutput) Name() pulumi.StringOutput {

@@ -83,7 +83,7 @@ type LookupLoadBalancerResult struct {
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv6 string `pulumi:"ipv6"`
 	// (map) User-defined labels (key-value pairs) .
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// (string) Name of the Type of the Load Balancer.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
 	// (string) Name of the location the Load Balancer is in.
@@ -170,8 +170,8 @@ func (o LookupLoadBalancerResultOutput) Ipv6() pulumi.StringOutput {
 }
 
 // (map) User-defined labels (key-value pairs) .
-func (o LookupLoadBalancerResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupLoadBalancerResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // (string) Name of the Type of the Load Balancer.

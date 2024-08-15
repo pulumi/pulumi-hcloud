@@ -12,7 +12,6 @@ import com.pulumi.hcloud.VolumeArgs;
 import com.pulumi.hcloud.inputs.VolumeState;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -129,14 +128,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * (map) User-defined labels (key-value pairs).
      * 
      */
-    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> labels;
+    @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> labels;
 
     /**
      * @return (map) User-defined labels (key-value pairs).
      * 
      */
-    public Output<Optional<Map<String,Object>>> labels() {
+    public Output<Optional<Map<String,String>>> labels() {
         return Codegen.optional(this.labels);
     }
     /**

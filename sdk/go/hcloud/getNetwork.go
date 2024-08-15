@@ -63,8 +63,8 @@ type LookupNetworkArgs struct {
 	// ID of the Network.
 	Id *int `pulumi:"id"`
 	// IPv4 prefix of the Network.
-	IpRange *string                `pulumi:"ipRange"`
-	Labels  map[string]interface{} `pulumi:"labels"`
+	IpRange *string           `pulumi:"ipRange"`
+	Labels  map[string]string `pulumi:"labels"`
 	// Deprecated: This attribute has no purpose.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the Network.
@@ -82,8 +82,8 @@ type LookupNetworkResult struct {
 	// Unique ID of the Network.
 	Id int `pulumi:"id"`
 	// IPv4 prefix of the Network.
-	IpRange string                 `pulumi:"ipRange"`
-	Labels  map[string]interface{} `pulumi:"labels"`
+	IpRange string            `pulumi:"ipRange"`
+	Labels  map[string]string `pulumi:"labels"`
 	// Deprecated: This attribute has no purpose.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the Network.
@@ -110,7 +110,7 @@ type LookupNetworkOutputArgs struct {
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// IPv4 prefix of the Network.
 	IpRange pulumi.StringPtrInput `pulumi:"ipRange"`
-	Labels  pulumi.MapInput       `pulumi:"labels"`
+	Labels  pulumi.StringMapInput `pulumi:"labels"`
 	// Deprecated: This attribute has no purpose.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the Network.
@@ -158,8 +158,8 @@ func (o LookupNetworkResultOutput) IpRange() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
-func (o LookupNetworkResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupNetworkResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupNetworkResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNetworkResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Deprecated: This attribute has no purpose.

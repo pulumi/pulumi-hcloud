@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.hcloud.CertificateArgs;
 import com.pulumi.hcloud.Utilities;
 import com.pulumi.hcloud.inputs.CertificateState;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -48,10 +47,10 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<String> fingerprint() {
         return this.fingerprint;
     }
-    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> labels;
+    @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> labels;
 
-    public Output<Optional<Map<String,Object>>> labels() {
+    public Output<Optional<Map<String,String>>> labels() {
         return Codegen.optional(this.labels);
     }
     @Export(name="name", refs={String.class}, tree="[0]")

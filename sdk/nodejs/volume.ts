@@ -80,7 +80,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * (map) User-defined labels (key-value pairs).
      */
-    public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * (string) Device path on the file system for the Volume.
      */
@@ -165,7 +165,7 @@ export interface VolumeState {
     /**
      * (map) User-defined labels (key-value pairs).
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * (string) Device path on the file system for the Volume.
      */
@@ -209,7 +209,7 @@ export interface VolumeArgs {
     /**
      * (map) User-defined labels (key-value pairs).
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location name of the volume to create, not allowed if serverId argument is passed.
      */

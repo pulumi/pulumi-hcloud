@@ -81,7 +81,7 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -122,7 +122,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
 
 def get_network(id: Optional[int] = None,
                 ip_range: Optional[str] = None,
-                labels: Optional[Mapping[str, Any]] = None,
+                labels: Optional[Mapping[str, str]] = None,
                 most_recent: Optional[bool] = None,
                 name: Optional[str] = None,
                 with_selector: Optional[str] = None,
@@ -169,7 +169,7 @@ def get_network(id: Optional[int] = None,
 @_utilities.lift_output_func(get_network)
 def get_network_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                        ip_range: Optional[pulumi.Input[Optional[str]]] = None,
-                       labels: Optional[pulumi.Input[Optional[Mapping[str, Any]]]] = None,
+                       labels: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        with_selector: Optional[pulumi.Input[Optional[str]]] = None,

@@ -29,7 +29,7 @@ namespace Pulumi.HCloud
         public Output<string> Fingerprint { get; private set; } = null!;
 
         [Output("labels")]
-        public Output<ImmutableDictionary<string, object>?> Labels { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -100,10 +100,10 @@ namespace Pulumi.HCloud
         public Input<string> CertificateContents { get; set; } = null!;
 
         [Input("labels")]
-        private InputMap<object>? _labels;
-        public InputMap<object> Labels
+        private InputMap<string>? _labels;
+        public InputMap<string> Labels
         {
-            get => _labels ?? (_labels = new InputMap<object>());
+            get => _labels ?? (_labels = new InputMap<string>());
             set => _labels = value;
         }
 
@@ -148,10 +148,10 @@ namespace Pulumi.HCloud
         public Input<string>? Fingerprint { get; set; }
 
         [Input("labels")]
-        private InputMap<object>? _labels;
-        public InputMap<object> Labels
+        private InputMap<string>? _labels;
+        public InputMap<string> Labels
         {
-            get => _labels ?? (_labels = new InputMap<object>());
+            get => _labels ?? (_labels = new InputMap<string>());
             set => _labels = value;
         }
 

@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +17,7 @@ import javax.annotation.Nullable;
 public final class GetVolumesVolume {
     private Boolean deleteProtection;
     private Integer id;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     private String linuxDevice;
     private @Nullable String location;
     private String name;
@@ -32,7 +31,7 @@ public final class GetVolumesVolume {
     public Integer id() {
         return this.id;
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     public String linuxDevice() {
@@ -62,7 +61,7 @@ public final class GetVolumesVolume {
     public static final class Builder {
         private Boolean deleteProtection;
         private Integer id;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private String linuxDevice;
         private @Nullable String location;
         private String name;
@@ -98,7 +97,7 @@ public final class GetVolumesVolume {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetVolumesVolume", "labels");
             }

@@ -59,7 +59,7 @@ type LookupFirewallArgs struct {
 	// ID of the firewall.
 	Id *int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Return most recent firewall if multiple are found.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the firewall.
@@ -77,8 +77,8 @@ type LookupFirewallResult struct {
 	// (int) Unique ID of the Firewall.
 	Id *int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)
-	Labels     map[string]interface{} `pulumi:"labels"`
-	MostRecent *bool                  `pulumi:"mostRecent"`
+	Labels     map[string]string `pulumi:"labels"`
+	MostRecent *bool             `pulumi:"mostRecent"`
 	// (string) Name of the Firewall.
 	Name string `pulumi:"name"`
 	// (string)  Configuration of a Rule from this Firewall.
@@ -106,7 +106,7 @@ type LookupFirewallOutputArgs struct {
 	// ID of the firewall.
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)
-	Labels pulumi.MapInput `pulumi:"labels"`
+	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Return most recent firewall if multiple are found.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the firewall.
@@ -147,8 +147,8 @@ func (o LookupFirewallResultOutput) Id() pulumi.IntPtrOutput {
 }
 
 // (map) User-defined labels (key-value pairs)
-func (o LookupFirewallResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupFirewallResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupFirewallResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupFirewallResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o LookupFirewallResultOutput) MostRecent() pulumi.BoolPtrOutput {

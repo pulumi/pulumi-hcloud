@@ -18,7 +18,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly ImmutableArray<string> DomainNames;
         public readonly string Fingerprint;
         public readonly int Id;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         public readonly string? Name;
         public readonly string NotValidAfter;
         public readonly string NotValidBefore;
@@ -36,7 +36,7 @@ namespace Pulumi.HCloud.Outputs
 
             int id,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string? name,
 

@@ -77,7 +77,7 @@ type LoadBalancer struct {
 	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 pulumi.StringOutput `pulumi:"ipv6"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringOutput `pulumi:"loadBalancerType"`
 	// The location name of the Load Balancer. Require when no networkZone is set.
@@ -136,7 +136,7 @@ type loadBalancerState struct {
 	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 *string `pulumi:"ipv6"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
 	// The location name of the Load Balancer. Require when no networkZone is set.
@@ -163,7 +163,7 @@ type LoadBalancerState struct {
 	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringPtrInput
 	// The location name of the Load Balancer. Require when no networkZone is set.
@@ -190,7 +190,7 @@ type loadBalancerArgs struct {
 	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
 	// The location name of the Load Balancer. Require when no networkZone is set.
@@ -210,7 +210,7 @@ type LoadBalancerArgs struct {
 	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringInput
 	// The location name of the Load Balancer. Require when no networkZone is set.
@@ -331,8 +331,8 @@ func (o LoadBalancerOutput) Ipv6() pulumi.StringOutput {
 }
 
 // User-defined labels (key-value pairs) should be created with.
-func (o LoadBalancerOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o LoadBalancerOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Type of the Load Balancer.

@@ -65,8 +65,8 @@ import (
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				ServerType: pulumi.String("cx22"),
 //				Datacenter: pulumi.String("fsn1-dc14"),
-//				Labels: pulumi.Map{
-//					"test": pulumi.Any("tessst1"),
+//				Labels: pulumi.StringMap{
+//					"test": pulumi.String("tessst1"),
 //				},
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
@@ -125,7 +125,7 @@ type LookupPrimaryIpResult struct {
 	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork string `pulumi:"ipNetwork"`
 	// (string) Description of the Primary IP.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// (string) Name of the Primary IP.
 	Name *string `pulumi:"name"`
 	// (string) Type of the Primary IP.
@@ -220,8 +220,8 @@ func (o LookupPrimaryIpResultOutput) IpNetwork() pulumi.StringOutput {
 }
 
 // (string) Description of the Primary IP.
-func (o LookupPrimaryIpResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupPrimaryIpResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupPrimaryIpResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPrimaryIpResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // (string) Name of the Primary IP.

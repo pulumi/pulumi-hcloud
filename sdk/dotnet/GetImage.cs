@@ -232,7 +232,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly int Id;
         public readonly bool? IncludeDeprecated;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         public readonly bool? MostRecent;
         /// <summary>
         /// (string) Name of the Image, only present when the Image is of type `system`.
@@ -273,7 +273,7 @@ namespace Pulumi.HCloud
 
             bool? includeDeprecated,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             bool? mostRecent,
 
