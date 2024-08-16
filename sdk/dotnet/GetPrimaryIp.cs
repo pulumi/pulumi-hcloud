@@ -266,7 +266,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (string) Description of the Primary IP.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
         /// (string) Name of the Primary IP.
         /// </summary>
@@ -295,7 +295,7 @@ namespace Pulumi.HCloud
 
             string ipNetwork,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string? name,
 

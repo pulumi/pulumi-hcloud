@@ -24,7 +24,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly string Ipv6Address;
         public readonly string Ipv6Network;
         public readonly string Iso;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         public readonly string Location;
         public readonly string Name;
         public readonly int? PlacementGroupId;
@@ -58,7 +58,7 @@ namespace Pulumi.HCloud.Outputs
 
             string iso,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string location,
 

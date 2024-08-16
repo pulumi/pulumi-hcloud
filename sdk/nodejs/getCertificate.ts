@@ -75,7 +75,7 @@ export interface GetCertificateResult {
     /**
      * (map) User-defined labels (key-value pairs) assigned to the certificate.
      */
-    readonly labels: {[key: string]: any};
+    readonly labels: {[key: string]: string};
     /**
      * (string) Name of the Certificate.
      */

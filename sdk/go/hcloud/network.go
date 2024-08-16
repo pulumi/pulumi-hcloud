@@ -58,7 +58,7 @@ type Network struct {
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringOutput `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Network to create (must be unique per project).
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -103,7 +103,7 @@ type networkState struct {
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange *string `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Network to create (must be unique per project).
 	Name *string `pulumi:"name"`
 }
@@ -116,7 +116,7 @@ type NetworkState struct {
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Network to create (must be unique per project).
 	Name pulumi.StringPtrInput
 }
@@ -133,7 +133,7 @@ type networkArgs struct {
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange string `pulumi:"ipRange"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Network to create (must be unique per project).
 	Name *string `pulumi:"name"`
 }
@@ -147,7 +147,7 @@ type NetworkArgs struct {
 	// IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
 	IpRange pulumi.StringInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Network to create (must be unique per project).
 	Name pulumi.StringPtrInput
 }
@@ -255,8 +255,8 @@ func (o NetworkOutput) IpRange() pulumi.StringOutput {
 }
 
 // User-defined labels (key-value pairs) should be created with.
-func (o NetworkOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *Network) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o NetworkOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the Network to create (must be unique per project).

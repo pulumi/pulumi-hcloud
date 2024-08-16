@@ -37,8 +37,8 @@ import (
 //				Type:         pulumi.String("ipv4"),
 //				AssigneeType: pulumi.String("server"),
 //				AutoDelete:   pulumi.Bool(true),
-//				Labels: pulumi.Map{
-//					"hallo": pulumi.Any("welt"),
+//				Labels: pulumi.StringMap{
+//					"hallo": pulumi.String("welt"),
 //				},
 //			})
 //			if err != nil {
@@ -50,8 +50,8 @@ import (
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				ServerType: pulumi.String("cx22"),
 //				Datacenter: pulumi.String("fsn1-dc14"),
-//				Labels: pulumi.Map{
-//					"test": pulumi.Any("tessst1"),
+//				Labels: pulumi.StringMap{
+//					"test": pulumi.String("tessst1"),
 //				},
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
@@ -94,7 +94,7 @@ type PrimaryIp struct {
 	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork pulumi.StringOutput `pulumi:"ipNetwork"`
 	// Description of the Primary IP.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Primary IP.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -156,7 +156,7 @@ type primaryIpState struct {
 	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork *string `pulumi:"ipNetwork"`
 	// Description of the Primary IP.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -180,7 +180,7 @@ type PrimaryIpState struct {
 	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork pulumi.StringPtrInput
 	// Description of the Primary IP.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Primary IP.
 	Name pulumi.StringPtrInput
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -204,7 +204,7 @@ type primaryIpArgs struct {
 	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Primary IP.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -225,7 +225,7 @@ type PrimaryIpArgs struct {
 	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Primary IP.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Primary IP.
 	Name pulumi.StringPtrInput
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -356,8 +356,8 @@ func (o PrimaryIpOutput) IpNetwork() pulumi.StringOutput {
 }
 
 // Description of the Primary IP.
-func (o PrimaryIpOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *PrimaryIp) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o PrimaryIpOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrimaryIp) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the Primary IP.

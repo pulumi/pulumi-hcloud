@@ -69,8 +69,8 @@ import (
 //				Type:         pulumi.String("ipv4"),
 //				AssigneeType: pulumi.String("server"),
 //				AutoDelete:   pulumi.Bool(true),
-//				Labels: pulumi.Map{
-//					"hallo": pulumi.Any("welt"),
+//				Labels: pulumi.StringMap{
+//					"hallo": pulumi.String("welt"),
 //				},
 //			})
 //			if err != nil {
@@ -81,8 +81,8 @@ import (
 //				Image:      pulumi.String("ubuntu-20.04"),
 //				ServerType: pulumi.String("cx22"),
 //				Datacenter: pulumi.String("fsn1-dc14"),
-//				Labels: pulumi.Map{
-//					"test": pulumi.Any("tessst1"),
+//				Labels: pulumi.StringMap{
+//					"test": pulumi.String("tessst1"),
 //				},
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
@@ -246,7 +246,7 @@ type Server struct {
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
 	KeepDisk pulumi.BoolPtrOutput `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
@@ -341,7 +341,7 @@ type serverState struct {
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
 	KeepDisk *bool `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
@@ -404,7 +404,7 @@ type ServerState struct {
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
 	KeepDisk pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
@@ -461,7 +461,7 @@ type serverArgs struct {
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
 	KeepDisk *bool `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
@@ -511,7 +511,7 @@ type ServerArgs struct {
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
 	KeepDisk pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
@@ -695,8 +695,8 @@ func (o ServerOutput) KeepDisk() pulumi.BoolPtrOutput {
 }
 
 // User-defined labels (key-value pairs) should be created with.
-func (o ServerOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *Server) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o ServerOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`

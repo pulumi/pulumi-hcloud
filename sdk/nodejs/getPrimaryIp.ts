@@ -129,7 +129,7 @@ export interface GetPrimaryIpResult {
     /**
      * (string) Description of the Primary IP.
      */
-    readonly labels: {[key: string]: any};
+    readonly labels: {[key: string]: string};
     /**
      * (string) Name of the Primary IP.
      */

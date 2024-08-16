@@ -103,7 +103,7 @@ type LookupFloatingIpResult struct {
 	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
 	IpNetwork string `pulumi:"ipNetwork"`
 	// (map) User-defined labels (key-value pairs).
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// (string) Name of the Floating IP.
 	Name *string `pulumi:"name"`
 	// Deprecated: Please use the withSelector property instead.
@@ -192,8 +192,8 @@ func (o LookupFloatingIpResultOutput) IpNetwork() pulumi.StringOutput {
 }
 
 // (map) User-defined labels (key-value pairs).
-func (o LookupFloatingIpResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupFloatingIpResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupFloatingIpResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupFloatingIpResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // (string) Name of the Floating IP.

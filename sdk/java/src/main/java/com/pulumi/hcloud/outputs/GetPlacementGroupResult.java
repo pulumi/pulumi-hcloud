@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +25,7 @@ public final class GetPlacementGroupResult {
      * @return (map) User-defined labels (key-value pairs)
      * 
      */
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     private @Nullable Boolean mostRecent;
     /**
      * @return (string) Name of the Placement Group.
@@ -53,7 +52,7 @@ public final class GetPlacementGroupResult {
      * @return (map) User-defined labels (key-value pairs)
      * 
      */
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     public Optional<Boolean> mostRecent() {
@@ -90,7 +89,7 @@ public final class GetPlacementGroupResult {
     @CustomType.Builder
     public static final class Builder {
         private Integer id;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private @Nullable Boolean mostRecent;
         private String name;
         private List<Integer> servers;
@@ -117,7 +116,7 @@ public final class GetPlacementGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetPlacementGroupResult", "labels");
             }

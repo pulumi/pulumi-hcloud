@@ -103,7 +103,7 @@ export interface GetImageResult {
      */
     readonly id: number;
     readonly includeDeprecated?: boolean;
-    readonly labels: {[key: string]: any};
+    readonly labels: {[key: string]: string};
     readonly mostRecent?: boolean;
     /**
      * (string) Name of the Image, only present when the Image is of type `system`.

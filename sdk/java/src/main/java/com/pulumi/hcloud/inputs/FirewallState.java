@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.hcloud.inputs.FirewallApplyToArgs;
 import com.pulumi.hcloud.inputs.FirewallRuleArgs;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -40,13 +39,13 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="labels")
-    private @Nullable Output<Map<String,Object>> labels;
+    private @Nullable Output<Map<String,String>> labels;
 
     /**
      * @return User-defined labels (key-value pairs) should be created with.
      * 
      */
-    public Optional<Output<Map<String,Object>>> labels() {
+    public Optional<Output<Map<String,String>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
@@ -144,7 +143,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder labels(@Nullable Output<Map<String,Object>> labels) {
+        public Builder labels(@Nullable Output<Map<String,String>> labels) {
             $.labels = labels;
             return this;
         }
@@ -155,7 +154,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             return labels(Output.of(labels));
         }
 

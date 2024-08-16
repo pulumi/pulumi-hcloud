@@ -65,7 +65,7 @@ export class UploadedCertificate extends pulumi.CustomResource {
      * User-defined labels (key-value pairs) the
      * certificate should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the Certificate.
      */
@@ -157,7 +157,7 @@ export interface UploadedCertificateState {
      * User-defined labels (key-value pairs) the
      * certificate should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Certificate.
      */
@@ -189,7 +189,7 @@ export interface UploadedCertificateArgs {
      * User-defined labels (key-value pairs) the
      * certificate should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Certificate.
      */

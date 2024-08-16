@@ -105,7 +105,7 @@ export interface GetFloatingIpResult {
     /**
      * (map) User-defined labels (key-value pairs).
      */
-    readonly labels: {[key: string]: any};
+    readonly labels: {[key: string]: string};
     /**
      * (string) Name of the Floating IP.
      */

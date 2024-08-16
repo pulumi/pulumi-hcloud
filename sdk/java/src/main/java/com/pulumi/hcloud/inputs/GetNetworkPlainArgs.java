@@ -6,7 +6,6 @@ package com.pulumi.hcloud.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -49,9 +48,9 @@ public final class GetNetworkPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     @Import(name="labels")
-    private @Nullable Map<String,Object> labels;
+    private @Nullable Map<String,String> labels;
 
-    public Optional<Map<String,Object>> labels() {
+    public Optional<Map<String,String>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
@@ -155,7 +154,7 @@ public final class GetNetworkPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
-        public Builder labels(@Nullable Map<String,Object> labels) {
+        public Builder labels(@Nullable Map<String,String> labels) {
             $.labels = labels;
             return this;
         }

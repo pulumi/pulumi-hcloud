@@ -663,7 +663,7 @@ class GetCertificatesCertificateResult(dict):
                  domain_names: Sequence[str],
                  fingerprint: str,
                  id: int,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  not_valid_after: str,
                  not_valid_before: str,
                  type: str,
@@ -707,7 +707,7 @@ class GetCertificatesCertificateResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -893,7 +893,7 @@ class GetFirewallsFirewallResult(dict):
                  name: str,
                  apply_tos: Optional[Sequence['outputs.GetFirewallsFirewallApplyToResult']] = None,
                  id: Optional[int] = None,
-                 labels: Optional[Mapping[str, Any]] = None,
+                 labels: Optional[Mapping[str, str]] = None,
                  rules: Optional[Sequence['outputs.GetFirewallsFirewallRuleResult']] = None):
         pulumi.set(__self__, "name", name)
         if apply_tos is not None:
@@ -922,7 +922,7 @@ class GetFirewallsFirewallResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Mapping[str, Any]]:
+    def labels(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "labels")
 
     @property
@@ -1011,7 +1011,7 @@ class GetFloatingIpsFloatingIpResult(dict):
                  id: int,
                  ip_address: str,
                  ip_network: str,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  server_id: int,
                  type: str,
                  name: Optional[str] = None):
@@ -1059,7 +1059,7 @@ class GetFloatingIpsFloatingIpResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -1086,7 +1086,7 @@ class GetImagesImageResult(dict):
                  deprecated: str,
                  description: str,
                  id: int,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  name: str,
                  os_flavor: str,
                  os_version: str,
@@ -1134,7 +1134,7 @@ class GetImagesImageResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -1505,7 +1505,7 @@ class GetLoadBalancersLoadBalancerResult(dict):
                  id: int,
                  ipv4: str,
                  ipv6: str,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  load_balancer_type: str,
                  location: str,
                  network_id: int,
@@ -1557,7 +1557,7 @@ class GetLoadBalancersLoadBalancerResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -1881,7 +1881,7 @@ class GetNetworksNetworkResult(dict):
                  expose_routes_to_vswitch: bool,
                  id: int,
                  ip_range: str,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  name: str):
         """
         :param bool expose_routes_to_vswitch: Indicates if the routes from this network should be exposed to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
@@ -1918,7 +1918,7 @@ class GetNetworksNetworkResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -1931,7 +1931,7 @@ class GetNetworksNetworkResult(dict):
 class GetPlacementGroupsPlacementGroupResult(dict):
     def __init__(__self__, *,
                  id: int,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  name: str,
                  servers: Sequence[int],
                  type: str):
@@ -1948,7 +1948,7 @@ class GetPlacementGroupsPlacementGroupResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -1978,7 +1978,7 @@ class GetPrimaryIpsPrimaryIpResult(dict):
                  id: int,
                  ip_address: str,
                  ip_network: str,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  type: str,
                  name: Optional[str] = None):
         pulumi.set(__self__, "assignee_id", assignee_id)
@@ -2036,7 +2036,7 @@ class GetPrimaryIpsPrimaryIpResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -2161,7 +2161,7 @@ class GetServersServerResult(dict):
                  ipv6_address: str,
                  ipv6_network: str,
                  iso: str,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  location: str,
                  name: str,
                  primary_disk_size: int,
@@ -2249,7 +2249,7 @@ class GetServersServerResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property
@@ -2360,7 +2360,7 @@ class GetVolumesVolumeResult(dict):
     def __init__(__self__, *,
                  delete_protection: bool,
                  id: int,
-                 labels: Mapping[str, Any],
+                 labels: Mapping[str, str],
                  linux_device: str,
                  name: str,
                  size: int,
@@ -2389,7 +2389,7 @@ class GetVolumesVolumeResult(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "labels")
 
     @property

@@ -146,7 +146,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (map) User-defined labels (key-value pairs) assigned to the certificate.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
         /// (string) Name of the Certificate.
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.HCloud
 
             int id,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string? name,
 

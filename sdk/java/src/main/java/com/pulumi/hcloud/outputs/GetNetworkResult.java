@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -36,7 +35,7 @@ public final class GetNetworkResult {
      * 
      */
     private String ipRange;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     /**
      * @deprecated
      * This attribute has no purpose.
@@ -80,7 +79,7 @@ public final class GetNetworkResult {
     public String ipRange() {
         return this.ipRange;
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     /**
@@ -116,7 +115,7 @@ public final class GetNetworkResult {
         private Boolean exposeRoutesToVswitch;
         private Integer id;
         private String ipRange;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private @Nullable Boolean mostRecent;
         private String name;
         private @Nullable String withSelector;
@@ -166,7 +165,7 @@ public final class GetNetworkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetNetworkResult", "labels");
             }

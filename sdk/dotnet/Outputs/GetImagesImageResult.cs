@@ -18,7 +18,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly string Deprecated;
         public readonly string Description;
         public readonly int Id;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         public readonly string Name;
         public readonly string OsFlavor;
         public readonly string OsVersion;
@@ -38,7 +38,7 @@ namespace Pulumi.HCloud.Outputs
 
             int id,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string name,
 

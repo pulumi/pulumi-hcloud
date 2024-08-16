@@ -83,7 +83,7 @@ type LookupVolumeResult struct {
 	// (int) Unique ID of the volume.
 	Id int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs).
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// (string) Device path on the file system for the Volume.
 	LinuxDevice string `pulumi:"linuxDevice"`
 	// (string) The location name.
@@ -161,8 +161,8 @@ func (o LookupVolumeResultOutput) Id() pulumi.IntOutput {
 }
 
 // (map) User-defined labels (key-value pairs).
-func (o LookupVolumeResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupVolumeResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupVolumeResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVolumeResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // (string) Device path on the file system for the Volume.

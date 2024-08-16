@@ -40,7 +40,7 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly created!: pulumi.Output<string>;
     public /*out*/ readonly domainNames!: pulumi.Output<string[]>;
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
-    public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly notValidAfter!: pulumi.Output<string>;
     public /*out*/ readonly notValidBefore!: pulumi.Output<string>;
@@ -104,7 +104,7 @@ export interface CertificateState {
     created?: pulumi.Input<string>;
     domainNames?: pulumi.Input<pulumi.Input<string>[]>;
     fingerprint?: pulumi.Input<string>;
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     name?: pulumi.Input<string>;
     notValidAfter?: pulumi.Input<string>;
     notValidBefore?: pulumi.Input<string>;
@@ -117,7 +117,7 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     certificate: pulumi.Input<string>;
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     name?: pulumi.Input<string>;
     privateKey: pulumi.Input<string>;
 }

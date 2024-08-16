@@ -16,13 +16,13 @@ class UploadedCertificateArgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[str],
                  private_key: pulumi.Input[str],
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UploadedCertificate resource.
         :param pulumi.Input[str] certificate: PEM encoded TLS certificate.
         :param pulumi.Input[str] private_key: PEM encoded private key belonging to the certificate.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
         :param pulumi.Input[str] name: Name of the Certificate.
         """
@@ -59,7 +59,7 @@ class UploadedCertificateArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) the
         certificate should be created with.
@@ -67,7 +67,7 @@ class UploadedCertificateArgs:
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -90,7 +90,7 @@ class _UploadedCertificateState:
                  created: Optional[pulumi.Input[str]] = None,
                  domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fingerprint: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_valid_after: Optional[pulumi.Input[str]] = None,
                  not_valid_before: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class _UploadedCertificateState:
         :param pulumi.Input[str] created: (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
         :param pulumi.Input[str] fingerprint: (string) Fingerprint of the certificate.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
         :param pulumi.Input[str] name: Name of the Certificate.
         :param pulumi.Input[str] not_valid_after: (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -180,7 +180,7 @@ class _UploadedCertificateState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) the
         certificate should be created with.
@@ -188,7 +188,7 @@ class _UploadedCertificateState:
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -255,7 +255,7 @@ class UploadedCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -275,7 +275,7 @@ class UploadedCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: PEM encoded TLS certificate.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
         :param pulumi.Input[str] name: Name of the Certificate.
         :param pulumi.Input[str] private_key: PEM encoded private key belonging to the certificate.
@@ -315,7 +315,7 @@ class UploadedCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -357,7 +357,7 @@ class UploadedCertificate(pulumi.CustomResource):
             created: Optional[pulumi.Input[str]] = None,
             domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             fingerprint: Optional[pulumi.Input[str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             not_valid_after: Optional[pulumi.Input[str]] = None,
             not_valid_before: Optional[pulumi.Input[str]] = None,
@@ -374,7 +374,7 @@ class UploadedCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] created: (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: (list) Domains and subdomains covered by the certificate.
         :param pulumi.Input[str] fingerprint: (string) Fingerprint of the certificate.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) the
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) the
                certificate should be created with.
         :param pulumi.Input[str] name: Name of the Certificate.
         :param pulumi.Input[str] not_valid_after: (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -431,7 +431,7 @@ class UploadedCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         User-defined labels (key-value pairs) the
         certificate should be created with.

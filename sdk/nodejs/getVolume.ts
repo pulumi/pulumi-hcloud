@@ -86,7 +86,7 @@ export interface GetVolumeResult {
     /**
      * (map) User-defined labels (key-value pairs).
      */
-    readonly labels: {[key: string]: any};
+    readonly labels: {[key: string]: string};
     /**
      * (string) Device path on the file system for the Volume.
      */

@@ -88,7 +88,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: any}>;
+    public readonly labels!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the Firewall.
      */
@@ -138,7 +138,7 @@ export interface FirewallState {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Firewall.
      */
@@ -160,7 +160,7 @@ export interface FirewallArgs {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Firewall.
      */

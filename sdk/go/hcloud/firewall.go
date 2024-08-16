@@ -82,7 +82,7 @@ type Firewall struct {
 	// Resources the firewall should be assigned to
 	ApplyTos FirewallApplyToArrayOutput `pulumi:"applyTos"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Firewall.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration of a Rule from this Firewall.
@@ -122,7 +122,7 @@ type firewallState struct {
 	// Resources the firewall should be assigned to
 	ApplyTos []FirewallApplyTo `pulumi:"applyTos"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Firewall.
 	Name *string `pulumi:"name"`
 	// Configuration of a Rule from this Firewall.
@@ -133,7 +133,7 @@ type FirewallState struct {
 	// Resources the firewall should be assigned to
 	ApplyTos FirewallApplyToArrayInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Firewall.
 	Name pulumi.StringPtrInput
 	// Configuration of a Rule from this Firewall.
@@ -148,7 +148,7 @@ type firewallArgs struct {
 	// Resources the firewall should be assigned to
 	ApplyTos []FirewallApplyTo `pulumi:"applyTos"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Firewall.
 	Name *string `pulumi:"name"`
 	// Configuration of a Rule from this Firewall.
@@ -160,7 +160,7 @@ type FirewallArgs struct {
 	// Resources the firewall should be assigned to
 	ApplyTos FirewallApplyToArrayInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Firewall.
 	Name pulumi.StringPtrInput
 	// Configuration of a Rule from this Firewall.
@@ -260,8 +260,8 @@ func (o FirewallOutput) ApplyTos() FirewallApplyToArrayOutput {
 }
 
 // User-defined labels (key-value pairs) should be created with.
-func (o FirewallOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *Firewall) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o FirewallOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the Firewall.

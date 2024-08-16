@@ -6,7 +6,6 @@ package com.pulumi.hcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,7 @@ public final class GetCertificatesCertificate {
     private List<String> domainNames;
     private String fingerprint;
     private Integer id;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     private @Nullable String name;
     private String notValidAfter;
     private String notValidBefore;
@@ -43,7 +42,7 @@ public final class GetCertificatesCertificate {
     public Integer id() {
         return this.id;
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     public Optional<String> name() {
@@ -73,7 +72,7 @@ public final class GetCertificatesCertificate {
         private List<String> domainNames;
         private String fingerprint;
         private Integer id;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private @Nullable String name;
         private String notValidAfter;
         private String notValidBefore;
@@ -137,7 +136,7 @@ public final class GetCertificatesCertificate {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetCertificatesCertificate", "labels");
             }

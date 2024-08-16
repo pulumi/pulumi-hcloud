@@ -31,8 +31,8 @@ import (
 //			_, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
 //				Name: pulumi.String("my-placement-group"),
 //				Type: pulumi.String("spread"),
-//				Labels: pulumi.Map{
-//					"key": pulumi.Any("value"),
+//				Labels: pulumi.StringMap{
+//					"key": pulumi.String("value"),
 //				},
 //			})
 //			if err != nil {
@@ -64,7 +64,7 @@ type PlacementGroup struct {
 	pulumi.CustomResourceState
 
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Placement Group.
 	Name    pulumi.StringOutput   `pulumi:"name"`
 	Servers pulumi.IntArrayOutput `pulumi:"servers"`
@@ -106,7 +106,7 @@ func GetPlacementGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PlacementGroup resources.
 type placementGroupState struct {
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Placement Group.
 	Name    *string `pulumi:"name"`
 	Servers []int   `pulumi:"servers"`
@@ -116,7 +116,7 @@ type placementGroupState struct {
 
 type PlacementGroupState struct {
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Placement Group.
 	Name    pulumi.StringPtrInput
 	Servers pulumi.IntArrayInput
@@ -130,7 +130,7 @@ func (PlacementGroupState) ElementType() reflect.Type {
 
 type placementGroupArgs struct {
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Placement Group.
 	Name *string `pulumi:"name"`
 	// Type of the Placement Group.
@@ -140,7 +140,7 @@ type placementGroupArgs struct {
 // The set of arguments for constructing a PlacementGroup resource.
 type PlacementGroupArgs struct {
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Placement Group.
 	Name pulumi.StringPtrInput
 	// Type of the Placement Group.
@@ -235,8 +235,8 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 }
 
 // User-defined labels (key-value pairs) should be created with.
-func (o PlacementGroupOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o PlacementGroupOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the Placement Group.

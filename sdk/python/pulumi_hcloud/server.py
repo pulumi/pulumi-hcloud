@@ -26,7 +26,7 @@ class ServerArgs:
                  image: Optional[pulumi.Input[str]] = None,
                  iso: Optional[pulumi.Input[str]] = None,
                  keep_disk: Optional[pulumi.Input[bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
@@ -52,7 +52,7 @@ class ServerArgs:
                argument.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
@@ -230,14 +230,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -378,7 +378,7 @@ class _ServerState:
                  ipv6_network: Optional[pulumi.Input[str]] = None,
                  iso: Optional[pulumi.Input[str]] = None,
                  keep_disk: Optional[pulumi.Input[bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
@@ -410,7 +410,7 @@ class _ServerState:
         :param pulumi.Input[str] ipv6_network: (string) The IPv6 network.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
@@ -644,14 +644,14 @@ class _ServerState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -826,7 +826,7 @@ class Server(pulumi.CustomResource):
                  image: Optional[pulumi.Input[str]] = None,
                  iso: Optional[pulumi.Input[str]] = None,
                  keep_disk: Optional[pulumi.Input[bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
@@ -964,7 +964,7 @@ class Server(pulumi.CustomResource):
                argument.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
@@ -1119,7 +1119,7 @@ class Server(pulumi.CustomResource):
                  image: Optional[pulumi.Input[str]] = None,
                  iso: Optional[pulumi.Input[str]] = None,
                  keep_disk: Optional[pulumi.Input[bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
@@ -1192,7 +1192,7 @@ class Server(pulumi.CustomResource):
             ipv6_network: Optional[pulumi.Input[str]] = None,
             iso: Optional[pulumi.Input[str]] = None,
             keep_disk: Optional[pulumi.Input[bool]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
@@ -1229,7 +1229,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] ipv6_network: (string) The IPv6 network.
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
@@ -1386,7 +1386,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """

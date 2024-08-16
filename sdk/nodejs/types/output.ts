@@ -54,7 +54,7 @@ export interface GetCertificatesCertificate {
     domainNames: string[];
     fingerprint: string;
     id: number;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     name?: string;
     notValidAfter: string;
     notValidBefore: string;
@@ -112,7 +112,7 @@ export interface GetFirewallRule {
 export interface GetFirewallsFirewall {
     applyTos?: outputs.GetFirewallsFirewallApplyTo[];
     id?: number;
-    labels?: {[key: string]: any};
+    labels?: {[key: string]: string};
     name: string;
     rules?: outputs.GetFirewallsFirewallRule[];
 }
@@ -138,7 +138,7 @@ export interface GetFloatingIpsFloatingIp {
     id: number;
     ipAddress: string;
     ipNetwork: string;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     name?: string;
     serverId: number;
     type: string;
@@ -150,7 +150,7 @@ export interface GetImagesImage {
     deprecated: string;
     description: string;
     id: number;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     name: string;
     osFlavor: string;
     osVersion: string;
@@ -290,7 +290,7 @@ export interface GetLoadBalancersLoadBalancer {
     id: number;
     ipv4: string;
     ipv6: string;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     loadBalancerType: string;
     location: string;
     name?: string;
@@ -364,13 +364,13 @@ export interface GetNetworksNetwork {
     exposeRoutesToVswitch: boolean;
     id: number;
     ipRange: string;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     name: string;
 }
 
 export interface GetPlacementGroupsPlacementGroup {
     id: number;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     name: string;
     servers: number[];
     type: string;
@@ -385,7 +385,7 @@ export interface GetPrimaryIpsPrimaryIp {
     id: number;
     ipAddress: string;
     ipNetwork: string;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     name?: string;
     type: string;
 }
@@ -421,7 +421,7 @@ export interface GetServersServer {
     ipv6Address: string;
     ipv6Network: string;
     iso: string;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     location: string;
     name: string;
     placementGroupId?: number;
@@ -458,7 +458,7 @@ export interface GetSshKeysSshKey {
 export interface GetVolumesVolume {
     deleteProtection: boolean;
     id: number;
-    labels: {[key: string]: any};
+    labels: {[key: string]: string};
     linuxDevice: string;
     location?: string;
     name: string;
