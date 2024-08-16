@@ -88,14 +88,14 @@ namespace Pulumi.HCloud
         public int? Id { get; set; }
 
         [Input("labels")]
-        private Dictionary<string, object>? _labels;
+        private Dictionary<string, string>? _labels;
 
         /// <summary>
         /// (map) User-defined labels (key-value pairs)
         /// </summary>
-        public Dictionary<string, object> Labels
+        public Dictionary<string, string> Labels
         {
-            get => _labels ?? (_labels = new Dictionary<string, object>());
+            get => _labels ?? (_labels = new Dictionary<string, string>());
             set => _labels = value;
         }
 
@@ -156,14 +156,14 @@ namespace Pulumi.HCloud
         public Input<int>? Id { get; set; }
 
         [Input("labels")]
-        private InputMap<object>? _labels;
+        private InputMap<string>? _labels;
 
         /// <summary>
         /// (map) User-defined labels (key-value pairs)
         /// </summary>
-        public InputMap<object> Labels
+        public InputMap<string> Labels
         {
-            get => _labels ?? (_labels = new InputMap<object>());
+            get => _labels ?? (_labels = new InputMap<string>());
             set => _labels = value;
         }
 
@@ -218,7 +218,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (map) User-defined labels (key-value pairs)
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Labels;
+        public readonly ImmutableDictionary<string, string>? Labels;
         public readonly bool? MostRecent;
         /// <summary>
         /// (string) Name of the Firewall.
@@ -236,7 +236,7 @@ namespace Pulumi.HCloud
 
             int? id,
 
-            ImmutableDictionary<string, object>? labels,
+            ImmutableDictionary<string, string>? labels,
 
             bool? mostRecent,
 

@@ -36,7 +36,7 @@ type UploadedCertificate struct {
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Certificate.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -101,7 +101,7 @@ type uploadedCertificateState struct {
 	Fingerprint *string `pulumi:"fingerprint"`
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Certificate.
 	Name *string `pulumi:"name"`
 	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -124,7 +124,7 @@ type UploadedCertificateState struct {
 	Fingerprint pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Certificate.
 	Name pulumi.StringPtrInput
 	// (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
@@ -145,7 +145,7 @@ type uploadedCertificateArgs struct {
 	Certificate string `pulumi:"certificate"`
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Certificate.
 	Name *string `pulumi:"name"`
 	// PEM encoded private key belonging to the certificate.
@@ -158,7 +158,7 @@ type UploadedCertificateArgs struct {
 	Certificate pulumi.StringInput
 	// User-defined labels (key-value pairs) the
 	// certificate should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Certificate.
 	Name pulumi.StringPtrInput
 	// PEM encoded private key belonging to the certificate.
@@ -274,8 +274,8 @@ func (o UploadedCertificateOutput) Fingerprint() pulumi.StringOutput {
 
 // User-defined labels (key-value pairs) the
 // certificate should be created with.
-func (o UploadedCertificateOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *UploadedCertificate) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o UploadedCertificateOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UploadedCertificate) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the Certificate.

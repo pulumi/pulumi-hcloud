@@ -222,7 +222,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (map) User-defined labels (key-value pairs)
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
         /// (string) The location name.
         /// </summary>
@@ -280,7 +280,7 @@ namespace Pulumi.HCloud
 
             string iso,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string location,
 

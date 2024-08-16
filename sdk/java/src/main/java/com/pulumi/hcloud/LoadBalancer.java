@@ -14,7 +14,6 @@ import com.pulumi.hcloud.outputs.LoadBalancerAlgorithm;
 import com.pulumi.hcloud.outputs.LoadBalancerTarget;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -148,14 +147,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output<Map<String,Object>> labels;
+    @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> labels;
 
     /**
      * @return User-defined labels (key-value pairs) should be created with.
      * 
      */
-    public Output<Map<String,Object>> labels() {
+    public Output<Map<String,String>> labels() {
         return this.labels;
     }
     /**

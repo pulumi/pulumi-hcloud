@@ -71,7 +71,7 @@ type Volume struct {
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrOutput `pulumi:"format"`
 	// (map) User-defined labels (key-value pairs).
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// (string) Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringOutput `pulumi:"linuxDevice"`
 	// The location name of the volume to create, not allowed if serverId argument is passed.
@@ -126,7 +126,7 @@ type volumeState struct {
 	// Format volume after creation. `xfs` or `ext4`
 	Format *string `pulumi:"format"`
 	// (map) User-defined labels (key-value pairs).
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// (string) Device path on the file system for the Volume.
 	LinuxDevice *string `pulumi:"linuxDevice"`
 	// The location name of the volume to create, not allowed if serverId argument is passed.
@@ -149,7 +149,7 @@ type VolumeState struct {
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrInput
 	// (map) User-defined labels (key-value pairs).
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// (string) Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringPtrInput
 	// The location name of the volume to create, not allowed if serverId argument is passed.
@@ -176,7 +176,7 @@ type volumeArgs struct {
 	// Format volume after creation. `xfs` or `ext4`
 	Format *string `pulumi:"format"`
 	// (map) User-defined labels (key-value pairs).
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// The location name of the volume to create, not allowed if serverId argument is passed.
 	Location *string `pulumi:"location"`
 	// Name of the volume to create (must be unique per project).
@@ -198,7 +198,7 @@ type VolumeArgs struct {
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrInput
 	// (map) User-defined labels (key-value pairs).
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// The location name of the volume to create, not allowed if serverId argument is passed.
 	Location pulumi.StringPtrInput
 	// Name of the volume to create (must be unique per project).
@@ -314,8 +314,8 @@ func (o VolumeOutput) Format() pulumi.StringPtrOutput {
 }
 
 // (map) User-defined labels (key-value pairs).
-func (o VolumeOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *Volume) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o VolumeOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // (string) Device path on the file system for the Volume.

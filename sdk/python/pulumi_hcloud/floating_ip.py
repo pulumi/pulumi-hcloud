@@ -18,7 +18,7 @@ class FloatingIpArgs:
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  home_location: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[int]] = None):
         """
@@ -27,7 +27,7 @@ class FloatingIpArgs:
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Floating IP.
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         """
@@ -95,14 +95,14 @@ class FloatingIpArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -138,7 +138,7 @@ class _FloatingIpState:
                  home_location: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_network: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -149,7 +149,7 @@ class _FloatingIpState:
         :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
         :param pulumi.Input[str] ip_network: (string) IPv6 subnet. (Only set if `type` is `ipv6`)
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Floating IP.
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
@@ -235,14 +235,14 @@ class _FloatingIpState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -290,7 +290,7 @@ class FloatingIp(pulumi.CustomResource):
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  home_location: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -326,7 +326,7 @@ class FloatingIp(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
         :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Floating IP.
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
@@ -381,7 +381,7 @@ class FloatingIp(pulumi.CustomResource):
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  home_location: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -420,7 +420,7 @@ class FloatingIp(pulumi.CustomResource):
             home_location: Optional[pulumi.Input[str]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             ip_network: Optional[pulumi.Input[str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[int]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'FloatingIp':
@@ -436,7 +436,7 @@ class FloatingIp(pulumi.CustomResource):
         :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
         :param pulumi.Input[str] ip_network: (string) IPv6 subnet. (Only set if `type` is `ipv6`)
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Floating IP.
         :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
@@ -498,7 +498,7 @@ class FloatingIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """

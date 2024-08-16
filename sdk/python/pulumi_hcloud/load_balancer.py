@@ -19,7 +19,7 @@ class LoadBalancerArgs:
                  load_balancer_type: pulumi.Input[str],
                  algorithm: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_zone: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: The Network Zone of the Load Balancer. Require when no location is set.
@@ -91,14 +91,14 @@ class LoadBalancerArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -155,7 +155,7 @@ class _LoadBalancerState:
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  ipv4: Optional[pulumi.Input[str]] = None,
                  ipv6: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  load_balancer_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class _LoadBalancerState:
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
         :param pulumi.Input[str] ipv6: (string) IPv6 Address of the Load Balancer.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
@@ -255,14 +255,14 @@ class _LoadBalancerState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -355,7 +355,7 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: Optional[pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  load_balancer_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -397,7 +397,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
@@ -457,7 +457,7 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: Optional[pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  load_balancer_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -500,7 +500,7 @@ class LoadBalancer(pulumi.CustomResource):
             delete_protection: Optional[pulumi.Input[bool]] = None,
             ipv4: Optional[pulumi.Input[str]] = None,
             ipv6: Optional[pulumi.Input[str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             load_balancer_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -519,7 +519,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] ipv4: (string) IPv4 Address of the Load Balancer.
         :param pulumi.Input[str] ipv6: (string) IPv6 Address of the Load Balancer.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
         :param pulumi.Input[str] name: Name of the Load Balancer.
@@ -579,7 +579,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Mapping[str, Any]]:
+    def labels(self) -> pulumi.Output[Mapping[str, str]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """

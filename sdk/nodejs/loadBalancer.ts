@@ -87,7 +87,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: any}>;
+    public readonly labels!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of the Load Balancer.
      */
@@ -188,7 +188,7 @@ export interface LoadBalancerState {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of the Load Balancer.
      */
@@ -234,7 +234,7 @@ export interface LoadBalancerArgs {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of the Load Balancer.
      */

@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.inputs.LoadBalancerAlgorithmArgs;
 import com.pulumi.hcloud.inputs.LoadBalancerTargetArgs;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -57,13 +56,13 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="labels")
-    private @Nullable Output<Map<String,Object>> labels;
+    private @Nullable Output<Map<String,String>> labels;
 
     /**
      * @return User-defined labels (key-value pairs) should be created with.
      * 
      */
-    public Optional<Output<Map<String,Object>>> labels() {
+    public Optional<Output<Map<String,String>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
@@ -225,7 +224,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder labels(@Nullable Output<Map<String,Object>> labels) {
+        public Builder labels(@Nullable Output<Map<String,String>> labels) {
             $.labels = labels;
             return this;
         }
@@ -236,7 +235,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             return labels(Output.of(labels));
         }
 

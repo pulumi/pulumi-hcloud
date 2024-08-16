@@ -14,7 +14,6 @@ import com.pulumi.hcloud.outputs.ServerNetwork;
 import com.pulumi.hcloud.outputs.ServerPublicNet;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -443,14 +442,14 @@ public class Server extends com.pulumi.resources.CustomResource {
      * User-defined labels (key-value pairs) should be created with.
      * 
      */
-    @Export(name="labels", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> labels;
+    @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> labels;
 
     /**
      * @return User-defined labels (key-value pairs) should be created with.
      * 
      */
-    public Output<Optional<Map<String,Object>>> labels() {
+    public Output<Optional<Map<String,String>>> labels() {
         return Codegen.optional(this.labels);
     }
     /**

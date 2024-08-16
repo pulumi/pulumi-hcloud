@@ -208,7 +208,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (map) User-defined labels (key-value pairs).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
         /// (string) Name of the Floating IP.
         /// </summary>
@@ -238,7 +238,7 @@ namespace Pulumi.HCloud
 
             string ipNetwork,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string? name,
 

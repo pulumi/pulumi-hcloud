@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -22,7 +21,7 @@ public final class GetFloatingIpsFloatingIp {
     private Integer id;
     private String ipAddress;
     private String ipNetwork;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     private @Nullable String name;
     private Integer serverId;
     private String type;
@@ -46,7 +45,7 @@ public final class GetFloatingIpsFloatingIp {
     public String ipNetwork() {
         return this.ipNetwork;
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     public Optional<String> name() {
@@ -74,7 +73,7 @@ public final class GetFloatingIpsFloatingIp {
         private Integer id;
         private String ipAddress;
         private String ipNetwork;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private @Nullable String name;
         private Integer serverId;
         private String type;
@@ -142,7 +141,7 @@ public final class GetFloatingIpsFloatingIp {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetFloatingIpsFloatingIp", "labels");
             }

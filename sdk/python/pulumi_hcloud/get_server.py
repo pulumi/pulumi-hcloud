@@ -182,7 +182,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         """
         (map) User-defined labels (key-value pairs)
         """

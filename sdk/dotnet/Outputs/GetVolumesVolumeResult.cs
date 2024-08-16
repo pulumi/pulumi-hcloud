@@ -15,7 +15,7 @@ namespace Pulumi.HCloud.Outputs
     {
         public readonly bool DeleteProtection;
         public readonly int Id;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         public readonly string LinuxDevice;
         public readonly string? Location;
         public readonly string Name;
@@ -28,7 +28,7 @@ namespace Pulumi.HCloud.Outputs
 
             int id,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string linuxDevice,
 

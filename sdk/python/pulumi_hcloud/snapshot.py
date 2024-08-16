@@ -16,12 +16,12 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[int],
                  description: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
         :param pulumi.Input[str] description: Description of the snapshot.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         """
         pulumi.set(__self__, "server_id", server_id)
         if description is not None:
@@ -55,14 +55,14 @@ class SnapshotArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
 
@@ -70,12 +70,12 @@ class SnapshotArgs:
 class _SnapshotState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  server_id: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
         :param pulumi.Input[str] description: Description of the snapshot.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
         """
         if description is not None:
@@ -99,14 +99,14 @@ class _SnapshotState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -128,7 +128,7 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -158,7 +158,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the snapshot.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
         """
         ...
@@ -207,7 +207,7 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -234,7 +234,7 @@ class Snapshot(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             server_id: Optional[pulumi.Input[int]] = None) -> 'Snapshot':
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
@@ -244,7 +244,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the snapshot.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[int] server_id: Server to the snapshot should be created from.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -266,7 +266,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """

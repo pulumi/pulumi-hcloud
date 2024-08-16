@@ -70,7 +70,7 @@ type FloatingIp struct {
 	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
 	IpNetwork pulumi.StringOutput `pulumi:"ipNetwork"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Floating IP.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Server to assign the Floating IP to.
@@ -123,7 +123,7 @@ type floatingIpState struct {
 	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
 	IpNetwork *string `pulumi:"ipNetwork"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Floating IP.
 	Name *string `pulumi:"name"`
 	// Server to assign the Floating IP to.
@@ -144,7 +144,7 @@ type FloatingIpState struct {
 	// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
 	IpNetwork pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Floating IP.
 	Name pulumi.StringPtrInput
 	// Server to assign the Floating IP to.
@@ -165,7 +165,7 @@ type floatingIpArgs struct {
 	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation *string `pulumi:"homeLocation"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the Floating IP.
 	Name *string `pulumi:"name"`
 	// Server to assign the Floating IP to.
@@ -183,7 +183,7 @@ type FloatingIpArgs struct {
 	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
 	HomeLocation pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Name of the Floating IP.
 	Name pulumi.StringPtrInput
 	// Server to assign the Floating IP to.
@@ -305,8 +305,8 @@ func (o FloatingIpOutput) IpNetwork() pulumi.StringOutput {
 }
 
 // User-defined labels (key-value pairs) should be created with.
-func (o FloatingIpOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *FloatingIp) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o FloatingIpOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FloatingIp) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the Floating IP.

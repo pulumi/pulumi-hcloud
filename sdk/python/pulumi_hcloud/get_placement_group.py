@@ -54,7 +54,7 @@ class GetPlacementGroupResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         """
         (map) User-defined labels (key-value pairs)
         """
@@ -108,7 +108,7 @@ class AwaitableGetPlacementGroupResult(GetPlacementGroupResult):
 
 
 def get_placement_group(id: Optional[int] = None,
-                        labels: Optional[Mapping[str, Any]] = None,
+                        labels: Optional[Mapping[str, str]] = None,
                         most_recent: Optional[bool] = None,
                         name: Optional[str] = None,
                         type: Optional[str] = None,
@@ -127,7 +127,7 @@ def get_placement_group(id: Optional[int] = None,
 
 
     :param int id: ID of the placement group.
-    :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
+    :param Mapping[str, str] labels: (map) User-defined labels (key-value pairs)
     :param bool most_recent: Return most recent placement group if multiple are found.
     :param str name: Name of the placement group.
     :param str type: (string)  Type of the Placement Group.
@@ -155,7 +155,7 @@ def get_placement_group(id: Optional[int] = None,
 
 @_utilities.lift_output_func(get_placement_group)
 def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
-                               labels: Optional[pulumi.Input[Optional[Mapping[str, Any]]]] = None,
+                               labels: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -174,7 +174,7 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
 
     :param int id: ID of the placement group.
-    :param Mapping[str, Any] labels: (map) User-defined labels (key-value pairs)
+    :param Mapping[str, str] labels: (map) User-defined labels (key-value pairs)
     :param bool most_recent: Return most recent placement group if multiple are found.
     :param str name: Name of the placement group.
     :param str type: (string)  Type of the Placement Group.

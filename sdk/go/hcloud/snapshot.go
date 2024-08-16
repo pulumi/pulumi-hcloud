@@ -61,7 +61,7 @@ type Snapshot struct {
 	// Description of the snapshot.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Server to the snapshot should be created from.
 	ServerId pulumi.IntOutput `pulumi:"serverId"`
 }
@@ -102,7 +102,7 @@ type snapshotState struct {
 	// Description of the snapshot.
 	Description *string `pulumi:"description"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Server to the snapshot should be created from.
 	ServerId *int `pulumi:"serverId"`
 }
@@ -111,7 +111,7 @@ type SnapshotState struct {
 	// Description of the snapshot.
 	Description pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Server to the snapshot should be created from.
 	ServerId pulumi.IntPtrInput
 }
@@ -124,7 +124,7 @@ type snapshotArgs struct {
 	// Description of the snapshot.
 	Description *string `pulumi:"description"`
 	// User-defined labels (key-value pairs) should be created with.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Server to the snapshot should be created from.
 	ServerId int `pulumi:"serverId"`
 }
@@ -134,7 +134,7 @@ type SnapshotArgs struct {
 	// Description of the snapshot.
 	Description pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
-	Labels pulumi.MapInput
+	Labels pulumi.StringMapInput
 	// Server to the snapshot should be created from.
 	ServerId pulumi.IntInput
 }
@@ -232,8 +232,8 @@ func (o SnapshotOutput) Description() pulumi.StringPtrOutput {
 }
 
 // User-defined labels (key-value pairs) should be created with.
-func (o SnapshotOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.MapOutput { return v.Labels }).(pulumi.MapOutput)
+func (o SnapshotOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Server to the snapshot should be created from.

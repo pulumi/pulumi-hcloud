@@ -5,7 +5,6 @@ package com.pulumi.hcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -84,14 +83,14 @@ public final class UploadedCertificateState extends com.pulumi.resources.Resourc
      * 
      */
     @Import(name="labels")
-    private @Nullable Output<Map<String,Object>> labels;
+    private @Nullable Output<Map<String,String>> labels;
 
     /**
      * @return User-defined labels (key-value pairs) the
      * certificate should be created with.
      * 
      */
-    public Optional<Output<Map<String,Object>>> labels() {
+    public Optional<Output<Map<String,String>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
@@ -296,7 +295,7 @@ public final class UploadedCertificateState extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder labels(@Nullable Output<Map<String,Object>> labels) {
+        public Builder labels(@Nullable Output<Map<String,String>> labels) {
             $.labels = labels;
             return this;
         }
@@ -308,7 +307,7 @@ public final class UploadedCertificateState extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             return labels(Output.of(labels));
         }
 

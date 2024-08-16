@@ -81,8 +81,8 @@ import (
 //				Name:       pulumi.String("test-server"),
 //				ServerType: pulumi.String("cx22"),
 //				Image:      pulumi.String("ubuntu-20.04"),
-//				Labels: pulumi.Map{
-//					"firewall-attachment": pulumi.Any("test-server"),
+//				Labels: pulumi.StringMap{
+//					"firewall-attachment": pulumi.String("test-server"),
 //				},
 //			})
 //			if err != nil {

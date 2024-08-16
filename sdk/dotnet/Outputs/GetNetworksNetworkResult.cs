@@ -20,7 +20,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly bool ExposeRoutesToVswitch;
         public readonly int Id;
         public readonly string IpRange;
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
         public readonly string Name;
 
         [OutputConstructor]
@@ -33,7 +33,7 @@ namespace Pulumi.HCloud.Outputs
 
             string ipRange,
 
-            ImmutableDictionary<string, object> labels,
+            ImmutableDictionary<string, string> labels,
 
             string name)
         {

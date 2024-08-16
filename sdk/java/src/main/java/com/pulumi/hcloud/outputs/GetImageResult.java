@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +42,7 @@ public final class GetImageResult {
      */
     private Integer id;
     private @Nullable Boolean includeDeprecated;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     private @Nullable Boolean mostRecent;
     /**
      * @return (string) Name of the Image, only present when the Image is of type `system`.
@@ -120,7 +119,7 @@ public final class GetImageResult {
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     public Optional<Boolean> mostRecent() {
@@ -195,7 +194,7 @@ public final class GetImageResult {
         private String description;
         private Integer id;
         private @Nullable Boolean includeDeprecated;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private @Nullable Boolean mostRecent;
         private String name;
         private String osFlavor;
@@ -275,7 +274,7 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetImageResult", "labels");
             }

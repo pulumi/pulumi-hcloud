@@ -16,7 +16,7 @@ class CertificateArgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[str],
                  private_key: pulumi.Input[str],
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
@@ -48,11 +48,11 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -72,7 +72,7 @@ class _CertificateState:
                  created: Optional[pulumi.Input[str]] = None,
                  domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fingerprint: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_valid_after: Optional[pulumi.Input[str]] = None,
                  not_valid_before: Optional[pulumi.Input[str]] = None,
@@ -140,11 +140,11 @@ class _CertificateState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -199,7 +199,7 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -236,7 +236,7 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -278,7 +278,7 @@ class Certificate(pulumi.CustomResource):
             created: Optional[pulumi.Input[str]] = None,
             domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             fingerprint: Optional[pulumi.Input[str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             not_valid_after: Optional[pulumi.Input[str]] = None,
             not_valid_before: Optional[pulumi.Input[str]] = None,
@@ -330,7 +330,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "labels")
 
     @property

@@ -57,7 +57,7 @@ type LookupPlacementGroupArgs struct {
 	// ID of the placement group.
 	Id *int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Return most recent placement group if multiple are found.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the placement group.
@@ -73,8 +73,8 @@ type LookupPlacementGroupResult struct {
 	// (int) Unique ID of the Placement Group.
 	Id int `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)
-	Labels     map[string]interface{} `pulumi:"labels"`
-	MostRecent *bool                  `pulumi:"mostRecent"`
+	Labels     map[string]string `pulumi:"labels"`
+	MostRecent *bool             `pulumi:"mostRecent"`
 	// (string) Name of the Placement Group.
 	Name    string `pulumi:"name"`
 	Servers []int  `pulumi:"servers"`
@@ -101,7 +101,7 @@ type LookupPlacementGroupOutputArgs struct {
 	// ID of the placement group.
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// (map) User-defined labels (key-value pairs)
-	Labels pulumi.MapInput `pulumi:"labels"`
+	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Return most recent placement group if multiple are found.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the placement group.
@@ -137,8 +137,8 @@ func (o LookupPlacementGroupResultOutput) Id() pulumi.IntOutput {
 }
 
 // (map) User-defined labels (key-value pairs)
-func (o LookupPlacementGroupResultOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupPlacementGroupResult) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o LookupPlacementGroupResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o LookupPlacementGroupResultOutput) MostRecent() pulumi.BoolPtrOutput {

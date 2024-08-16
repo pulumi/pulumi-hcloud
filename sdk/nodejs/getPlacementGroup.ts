@@ -44,7 +44,7 @@ export interface GetPlacementGroupArgs {
     /**
      * (map) User-defined labels (key-value pairs)
      */
-    labels?: {[key: string]: any};
+    labels?: {[key: string]: string};
     /**
      * Return most recent placement group if multiple are found.
      */
@@ -74,7 +74,7 @@ export interface GetPlacementGroupResult {
     /**
      * (map) User-defined labels (key-value pairs)
      */
-    readonly labels: {[key: string]: any};
+    readonly labels: {[key: string]: string};
     readonly mostRecent?: boolean;
     /**
      * (string) Name of the Placement Group.
@@ -117,7 +117,7 @@ export interface GetPlacementGroupOutputArgs {
     /**
      * (map) User-defined labels (key-value pairs)
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Return most recent placement group if multiple are found.
      */

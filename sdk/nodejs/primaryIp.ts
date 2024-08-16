@@ -109,7 +109,7 @@ export class PrimaryIp extends pulumi.CustomResource {
     /**
      * Description of the Primary IP.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the Primary IP.
      */
@@ -205,7 +205,7 @@ export interface PrimaryIpState {
     /**
      * Description of the Primary IP.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Primary IP.
      */
@@ -244,7 +244,7 @@ export interface PrimaryIpArgs {
     /**
      * Description of the Primary IP.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Primary IP.
      */

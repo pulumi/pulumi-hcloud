@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +30,7 @@ public final class GetVolumeResult {
      * @return (map) User-defined labels (key-value pairs).
      * 
      */
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     /**
      * @return (string) Device path on the file system for the Volume.
      * 
@@ -86,7 +85,7 @@ public final class GetVolumeResult {
      * @return (map) User-defined labels (key-value pairs).
      * 
      */
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     /**
@@ -151,7 +150,7 @@ public final class GetVolumeResult {
     public static final class Builder {
         private Boolean deleteProtection;
         private Integer id;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private String linuxDevice;
         private @Nullable String location;
         private String name;
@@ -193,7 +192,7 @@ public final class GetVolumeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetVolumeResult", "labels");
             }

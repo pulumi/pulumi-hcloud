@@ -18,7 +18,7 @@ class VolumeArgs:
                  automount: Optional[pulumi.Input[bool]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  format: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[int]] = None):
@@ -30,7 +30,7 @@ class VolumeArgs:
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: (map) User-defined labels (key-value pairs).
         :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
@@ -103,14 +103,14 @@ class VolumeArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         (map) User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -156,7 +156,7 @@ class _VolumeState:
                  automount: Optional[pulumi.Input[bool]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  format: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  linux_device: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class _VolumeState:
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: (map) User-defined labels (key-value pairs).
         :param pulumi.Input[str] linux_device: (string) Device path on the file system for the Volume.
         :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
@@ -235,14 +235,14 @@ class _VolumeState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         (map) User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -314,7 +314,7 @@ class Volume(pulumi.CustomResource):
                  automount: Optional[pulumi.Input[bool]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  format: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
@@ -356,7 +356,7 @@ class Volume(pulumi.CustomResource):
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: (map) User-defined labels (key-value pairs).
         :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
@@ -415,7 +415,7 @@ class Volume(pulumi.CustomResource):
                  automount: Optional[pulumi.Input[bool]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  format: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[int]] = None,
@@ -453,7 +453,7 @@ class Volume(pulumi.CustomResource):
             automount: Optional[pulumi.Input[bool]] = None,
             delete_protection: Optional[pulumi.Input[bool]] = None,
             format: Optional[pulumi.Input[str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             linux_device: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -471,7 +471,7 @@ class Volume(pulumi.CustomResource):
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, Any]] labels: (map) User-defined labels (key-value pairs).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: (map) User-defined labels (key-value pairs).
         :param pulumi.Input[str] linux_device: (string) Device path on the file system for the Volume.
         :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
@@ -521,7 +521,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         (map) User-defined labels (key-value pairs).
         """

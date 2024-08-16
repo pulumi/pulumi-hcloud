@@ -15,12 +15,12 @@ __all__ = ['PlacementGroupArgs', 'PlacementGroup']
 class PlacementGroupArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
         :param pulumi.Input[str] type: Type of the Placement Group.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Placement Group.
         """
         pulumi.set(__self__, "type", type)
@@ -43,14 +43,14 @@ class PlacementGroupArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -69,13 +69,13 @@ class PlacementGroupArgs:
 @pulumi.input_type
 class _PlacementGroupState:
     def __init__(__self__, *,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PlacementGroup resources.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Placement Group.
         :param pulumi.Input[str] type: Type of the Placement Group.
         """
@@ -90,14 +90,14 @@ class _PlacementGroupState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -139,7 +139,7 @@ class PlacementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -175,7 +175,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Placement Group.
         :param pulumi.Input[str] type: Type of the Placement Group.
         """
@@ -230,7 +230,7 @@ class PlacementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -258,7 +258,7 @@ class PlacementGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             servers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'PlacementGroup':
@@ -269,7 +269,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Placement Group.
         :param pulumi.Input[str] type: Type of the Placement Group.
         """
@@ -285,7 +285,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """

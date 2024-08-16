@@ -213,7 +213,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      */
@@ -408,7 +408,7 @@ export interface ServerState {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      */
@@ -508,7 +508,7 @@ export interface ServerArgs {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: any}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
      */

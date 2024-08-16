@@ -6,7 +6,6 @@ package com.pulumi.hcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPlacementGroupsPlacementGroup {
     private Integer id;
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
     private String name;
     private List<Integer> servers;
     private String type;
@@ -24,7 +23,7 @@ public final class GetPlacementGroupsPlacementGroup {
     public Integer id() {
         return this.id;
     }
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
     public String name() {
@@ -47,7 +46,7 @@ public final class GetPlacementGroupsPlacementGroup {
     @CustomType.Builder
     public static final class Builder {
         private Integer id;
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         private String name;
         private List<Integer> servers;
         private String type;
@@ -70,7 +69,7 @@ public final class GetPlacementGroupsPlacementGroup {
             return this;
         }
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetPlacementGroupsPlacementGroup", "labels");
             }

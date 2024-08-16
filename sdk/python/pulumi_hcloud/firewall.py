@@ -17,13 +17,13 @@ __all__ = ['FirewallArgs', 'Firewall']
 class FirewallArgs:
     def __init__(__self__, *,
                  apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]] apply_tos: Resources the firewall should be assigned to
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]] rules: Configuration of a Rule from this Firewall.
         """
@@ -50,14 +50,14 @@ class FirewallArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -89,13 +89,13 @@ class FirewallArgs:
 class _FirewallState:
     def __init__(__self__, *,
                  apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering Firewall resources.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]] apply_tos: Resources the firewall should be assigned to
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]] rules: Configuration of a Rule from this Firewall.
         """
@@ -122,14 +122,14 @@ class _FirewallState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -163,7 +163,7 @@ class Firewall(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
                  __props__=None):
@@ -215,7 +215,7 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]] apply_tos: Resources the firewall should be assigned to
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]] rules: Configuration of a Rule from this Firewall.
         """
@@ -286,7 +286,7 @@ class Firewall(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
                  __props__=None):
@@ -313,7 +313,7 @@ class Firewall(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None) -> 'Firewall':
         """
@@ -324,7 +324,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]] apply_tos: Resources the firewall should be assigned to
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]] rules: Configuration of a Rule from this Firewall.
         """
@@ -348,7 +348,7 @@ class Firewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Mapping[str, Any]]:
+    def labels(self) -> pulumi.Output[Mapping[str, str]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """

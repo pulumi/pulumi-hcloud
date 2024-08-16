@@ -17,14 +17,14 @@ class NetworkArgs:
                  ip_range: pulumi.Input[str],
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Network resource.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
         pulumi.set(__self__, "ip_range", ip_range)
@@ -75,14 +75,14 @@ class NetworkArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -104,14 +104,14 @@ class _NetworkState:
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Network resources.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
         if delete_protection is not None:
@@ -163,14 +163,14 @@ class _NetworkState:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -194,7 +194,7 @@ class Network(pulumi.CustomResource):
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -224,7 +224,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
         ...
@@ -273,7 +273,7 @@ class Network(pulumi.CustomResource):
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -304,7 +304,7 @@ class Network(pulumi.CustomResource):
             delete_protection: Optional[pulumi.Input[bool]] = None,
             expose_routes_to_vswitch: Optional[pulumi.Input[bool]] = None,
             ip_range: Optional[pulumi.Input[str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Network':
         """
         Get an existing Network resource's state with the given name, id, and optional extra
@@ -316,7 +316,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         :param pulumi.Input[str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
-        :param pulumi.Input[Mapping[str, Any]] labels: User-defined labels (key-value pairs) should be created with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Network to create (must be unique per project).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -356,7 +356,7 @@ class Network(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
