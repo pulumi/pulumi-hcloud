@@ -12,8 +12,15 @@ namespace Pulumi.HCloud
     public static class GetFloatingIps
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getFloatingIps"
+        /// sidebar_current: "docs-hcloud-datasource-floating-ips-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Floating IPs.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # Data Source: hcloud.getFloatingIps
+        /// Provides details about multiple Hetzner Cloud Floating IPs.
         /// 
         /// ## Example Usage
         /// 
@@ -37,8 +44,15 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFloatingIpsResult>("hcloud:index/getFloatingIps:getFloatingIps", args ?? new GetFloatingIpsArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getFloatingIps"
+        /// sidebar_current: "docs-hcloud-datasource-floating-ips-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Floating IPs.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # Data Source: hcloud.getFloatingIps
+        /// Provides details about multiple Hetzner Cloud Floating IPs.
         /// 
         /// ## Example Usage
         /// 

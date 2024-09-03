@@ -115,6 +115,15 @@ def get_placement_group(id: Optional[int] = None,
                         with_selector: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlacementGroupResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: PlacementGroup"
+    sidebar_current: "docs-hcloud-datasource-placement-group"
+    description: |-
+    Provides details about a specific Hetzner Cloud Placement Group.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # PlacementGroup
+
     Provides details about a specific Hetzner Cloud Placement Group.
 
     ```python
@@ -162,6 +171,15 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                                with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: PlacementGroup"
+    sidebar_current: "docs-hcloud-datasource-placement-group"
+    description: |-
+    Provides details about a specific Hetzner Cloud Placement Group.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # PlacementGroup
+
     Provides details about a specific Hetzner Cloud Placement Group.
 
     ```python

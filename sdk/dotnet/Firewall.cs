@@ -10,6 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
+    /// layout: "hcloud"
+    /// page_title: "Hetzner Cloud: hcloud.Firewall"
+    /// sidebar_current: "docs-hcloud-resource-firewall"
+    /// description: |- Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
+    /// &lt;!-- yaml: line 4: did not find expected comment or line break --&gt;
+    /// 
+    /// # hcloud.Firewall
+    /// 
     /// Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
     /// 
     /// ## Example Usage

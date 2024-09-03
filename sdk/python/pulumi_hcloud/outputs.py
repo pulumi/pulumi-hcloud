@@ -1200,7 +1200,7 @@ class GetLoadBalancerServiceResult(dict):
         :param int destination_port: (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
         :param Sequence['GetLoadBalancerServiceHealthCheckArgs'] health_checks: (list) List of http configurations when `protocol` is `http` or `https`.
         :param Sequence['GetLoadBalancerServiceHttpArgs'] https: (list) List of http configurations when `protocol` is `http` or `https`.
-        :param int listen_port: (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        :param int listen_port: (int) Port the service listen on`. Can be everything between `1`and`65535`. Must be unique per Load Balancer.
         :param str protocol: (string) Protocol the health check uses. `http`, `https` or `tcp`
         :param bool proxyprotocol: (bool) Enable proxyprotocol.
         """
@@ -1239,7 +1239,7 @@ class GetLoadBalancerServiceResult(dict):
     @pulumi.getter(name="listenPort")
     def listen_port(self) -> int:
         """
-        (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        (int) Port the service listen on`. Can be everything between `1`and`65535`. Must be unique per Load Balancer.
         """
         return pulumi.get(self, "listen_port")
 

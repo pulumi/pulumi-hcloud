@@ -69,6 +69,14 @@ class AwaitableGetLoadBalancersResult(GetLoadBalancersResult):
 def get_load_balancers(with_selector: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancersResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_load_balancers"
+    sidebar_current: "docs-hcloud-datasource-load-balancers-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Load Balancers.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # LoadBalancer
     Provides details about multiple Hetzner Cloud Load Balancers.
 
     ## Example Usage
@@ -99,6 +107,14 @@ def get_load_balancers(with_selector: Optional[str] = None,
 def get_load_balancers_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancersResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_load_balancers"
+    sidebar_current: "docs-hcloud-datasource-load-balancers-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Load Balancers.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # LoadBalancer
     Provides details about multiple Hetzner Cloud Load Balancers.
 
     ## Example Usage

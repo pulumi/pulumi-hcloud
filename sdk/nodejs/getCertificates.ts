@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getCertificates"
+ * sidebar_current: "docs-hcloud-datasource-certificate-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Certificates.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.getCertificates
  * Provides details about multiple Hetzner Cloud Certificates.
  *
  * ## Example Usage
@@ -54,6 +62,14 @@ export interface GetCertificatesResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getCertificates"
+ * sidebar_current: "docs-hcloud-datasource-certificate-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Certificates.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.getCertificates
  * Provides details about multiple Hetzner Cloud Certificates.
  *
  * ## Example Usage

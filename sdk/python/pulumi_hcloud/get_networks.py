@@ -69,6 +69,14 @@ class AwaitableGetNetworksResult(GetNetworksResult):
 def get_networks(with_selector: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworksResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_networks"
+    sidebar_current: "docs-hcloud-datasource-networks-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Networks.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_networks
     Provides details about multiple Hetzner Cloud Networks.
 
     ## Example Usage
@@ -99,6 +107,14 @@ def get_networks(with_selector: Optional[str] = None,
 def get_networks_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworksResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_networks"
+    sidebar_current: "docs-hcloud-datasource-networks-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Networks.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_networks
     Provides details about multiple Hetzner Cloud Networks.
 
     ## Example Usage

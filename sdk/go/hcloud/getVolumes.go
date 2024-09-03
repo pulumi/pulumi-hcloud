@@ -11,6 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "hcloud"
+// page_title: "Hetzner Cloud: Volume"
+// sidebar_current: "docs-hcloud-datasource-volumes-x"
+// description: |-
+// Provides details about multiple Hetzner Cloud volumes.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # getVolumes
 // Provides details about multiple Hetzner Cloud volumes.
 //
 // ## Example Usage

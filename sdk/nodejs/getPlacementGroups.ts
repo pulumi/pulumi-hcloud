@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getPlacementGroups"
+ * sidebar_current: "docs-hcloud-datasource-placement-groups-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Placement Groups.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.getPlacementGroups
  * Provides details about multiple Hetzner Cloud Placement Groups.
  *
  * ## Example Usage
@@ -61,6 +69,14 @@ export interface GetPlacementGroupsResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getPlacementGroups"
+ * sidebar_current: "docs-hcloud-datasource-placement-groups-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Placement Groups.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.getPlacementGroups
  * Provides details about multiple Hetzner Cloud Placement Groups.
  *
  * ## Example Usage

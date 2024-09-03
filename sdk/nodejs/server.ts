@@ -58,6 +58,7 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ *
  * ### Server creation with network
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

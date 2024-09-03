@@ -18,6 +18,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;hcloud&#34;
+ * page_title: &#34;Hetzner Cloud: hcloud.PlacementGroup&#34;
+ * sidebar_current: &#34;docs-hcloud-placement-group&#34;
+ * description: |-
+ * Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # hcloud.PlacementGroup
+ * 
  * Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
  * 
  * ## Example Usage

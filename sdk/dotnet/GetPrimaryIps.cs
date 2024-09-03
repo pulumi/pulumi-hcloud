@@ -12,8 +12,15 @@ namespace Pulumi.HCloud
     public static class GetPrimaryIps
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getPrimaryIps"
+        /// sidebar_current: "docs-hcloud-datasource-primary-ips-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Primary IPs.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # Data Source: hcloud.getPrimaryIps
+        /// Provides details about multiple Hetzner Cloud Primary IPs.
         /// 
         /// ## Example Usage
         /// 
@@ -37,8 +44,15 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getPrimaryIps"
+        /// sidebar_current: "docs-hcloud-datasource-primary-ips-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Primary IPs.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # Data Source: hcloud.getPrimaryIps
+        /// Provides details about multiple Hetzner Cloud Primary IPs.
         /// 
         /// ## Example Usage
         /// 

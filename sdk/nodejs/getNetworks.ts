@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getNetworks"
+ * sidebar_current: "docs-hcloud-datasource-networks-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Networks.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.getNetworks
  * Provides details about multiple Hetzner Cloud Networks.
  *
  * ## Example Usage
@@ -55,6 +63,14 @@ export interface GetNetworksResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getNetworks"
+ * sidebar_current: "docs-hcloud-datasource-networks-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Networks.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.getNetworks
  * Provides details about multiple Hetzner Cloud Networks.
  *
  * ## Example Usage

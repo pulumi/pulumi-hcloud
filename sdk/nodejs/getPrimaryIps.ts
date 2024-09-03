@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getPrimaryIps"
+ * sidebar_current: "docs-hcloud-datasource-primary-ips-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Primary IPs.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Data Source: hcloud.getPrimaryIps
  * Provides details about multiple Hetzner Cloud Primary IPs.
  *
  * ## Example Usage
@@ -54,6 +62,14 @@ export interface GetPrimaryIpsResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getPrimaryIps"
+ * sidebar_current: "docs-hcloud-datasource-primary-ips-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Primary IPs.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Data Source: hcloud.getPrimaryIps
  * Provides details about multiple Hetzner Cloud Primary IPs.
  *
  * ## Example Usage

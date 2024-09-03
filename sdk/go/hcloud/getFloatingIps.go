@@ -11,6 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "hcloud"
+// page_title: "Hetzner Cloud: getFloatingIps"
+// sidebar_current: "docs-hcloud-datasource-floating-ips-x"
+// description: |-
+// Provides details about multiple Hetzner Cloud Floating IPs.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Data Source: getFloatingIps
 // Provides details about multiple Hetzner Cloud Floating IPs.
 //
 // ## Example Usage

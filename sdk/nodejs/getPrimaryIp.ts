@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.PrimaryIp"
+ * sidebar_current: "docs-hcloud-datasource-primary-ip"
+ * description: |-
+ * Provides details about a specific Hetzner Cloud Primary IP.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Data Source: hcloud.PrimaryIp
+ *
  * Provides details about a Hetzner Cloud Primary IP.
  *
  * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -16,12 +25,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * # Data Source: hcloud.PrimaryIp
- *
- * Provides details about a Hetzner Cloud Primary IP.
- * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
- *
- * ### Additional Examples
+ * ### Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,6 +54,11 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ *
+ * # Data Source: hcloud.PrimaryIp
+ *
+ * Provides details about a Hetzner Cloud Primary IP.
+ * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
  */
 export function getPrimaryIp(args?: GetPrimaryIpArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryIpResult> {
     args = args || {};
@@ -141,6 +150,15 @@ export interface GetPrimaryIpResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.PrimaryIp"
+ * sidebar_current: "docs-hcloud-datasource-primary-ip"
+ * description: |-
+ * Provides details about a specific Hetzner Cloud Primary IP.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Data Source: hcloud.PrimaryIp
+ *
  * Provides details about a Hetzner Cloud Primary IP.
  *
  * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -152,12 +170,7 @@ export interface GetPrimaryIpResult {
  *
  * ## Example Usage
  *
- * # Data Source: hcloud.PrimaryIp
- *
- * Provides details about a Hetzner Cloud Primary IP.
- * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
- *
- * ### Additional Examples
+ * ### Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -186,6 +199,11 @@ export interface GetPrimaryIpResult {
  *     }],
  * });
  * ```
+ *
+ * # Data Source: hcloud.PrimaryIp
+ *
+ * Provides details about a Hetzner Cloud Primary IP.
+ * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
  */
 export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpResult> {
     return pulumi.output(args).apply((a: any) => getPrimaryIp(a, opts))

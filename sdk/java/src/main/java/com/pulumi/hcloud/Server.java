@@ -121,6 +121,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Server creation with network
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

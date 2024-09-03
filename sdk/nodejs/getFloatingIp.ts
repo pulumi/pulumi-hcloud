@@ -11,11 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * # Data Source: hcloud.FloatingIp
- * Provides details about a Hetzner Cloud Floating IP.
- * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
- *
- * ### Additional Examples
+ * ### Example Usage
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -34,6 +30,10 @@ import * as utilities from "./utilities";
  *     }));
  * }
  * ```
+ *
+ * # Data Source: hcloud.FloatingIp
+ * Provides details about a Hetzner Cloud Floating IP.
+ * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
  */
 export function getFloatingIp(args?: GetFloatingIpArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpResult> {
     args = args || {};
@@ -131,11 +131,7 @@ export interface GetFloatingIpResult {
  *
  * ## Example Usage
  *
- * # Data Source: hcloud.FloatingIp
- * Provides details about a Hetzner Cloud Floating IP.
- * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
- *
- * ### Additional Examples
+ * ### Example Usage
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -154,6 +150,10 @@ export interface GetFloatingIpResult {
  *     }));
  * }
  * ```
+ *
+ * # Data Source: hcloud.FloatingIp
+ * Provides details about a Hetzner Cloud Floating IP.
+ * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
  */
 export function getFloatingIpOutput(args?: GetFloatingIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpResult> {
     return pulumi.output(args).apply((a: any) => getFloatingIp(a, opts))

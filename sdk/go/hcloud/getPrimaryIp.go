@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "hcloud"
+// page_title: "Hetzner Cloud: PrimaryIp"
+// sidebar_current: "docs-hcloud-datasource-primary-ip"
+// description: |-
+// Provides details about a specific Hetzner Cloud Primary IP.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Data Source: PrimaryIp
+//
 // Provides details about a Hetzner Cloud Primary IP.
 //
 // This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -22,12 +31,7 @@ import (
 //
 // ## Example Usage
 //
-// # Data Source: PrimaryIp
-//
-// Provides details about a Hetzner Cloud Primary IP.
-// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-//
-// ### Additional Examples
+// ### Example Usage
 //
 // ```go
 // package main
@@ -82,6 +86,11 @@ import (
 //	}
 //
 // ```
+//
+// # Data Source: PrimaryIp
+//
+// Provides details about a Hetzner Cloud Primary IP.
+// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
 func LookupPrimaryIp(ctx *pulumi.Context, args *LookupPrimaryIpArgs, opts ...pulumi.InvokeOption) (*LookupPrimaryIpResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrimaryIpResult

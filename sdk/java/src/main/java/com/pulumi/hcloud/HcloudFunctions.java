@@ -360,6 +360,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getCertificates&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-certificate-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Certificates.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getCertificates
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
@@ -402,6 +410,14 @@ public final class HcloudFunctions {
         return getCertificates(GetCertificatesArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getCertificates&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-certificate-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Certificates.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getCertificates
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
@@ -444,6 +460,14 @@ public final class HcloudFunctions {
         return getCertificatesPlain(GetCertificatesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getCertificates&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-certificate-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Certificates.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getCertificates
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
@@ -486,6 +510,14 @@ public final class HcloudFunctions {
         return getCertificates(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getCertificates&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-certificate-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Certificates.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getCertificates
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
@@ -528,6 +560,14 @@ public final class HcloudFunctions {
         return getCertificatesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getCertificates&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-certificate-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Certificates.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getCertificates
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
@@ -570,6 +610,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getCertificates&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-certificate-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Certificates.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getCertificates
      * Provides details about multiple Hetzner Cloud Certificates.
      * 
      * ## Example Usage
@@ -942,6 +990,15 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewall&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewall-x&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.Firewall
+     * 
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -986,6 +1043,15 @@ public final class HcloudFunctions {
         return getFirewall(GetFirewallArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewall&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewall-x&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.Firewall
+     * 
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1030,6 +1096,15 @@ public final class HcloudFunctions {
         return getFirewallPlain(GetFirewallPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewall&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewall-x&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.Firewall
+     * 
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1074,6 +1149,15 @@ public final class HcloudFunctions {
         return getFirewall(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewall&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewall-x&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.Firewall
+     * 
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1118,6 +1202,15 @@ public final class HcloudFunctions {
         return getFirewallPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewall&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewall-x&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.Firewall
+     * 
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1162,6 +1255,15 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getFirewall:getFirewall", TypeShape.of(GetFirewallResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewall&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewall-x&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.Firewall
+     * 
      * Provides details about a specific Hetzner Cloud Firewall.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1206,6 +1308,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getFirewall:getFirewall", TypeShape.of(GetFirewallResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewalls&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewalls-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getFirewalls
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
@@ -1248,6 +1358,14 @@ public final class HcloudFunctions {
         return getFirewalls(GetFirewallsArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewalls&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewalls-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getFirewalls
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
@@ -1290,6 +1408,14 @@ public final class HcloudFunctions {
         return getFirewallsPlain(GetFirewallsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewalls&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewalls-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getFirewalls
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
@@ -1332,6 +1458,14 @@ public final class HcloudFunctions {
         return getFirewalls(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewalls&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewalls-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getFirewalls
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
@@ -1374,6 +1508,14 @@ public final class HcloudFunctions {
         return getFirewallsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewalls&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewalls-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getFirewalls
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
@@ -1416,6 +1558,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getFirewalls:getFirewalls", TypeShape.of(GetFirewallsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud_load_firewalls&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-firewalls-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Firewall.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getFirewalls
      * Provides details about multiple Hetzner Cloud Firewall.
      * 
      * ## Example Usage
@@ -1464,11 +1614,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.FloatingIp
-     * Provides details about a Hetzner Cloud Floating IP.
-     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1516,6 +1662,10 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.FloatingIp
+     * Provides details about a Hetzner Cloud Floating IP.
+     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      */
     public static Output<GetFloatingIpResult> getFloatingIp() {
@@ -1528,11 +1678,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.FloatingIp
-     * Provides details about a Hetzner Cloud Floating IP.
-     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1580,6 +1726,10 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.FloatingIp
+     * Provides details about a Hetzner Cloud Floating IP.
+     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      */
     public static CompletableFuture<GetFloatingIpResult> getFloatingIpPlain() {
@@ -1592,11 +1742,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.FloatingIp
-     * Provides details about a Hetzner Cloud Floating IP.
-     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1644,6 +1790,10 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.FloatingIp
+     * Provides details about a Hetzner Cloud Floating IP.
+     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      */
     public static Output<GetFloatingIpResult> getFloatingIp(GetFloatingIpArgs args) {
@@ -1656,11 +1806,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.FloatingIp
-     * Provides details about a Hetzner Cloud Floating IP.
-     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1708,6 +1854,10 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.FloatingIp
+     * Provides details about a Hetzner Cloud Floating IP.
+     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      */
     public static CompletableFuture<GetFloatingIpResult> getFloatingIpPlain(GetFloatingIpPlainArgs args) {
@@ -1720,11 +1870,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.FloatingIp
-     * Provides details about a Hetzner Cloud Floating IP.
-     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1772,6 +1918,10 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.FloatingIp
+     * Provides details about a Hetzner Cloud Floating IP.
+     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      */
     public static Output<GetFloatingIpResult> getFloatingIp(GetFloatingIpArgs args, InvokeOptions options) {
@@ -1784,11 +1934,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.FloatingIp
-     * Provides details about a Hetzner Cloud Floating IP.
-     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1837,11 +1983,23 @@ public final class HcloudFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * # Data Source: hcloud.FloatingIp
+     * Provides details about a Hetzner Cloud Floating IP.
+     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
      */
     public static CompletableFuture<GetFloatingIpResult> getFloatingIpPlain(GetFloatingIpPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getFloatingIp:getFloatingIp", TypeShape.of(GetFloatingIpResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getFloatingIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-floating-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Floating IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getFloatingIps
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
@@ -1884,6 +2042,14 @@ public final class HcloudFunctions {
         return getFloatingIps(GetFloatingIpsArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getFloatingIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-floating-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Floating IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getFloatingIps
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
@@ -1926,6 +2092,14 @@ public final class HcloudFunctions {
         return getFloatingIpsPlain(GetFloatingIpsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getFloatingIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-floating-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Floating IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getFloatingIps
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
@@ -1968,6 +2142,14 @@ public final class HcloudFunctions {
         return getFloatingIps(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getFloatingIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-floating-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Floating IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getFloatingIps
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
@@ -2010,6 +2192,14 @@ public final class HcloudFunctions {
         return getFloatingIpsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getFloatingIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-floating-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Floating IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getFloatingIps
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
@@ -2052,6 +2242,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getFloatingIps:getFloatingIps", TypeShape.of(GetFloatingIpsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getFloatingIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-floating-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Floating IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getFloatingIps
      * Provides details about multiple Hetzner Cloud Floating IPs.
      * 
      * ## Example Usage
@@ -2424,6 +2622,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getImages&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-images-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Images.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getImages
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
@@ -2470,6 +2676,14 @@ public final class HcloudFunctions {
         return getImages(GetImagesArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getImages&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-images-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Images.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getImages
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
@@ -2516,6 +2730,14 @@ public final class HcloudFunctions {
         return getImagesPlain(GetImagesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getImages&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-images-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Images.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getImages
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
@@ -2562,6 +2784,14 @@ public final class HcloudFunctions {
         return getImages(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getImages&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-images-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Images.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getImages
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
@@ -2608,6 +2838,14 @@ public final class HcloudFunctions {
         return getImagesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getImages&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-images-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Images.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getImages
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
@@ -2654,6 +2892,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getImages&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-images-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Images.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getImages
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * ## Example Usage
@@ -3000,6 +3246,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getLoadBalancers&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-load-balancers-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Load Balancers.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.LoadBalancer
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
@@ -3044,6 +3298,14 @@ public final class HcloudFunctions {
         return getLoadBalancers(GetLoadBalancersArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getLoadBalancers&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-load-balancers-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Load Balancers.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.LoadBalancer
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
@@ -3088,6 +3350,14 @@ public final class HcloudFunctions {
         return getLoadBalancersPlain(GetLoadBalancersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getLoadBalancers&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-load-balancers-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Load Balancers.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.LoadBalancer
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
@@ -3132,6 +3402,14 @@ public final class HcloudFunctions {
         return getLoadBalancers(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getLoadBalancers&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-load-balancers-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Load Balancers.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.LoadBalancer
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
@@ -3176,6 +3454,14 @@ public final class HcloudFunctions {
         return getLoadBalancersPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getLoadBalancers&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-load-balancers-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Load Balancers.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.LoadBalancer
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
@@ -3220,6 +3506,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getLoadBalancers:getLoadBalancers", TypeShape.of(GetLoadBalancersResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getLoadBalancers&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-load-balancers-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Load Balancers.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.LoadBalancer
      * Provides details about multiple Hetzner Cloud Load Balancers.
      * 
      * ## Example Usage
@@ -3882,6 +4176,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getNetworks&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-networks-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Networks.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getNetworks
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
@@ -3926,6 +4228,14 @@ public final class HcloudFunctions {
         return getNetworks(GetNetworksArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getNetworks&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-networks-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Networks.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getNetworks
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
@@ -3970,6 +4280,14 @@ public final class HcloudFunctions {
         return getNetworksPlain(GetNetworksPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getNetworks&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-networks-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Networks.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getNetworks
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
@@ -4014,6 +4332,14 @@ public final class HcloudFunctions {
         return getNetworks(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getNetworks&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-networks-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Networks.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getNetworks
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
@@ -4058,6 +4384,14 @@ public final class HcloudFunctions {
         return getNetworksPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getNetworks&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-networks-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Networks.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getNetworks
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
@@ -4102,6 +4436,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getNetworks:getNetworks", TypeShape.of(GetNetworksResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getNetworks&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-networks-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Networks.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getNetworks
      * Provides details about multiple Hetzner Cloud Networks.
      * 
      * ## Example Usage
@@ -4146,6 +4488,15 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getNetworks:getNetworks", TypeShape.of(GetNetworksResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PlacementGroup&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-group&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Placement Group.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.PlacementGroup
+     * 
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4190,6 +4541,15 @@ public final class HcloudFunctions {
         return getPlacementGroup(GetPlacementGroupArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PlacementGroup&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-group&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Placement Group.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.PlacementGroup
+     * 
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4234,6 +4594,15 @@ public final class HcloudFunctions {
         return getPlacementGroupPlain(GetPlacementGroupPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PlacementGroup&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-group&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Placement Group.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.PlacementGroup
+     * 
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4278,6 +4647,15 @@ public final class HcloudFunctions {
         return getPlacementGroup(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PlacementGroup&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-group&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Placement Group.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.PlacementGroup
+     * 
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4322,6 +4700,15 @@ public final class HcloudFunctions {
         return getPlacementGroupPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PlacementGroup&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-group&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Placement Group.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.PlacementGroup
+     * 
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4366,6 +4753,15 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getPlacementGroup:getPlacementGroup", TypeShape.of(GetPlacementGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PlacementGroup&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-group&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Placement Group.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.PlacementGroup
+     * 
      * Provides details about a specific Hetzner Cloud Placement Group.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4410,6 +4806,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getPlacementGroup:getPlacementGroup", TypeShape.of(GetPlacementGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPlacementGroups&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-groups-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Placement Groups.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getPlacementGroups
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
@@ -4454,6 +4858,14 @@ public final class HcloudFunctions {
         return getPlacementGroups(GetPlacementGroupsArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPlacementGroups&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-groups-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Placement Groups.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getPlacementGroups
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
@@ -4498,6 +4910,14 @@ public final class HcloudFunctions {
         return getPlacementGroupsPlain(GetPlacementGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPlacementGroups&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-groups-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Placement Groups.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getPlacementGroups
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
@@ -4542,6 +4962,14 @@ public final class HcloudFunctions {
         return getPlacementGroups(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPlacementGroups&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-groups-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Placement Groups.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getPlacementGroups
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
@@ -4586,6 +5014,14 @@ public final class HcloudFunctions {
         return getPlacementGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPlacementGroups&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-groups-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Placement Groups.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getPlacementGroups
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
@@ -4630,6 +5066,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getPlacementGroups:getPlacementGroups", TypeShape.of(GetPlacementGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPlacementGroups&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-placement-groups-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Placement Groups.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getPlacementGroups
      * Provides details about multiple Hetzner Cloud Placement Groups.
      * 
      * ## Example Usage
@@ -4674,6 +5118,15 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getPlacementGroups:getPlacementGroups", TypeShape.of(GetPlacementGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PrimaryIp&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ip&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Primary IP.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
      * Provides details about a Hetzner Cloud Primary IP.
      * 
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -4685,12 +5138,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4747,12 +5195,26 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
+     * Provides details about a Hetzner Cloud Primary IP.
+     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
      * 
      */
     public static Output<GetPrimaryIpResult> getPrimaryIp() {
         return getPrimaryIp(GetPrimaryIpArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PrimaryIp&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ip&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Primary IP.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
      * Provides details about a Hetzner Cloud Primary IP.
      * 
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -4764,12 +5226,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4826,12 +5283,26 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
+     * Provides details about a Hetzner Cloud Primary IP.
+     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
      * 
      */
     public static CompletableFuture<GetPrimaryIpResult> getPrimaryIpPlain() {
         return getPrimaryIpPlain(GetPrimaryIpPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PrimaryIp&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ip&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Primary IP.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
      * Provides details about a Hetzner Cloud Primary IP.
      * 
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -4843,12 +5314,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4905,12 +5371,26 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
+     * Provides details about a Hetzner Cloud Primary IP.
+     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
      * 
      */
     public static Output<GetPrimaryIpResult> getPrimaryIp(GetPrimaryIpArgs args) {
         return getPrimaryIp(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PrimaryIp&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ip&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Primary IP.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
      * Provides details about a Hetzner Cloud Primary IP.
      * 
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -4922,12 +5402,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4984,12 +5459,26 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
+     * Provides details about a Hetzner Cloud Primary IP.
+     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
      * 
      */
     public static CompletableFuture<GetPrimaryIpResult> getPrimaryIpPlain(GetPrimaryIpPlainArgs args) {
         return getPrimaryIpPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PrimaryIp&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ip&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Primary IP.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
      * Provides details about a Hetzner Cloud Primary IP.
      * 
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -5001,12 +5490,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -5063,12 +5547,26 @@ public final class HcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
+     * Provides details about a Hetzner Cloud Primary IP.
+     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
      * 
      */
     public static Output<GetPrimaryIpResult> getPrimaryIp(GetPrimaryIpArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getPrimaryIp:getPrimaryIp", TypeShape.of(GetPrimaryIpResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.PrimaryIp&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ip&#34;
+     * description: |-
+     * Provides details about a specific Hetzner Cloud Primary IP.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
      * Provides details about a Hetzner Cloud Primary IP.
      * 
      * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
@@ -5080,12 +5578,7 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
+     * ### Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -5143,11 +5636,24 @@ public final class HcloudFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
+     * Provides details about a Hetzner Cloud Primary IP.
+     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
      */
     public static CompletableFuture<GetPrimaryIpResult> getPrimaryIpPlain(GetPrimaryIpPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getPrimaryIp:getPrimaryIp", TypeShape.of(GetPrimaryIpResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPrimaryIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getPrimaryIps
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
@@ -5190,6 +5696,14 @@ public final class HcloudFunctions {
         return getPrimaryIps(GetPrimaryIpsArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPrimaryIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getPrimaryIps
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
@@ -5232,6 +5746,14 @@ public final class HcloudFunctions {
         return getPrimaryIpsPlain(GetPrimaryIpsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPrimaryIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getPrimaryIps
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
@@ -5274,6 +5796,14 @@ public final class HcloudFunctions {
         return getPrimaryIps(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPrimaryIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getPrimaryIps
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
@@ -5316,6 +5846,14 @@ public final class HcloudFunctions {
         return getPrimaryIpsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPrimaryIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getPrimaryIps
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
@@ -5358,6 +5896,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getPrimaryIps:getPrimaryIps", TypeShape.of(GetPrimaryIpsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.getPrimaryIps&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-primary-ips-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: hcloud.getPrimaryIps
      * Provides details about multiple Hetzner Cloud Primary IPs.
      * 
      * ## Example Usage
@@ -7194,6 +7740,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.Volume&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-volumes-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud volumes.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getVolumes
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
@@ -7238,6 +7792,14 @@ public final class HcloudFunctions {
         return getVolumes(GetVolumesArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.Volume&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-volumes-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud volumes.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getVolumes
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
@@ -7282,6 +7844,14 @@ public final class HcloudFunctions {
         return getVolumesPlain(GetVolumesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.Volume&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-volumes-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud volumes.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getVolumes
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
@@ -7326,6 +7896,14 @@ public final class HcloudFunctions {
         return getVolumes(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.Volume&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-volumes-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud volumes.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getVolumes
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
@@ -7370,6 +7948,14 @@ public final class HcloudFunctions {
         return getVolumesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.Volume&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-volumes-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud volumes.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getVolumes
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage
@@ -7414,6 +8000,14 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getVolumes:getVolumes", TypeShape.of(GetVolumesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;hcloud&#34;
+     * page_title: &#34;Hetzner Cloud: hcloud.Volume&#34;
+     * sidebar_current: &#34;docs-hcloud-datasource-volumes-x&#34;
+     * description: |-
+     * Provides details about multiple Hetzner Cloud volumes.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # hcloud.getVolumes
      * Provides details about multiple Hetzner Cloud volumes.
      * 
      * ## Example Usage

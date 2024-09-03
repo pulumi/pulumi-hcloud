@@ -7,6 +7,15 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloudLoadFirewall"
+ * sidebar_current: "docs-hcloud-datasource-firewall-x"
+ * description: |-
+ * Provides details about a specific Hetzner Cloud Firewall.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.Firewall
+ *
  * Provides details about a specific Hetzner Cloud Firewall.
  *
  * ```typescript
@@ -98,6 +107,15 @@ export interface GetFirewallResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloudLoadFirewall"
+ * sidebar_current: "docs-hcloud-datasource-firewall-x"
+ * description: |-
+ * Provides details about a specific Hetzner Cloud Firewall.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.Firewall
+ *
  * Provides details about a specific Hetzner Cloud Firewall.
  *
  * ```typescript

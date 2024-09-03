@@ -12,8 +12,15 @@ namespace Pulumi.HCloud
     public static class GetNetworks
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getNetworks"
+        /// sidebar_current: "docs-hcloud-datasource-networks-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Networks.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # hcloud.getNetworks
+        /// Provides details about multiple Hetzner Cloud Networks.
         /// 
         /// ## Example Usage
         /// 
@@ -39,8 +46,15 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworksResult>("hcloud:index/getNetworks:getNetworks", args ?? new GetNetworksArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getNetworks"
+        /// sidebar_current: "docs-hcloud-datasource-networks-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Networks.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # hcloud.getNetworks
+        /// Provides details about multiple Hetzner Cloud Networks.
         /// 
         /// ## Example Usage
         /// 

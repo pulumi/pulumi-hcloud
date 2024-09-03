@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "hcloud"
+// page_title: "Hetzner Cloud: PlacementGroup"
+// sidebar_current: "docs-hcloud-datasource-placement-group"
+// description: |-
+// Provides details about a specific Hetzner Cloud Placement Group.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # PlacementGroup
+//
 // Provides details about a specific Hetzner Cloud Placement Group.
 //
 // ```go

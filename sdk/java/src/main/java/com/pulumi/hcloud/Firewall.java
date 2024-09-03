@@ -19,6 +19,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;hcloud&#34;
+ * page_title: &#34;Hetzner Cloud: hcloud.Firewall&#34;
+ * sidebar_current: &#34;docs-hcloud-resource-firewall&#34;
+ * description: |- Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
+ * &lt;!-- yaml: line 4: did not find expected comment or line break --&gt;
+ * 
+ * # hcloud.Firewall
+ * 
  * Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
  * 
  * ## Example Usage

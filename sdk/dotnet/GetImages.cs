@@ -12,8 +12,15 @@ namespace Pulumi.HCloud
     public static class GetImages
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getImages"
+        /// sidebar_current: "docs-hcloud-datasource-images-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Images.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # Data Source: hcloud.getImages
+        /// Provides details about multiple Hetzner Cloud Images.
         /// 
         /// ## Example Usage
         /// 
@@ -45,8 +52,15 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagesResult>("hcloud:index/getImages:getImages", args ?? new GetImagesArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getImages"
+        /// sidebar_current: "docs-hcloud-datasource-images-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Images.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # Data Source: hcloud.getImages
+        /// Provides details about multiple Hetzner Cloud Images.
         /// 
         /// ## Example Usage
         /// 
