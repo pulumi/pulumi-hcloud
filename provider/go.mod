@@ -1,6 +1,8 @@
 module github.com/pulumi/pulumi-hcloud/provider
 
-go 1.21.12
+go 1.22
+
+toolchain go1.22.6
 
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
@@ -10,9 +12,9 @@ replace (
 require (
 	github.com/hetznercloud/terraform-provider-hcloud v1.48.0
 	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.42.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1
-	github.com/pulumi/pulumi/sdk/v3 v3.129.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.42.2-0.20240830143852-beec4df2d17b
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.2-0.20240830143852-beec4df2d17b
+	github.com/pulumi/pulumi/sdk/v3 v3.130.0
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -195,7 +197,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.14.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/pulumi-yaml v1.9.2 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.129.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.130.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
