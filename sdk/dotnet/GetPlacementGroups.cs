@@ -12,8 +12,15 @@ namespace Pulumi.HCloud
     public static class GetPlacementGroups
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getPlacementGroups"
+        /// sidebar_current: "docs-hcloud-datasource-placement-groups-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Placement Groups.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # hcloud.getPlacementGroups
+        /// Provides details about multiple Hetzner Cloud Placement Groups.
         /// 
         /// ## Example Usage
         /// 
@@ -39,8 +46,15 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupsResult>("hcloud:index/getPlacementGroups:getPlacementGroups", args ?? new GetPlacementGroupsArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getPlacementGroups"
+        /// sidebar_current: "docs-hcloud-datasource-placement-groups-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Placement Groups.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # hcloud.getPlacementGroups
+        /// Provides details about multiple Hetzner Cloud Placement Groups.
         /// 
         /// ## Example Usage
         /// 

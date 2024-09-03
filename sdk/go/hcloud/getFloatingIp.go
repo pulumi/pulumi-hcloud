@@ -17,11 +17,7 @@ import (
 //
 // ## Example Usage
 //
-// # Data Source: FloatingIp
-// Provides details about a Hetzner Cloud Floating IP.
-// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-//
-// ### Additional Examples
+// ### Example Usage
 // ```go
 // package main
 //
@@ -64,6 +60,10 @@ import (
 //	}
 //
 // ```
+//
+// # Data Source: FloatingIp
+// Provides details about a Hetzner Cloud Floating IP.
+// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
 func LookupFloatingIp(ctx *pulumi.Context, args *LookupFloatingIpArgs, opts ...pulumi.InvokeOption) (*LookupFloatingIpResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFloatingIpResult

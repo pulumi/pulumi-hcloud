@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  * `&lt;load-balancer-id&gt;__&lt;type&gt;__&lt;identifier&gt;`
  * 
- * Where _identifier_ depends on the _type_:
+ * Where *identifier* depends on the *type*:
  * 
  * - `server`: server id, for example: `123`
  * 

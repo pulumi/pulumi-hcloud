@@ -11,6 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "hcloud"
+// page_title: "Hetzner Cloud: getImages"
+// sidebar_current: "docs-hcloud-datasource-images-x"
+// description: |-
+// Provides details about multiple Hetzner Cloud Images.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Data Source: getImages
 // Provides details about multiple Hetzner Cloud Images.
 //
 // ## Example Usage

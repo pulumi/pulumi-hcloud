@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.Volume"
+ * sidebar_current: "docs-hcloud-datasource-volumes-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud volumes.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.getVolumes
  * Provides details about multiple Hetzner Cloud volumes.
  *
  * ## Example Usage
@@ -61,6 +69,14 @@ export interface GetVolumesResult {
     readonly withStatuses?: string[];
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.Volume"
+ * sidebar_current: "docs-hcloud-datasource-volumes-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud volumes.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.getVolumes
  * Provides details about multiple Hetzner Cloud volumes.
  *
  * ## Example Usage

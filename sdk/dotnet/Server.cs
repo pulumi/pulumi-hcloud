@@ -87,6 +87,7 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
+    /// 
     /// ### Server creation with network
     /// ```csharp
     /// using System.Collections.Generic;

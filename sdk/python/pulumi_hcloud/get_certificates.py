@@ -69,6 +69,14 @@ class AwaitableGetCertificatesResult(GetCertificatesResult):
 def get_certificates(with_selector: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificatesResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_certificates"
+    sidebar_current: "docs-hcloud-datasource-certificate-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Certificates.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_certificates
     Provides details about multiple Hetzner Cloud Certificates.
 
     ## Example Usage
@@ -98,6 +106,14 @@ def get_certificates(with_selector: Optional[str] = None,
 def get_certificates_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificatesResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_certificates"
+    sidebar_current: "docs-hcloud-datasource-certificate-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Certificates.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_certificates
     Provides details about multiple Hetzner Cloud Certificates.
 
     ## Example Usage

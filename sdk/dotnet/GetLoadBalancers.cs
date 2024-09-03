@@ -12,6 +12,14 @@ namespace Pulumi.HCloud
     public static class GetLoadBalancers
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getLoadBalancers"
+        /// sidebar_current: "docs-hcloud-datasource-load-balancers-x"
+        /// description: |-
+        /// Provides details about multiple Hetzner Cloud Load Balancers.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+        /// 
+        /// # hcloud.LoadBalancer
         /// Provides details about multiple Hetzner Cloud Load Balancers.
         /// 
         /// ## Example Usage
@@ -38,6 +46,14 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancersResult>("hcloud:index/getLoadBalancers:getLoadBalancers", args ?? new GetLoadBalancersArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getLoadBalancers"
+        /// sidebar_current: "docs-hcloud-datasource-load-balancers-x"
+        /// description: |-
+        /// Provides details about multiple Hetzner Cloud Load Balancers.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+        /// 
+        /// # hcloud.LoadBalancer
         /// Provides details about multiple Hetzner Cloud Load Balancers.
         /// 
         /// ## Example Usage

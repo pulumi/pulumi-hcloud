@@ -109,6 +109,14 @@ def get_images(include_deprecated: Optional[bool] = None,
                with_statuses: Optional[Sequence[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagesResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_images"
+    sidebar_current: "docs-hcloud-datasource-images-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Images.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Data Source: get_images
     Provides details about multiple Hetzner Cloud Images.
 
     ## Example Usage
@@ -155,6 +163,14 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]]
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagesResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_images"
+    sidebar_current: "docs-hcloud-datasource-images-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Images.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Data Source: get_images
     Provides details about multiple Hetzner Cloud Images.
 
     ## Example Usage

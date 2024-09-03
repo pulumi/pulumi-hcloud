@@ -11,6 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "hcloud"
+// page_title: "Hetzner Cloud: getPrimaryIps"
+// sidebar_current: "docs-hcloud-datasource-primary-ips-x"
+// description: |-
+// Provides details about multiple Hetzner Cloud Primary IPs.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Data Source: getPrimaryIps
 // Provides details about multiple Hetzner Cloud Primary IPs.
 //
 // ## Example Usage

@@ -183,7 +183,7 @@ export interface GetLoadBalancerService {
      */
     https: outputs.GetLoadBalancerServiceHttp[];
     /**
-     * (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+     * (int) Port the service listen on`. Can be everything between `1`and`65535`. Must be unique per Load Balancer.
      */
     listenPort: number;
     /**

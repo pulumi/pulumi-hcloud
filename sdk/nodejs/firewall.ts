@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.Firewall"
+ * sidebar_current: "docs-hcloud-resource-firewall"
+ * description: |- Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
+ * <!-- yaml: line 4: did not find expected comment or line break -->
+ *
+ * # hcloud.Firewall
+ *
  * Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
  *
  * ## Example Usage

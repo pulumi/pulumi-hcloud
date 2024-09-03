@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getLoadBalancers"
+ * sidebar_current: "docs-hcloud-datasource-load-balancers-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Load Balancers.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.LoadBalancer
  * Provides details about multiple Hetzner Cloud Load Balancers.
  *
  * ## Example Usage
@@ -55,6 +63,14 @@ export interface GetLoadBalancersResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getLoadBalancers"
+ * sidebar_current: "docs-hcloud-datasource-load-balancers-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Load Balancers.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.LoadBalancer
  * Provides details about multiple Hetzner Cloud Load Balancers.
  *
  * ## Example Usage

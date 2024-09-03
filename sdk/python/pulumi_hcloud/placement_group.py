@@ -144,6 +144,15 @@ class PlacementGroup(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "hcloud"
+        page_title: "Hetzner Cloud: PlacementGroup"
+        sidebar_current: "docs-hcloud-placement-group"
+        description: |-
+        Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # PlacementGroup
+
         Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
 
         ## Example Usage
@@ -186,6 +195,15 @@ class PlacementGroup(pulumi.CustomResource):
                  args: PlacementGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "hcloud"
+        page_title: "Hetzner Cloud: PlacementGroup"
+        sidebar_current: "docs-hcloud-placement-group"
+        description: |-
+        Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # PlacementGroup
+
         Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
 
         ## Example Usage

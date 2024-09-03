@@ -69,6 +69,14 @@ class AwaitableGetPrimaryIpsResult(GetPrimaryIpsResult):
 def get_primary_ips(with_selector: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrimaryIpsResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_primary_ips"
+    sidebar_current: "docs-hcloud-datasource-primary-ips-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Primary IPs.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Data Source: get_primary_ips
     Provides details about multiple Hetzner Cloud Primary IPs.
 
     ## Example Usage
@@ -98,6 +106,14 @@ def get_primary_ips(with_selector: Optional[str] = None,
 def get_primary_ips_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrimaryIpsResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_primary_ips"
+    sidebar_current: "docs-hcloud-datasource-primary-ips-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Primary IPs.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Data Source: get_primary_ips
     Provides details about multiple Hetzner Cloud Primary IPs.
 
     ## Example Usage

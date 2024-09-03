@@ -10,6 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
+    /// layout: "hcloud"
+    /// page_title: "Hetzner Cloud: hcloud.PlacementGroup"
+    /// sidebar_current: "docs-hcloud-placement-group"
+    /// description: |-
+    /// Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
+    /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+    /// 
+    /// # hcloud.PlacementGroup
+    /// 
     /// Provides a Hetzner Cloud Placement Group to represent a Placement Group in the Hetzner Cloud.
     /// 
     /// ## Example Usage

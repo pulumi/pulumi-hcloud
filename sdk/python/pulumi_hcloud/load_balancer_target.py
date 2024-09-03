@@ -286,7 +286,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         `<load-balancer-id>__<type>__<identifier>`
 
-        Where _identifier_ depends on the _type_:
+        Where *identifier* depends on the *type*:
 
         - `server`: server id, for example: `123`
 
@@ -357,7 +357,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         `<load-balancer-id>__<type>__<identifier>`
 
-        Where _identifier_ depends on the _type_:
+        Where *identifier* depends on the *type*:
 
         - `server`: server id, for example: `123`
 

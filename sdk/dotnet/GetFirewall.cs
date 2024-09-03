@@ -12,6 +12,15 @@ namespace Pulumi.HCloud
     public static class GetFirewall
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud_load_firewall"
+        /// sidebar_current: "docs-hcloud-datasource-firewall-x"
+        /// description: |-
+        /// Provides details about a specific Hetzner Cloud Firewall.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+        /// 
+        /// # hcloud.Firewall
+        /// 
         /// Provides details about a specific Hetzner Cloud Firewall.
         /// 
         /// ```csharp
@@ -39,6 +48,15 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("hcloud:index/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud_load_firewall"
+        /// sidebar_current: "docs-hcloud-datasource-firewall-x"
+        /// description: |-
+        /// Provides details about a specific Hetzner Cloud Firewall.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+        /// 
+        /// # hcloud.Firewall
+        /// 
         /// Provides details about a specific Hetzner Cloud Firewall.
         /// 
         /// ```csharp

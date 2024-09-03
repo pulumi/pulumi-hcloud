@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.PlacementGroup"
+ * sidebar_current: "docs-hcloud-datasource-placement-group"
+ * description: |-
+ * Provides details about a specific Hetzner Cloud Placement Group.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.PlacementGroup
+ *
  * Provides details about a specific Hetzner Cloud Placement Group.
  *
  * ```typescript
@@ -88,6 +97,15 @@ export interface GetPlacementGroupResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.PlacementGroup"
+ * sidebar_current: "docs-hcloud-datasource-placement-group"
+ * description: |-
+ * Provides details about a specific Hetzner Cloud Placement Group.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # hcloud.PlacementGroup
+ *
  * Provides details about a specific Hetzner Cloud Placement Group.
  *
  * ```typescript

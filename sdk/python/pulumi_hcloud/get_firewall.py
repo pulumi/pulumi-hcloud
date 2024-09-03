@@ -121,6 +121,15 @@ def get_firewall(apply_tos: Optional[Sequence[Union['GetFirewallApplyToArgs', 'G
                  with_selector: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: hcloud_load_firewall"
+    sidebar_current: "docs-hcloud-datasource-firewall-x"
+    description: |-
+    Provides details about a specific Hetzner Cloud Firewall.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Firewall
+
     Provides details about a specific Hetzner Cloud Firewall.
 
     ```python
@@ -171,6 +180,15 @@ def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[Union
                         with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: hcloud_load_firewall"
+    sidebar_current: "docs-hcloud-datasource-firewall-x"
+    description: |-
+    Provides details about a specific Hetzner Cloud Firewall.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Firewall
+
     Provides details about a specific Hetzner Cloud Firewall.
 
     ```python

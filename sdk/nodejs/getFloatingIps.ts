@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getFloatingIps"
+ * sidebar_current: "docs-hcloud-datasource-floating-ips-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Floating IPs.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Data Source: hcloud.getFloatingIps
  * Provides details about multiple Hetzner Cloud Floating IPs.
  *
  * ## Example Usage
@@ -54,6 +62,14 @@ export interface GetFloatingIpsResult {
     readonly withSelector?: string;
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getFloatingIps"
+ * sidebar_current: "docs-hcloud-datasource-floating-ips-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Floating IPs.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Data Source: hcloud.getFloatingIps
  * Provides details about multiple Hetzner Cloud Floating IPs.
  *
  * ## Example Usage

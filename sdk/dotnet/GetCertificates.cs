@@ -12,8 +12,15 @@ namespace Pulumi.HCloud
     public static class GetCertificates
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getCertificates"
+        /// sidebar_current: "docs-hcloud-datasource-certificate-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Certificates.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # hcloud.getCertificates
+        /// Provides details about multiple Hetzner Cloud Certificates.
         /// 
         /// ## Example Usage
         /// 
@@ -37,8 +44,15 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificatesResult>("hcloud:index/getCertificates:getCertificates", args ?? new GetCertificatesArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.getCertificates"
+        /// sidebar_current: "docs-hcloud-datasource-certificate-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud Certificates.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # hcloud.getCertificates
+        /// Provides details about multiple Hetzner Cloud Certificates.
         /// 
         /// ## Example Usage
         /// 

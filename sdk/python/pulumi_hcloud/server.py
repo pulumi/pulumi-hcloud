@@ -888,6 +888,7 @@ class Server(pulumi.CustomResource):
                 "ipv6_enabled": False,
             }])
         ```
+
         ### Server creation with network
         ```python
         import pulumi
@@ -1033,6 +1034,7 @@ class Server(pulumi.CustomResource):
                 "ipv6_enabled": False,
             }])
         ```
+
         ### Server creation with network
         ```python
         import pulumi

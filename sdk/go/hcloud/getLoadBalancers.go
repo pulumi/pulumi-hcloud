@@ -11,6 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "hcloud"
+// page_title: "Hetzner Cloud: getLoadBalancers"
+// sidebar_current: "docs-hcloud-datasource-load-balancers-x"
+// description: |-
+// Provides details about multiple Hetzner Cloud Load Balancers.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # LoadBalancer
 // Provides details about multiple Hetzner Cloud Load Balancers.
 //
 // ## Example Usage

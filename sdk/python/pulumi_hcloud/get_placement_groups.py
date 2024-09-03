@@ -79,6 +79,14 @@ def get_placement_groups(most_recent: Optional[bool] = None,
                          with_selector: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlacementGroupsResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_placement_groups"
+    sidebar_current: "docs-hcloud-datasource-placement-groups-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Placement Groups.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_placement_groups
     Provides details about multiple Hetzner Cloud Placement Groups.
 
     ## Example Usage
@@ -113,6 +121,14 @@ def get_placement_groups_output(most_recent: Optional[pulumi.Input[Optional[bool
                                 with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupsResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_placement_groups"
+    sidebar_current: "docs-hcloud-datasource-placement-groups-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Placement Groups.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_placement_groups
     Provides details about multiple Hetzner Cloud Placement Groups.
 
     ## Example Usage

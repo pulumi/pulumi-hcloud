@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getImages"
+ * sidebar_current: "docs-hcloud-datasource-images-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Images.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Data Source: hcloud.getImages
  * Provides details about multiple Hetzner Cloud Images.
  *
  * ## Example Usage
@@ -81,6 +89,14 @@ export interface GetImagesResult {
     readonly withStatuses?: string[];
 }
 /**
+ * layout: "hcloud"
+ * page_title: "Hetzner Cloud: hcloud.getImages"
+ * sidebar_current: "docs-hcloud-datasource-images-x"
+ * description: |-
+ * Provides details about multiple Hetzner Cloud Images.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Data Source: hcloud.getImages
  * Provides details about multiple Hetzner Cloud Images.
  *
  * ## Example Usage

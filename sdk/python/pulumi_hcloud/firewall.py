@@ -168,6 +168,14 @@ class Firewall(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
                  __props__=None):
         """
+        layout: "hcloud"
+        page_title: "Hetzner Cloud: Firewall"
+        sidebar_current: "docs-hcloud-resource-firewall"
+        description: |- Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
+        <!-- yaml: line 4: did not find expected comment or line break -->
+
+        # Firewall
+
         Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
 
         ## Example Usage
@@ -226,6 +234,14 @@ class Firewall(pulumi.CustomResource):
                  args: Optional[FirewallArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "hcloud"
+        page_title: "Hetzner Cloud: Firewall"
+        sidebar_current: "docs-hcloud-resource-firewall"
+        description: |- Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
+        <!-- yaml: line 4: did not find expected comment or line break -->
+
+        # Firewall
+
         Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
 
         ## Example Usage

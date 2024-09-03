@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "hcloud"
+// page_title: "Hetzner Cloud: hcloudLoadFirewall"
+// sidebar_current: "docs-hcloud-datasource-firewall-x"
+// description: |-
+// Provides details about a specific Hetzner Cloud Firewall.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Firewall
+//
 // Provides details about a specific Hetzner Cloud Firewall.
 //
 // ```go

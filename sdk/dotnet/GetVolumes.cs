@@ -12,8 +12,15 @@ namespace Pulumi.HCloud
     public static class GetVolumes
     {
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.Volume"
+        /// sidebar_current: "docs-hcloud-datasource-volumes-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud volumes.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # hcloud.getVolumes
+        /// Provides details about multiple Hetzner Cloud volumes.
         /// 
         /// ## Example Usage
         /// 
@@ -39,8 +46,15 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "hcloud"
+        /// page_title: "Hetzner Cloud: hcloud.Volume"
+        /// sidebar_current: "docs-hcloud-datasource-volumes-x"
+        /// description: |-
         /// Provides details about multiple Hetzner Cloud volumes.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
         /// 
+        /// # hcloud.getVolumes
+        /// Provides details about multiple Hetzner Cloud volumes.
         /// 
         /// ## Example Usage
         /// 

@@ -69,6 +69,14 @@ class AwaitableGetFloatingIpsResult(GetFloatingIpsResult):
 def get_floating_ips(with_selector: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFloatingIpsResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_floating_ips"
+    sidebar_current: "docs-hcloud-datasource-floating-ips-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Floating IPs.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Data Source: get_floating_ips
     Provides details about multiple Hetzner Cloud Floating IPs.
 
     ## Example Usage
@@ -98,6 +106,14 @@ def get_floating_ips(with_selector: Optional[str] = None,
 def get_floating_ips_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFloatingIpsResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: get_floating_ips"
+    sidebar_current: "docs-hcloud-datasource-floating-ips-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Floating IPs.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Data Source: get_floating_ips
     Provides details about multiple Hetzner Cloud Floating IPs.
 
     ## Example Usage

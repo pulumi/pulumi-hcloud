@@ -79,6 +79,14 @@ def get_firewalls(most_recent: Optional[bool] = None,
                   with_selector: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallsResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: hcloud_load_firewalls"
+    sidebar_current: "docs-hcloud-datasource-firewalls-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Firewall.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_firewalls
     Provides details about multiple Hetzner Cloud Firewall.
 
     ## Example Usage
@@ -112,6 +120,14 @@ def get_firewalls_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = N
                          with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallsResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: hcloud_load_firewalls"
+    sidebar_current: "docs-hcloud-datasource-firewalls-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud Firewall.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_firewalls
     Provides details about multiple Hetzner Cloud Firewall.
 
     ## Example Usage

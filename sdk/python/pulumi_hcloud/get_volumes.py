@@ -79,6 +79,14 @@ def get_volumes(with_selector: Optional[str] = None,
                 with_statuses: Optional[Sequence[str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumesResult:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: Volume"
+    sidebar_current: "docs-hcloud-datasource-volumes-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud volumes.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_volumes
     Provides details about multiple Hetzner Cloud volumes.
 
     ## Example Usage
@@ -113,6 +121,14 @@ def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
                        with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumesResult]:
     """
+    layout: "hcloud"
+    page_title: "Hetzner Cloud: Volume"
+    sidebar_current: "docs-hcloud-datasource-volumes-x"
+    description: |-
+    Provides details about multiple Hetzner Cloud volumes.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # get_volumes
     Provides details about multiple Hetzner Cloud volumes.
 
     ## Example Usage

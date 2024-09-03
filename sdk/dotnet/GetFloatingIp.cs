@@ -18,12 +18,7 @@ namespace Pulumi.HCloud
         /// 
         /// ## Example Usage
         /// 
-        /// # Data Source: hcloud.FloatingIp
-        /// Provides details about a Hetzner Cloud Floating IP.
-        /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-        /// 
-        /// 
-        /// ### Additional Examples
+        /// ### Example Usage
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,6 +49,10 @@ namespace Pulumi.HCloud
         ///     }
         /// });
         /// ```
+        /// 
+        /// # Data Source: hcloud.FloatingIp
+        /// Provides details about a Hetzner Cloud Floating IP.
+        /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
         /// </summary>
         public static Task<GetFloatingIpResult> InvokeAsync(GetFloatingIpArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFloatingIpResult>("hcloud:index/getFloatingIp:getFloatingIp", args ?? new GetFloatingIpArgs(), options.WithDefaults());
@@ -65,12 +64,7 @@ namespace Pulumi.HCloud
         /// 
         /// ## Example Usage
         /// 
-        /// # Data Source: hcloud.FloatingIp
-        /// Provides details about a Hetzner Cloud Floating IP.
-        /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
-        /// 
-        /// 
-        /// ### Additional Examples
+        /// ### Example Usage
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,6 +95,10 @@ namespace Pulumi.HCloud
         ///     }
         /// });
         /// ```
+        /// 
+        /// # Data Source: hcloud.FloatingIp
+        /// Provides details about a Hetzner Cloud Floating IP.
+        /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
         /// </summary>
         public static Output<GetFloatingIpResult> Invoke(GetFloatingIpInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFloatingIpResult>("hcloud:index/getFloatingIp:getFloatingIp", args ?? new GetFloatingIpInvokeArgs(), options.WithDefaults());
