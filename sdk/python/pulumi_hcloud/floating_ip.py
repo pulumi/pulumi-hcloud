@@ -26,10 +26,10 @@ class FloatingIpArgs:
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
-        :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Floating IP.
-        :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
+        :param pulumi.Input[int] server_id: Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         """
         pulumi.set(__self__, "type", type)
         if delete_protection is not None:
@@ -85,7 +85,7 @@ class FloatingIpArgs:
     @pulumi.getter(name="homeLocation")
     def home_location(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         """
         return pulumi.get(self, "home_location")
 
@@ -121,7 +121,7 @@ class FloatingIpArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Server to assign the Floating IP to.
+        Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         """
         return pulumi.get(self, "server_id")
 
@@ -146,12 +146,12 @@ class _FloatingIpState:
         Input properties used for looking up and filtering FloatingIp resources.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
-        :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
         :param pulumi.Input[str] ip_network: (string) IPv6 subnet. (Only set if `type` is `ipv6`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Floating IP.
-        :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
+        :param pulumi.Input[int] server_id: Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
         """
         if delete_protection is not None:
@@ -201,7 +201,7 @@ class _FloatingIpState:
     @pulumi.getter(name="homeLocation")
     def home_location(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         """
         return pulumi.get(self, "home_location")
 
@@ -261,7 +261,7 @@ class _FloatingIpState:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Server to assign the Floating IP to.
+        Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         """
         return pulumi.get(self, "server_id")
 
@@ -325,10 +325,10 @@ class FloatingIp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
-        :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Floating IP.
-        :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
+        :param pulumi.Input[int] server_id: Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
         """
         ...
@@ -433,12 +433,12 @@ class FloatingIp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[str] description: Description of the Floating IP.
-        :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        :param pulumi.Input[str] home_location: Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         :param pulumi.Input[str] ip_address: (string) IP Address of the Floating IP.
         :param pulumi.Input[str] ip_network: (string) IPv6 subnet. (Only set if `type` is `ipv6`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] name: Name of the Floating IP.
-        :param pulumi.Input[int] server_id: Server to assign the Floating IP to.
+        :param pulumi.Input[int] server_id: Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         :param pulumi.Input[str] type: Type of the Floating IP. `ipv4` `ipv6`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -476,7 +476,7 @@ class FloatingIp(pulumi.CustomResource):
     @pulumi.getter(name="homeLocation")
     def home_location(self) -> pulumi.Output[str]:
         """
-        Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         """
         return pulumi.get(self, "home_location")
 
@@ -516,7 +516,7 @@ class FloatingIp(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[int]:
         """
-        Server to assign the Floating IP to.
+        Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         """
         return pulumi.get(self, "server_id")
 

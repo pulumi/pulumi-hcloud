@@ -69,7 +69,7 @@ export class FloatingIp extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+     * Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      */
     public readonly homeLocation!: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class FloatingIp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Server to assign the Floating IP to.
+     * Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      */
     public readonly serverId!: pulumi.Output<number>;
     /**
@@ -152,7 +152,7 @@ export interface FloatingIpState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+     * Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      */
     homeLocation?: pulumi.Input<string>;
     /**
@@ -172,7 +172,7 @@ export interface FloatingIpState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Server to assign the Floating IP to.
+     * Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      */
     serverId?: pulumi.Input<number>;
     /**
@@ -194,7 +194,7 @@ export interface FloatingIpArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+     * Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      */
     homeLocation?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface FloatingIpArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Server to assign the Floating IP to.
+     * Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      */
     serverId?: pulumi.Input<number>;
     /**
