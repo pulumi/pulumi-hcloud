@@ -62,7 +62,7 @@ namespace Pulumi.HCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         /// </summary>
         [Output("homeLocation")]
         public Output<string> HomeLocation { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.HCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Server to assign the Floating IP to.
+        /// Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.HCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         /// </summary>
         [Input("homeLocation")]
         public Input<string>? HomeLocation { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Server to assign the Floating IP to.
+        /// Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.HCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of home location (routing is optimized for that location). Optional if server_id argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
         /// </summary>
         [Input("homeLocation")]
         public Input<string>? HomeLocation { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Server to assign the Floating IP to.
+        /// Server to assign the Floating IP to. Optional if `home_location` argument is passed.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }

@@ -63,7 +63,7 @@ type FloatingIp struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
 	HomeLocation pulumi.StringOutput `pulumi:"homeLocation"`
 	// (string) IP Address of the Floating IP.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
@@ -73,7 +73,7 @@ type FloatingIp struct {
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Floating IP.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Server to assign the Floating IP to.
+	// Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
 	ServerId pulumi.IntOutput `pulumi:"serverId"`
 	// Type of the Floating IP. `ipv4` `ipv6`
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -116,7 +116,7 @@ type floatingIpState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description *string `pulumi:"description"`
-	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
 	HomeLocation *string `pulumi:"homeLocation"`
 	// (string) IP Address of the Floating IP.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -126,7 +126,7 @@ type floatingIpState struct {
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the Floating IP.
 	Name *string `pulumi:"name"`
-	// Server to assign the Floating IP to.
+	// Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
 	ServerId *int `pulumi:"serverId"`
 	// Type of the Floating IP. `ipv4` `ipv6`
 	Type *string `pulumi:"type"`
@@ -137,7 +137,7 @@ type FloatingIpState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Floating IP.
 	Description pulumi.StringPtrInput
-	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
 	HomeLocation pulumi.StringPtrInput
 	// (string) IP Address of the Floating IP.
 	IpAddress pulumi.StringPtrInput
@@ -147,7 +147,7 @@ type FloatingIpState struct {
 	Labels pulumi.StringMapInput
 	// Name of the Floating IP.
 	Name pulumi.StringPtrInput
-	// Server to assign the Floating IP to.
+	// Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
 	ServerId pulumi.IntPtrInput
 	// Type of the Floating IP. `ipv4` `ipv6`
 	Type pulumi.StringPtrInput
@@ -162,13 +162,13 @@ type floatingIpArgs struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the Floating IP.
 	Description *string `pulumi:"description"`
-	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
 	HomeLocation *string `pulumi:"homeLocation"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the Floating IP.
 	Name *string `pulumi:"name"`
-	// Server to assign the Floating IP to.
+	// Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
 	ServerId *int `pulumi:"serverId"`
 	// Type of the Floating IP. `ipv4` `ipv6`
 	Type string `pulumi:"type"`
@@ -180,13 +180,13 @@ type FloatingIpArgs struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Description of the Floating IP.
 	Description pulumi.StringPtrInput
-	// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+	// Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
 	HomeLocation pulumi.StringPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.StringMapInput
 	// Name of the Floating IP.
 	Name pulumi.StringPtrInput
-	// Server to assign the Floating IP to.
+	// Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
 	ServerId pulumi.IntPtrInput
 	// Type of the Floating IP. `ipv4` `ipv6`
 	Type pulumi.StringInput
@@ -289,7 +289,7 @@ func (o FloatingIpOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FloatingIp) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of home location (routing is optimized for that location). Optional if serverId argument is passed.
+// Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
 func (o FloatingIpOutput) HomeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *FloatingIp) pulumi.StringOutput { return v.HomeLocation }).(pulumi.StringOutput)
 }
@@ -314,7 +314,7 @@ func (o FloatingIpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FloatingIp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Server to assign the Floating IP to.
+// Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
 func (o FloatingIpOutput) ServerId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FloatingIp) pulumi.IntOutput { return v.ServerId }).(pulumi.IntOutput)
 }

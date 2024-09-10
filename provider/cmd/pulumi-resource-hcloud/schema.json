@@ -1995,7 +1995,7 @@
                 },
                 "homeLocation": {
                     "type": "string",
-                    "description": "Name of home location (routing is optimized for that location). Optional if server_id argument is passed.\n"
+                    "description": "Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.\n"
                 },
                 "ipAddress": {
                     "type": "string",
@@ -2018,7 +2018,7 @@
                 },
                 "serverId": {
                     "type": "integer",
-                    "description": "Server to assign the Floating IP to.\n"
+                    "description": "Server to assign the Floating IP to. Optional if `home_location` argument is passed.\n"
                 },
                 "type": {
                     "type": "string",
@@ -2044,7 +2044,7 @@
                 },
                 "homeLocation": {
                     "type": "string",
-                    "description": "Name of home location (routing is optimized for that location). Optional if server_id argument is passed.\n",
+                    "description": "Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.\n",
                     "willReplaceOnChanges": true
                 },
                 "labels": {
@@ -2060,7 +2060,7 @@
                 },
                 "serverId": {
                     "type": "integer",
-                    "description": "Server to assign the Floating IP to.\n"
+                    "description": "Server to assign the Floating IP to. Optional if `home_location` argument is passed.\n"
                 },
                 "type": {
                     "type": "string",
@@ -2084,7 +2084,7 @@
                     },
                     "homeLocation": {
                         "type": "string",
-                        "description": "Name of home location (routing is optimized for that location). Optional if server_id argument is passed.\n",
+                        "description": "Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.\n",
                         "willReplaceOnChanges": true
                     },
                     "ipAddress": {
@@ -2108,7 +2108,7 @@
                     },
                     "serverId": {
                         "type": "integer",
-                        "description": "Server to assign the Floating IP to.\n"
+                        "description": "Server to assign the Floating IP to. Optional if `home_location` argument is passed.\n"
                     },
                     "type": {
                         "type": "string",
