@@ -26,7 +26,6 @@ import * as utilities from "./utilities";
  */
 export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getImage:getImage", {
         "id": args.id,
@@ -154,7 +153,18 @@ export interface GetImageResult {
  * ```
  */
 export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply((a: any) => getImage(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getImage:getImage", {
+        "id": args.id,
+        "includeDeprecated": args.includeDeprecated,
+        "mostRecent": args.mostRecent,
+        "name": args.name,
+        "selector": args.selector,
+        "withArchitecture": args.withArchitecture,
+        "withSelector": args.withSelector,
+        "withStatuses": args.withStatuses,
+    }, opts);
 }
 
 /**

@@ -135,14 +135,20 @@ type LookupPrimaryIpResult struct {
 
 func LookupPrimaryIpOutput(ctx *pulumi.Context, args LookupPrimaryIpOutputArgs, opts ...pulumi.InvokeOption) LookupPrimaryIpResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPrimaryIpResult, error) {
+		ApplyT(func(v interface{}) (LookupPrimaryIpResultOutput, error) {
 			args := v.(LookupPrimaryIpArgs)
-			r, err := LookupPrimaryIp(ctx, &args, opts...)
-			var s LookupPrimaryIpResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPrimaryIpResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getPrimaryIp:getPrimaryIp", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPrimaryIpResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPrimaryIpResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPrimaryIpResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPrimaryIpResultOutput)
 }
 

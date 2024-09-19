@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getFloatingIps(args?: GetFloatingIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getFloatingIps:getFloatingIps", {
         "withSelector": args.withSelector,
@@ -68,7 +67,11 @@ export interface GetFloatingIpsResult {
  * ```
  */
 export function getFloatingIpsOutput(args?: GetFloatingIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpsResult> {
-    return pulumi.output(args).apply((a: any) => getFloatingIps(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getFloatingIps:getFloatingIps", {
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

@@ -72,14 +72,20 @@ type GetVolumesResult struct {
 
 func GetVolumesOutput(ctx *pulumi.Context, args GetVolumesOutputArgs, opts ...pulumi.InvokeOption) GetVolumesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVolumesResult, error) {
+		ApplyT(func(v interface{}) (GetVolumesResultOutput, error) {
 			args := v.(GetVolumesArgs)
-			r, err := GetVolumes(ctx, &args, opts...)
-			var s GetVolumesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVolumesResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getVolumes:getVolumes", args, &rv, "", opts...)
+			if err != nil {
+				return GetVolumesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVolumesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVolumesResultOutput), nil
+			}
+			return output, nil
 		}).(GetVolumesResultOutput)
 }
 

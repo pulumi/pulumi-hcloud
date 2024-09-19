@@ -37,7 +37,6 @@ import * as utilities from "./utilities";
  */
 export function getFloatingIp(args?: GetFloatingIpArgs, opts?: pulumi.InvokeOptions): Promise<GetFloatingIpResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getFloatingIp:getFloatingIp", {
         "id": args.id,
@@ -156,7 +155,15 @@ export interface GetFloatingIpResult {
  * ```
  */
 export function getFloatingIpOutput(args?: GetFloatingIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpResult> {
-    return pulumi.output(args).apply((a: any) => getFloatingIp(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getFloatingIp:getFloatingIp", {
+        "id": args.id,
+        "ipAddress": args.ipAddress,
+        "name": args.name,
+        "selector": args.selector,
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

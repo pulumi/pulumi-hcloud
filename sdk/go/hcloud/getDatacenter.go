@@ -81,14 +81,20 @@ type GetDatacenterResult struct {
 
 func GetDatacenterOutput(ctx *pulumi.Context, args GetDatacenterOutputArgs, opts ...pulumi.InvokeOption) GetDatacenterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDatacenterResult, error) {
+		ApplyT(func(v interface{}) (GetDatacenterResultOutput, error) {
 			args := v.(GetDatacenterArgs)
-			r, err := GetDatacenter(ctx, &args, opts...)
-			var s GetDatacenterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDatacenterResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getDatacenter:getDatacenter", args, &rv, "", opts...)
+			if err != nil {
+				return GetDatacenterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDatacenterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDatacenterResultOutput), nil
+			}
+			return output, nil
 		}).(GetDatacenterResultOutput)
 }
 

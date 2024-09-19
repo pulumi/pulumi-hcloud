@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  */
 export function getPlacementGroups(args?: GetPlacementGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getPlacementGroups:getPlacementGroups", {
         "mostRecent": args.mostRecent,
@@ -76,7 +75,12 @@ export interface GetPlacementGroupsResult {
  * ```
  */
 export function getPlacementGroupsOutput(args?: GetPlacementGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupsResult> {
-    return pulumi.output(args).apply((a: any) => getPlacementGroups(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getPlacementGroups:getPlacementGroups", {
+        "mostRecent": args.mostRecent,
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**
