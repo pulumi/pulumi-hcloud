@@ -109,14 +109,20 @@ type LookupSshKeyResult struct {
 
 func LookupSshKeyOutput(ctx *pulumi.Context, args LookupSshKeyOutputArgs, opts ...pulumi.InvokeOption) LookupSshKeyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSshKeyResult, error) {
+		ApplyT(func(v interface{}) (LookupSshKeyResultOutput, error) {
 			args := v.(LookupSshKeyArgs)
-			r, err := LookupSshKey(ctx, &args, opts...)
-			var s LookupSshKeyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSshKeyResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getSshKey:getSshKey", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSshKeyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSshKeyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSshKeyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSshKeyResultOutput)
 }
 

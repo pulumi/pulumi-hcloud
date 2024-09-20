@@ -32,7 +32,6 @@ import * as utilities from "./utilities";
  */
 export function getSshKey(args?: GetSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getSshKey:getSshKey", {
         "fingerprint": args.fingerprint,
@@ -130,7 +129,17 @@ export interface GetSshKeyResult {
  * ```
  */
 export function getSshKeyOutput(args?: GetSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeyResult> {
-    return pulumi.output(args).apply((a: any) => getSshKey(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getSshKey:getSshKey", {
+        "fingerprint": args.fingerprint,
+        "id": args.id,
+        "labels": args.labels,
+        "name": args.name,
+        "publicKey": args.publicKey,
+        "selector": args.selector,
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

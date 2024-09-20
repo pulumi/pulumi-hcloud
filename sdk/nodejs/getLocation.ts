@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  */
 export function getLocation(args?: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getLocation:getLocation", {
         "id": args.id,
@@ -102,7 +101,12 @@ export interface GetLocationResult {
  * ```
  */
 export function getLocationOutput(args?: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
-    return pulumi.output(args).apply((a: any) => getLocation(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getLocation:getLocation", {
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getFirewall:getFirewall", {
         "applyTos": args.applyTos,
@@ -113,7 +112,17 @@ export interface GetFirewallResult {
  * ```
  */
 export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
-    return pulumi.output(args).apply((a: any) => getFirewall(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getFirewall:getFirewall", {
+        "applyTos": args.applyTos,
+        "id": args.id,
+        "labels": args.labels,
+        "mostRecent": args.mostRecent,
+        "name": args.name,
+        "rules": args.rules,
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

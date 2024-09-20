@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  */
 export function getPlacementGroup(args?: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getPlacementGroup:getPlacementGroup", {
         "id": args.id,
@@ -103,7 +102,16 @@ export interface GetPlacementGroupResult {
  * ```
  */
 export function getPlacementGroupOutput(args?: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getPlacementGroup(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getPlacementGroup:getPlacementGroup", {
+        "id": args.id,
+        "labels": args.labels,
+        "mostRecent": args.mostRecent,
+        "name": args.name,
+        "type": args.type,
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

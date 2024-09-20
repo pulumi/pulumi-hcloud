@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  */
 export function getServerType(args?: GetServerTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypeResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServerType:getServerType", {
         "deprecationAnnounced": args.deprecationAnnounced,
@@ -128,7 +127,14 @@ export interface GetServerTypeResult {
  * ```
  */
 export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypeResult> {
-    return pulumi.output(args).apply((a: any) => getServerType(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getServerType:getServerType", {
+        "deprecationAnnounced": args.deprecationAnnounced,
+        "id": args.id,
+        "name": args.name,
+        "unavailableAfter": args.unavailableAfter,
+    }, opts);
 }
 
 /**

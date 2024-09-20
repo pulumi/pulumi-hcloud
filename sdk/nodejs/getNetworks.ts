@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  */
 export function getNetworks(args?: GetNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworksResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getNetworks:getNetworks", {
         "withSelector": args.withSelector,
@@ -70,7 +69,11 @@ export interface GetNetworksResult {
  * ```
  */
 export function getNetworksOutput(args?: GetNetworksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworksResult> {
-    return pulumi.output(args).apply((a: any) => getNetworks(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getNetworks:getNetworks", {
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

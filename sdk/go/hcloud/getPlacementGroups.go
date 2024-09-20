@@ -72,14 +72,20 @@ type GetPlacementGroupsResult struct {
 
 func GetPlacementGroupsOutput(ctx *pulumi.Context, args GetPlacementGroupsOutputArgs, opts ...pulumi.InvokeOption) GetPlacementGroupsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPlacementGroupsResult, error) {
+		ApplyT(func(v interface{}) (GetPlacementGroupsResultOutput, error) {
 			args := v.(GetPlacementGroupsArgs)
-			r, err := GetPlacementGroups(ctx, &args, opts...)
-			var s GetPlacementGroupsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPlacementGroupsResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getPlacementGroups:getPlacementGroups", args, &rv, "", opts...)
+			if err != nil {
+				return GetPlacementGroupsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPlacementGroupsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPlacementGroupsResultOutput), nil
+			}
+			return output, nil
 		}).(GetPlacementGroupsResultOutput)
 }
 

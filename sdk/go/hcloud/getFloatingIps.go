@@ -65,14 +65,20 @@ type GetFloatingIpsResult struct {
 
 func GetFloatingIpsOutput(ctx *pulumi.Context, args GetFloatingIpsOutputArgs, opts ...pulumi.InvokeOption) GetFloatingIpsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetFloatingIpsResult, error) {
+		ApplyT(func(v interface{}) (GetFloatingIpsResultOutput, error) {
 			args := v.(GetFloatingIpsArgs)
-			r, err := GetFloatingIps(ctx, &args, opts...)
-			var s GetFloatingIpsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetFloatingIpsResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getFloatingIps:getFloatingIps", args, &rv, "", opts...)
+			if err != nil {
+				return GetFloatingIpsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetFloatingIpsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetFloatingIpsResultOutput), nil
+			}
+			return output, nil
 		}).(GetFloatingIpsResultOutput)
 }
 

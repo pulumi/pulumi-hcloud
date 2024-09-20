@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getPrimaryIps(args?: GetPrimaryIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryIpsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getPrimaryIps:getPrimaryIps", {
         "withSelector": args.withSelector,
@@ -68,7 +67,11 @@ export interface GetPrimaryIpsResult {
  * ```
  */
 export function getPrimaryIpsOutput(args?: GetPrimaryIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpsResult> {
-    return pulumi.output(args).apply((a: any) => getPrimaryIps(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getPrimaryIps:getPrimaryIps", {
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

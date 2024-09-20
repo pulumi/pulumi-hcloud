@@ -65,14 +65,20 @@ type GetPrimaryIpsResult struct {
 
 func GetPrimaryIpsOutput(ctx *pulumi.Context, args GetPrimaryIpsOutputArgs, opts ...pulumi.InvokeOption) GetPrimaryIpsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPrimaryIpsResult, error) {
+		ApplyT(func(v interface{}) (GetPrimaryIpsResultOutput, error) {
 			args := v.(GetPrimaryIpsArgs)
-			r, err := GetPrimaryIps(ctx, &args, opts...)
-			var s GetPrimaryIpsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPrimaryIpsResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getPrimaryIps:getPrimaryIps", args, &rv, "", opts...)
+			if err != nil {
+				return GetPrimaryIpsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPrimaryIpsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPrimaryIpsResultOutput), nil
+			}
+			return output, nil
 		}).(GetPrimaryIpsResultOutput)
 }
 

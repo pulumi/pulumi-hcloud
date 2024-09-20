@@ -53,7 +53,6 @@ import * as utilities from "./utilities";
  */
 export function getPrimaryIp(args?: GetPrimaryIpArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryIpResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getPrimaryIp:getPrimaryIp", {
         "assigneeId": args.assigneeId,
@@ -188,7 +187,15 @@ export interface GetPrimaryIpResult {
  * ```
  */
 export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpResult> {
-    return pulumi.output(args).apply((a: any) => getPrimaryIp(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getPrimaryIp:getPrimaryIp", {
+        "assigneeId": args.assigneeId,
+        "id": args.id,
+        "ipAddress": args.ipAddress,
+        "name": args.name,
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

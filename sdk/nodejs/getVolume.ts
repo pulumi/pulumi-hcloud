@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getVolume:getVolume", {
         "id": args.id,
@@ -133,7 +132,17 @@ export interface GetVolumeResult {
  * ```
  */
 export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getVolume:getVolume", {
+        "id": args.id,
+        "location": args.location,
+        "name": args.name,
+        "selector": args.selector,
+        "serverId": args.serverId,
+        "withSelector": args.withSelector,
+        "withStatuses": args.withStatuses,
+    }, opts);
 }
 
 /**
