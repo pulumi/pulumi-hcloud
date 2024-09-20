@@ -68,14 +68,20 @@ type GetFirewallsResult struct {
 
 func GetFirewallsOutput(ctx *pulumi.Context, args GetFirewallsOutputArgs, opts ...pulumi.InvokeOption) GetFirewallsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetFirewallsResult, error) {
+		ApplyT(func(v interface{}) (GetFirewallsResultOutput, error) {
 			args := v.(GetFirewallsArgs)
-			r, err := GetFirewalls(ctx, &args, opts...)
-			var s GetFirewallsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetFirewallsResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getFirewalls:getFirewalls", args, &rv, "", opts...)
+			if err != nil {
+				return GetFirewallsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetFirewallsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetFirewallsResultOutput), nil
+			}
+			return output, nil
 		}).(GetFirewallsResultOutput)
 }
 

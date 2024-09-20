@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  */
 export function getServerTypes(args?: GetServerTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServerTypes:getServerTypes", {
         "serverTypeIds": args.serverTypeIds,
@@ -57,7 +56,11 @@ export interface GetServerTypesResult {
  * Provides a list of available Hetzner Cloud Server Types.
  */
 export function getServerTypesOutput(args?: GetServerTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypesResult> {
-    return pulumi.output(args).apply((a: any) => getServerTypes(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getServerTypes:getServerTypes", {
+        "serverTypeIds": args.serverTypeIds,
+    }, opts);
 }
 
 /**

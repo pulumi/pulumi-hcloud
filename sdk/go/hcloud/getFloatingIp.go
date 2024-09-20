@@ -117,14 +117,20 @@ type LookupFloatingIpResult struct {
 
 func LookupFloatingIpOutput(ctx *pulumi.Context, args LookupFloatingIpOutputArgs, opts ...pulumi.InvokeOption) LookupFloatingIpResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFloatingIpResult, error) {
+		ApplyT(func(v interface{}) (LookupFloatingIpResultOutput, error) {
 			args := v.(LookupFloatingIpArgs)
-			r, err := LookupFloatingIp(ctx, &args, opts...)
-			var s LookupFloatingIpResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFloatingIpResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getFloatingIp:getFloatingIp", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFloatingIpResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFloatingIpResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFloatingIpResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFloatingIpResultOutput)
 }
 

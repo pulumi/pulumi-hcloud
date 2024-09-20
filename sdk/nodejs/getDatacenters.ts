@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  */
 export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacentersResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getDatacenters:getDatacenters", {
         "datacenterIds": args.datacenterIds,
@@ -80,7 +79,14 @@ export interface GetDatacentersResult {
  * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
  */
 export function getDatacentersOutput(args?: GetDatacentersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacentersResult> {
-    return pulumi.output(args).apply((a: any) => getDatacenters(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getDatacenters:getDatacenters", {
+        "datacenterIds": args.datacenterIds,
+        "descriptions": args.descriptions,
+        "id": args.id,
+        "names": args.names,
+    }, opts);
 }
 
 /**

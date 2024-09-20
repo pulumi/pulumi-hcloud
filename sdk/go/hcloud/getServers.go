@@ -66,14 +66,20 @@ type GetServersResult struct {
 
 func GetServersOutput(ctx *pulumi.Context, args GetServersOutputArgs, opts ...pulumi.InvokeOption) GetServersResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServersResult, error) {
+		ApplyT(func(v interface{}) (GetServersResultOutput, error) {
 			args := v.(GetServersArgs)
-			r, err := GetServers(ctx, &args, opts...)
-			var s GetServersResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServersResult
+			secret, err := ctx.InvokePackageRaw("hcloud:index/getServers:getServers", args, &rv, "", opts...)
+			if err != nil {
+				return GetServersResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServersResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServersResultOutput), nil
+			}
+			return output, nil
 		}).(GetServersResultOutput)
 }
 

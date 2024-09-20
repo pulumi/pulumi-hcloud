@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  */
 export function getNetwork(args?: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getNetwork:getNetwork", {
         "id": args.id,
@@ -113,7 +112,16 @@ export interface GetNetworkResult {
  * ```
  */
 export function getNetworkOutput(args?: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getNetwork:getNetwork", {
+        "id": args.id,
+        "ipRange": args.ipRange,
+        "labels": args.labels,
+        "mostRecent": args.mostRecent,
+        "name": args.name,
+        "withSelector": args.withSelector,
+    }, opts);
 }
 
 /**

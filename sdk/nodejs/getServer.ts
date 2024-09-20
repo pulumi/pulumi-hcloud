@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  */
 export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServer:getServer", {
         "id": args.id,
@@ -173,7 +172,16 @@ export interface GetServerResult {
  * ```
  */
 export function getServerOutput(args?: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    return pulumi.output(args).apply((a: any) => getServer(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("hcloud:index/getServer:getServer", {
+        "id": args.id,
+        "name": args.name,
+        "placementGroupId": args.placementGroupId,
+        "selector": args.selector,
+        "withSelector": args.withSelector,
+        "withStatuses": args.withStatuses,
+    }, opts);
 }
 
 /**
