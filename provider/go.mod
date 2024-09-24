@@ -12,8 +12,8 @@ replace (
 require (
 	github.com/hetznercloud/terraform-provider-hcloud v1.48.1
 	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.44.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.91.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.44.1-0.20240924182934-b559de0e20dd
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.91.1-0.20240924182934-b559de0e20dd
 	github.com/pulumi/pulumi/sdk/v3 v3.133.0
 	github.com/stretchr/testify v1.9.0
 )
