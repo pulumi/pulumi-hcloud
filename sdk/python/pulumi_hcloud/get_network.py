@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -164,9 +169,6 @@ def get_network(id: Optional[int] = None,
         most_recent=pulumi.get(__ret__, 'most_recent'),
         name=pulumi.get(__ret__, 'name'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_network)
 def get_network_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                        ip_range: Optional[pulumi.Input[Optional[str]]] = None,
                        labels: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -192,4 +194,21 @@ def get_network_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param str name: Name of the Network.
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['ipRange'] = ip_range
+    __args__['labels'] = labels
+    __args__['mostRecent'] = most_recent
+    __args__['name'] = name
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult)
+    return __ret__.apply(lambda __response__: GetNetworkResult(
+        delete_protection=pulumi.get(__response__, 'delete_protection'),
+        expose_routes_to_vswitch=pulumi.get(__response__, 'expose_routes_to_vswitch'),
+        id=pulumi.get(__response__, 'id'),
+        ip_range=pulumi.get(__response__, 'ip_range'),
+        labels=pulumi.get(__response__, 'labels'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        name=pulumi.get(__response__, 'name'),
+        with_selector=pulumi.get(__response__, 'with_selector')))

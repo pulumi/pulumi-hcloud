@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -105,9 +110,6 @@ def get_firewalls(most_recent: Optional[bool] = None,
         id=pulumi.get(__ret__, 'id'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_firewalls)
 def get_firewalls_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                          with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallsResult]:
@@ -127,4 +129,13 @@ def get_firewalls_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = N
     :param bool most_recent: Sorts list by date.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
-    ...
+    __args__ = dict()
+    __args__['mostRecent'] = most_recent
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getFirewalls:getFirewalls', __args__, opts=opts, typ=GetFirewallsResult)
+    return __ret__.apply(lambda __response__: GetFirewallsResult(
+        firewalls=pulumi.get(__response__, 'firewalls'),
+        id=pulumi.get(__response__, 'id'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        with_selector=pulumi.get(__response__, 'with_selector')))
