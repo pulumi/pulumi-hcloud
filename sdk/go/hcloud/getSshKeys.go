@@ -25,7 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			allKeys, err := hcloud.GetSshKeys(ctx, nil, nil)
+//			allKeys, err := hcloud.GetSshKeys(ctx, &hcloud.GetSshKeysArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

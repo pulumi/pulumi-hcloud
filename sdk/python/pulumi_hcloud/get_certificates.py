@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -92,9 +97,6 @@ def get_certificates(with_selector: Optional[str] = None,
         certificates=pulumi.get(__ret__, 'certificates'),
         id=pulumi.get(__ret__, 'id'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_certificates)
 def get_certificates_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificatesResult]:
     """
@@ -112,4 +114,11 @@ def get_certificates_output(with_selector: Optional[pulumi.Input[Optional[str]]]
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
-    ...
+    __args__ = dict()
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getCertificates:getCertificates', __args__, opts=opts, typ=GetCertificatesResult)
+    return __ret__.apply(lambda __response__: GetCertificatesResult(
+        certificates=pulumi.get(__response__, 'certificates'),
+        id=pulumi.get(__response__, 'id'),
+        with_selector=pulumi.get(__response__, 'with_selector')))

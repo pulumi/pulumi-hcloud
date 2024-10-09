@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -197,9 +202,6 @@ def get_certificate(id: Optional[int] = None,
         not_valid_before=pulumi.get(__ret__, 'not_valid_before'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            with_selector: Optional[pulumi.Input[Optional[str]]] = None,
@@ -220,4 +222,21 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param str name: Name of the certificate.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        certificate=pulumi.get(__response__, 'certificate'),
+        created=pulumi.get(__response__, 'created'),
+        domain_names=pulumi.get(__response__, 'domain_names'),
+        fingerprint=pulumi.get(__response__, 'fingerprint'),
+        id=pulumi.get(__response__, 'id'),
+        labels=pulumi.get(__response__, 'labels'),
+        name=pulumi.get(__response__, 'name'),
+        not_valid_after=pulumi.get(__response__, 'not_valid_after'),
+        not_valid_before=pulumi.get(__response__, 'not_valid_before'),
+        type=pulumi.get(__response__, 'type'),
+        with_selector=pulumi.get(__response__, 'with_selector')))

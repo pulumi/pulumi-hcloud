@@ -4,24 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'FirewallApplyToArgs',
+    'FirewallApplyToArgsDict',
     'FirewallRuleArgs',
+    'FirewallRuleArgsDict',
     'LoadBalancerAlgorithmArgs',
+    'LoadBalancerAlgorithmArgsDict',
     'LoadBalancerServiceHealthCheckArgs',
+    'LoadBalancerServiceHealthCheckArgsDict',
     'LoadBalancerServiceHealthCheckHttpArgs',
+    'LoadBalancerServiceHealthCheckHttpArgsDict',
     'LoadBalancerServiceHttpArgs',
+    'LoadBalancerServiceHttpArgsDict',
     'LoadBalancerTargetArgs',
+    'LoadBalancerTargetArgsDict',
     'ServerNetworkArgs',
+    'ServerNetworkArgsDict',
     'ServerPublicNetArgs',
+    'ServerPublicNetArgsDict',
     'GetFirewallApplyToArgs',
+    'GetFirewallApplyToArgsDict',
     'GetFirewallRuleArgs',
+    'GetFirewallRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FirewallApplyToArgsDict(TypedDict):
+        label_selector: NotRequired[pulumi.Input[str]]
+        """
+        Label Selector to select servers the firewall should be applied to (only one
+        of `server` and `label_selector`can be applied in one block)
+        """
+        server: NotRequired[pulumi.Input[int]]
+        """
+        ID of the server you want to apply the firewall to (only one of `server`
+        and `label_selector`can be applied in one block)
+        """
+elif False:
+    FirewallApplyToArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallApplyToArgs:
@@ -65,6 +98,38 @@ class FirewallApplyToArgs:
     def server(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "server", value)
 
+
+if not MYPY:
+    class FirewallRuleArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        Direction of the Firewall Rule. `in`
+        """
+        protocol: pulumi.Input[str]
+        """
+        Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the firewall rule
+        """
+        destination_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+        is `out`)
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
+        to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+        """
+        source_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+        is `in`)
+        """
+elif False:
+    FirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallRuleArgs:
@@ -173,6 +238,15 @@ class FirewallRuleArgs:
         pulumi.set(self, "source_ips", value)
 
 
+if not MYPY:
+    class LoadBalancerAlgorithmArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+        """
+elif False:
+    LoadBalancerAlgorithmArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerAlgorithmArgs:
     def __init__(__self__, *,
@@ -195,6 +269,35 @@ class LoadBalancerAlgorithmArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class LoadBalancerServiceHealthCheckArgsDict(TypedDict):
+        interval: pulumi.Input[int]
+        """
+        Interval how often the health check will be performed, in seconds.
+        """
+        port: pulumi.Input[int]
+        """
+        Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        """
+        protocol: pulumi.Input[str]
+        """
+        Protocol the health check uses. `http` or `tcp`
+        """
+        timeout: pulumi.Input[int]
+        """
+        Timeout when a health check try will be canceled if there is no response, in seconds.
+        """
+        http: NotRequired[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgsDict']]
+        """
+        HTTP configuration. Required if `protocol` is `http`.
+        """
+        retries: NotRequired[pulumi.Input[int]]
+        """
+        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+        """
+elif False:
+    LoadBalancerServiceHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerServiceHealthCheckArgs:
@@ -295,6 +398,31 @@ class LoadBalancerServiceHealthCheckArgs:
         pulumi.set(self, "retries", value)
 
 
+if not MYPY:
+    class LoadBalancerServiceHealthCheckHttpArgsDict(TypedDict):
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        Domain we try to access when performing the Health Check.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Path we try to access when performing the Health Check.
+        """
+        response: NotRequired[pulumi.Input[str]]
+        """
+        Response we expect to be included in the Target response when a Health Check was performed.
+        """
+        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        """
+        tls: NotRequired[pulumi.Input[bool]]
+        """
+        Enable TLS certificate checking.
+        """
+elif False:
+    LoadBalancerServiceHealthCheckHttpArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerServiceHealthCheckHttpArgs:
     def __init__(__self__, *,
@@ -381,6 +509,31 @@ class LoadBalancerServiceHealthCheckHttpArgs:
     def tls(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "tls", value)
 
+
+if not MYPY:
+    class LoadBalancerServiceHttpArgsDict(TypedDict):
+        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        List of IDs from certificates which the Load Balancer has.
+        """
+        cookie_lifetime: NotRequired[pulumi.Input[int]]
+        """
+        Lifetime of the cookie for sticky session (in seconds). Default: `300`
+        """
+        cookie_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the cookie for sticky session. Default: `HCLBSTICKY`
+        """
+        redirect_http: NotRequired[pulumi.Input[bool]]
+        """
+        Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
+        """
+        sticky_sessions: NotRequired[pulumi.Input[bool]]
+        """
+        Enable sticky sessions
+        """
+elif False:
+    LoadBalancerServiceHttpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerServiceHttpArgs:
@@ -469,6 +622,17 @@ class LoadBalancerServiceHttpArgs:
         pulumi.set(self, "sticky_sessions", value)
 
 
+if not MYPY:
+    class LoadBalancerTargetArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+        """
+        server_id: NotRequired[pulumi.Input[int]]
+        use_private_ip: NotRequired[pulumi.Input[bool]]
+elif False:
+    LoadBalancerTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerTargetArgs:
     def __init__(__self__, *,
@@ -518,6 +682,24 @@ class LoadBalancerTargetArgs:
     def use_private_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_private_ip", value)
 
+
+if not MYPY:
+    class ServerNetworkArgsDict(TypedDict):
+        network_id: pulumi.Input[int]
+        """
+        ID of the network
+        """
+        alias_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        ip: NotRequired[pulumi.Input[str]]
+        """
+        Specify the IP the server should get in the network
+        """
+        mac_address: NotRequired[pulumi.Input[str]]
+        """
+        (Optional, string) The MAC address the private interface of the server has
+        """
+elif False:
+    ServerNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerNetworkArgs:
@@ -585,6 +767,15 @@ class ServerNetworkArgs:
         pulumi.set(self, "mac_address", value)
 
 
+if not MYPY:
+    class ServerPublicNetArgsDict(TypedDict):
+        ipv4: NotRequired[pulumi.Input[int]]
+        ipv4_enabled: NotRequired[pulumi.Input[bool]]
+        ipv6: NotRequired[pulumi.Input[int]]
+        ipv6_enabled: NotRequired[pulumi.Input[bool]]
+elif False:
+    ServerPublicNetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerPublicNetArgs:
     def __init__(__self__, *,
@@ -638,6 +829,20 @@ class ServerPublicNetArgs:
         pulumi.set(self, "ipv6_enabled", value)
 
 
+if not MYPY:
+    class GetFirewallApplyToArgsDict(TypedDict):
+        label_selector: str
+        """
+        (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
+        referenced
+        """
+        server: int
+        """
+        (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
+        """
+elif False:
+    GetFirewallApplyToArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFirewallApplyToArgs:
     def __init__(__self__, *,
@@ -676,6 +881,35 @@ class GetFirewallApplyToArgs:
     def server(self, value: int):
         pulumi.set(self, "server", value)
 
+
+if not MYPY:
+    class GetFirewallRuleArgsDict(TypedDict):
+        direction: str
+        """
+        (Required, string) Direction of the Firewall Rule. `in`, `out`
+        """
+        description: NotRequired[str]
+        """
+        (Optional, string) Description of the firewall rule
+        """
+        destination_ips: NotRequired[Sequence[str]]
+        """
+        (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+        """
+        port: NotRequired[str]
+        """
+        (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        """
+        protocol: NotRequired[str]
+        """
+        (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+        """
+        source_ips: NotRequired[Sequence[str]]
+        """
+        (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
+        """
+elif False:
+    GetFirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFirewallRuleArgs:
