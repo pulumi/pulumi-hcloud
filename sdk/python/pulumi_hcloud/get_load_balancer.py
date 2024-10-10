@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -253,9 +258,6 @@ def get_load_balancer(id: Optional[int] = None,
         services=pulumi.get(__ret__, 'services'),
         targets=pulumi.get(__ret__, 'targets'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                              name: Optional[pulumi.Input[Optional[str]]] = None,
                              with_selector: Optional[pulumi.Input[Optional[str]]] = None,
@@ -279,4 +281,25 @@ def get_load_balancer_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param str name: Name of the Load Balancer.
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
+    return __ret__.apply(lambda __response__: GetLoadBalancerResult(
+        algorithms=pulumi.get(__response__, 'algorithms'),
+        delete_protection=pulumi.get(__response__, 'delete_protection'),
+        id=pulumi.get(__response__, 'id'),
+        ipv4=pulumi.get(__response__, 'ipv4'),
+        ipv6=pulumi.get(__response__, 'ipv6'),
+        labels=pulumi.get(__response__, 'labels'),
+        load_balancer_type=pulumi.get(__response__, 'load_balancer_type'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_id=pulumi.get(__response__, 'network_id'),
+        network_ip=pulumi.get(__response__, 'network_ip'),
+        network_zone=pulumi.get(__response__, 'network_zone'),
+        services=pulumi.get(__response__, 'services'),
+        targets=pulumi.get(__response__, 'targets'),
+        with_selector=pulumi.get(__response__, 'with_selector')))

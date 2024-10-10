@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -91,9 +96,6 @@ def get_ssh_keys(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_ssh_keys)
 def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                         with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeysResult]:
@@ -112,4 +114,12 @@ def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getSshKeys:getSshKeys', __args__, opts=opts, typ=GetSshKeysResult)
+    return __ret__.apply(lambda __response__: GetSshKeysResult(
+        id=pulumi.get(__response__, 'id'),
+        ssh_keys=pulumi.get(__response__, 'ssh_keys'),
+        with_selector=pulumi.get(__response__, 'with_selector')))

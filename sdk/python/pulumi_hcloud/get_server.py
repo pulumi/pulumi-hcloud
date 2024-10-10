@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -357,9 +362,6 @@ def get_server(id: Optional[int] = None,
         status=pulumi.get(__ret__, 'status'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-
-
-@_utilities.lift_output_func(get_server)
 def get_server_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       placement_group_id: Optional[pulumi.Input[Optional[int]]] = None,
@@ -386,4 +388,36 @@ def get_server_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     :param Sequence[str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['placementGroupId'] = placement_group_id
+    __args__['selector'] = selector
+    __args__['withSelector'] = with_selector
+    __args__['withStatuses'] = with_statuses
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getServer:getServer', __args__, opts=opts, typ=GetServerResult)
+    return __ret__.apply(lambda __response__: GetServerResult(
+        backup_window=pulumi.get(__response__, 'backup_window'),
+        backups=pulumi.get(__response__, 'backups'),
+        datacenter=pulumi.get(__response__, 'datacenter'),
+        delete_protection=pulumi.get(__response__, 'delete_protection'),
+        firewall_ids=pulumi.get(__response__, 'firewall_ids'),
+        id=pulumi.get(__response__, 'id'),
+        image=pulumi.get(__response__, 'image'),
+        ipv4_address=pulumi.get(__response__, 'ipv4_address'),
+        ipv6_address=pulumi.get(__response__, 'ipv6_address'),
+        ipv6_network=pulumi.get(__response__, 'ipv6_network'),
+        iso=pulumi.get(__response__, 'iso'),
+        labels=pulumi.get(__response__, 'labels'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        placement_group_id=pulumi.get(__response__, 'placement_group_id'),
+        primary_disk_size=pulumi.get(__response__, 'primary_disk_size'),
+        rebuild_protection=pulumi.get(__response__, 'rebuild_protection'),
+        rescue=pulumi.get(__response__, 'rescue'),
+        selector=pulumi.get(__response__, 'selector'),
+        server_type=pulumi.get(__response__, 'server_type'),
+        status=pulumi.get(__response__, 'status'),
+        with_selector=pulumi.get(__response__, 'with_selector'),
+        with_statuses=pulumi.get(__response__, 'with_statuses')))

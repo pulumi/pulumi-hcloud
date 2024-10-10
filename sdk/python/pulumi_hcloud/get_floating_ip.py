@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -230,9 +235,6 @@ def get_floating_ip(id: Optional[int] = None,
         server_id=pulumi.get(__ret__, 'server_id'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_floating_ip)
 def get_floating_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                            ip_address: Optional[pulumi.Input[Optional[str]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -270,4 +272,24 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param str name: Name of the Floating IP.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['ipAddress'] = ip_address
+    __args__['name'] = name
+    __args__['selector'] = selector
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getFloatingIp:getFloatingIp', __args__, opts=opts, typ=GetFloatingIpResult)
+    return __ret__.apply(lambda __response__: GetFloatingIpResult(
+        delete_protection=pulumi.get(__response__, 'delete_protection'),
+        description=pulumi.get(__response__, 'description'),
+        home_location=pulumi.get(__response__, 'home_location'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        ip_network=pulumi.get(__response__, 'ip_network'),
+        labels=pulumi.get(__response__, 'labels'),
+        name=pulumi.get(__response__, 'name'),
+        selector=pulumi.get(__response__, 'selector'),
+        server_id=pulumi.get(__response__, 'server_id'),
+        type=pulumi.get(__response__, 'type'),
+        with_selector=pulumi.get(__response__, 'with_selector')))

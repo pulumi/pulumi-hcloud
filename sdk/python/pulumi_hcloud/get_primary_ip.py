@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -248,9 +253,6 @@ def get_primary_ip(assignee_id: Optional[int] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_primary_ip)
 def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = None,
                           id: Optional[pulumi.Input[Optional[int]]] = None,
                           ip_address: Optional[pulumi.Input[Optional[str]]] = None,
@@ -304,4 +306,24 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
     :param str name: Name of the Primary IP.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
-    ...
+    __args__ = dict()
+    __args__['assigneeId'] = assignee_id
+    __args__['id'] = id
+    __args__['ipAddress'] = ip_address
+    __args__['name'] = name
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getPrimaryIp:getPrimaryIp', __args__, opts=opts, typ=GetPrimaryIpResult)
+    return __ret__.apply(lambda __response__: GetPrimaryIpResult(
+        assignee_id=pulumi.get(__response__, 'assignee_id'),
+        assignee_type=pulumi.get(__response__, 'assignee_type'),
+        auto_delete=pulumi.get(__response__, 'auto_delete'),
+        datacenter=pulumi.get(__response__, 'datacenter'),
+        delete_protection=pulumi.get(__response__, 'delete_protection'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        ip_network=pulumi.get(__response__, 'ip_network'),
+        labels=pulumi.get(__response__, 'labels'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type'),
+        with_selector=pulumi.get(__response__, 'with_selector')))
