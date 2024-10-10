@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -160,9 +165,6 @@ def get_ssh_key(fingerprint: Optional[str] = None,
         public_key=pulumi.get(__ret__, 'public_key'),
         selector=pulumi.get(__ret__, 'selector'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_ssh_key)
 def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[Optional[int]]] = None,
                        labels: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -196,4 +198,21 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
     :param str public_key: (string) Public Key of the SSH Key.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
-    ...
+    __args__ = dict()
+    __args__['fingerprint'] = fingerprint
+    __args__['id'] = id
+    __args__['labels'] = labels
+    __args__['name'] = name
+    __args__['publicKey'] = public_key
+    __args__['selector'] = selector
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getSshKey:getSshKey', __args__, opts=opts, typ=GetSshKeyResult)
+    return __ret__.apply(lambda __response__: GetSshKeyResult(
+        fingerprint=pulumi.get(__response__, 'fingerprint'),
+        id=pulumi.get(__response__, 'id'),
+        labels=pulumi.get(__response__, 'labels'),
+        name=pulumi.get(__response__, 'name'),
+        public_key=pulumi.get(__response__, 'public_key'),
+        selector=pulumi.get(__response__, 'selector'),
+        with_selector=pulumi.get(__response__, 'with_selector')))

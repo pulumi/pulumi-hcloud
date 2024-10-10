@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -121,9 +126,6 @@ def get_locations(descriptions: Optional[Sequence[str]] = None,
         location_ids=pulumi.get(__ret__, 'location_ids'),
         locations=pulumi.get(__ret__, 'locations'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_locations)
 def get_locations_output(descriptions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          id: Optional[pulumi.Input[Optional[str]]] = None,
                          location_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -138,4 +140,16 @@ def get_locations_output(descriptions: Optional[pulumi.Input[Optional[Sequence[s
     :param Sequence[str] location_ids: (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
     :param Sequence[str] names: (list) List of location names. **Deprecated**: Use `locations` attribute instead.
     """
-    ...
+    __args__ = dict()
+    __args__['descriptions'] = descriptions
+    __args__['id'] = id
+    __args__['locationIds'] = location_ids
+    __args__['names'] = names
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getLocations:getLocations', __args__, opts=opts, typ=GetLocationsResult)
+    return __ret__.apply(lambda __response__: GetLocationsResult(
+        descriptions=pulumi.get(__response__, 'descriptions'),
+        id=pulumi.get(__response__, 'id'),
+        location_ids=pulumi.get(__response__, 'location_ids'),
+        locations=pulumi.get(__response__, 'locations'),
+        names=pulumi.get(__response__, 'names')))

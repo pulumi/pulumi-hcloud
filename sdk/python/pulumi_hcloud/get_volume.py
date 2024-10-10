@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -207,9 +212,6 @@ def get_volume(id: Optional[int] = None,
         size=pulumi.get(__ret__, 'size'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-
-
-@_utilities.lift_output_func(get_volume)
 def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                       location: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -238,4 +240,25 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     :param Sequence[str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['location'] = location
+    __args__['name'] = name
+    __args__['selector'] = selector
+    __args__['serverId'] = server_id
+    __args__['withSelector'] = with_selector
+    __args__['withStatuses'] = with_statuses
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
+    return __ret__.apply(lambda __response__: GetVolumeResult(
+        delete_protection=pulumi.get(__response__, 'delete_protection'),
+        id=pulumi.get(__response__, 'id'),
+        labels=pulumi.get(__response__, 'labels'),
+        linux_device=pulumi.get(__response__, 'linux_device'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        selector=pulumi.get(__response__, 'selector'),
+        server_id=pulumi.get(__response__, 'server_id'),
+        size=pulumi.get(__response__, 'size'),
+        with_selector=pulumi.get(__response__, 'with_selector'),
+        with_statuses=pulumi.get(__response__, 'with_statuses')))

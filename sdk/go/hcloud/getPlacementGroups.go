@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.GetPlacementGroups(ctx, nil, nil)
+//			_, err := hcloud.GetPlacementGroups(ctx, &hcloud.GetPlacementGroupsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

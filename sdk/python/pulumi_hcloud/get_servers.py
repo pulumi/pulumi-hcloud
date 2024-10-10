@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -103,9 +108,6 @@ def get_servers(with_selector: Optional[str] = None,
         servers=pulumi.get(__ret__, 'servers'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-
-
-@_utilities.lift_output_func(get_servers)
 def get_servers_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                        with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServersResult]:
@@ -123,4 +125,13 @@ def get_servers_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     :param Sequence[str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
-    ...
+    __args__ = dict()
+    __args__['withSelector'] = with_selector
+    __args__['withStatuses'] = with_statuses
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getServers:getServers', __args__, opts=opts, typ=GetServersResult)
+    return __ret__.apply(lambda __response__: GetServersResult(
+        id=pulumi.get(__response__, 'id'),
+        servers=pulumi.get(__response__, 'servers'),
+        with_selector=pulumi.get(__response__, 'with_selector'),
+        with_statuses=pulumi.get(__response__, 'with_statuses')))

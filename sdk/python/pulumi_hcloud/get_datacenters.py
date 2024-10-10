@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -121,9 +126,6 @@ def get_datacenters(datacenter_ids: Optional[Sequence[str]] = None,
         descriptions=pulumi.get(__ret__, 'descriptions'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_datacenters)
 def get_datacenters_output(datacenter_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            descriptions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -138,4 +140,16 @@ def get_datacenters_output(datacenter_ids: Optional[pulumi.Input[Optional[Sequen
     :param Sequence[str] descriptions: (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
     :param Sequence[str] names: (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
     """
-    ...
+    __args__ = dict()
+    __args__['datacenterIds'] = datacenter_ids
+    __args__['descriptions'] = descriptions
+    __args__['id'] = id
+    __args__['names'] = names
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getDatacenters:getDatacenters', __args__, opts=opts, typ=GetDatacentersResult)
+    return __ret__.apply(lambda __response__: GetDatacentersResult(
+        datacenter_ids=pulumi.get(__response__, 'datacenter_ids'),
+        datacenters=pulumi.get(__response__, 'datacenters'),
+        descriptions=pulumi.get(__response__, 'descriptions'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names')))
