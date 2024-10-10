@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupNetwork(ctx, nil, nil)
+//			_, err := hcloud.LookupNetwork(ctx, &hcloud.LookupNetworkArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -164,9 +169,6 @@ def get_location(id: Optional[int] = None,
         longitude=pulumi.get(__ret__, 'longitude'),
         name=pulumi.get(__ret__, 'name'),
         network_zone=pulumi.get(__ret__, 'network_zone'))
-
-
-@_utilities.lift_output_func(get_location)
 def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                         name: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
@@ -188,4 +190,17 @@ def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param int id: ID of the location.
     :param str name: Name of the location.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult)
+    return __ret__.apply(lambda __response__: GetLocationResult(
+        city=pulumi.get(__response__, 'city'),
+        country=pulumi.get(__response__, 'country'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        latitude=pulumi.get(__response__, 'latitude'),
+        longitude=pulumi.get(__response__, 'longitude'),
+        name=pulumi.get(__response__, 'name'),
+        network_zone=pulumi.get(__response__, 'network_zone')))

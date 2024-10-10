@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.GetVolumes(ctx, nil, nil)
+//			_, err := hcloud.GetVolumes(ctx, &hcloud.GetVolumesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

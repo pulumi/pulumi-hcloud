@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -145,9 +150,6 @@ def get_images(include_deprecated: Optional[bool] = None,
         with_architectures=pulumi.get(__ret__, 'with_architectures'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-
-
-@_utilities.lift_output_func(get_images)
 def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                       most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                       with_architectures: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -174,4 +176,19 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]]
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     :param Sequence[str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
     """
-    ...
+    __args__ = dict()
+    __args__['includeDeprecated'] = include_deprecated
+    __args__['mostRecent'] = most_recent
+    __args__['withArchitectures'] = with_architectures
+    __args__['withSelector'] = with_selector
+    __args__['withStatuses'] = with_statuses
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getImages:getImages', __args__, opts=opts, typ=GetImagesResult)
+    return __ret__.apply(lambda __response__: GetImagesResult(
+        id=pulumi.get(__response__, 'id'),
+        images=pulumi.get(__response__, 'images'),
+        include_deprecated=pulumi.get(__response__, 'include_deprecated'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        with_architectures=pulumi.get(__response__, 'with_architectures'),
+        with_selector=pulumi.get(__response__, 'with_selector'),
+        with_statuses=pulumi.get(__response__, 'with_statuses')))

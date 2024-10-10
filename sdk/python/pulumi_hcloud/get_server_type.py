@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -230,9 +235,6 @@ def get_server_type(deprecation_announced: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         unavailable_after=pulumi.get(__ret__, 'unavailable_after'))
-
-
-@_utilities.lift_output_func(get_server_type)
 def get_server_type_output(deprecation_announced: Optional[pulumi.Input[Optional[str]]] = None,
                            id: Optional[pulumi.Input[Optional[int]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -258,4 +260,24 @@ def get_server_type_output(deprecation_announced: Optional[pulumi.Input[Optional
     :param str name: Name of the server_type.
     :param str unavailable_after: (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
     """
-    ...
+    __args__ = dict()
+    __args__['deprecationAnnounced'] = deprecation_announced
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['unavailableAfter'] = unavailable_after
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getServerType:getServerType', __args__, opts=opts, typ=GetServerTypeResult)
+    return __ret__.apply(lambda __response__: GetServerTypeResult(
+        architecture=pulumi.get(__response__, 'architecture'),
+        cores=pulumi.get(__response__, 'cores'),
+        cpu_type=pulumi.get(__response__, 'cpu_type'),
+        deprecation_announced=pulumi.get(__response__, 'deprecation_announced'),
+        description=pulumi.get(__response__, 'description'),
+        disk=pulumi.get(__response__, 'disk'),
+        id=pulumi.get(__response__, 'id'),
+        included_traffic=pulumi.get(__response__, 'included_traffic'),
+        is_deprecated=pulumi.get(__response__, 'is_deprecated'),
+        memory=pulumi.get(__response__, 'memory'),
+        name=pulumi.get(__response__, 'name'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        unavailable_after=pulumi.get(__response__, 'unavailable_after')))
