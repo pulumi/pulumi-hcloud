@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -151,9 +156,6 @@ def get_placement_group(id: Optional[int] = None,
         servers=pulumi.get(__ret__, 'servers'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-
-
-@_utilities.lift_output_func(get_placement_group)
 def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                                labels: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -180,4 +182,20 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param str type: (string)  Type of the Placement Group.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['labels'] = labels
+    __args__['mostRecent'] = most_recent
+    __args__['name'] = name
+    __args__['type'] = type
+    __args__['withSelector'] = with_selector
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getPlacementGroup:getPlacementGroup', __args__, opts=opts, typ=GetPlacementGroupResult)
+    return __ret__.apply(lambda __response__: GetPlacementGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        labels=pulumi.get(__response__, 'labels'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        name=pulumi.get(__response__, 'name'),
+        servers=pulumi.get(__response__, 'servers'),
+        type=pulumi.get(__response__, 'type'),
+        with_selector=pulumi.get(__response__, 'with_selector')))

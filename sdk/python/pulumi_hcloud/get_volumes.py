@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -106,9 +111,6 @@ def get_volumes(with_selector: Optional[str] = None,
         volumes=pulumi.get(__ret__, 'volumes'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-
-
-@_utilities.lift_output_func(get_volumes)
 def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                        with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumesResult]:
@@ -129,4 +131,13 @@ def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     :param Sequence[str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
-    ...
+    __args__ = dict()
+    __args__['withSelector'] = with_selector
+    __args__['withStatuses'] = with_statuses
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getVolumes:getVolumes', __args__, opts=opts, typ=GetVolumesResult)
+    return __ret__.apply(lambda __response__: GetVolumesResult(
+        id=pulumi.get(__response__, 'id'),
+        volumes=pulumi.get(__response__, 'volumes'),
+        with_selector=pulumi.get(__response__, 'with_selector'),
+        with_statuses=pulumi.get(__response__, 'with_statuses')))

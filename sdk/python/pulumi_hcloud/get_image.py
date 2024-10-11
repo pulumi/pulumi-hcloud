@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -278,9 +283,6 @@ def get_image(id: Optional[int] = None,
         with_architecture=pulumi.get(__ret__, 'with_architecture'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-
-
-@_utilities.lift_output_func(get_image)
 def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                      include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                      most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -313,4 +315,32 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     :param Sequence[str] with_statuses: Select only images with the specified status, could contain `creating` or `available`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['includeDeprecated'] = include_deprecated
+    __args__['mostRecent'] = most_recent
+    __args__['name'] = name
+    __args__['selector'] = selector
+    __args__['withArchitecture'] = with_architecture
+    __args__['withSelector'] = with_selector
+    __args__['withStatuses'] = with_statuses
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('hcloud:index/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
+    return __ret__.apply(lambda __response__: GetImageResult(
+        architecture=pulumi.get(__response__, 'architecture'),
+        created=pulumi.get(__response__, 'created'),
+        deprecated=pulumi.get(__response__, 'deprecated'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        include_deprecated=pulumi.get(__response__, 'include_deprecated'),
+        labels=pulumi.get(__response__, 'labels'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        name=pulumi.get(__response__, 'name'),
+        os_flavor=pulumi.get(__response__, 'os_flavor'),
+        os_version=pulumi.get(__response__, 'os_version'),
+        rapid_deploy=pulumi.get(__response__, 'rapid_deploy'),
+        selector=pulumi.get(__response__, 'selector'),
+        type=pulumi.get(__response__, 'type'),
+        with_architecture=pulumi.get(__response__, 'with_architecture'),
+        with_selector=pulumi.get(__response__, 'with_selector'),
+        with_statuses=pulumi.get(__response__, 'with_statuses')))
