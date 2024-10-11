@@ -15,7 +15,6 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 )
 
 const providerName = "hcloud"
@@ -30,65 +29,20 @@ var programs = []string{
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
 }
-
-type UpgradeTestOpts struct {
-	baselineVersion string
-	assertFunc      func(*testing.T, auto.PreviewResult)
-	config          map[string]string
-}
-
-func WithBaselineVersion(baselineVersion string) func(opts *UpgradeTestOpts) {
-	return func(opts *UpgradeTestOpts) {
-		opts.baselineVersion = baselineVersion
-	}
-}
-
-func WithAssertFunc(assertFunc func(*testing.T, auto.PreviewResult)) func(opts *UpgradeTestOpts) {
-	return func(opts *UpgradeTestOpts) {
-		opts.assertFunc = assertFunc
-	}
-}
-
-func WithConfig(config map[string]string) func(opts *UpgradeTestOpts) {
-	return func(opts *UpgradeTestOpts) {
-		opts.config = config
-	}
-}
-func testProviderUpgrade(t *testing.T, dir string, opts ...func(*UpgradeTestOpts)) {
-	options := &UpgradeTestOpts{}
-	for _, o := range opts {
-		o(options)
-	}
-	testProviderUpgradeWithOpts(t, dir, options.baselineVersion, options.config, options.assertFunc)
-}
-
-func testProviderUpgradeWithOpts(
-	t *testing.T, dir, baselineVersion string, config map[string]string,
-	assertFunction func(*testing.T, auto.PreviewResult),
-) {
+func testProviderUpgrade(t *testing.T, dir string) {
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
-	if baselineVersion == "" {
-		baselineVersion = defaultBaselineVersion
-	}
 	test := pulumitest.NewPulumiTest(t, dir,
-		opttest.DownloadProviderVersion(providerName, baselineVersion),
+		opttest.DownloadProviderVersion(providerName, defaultBaselineVersion),
 		opttest.DownloadProviderVersion("tls", "5.0.3"),
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
 	)
-	for k, v := range config {
-		test.SetConfig(k, v)
-	}
-	result := providertest.PreviewProviderUpgrade(t, test, providerName, baselineVersion,
+	result := providertest.PreviewProviderUpgrade(t, test, providerName, defaultBaselineVersion,
 		optproviderupgrade.DisableAttach())
-	if assertFunction != nil {
-		assertFunction(t, result)
-	} else {
-		assertpreview.HasNoReplacements(t, result)
-	}
+	assertpreview.HasNoReplacements(t, result)
 }
 
 func testProgram(t *testing.T, dir string) {
@@ -101,7 +55,7 @@ func testProgram(t *testing.T, dir string) {
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
 		opttest.SkipInstall(),
 	)
-	test.Up()
+	test.Up(t)
 }
 
 func TestPrograms(t *testing.T) {
