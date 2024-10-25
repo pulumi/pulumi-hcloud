@@ -13,6 +13,7 @@ The hcloud provider is available as a package in all Pulumi languages:
 * .NET: [`Pulumi.Hcloud`](https://www.nuget.org/packages/Pulumi.Hcloud)
 * Java: [`com.pulumi/hcloud`](https://central.sonatype.com/artifact/com.pulumi/hcloud)
 ## Overview
+
 The Hetzner Cloud (hcloud) provider is used to interact with the resources supported by [Hetzner Cloud](https://www.hetzner.com/cloud). The provider needs to be configured with the proper credentials before it can be used.
 
 Use the navigation to the left to read about the available resources.
