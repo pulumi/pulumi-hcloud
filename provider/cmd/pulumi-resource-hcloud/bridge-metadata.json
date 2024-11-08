@@ -403,6 +403,19 @@
                     }
                 }
             },
+            "hcloud_load_balancer_type": {
+                "current": "hcloud:index/getLoadBalancerType:getLoadBalancerType",
+                "majorVersion": 1
+            },
+            "hcloud_load_balancer_types": {
+                "current": "hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes",
+                "majorVersion": 1,
+                "fields": {
+                    "load_balancer_types": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "hcloud_load_balancers": {
                 "current": "hcloud:index/getLoadBalancers:getLoadBalancers",
                 "majorVersion": 1,
@@ -657,6 +670,8 @@
             "hcloud:index/getImage:getImage": 0,
             "hcloud:index/getImages:getImages": 0,
             "hcloud:index/getLoadBalancer:getLoadBalancer": 0,
+            "hcloud:index/getLoadBalancerType:getLoadBalancerType": 1,
+            "hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes": 1,
             "hcloud:index/getLoadBalancers:getLoadBalancers": 0,
             "hcloud:index/getLocation:getLocation": 1,
             "hcloud:index/getLocations:getLocations": 1,
@@ -667,8 +682,8 @@
             "hcloud:index/getPrimaryIp:getPrimaryIp": 0,
             "hcloud:index/getPrimaryIps:getPrimaryIps": 0,
             "hcloud:index/getServer:getServer": 0,
-            "hcloud:index/getServerType:getServerType": 0,
-            "hcloud:index/getServerTypes:getServerTypes": 0,
+            "hcloud:index/getServerType:getServerType": 1,
+            "hcloud:index/getServerTypes:getServerTypes": 1,
             "hcloud:index/getServers:getServers": 0,
             "hcloud:index/getSshKey:getSshKey": 1,
             "hcloud:index/getSshKeys:getSshKeys": 1,
