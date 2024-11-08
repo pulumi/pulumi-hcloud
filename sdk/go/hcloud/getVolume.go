@@ -62,7 +62,7 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 type LookupVolumeArgs struct {
 	// ID of the volume.
 	Id *int `pulumi:"id"`
-	// (string) The location name.
+	// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location *string `pulumi:"location"`
 	// Name of the volume.
 	Name *string `pulumi:"name"`
@@ -86,7 +86,7 @@ type LookupVolumeResult struct {
 	Labels map[string]string `pulumi:"labels"`
 	// (string) Device path on the file system for the Volume.
 	LinuxDevice string `pulumi:"linuxDevice"`
-	// (string) The location name.
+	// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location *string `pulumi:"location"`
 	// (string) Name of the volume.
 	Name string `pulumi:"name"`
@@ -123,7 +123,7 @@ func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts .
 type LookupVolumeOutputArgs struct {
 	// ID of the volume.
 	Id pulumi.IntPtrInput `pulumi:"id"`
-	// (string) The location name.
+	// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Name of the volume.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -176,7 +176,7 @@ func (o LookupVolumeResultOutput) LinuxDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.LinuxDevice }).(pulumi.StringOutput)
 }
 
-// (string) The location name.
+// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o LookupVolumeResultOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }

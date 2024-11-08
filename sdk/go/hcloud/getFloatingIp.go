@@ -18,10 +18,12 @@ import (
 // ## Example Usage
 //
 // # Data Source: FloatingIp
+//
 // Provides details about a Hetzner Cloud Floating IP.
 // This resource can be useful when you need to determine a Floating IP ID based on the IP address.
 //
 // ### Additional Examples
+//
 // ```go
 // package main
 //

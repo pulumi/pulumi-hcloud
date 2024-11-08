@@ -100,7 +100,7 @@ public final class LoadBalancerNetworkState extends com.pulumi.resources.Resourc
     /**
      * ID of the sub-network which should be
      * added to the Load Balancer. Required if `network_id` is not set.
-     * *Note*: if the `ip` property is missing, the Load Balancer is
+     * _Note_: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      * 
      */
@@ -110,7 +110,7 @@ public final class LoadBalancerNetworkState extends com.pulumi.resources.Resourc
     /**
      * @return ID of the sub-network which should be
      * added to the Load Balancer. Required if `network_id` is not set.
-     * *Note*: if the `ip` property is missing, the Load Balancer is
+     * _Note_: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      * 
      */
@@ -253,7 +253,7 @@ public final class LoadBalancerNetworkState extends com.pulumi.resources.Resourc
         /**
          * @param subnetId ID of the sub-network which should be
          * added to the Load Balancer. Required if `network_id` is not set.
-         * *Note*: if the `ip` property is missing, the Load Balancer is
+         * _Note_: if the `ip` property is missing, the Load Balancer is
          * currently added to the last created subnet.
          * 
          * @return builder
@@ -267,7 +267,7 @@ public final class LoadBalancerNetworkState extends com.pulumi.resources.Resourc
         /**
          * @param subnetId ID of the sub-network which should be
          * added to the Load Balancer. Required if `network_id` is not set.
-         * *Note*: if the `ip` property is missing, the Load Balancer is
+         * _Note_: if the `ip` property is missing, the Load Balancer is
          * currently added to the last created subnet.
          * 
          * @return builder

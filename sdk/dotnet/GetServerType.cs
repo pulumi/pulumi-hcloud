@@ -148,7 +148,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Number of cpu cores a Server of this type will have.
         /// </summary>
-        public readonly int Cores;
+        public readonly double Cores;
         public readonly string CpuType;
         /// <summary>
         /// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
@@ -161,7 +161,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Disk size a Server of this type will have in GB.
         /// </summary>
-        public readonly int Disk;
+        public readonly double Disk;
         /// <summary>
         /// (int) Unique ID of the server_type.
         /// </summary>
@@ -177,7 +177,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Memory a Server of this type will have in GB.
         /// </summary>
-        public readonly int Memory;
+        public readonly double Memory;
         /// <summary>
         /// (string) Name of the server_type.
         /// </summary>
@@ -192,7 +192,7 @@ namespace Pulumi.HCloud
         private GetServerTypeResult(
             string architecture,
 
-            int cores,
+            double cores,
 
             string cpuType,
 
@@ -200,7 +200,7 @@ namespace Pulumi.HCloud
 
             string description,
 
-            int disk,
+            double disk,
 
             int id,
 
@@ -208,7 +208,7 @@ namespace Pulumi.HCloud
 
             bool isDeprecated,
 
-            int memory,
+            double memory,
 
             string name,
 

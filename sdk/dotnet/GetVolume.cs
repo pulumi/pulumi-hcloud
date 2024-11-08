@@ -86,7 +86,7 @@ namespace Pulumi.HCloud
         public int? Id { get; set; }
 
         /// <summary>
-        /// (string) The location name.
+        /// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public string? Location { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.HCloud
         public Input<int>? Id { get; set; }
 
         /// <summary>
-        /// (string) The location name.
+        /// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string LinuxDevice;
         /// <summary>
-        /// (string) The location name.
+        /// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         public readonly string? Location;
         /// <summary>

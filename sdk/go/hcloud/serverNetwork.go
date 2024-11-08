@@ -99,7 +99,7 @@ type ServerNetwork struct {
 	ServerId pulumi.IntOutput `pulumi:"serverId"`
 	// ID of the sub-network which should be
 	// added to the Server. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Server is currently added
+	// _Note_: if the `ip` property is missing, the Server is currently added
 	// to the last created subnet.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 }
@@ -158,7 +158,7 @@ type serverNetworkState struct {
 	ServerId *int `pulumi:"serverId"`
 	// ID of the sub-network which should be
 	// added to the Server. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Server is currently added
+	// _Note_: if the `ip` property is missing, the Server is currently added
 	// to the last created subnet.
 	SubnetId *string `pulumi:"subnetId"`
 }
@@ -185,7 +185,7 @@ type ServerNetworkState struct {
 	ServerId pulumi.IntPtrInput
 	// ID of the sub-network which should be
 	// added to the Server. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Server is currently added
+	// _Note_: if the `ip` property is missing, the Server is currently added
 	// to the last created subnet.
 	SubnetId pulumi.StringPtrInput
 }
@@ -215,7 +215,7 @@ type serverNetworkArgs struct {
 	ServerId int `pulumi:"serverId"`
 	// ID of the sub-network which should be
 	// added to the Server. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Server is currently added
+	// _Note_: if the `ip` property is missing, the Server is currently added
 	// to the last created subnet.
 	SubnetId *string `pulumi:"subnetId"`
 }
@@ -242,7 +242,7 @@ type ServerNetworkArgs struct {
 	ServerId pulumi.IntInput
 	// ID of the sub-network which should be
 	// added to the Server. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Server is currently added
+	// _Note_: if the `ip` property is missing, the Server is currently added
 	// to the last created subnet.
 	SubnetId pulumi.StringPtrInput
 }
@@ -370,7 +370,7 @@ func (o ServerNetworkOutput) ServerId() pulumi.IntOutput {
 
 // ID of the sub-network which should be
 // added to the Server. Required if `networkId` is not set.
-// *Note*: if the `ip` property is missing, the Server is currently added
+// _Note_: if the `ip` property is missing, the Server is currently added
 // to the last created subnet.
 func (o ServerNetworkOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerNetwork) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)

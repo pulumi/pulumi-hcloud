@@ -12,8 +12,7 @@ namespace Pulumi.HCloud
     public static class GetVolumes
     {
         /// <summary>
-        /// Provides details about multiple Hetzner Cloud volumes.
-        /// 
+        /// Provides details about multiple Hetzner Cloud Volumes.
         /// 
         /// ## Example Usage
         /// 
@@ -39,8 +38,7 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumesResult>("hcloud:index/getVolumes:getVolumes", args ?? new GetVolumesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides details about multiple Hetzner Cloud volumes.
-        /// 
+        /// Provides details about multiple Hetzner Cloud Volumes.
         /// 
         /// ## Example Usage
         /// 

@@ -78,14 +78,14 @@ public final class GetPlacementGroupPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * (string)  Type of the Placement Group.
+     * (string) Type of the Placement Group.
      * 
      */
     @Import(name="type")
     private @Nullable String type;
 
     /**
-     * @return (string)  Type of the Placement Group.
+     * @return (string) Type of the Placement Group.
      * 
      */
     public Optional<String> type() {
@@ -181,7 +181,7 @@ public final class GetPlacementGroupPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param type (string)  Type of the Placement Group.
+         * @param type (string) Type of the Placement Group.
          * 
          * @return builder
          * 

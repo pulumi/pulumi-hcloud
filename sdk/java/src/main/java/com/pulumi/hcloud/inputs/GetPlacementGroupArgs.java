@@ -79,14 +79,14 @@ public final class GetPlacementGroupArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * (string)  Type of the Placement Group.
+     * (string) Type of the Placement Group.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return (string)  Type of the Placement Group.
+     * @return (string) Type of the Placement Group.
      * 
      */
     public Optional<Output<String>> type() {
@@ -222,7 +222,7 @@ public final class GetPlacementGroupArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param type (string)  Type of the Placement Group.
+         * @param type (string) Type of the Placement Group.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class GetPlacementGroupArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param type (string)  Type of the Placement Group.
+         * @param type (string) Type of the Placement Group.
          * 
          * @return builder
          * 

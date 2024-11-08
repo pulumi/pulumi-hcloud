@@ -183,7 +183,7 @@ export interface GetLoadBalancerService {
      */
     https: outputs.GetLoadBalancerServiceHttp[];
     /**
-     * (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+     * (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      */
     listenPort: number;
     /**
@@ -282,6 +282,16 @@ export interface GetLoadBalancerTarget {
      * (string) Type of the target. `server` or `labelSelector`
      */
     type: string;
+}
+
+export interface GetLoadBalancerTypesLoadBalancerType {
+    description: string;
+    id: number;
+    maxAssignedCertificates: number;
+    maxConnections: number;
+    maxServices: number;
+    maxTargets: number;
+    name: string;
 }
 
 export interface GetLoadBalancersLoadBalancer {

@@ -86,7 +86,7 @@ type LookupLoadBalancerResult struct {
 	Labels map[string]string `pulumi:"labels"`
 	// (string) Name of the Type of the Load Balancer.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
-	// (string) Name of the location the Load Balancer is in.
+	// (string) Name of the location the Load Balancer is in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location string `pulumi:"location"`
 	// (string) Name of the Load Balancer.
 	Name *string `pulumi:"name"`
@@ -185,7 +185,7 @@ func (o LookupLoadBalancerResultOutput) LoadBalancerType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.LoadBalancerType }).(pulumi.StringOutput)
 }
 
-// (string) Name of the location the Load Balancer is in.
+// (string) Name of the location the Load Balancer is in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o LookupLoadBalancerResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Location }).(pulumi.StringOutput)
 }

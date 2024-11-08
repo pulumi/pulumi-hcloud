@@ -71,7 +71,7 @@ type GetDatacenterResult struct {
 	Description string `pulumi:"description"`
 	// (int) Unique ID of the datacenter.
 	Id int `pulumi:"id"`
-	// (map) Physical datacenter location.
+	// (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location map[string]string `pulumi:"location"`
 	// (string) Name of the datacenter.
 	Name string `pulumi:"name"`
@@ -140,7 +140,7 @@ func (o GetDatacenterResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDatacenterResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// (map) Physical datacenter location.
+// (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o GetDatacenterResultOutput) Location() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDatacenterResult) map[string]string { return v.Location }).(pulumi.StringMapOutput)
 }

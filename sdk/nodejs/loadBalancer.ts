@@ -93,7 +93,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly loadBalancerType!: pulumi.Output<string>;
     /**
-     * The location name of the Load Balancer. Require when no networkZone is set.
+     * The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -194,7 +194,7 @@ export interface LoadBalancerState {
      */
     loadBalancerType?: pulumi.Input<string>;
     /**
-     * The location name of the Load Balancer. Require when no networkZone is set.
+     * The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**
@@ -240,7 +240,7 @@ export interface LoadBalancerArgs {
      */
     loadBalancerType: pulumi.Input<string>;
     /**
-     * The location name of the Load Balancer. Require when no networkZone is set.
+     * The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**

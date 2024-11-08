@@ -97,14 +97,14 @@ public final class GetFirewallArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (string)  Configuration of a Rule from this Firewall.
+     * (string) Configuration of a Rule from this Firewall.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<GetFirewallRuleArgs>> rules;
 
     /**
-     * @return (string)  Configuration of a Rule from this Firewall.
+     * @return (string) Configuration of a Rule from this Firewall.
      * 
      */
     public Optional<Output<List<GetFirewallRuleArgs>>> rules() {
@@ -272,7 +272,7 @@ public final class GetFirewallArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param rules (string)  Configuration of a Rule from this Firewall.
+         * @param rules (string) Configuration of a Rule from this Firewall.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class GetFirewallArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param rules (string)  Configuration of a Rule from this Firewall.
+         * @param rules (string) Configuration of a Rule from this Firewall.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class GetFirewallArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param rules (string)  Configuration of a Rule from this Firewall.
+         * @param rules (string) Configuration of a Rule from this Firewall.
          * 
          * @return builder
          * 

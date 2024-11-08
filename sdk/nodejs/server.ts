@@ -28,6 +28,7 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -58,7 +59,9 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ *
  * ### Server creation with network
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
@@ -170,7 +173,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly backups!: pulumi.Output<boolean | undefined>;
     /**
-     * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+     * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
     public readonly datacenter!: pulumi.Output<string>;
     /**
@@ -215,7 +218,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+     * The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -365,7 +368,7 @@ export interface ServerState {
      */
     backups?: pulumi.Input<boolean>;
     /**
-     * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+     * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
     datacenter?: pulumi.Input<string>;
     /**
@@ -410,7 +413,7 @@ export interface ServerState {
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+     * The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**
@@ -477,7 +480,7 @@ export interface ServerArgs {
      */
     backups?: pulumi.Input<boolean>;
     /**
-     * The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+     * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
     datacenter?: pulumi.Input<string>;
     /**
@@ -510,7 +513,7 @@ export interface ServerArgs {
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+     * The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**

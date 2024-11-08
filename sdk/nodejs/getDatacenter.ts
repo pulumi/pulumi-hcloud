@@ -62,7 +62,7 @@ export interface GetDatacenterResult {
      */
     readonly id: number;
     /**
-     * (map) Physical datacenter location.
+     * (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     readonly location: {[key: string]: string};
     /**

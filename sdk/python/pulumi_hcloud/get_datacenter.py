@@ -74,7 +74,7 @@ class GetDatacenterResult:
     @pulumi.getter
     def location(self) -> Mapping[str, str]:
         """
-        (map) Physical datacenter location.
+        (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 

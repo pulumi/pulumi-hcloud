@@ -29,7 +29,7 @@ public final class GetDatacenterResult {
      */
     private Integer id;
     /**
-     * @return (map) Physical datacenter location.
+     * @return (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     private Map<String,String> location;
@@ -67,7 +67,7 @@ public final class GetDatacenterResult {
         return this.id;
     }
     /**
-     * @return (map) Physical datacenter location.
+     * @return (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Map<String,String> location() {

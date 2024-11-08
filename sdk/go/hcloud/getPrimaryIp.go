@@ -114,7 +114,7 @@ type LookupPrimaryIpResult struct {
 	AssigneeType string `pulumi:"assigneeType"`
 	// (bool) Whether auto delete is enabled.
 	AutoDelete bool `pulumi:"autoDelete"`
-	// (string) The datacenter name of the Primary IP.
+	// (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	Datacenter string `pulumi:"datacenter"`
 	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
@@ -124,7 +124,7 @@ type LookupPrimaryIpResult struct {
 	IpAddress string `pulumi:"ipAddress"`
 	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork string `pulumi:"ipNetwork"`
-	// (string) Description of the Primary IP.
+	// (map) User-defined labels (key-value pairs).
 	Labels map[string]string `pulumi:"labels"`
 	// (string) Name of the Primary IP.
 	Name *string `pulumi:"name"`
@@ -200,7 +200,7 @@ func (o LookupPrimaryIpResultOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) bool { return v.AutoDelete }).(pulumi.BoolOutput)
 }
 
-// (string) The datacenter name of the Primary IP.
+// (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 func (o LookupPrimaryIpResultOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.Datacenter }).(pulumi.StringOutput)
 }
@@ -225,7 +225,7 @@ func (o LookupPrimaryIpResultOutput) IpNetwork() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.IpNetwork }).(pulumi.StringOutput)
 }
 
-// (string) Description of the Primary IP.
+// (map) User-defined labels (key-value pairs).
 func (o LookupPrimaryIpResultOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }

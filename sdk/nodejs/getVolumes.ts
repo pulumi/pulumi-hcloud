@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides details about multiple Hetzner Cloud volumes.
+ * Provides details about multiple Hetzner Cloud Volumes.
  *
  * ## Example Usage
  *
@@ -60,7 +60,7 @@ export interface GetVolumesResult {
     readonly withStatuses?: string[];
 }
 /**
- * Provides details about multiple Hetzner Cloud volumes.
+ * Provides details about multiple Hetzner Cloud Volumes.
  *
  * ## Example Usage
  *

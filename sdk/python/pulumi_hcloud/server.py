@@ -47,7 +47,7 @@ class ServerArgs:
         :param pulumi.Input[str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[bool] backups: Enable or disable backups.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
@@ -58,7 +58,7 @@ class ServerArgs:
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        :param pulumi.Input[str] location: The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
@@ -152,7 +152,7 @@ class ServerArgs:
     @pulumi.getter
     def datacenter(self) -> Optional[pulumi.Input[str]]:
         """
-        The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
@@ -249,7 +249,7 @@ class ServerArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -402,7 +402,7 @@ class _ServerState:
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
@@ -416,7 +416,7 @@ class _ServerState:
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        :param pulumi.Input[str] location: The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
@@ -530,7 +530,7 @@ class _ServerState:
     @pulumi.getter
     def datacenter(self) -> Optional[pulumi.Input[str]]:
         """
-        The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
@@ -663,7 +663,7 @@ class _ServerState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -865,6 +865,7 @@ class Server(pulumi.CustomResource):
                 "ipv6_enabled": True,
             }])
         ```
+
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -893,7 +894,9 @@ class Server(pulumi.CustomResource):
                 "ipv6_enabled": False,
             }])
         ```
+
         ### Server creation with network
+
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -959,7 +962,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[bool] backups: Enable or disable backups.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
@@ -970,7 +973,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        :param pulumi.Input[str] location: The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
@@ -1010,6 +1013,7 @@ class Server(pulumi.CustomResource):
                 "ipv6_enabled": True,
             }])
         ```
+
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -1038,7 +1042,9 @@ class Server(pulumi.CustomResource):
                 "ipv6_enabled": False,
             }])
         ```
+
         ### Server creation with network
+
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
@@ -1221,7 +1227,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[bool] backups: Enable or disable backups.
-        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        :param pulumi.Input[str] datacenter: The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] firewall_ids: Firewall IDs the server should be attached to on creation.
         :param pulumi.Input[bool] ignore_remote_firewall_ids: Ignores any updates
@@ -1235,7 +1241,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        :param pulumi.Input[str] location: The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[int] placement_group_id: Placement Group ID the server added to on creation.
@@ -1312,7 +1318,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def datacenter(self) -> pulumi.Output[str]:
         """
-        The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
@@ -1401,7 +1407,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 

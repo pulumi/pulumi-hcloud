@@ -104,7 +104,7 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
     /**
      * ID of the sub-network which should be
      * added to the Load Balancer. Required if `networkId` is not set.
-     * *Note*: if the `ip` property is missing, the Load Balancer is
+     * _Note_: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
@@ -176,7 +176,7 @@ export interface LoadBalancerNetworkState {
     /**
      * ID of the sub-network which should be
      * added to the Load Balancer. Required if `networkId` is not set.
-     * *Note*: if the `ip` property is missing, the Load Balancer is
+     * _Note_: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      */
     subnetId?: pulumi.Input<string>;
@@ -215,7 +215,7 @@ export interface LoadBalancerNetworkArgs {
     /**
      * ID of the sub-network which should be
      * added to the Load Balancer. Required if `networkId` is not set.
-     * *Note*: if the `ip` property is missing, the Load Balancer is
+     * _Note_: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      */
     subnetId?: pulumi.Input<string>;

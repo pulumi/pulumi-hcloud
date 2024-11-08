@@ -92,7 +92,7 @@ class GetPrimaryIpResult:
     @pulumi.getter
     def datacenter(self) -> str:
         """
-        (string) The datacenter name of the Primary IP.
+        (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
@@ -132,7 +132,7 @@ class GetPrimaryIpResult:
     @pulumi.getter
     def labels(self) -> Mapping[str, str]:
         """
-        (string) Description of the Primary IP.
+        (map) User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 

@@ -19,14 +19,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     public static final PrimaryIpState Empty = new PrimaryIpState();
 
     /**
-     * ID of the assigned resource
+     * ID of the assigned resource.
      * 
      */
     @Import(name="assigneeId")
     private @Nullable Output<Integer> assigneeId;
 
     /**
-     * @return ID of the assigned resource
+     * @return ID of the assigned resource.
      * 
      */
     public Optional<Output<Integer>> assigneeId() {
@@ -66,14 +66,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The datacenter name to create the resource in.
+     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     @Import(name="datacenter")
     private @Nullable Output<String> datacenter;
 
     /**
-     * @return The datacenter name to create the resource in.
+     * @return The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     public Optional<Output<String>> datacenter() {
@@ -83,12 +83,16 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
+     * Note: At least one of `datacenter` or `assignee_id` is required.
+     * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
      * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
+     * 
+     * Note: At least one of `datacenter` or `assignee_id` is required.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -126,14 +130,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description of the Primary IP.
+     * User-defined labels (key-value pairs).
      * 
      */
     @Import(name="labels")
     private @Nullable Output<Map<String,String>> labels;
 
     /**
-     * @return Description of the Primary IP.
+     * @return User-defined labels (key-value pairs).
      * 
      */
     public Optional<Output<Map<String,String>>> labels() {
@@ -204,7 +208,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeId ID of the assigned resource
+         * @param assigneeId ID of the assigned resource.
          * 
          * @return builder
          * 
@@ -215,7 +219,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeId ID of the assigned resource
+         * @param assigneeId ID of the assigned resource.
          * 
          * @return builder
          * 
@@ -269,7 +273,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datacenter The datacenter name to create the resource in.
+         * @param datacenter The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
          * 
          * @return builder
          * 
@@ -280,7 +284,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datacenter The datacenter name to create the resource in.
+         * @param datacenter The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
          * 
          * @return builder
          * 
@@ -292,6 +296,8 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
+         * Note: At least one of `datacenter` or `assignee_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -302,6 +308,8 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
+         * 
+         * Note: At least one of `datacenter` or `assignee_id` is required.
          * 
          * @return builder
          * 
@@ -353,7 +361,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels Description of the Primary IP.
+         * @param labels User-defined labels (key-value pairs).
          * 
          * @return builder
          * 
@@ -364,7 +372,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels Description of the Primary IP.
+         * @param labels User-defined labels (key-value pairs).
          * 
          * @return builder
          * 

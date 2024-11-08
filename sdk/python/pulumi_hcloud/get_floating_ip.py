@@ -190,10 +190,12 @@ def get_floating_ip(id: Optional[int] = None,
     ## Example Usage
 
     # Data Source: FloatingIp
+
     Provides details about a Hetzner Cloud Floating IP.
     This resource can be useful when you need to determine a Floating IP ID based on the IP address.
 
     ### Additional Examples
+
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
@@ -249,10 +251,12 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     ## Example Usage
 
     # Data Source: FloatingIp
+
     Provides details about a Hetzner Cloud Floating IP.
     This resource can be useful when you need to determine a Floating IP ID based on the IP address.
 
     ### Additional Examples
+
     ```python
     import pulumi
     import pulumi_hcloud as hcloud

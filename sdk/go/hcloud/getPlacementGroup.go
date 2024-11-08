@@ -62,7 +62,7 @@ type LookupPlacementGroupArgs struct {
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the placement group.
 	Name *string `pulumi:"name"`
-	// (string)  Type of the Placement Group.
+	// (string) Type of the Placement Group.
 	Type *string `pulumi:"type"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
@@ -78,7 +78,7 @@ type LookupPlacementGroupResult struct {
 	// (string) Name of the Placement Group.
 	Name    string `pulumi:"name"`
 	Servers []int  `pulumi:"servers"`
-	// (string)  Type of the Placement Group.
+	// (string) Type of the Placement Group.
 	Type         string  `pulumi:"type"`
 	WithSelector *string `pulumi:"withSelector"`
 }
@@ -112,7 +112,7 @@ type LookupPlacementGroupOutputArgs struct {
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the placement group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (string)  Type of the Placement Group.
+	// (string) Type of the Placement Group.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
@@ -160,7 +160,7 @@ func (o LookupPlacementGroupResultOutput) Servers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v LookupPlacementGroupResult) []int { return v.Servers }).(pulumi.IntArrayOutput)
 }
 
-// (string)  Type of the Placement Group.
+// (string) Type of the Placement Group.
 func (o LookupPlacementGroupResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlacementGroupResult) string { return v.Type }).(pulumi.StringOutput)
 }

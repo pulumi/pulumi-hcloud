@@ -35,8 +35,8 @@ class VolumeArgs:
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: (map) User-defined labels (key-value pairs).
-        :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         """
@@ -110,7 +110,7 @@ class VolumeArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        (map) User-defined labels (key-value pairs).
+        User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
@@ -122,7 +122,7 @@ class VolumeArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name of the volume to create, not allowed if server_id argument is passed.
+        The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -174,9 +174,9 @@ class _VolumeState:
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: (map) User-defined labels (key-value pairs).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs).
         :param pulumi.Input[str] linux_device: (string) Device path on the file system for the Volume.
-        :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed.
+        :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         :param pulumi.Input[int] size: Size of the volume (in GB).
@@ -242,7 +242,7 @@ class _VolumeState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        (map) User-defined labels (key-value pairs).
+        User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
@@ -266,7 +266,7 @@ class _VolumeState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name of the volume to create, not allowed if server_id argument is passed.
+        The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -361,8 +361,8 @@ class Volume(pulumi.CustomResource):
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: (map) User-defined labels (key-value pairs).
-        :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         :param pulumi.Input[int] size: Size of the volume (in GB).
@@ -476,9 +476,9 @@ class Volume(pulumi.CustomResource):
                
                **Note:** When you want to attach multiple volumes to a server, please use the `VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
         :param pulumi.Input[str] format: Format volume after creation. `xfs` or `ext4`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: (map) User-defined labels (key-value pairs).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs).
         :param pulumi.Input[str] linux_device: (string) Device path on the file system for the Volume.
-        :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed.
+        :param pulumi.Input[str] location: The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the volume to create (must be unique per project).
         :param pulumi.Input[int] server_id: Server to attach the Volume to, not allowed if location argument is passed.
         :param pulumi.Input[int] size: Size of the volume (in GB).
@@ -528,7 +528,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        (map) User-defined labels (key-value pairs).
+        User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
@@ -544,7 +544,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location name of the volume to create, not allowed if server_id argument is passed.
+        The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 

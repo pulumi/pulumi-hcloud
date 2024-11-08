@@ -42,7 +42,7 @@ class LoadBalancerNetworkArgs:
                `LoadBalancerNetwork` and the existence of a subnet.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Load Balancer. Required if `network_id` is not set.
-               *Note*: if the `ip` property is missing, the Load Balancer is
+               _Note_: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
         pulumi.set(__self__, "load_balancer_id", load_balancer_id)
@@ -119,7 +119,7 @@ class LoadBalancerNetworkArgs:
         """
         ID of the sub-network which should be
         added to the Load Balancer. Required if `network_id` is not set.
-        *Note*: if the `ip` property is missing, the Load Balancer is
+        _Note_: if the `ip` property is missing, the Load Balancer is
         currently added to the last created subnet.
         """
         return pulumi.get(self, "subnet_id")
@@ -155,7 +155,7 @@ class _LoadBalancerNetworkState:
                `LoadBalancerNetwork` and the existence of a subnet.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Load Balancer. Required if `network_id` is not set.
-               *Note*: if the `ip` property is missing, the Load Balancer is
+               _Note_: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
         if enable_public_interface is not None:
@@ -233,7 +233,7 @@ class _LoadBalancerNetworkState:
         """
         ID of the sub-network which should be
         added to the Load Balancer. Required if `network_id` is not set.
-        *Note*: if the `ip` property is missing, the Load Balancer is
+        _Note_: if the `ip` property is missing, the Load Balancer is
         currently added to the last created subnet.
         """
         return pulumi.get(self, "subnet_id")
@@ -310,7 +310,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
                `LoadBalancerNetwork` and the existence of a subnet.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Load Balancer. Required if `network_id` is not set.
-               *Note*: if the `ip` property is missing, the Load Balancer is
+               _Note_: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
         ...
@@ -431,7 +431,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
                `LoadBalancerNetwork` and the existence of a subnet.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Load Balancer. Required if `network_id` is not set.
-               *Note*: if the `ip` property is missing, the Load Balancer is
+               _Note_: if the `ip` property is missing, the Load Balancer is
                currently added to the last created subnet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -493,7 +493,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         """
         ID of the sub-network which should be
         added to the Load Balancer. Required if `network_id` is not set.
-        *Note*: if the `ip` property is missing, the Load Balancer is
+        _Note_: if the `ip` property is missing, the Load Balancer is
         currently added to the last created subnet.
         """
         return pulumi.get(self, "subnet_id")

@@ -69,14 +69,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (map) User-defined labels (key-value pairs).
+     * User-defined labels (key-value pairs).
      * 
      */
     @Import(name="labels")
     private @Nullable Output<Map<String,String>> labels;
 
     /**
-     * @return (map) User-defined labels (key-value pairs).
+     * @return User-defined labels (key-value pairs).
      * 
      */
     public Optional<Output<Map<String,String>>> labels() {
@@ -84,14 +84,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location name of the volume to create, not allowed if server_id argument is passed.
+     * The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location name of the volume to create, not allowed if server_id argument is passed.
+     * @return The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Optional<Output<String>> location() {
@@ -242,7 +242,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels (map) User-defined labels (key-value pairs).
+         * @param labels User-defined labels (key-value pairs).
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels (map) User-defined labels (key-value pairs).
+         * @param labels User-defined labels (key-value pairs).
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location name of the volume to create, not allowed if server_id argument is passed.
+         * @param location The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location name of the volume to create, not allowed if server_id argument is passed.
+         * @param location The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
          * 
          * @return builder
          * 

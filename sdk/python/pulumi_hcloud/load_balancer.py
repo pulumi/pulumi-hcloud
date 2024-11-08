@@ -35,7 +35,7 @@ class LoadBalancerArgs:
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
+        :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: The Network Zone of the Load Balancer. Require when no location is set.
         """
@@ -110,7 +110,7 @@ class LoadBalancerArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name of the Load Balancer. Require when no network_zone is set.
+        The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -176,7 +176,7 @@ class _LoadBalancerState:
         :param pulumi.Input[str] ipv6: (string) IPv6 Address of the Load Balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
-        :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
+        :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[int] network_id: (int) ID of the first private network that this Load Balancer is connected to.
         :param pulumi.Input[str] network_ip: (string) IP of the Load Balancer in the first private network that it is connected to.
@@ -286,7 +286,7 @@ class _LoadBalancerState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location name of the Load Balancer. Require when no network_zone is set.
+        The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -404,7 +404,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
-        :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
+        :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[str] network_zone: The Network Zone of the Load Balancer. Require when no location is set.
         """
@@ -526,7 +526,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] ipv6: (string) IPv6 Address of the Load Balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[str] load_balancer_type: Type of the Load Balancer.
-        :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set.
+        :param pulumi.Input[str] location: The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[str] name: Name of the Load Balancer.
         :param pulumi.Input[int] network_id: (int) ID of the first private network that this Load Balancer is connected to.
         :param pulumi.Input[str] network_ip: (string) IP of the Load Balancer in the first private network that it is connected to.
@@ -602,7 +602,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location name of the Load Balancer. Require when no network_zone is set.
+        The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 

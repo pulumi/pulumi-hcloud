@@ -31,7 +31,7 @@ public final class GetLoadBalancerService {
      */
     private List<GetLoadBalancerServiceHttp> https;
     /**
-     * @return (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
+     * @return (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      * 
      */
     private Integer listenPort;
@@ -69,7 +69,7 @@ public final class GetLoadBalancerService {
         return this.https;
     }
     /**
-     * @return (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
+     * @return (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      * 
      */
     public Integer listenPort() {

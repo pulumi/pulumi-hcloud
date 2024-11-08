@@ -80,7 +80,7 @@ type LoadBalancer struct {
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringOutput `pulumi:"loadBalancerType"`
-	// The location name of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the Load Balancer.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -139,7 +139,7 @@ type loadBalancerState struct {
 	Labels map[string]string `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
-	// The location name of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location *string `pulumi:"location"`
 	// Name of the Load Balancer.
 	Name *string `pulumi:"name"`
@@ -166,7 +166,7 @@ type LoadBalancerState struct {
 	Labels pulumi.StringMapInput
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringPtrInput
-	// The location name of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringPtrInput
 	// Name of the Load Balancer.
 	Name pulumi.StringPtrInput
@@ -193,7 +193,7 @@ type loadBalancerArgs struct {
 	Labels map[string]string `pulumi:"labels"`
 	// Type of the Load Balancer.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
-	// The location name of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location *string `pulumi:"location"`
 	// Name of the Load Balancer.
 	Name *string `pulumi:"name"`
@@ -213,7 +213,7 @@ type LoadBalancerArgs struct {
 	Labels pulumi.StringMapInput
 	// Type of the Load Balancer.
 	LoadBalancerType pulumi.StringInput
-	// The location name of the Load Balancer. Require when no networkZone is set.
+	// The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringPtrInput
 	// Name of the Load Balancer.
 	Name pulumi.StringPtrInput
@@ -340,7 +340,7 @@ func (o LoadBalancerOutput) LoadBalancerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerType }).(pulumi.StringOutput)
 }
 
-// The location name of the Load Balancer. Require when no networkZone is set.
+// The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o LoadBalancerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

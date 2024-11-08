@@ -70,11 +70,11 @@ type Volume struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// (map) User-defined labels (key-value pairs).
+	// User-defined labels (key-value pairs).
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// (string) Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringOutput `pulumi:"linuxDevice"`
-	// The location name of the volume to create, not allowed if serverId argument is passed.
+	// The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the volume to create (must be unique per project).
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -125,11 +125,11 @@ type volumeState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Format volume after creation. `xfs` or `ext4`
 	Format *string `pulumi:"format"`
-	// (map) User-defined labels (key-value pairs).
+	// User-defined labels (key-value pairs).
 	Labels map[string]string `pulumi:"labels"`
 	// (string) Device path on the file system for the Volume.
 	LinuxDevice *string `pulumi:"linuxDevice"`
-	// The location name of the volume to create, not allowed if serverId argument is passed.
+	// The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location *string `pulumi:"location"`
 	// Name of the volume to create (must be unique per project).
 	Name *string `pulumi:"name"`
@@ -148,11 +148,11 @@ type VolumeState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrInput
-	// (map) User-defined labels (key-value pairs).
+	// User-defined labels (key-value pairs).
 	Labels pulumi.StringMapInput
 	// (string) Device path on the file system for the Volume.
 	LinuxDevice pulumi.StringPtrInput
-	// The location name of the volume to create, not allowed if serverId argument is passed.
+	// The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringPtrInput
 	// Name of the volume to create (must be unique per project).
 	Name pulumi.StringPtrInput
@@ -175,9 +175,9 @@ type volumeArgs struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Format volume after creation. `xfs` or `ext4`
 	Format *string `pulumi:"format"`
-	// (map) User-defined labels (key-value pairs).
+	// User-defined labels (key-value pairs).
 	Labels map[string]string `pulumi:"labels"`
-	// The location name of the volume to create, not allowed if serverId argument is passed.
+	// The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location *string `pulumi:"location"`
 	// Name of the volume to create (must be unique per project).
 	Name *string `pulumi:"name"`
@@ -197,9 +197,9 @@ type VolumeArgs struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// Format volume after creation. `xfs` or `ext4`
 	Format pulumi.StringPtrInput
-	// (map) User-defined labels (key-value pairs).
+	// User-defined labels (key-value pairs).
 	Labels pulumi.StringMapInput
-	// The location name of the volume to create, not allowed if serverId argument is passed.
+	// The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringPtrInput
 	// Name of the volume to create (must be unique per project).
 	Name pulumi.StringPtrInput
@@ -313,7 +313,7 @@ func (o VolumeOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// (map) User-defined labels (key-value pairs).
+// User-defined labels (key-value pairs).
 func (o VolumeOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
@@ -323,7 +323,7 @@ func (o VolumeOutput) LinuxDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.LinuxDevice }).(pulumi.StringOutput)
 }
 
-// The location name of the volume to create, not allowed if serverId argument is passed.
+// The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o VolumeOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

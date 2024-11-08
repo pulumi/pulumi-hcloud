@@ -60,7 +60,7 @@ export interface GetFirewallArgs {
      */
     name?: string;
     /**
-     * (string)  Configuration of a Rule from this Firewall.
+     * (string) Configuration of a Rule from this Firewall.
      */
     rules?: inputs.GetFirewallRule[];
     /**
@@ -91,7 +91,7 @@ export interface GetFirewallResult {
      */
     readonly name: string;
     /**
-     * (string)  Configuration of a Rule from this Firewall.
+     * (string) Configuration of a Rule from this Firewall.
      */
     readonly rules?: outputs.GetFirewallRule[];
     readonly withSelector?: string;
@@ -150,7 +150,7 @@ export interface GetFirewallOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (string)  Configuration of a Rule from this Firewall.
+     * (string) Configuration of a Rule from this Firewall.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.GetFirewallRuleArgs>[]>;
     /**

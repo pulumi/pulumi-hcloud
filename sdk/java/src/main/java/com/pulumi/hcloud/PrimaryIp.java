@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="hcloud:index/primaryIp:PrimaryIp")
 public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
-     * ID of the assigned resource
+     * ID of the assigned resource.
      * 
      */
     @Export(name="assigneeId", refs={Integer.class}, tree="[0]")
     private Output<Integer> assigneeId;
 
     /**
-     * @return ID of the assigned resource
+     * @return ID of the assigned resource.
      * 
      */
     public Output<Integer> assigneeId() {
@@ -134,14 +134,14 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
         return this.autoDelete;
     }
     /**
-     * The datacenter name to create the resource in.
+     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     @Export(name="datacenter", refs={String.class}, tree="[0]")
     private Output<String> datacenter;
 
     /**
-     * @return The datacenter name to create the resource in.
+     * @return The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     public Output<String> datacenter() {
@@ -150,12 +150,16 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
      * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
+     * Note: At least one of `datacenter` or `assignee_id` is required.
+     * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
      * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
+     * 
+     * Note: At least one of `datacenter` or `assignee_id` is required.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {
@@ -190,14 +194,14 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
         return this.ipNetwork;
     }
     /**
-     * Description of the Primary IP.
+     * User-defined labels (key-value pairs).
      * 
      */
     @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> labels;
 
     /**
-     * @return Description of the Primary IP.
+     * @return User-defined labels (key-value pairs).
      * 
      */
     public Output<Optional<Map<String,String>>> labels() {

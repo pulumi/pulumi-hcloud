@@ -34,7 +34,7 @@ public final class GetPlacementGroupResult {
     private String name;
     private List<Integer> servers;
     /**
-     * @return (string)  Type of the Placement Group.
+     * @return (string) Type of the Placement Group.
      * 
      */
     private String type;
@@ -69,7 +69,7 @@ public final class GetPlacementGroupResult {
         return this.servers;
     }
     /**
-     * @return (string)  Type of the Placement Group.
+     * @return (string) Type of the Placement Group.
      * 
      */
     public String type() {

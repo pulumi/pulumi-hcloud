@@ -109,7 +109,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// ID of the sub-network which should be
         /// added to the Load Balancer. Required if `network_id` is not set.
-        /// *Note*: if the `ip` property is missing, the Load Balancer is
+        /// _Note_: if the `ip` property is missing, the Load Balancer is
         /// currently added to the last created subnet.
         /// </summary>
         [Output("subnetId")]
@@ -198,7 +198,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// ID of the sub-network which should be
         /// added to the Load Balancer. Required if `network_id` is not set.
-        /// *Note*: if the `ip` property is missing, the Load Balancer is
+        /// _Note_: if the `ip` property is missing, the Load Balancer is
         /// currently added to the last created subnet.
         /// </summary>
         [Input("subnetId")]
@@ -249,7 +249,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// ID of the sub-network which should be
         /// added to the Load Balancer. Required if `network_id` is not set.
-        /// *Note*: if the `ip` property is missing, the Load Balancer is
+        /// _Note_: if the `ip` property is missing, the Load Balancer is
         /// currently added to the last created subnet.
         /// </summary>
         [Input("subnetId")]

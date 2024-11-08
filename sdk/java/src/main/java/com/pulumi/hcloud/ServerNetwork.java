@@ -178,7 +178,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
     /**
      * ID of the sub-network which should be
      * added to the Server. Required if `network_id` is not set.
-     * *Note*: if the `ip` property is missing, the Server is currently added
+     * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      * 
      */
@@ -188,7 +188,7 @@ public class ServerNetwork extends com.pulumi.resources.CustomResource {
     /**
      * @return ID of the sub-network which should be
      * added to the Server. Required if `network_id` is not set.
-     * *Note*: if the `ip` property is missing, the Server is currently added
+     * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      * 
      */

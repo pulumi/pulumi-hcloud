@@ -134,7 +134,7 @@ class GetLoadBalancerResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        (string) Name of the location the Load Balancer is in.
+        (string) Name of the location the Load Balancer is in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 

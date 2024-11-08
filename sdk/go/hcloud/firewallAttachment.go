@@ -14,7 +14,7 @@ import (
 
 // Attaches resource to a Hetzner Cloud Firewall.
 //
-// *Note*: only one `FirewallAttachment` per Firewall is allowed.
+// _Note_: only one `FirewallAttachment` per Firewall is allowed.
 // Any resources that should be attached to that Firewall need to be
 // specified in that `FirewallAttachment`.
 //

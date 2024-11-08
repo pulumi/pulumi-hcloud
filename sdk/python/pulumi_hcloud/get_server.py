@@ -117,7 +117,7 @@ class GetServerResult:
     @pulumi.getter
     def datacenter(self) -> str:
         """
-        (string) The datacenter name.
+        (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
@@ -197,7 +197,7 @@ class GetServerResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        (string) The location name.
+        (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 

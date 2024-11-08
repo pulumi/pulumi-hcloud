@@ -26,7 +26,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLoadBalancerServiceHttpResult> Https;
         /// <summary>
-        /// (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        /// (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         /// </summary>
         public readonly int ListenPort;
         /// <summary>

@@ -27,6 +27,27 @@ namespace Pulumi.HCloud
 
     public sealed class GetServerTypesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("descriptions")]
+        private List<string>? _descriptions;
+        [Obsolete(@"Use server_types list instead")]
+        public List<string> Descriptions
+        {
+            get => _descriptions ?? (_descriptions = new List<string>());
+            set => _descriptions = value;
+        }
+
+        [Input("id")]
+        public string? Id { get; set; }
+
+        [Input("names")]
+        private List<string>? _names;
+        [Obsolete(@"Use server_types list instead")]
+        public List<string> Names
+        {
+            get => _names ?? (_names = new List<string>());
+            set => _names = value;
+        }
+
         [Input("serverTypeIds")]
         private List<string>? _serverTypeIds;
         [Obsolete(@"Use server_types list instead")]
@@ -44,6 +65,27 @@ namespace Pulumi.HCloud
 
     public sealed class GetServerTypesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("descriptions")]
+        private InputList<string>? _descriptions;
+        [Obsolete(@"Use server_types list instead")]
+        public InputList<string> Descriptions
+        {
+            get => _descriptions ?? (_descriptions = new InputList<string>());
+            set => _descriptions = value;
+        }
+
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("names")]
+        private InputList<string>? _names;
+        [Obsolete(@"Use server_types list instead")]
+        public InputList<string> Names
+        {
+            get => _names ?? (_names = new InputList<string>());
+            set => _names = value;
+        }
+
         [Input("serverTypeIds")]
         private InputList<string>? _serverTypeIds;
         [Obsolete(@"Use server_types list instead")]
@@ -64,10 +106,7 @@ namespace Pulumi.HCloud
     public sealed class GetServerTypesResult
     {
         public readonly ImmutableArray<string> Descriptions;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<string> Names;
         public readonly ImmutableArray<string> ServerTypeIds;
         /// <summary>
@@ -79,7 +118,7 @@ namespace Pulumi.HCloud
         private GetServerTypesResult(
             ImmutableArray<string> descriptions,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names,
 

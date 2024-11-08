@@ -42,6 +42,7 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,7 +88,9 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
+    /// 
     /// ### Server creation with network
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -211,7 +214,7 @@ namespace Pulumi.HCloud
         public Output<bool?> Backups { get; private set; } = null!;
 
         /// <summary>
-        /// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        /// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
@@ -278,7 +281,7 @@ namespace Pulumi.HCloud
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        /// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -415,7 +418,7 @@ namespace Pulumi.HCloud
         public Input<bool>? Backups { get; set; }
 
         /// <summary>
-        /// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        /// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
@@ -476,7 +479,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        /// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -587,7 +590,7 @@ namespace Pulumi.HCloud
         public Input<bool>? Backups { get; set; }
 
         /// <summary>
-        /// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+        /// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
@@ -666,7 +669,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+        /// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

@@ -78,7 +78,7 @@ export class PrimaryIp extends pulumi.CustomResource {
     }
 
     /**
-     * ID of the assigned resource
+     * ID of the assigned resource.
      */
     public readonly assigneeId!: pulumi.Output<number>;
     /**
@@ -91,11 +91,13 @@ export class PrimaryIp extends pulumi.CustomResource {
      */
     public readonly autoDelete!: pulumi.Output<boolean>;
     /**
-     * The datacenter name to create the resource in.
+     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
     public readonly datacenter!: pulumi.Output<string>;
     /**
      * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
+     *
+     * Note: At least one of `datacenter` or `assigneeId` is required.
      */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -107,7 +109,7 @@ export class PrimaryIp extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipNetwork!: pulumi.Output<string>;
     /**
-     * Description of the Primary IP.
+     * User-defined labels (key-value pairs).
      */
     public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -174,7 +176,7 @@ export class PrimaryIp extends pulumi.CustomResource {
  */
 export interface PrimaryIpState {
     /**
-     * ID of the assigned resource
+     * ID of the assigned resource.
      */
     assigneeId?: pulumi.Input<number>;
     /**
@@ -187,11 +189,13 @@ export interface PrimaryIpState {
      */
     autoDelete?: pulumi.Input<boolean>;
     /**
-     * The datacenter name to create the resource in.
+     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
     datacenter?: pulumi.Input<string>;
     /**
      * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
+     *
+     * Note: At least one of `datacenter` or `assigneeId` is required.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
@@ -203,7 +207,7 @@ export interface PrimaryIpState {
      */
     ipNetwork?: pulumi.Input<string>;
     /**
-     * Description of the Primary IP.
+     * User-defined labels (key-value pairs).
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -221,7 +225,7 @@ export interface PrimaryIpState {
  */
 export interface PrimaryIpArgs {
     /**
-     * ID of the assigned resource
+     * ID of the assigned resource.
      */
     assigneeId?: pulumi.Input<number>;
     /**
@@ -234,15 +238,17 @@ export interface PrimaryIpArgs {
      */
     autoDelete: pulumi.Input<boolean>;
     /**
-     * The datacenter name to create the resource in.
+     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
     datacenter?: pulumi.Input<string>;
     /**
      * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
+     *
+     * Note: At least one of `datacenter` or `assigneeId` is required.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
-     * Description of the Primary IP.
+     * User-defined labels (key-value pairs).
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

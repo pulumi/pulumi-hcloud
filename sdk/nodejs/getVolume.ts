@@ -45,7 +45,7 @@ export interface GetVolumeArgs {
      */
     id?: number;
     /**
-     * (string) The location name.
+     * (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: string;
     /**
@@ -91,7 +91,7 @@ export interface GetVolumeResult {
      */
     readonly linuxDevice: string;
     /**
-     * (string) The location name.
+     * (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     readonly location?: string;
     /**
@@ -154,7 +154,7 @@ export interface GetVolumeOutputArgs {
      */
     id?: pulumi.Input<number>;
     /**
-     * (string) The location name.
+     * (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**

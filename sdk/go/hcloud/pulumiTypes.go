@@ -2696,7 +2696,7 @@ type GetLoadBalancerServiceType struct {
 	HealthChecks []GetLoadBalancerServiceHealthCheck `pulumi:"healthChecks"`
 	// (list) List of http configurations when `protocol` is `http` or `https`.
 	Https []GetLoadBalancerServiceHttp `pulumi:"https"`
-	// (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
+	// (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	ListenPort int `pulumi:"listenPort"`
 	// (string) Protocol the health check uses. `http`, `https` or `tcp`
 	Protocol string `pulumi:"protocol"`
@@ -2722,7 +2722,7 @@ type GetLoadBalancerServiceTypeArgs struct {
 	HealthChecks GetLoadBalancerServiceHealthCheckArrayInput `pulumi:"healthChecks"`
 	// (list) List of http configurations when `protocol` is `http` or `https`.
 	Https GetLoadBalancerServiceHttpArrayInput `pulumi:"https"`
-	// (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
+	// (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 	ListenPort pulumi.IntInput `pulumi:"listenPort"`
 	// (string) Protocol the health check uses. `http`, `https` or `tcp`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -2796,7 +2796,7 @@ func (o GetLoadBalancerServiceTypeOutput) Https() GetLoadBalancerServiceHttpArra
 	return o.ApplyT(func(v GetLoadBalancerServiceType) []GetLoadBalancerServiceHttp { return v.Https }).(GetLoadBalancerServiceHttpArrayOutput)
 }
 
-// (int) Port the service listen on` . Can be everything between  `1`and`65535`. Must be unique per Load Balancer.
+// (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
 func (o GetLoadBalancerServiceTypeOutput) ListenPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceType) int { return v.ListenPort }).(pulumi.IntOutput)
 }
@@ -3352,6 +3352,136 @@ func (o GetLoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) GetLoadBa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerTargetType {
 		return vs[0].([]GetLoadBalancerTargetType)[vs[1].(int)]
 	}).(GetLoadBalancerTargetTypeOutput)
+}
+
+type GetLoadBalancerTypesLoadBalancerType struct {
+	Description             string `pulumi:"description"`
+	Id                      int    `pulumi:"id"`
+	MaxAssignedCertificates int    `pulumi:"maxAssignedCertificates"`
+	MaxConnections          int    `pulumi:"maxConnections"`
+	MaxServices             int    `pulumi:"maxServices"`
+	MaxTargets              int    `pulumi:"maxTargets"`
+	Name                    string `pulumi:"name"`
+}
+
+// GetLoadBalancerTypesLoadBalancerTypeInput is an input type that accepts GetLoadBalancerTypesLoadBalancerTypeArgs and GetLoadBalancerTypesLoadBalancerTypeOutput values.
+// You can construct a concrete instance of `GetLoadBalancerTypesLoadBalancerTypeInput` via:
+//
+//	GetLoadBalancerTypesLoadBalancerTypeArgs{...}
+type GetLoadBalancerTypesLoadBalancerTypeInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerTypesLoadBalancerTypeOutput() GetLoadBalancerTypesLoadBalancerTypeOutput
+	ToGetLoadBalancerTypesLoadBalancerTypeOutputWithContext(context.Context) GetLoadBalancerTypesLoadBalancerTypeOutput
+}
+
+type GetLoadBalancerTypesLoadBalancerTypeArgs struct {
+	Description             pulumi.StringInput `pulumi:"description"`
+	Id                      pulumi.IntInput    `pulumi:"id"`
+	MaxAssignedCertificates pulumi.IntInput    `pulumi:"maxAssignedCertificates"`
+	MaxConnections          pulumi.IntInput    `pulumi:"maxConnections"`
+	MaxServices             pulumi.IntInput    `pulumi:"maxServices"`
+	MaxTargets              pulumi.IntInput    `pulumi:"maxTargets"`
+	Name                    pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLoadBalancerTypesLoadBalancerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerTypesLoadBalancerType)(nil)).Elem()
+}
+
+func (i GetLoadBalancerTypesLoadBalancerTypeArgs) ToGetLoadBalancerTypesLoadBalancerTypeOutput() GetLoadBalancerTypesLoadBalancerTypeOutput {
+	return i.ToGetLoadBalancerTypesLoadBalancerTypeOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerTypesLoadBalancerTypeArgs) ToGetLoadBalancerTypesLoadBalancerTypeOutputWithContext(ctx context.Context) GetLoadBalancerTypesLoadBalancerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerTypesLoadBalancerTypeOutput)
+}
+
+// GetLoadBalancerTypesLoadBalancerTypeArrayInput is an input type that accepts GetLoadBalancerTypesLoadBalancerTypeArray and GetLoadBalancerTypesLoadBalancerTypeArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerTypesLoadBalancerTypeArrayInput` via:
+//
+//	GetLoadBalancerTypesLoadBalancerTypeArray{ GetLoadBalancerTypesLoadBalancerTypeArgs{...} }
+type GetLoadBalancerTypesLoadBalancerTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerTypesLoadBalancerTypeArrayOutput() GetLoadBalancerTypesLoadBalancerTypeArrayOutput
+	ToGetLoadBalancerTypesLoadBalancerTypeArrayOutputWithContext(context.Context) GetLoadBalancerTypesLoadBalancerTypeArrayOutput
+}
+
+type GetLoadBalancerTypesLoadBalancerTypeArray []GetLoadBalancerTypesLoadBalancerTypeInput
+
+func (GetLoadBalancerTypesLoadBalancerTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerTypesLoadBalancerType)(nil)).Elem()
+}
+
+func (i GetLoadBalancerTypesLoadBalancerTypeArray) ToGetLoadBalancerTypesLoadBalancerTypeArrayOutput() GetLoadBalancerTypesLoadBalancerTypeArrayOutput {
+	return i.ToGetLoadBalancerTypesLoadBalancerTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerTypesLoadBalancerTypeArray) ToGetLoadBalancerTypesLoadBalancerTypeArrayOutputWithContext(ctx context.Context) GetLoadBalancerTypesLoadBalancerTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerTypesLoadBalancerTypeArrayOutput)
+}
+
+type GetLoadBalancerTypesLoadBalancerTypeOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerTypesLoadBalancerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerTypesLoadBalancerType)(nil)).Elem()
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) ToGetLoadBalancerTypesLoadBalancerTypeOutput() GetLoadBalancerTypesLoadBalancerTypeOutput {
+	return o
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) ToGetLoadBalancerTypesLoadBalancerTypeOutputWithContext(ctx context.Context) GetLoadBalancerTypesLoadBalancerTypeOutput {
+	return o
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) MaxAssignedCertificates() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.MaxAssignedCertificates }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) MaxServices() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.MaxServices }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) MaxTargets() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.MaxTargets }).(pulumi.IntOutput)
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerTypesLoadBalancerTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerTypesLoadBalancerTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerTypesLoadBalancerType)(nil)).Elem()
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeArrayOutput) ToGetLoadBalancerTypesLoadBalancerTypeArrayOutput() GetLoadBalancerTypesLoadBalancerTypeArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeArrayOutput) ToGetLoadBalancerTypesLoadBalancerTypeArrayOutputWithContext(ctx context.Context) GetLoadBalancerTypesLoadBalancerTypeArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerTypesLoadBalancerTypeArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerTypesLoadBalancerTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerTypesLoadBalancerType {
+		return vs[0].([]GetLoadBalancerTypesLoadBalancerType)[vs[1].(int)]
+	}).(GetLoadBalancerTypesLoadBalancerTypeOutput)
 }
 
 type GetLoadBalancersLoadBalancer struct {
@@ -4750,20 +4880,20 @@ func (o GetPrimaryIpsPrimaryIpArrayOutput) Index(i pulumi.IntInput) GetPrimaryIp
 }
 
 type GetServerTypesServerType struct {
-	Architecture         string `pulumi:"architecture"`
-	Cores                int    `pulumi:"cores"`
-	CpuType              string `pulumi:"cpuType"`
-	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
-	Description          string `pulumi:"description"`
-	Disk                 int    `pulumi:"disk"`
-	Id                   int    `pulumi:"id"`
+	Architecture         string  `pulumi:"architecture"`
+	Cores                float64 `pulumi:"cores"`
+	CpuType              string  `pulumi:"cpuType"`
+	DeprecationAnnounced string  `pulumi:"deprecationAnnounced"`
+	Description          string  `pulumi:"description"`
+	Disk                 float64 `pulumi:"disk"`
+	Id                   int     `pulumi:"id"`
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
-	IncludedTraffic  int    `pulumi:"includedTraffic"`
-	IsDeprecated     bool   `pulumi:"isDeprecated"`
-	Memory           int    `pulumi:"memory"`
-	Name             string `pulumi:"name"`
-	StorageType      string `pulumi:"storageType"`
-	UnavailableAfter string `pulumi:"unavailableAfter"`
+	IncludedTraffic  int     `pulumi:"includedTraffic"`
+	IsDeprecated     bool    `pulumi:"isDeprecated"`
+	Memory           float64 `pulumi:"memory"`
+	Name             string  `pulumi:"name"`
+	StorageType      string  `pulumi:"storageType"`
+	UnavailableAfter string  `pulumi:"unavailableAfter"`
 }
 
 // GetServerTypesServerTypeInput is an input type that accepts GetServerTypesServerTypeArgs and GetServerTypesServerTypeOutput values.
@@ -4778,20 +4908,20 @@ type GetServerTypesServerTypeInput interface {
 }
 
 type GetServerTypesServerTypeArgs struct {
-	Architecture         pulumi.StringInput `pulumi:"architecture"`
-	Cores                pulumi.IntInput    `pulumi:"cores"`
-	CpuType              pulumi.StringInput `pulumi:"cpuType"`
-	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
-	Description          pulumi.StringInput `pulumi:"description"`
-	Disk                 pulumi.IntInput    `pulumi:"disk"`
-	Id                   pulumi.IntInput    `pulumi:"id"`
+	Architecture         pulumi.StringInput  `pulumi:"architecture"`
+	Cores                pulumi.Float64Input `pulumi:"cores"`
+	CpuType              pulumi.StringInput  `pulumi:"cpuType"`
+	DeprecationAnnounced pulumi.StringInput  `pulumi:"deprecationAnnounced"`
+	Description          pulumi.StringInput  `pulumi:"description"`
+	Disk                 pulumi.Float64Input `pulumi:"disk"`
+	Id                   pulumi.IntInput     `pulumi:"id"`
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
-	IncludedTraffic  pulumi.IntInput    `pulumi:"includedTraffic"`
-	IsDeprecated     pulumi.BoolInput   `pulumi:"isDeprecated"`
-	Memory           pulumi.IntInput    `pulumi:"memory"`
-	Name             pulumi.StringInput `pulumi:"name"`
-	StorageType      pulumi.StringInput `pulumi:"storageType"`
-	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
+	IncludedTraffic  pulumi.IntInput     `pulumi:"includedTraffic"`
+	IsDeprecated     pulumi.BoolInput    `pulumi:"isDeprecated"`
+	Memory           pulumi.Float64Input `pulumi:"memory"`
+	Name             pulumi.StringInput  `pulumi:"name"`
+	StorageType      pulumi.StringInput  `pulumi:"storageType"`
+	UnavailableAfter pulumi.StringInput  `pulumi:"unavailableAfter"`
 }
 
 func (GetServerTypesServerTypeArgs) ElementType() reflect.Type {
@@ -4849,8 +4979,8 @@ func (o GetServerTypesServerTypeOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
-func (o GetServerTypesServerTypeOutput) Cores() pulumi.IntOutput {
-	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Cores }).(pulumi.IntOutput)
+func (o GetServerTypesServerTypeOutput) Cores() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Cores }).(pulumi.Float64Output)
 }
 
 func (o GetServerTypesServerTypeOutput) CpuType() pulumi.StringOutput {
@@ -4865,8 +4995,8 @@ func (o GetServerTypesServerTypeOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o GetServerTypesServerTypeOutput) Disk() pulumi.IntOutput {
-	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Disk }).(pulumi.IntOutput)
+func (o GetServerTypesServerTypeOutput) Disk() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Disk }).(pulumi.Float64Output)
 }
 
 func (o GetServerTypesServerTypeOutput) Id() pulumi.IntOutput {
@@ -4882,8 +5012,8 @@ func (o GetServerTypesServerTypeOutput) IsDeprecated() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
 }
 
-func (o GetServerTypesServerTypeOutput) Memory() pulumi.IntOutput {
-	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Memory }).(pulumi.IntOutput)
+func (o GetServerTypesServerTypeOutput) Memory() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Memory }).(pulumi.Float64Output)
 }
 
 func (o GetServerTypesServerTypeOutput) Name() pulumi.StringOutput {
@@ -5444,6 +5574,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerServiceHttpArrayInput)(nil)).Elem(), GetLoadBalancerServiceHttpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerTargetTypeInput)(nil)).Elem(), GetLoadBalancerTargetTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerTargetTypeArrayInput)(nil)).Elem(), GetLoadBalancerTargetTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerTypesLoadBalancerTypeInput)(nil)).Elem(), GetLoadBalancerTypesLoadBalancerTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerTypesLoadBalancerTypeArrayInput)(nil)).Elem(), GetLoadBalancerTypesLoadBalancerTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerInput)(nil)).Elem(), GetLoadBalancersLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerAlgorithmInput)(nil)).Elem(), GetLoadBalancersLoadBalancerAlgorithmArgs{})
@@ -5522,6 +5654,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLoadBalancerServiceHttpArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerTargetTypeOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerTargetTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerTypesLoadBalancerTypeOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerTypesLoadBalancerTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancersLoadBalancerOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancersLoadBalancerArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancersLoadBalancerAlgorithmOutput{})
