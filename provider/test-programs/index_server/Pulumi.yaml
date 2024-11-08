@@ -12,7 +12,7 @@ resources:
     properties:
       image: ubuntu-20.04
 
-      serverType: cx11
+      serverType: cx22
       sshKeys:
         - ${ssh_key.id}
     type: hcloud:index/server:Server
