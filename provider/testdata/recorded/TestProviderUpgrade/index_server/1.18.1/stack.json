@@ -136,7 +136,7 @@
           "keepDisk": false,
           "name": "server-ad35256",
           "rebuildProtection": false,
-          "serverType": "cx11",
+          "serverType": "cx22",
           "shutdownBeforeDeletion": false,
           "sshKeys": [
             "21370197"
@@ -163,7 +163,7 @@
           "placementGroupId": 0,
           "primaryDiskSize": 20,
           "rebuildProtection": false,
-          "serverType": "cx11",
+          "serverType": "cx22",
           "shutdownBeforeDeletion": false,
           "sshKeys": [
             "21370197"
