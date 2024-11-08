@@ -53,7 +53,7 @@ export interface GetPlacementGroupArgs {
      */
     name?: string;
     /**
-     * (string)  Type of the Placement Group.
+     * (string) Type of the Placement Group.
      */
     type?: string;
     /**
@@ -81,7 +81,7 @@ export interface GetPlacementGroupResult {
     readonly name: string;
     readonly servers: number[];
     /**
-     * (string)  Type of the Placement Group.
+     * (string) Type of the Placement Group.
      */
     readonly type: string;
     readonly withSelector?: string;
@@ -135,7 +135,7 @@ export interface GetPlacementGroupOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (string)  Type of the Placement Group.
+     * (string) Type of the Placement Group.
      */
     type?: pulumi.Input<string>;
     /**

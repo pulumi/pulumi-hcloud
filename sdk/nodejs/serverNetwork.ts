@@ -103,7 +103,7 @@ export class ServerNetwork extends pulumi.CustomResource {
     /**
      * ID of the sub-network which should be
      * added to the Server. Required if `networkId` is not set.
-     * *Note*: if the `ip` property is missing, the Server is currently added
+     * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
@@ -178,7 +178,7 @@ export interface ServerNetworkState {
     /**
      * ID of the sub-network which should be
      * added to the Server. Required if `networkId` is not set.
-     * *Note*: if the `ip` property is missing, the Server is currently added
+     * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      */
     subnetId?: pulumi.Input<string>;
@@ -217,7 +217,7 @@ export interface ServerNetworkArgs {
     /**
      * ID of the sub-network which should be
      * added to the Server. Required if `networkId` is not set.
-     * *Note*: if the `ip` property is missing, the Server is currently added
+     * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      */
     subnetId?: pulumi.Input<string>;

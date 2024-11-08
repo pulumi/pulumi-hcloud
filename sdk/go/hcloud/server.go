@@ -50,6 +50,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //
@@ -100,7 +101,9 @@ import (
 //	}
 //
 // ```
+//
 // ### Server creation with network
+//
 // ```go
 // package main
 //
@@ -222,7 +225,7 @@ type Server struct {
 	BackupWindow pulumi.StringOutput `pulumi:"backupWindow"`
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
-	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
@@ -247,7 +250,7 @@ type Server struct {
 	KeepDisk pulumi.BoolPtrOutput `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+	// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -317,7 +320,7 @@ type serverState struct {
 	BackupWindow *string `pulumi:"backupWindow"`
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
-	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	Datacenter *string `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -342,7 +345,7 @@ type serverState struct {
 	KeepDisk *bool `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]string `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+	// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name *string `pulumi:"name"`
@@ -380,7 +383,7 @@ type ServerState struct {
 	BackupWindow pulumi.StringPtrInput
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
-	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	Datacenter pulumi.StringPtrInput
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
@@ -405,7 +408,7 @@ type ServerState struct {
 	KeepDisk pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.StringMapInput
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+	// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringPtrInput
@@ -443,7 +446,7 @@ type serverArgs struct {
 	AllowDeprecatedImages *bool `pulumi:"allowDeprecatedImages"`
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
-	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	Datacenter *string `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -462,7 +465,7 @@ type serverArgs struct {
 	KeepDisk *bool `pulumi:"keepDisk"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]string `pulumi:"labels"`
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+	// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location *string `pulumi:"location"`
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name *string `pulumi:"name"`
@@ -493,7 +496,7 @@ type ServerArgs struct {
 	AllowDeprecatedImages pulumi.BoolPtrInput
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
-	// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	Datacenter pulumi.StringPtrInput
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
@@ -512,7 +515,7 @@ type ServerArgs struct {
 	KeepDisk pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.StringMapInput
-	// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+	// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location pulumi.StringPtrInput
 	// Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
 	Name pulumi.StringPtrInput
@@ -641,7 +644,7 @@ func (o ServerOutput) Backups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.Backups }).(pulumi.BoolPtrOutput)
 }
 
-// The datacenter name to create the server in. `nbg1-dc3`, `fsn1-dc14`, `hel1-dc2`, `ash-dc1` or `hil-dc1`
+// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 func (o ServerOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Datacenter }).(pulumi.StringOutput)
 }
@@ -699,7 +702,7 @@ func (o ServerOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// The location name to create the server in. `nbg1`, `fsn1`, `hel1`, `ash` or `hil`
+// The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o ServerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

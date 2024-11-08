@@ -97,7 +97,7 @@ class GetVolumeResult:
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        (string) The location name.
+        (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -183,7 +183,7 @@ def get_volume(id: Optional[int] = None,
 
 
     :param int id: ID of the volume.
-    :param str location: (string) The location name.
+    :param str location: (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
     :param str name: Name of the volume.
     :param int server_id: (Optional, int) Server ID the volume is attached to
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
@@ -234,7 +234,7 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
 
     :param int id: ID of the volume.
-    :param str location: (string) The location name.
+    :param str location: (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
     :param str name: Name of the volume.
     :param int server_id: (Optional, int) Server ID the volume is attached to
     :param str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).

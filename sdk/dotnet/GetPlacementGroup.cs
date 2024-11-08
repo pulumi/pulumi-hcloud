@@ -100,7 +100,7 @@ namespace Pulumi.HCloud
         public string? Name { get; set; }
 
         /// <summary>
-        /// (string)  Type of the Placement Group.
+        /// (string) Type of the Placement Group.
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -150,7 +150,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (string)  Type of the Placement Group.
+        /// (string) Type of the Placement Group.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.HCloud
         public readonly string Name;
         public readonly ImmutableArray<int> Servers;
         /// <summary>
-        /// (string)  Type of the Placement Group.
+        /// (string) Type of the Placement Group.
         /// </summary>
         public readonly string Type;
         public readonly string? WithSelector;

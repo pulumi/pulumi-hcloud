@@ -27,7 +27,7 @@ public final class GetServerResult {
      */
     private Boolean backups;
     /**
-     * @return (string) The datacenter name.
+     * @return (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     private String datacenter;
@@ -77,7 +77,7 @@ public final class GetServerResult {
      */
     private Map<String,String> labels;
     /**
-     * @return (string) The location name.
+     * @return (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     private String location;
@@ -138,7 +138,7 @@ public final class GetServerResult {
         return this.backups;
     }
     /**
-     * @return (string) The datacenter name.
+     * @return (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     public String datacenter() {
@@ -208,7 +208,7 @@ public final class GetServerResult {
         return this.labels;
     }
     /**
-     * @return (string) The location name.
+     * @return (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public String location() {

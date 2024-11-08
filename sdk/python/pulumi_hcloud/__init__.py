@@ -21,6 +21,8 @@ from .get_floating_ips import *
 from .get_image import *
 from .get_images import *
 from .get_load_balancer import *
+from .get_load_balancer_type import *
+from .get_load_balancer_types import *
 from .get_load_balancers import *
 from .get_location import *
 from .get_locations import *

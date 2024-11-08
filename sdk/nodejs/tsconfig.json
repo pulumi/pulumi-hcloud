@@ -31,6 +31,8 @@
         "getImage.ts",
         "getImages.ts",
         "getLoadBalancer.ts",
+        "getLoadBalancerType.ts",
+        "getLoadBalancerTypes.ts",
         "getLoadBalancers.ts",
         "getLocation.ts",
         "getLocations.ts",

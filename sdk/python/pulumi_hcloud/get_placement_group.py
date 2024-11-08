@@ -87,7 +87,7 @@ class GetPlacementGroupResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        (string)  Type of the Placement Group.
+        (string) Type of the Placement Group.
         """
         return pulumi.get(self, "type")
 
@@ -135,7 +135,7 @@ def get_placement_group(id: Optional[int] = None,
     :param Mapping[str, str] labels: (map) User-defined labels (key-value pairs)
     :param bool most_recent: Return most recent placement group if multiple are found.
     :param str name: Name of the placement group.
-    :param str type: (string)  Type of the Placement Group.
+    :param str type: (string) Type of the Placement Group.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
@@ -179,7 +179,7 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     :param Mapping[str, str] labels: (map) User-defined labels (key-value pairs)
     :param bool most_recent: Return most recent placement group if multiple are found.
     :param str name: Name of the placement group.
-    :param str type: (string)  Type of the Placement Group.
+    :param str type: (string) Type of the Placement Group.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()

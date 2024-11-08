@@ -73,7 +73,7 @@ namespace Pulumi.HCloud
         public Output<string?> Format { get; private set; } = null!;
 
         /// <summary>
-        /// (map) User-defined labels (key-value pairs).
+        /// User-defined labels (key-value pairs).
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.HCloud
         public Output<string> LinuxDevice { get; private set; } = null!;
 
         /// <summary>
-        /// The location name of the volume to create, not allowed if server_id argument is passed.
+        /// The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// (map) User-defined labels (key-value pairs).
+        /// User-defined labels (key-value pairs).
         /// </summary>
         public InputMap<string> Labels
         {
@@ -187,7 +187,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name of the volume to create, not allowed if server_id argument is passed.
+        /// The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// (map) User-defined labels (key-value pairs).
+        /// User-defined labels (key-value pairs).
         /// </summary>
         public InputMap<string> Labels
         {
@@ -257,7 +257,7 @@ namespace Pulumi.HCloud
         public Input<string>? LinuxDevice { get; set; }
 
         /// <summary>
-        /// The location name of the volume to create, not allowed if server_id argument is passed.
+        /// The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

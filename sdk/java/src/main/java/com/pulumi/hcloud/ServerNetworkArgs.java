@@ -101,7 +101,7 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * ID of the sub-network which should be
      * added to the Server. Required if `network_id` is not set.
-     * *Note*: if the `ip` property is missing, the Server is currently added
+     * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      * 
      */
@@ -111,7 +111,7 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return ID of the sub-network which should be
      * added to the Server. Required if `network_id` is not set.
-     * *Note*: if the `ip` property is missing, the Server is currently added
+     * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      * 
      */
@@ -265,7 +265,7 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetId ID of the sub-network which should be
          * added to the Server. Required if `network_id` is not set.
-         * *Note*: if the `ip` property is missing, the Server is currently added
+         * _Note_: if the `ip` property is missing, the Server is currently added
          * to the last created subnet.
          * 
          * @return builder
@@ -279,7 +279,7 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetId ID of the sub-network which should be
          * added to the Server. Required if `network_id` is not set.
-         * *Note*: if the `ip` property is missing, the Server is currently added
+         * _Note_: if the `ip` property is missing, the Server is currently added
          * to the last created subnet.
          * 
          * @return builder

@@ -78,7 +78,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly format!: pulumi.Output<string | undefined>;
     /**
-     * (map) User-defined labels (key-value pairs).
+     * User-defined labels (key-value pairs).
      */
     public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -86,7 +86,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly linuxDevice!: pulumi.Output<string>;
     /**
-     * The location name of the volume to create, not allowed if serverId argument is passed.
+     * The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -163,7 +163,7 @@ export interface VolumeState {
      */
     format?: pulumi.Input<string>;
     /**
-     * (map) User-defined labels (key-value pairs).
+     * User-defined labels (key-value pairs).
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -171,7 +171,7 @@ export interface VolumeState {
      */
     linuxDevice?: pulumi.Input<string>;
     /**
-     * The location name of the volume to create, not allowed if serverId argument is passed.
+     * The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**
@@ -207,11 +207,11 @@ export interface VolumeArgs {
      */
     format?: pulumi.Input<string>;
     /**
-     * (map) User-defined labels (key-value pairs).
+     * User-defined labels (key-value pairs).
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The location name of the volume to create, not allowed if serverId argument is passed.
+     * The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**

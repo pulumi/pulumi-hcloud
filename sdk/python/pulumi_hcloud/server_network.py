@@ -42,7 +42,7 @@ class ServerNetworkInitArgs:
                the existence of a subnet.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Server. Required if `network_id` is not set.
-               *Note*: if the `ip` property is missing, the Server is currently added
+               _Note_: if the `ip` property is missing, the Server is currently added
                to the last created subnet.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -119,7 +119,7 @@ class ServerNetworkInitArgs:
         """
         ID of the sub-network which should be
         added to the Server. Required if `network_id` is not set.
-        *Note*: if the `ip` property is missing, the Server is currently added
+        _Note_: if the `ip` property is missing, the Server is currently added
         to the last created subnet.
         """
         return pulumi.get(self, "subnet_id")
@@ -156,7 +156,7 @@ class _ServerNetworkState:
         :param pulumi.Input[int] server_id: ID of the server.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Server. Required if `network_id` is not set.
-               *Note*: if the `ip` property is missing, the Server is currently added
+               _Note_: if the `ip` property is missing, the Server is currently added
                to the last created subnet.
         """
         if alias_ips is not None:
@@ -245,7 +245,7 @@ class _ServerNetworkState:
         """
         ID of the sub-network which should be
         added to the Server. Required if `network_id` is not set.
-        *Note*: if the `ip` property is missing, the Server is currently added
+        _Note_: if the `ip` property is missing, the Server is currently added
         to the last created subnet.
         """
         return pulumi.get(self, "subnet_id")
@@ -321,7 +321,7 @@ class ServerNetwork(pulumi.CustomResource):
         :param pulumi.Input[int] server_id: ID of the server.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Server. Required if `network_id` is not set.
-               *Note*: if the `ip` property is missing, the Server is currently added
+               _Note_: if the `ip` property is missing, the Server is currently added
                to the last created subnet.
         """
         ...
@@ -443,7 +443,7 @@ class ServerNetwork(pulumi.CustomResource):
         :param pulumi.Input[int] server_id: ID of the server.
         :param pulumi.Input[str] subnet_id: ID of the sub-network which should be
                added to the Server. Required if `network_id` is not set.
-               *Note*: if the `ip` property is missing, the Server is currently added
+               _Note_: if the `ip` property is missing, the Server is currently added
                to the last created subnet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -511,7 +511,7 @@ class ServerNetwork(pulumi.CustomResource):
         """
         ID of the sub-network which should be
         added to the Server. Required if `network_id` is not set.
-        *Note*: if the `ip` property is missing, the Server is currently added
+        _Note_: if the `ip` property is missing, the Server is currently added
         to the last created subnet.
         """
         return pulumi.get(self, "subnet_id")

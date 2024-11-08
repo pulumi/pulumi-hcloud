@@ -92,7 +92,7 @@ class GetFirewallResult:
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.GetFirewallRuleResult']]:
         """
-        (string)  Configuration of a Rule from this Firewall.
+        (string) Configuration of a Rule from this Firewall.
         """
         return pulumi.get(self, "rules")
 
@@ -142,7 +142,7 @@ def get_firewall(apply_tos: Optional[Sequence[Union['GetFirewallApplyToArgs', 'G
     :param Mapping[str, str] labels: (map) User-defined labels (key-value pairs)
     :param bool most_recent: Return most recent firewall if multiple are found.
     :param str name: Name of the firewall.
-    :param Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']] rules: (string)  Configuration of a Rule from this Firewall.
+    :param Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']] rules: (string) Configuration of a Rule from this Firewall.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()
@@ -189,7 +189,7 @@ def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[Union
     :param Mapping[str, str] labels: (map) User-defined labels (key-value pairs)
     :param bool most_recent: Return most recent firewall if multiple are found.
     :param str name: Name of the firewall.
-    :param Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']] rules: (string)  Configuration of a Rule from this Firewall.
+    :param Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']] rules: (string) Configuration of a Rule from this Firewall.
     :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
     """
     __args__ = dict()

@@ -166,7 +166,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string LoadBalancerType;
         /// <summary>
-        /// (string) Name of the location the Load Balancer is in.
+        /// (string) Name of the location the Load Balancer is in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         public readonly string Location;
         /// <summary>

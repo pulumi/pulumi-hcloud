@@ -22,6 +22,51 @@ public final class GetServerTypesArgs extends com.pulumi.resources.InvokeArgs {
      * 
      */
     @Deprecated /* Use server_types list instead */
+    @Import(name="descriptions")
+    private @Nullable Output<List<String>> descriptions;
+
+    /**
+     * @deprecated
+     * Use server_types list instead
+     * 
+     */
+    @Deprecated /* Use server_types list instead */
+    public Optional<Output<List<String>>> descriptions() {
+        return Optional.ofNullable(this.descriptions);
+    }
+
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * @deprecated
+     * Use server_types list instead
+     * 
+     */
+    @Deprecated /* Use server_types list instead */
+    @Import(name="names")
+    private @Nullable Output<List<String>> names;
+
+    /**
+     * @deprecated
+     * Use server_types list instead
+     * 
+     */
+    @Deprecated /* Use server_types list instead */
+    public Optional<Output<List<String>>> names() {
+        return Optional.ofNullable(this.names);
+    }
+
+    /**
+     * @deprecated
+     * Use server_types list instead
+     * 
+     */
+    @Deprecated /* Use server_types list instead */
     @Import(name="serverTypeIds")
     private @Nullable Output<List<String>> serverTypeIds;
 
@@ -38,6 +83,9 @@ public final class GetServerTypesArgs extends com.pulumi.resources.InvokeArgs {
     private GetServerTypesArgs() {}
 
     private GetServerTypesArgs(GetServerTypesArgs $) {
+        this.descriptions = $.descriptions;
+        this.id = $.id;
+        this.names = $.names;
         this.serverTypeIds = $.serverTypeIds;
     }
 
@@ -57,6 +105,89 @@ public final class GetServerTypesArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetServerTypesArgs defaults) {
             $ = new GetServerTypesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder descriptions(@Nullable Output<List<String>> descriptions) {
+            $.descriptions = descriptions;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder descriptions(List<String> descriptions) {
+            return descriptions(Output.of(descriptions));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder descriptions(String... descriptions) {
+            return descriptions(List.of(descriptions));
+        }
+
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        public Builder id(String id) {
+            return id(Output.of(id));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder names(@Nullable Output<List<String>> names) {
+            $.names = names;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder names(List<String> names) {
+            return names(Output.of(names));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder names(String... names) {
+            return names(List.of(names));
         }
 
         /**

@@ -80,7 +80,7 @@ type LookupServerResult struct {
 	BackupWindow string `pulumi:"backupWindow"`
 	// (bool) Whether backups are enabled.
 	Backups bool `pulumi:"backups"`
-	// (string) The datacenter name.
+	// (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	Datacenter string `pulumi:"datacenter"`
 	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
@@ -100,7 +100,7 @@ type LookupServerResult struct {
 	Iso string `pulumi:"iso"`
 	// (map) User-defined labels (key-value pairs)
 	Labels map[string]string `pulumi:"labels"`
-	// (string) The location name.
+	// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location string `pulumi:"location"`
 	// (string) Name of the server.
 	Name string `pulumi:"name"`
@@ -185,7 +185,7 @@ func (o LookupServerResultOutput) Backups() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServerResult) bool { return v.Backups }).(pulumi.BoolOutput)
 }
 
-// (string) The datacenter name.
+// (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 func (o LookupServerResultOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Datacenter }).(pulumi.StringOutput)
 }
@@ -235,7 +235,7 @@ func (o LookupServerResultOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServerResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// (string) The location name.
+// (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o LookupServerResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Location }).(pulumi.StringOutput)
 }

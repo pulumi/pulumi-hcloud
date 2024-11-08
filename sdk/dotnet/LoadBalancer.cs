@@ -94,7 +94,7 @@ namespace Pulumi.HCloud
         public Output<string> LoadBalancerType { get; private set; } = null!;
 
         /// <summary>
-        /// The location name of the Load Balancer. Require when no network_zone is set.
+        /// The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.HCloud
         public Input<string> LoadBalancerType { get; set; } = null!;
 
         /// <summary>
-        /// The location name of the Load Balancer. Require when no network_zone is set.
+        /// The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.HCloud
         public Input<string>? LoadBalancerType { get; set; }
 
         /// <summary>
-        /// The location name of the Load Balancer. Require when no network_zone is set.
+        /// The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

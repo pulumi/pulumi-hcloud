@@ -84,7 +84,7 @@ def get_volumes(with_selector: Optional[str] = None,
                 with_statuses: Optional[Sequence[str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumesResult:
     """
-    Provides details about multiple Hetzner Cloud volumes.
+    Provides details about multiple Hetzner Cloud Volumes.
 
     ## Example Usage
 
@@ -115,7 +115,7 @@ def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
                        with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumesResult]:
     """
-    Provides details about multiple Hetzner Cloud volumes.
+    Provides details about multiple Hetzner Cloud Volumes.
 
     ## Example Usage
 

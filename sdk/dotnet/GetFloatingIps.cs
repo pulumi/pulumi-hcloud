@@ -14,7 +14,6 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Floating IPs.
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -38,7 +37,6 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Floating IPs.
-        /// 
         /// 
         /// ## Example Usage
         /// 

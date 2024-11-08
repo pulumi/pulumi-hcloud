@@ -13,6 +13,9 @@ export function getServerTypes(args?: GetServerTypesArgs, opts?: pulumi.InvokeOp
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServerTypes:getServerTypes", {
+        "descriptions": args.descriptions,
+        "id": args.id,
+        "names": args.names,
         "serverTypeIds": args.serverTypeIds,
     }, opts);
 }
@@ -21,6 +24,15 @@ export function getServerTypes(args?: GetServerTypesArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getServerTypes.
  */
 export interface GetServerTypesArgs {
+    /**
+     * @deprecated Use serverTypes list instead
+     */
+    descriptions?: string[];
+    id?: string;
+    /**
+     * @deprecated Use serverTypes list instead
+     */
+    names?: string[];
     /**
      * @deprecated Use serverTypes list instead
      */
@@ -34,15 +46,12 @@ export interface GetServerTypesResult {
     /**
      * @deprecated Use serverTypes list instead
      */
-    readonly descriptions: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly descriptions?: string[];
+    readonly id?: string;
     /**
      * @deprecated Use serverTypes list instead
      */
-    readonly names: string[];
+    readonly names?: string[];
     /**
      * @deprecated Use serverTypes list instead
      */
@@ -59,6 +68,9 @@ export function getServerTypesOutput(args?: GetServerTypesOutputArgs, opts?: pul
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getServerTypes:getServerTypes", {
+        "descriptions": args.descriptions,
+        "id": args.id,
+        "names": args.names,
         "serverTypeIds": args.serverTypeIds,
     }, opts);
 }
@@ -67,6 +79,15 @@ export function getServerTypesOutput(args?: GetServerTypesOutputArgs, opts?: pul
  * A collection of arguments for invoking getServerTypes.
  */
 export interface GetServerTypesOutputArgs {
+    /**
+     * @deprecated Use serverTypes list instead
+     */
+    descriptions?: pulumi.Input<pulumi.Input<string>[]>;
+    id?: pulumi.Input<string>;
+    /**
+     * @deprecated Use serverTypes list instead
+     */
+    names?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated Use serverTypes list instead
      */

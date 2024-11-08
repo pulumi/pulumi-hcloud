@@ -64,7 +64,7 @@ type LookupFirewallArgs struct {
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the firewall.
 	Name *string `pulumi:"name"`
-	// (string)  Configuration of a Rule from this Firewall.
+	// (string) Configuration of a Rule from this Firewall.
 	Rules []GetFirewallRule `pulumi:"rules"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector *string `pulumi:"withSelector"`
@@ -81,7 +81,7 @@ type LookupFirewallResult struct {
 	MostRecent *bool             `pulumi:"mostRecent"`
 	// (string) Name of the Firewall.
 	Name string `pulumi:"name"`
-	// (string)  Configuration of a Rule from this Firewall.
+	// (string) Configuration of a Rule from this Firewall.
 	Rules        []GetFirewallRule `pulumi:"rules"`
 	WithSelector *string           `pulumi:"withSelector"`
 }
@@ -117,7 +117,7 @@ type LookupFirewallOutputArgs struct {
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the firewall.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (string)  Configuration of a Rule from this Firewall.
+	// (string) Configuration of a Rule from this Firewall.
 	Rules GetFirewallRuleArrayInput `pulumi:"rules"`
 	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
@@ -166,7 +166,7 @@ func (o LookupFirewallResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (string)  Configuration of a Rule from this Firewall.
+// (string) Configuration of a Rule from this Firewall.
 func (o LookupFirewallResultOutput) Rules() GetFirewallRuleArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallRule { return v.Rules }).(GetFirewallRuleArrayOutput)
 }

@@ -85,6 +85,16 @@ export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
 utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
 
+export { GetLoadBalancerTypeArgs, GetLoadBalancerTypeResult, GetLoadBalancerTypeOutputArgs } from "./getLoadBalancerType";
+export const getLoadBalancerType: typeof import("./getLoadBalancerType").getLoadBalancerType = null as any;
+export const getLoadBalancerTypeOutput: typeof import("./getLoadBalancerType").getLoadBalancerTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadBalancerType","getLoadBalancerTypeOutput"], () => require("./getLoadBalancerType"));
+
+export { GetLoadBalancerTypesResult } from "./getLoadBalancerTypes";
+export const getLoadBalancerTypes: typeof import("./getLoadBalancerTypes").getLoadBalancerTypes = null as any;
+export const getLoadBalancerTypesOutput: typeof import("./getLoadBalancerTypes").getLoadBalancerTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadBalancerTypes","getLoadBalancerTypesOutput"], () => require("./getLoadBalancerTypes"));
+
 export { GetLoadBalancersArgs, GetLoadBalancersResult, GetLoadBalancersOutputArgs } from "./getLoadBalancers";
 export const getLoadBalancers: typeof import("./getLoadBalancers").getLoadBalancers = null as any;
 export const getLoadBalancersOutput: typeof import("./getLoadBalancers").getLoadBalancersOutput = null as any;

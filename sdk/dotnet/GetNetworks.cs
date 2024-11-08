@@ -14,7 +14,6 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Networks.
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -40,7 +39,6 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Networks.
-        /// 
         /// 
         /// ## Example Usage
         /// 

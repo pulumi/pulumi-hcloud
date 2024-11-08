@@ -37,7 +37,7 @@ public final class GetVolumeResult {
      */
     private String linuxDevice;
     /**
-     * @return (string) The location name.
+     * @return (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     private @Nullable String location;
@@ -96,7 +96,7 @@ public final class GetVolumeResult {
         return this.linuxDevice;
     }
     /**
-     * @return (string) The location name.
+     * @return (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Optional<String> location() {

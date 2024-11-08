@@ -100,7 +100,7 @@ type LoadBalancerNetwork struct {
 	NetworkId pulumi.IntPtrOutput `pulumi:"networkId"`
 	// ID of the sub-network which should be
 	// added to the Load Balancer. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Load Balancer is
+	// _Note_: if the `ip` property is missing, the Load Balancer is
 	// currently added to the last created subnet.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 }
@@ -158,7 +158,7 @@ type loadBalancerNetworkState struct {
 	NetworkId *int `pulumi:"networkId"`
 	// ID of the sub-network which should be
 	// added to the Load Balancer. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Load Balancer is
+	// _Note_: if the `ip` property is missing, the Load Balancer is
 	// currently added to the last created subnet.
 	SubnetId *string `pulumi:"subnetId"`
 }
@@ -184,7 +184,7 @@ type LoadBalancerNetworkState struct {
 	NetworkId pulumi.IntPtrInput
 	// ID of the sub-network which should be
 	// added to the Load Balancer. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Load Balancer is
+	// _Note_: if the `ip` property is missing, the Load Balancer is
 	// currently added to the last created subnet.
 	SubnetId pulumi.StringPtrInput
 }
@@ -214,7 +214,7 @@ type loadBalancerNetworkArgs struct {
 	NetworkId *int `pulumi:"networkId"`
 	// ID of the sub-network which should be
 	// added to the Load Balancer. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Load Balancer is
+	// _Note_: if the `ip` property is missing, the Load Balancer is
 	// currently added to the last created subnet.
 	SubnetId *string `pulumi:"subnetId"`
 }
@@ -241,7 +241,7 @@ type LoadBalancerNetworkArgs struct {
 	NetworkId pulumi.IntPtrInput
 	// ID of the sub-network which should be
 	// added to the Load Balancer. Required if `networkId` is not set.
-	// *Note*: if the `ip` property is missing, the Load Balancer is
+	// _Note_: if the `ip` property is missing, the Load Balancer is
 	// currently added to the last created subnet.
 	SubnetId pulumi.StringPtrInput
 }
@@ -365,7 +365,7 @@ func (o LoadBalancerNetworkOutput) NetworkId() pulumi.IntPtrOutput {
 
 // ID of the sub-network which should be
 // added to the Load Balancer. Required if `networkId` is not set.
-// *Note*: if the `ip` property is missing, the Load Balancer is
+// _Note_: if the `ip` property is missing, the Load Balancer is
 // currently added to the last created subnet.
 func (o LoadBalancerNetworkOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerNetwork) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)

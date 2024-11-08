@@ -40,6 +40,7 @@ __all__ = [
     'GetLoadBalancerServiceHealthCheckHttpResult',
     'GetLoadBalancerServiceHttpResult',
     'GetLoadBalancerTargetResult',
+    'GetLoadBalancerTypesLoadBalancerTypeResult',
     'GetLoadBalancersLoadBalancerResult',
     'GetLoadBalancersLoadBalancerAlgorithmResult',
     'GetLoadBalancersLoadBalancerServiceResult',
@@ -1205,7 +1206,7 @@ class GetLoadBalancerServiceResult(dict):
         :param int destination_port: (int) Port the service connects to the targets on. Can be everything between `1` and `65535`.
         :param Sequence['GetLoadBalancerServiceHealthCheckArgs'] health_checks: (list) List of http configurations when `protocol` is `http` or `https`.
         :param Sequence['GetLoadBalancerServiceHttpArgs'] https: (list) List of http configurations when `protocol` is `http` or `https`.
-        :param int listen_port: (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        :param int listen_port: (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param str protocol: (string) Protocol the health check uses. `http`, `https` or `tcp`
         :param bool proxyprotocol: (bool) Enable proxyprotocol.
         """
@@ -1244,7 +1245,7 @@ class GetLoadBalancerServiceResult(dict):
     @pulumi.getter(name="listenPort")
     def listen_port(self) -> int:
         """
-        (int) Port the service listen on`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        (int) Port the service listen on. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         """
         return pulumi.get(self, "listen_port")
 
@@ -1500,6 +1501,60 @@ class GetLoadBalancerTargetResult(dict):
         (string) Type of the target. `server` or `label_selector`
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetLoadBalancerTypesLoadBalancerTypeResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 id: int,
+                 max_assigned_certificates: int,
+                 max_connections: int,
+                 max_services: int,
+                 max_targets: int,
+                 name: str):
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "max_assigned_certificates", max_assigned_certificates)
+        pulumi.set(__self__, "max_connections", max_connections)
+        pulumi.set(__self__, "max_services", max_services)
+        pulumi.set(__self__, "max_targets", max_targets)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="maxAssignedCertificates")
+    def max_assigned_certificates(self) -> int:
+        return pulumi.get(self, "max_assigned_certificates")
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> int:
+        return pulumi.get(self, "max_connections")
+
+    @property
+    @pulumi.getter(name="maxServices")
+    def max_services(self) -> int:
+        return pulumi.get(self, "max_services")
+
+    @property
+    @pulumi.getter(name="maxTargets")
+    def max_targets(self) -> int:
+        return pulumi.get(self, "max_targets")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -2059,15 +2114,15 @@ class GetPrimaryIpsPrimaryIpResult(dict):
 class GetServerTypesServerTypeResult(dict):
     def __init__(__self__, *,
                  architecture: str,
-                 cores: int,
+                 cores: float,
                  cpu_type: str,
                  deprecation_announced: str,
                  description: str,
-                 disk: int,
+                 disk: float,
                  id: int,
                  included_traffic: int,
                  is_deprecated: bool,
-                 memory: int,
+                 memory: float,
                  name: str,
                  storage_type: str,
                  unavailable_after: str):
@@ -2092,7 +2147,7 @@ class GetServerTypesServerTypeResult(dict):
 
     @property
     @pulumi.getter
-    def cores(self) -> int:
+    def cores(self) -> float:
         return pulumi.get(self, "cores")
 
     @property
@@ -2112,7 +2167,7 @@ class GetServerTypesServerTypeResult(dict):
 
     @property
     @pulumi.getter
-    def disk(self) -> int:
+    def disk(self) -> float:
         return pulumi.get(self, "disk")
 
     @property
@@ -2133,7 +2188,7 @@ class GetServerTypesServerTypeResult(dict):
 
     @property
     @pulumi.getter
-    def memory(self) -> int:
+    def memory(self) -> float:
         return pulumi.get(self, "memory")
 
     @property

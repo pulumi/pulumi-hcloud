@@ -12,7 +12,7 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Attaches resource to a Hetzner Cloud Firewall.
     /// 
-    /// *Note*: only one `hcloud.FirewallAttachment` per Firewall is allowed.
+    /// _Note_: only one `hcloud.FirewallAttachment` per Firewall is allowed.
     /// Any resources that should be attached to that Firewall need to be
     /// specified in that `hcloud.FirewallAttachment`.
     /// 

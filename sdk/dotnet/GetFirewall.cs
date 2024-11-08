@@ -115,7 +115,7 @@ namespace Pulumi.HCloud
         private List<Inputs.GetFirewallRuleArgs>? _rules;
 
         /// <summary>
-        /// (string)  Configuration of a Rule from this Firewall.
+        /// (string) Configuration of a Rule from this Firewall.
         /// </summary>
         public List<Inputs.GetFirewallRuleArgs> Rules
         {
@@ -183,7 +183,7 @@ namespace Pulumi.HCloud
         private InputList<Inputs.GetFirewallRuleInputArgs>? _rules;
 
         /// <summary>
-        /// (string)  Configuration of a Rule from this Firewall.
+        /// (string) Configuration of a Rule from this Firewall.
         /// </summary>
         public InputList<Inputs.GetFirewallRuleInputArgs> Rules
         {
@@ -225,7 +225,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (string)  Configuration of a Rule from this Firewall.
+        /// (string) Configuration of a Rule from this Firewall.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallRuleResult> Rules;
         public readonly string? WithSelector;

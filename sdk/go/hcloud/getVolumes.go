@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about multiple Hetzner Cloud volumes.
+// Provides details about multiple Hetzner Cloud Volumes.
 //
 // ## Example Usage
 //

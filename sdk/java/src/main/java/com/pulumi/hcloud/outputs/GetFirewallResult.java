@@ -40,7 +40,7 @@ public final class GetFirewallResult {
      */
     private String name;
     /**
-     * @return (string)  Configuration of a Rule from this Firewall.
+     * @return (string) Configuration of a Rule from this Firewall.
      * 
      */
     private @Nullable List<GetFirewallRule> rules;
@@ -79,7 +79,7 @@ public final class GetFirewallResult {
         return this.name;
     }
     /**
-     * @return (string)  Configuration of a Rule from this Firewall.
+     * @return (string) Configuration of a Rule from this Firewall.
      * 
      */
     public List<GetFirewallRule> rules() {

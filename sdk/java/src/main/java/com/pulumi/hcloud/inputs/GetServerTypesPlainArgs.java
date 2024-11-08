@@ -21,6 +21,51 @@ public final class GetServerTypesPlainArgs extends com.pulumi.resources.InvokeAr
      * 
      */
     @Deprecated /* Use server_types list instead */
+    @Import(name="descriptions")
+    private @Nullable List<String> descriptions;
+
+    /**
+     * @deprecated
+     * Use server_types list instead
+     * 
+     */
+    @Deprecated /* Use server_types list instead */
+    public Optional<List<String>> descriptions() {
+        return Optional.ofNullable(this.descriptions);
+    }
+
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * @deprecated
+     * Use server_types list instead
+     * 
+     */
+    @Deprecated /* Use server_types list instead */
+    @Import(name="names")
+    private @Nullable List<String> names;
+
+    /**
+     * @deprecated
+     * Use server_types list instead
+     * 
+     */
+    @Deprecated /* Use server_types list instead */
+    public Optional<List<String>> names() {
+        return Optional.ofNullable(this.names);
+    }
+
+    /**
+     * @deprecated
+     * Use server_types list instead
+     * 
+     */
+    @Deprecated /* Use server_types list instead */
     @Import(name="serverTypeIds")
     private @Nullable List<String> serverTypeIds;
 
@@ -37,6 +82,9 @@ public final class GetServerTypesPlainArgs extends com.pulumi.resources.InvokeAr
     private GetServerTypesPlainArgs() {}
 
     private GetServerTypesPlainArgs(GetServerTypesPlainArgs $) {
+        this.descriptions = $.descriptions;
+        this.id = $.id;
+        this.names = $.names;
         this.serverTypeIds = $.serverTypeIds;
     }
 
@@ -56,6 +104,61 @@ public final class GetServerTypesPlainArgs extends com.pulumi.resources.InvokeAr
 
         public Builder(GetServerTypesPlainArgs defaults) {
             $ = new GetServerTypesPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder descriptions(@Nullable List<String> descriptions) {
+            $.descriptions = descriptions;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder descriptions(String... descriptions) {
+            return descriptions(List.of(descriptions));
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder names(@Nullable List<String> names) {
+            $.names = names;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use server_types list instead
+         * 
+         */
+        @Deprecated /* Use server_types list instead */
+        public Builder names(String... names) {
+            return names(List.of(names));
         }
 
         /**

@@ -31,7 +31,7 @@ public final class GetPrimaryIpResult {
      */
     private Boolean autoDelete;
     /**
-     * @return (string) The datacenter name of the Primary IP.
+     * @return (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     private String datacenter;
@@ -56,7 +56,7 @@ public final class GetPrimaryIpResult {
      */
     private String ipNetwork;
     /**
-     * @return (string) Description of the Primary IP.
+     * @return (map) User-defined labels (key-value pairs).
      * 
      */
     private Map<String,String> labels;
@@ -95,7 +95,7 @@ public final class GetPrimaryIpResult {
         return this.autoDelete;
     }
     /**
-     * @return (string) The datacenter name of the Primary IP.
+     * @return (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     public String datacenter() {
@@ -130,7 +130,7 @@ public final class GetPrimaryIpResult {
         return this.ipNetwork;
     }
     /**
-     * @return (string) Description of the Primary IP.
+     * @return (map) User-defined labels (key-value pairs).
      * 
      */
     public Map<String,String> labels() {

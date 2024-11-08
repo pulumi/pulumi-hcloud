@@ -25,6 +25,11 @@ func GetServerTypes(ctx *pulumi.Context, args *GetServerTypesArgs, opts ...pulum
 // A collection of arguments for invoking getServerTypes.
 type GetServerTypesArgs struct {
 	// Deprecated: Use serverTypes list instead
+	Descriptions []string `pulumi:"descriptions"`
+	Id           *string  `pulumi:"id"`
+	// Deprecated: Use serverTypes list instead
+	Names []string `pulumi:"names"`
+	// Deprecated: Use serverTypes list instead
 	ServerTypeIds []string `pulumi:"serverTypeIds"`
 }
 
@@ -32,8 +37,7 @@ type GetServerTypesArgs struct {
 type GetServerTypesResult struct {
 	// Deprecated: Use serverTypes list instead
 	Descriptions []string `pulumi:"descriptions"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id           *string  `pulumi:"id"`
 	// Deprecated: Use serverTypes list instead
 	Names []string `pulumi:"names"`
 	// Deprecated: Use serverTypes list instead
@@ -64,6 +68,11 @@ func GetServerTypesOutput(ctx *pulumi.Context, args GetServerTypesOutputArgs, op
 // A collection of arguments for invoking getServerTypes.
 type GetServerTypesOutputArgs struct {
 	// Deprecated: Use serverTypes list instead
+	Descriptions pulumi.StringArrayInput `pulumi:"descriptions"`
+	Id           pulumi.StringPtrInput   `pulumi:"id"`
+	// Deprecated: Use serverTypes list instead
+	Names pulumi.StringArrayInput `pulumi:"names"`
+	// Deprecated: Use serverTypes list instead
 	ServerTypeIds pulumi.StringArrayInput `pulumi:"serverTypeIds"`
 }
 
@@ -91,9 +100,8 @@ func (o GetServerTypesResultOutput) Descriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []string { return v.Descriptions }).(pulumi.StringArrayOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
-func (o GetServerTypesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerTypesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetServerTypesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServerTypesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Deprecated: Use serverTypes list instead

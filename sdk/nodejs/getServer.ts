@@ -78,7 +78,7 @@ export interface GetServerResult {
      */
     readonly backups: boolean;
     /**
-     * (string) The datacenter name.
+     * (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
     readonly datacenter: string;
     /**
@@ -118,7 +118,7 @@ export interface GetServerResult {
      */
     readonly labels: {[key: string]: string};
     /**
-     * (string) The location name.
+     * (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     readonly location: string;
     /**

@@ -73,7 +73,7 @@ namespace Pulumi.HCloud
     public partial class PrimaryIp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the assigned resource
+        /// ID of the assigned resource.
         /// </summary>
         [Output("assigneeId")]
         public Output<int> AssigneeId { get; private set; } = null!;
@@ -92,13 +92,15 @@ namespace Pulumi.HCloud
         public Output<bool> AutoDelete { get; private set; } = null!;
 
         /// <summary>
-        /// The datacenter name to create the resource in.
+        /// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
 
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
+        /// 
+        /// Note: At least one of `datacenter` or `assignee_id` is required.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -116,7 +118,7 @@ namespace Pulumi.HCloud
         public Output<string> IpNetwork { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the Primary IP.
+        /// User-defined labels (key-value pairs).
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
@@ -180,7 +182,7 @@ namespace Pulumi.HCloud
     public sealed class PrimaryIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the assigned resource
+        /// ID of the assigned resource.
         /// </summary>
         [Input("assigneeId")]
         public Input<int>? AssigneeId { get; set; }
@@ -199,13 +201,15 @@ namespace Pulumi.HCloud
         public Input<bool> AutoDelete { get; set; } = null!;
 
         /// <summary>
-        /// The datacenter name to create the resource in.
+        /// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
+        /// 
+        /// Note: At least one of `datacenter` or `assignee_id` is required.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -214,7 +218,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// Description of the Primary IP.
+        /// User-defined labels (key-value pairs).
         /// </summary>
         public InputMap<string> Labels
         {
@@ -243,7 +247,7 @@ namespace Pulumi.HCloud
     public sealed class PrimaryIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the assigned resource
+        /// ID of the assigned resource.
         /// </summary>
         [Input("assigneeId")]
         public Input<int>? AssigneeId { get; set; }
@@ -262,13 +266,15 @@ namespace Pulumi.HCloud
         public Input<bool>? AutoDelete { get; set; }
 
         /// <summary>
-        /// The datacenter name to create the resource in.
+        /// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
+        /// 
+        /// Note: At least one of `datacenter` or `assignee_id` is required.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -289,7 +295,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// Description of the Primary IP.
+        /// User-defined labels (key-value pairs).
         /// </summary>
         public InputMap<string> Labels
         {

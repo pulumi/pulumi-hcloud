@@ -125,14 +125,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.format);
     }
     /**
-     * (map) User-defined labels (key-value pairs).
+     * User-defined labels (key-value pairs).
      * 
      */
     @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> labels;
 
     /**
-     * @return (map) User-defined labels (key-value pairs).
+     * @return User-defined labels (key-value pairs).
      * 
      */
     public Output<Optional<Map<String,String>>> labels() {
@@ -153,14 +153,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.linuxDevice;
     }
     /**
-     * The location name of the volume to create, not allowed if server_id argument is passed.
+     * The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The location name of the volume to create, not allowed if server_id argument is passed.
+     * @return The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Output<String> location() {

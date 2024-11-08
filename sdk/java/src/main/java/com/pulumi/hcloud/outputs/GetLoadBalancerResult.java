@@ -55,7 +55,7 @@ public final class GetLoadBalancerResult {
      */
     private String loadBalancerType;
     /**
-     * @return (string) Name of the location the Load Balancer is in.
+     * @return (string) Name of the location the Load Balancer is in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     private String location;
@@ -138,7 +138,7 @@ public final class GetLoadBalancerResult {
         return this.loadBalancerType;
     }
     /**
-     * @return (string) Name of the location the Load Balancer is in.
+     * @return (string) Name of the location the Load Balancer is in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public String location() {

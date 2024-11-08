@@ -106,7 +106,7 @@ export interface GetPrimaryIpResult {
      */
     readonly autoDelete: boolean;
     /**
-     * (string) The datacenter name of the Primary IP.
+     * (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
     readonly datacenter: string;
     /**
@@ -126,7 +126,7 @@ export interface GetPrimaryIpResult {
      */
     readonly ipNetwork: string;
     /**
-     * (string) Description of the Primary IP.
+     * (map) User-defined labels (key-value pairs).
      */
     readonly labels: {[key: string]: string};
     /**

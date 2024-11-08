@@ -19,11 +19,13 @@ namespace Pulumi.HCloud
         /// ## Example Usage
         /// 
         /// # Data Source: hcloud.FloatingIp
+        /// 
         /// Provides details about a Hetzner Cloud Floating IP.
         /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
         /// 
         /// 
         /// ### Additional Examples
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,11 +68,13 @@ namespace Pulumi.HCloud
         /// ## Example Usage
         /// 
         /// # Data Source: hcloud.FloatingIp
+        /// 
         /// Provides details about a Hetzner Cloud Floating IP.
         /// This resource can be useful when you need to determine a Floating IP ID based on the IP address.
         /// 
         /// 
         /// ### Additional Examples
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;

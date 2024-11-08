@@ -32,14 +32,14 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (string) The location name.
+     * (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     @Import(name="location")
     private @Nullable String location;
 
     /**
-     * @return (string) The location name.
+     * @return (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Optional<String> location() {
@@ -167,7 +167,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param location (string) The location name.
+         * @param location (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
          * 
          * @return builder
          * 

@@ -30,6 +30,8 @@ import com.pulumi.hcloud.inputs.GetImagesArgs;
 import com.pulumi.hcloud.inputs.GetImagesPlainArgs;
 import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
 import com.pulumi.hcloud.inputs.GetLoadBalancerPlainArgs;
+import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
+import com.pulumi.hcloud.inputs.GetLoadBalancerTypePlainArgs;
 import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
 import com.pulumi.hcloud.inputs.GetLoadBalancersPlainArgs;
 import com.pulumi.hcloud.inputs.GetLocationArgs;
@@ -75,6 +77,8 @@ import com.pulumi.hcloud.outputs.GetFloatingIpsResult;
 import com.pulumi.hcloud.outputs.GetImageResult;
 import com.pulumi.hcloud.outputs.GetImagesResult;
 import com.pulumi.hcloud.outputs.GetLoadBalancerResult;
+import com.pulumi.hcloud.outputs.GetLoadBalancerTypeResult;
+import com.pulumi.hcloud.outputs.GetLoadBalancerTypesResult;
 import com.pulumi.hcloud.outputs.GetLoadBalancersResult;
 import com.pulumi.hcloud.outputs.GetLocationResult;
 import com.pulumi.hcloud.outputs.GetLocationsResult;
@@ -92,6 +96,7 @@ import com.pulumi.hcloud.outputs.GetSshKeyResult;
 import com.pulumi.hcloud.outputs.GetSshKeysResult;
 import com.pulumi.hcloud.outputs.GetVolumeResult;
 import com.pulumi.hcloud.outputs.GetVolumesResult;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class HcloudFunctions {
@@ -1465,10 +1470,12 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * # Data Source: hcloud.FloatingIp
+     * 
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      * ### Additional Examples
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1529,10 +1536,12 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * # Data Source: hcloud.FloatingIp
+     * 
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      * ### Additional Examples
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1593,10 +1602,12 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * # Data Source: hcloud.FloatingIp
+     * 
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      * ### Additional Examples
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1657,10 +1668,12 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * # Data Source: hcloud.FloatingIp
+     * 
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      * ### Additional Examples
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1721,10 +1734,12 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * # Data Source: hcloud.FloatingIp
+     * 
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      * ### Additional Examples
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -1785,10 +1800,12 @@ public final class HcloudFunctions {
      * ## Example Usage
      * 
      * # Data Source: hcloud.FloatingIp
+     * 
      * Provides details about a Hetzner Cloud Floating IP.
      * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
      * 
      * ### Additional Examples
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -2998,6 +3015,570 @@ public final class HcloudFunctions {
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Load Balancer Type.
+     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
+     * import com.pulumi.hcloud.LoadBalancer;
+     * import com.pulumi.hcloud.LoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("cx22")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *             .name("my-load-balancer")
+     *             .loadBalancerType(name)
+     *             .location("nbg1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancerTypeResult> getLoadBalancerType() {
+        return getLoadBalancerType(GetLoadBalancerTypeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Load Balancer Type.
+     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
+     * import com.pulumi.hcloud.LoadBalancer;
+     * import com.pulumi.hcloud.LoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("cx22")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *             .name("my-load-balancer")
+     *             .loadBalancerType(name)
+     *             .location("nbg1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLoadBalancerTypeResult> getLoadBalancerTypePlain() {
+        return getLoadBalancerTypePlain(GetLoadBalancerTypePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Load Balancer Type.
+     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
+     * import com.pulumi.hcloud.LoadBalancer;
+     * import com.pulumi.hcloud.LoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("cx22")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *             .name("my-load-balancer")
+     *             .loadBalancerType(name)
+     *             .location("nbg1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancerTypeResult> getLoadBalancerType(GetLoadBalancerTypeArgs args) {
+        return getLoadBalancerType(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Load Balancer Type.
+     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
+     * import com.pulumi.hcloud.LoadBalancer;
+     * import com.pulumi.hcloud.LoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("cx22")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *             .name("my-load-balancer")
+     *             .loadBalancerType(name)
+     *             .location("nbg1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLoadBalancerTypeResult> getLoadBalancerTypePlain(GetLoadBalancerTypePlainArgs args) {
+        return getLoadBalancerTypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Load Balancer Type.
+     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
+     * import com.pulumi.hcloud.LoadBalancer;
+     * import com.pulumi.hcloud.LoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("cx22")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *             .name("my-load-balancer")
+     *             .loadBalancerType(name)
+     *             .location("nbg1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancerTypeResult> getLoadBalancerType(GetLoadBalancerTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLoadBalancerType:getLoadBalancerType", TypeShape.of(GetLoadBalancerTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Load Balancer Type.
+     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
+     * import com.pulumi.hcloud.LoadBalancer;
+     * import com.pulumi.hcloud.LoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("cx22")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *             .name("my-load-balancer")
+     *             .loadBalancerType(name)
+     *             .location("nbg1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLoadBalancerTypeResult> getLoadBalancerTypePlain(GetLoadBalancerTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getLoadBalancerType:getLoadBalancerType", TypeShape.of(GetLoadBalancerTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Load Balancer Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancerTypesResult> getLoadBalancerTypes() {
+        return getLoadBalancerTypes(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Load Balancer Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLoadBalancerTypesResult> getLoadBalancerTypesPlain() {
+        return getLoadBalancerTypesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Load Balancer Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancerTypesResult> getLoadBalancerTypes(InvokeArgs args) {
+        return getLoadBalancerTypes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Load Balancer Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLoadBalancerTypesResult> getLoadBalancerTypesPlain(InvokeArgs args) {
+        return getLoadBalancerTypesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Load Balancer Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancerTypesResult> getLoadBalancerTypes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes", TypeShape.of(GetLoadBalancerTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Load Balancer Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLoadBalancerTypesResult> getLoadBalancerTypesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes", TypeShape.of(GetLoadBalancerTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about multiple Hetzner Cloud Load Balancers.
@@ -7194,7 +7775,7 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about multiple Hetzner Cloud volumes.
+     * Provides details about multiple Hetzner Cloud Volumes.
      * 
      * ## Example Usage
      * 
@@ -7238,7 +7819,7 @@ public final class HcloudFunctions {
         return getVolumes(GetVolumesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud volumes.
+     * Provides details about multiple Hetzner Cloud Volumes.
      * 
      * ## Example Usage
      * 
@@ -7282,7 +7863,7 @@ public final class HcloudFunctions {
         return getVolumesPlain(GetVolumesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud volumes.
+     * Provides details about multiple Hetzner Cloud Volumes.
      * 
      * ## Example Usage
      * 
@@ -7326,7 +7907,7 @@ public final class HcloudFunctions {
         return getVolumes(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud volumes.
+     * Provides details about multiple Hetzner Cloud Volumes.
      * 
      * ## Example Usage
      * 
@@ -7370,7 +7951,7 @@ public final class HcloudFunctions {
         return getVolumesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud volumes.
+     * Provides details about multiple Hetzner Cloud Volumes.
      * 
      * ## Example Usage
      * 
@@ -7414,7 +7995,7 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getVolumes:getVolumes", TypeShape.of(GetVolumesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about multiple Hetzner Cloud volumes.
+     * Provides details about multiple Hetzner Cloud Volumes.
      * 
      * ## Example Usage
      * 
