@@ -13,12 +13,33 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetLoadBalancerTypesLoadBalancerTypeResult
     {
+        /// <summary>
+        /// Description of the Load Balancer Type.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// ID of the Load Balancer Type.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Maximum number of certificates that can be assigned for the Load Balancer of this type.
+        /// </summary>
         public readonly int MaxAssignedCertificates;
+        /// <summary>
+        /// Maximum number of simultaneous open connections for the Load Balancer of this type.
+        /// </summary>
         public readonly int MaxConnections;
+        /// <summary>
+        /// Maximum number of services for the Load Balancer of this type.
+        /// </summary>
         public readonly int MaxServices;
+        /// <summary>
+        /// Maximum number of targets for the Load Balancer of this type.
+        /// </summary>
         public readonly int MaxTargets;
+        /// <summary>
+        /// Name of the Load Balancer Type.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

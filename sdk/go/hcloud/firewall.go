@@ -74,7 +74,7 @@ import (
 // Firewalls can be imported using its `id`:
 //
 // ```sh
-// $ pulumi import hcloud:index/firewall:Firewall myfirewall id
+// $ pulumi import hcloud:index/firewall:Firewall example "$FIREWALL_ID"
 // ```
 type Firewall struct {
 	pulumi.CustomResourceState

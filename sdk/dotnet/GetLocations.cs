@@ -13,147 +13,39 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides a list of available Hetzner Cloud Locations.
+        /// 
         /// This resource may be useful to create highly available infrastructure, distributed across several locations.
         /// </summary>
-        public static Task<GetLocationsResult> InvokeAsync(GetLocationsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("hcloud:index/getLocations:getLocations", args ?? new GetLocationsArgs(), options.WithDefaults());
+        public static Task<GetLocationsResult> InvokeAsync(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("hcloud:index/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Provides a list of available Hetzner Cloud Locations.
+        /// 
         /// This resource may be useful to create highly available infrastructure, distributed across several locations.
         /// </summary>
-        public static Output<GetLocationsResult> Invoke(GetLocationsInvokeArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("hcloud:index/getLocations:getLocations", args ?? new GetLocationsInvokeArgs(), options.WithDefaults());
-    }
-
-
-    public sealed class GetLocationsArgs : global::Pulumi.InvokeArgs
-    {
-        [Input("descriptions")]
-        private List<string>? _descriptions;
-
-        /// <summary>
-        /// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use locations list instead")]
-        public List<string> Descriptions
-        {
-            get => _descriptions ?? (_descriptions = new List<string>());
-            set => _descriptions = value;
-        }
-
-        [Input("id")]
-        public string? Id { get; set; }
-
-        [Input("locationIds")]
-        private List<string>? _locationIds;
-
-        /// <summary>
-        /// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use locations list instead")]
-        public List<string> LocationIds
-        {
-            get => _locationIds ?? (_locationIds = new List<string>());
-            set => _locationIds = value;
-        }
-
-        [Input("names")]
-        private List<string>? _names;
-
-        /// <summary>
-        /// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use locations list instead")]
-        public List<string> Names
-        {
-            get => _names ?? (_names = new List<string>());
-            set => _names = value;
-        }
-
-        public GetLocationsArgs()
-        {
-        }
-        public static new GetLocationsArgs Empty => new GetLocationsArgs();
-    }
-
-    public sealed class GetLocationsInvokeArgs : global::Pulumi.InvokeArgs
-    {
-        [Input("descriptions")]
-        private InputList<string>? _descriptions;
-
-        /// <summary>
-        /// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use locations list instead")]
-        public InputList<string> Descriptions
-        {
-            get => _descriptions ?? (_descriptions = new InputList<string>());
-            set => _descriptions = value;
-        }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("locationIds")]
-        private InputList<string>? _locationIds;
-
-        /// <summary>
-        /// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use locations list instead")]
-        public InputList<string> LocationIds
-        {
-            get => _locationIds ?? (_locationIds = new InputList<string>());
-            set => _locationIds = value;
-        }
-
-        [Input("names")]
-        private InputList<string>? _names;
-
-        /// <summary>
-        /// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use locations list instead")]
-        public InputList<string> Names
-        {
-            get => _names ?? (_names = new InputList<string>());
-            set => _names = value;
-        }
-
-        public GetLocationsInvokeArgs()
-        {
-        }
-        public static new GetLocationsInvokeArgs Empty => new GetLocationsInvokeArgs();
+        public static Output<GetLocationsResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("hcloud:index/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
     [OutputType]
     public sealed class GetLocationsResult
     {
-        /// <summary>
-        /// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-        /// </summary>
         public readonly ImmutableArray<string> Descriptions;
-        public readonly string? Id;
         /// <summary>
-        /// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
+        /// The ID of this resource.
         /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<string> LocationIds;
-        /// <summary>
-        /// (list) List of all locations. See `data.hcloud_location` for schema.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLocationsLocationResult> Locations;
-        /// <summary>
-        /// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]
         private GetLocationsResult(
             ImmutableArray<string> descriptions,
 
-            string? id,
+            string id,
 
             ImmutableArray<string> locationIds,
 

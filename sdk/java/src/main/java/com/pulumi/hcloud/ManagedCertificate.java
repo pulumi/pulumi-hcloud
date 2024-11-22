@@ -19,14 +19,54 @@ import javax.annotation.Nullable;
 /**
  * Obtain a Hetzner Cloud managed TLS certificate.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.hcloud.ManagedCertificate;
+ * import com.pulumi.hcloud.ManagedCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var managedCert = new ManagedCertificate("managedCert", ManagedCertificateArgs.builder()
+ *             .name("managed_cert")
+ *             .domainNames(            
+ *                 "*.example.com",
+ *                 "example.com")
+ *             .labels(Map.ofEntries(
+ *                 Map.entry("label_1", "value_1"),
+ *                 Map.entry("label_2", "value_2")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Managed certificates can be imported using their `id`:
  * 
- * hcl
- * 
  * ```sh
- * $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
+ * $ pulumi import hcloud:index/managedCertificate:ManagedCertificate example &#34;$CERTIFICATE_ID&#34;
  * ```
  * 
  */

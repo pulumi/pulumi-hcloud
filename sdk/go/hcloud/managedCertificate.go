@@ -14,14 +14,46 @@ import (
 
 // Obtain a Hetzner Cloud managed TLS certificate.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.NewManagedCertificate(ctx, "managed_cert", &hcloud.ManagedCertificateArgs{
+//				Name: pulumi.String("managed_cert"),
+//				DomainNames: pulumi.StringArray{
+//					pulumi.String("*.example.com"),
+//					pulumi.String("example.com"),
+//				},
+//				Labels: pulumi.StringMap{
+//					"label_1": pulumi.String("value_1"),
+//					"label_2": pulumi.String("value_2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Managed certificates can be imported using their `id`:
 //
-// hcl
-//
 // ```sh
-// $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
+// $ pulumi import hcloud:index/managedCertificate:ManagedCertificate example "$CERTIFICATE_ID"
 // ```
 type ManagedCertificate struct {
 	pulumi.CustomResourceState

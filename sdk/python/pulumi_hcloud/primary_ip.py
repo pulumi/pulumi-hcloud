@@ -383,7 +383,7 @@ class PrimaryIp(pulumi.CustomResource):
         Primary IPs can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
+        $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -446,7 +446,7 @@ class PrimaryIp(pulumi.CustomResource):
         Primary IPs can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
+        $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
         ```
 
         :param str resource_name: The name of the resource.

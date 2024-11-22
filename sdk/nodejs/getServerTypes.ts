@@ -8,35 +8,20 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a list of available Hetzner Cloud Server Types.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const all = hcloud.getServerTypes({});
+ * ```
  */
-export function getServerTypes(args?: GetServerTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypesResult> {
-    args = args || {};
+export function getServerTypes(opts?: pulumi.InvokeOptions): Promise<GetServerTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServerTypes:getServerTypes", {
-        "descriptions": args.descriptions,
-        "id": args.id,
-        "names": args.names,
-        "serverTypeIds": args.serverTypeIds,
     }, opts);
-}
-
-/**
- * A collection of arguments for invoking getServerTypes.
- */
-export interface GetServerTypesArgs {
-    /**
-     * @deprecated Use serverTypes list instead
-     */
-    descriptions?: string[];
-    id?: string;
-    /**
-     * @deprecated Use serverTypes list instead
-     */
-    names?: string[];
-    /**
-     * @deprecated Use serverTypes list instead
-     */
-    serverTypeIds?: string[];
 }
 
 /**
@@ -46,50 +31,35 @@ export interface GetServerTypesResult {
     /**
      * @deprecated Use serverTypes list instead
      */
-    readonly descriptions?: string[];
-    readonly id?: string;
+    readonly descriptions: string[];
+    /**
+     * The ID of this resource.
+     */
+    readonly id: string;
     /**
      * @deprecated Use serverTypes list instead
      */
-    readonly names?: string[];
+    readonly names: string[];
     /**
      * @deprecated Use serverTypes list instead
      */
-    readonly serverTypeIds?: string[];
-    /**
-     * (list) List of all server types. See `data.hcloud_server_type` for schema.
-     */
+    readonly serverTypeIds: string[];
     readonly serverTypes: outputs.GetServerTypesServerType[];
 }
 /**
  * Provides a list of available Hetzner Cloud Server Types.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const all = hcloud.getServerTypes({});
+ * ```
  */
-export function getServerTypesOutput(args?: GetServerTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypesResult> {
-    args = args || {};
+export function getServerTypesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getServerTypes:getServerTypes", {
-        "descriptions": args.descriptions,
-        "id": args.id,
-        "names": args.names,
-        "serverTypeIds": args.serverTypeIds,
     }, opts);
-}
-
-/**
- * A collection of arguments for invoking getServerTypes.
- */
-export interface GetServerTypesOutputArgs {
-    /**
-     * @deprecated Use serverTypes list instead
-     */
-    descriptions?: pulumi.Input<pulumi.Input<string>[]>;
-    id?: pulumi.Input<string>;
-    /**
-     * @deprecated Use serverTypes list instead
-     */
-    names?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * @deprecated Use serverTypes list instead
-     */
-    serverTypeIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

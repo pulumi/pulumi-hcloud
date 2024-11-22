@@ -12,37 +12,101 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLocationsLocation {
+    /**
+     * @return Name of the closest city to the Location. City name and optionally state in short form.
+     * 
+     */
     private String city;
+    /**
+     * @return Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
+     * 
+     */
     private String country;
+    /**
+     * @return Description of the Location.
+     * 
+     */
     private String description;
+    /**
+     * @return ID of the Location.
+     * 
+     */
     private Integer id;
+    /**
+     * @return Latitude of the city closest to the Location.
+     * 
+     */
     private Double latitude;
+    /**
+     * @return Longitude of the city closest to the Location.
+     * 
+     */
     private Double longitude;
+    /**
+     * @return Name of the Location.
+     * 
+     */
     private String name;
+    /**
+     * @return Name of the Network Zone this Location resides in.
+     * 
+     */
     private String networkZone;
 
     private GetLocationsLocation() {}
+    /**
+     * @return Name of the closest city to the Location. City name and optionally state in short form.
+     * 
+     */
     public String city() {
         return this.city;
     }
+    /**
+     * @return Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
+     * 
+     */
     public String country() {
         return this.country;
     }
+    /**
+     * @return Description of the Location.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return ID of the Location.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return Latitude of the city closest to the Location.
+     * 
+     */
     public Double latitude() {
         return this.latitude;
     }
+    /**
+     * @return Longitude of the city closest to the Location.
+     * 
+     */
     public Double longitude() {
         return this.longitude;
     }
+    /**
+     * @return Name of the Location.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Name of the Network Zone this Location resides in.
+     * 
+     */
     public String networkZone() {
         return this.networkZone;
     }

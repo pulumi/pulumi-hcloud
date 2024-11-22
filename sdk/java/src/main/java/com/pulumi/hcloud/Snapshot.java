@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * Snapshots can be imported using its image `id`:
  * 
  * ```sh
- * $ pulumi import hcloud:index/snapshot:Snapshot myimage id
+ * $ pulumi import hcloud:index/snapshot:Snapshot example &#34;$IMAGE_ID&#34;
  * ```
  * 
  */

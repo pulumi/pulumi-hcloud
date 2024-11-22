@@ -1565,12 +1565,18 @@ func (o GetCertificatesCertificateArrayOutput) Index(i pulumi.IntInput) GetCerti
 }
 
 type GetDatacentersDatacenter struct {
-	AvailableServerTypeIds []int             `pulumi:"availableServerTypeIds"`
-	Description            string            `pulumi:"description"`
-	Id                     int               `pulumi:"id"`
-	Location               map[string]string `pulumi:"location"`
-	Name                   string            `pulumi:"name"`
-	SupportedServerTypeIds []int             `pulumi:"supportedServerTypeIds"`
+	// List of currently available Server Types in the Datacenter.
+	AvailableServerTypeIds []int `pulumi:"availableServerTypeIds"`
+	// Description of the Datacenter.
+	Description string `pulumi:"description"`
+	// ID of the Datacenter.
+	Id int `pulumi:"id"`
+	// Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	Location map[string]string `pulumi:"location"`
+	// Name of the Datacenter.
+	Name string `pulumi:"name"`
+	// List of supported Server Types in the Datacenter.
+	SupportedServerTypeIds []int `pulumi:"supportedServerTypeIds"`
 }
 
 // GetDatacentersDatacenterInput is an input type that accepts GetDatacentersDatacenterArgs and GetDatacentersDatacenterOutput values.
@@ -1585,12 +1591,18 @@ type GetDatacentersDatacenterInput interface {
 }
 
 type GetDatacentersDatacenterArgs struct {
-	AvailableServerTypeIds pulumi.IntArrayInput  `pulumi:"availableServerTypeIds"`
-	Description            pulumi.StringInput    `pulumi:"description"`
-	Id                     pulumi.IntInput       `pulumi:"id"`
-	Location               pulumi.StringMapInput `pulumi:"location"`
-	Name                   pulumi.StringInput    `pulumi:"name"`
-	SupportedServerTypeIds pulumi.IntArrayInput  `pulumi:"supportedServerTypeIds"`
+	// List of currently available Server Types in the Datacenter.
+	AvailableServerTypeIds pulumi.IntArrayInput `pulumi:"availableServerTypeIds"`
+	// Description of the Datacenter.
+	Description pulumi.StringInput `pulumi:"description"`
+	// ID of the Datacenter.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	Location pulumi.StringMapInput `pulumi:"location"`
+	// Name of the Datacenter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of supported Server Types in the Datacenter.
+	SupportedServerTypeIds pulumi.IntArrayInput `pulumi:"supportedServerTypeIds"`
 }
 
 func (GetDatacentersDatacenterArgs) ElementType() reflect.Type {
@@ -1644,26 +1656,32 @@ func (o GetDatacentersDatacenterOutput) ToGetDatacentersDatacenterOutputWithCont
 	return o
 }
 
+// List of currently available Server Types in the Datacenter.
 func (o GetDatacentersDatacenterOutput) AvailableServerTypeIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDatacentersDatacenter) []int { return v.AvailableServerTypeIds }).(pulumi.IntArrayOutput)
 }
 
+// Description of the Datacenter.
 func (o GetDatacentersDatacenterOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatacentersDatacenter) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// ID of the Datacenter.
 func (o GetDatacentersDatacenterOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDatacentersDatacenter) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o GetDatacentersDatacenterOutput) Location() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDatacentersDatacenter) map[string]string { return v.Location }).(pulumi.StringMapOutput)
 }
 
+// Name of the Datacenter.
 func (o GetDatacentersDatacenterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatacentersDatacenter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// List of supported Server Types in the Datacenter.
 func (o GetDatacentersDatacenterOutput) SupportedServerTypeIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDatacentersDatacenter) []int { return v.SupportedServerTypeIds }).(pulumi.IntArrayOutput)
 }
@@ -3355,13 +3373,20 @@ func (o GetLoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) GetLoadBa
 }
 
 type GetLoadBalancerTypesLoadBalancerType struct {
-	Description             string `pulumi:"description"`
-	Id                      int    `pulumi:"id"`
-	MaxAssignedCertificates int    `pulumi:"maxAssignedCertificates"`
-	MaxConnections          int    `pulumi:"maxConnections"`
-	MaxServices             int    `pulumi:"maxServices"`
-	MaxTargets              int    `pulumi:"maxTargets"`
-	Name                    string `pulumi:"name"`
+	// Description of the Load Balancer Type.
+	Description string `pulumi:"description"`
+	// ID of the Load Balancer Type.
+	Id int `pulumi:"id"`
+	// Maximum number of certificates that can be assigned for the Load Balancer of this type.
+	MaxAssignedCertificates int `pulumi:"maxAssignedCertificates"`
+	// Maximum number of simultaneous open connections for the Load Balancer of this type.
+	MaxConnections int `pulumi:"maxConnections"`
+	// Maximum number of services for the Load Balancer of this type.
+	MaxServices int `pulumi:"maxServices"`
+	// Maximum number of targets for the Load Balancer of this type.
+	MaxTargets int `pulumi:"maxTargets"`
+	// Name of the Load Balancer Type.
+	Name string `pulumi:"name"`
 }
 
 // GetLoadBalancerTypesLoadBalancerTypeInput is an input type that accepts GetLoadBalancerTypesLoadBalancerTypeArgs and GetLoadBalancerTypesLoadBalancerTypeOutput values.
@@ -3376,13 +3401,20 @@ type GetLoadBalancerTypesLoadBalancerTypeInput interface {
 }
 
 type GetLoadBalancerTypesLoadBalancerTypeArgs struct {
-	Description             pulumi.StringInput `pulumi:"description"`
-	Id                      pulumi.IntInput    `pulumi:"id"`
-	MaxAssignedCertificates pulumi.IntInput    `pulumi:"maxAssignedCertificates"`
-	MaxConnections          pulumi.IntInput    `pulumi:"maxConnections"`
-	MaxServices             pulumi.IntInput    `pulumi:"maxServices"`
-	MaxTargets              pulumi.IntInput    `pulumi:"maxTargets"`
-	Name                    pulumi.StringInput `pulumi:"name"`
+	// Description of the Load Balancer Type.
+	Description pulumi.StringInput `pulumi:"description"`
+	// ID of the Load Balancer Type.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Maximum number of certificates that can be assigned for the Load Balancer of this type.
+	MaxAssignedCertificates pulumi.IntInput `pulumi:"maxAssignedCertificates"`
+	// Maximum number of simultaneous open connections for the Load Balancer of this type.
+	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
+	// Maximum number of services for the Load Balancer of this type.
+	MaxServices pulumi.IntInput `pulumi:"maxServices"`
+	// Maximum number of targets for the Load Balancer of this type.
+	MaxTargets pulumi.IntInput `pulumi:"maxTargets"`
+	// Name of the Load Balancer Type.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetLoadBalancerTypesLoadBalancerTypeArgs) ElementType() reflect.Type {
@@ -3436,30 +3468,37 @@ func (o GetLoadBalancerTypesLoadBalancerTypeOutput) ToGetLoadBalancerTypesLoadBa
 	return o
 }
 
+// Description of the Load Balancer Type.
 func (o GetLoadBalancerTypesLoadBalancerTypeOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// ID of the Load Balancer Type.
 func (o GetLoadBalancerTypesLoadBalancerTypeOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Maximum number of certificates that can be assigned for the Load Balancer of this type.
 func (o GetLoadBalancerTypesLoadBalancerTypeOutput) MaxAssignedCertificates() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.MaxAssignedCertificates }).(pulumi.IntOutput)
 }
 
+// Maximum number of simultaneous open connections for the Load Balancer of this type.
 func (o GetLoadBalancerTypesLoadBalancerTypeOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
 
+// Maximum number of services for the Load Balancer of this type.
 func (o GetLoadBalancerTypesLoadBalancerTypeOutput) MaxServices() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.MaxServices }).(pulumi.IntOutput)
 }
 
+// Maximum number of targets for the Load Balancer of this type.
 func (o GetLoadBalancerTypesLoadBalancerTypeOutput) MaxTargets() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) int { return v.MaxTargets }).(pulumi.IntOutput)
 }
 
+// Name of the Load Balancer Type.
 func (o GetLoadBalancerTypesLoadBalancerTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesLoadBalancerType) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4345,14 +4384,22 @@ func (o GetLoadBalancersLoadBalancerTargetArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetLocationsLocation struct {
-	City        string  `pulumi:"city"`
-	Country     string  `pulumi:"country"`
-	Description string  `pulumi:"description"`
-	Id          int     `pulumi:"id"`
-	Latitude    float64 `pulumi:"latitude"`
-	Longitude   float64 `pulumi:"longitude"`
-	Name        string  `pulumi:"name"`
-	NetworkZone string  `pulumi:"networkZone"`
+	// Name of the closest city to the Location. City name and optionally state in short form.
+	City string `pulumi:"city"`
+	// Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
+	Country string `pulumi:"country"`
+	// Description of the Location.
+	Description string `pulumi:"description"`
+	// ID of the Location.
+	Id int `pulumi:"id"`
+	// Latitude of the city closest to the Location.
+	Latitude float64 `pulumi:"latitude"`
+	// Longitude of the city closest to the Location.
+	Longitude float64 `pulumi:"longitude"`
+	// Name of the Location.
+	Name string `pulumi:"name"`
+	// Name of the Network Zone this Location resides in.
+	NetworkZone string `pulumi:"networkZone"`
 }
 
 // GetLocationsLocationInput is an input type that accepts GetLocationsLocationArgs and GetLocationsLocationOutput values.
@@ -4367,14 +4414,22 @@ type GetLocationsLocationInput interface {
 }
 
 type GetLocationsLocationArgs struct {
-	City        pulumi.StringInput  `pulumi:"city"`
-	Country     pulumi.StringInput  `pulumi:"country"`
-	Description pulumi.StringInput  `pulumi:"description"`
-	Id          pulumi.IntInput     `pulumi:"id"`
-	Latitude    pulumi.Float64Input `pulumi:"latitude"`
-	Longitude   pulumi.Float64Input `pulumi:"longitude"`
-	Name        pulumi.StringInput  `pulumi:"name"`
-	NetworkZone pulumi.StringInput  `pulumi:"networkZone"`
+	// Name of the closest city to the Location. City name and optionally state in short form.
+	City pulumi.StringInput `pulumi:"city"`
+	// Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
+	Country pulumi.StringInput `pulumi:"country"`
+	// Description of the Location.
+	Description pulumi.StringInput `pulumi:"description"`
+	// ID of the Location.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Latitude of the city closest to the Location.
+	Latitude pulumi.Float64Input `pulumi:"latitude"`
+	// Longitude of the city closest to the Location.
+	Longitude pulumi.Float64Input `pulumi:"longitude"`
+	// Name of the Location.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the Network Zone this Location resides in.
+	NetworkZone pulumi.StringInput `pulumi:"networkZone"`
 }
 
 func (GetLocationsLocationArgs) ElementType() reflect.Type {
@@ -4428,34 +4483,42 @@ func (o GetLocationsLocationOutput) ToGetLocationsLocationOutputWithContext(ctx 
 	return o
 }
 
+// Name of the closest city to the Location. City name and optionally state in short form.
 func (o GetLocationsLocationOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationsLocation) string { return v.City }).(pulumi.StringOutput)
 }
 
+// Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
 func (o GetLocationsLocationOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationsLocation) string { return v.Country }).(pulumi.StringOutput)
 }
 
+// Description of the Location.
 func (o GetLocationsLocationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationsLocation) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// ID of the Location.
 func (o GetLocationsLocationOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLocationsLocation) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Latitude of the city closest to the Location.
 func (o GetLocationsLocationOutput) Latitude() pulumi.Float64Output {
 	return o.ApplyT(func(v GetLocationsLocation) float64 { return v.Latitude }).(pulumi.Float64Output)
 }
 
+// Longitude of the city closest to the Location.
 func (o GetLocationsLocationOutput) Longitude() pulumi.Float64Output {
 	return o.ApplyT(func(v GetLocationsLocation) float64 { return v.Longitude }).(pulumi.Float64Output)
 }
 
+// Name of the Location.
 func (o GetLocationsLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationsLocation) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the Network Zone this Location resides in.
 func (o GetLocationsLocationOutput) NetworkZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationsLocation) string { return v.NetworkZone }).(pulumi.StringOutput)
 }
@@ -4880,20 +4943,32 @@ func (o GetPrimaryIpsPrimaryIpArrayOutput) Index(i pulumi.IntInput) GetPrimaryIp
 }
 
 type GetServerTypesServerType struct {
-	Architecture         string  `pulumi:"architecture"`
-	Cores                float64 `pulumi:"cores"`
-	CpuType              string  `pulumi:"cpuType"`
-	DeprecationAnnounced string  `pulumi:"deprecationAnnounced"`
-	Description          string  `pulumi:"description"`
-	Disk                 float64 `pulumi:"disk"`
-	Id                   int     `pulumi:"id"`
+	// Architecture of the cpu for a Server of this type.
+	Architecture string `pulumi:"architecture"`
+	// Number of cpu cores for a Server of this type.
+	Cores float64 `pulumi:"cores"`
+	// Type of cpu for a Server of this type.
+	CpuType string `pulumi:"cpuType"`
+	// Date of the Server Type deprecation announcement.
+	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
+	// Description of the Server Type.
+	Description string `pulumi:"description"`
+	// Disk size in GB for a Server of this type.
+	Disk float64 `pulumi:"disk"`
+	// ID of the Server Type.
+	Id int `pulumi:"id"`
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
-	IncludedTraffic  int     `pulumi:"includedTraffic"`
-	IsDeprecated     bool    `pulumi:"isDeprecated"`
-	Memory           float64 `pulumi:"memory"`
-	Name             string  `pulumi:"name"`
-	StorageType      string  `pulumi:"storageType"`
-	UnavailableAfter string  `pulumi:"unavailableAfter"`
+	IncludedTraffic int `pulumi:"includedTraffic"`
+	// Whether the Server Type is deprecated.
+	IsDeprecated bool `pulumi:"isDeprecated"`
+	// Memory in GB for a Server of this type.
+	Memory float64 `pulumi:"memory"`
+	// Name of the Server Type.
+	Name string `pulumi:"name"`
+	// Type of boot drive for a Server of this type.
+	StorageType string `pulumi:"storageType"`
+	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
 
 // GetServerTypesServerTypeInput is an input type that accepts GetServerTypesServerTypeArgs and GetServerTypesServerTypeOutput values.
@@ -4908,20 +4983,32 @@ type GetServerTypesServerTypeInput interface {
 }
 
 type GetServerTypesServerTypeArgs struct {
-	Architecture         pulumi.StringInput  `pulumi:"architecture"`
-	Cores                pulumi.Float64Input `pulumi:"cores"`
-	CpuType              pulumi.StringInput  `pulumi:"cpuType"`
-	DeprecationAnnounced pulumi.StringInput  `pulumi:"deprecationAnnounced"`
-	Description          pulumi.StringInput  `pulumi:"description"`
-	Disk                 pulumi.Float64Input `pulumi:"disk"`
-	Id                   pulumi.IntInput     `pulumi:"id"`
+	// Architecture of the cpu for a Server of this type.
+	Architecture pulumi.StringInput `pulumi:"architecture"`
+	// Number of cpu cores for a Server of this type.
+	Cores pulumi.Float64Input `pulumi:"cores"`
+	// Type of cpu for a Server of this type.
+	CpuType pulumi.StringInput `pulumi:"cpuType"`
+	// Date of the Server Type deprecation announcement.
+	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
+	// Description of the Server Type.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Disk size in GB for a Server of this type.
+	Disk pulumi.Float64Input `pulumi:"disk"`
+	// ID of the Server Type.
+	Id pulumi.IntInput `pulumi:"id"`
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
-	IncludedTraffic  pulumi.IntInput     `pulumi:"includedTraffic"`
-	IsDeprecated     pulumi.BoolInput    `pulumi:"isDeprecated"`
-	Memory           pulumi.Float64Input `pulumi:"memory"`
-	Name             pulumi.StringInput  `pulumi:"name"`
-	StorageType      pulumi.StringInput  `pulumi:"storageType"`
-	UnavailableAfter pulumi.StringInput  `pulumi:"unavailableAfter"`
+	IncludedTraffic pulumi.IntInput `pulumi:"includedTraffic"`
+	// Whether the Server Type is deprecated.
+	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
+	// Memory in GB for a Server of this type.
+	Memory pulumi.Float64Input `pulumi:"memory"`
+	// Name of the Server Type.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of boot drive for a Server of this type.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
 }
 
 func (GetServerTypesServerTypeArgs) ElementType() reflect.Type {
@@ -4975,30 +5062,37 @@ func (o GetServerTypesServerTypeOutput) ToGetServerTypesServerTypeOutputWithCont
 	return o
 }
 
+// Architecture of the cpu for a Server of this type.
 func (o GetServerTypesServerTypeOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
+// Number of cpu cores for a Server of this type.
 func (o GetServerTypesServerTypeOutput) Cores() pulumi.Float64Output {
 	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Cores }).(pulumi.Float64Output)
 }
 
+// Type of cpu for a Server of this type.
 func (o GetServerTypesServerTypeOutput) CpuType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.CpuType }).(pulumi.StringOutput)
 }
 
+// Date of the Server Type deprecation announcement.
 func (o GetServerTypesServerTypeOutput) DeprecationAnnounced() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
 }
 
+// Description of the Server Type.
 func (o GetServerTypesServerTypeOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Disk size in GB for a Server of this type.
 func (o GetServerTypesServerTypeOutput) Disk() pulumi.Float64Output {
 	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Disk }).(pulumi.Float64Output)
 }
 
+// ID of the Server Type.
 func (o GetServerTypesServerTypeOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -5008,22 +5102,27 @@ func (o GetServerTypesServerTypeOutput) IncludedTraffic() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) int { return v.IncludedTraffic }).(pulumi.IntOutput)
 }
 
+// Whether the Server Type is deprecated.
 func (o GetServerTypesServerTypeOutput) IsDeprecated() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
 }
 
+// Memory in GB for a Server of this type.
 func (o GetServerTypesServerTypeOutput) Memory() pulumi.Float64Output {
 	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Memory }).(pulumi.Float64Output)
 }
 
+// Name of the Server Type.
 func (o GetServerTypesServerTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Type of boot drive for a Server of this type.
 func (o GetServerTypesServerTypeOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
+// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
 func (o GetServerTypesServerTypeOutput) UnavailableAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.UnavailableAfter }).(pulumi.StringOutput)
 }
@@ -5257,15 +5356,15 @@ func (o GetServersServerArrayOutput) Index(i pulumi.IntInput) GetServersServerOu
 }
 
 type GetSshKeysSshKey struct {
-	// Fingerprint of the SSH key.
+	// Fingerprint of the SSH Key.
 	Fingerprint string `pulumi:"fingerprint"`
-	// ID of the SSH key.
+	// ID of the SSH Key.
 	Id int `pulumi:"id"`
 	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
-	// Name of the SSH key.
+	// Name of the SSH Key.
 	Name string `pulumi:"name"`
-	// Public key of the SSH key pair.
+	// Public key of the SSH Key pair.
 	PublicKey string `pulumi:"publicKey"`
 }
 
@@ -5281,15 +5380,15 @@ type GetSshKeysSshKeyInput interface {
 }
 
 type GetSshKeysSshKeyArgs struct {
-	// Fingerprint of the SSH key.
+	// Fingerprint of the SSH Key.
 	Fingerprint pulumi.StringInput `pulumi:"fingerprint"`
-	// ID of the SSH key.
+	// ID of the SSH Key.
 	Id pulumi.IntInput `pulumi:"id"`
 	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
-	// Name of the SSH key.
+	// Name of the SSH Key.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Public key of the SSH key pair.
+	// Public key of the SSH Key pair.
 	PublicKey pulumi.StringInput `pulumi:"publicKey"`
 }
 
@@ -5344,12 +5443,12 @@ func (o GetSshKeysSshKeyOutput) ToGetSshKeysSshKeyOutputWithContext(ctx context.
 	return o
 }
 
-// Fingerprint of the SSH key.
+// Fingerprint of the SSH Key.
 func (o GetSshKeysSshKeyOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) string { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// ID of the SSH key.
+// ID of the SSH Key.
 func (o GetSshKeysSshKeyOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -5359,12 +5458,12 @@ func (o GetSshKeysSshKeyOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// Name of the SSH key.
+// Name of the SSH Key.
 func (o GetSshKeysSshKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Public key of the SSH key pair.
+// Public key of the SSH Key pair.
 func (o GetSshKeysSshKeyOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
 }

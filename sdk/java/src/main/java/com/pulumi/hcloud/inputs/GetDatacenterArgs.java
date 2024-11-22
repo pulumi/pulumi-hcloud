@@ -17,14 +17,14 @@ public final class GetDatacenterArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDatacenterArgs Empty = new GetDatacenterArgs();
 
     /**
-     * ID of the datacenter.
+     * ID of the Datacenter.
      * 
      */
     @Import(name="id")
     private @Nullable Output<Integer> id;
 
     /**
-     * @return ID of the datacenter.
+     * @return ID of the Datacenter.
      * 
      */
     public Optional<Output<Integer>> id() {
@@ -32,14 +32,14 @@ public final class GetDatacenterArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the datacenter.
+     * Name of the Datacenter.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the datacenter.
+     * @return Name of the Datacenter.
      * 
      */
     public Optional<Output<String>> name() {
@@ -72,7 +72,7 @@ public final class GetDatacenterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id ID of the datacenter.
+         * @param id ID of the Datacenter.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetDatacenterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id ID of the datacenter.
+         * @param id ID of the Datacenter.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetDatacenterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the datacenter.
+         * @param name Name of the Datacenter.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetDatacenterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the datacenter.
+         * @param name Name of the Datacenter.
          * 
          * @return builder
          * 

@@ -9,88 +9,74 @@ import com.pulumi.hcloud.outputs.GetLocationsLocation;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocationsResult {
     /**
-     * @return (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-     * 
      * @deprecated
      * Use locations list instead
      * 
      */
     @Deprecated /* Use locations list instead */
-    private @Nullable List<String> descriptions;
-    private @Nullable String id;
+    private List<String> descriptions;
     /**
-     * @return (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
+     * @return The ID of this resource.
      * 
+     */
+    private String id;
+    /**
      * @deprecated
      * Use locations list instead
      * 
      */
     @Deprecated /* Use locations list instead */
-    private @Nullable List<String> locationIds;
-    /**
-     * @return (list) List of all locations. See `data.hcloud_location` for schema.
-     * 
-     */
+    private List<String> locationIds;
     private List<GetLocationsLocation> locations;
     /**
-     * @return (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-     * 
      * @deprecated
      * Use locations list instead
      * 
      */
     @Deprecated /* Use locations list instead */
-    private @Nullable List<String> names;
+    private List<String> names;
 
     private GetLocationsResult() {}
     /**
-     * @return (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-     * 
      * @deprecated
      * Use locations list instead
      * 
      */
     @Deprecated /* Use locations list instead */
     public List<String> descriptions() {
-        return this.descriptions == null ? List.of() : this.descriptions;
-    }
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+        return this.descriptions;
     }
     /**
-     * @return (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
+     * @return The ID of this resource.
      * 
+     */
+    public String id() {
+        return this.id;
+    }
+    /**
      * @deprecated
      * Use locations list instead
      * 
      */
     @Deprecated /* Use locations list instead */
     public List<String> locationIds() {
-        return this.locationIds == null ? List.of() : this.locationIds;
+        return this.locationIds;
     }
-    /**
-     * @return (list) List of all locations. See `data.hcloud_location` for schema.
-     * 
-     */
     public List<GetLocationsLocation> locations() {
         return this.locations;
     }
     /**
-     * @return (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-     * 
      * @deprecated
      * Use locations list instead
      * 
      */
     @Deprecated /* Use locations list instead */
     public List<String> names() {
-        return this.names == null ? List.of() : this.names;
+        return this.names;
     }
 
     public static Builder builder() {
@@ -102,11 +88,11 @@ public final class GetLocationsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<String> descriptions;
-        private @Nullable String id;
-        private @Nullable List<String> locationIds;
+        private List<String> descriptions;
+        private String id;
+        private List<String> locationIds;
         private List<GetLocationsLocation> locations;
-        private @Nullable List<String> names;
+        private List<String> names;
         public Builder() {}
         public Builder(GetLocationsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -118,8 +104,10 @@ public final class GetLocationsResult {
         }
 
         @CustomType.Setter
-        public Builder descriptions(@Nullable List<String> descriptions) {
-
+        public Builder descriptions(List<String> descriptions) {
+            if (descriptions == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "descriptions");
+            }
             this.descriptions = descriptions;
             return this;
         }
@@ -127,14 +115,18 @@ public final class GetLocationsResult {
             return descriptions(List.of(descriptions));
         }
         @CustomType.Setter
-        public Builder id(@Nullable String id) {
-
+        public Builder id(String id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "id");
+            }
             this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder locationIds(@Nullable List<String> locationIds) {
-
+        public Builder locationIds(List<String> locationIds) {
+            if (locationIds == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "locationIds");
+            }
             this.locationIds = locationIds;
             return this;
         }
@@ -153,8 +145,10 @@ public final class GetLocationsResult {
             return locations(List.of(locations));
         }
         @CustomType.Setter
-        public Builder names(@Nullable List<String> names) {
-
+        public Builder names(List<String> names) {
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "names");
+            }
             this.names = names;
             return this;
         }

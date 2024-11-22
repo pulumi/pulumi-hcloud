@@ -87,15 +87,15 @@ import javax.annotation.Nullable;
  * - `ip`: ip address, for example: `203.0.113.123`
  * 
  * ```sh
- * $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerservertarget 123__server__321
+ * $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget server &#34;${LOAD_BALANCER_ID}__server__${SERVER_ID}&#34;
  * ```
  * 
  * ```sh
- * $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalancerlabeltarget 123__label_selector__foo=bar
+ * $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget label &#34;${LOAD_BALANCER_ID}__label_selector__${LABEL_SELECTOR}&#34;
  * ```
  * 
  * ```sh
- * $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget myloadbalanceriptarget 123__ip__203.0.113.123
+ * $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget ip &#34;${LOAD_BALANCER_ID}__ip__${IP}&#34;
  * ```
  * 
  */

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
+// Provides a Hetzner Cloud SSH Key resource to manage SSH Keys for server access.
 //
 // ## Example Usage
 //
@@ -30,14 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//				Input: "~/.ssh/id_ed25519.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			// Create a new SSH key
-//			_, err = hcloud.NewSshKey(ctx, "default", &hcloud.SshKeyArgs{
-//				Name:      pulumi.String("Terraform Example"),
+//			_, err = hcloud.NewSshKey(ctx, "main", &hcloud.SshKeyArgs{
+//				Name:      pulumi.String("my-ssh-key"),
 //				PublicKey: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
@@ -51,21 +50,19 @@ import (
 //
 // ## Import
 //
-// SSH keys can be imported using the SSH key `id`:
-//
 // ```sh
-// $ pulumi import hcloud:index/sshKey:SshKey mykey id
+// $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
 // ```
 type SshKey struct {
 	pulumi.CustomResourceState
 
-	// (string) The fingerprint of the SSH key
+	// Fingerprint of the SSH public key.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// User-defined labels (key-value pairs) should be created with.
+	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
-	// Name of the SSH key.
+	// Name of the SSH Key.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The public key. If this is a file, it can be read using the file interpolation function
+	// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 }
 
@@ -102,24 +99,24 @@ func GetSshKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SshKey resources.
 type sshKeyState struct {
-	// (string) The fingerprint of the SSH key
+	// Fingerprint of the SSH public key.
 	Fingerprint *string `pulumi:"fingerprint"`
-	// User-defined labels (key-value pairs) should be created with.
+	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
-	// Name of the SSH key.
+	// Name of the SSH Key.
 	Name *string `pulumi:"name"`
-	// The public key. If this is a file, it can be read using the file interpolation function
+	// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
 	PublicKey *string `pulumi:"publicKey"`
 }
 
 type SshKeyState struct {
-	// (string) The fingerprint of the SSH key
+	// Fingerprint of the SSH public key.
 	Fingerprint pulumi.StringPtrInput
-	// User-defined labels (key-value pairs) should be created with.
+	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
-	// Name of the SSH key.
+	// Name of the SSH Key.
 	Name pulumi.StringPtrInput
-	// The public key. If this is a file, it can be read using the file interpolation function
+	// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
 	PublicKey pulumi.StringPtrInput
 }
 
@@ -128,21 +125,21 @@ func (SshKeyState) ElementType() reflect.Type {
 }
 
 type sshKeyArgs struct {
-	// User-defined labels (key-value pairs) should be created with.
+	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
-	// Name of the SSH key.
+	// Name of the SSH Key.
 	Name *string `pulumi:"name"`
-	// The public key. If this is a file, it can be read using the file interpolation function
+	// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
 	PublicKey string `pulumi:"publicKey"`
 }
 
 // The set of arguments for constructing a SshKey resource.
 type SshKeyArgs struct {
-	// User-defined labels (key-value pairs) should be created with.
+	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
-	// Name of the SSH key.
+	// Name of the SSH Key.
 	Name pulumi.StringPtrInput
-	// The public key. If this is a file, it can be read using the file interpolation function
+	// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
 	PublicKey pulumi.StringInput
 }
 
@@ -233,22 +230,22 @@ func (o SshKeyOutput) ToSshKeyOutputWithContext(ctx context.Context) SshKeyOutpu
 	return o
 }
 
-// (string) The fingerprint of the SSH key
+// Fingerprint of the SSH public key.
 func (o SshKeyOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// User-defined labels (key-value pairs) should be created with.
+// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
 func (o SshKeyOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// Name of the SSH key.
+// Name of the SSH Key.
 func (o SshKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The public key. If this is a file, it can be read using the file interpolation function
+// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
 func (o SshKeyOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }

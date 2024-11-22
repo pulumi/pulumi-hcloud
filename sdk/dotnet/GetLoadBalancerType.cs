@@ -13,7 +13,8 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Load Balancer Type.
-        /// Use this resource to get detailed information about specific Load Balancer Type.
+        /// 
+        /// Use this resource to get detailed information about a specific Load Balancer Type.
         /// 
         /// ## Example Usage
         /// 
@@ -25,21 +26,21 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byName = HCloud.GetLoadBalancerType.Invoke(new()
-        ///     {
-        ///         Name = "cx22",
-        ///     });
-        /// 
         ///     var byId = HCloud.GetLoadBalancerType.Invoke(new()
         ///     {
         ///         Id = 1,
         ///     });
         /// 
-        ///     var loadBalancer = new HCloud.LoadBalancer("load_balancer", new()
+        ///     var byName = HCloud.GetLoadBalancerType.Invoke(new()
+        ///     {
+        ///         Name = "lb11",
+        ///     });
+        /// 
+        ///     var main = new HCloud.LoadBalancer("main", new()
         ///     {
         ///         Name = "my-load-balancer",
         ///         LoadBalancerType = name,
-        ///         Location = "nbg1",
+        ///         Location = "fsn1",
         ///     });
         /// 
         /// });
@@ -50,7 +51,8 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Load Balancer Type.
-        /// Use this resource to get detailed information about specific Load Balancer Type.
+        /// 
+        /// Use this resource to get detailed information about a specific Load Balancer Type.
         /// 
         /// ## Example Usage
         /// 
@@ -62,21 +64,21 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byName = HCloud.GetLoadBalancerType.Invoke(new()
-        ///     {
-        ///         Name = "cx22",
-        ///     });
-        /// 
         ///     var byId = HCloud.GetLoadBalancerType.Invoke(new()
         ///     {
         ///         Id = 1,
         ///     });
         /// 
-        ///     var loadBalancer = new HCloud.LoadBalancer("load_balancer", new()
+        ///     var byName = HCloud.GetLoadBalancerType.Invoke(new()
+        ///     {
+        ///         Name = "lb11",
+        ///     });
+        /// 
+        ///     var main = new HCloud.LoadBalancer("main", new()
         ///     {
         ///         Name = "my-load-balancer",
         ///         LoadBalancerType = name,
-        ///         Location = "nbg1",
+        ///         Location = "fsn1",
         ///     });
         /// 
         /// });
@@ -90,13 +92,13 @@ namespace Pulumi.HCloud
     public sealed class GetLoadBalancerTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the load_balancer_type.
+        /// ID of the Load Balancer Type.
         /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
         /// <summary>
-        /// Name of the load_balancer_type.
+        /// Name of the Load Balancer Type.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -110,13 +112,13 @@ namespace Pulumi.HCloud
     public sealed class GetLoadBalancerTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the load_balancer_type.
+        /// ID of the Load Balancer Type.
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 
         /// <summary>
-        /// Name of the load_balancer_type.
+        /// Name of the Load Balancer Type.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -132,31 +134,31 @@ namespace Pulumi.HCloud
     public sealed class GetLoadBalancerTypeResult
     {
         /// <summary>
-        /// (string) Description of the load_balancer_type.
+        /// Description of the Load Balancer Type.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (int) Unique ID of the load_balancer_type.
+        /// ID of the Load Balancer Type.
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// (int) Maximum number of SSL Certificates that can be assigned to the Load Balancer of this type.
+        /// Maximum number of certificates that can be assigned for the Load Balancer of this type.
         /// </summary>
         public readonly int MaxAssignedCertificates;
         /// <summary>
-        /// (int) Maximum number of simultaneous open connections for the Load Balancer of this type.
+        /// Maximum number of simultaneous open connections for the Load Balancer of this type.
         /// </summary>
         public readonly int MaxConnections;
         /// <summary>
-        /// (int) Maximum number of services for the Load Balancer of this type.
+        /// Maximum number of services for the Load Balancer of this type.
         /// </summary>
         public readonly int MaxServices;
         /// <summary>
-        /// (int) Maximum number of targets for the Load Balancer of this type.
+        /// Maximum number of targets for the Load Balancer of this type.
         /// </summary>
         public readonly int MaxTargets;
         /// <summary>
-        /// (string) Name of the load_balancer_type.
+        /// Name of the Load Balancer Type.
         /// </summary>
         public readonly string Name;
 

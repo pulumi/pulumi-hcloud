@@ -14,8 +14,6 @@ import com.pulumi.hcloud.inputs.GetCertificatesArgs;
 import com.pulumi.hcloud.inputs.GetCertificatesPlainArgs;
 import com.pulumi.hcloud.inputs.GetDatacenterArgs;
 import com.pulumi.hcloud.inputs.GetDatacenterPlainArgs;
-import com.pulumi.hcloud.inputs.GetDatacentersArgs;
-import com.pulumi.hcloud.inputs.GetDatacentersPlainArgs;
 import com.pulumi.hcloud.inputs.GetFirewallArgs;
 import com.pulumi.hcloud.inputs.GetFirewallPlainArgs;
 import com.pulumi.hcloud.inputs.GetFirewallsArgs;
@@ -36,8 +34,6 @@ import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
 import com.pulumi.hcloud.inputs.GetLoadBalancersPlainArgs;
 import com.pulumi.hcloud.inputs.GetLocationArgs;
 import com.pulumi.hcloud.inputs.GetLocationPlainArgs;
-import com.pulumi.hcloud.inputs.GetLocationsArgs;
-import com.pulumi.hcloud.inputs.GetLocationsPlainArgs;
 import com.pulumi.hcloud.inputs.GetNetworkArgs;
 import com.pulumi.hcloud.inputs.GetNetworkPlainArgs;
 import com.pulumi.hcloud.inputs.GetNetworksArgs;
@@ -54,8 +50,6 @@ import com.pulumi.hcloud.inputs.GetServerArgs;
 import com.pulumi.hcloud.inputs.GetServerPlainArgs;
 import com.pulumi.hcloud.inputs.GetServerTypeArgs;
 import com.pulumi.hcloud.inputs.GetServerTypePlainArgs;
-import com.pulumi.hcloud.inputs.GetServerTypesArgs;
-import com.pulumi.hcloud.inputs.GetServerTypesPlainArgs;
 import com.pulumi.hcloud.inputs.GetServersArgs;
 import com.pulumi.hcloud.inputs.GetServersPlainArgs;
 import com.pulumi.hcloud.inputs.GetSshKeyArgs;
@@ -618,7 +612,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Datacenter.
-     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * Use this resource to get detailed information about a specific Datacenter.
      * 
      * ## Example Usage
      * 
@@ -645,12 +640,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name("fsn1-dc8")
+     *         final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .id(4)
+     *         final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name("fsn1-dc14")
      *             .build());
      * 
      *     }
@@ -665,7 +660,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Datacenter.
-     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * Use this resource to get detailed information about a specific Datacenter.
      * 
      * ## Example Usage
      * 
@@ -692,12 +688,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name("fsn1-dc8")
+     *         final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .id(4)
+     *         final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name("fsn1-dc14")
      *             .build());
      * 
      *     }
@@ -712,7 +708,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Datacenter.
-     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * Use this resource to get detailed information about a specific Datacenter.
      * 
      * ## Example Usage
      * 
@@ -739,12 +736,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name("fsn1-dc8")
+     *         final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .id(4)
+     *         final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name("fsn1-dc14")
      *             .build());
      * 
      *     }
@@ -759,7 +756,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Datacenter.
-     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * Use this resource to get detailed information about a specific Datacenter.
      * 
      * ## Example Usage
      * 
@@ -786,12 +784,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name("fsn1-dc8")
+     *         final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .id(4)
+     *         final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name("fsn1-dc14")
      *             .build());
      * 
      *     }
@@ -806,7 +804,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Datacenter.
-     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * Use this resource to get detailed information about a specific Datacenter.
      * 
      * ## Example Usage
      * 
@@ -833,12 +832,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name("fsn1-dc8")
+     *         final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .id(4)
+     *         final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name("fsn1-dc14")
      *             .build());
      * 
      *     }
@@ -853,7 +852,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Datacenter.
-     * Use this resource to get detailed information about specific datacenter.
+     * 
+     * Use this resource to get detailed information about a specific Datacenter.
      * 
      * ## Example Usage
      * 
@@ -880,12 +880,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .name("fsn1-dc8")
+     *         final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
-     *             .id(4)
+     *         final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name("fsn1-dc14")
      *             .build());
      * 
      *     }
@@ -900,50 +900,56 @@ public final class HcloudFunctions {
     }
     /**
      * Provides a list of available Hetzner Cloud Datacenters.
-     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
      */
     public static Output<GetDatacentersResult> getDatacenters() {
-        return getDatacenters(GetDatacentersArgs.Empty, InvokeOptions.Empty);
+        return getDatacenters(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Datacenters.
-     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
      */
     public static CompletableFuture<GetDatacentersResult> getDatacentersPlain() {
-        return getDatacentersPlain(GetDatacentersPlainArgs.Empty, InvokeOptions.Empty);
+        return getDatacentersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Datacenters.
-     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
      */
-    public static Output<GetDatacentersResult> getDatacenters(GetDatacentersArgs args) {
+    public static Output<GetDatacentersResult> getDatacenters(InvokeArgs args) {
         return getDatacenters(args, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Datacenters.
-     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
      */
-    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(GetDatacentersPlainArgs args) {
+    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(InvokeArgs args) {
         return getDatacentersPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Datacenters.
-     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
      */
-    public static Output<GetDatacentersResult> getDatacenters(GetDatacentersArgs args, InvokeOptions options) {
+    public static Output<GetDatacentersResult> getDatacenters(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides a list of available Hetzner Cloud Datacenters.
-     * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+     * 
+     * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
      */
-    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(GetDatacentersPlainArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3018,7 +3024,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Load Balancer Type.
-     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * Use this resource to get detailed information about a specific Load Balancer Type.
      * 
      * ## Example Usage
      * 
@@ -3047,18 +3054,18 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
-     *             .name("cx22")
-     *             .build());
-     * 
      *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
      *             .id(1)
      *             .build());
      * 
-     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("lb11")
+     *             .build());
+     * 
+     *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
      *             .name("my-load-balancer")
      *             .loadBalancerType(name)
-     *             .location("nbg1")
+     *             .location("fsn1")
      *             .build());
      * 
      *     }
@@ -3073,7 +3080,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Load Balancer Type.
-     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * Use this resource to get detailed information about a specific Load Balancer Type.
      * 
      * ## Example Usage
      * 
@@ -3102,18 +3110,18 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
-     *             .name("cx22")
-     *             .build());
-     * 
      *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
      *             .id(1)
      *             .build());
      * 
-     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("lb11")
+     *             .build());
+     * 
+     *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
      *             .name("my-load-balancer")
      *             .loadBalancerType(name)
-     *             .location("nbg1")
+     *             .location("fsn1")
      *             .build());
      * 
      *     }
@@ -3128,7 +3136,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Load Balancer Type.
-     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * Use this resource to get detailed information about a specific Load Balancer Type.
      * 
      * ## Example Usage
      * 
@@ -3157,18 +3166,18 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
-     *             .name("cx22")
-     *             .build());
-     * 
      *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
      *             .id(1)
      *             .build());
      * 
-     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("lb11")
+     *             .build());
+     * 
+     *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
      *             .name("my-load-balancer")
      *             .loadBalancerType(name)
-     *             .location("nbg1")
+     *             .location("fsn1")
      *             .build());
      * 
      *     }
@@ -3183,7 +3192,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Load Balancer Type.
-     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * Use this resource to get detailed information about a specific Load Balancer Type.
      * 
      * ## Example Usage
      * 
@@ -3212,18 +3222,18 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
-     *             .name("cx22")
-     *             .build());
-     * 
      *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
      *             .id(1)
      *             .build());
      * 
-     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("lb11")
+     *             .build());
+     * 
+     *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
      *             .name("my-load-balancer")
      *             .loadBalancerType(name)
-     *             .location("nbg1")
+     *             .location("fsn1")
      *             .build());
      * 
      *     }
@@ -3238,7 +3248,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Load Balancer Type.
-     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * Use this resource to get detailed information about a specific Load Balancer Type.
      * 
      * ## Example Usage
      * 
@@ -3267,18 +3278,18 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
-     *             .name("cx22")
-     *             .build());
-     * 
      *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
      *             .id(1)
      *             .build());
      * 
-     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("lb11")
+     *             .build());
+     * 
+     *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
      *             .name("my-load-balancer")
      *             .loadBalancerType(name)
-     *             .location("nbg1")
+     *             .location("fsn1")
      *             .build());
      * 
      *     }
@@ -3293,7 +3304,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Load Balancer Type.
-     * Use this resource to get detailed information about specific Load Balancer Type.
+     * 
+     * Use this resource to get detailed information about a specific Load Balancer Type.
      * 
      * ## Example Usage
      * 
@@ -3322,18 +3334,18 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
-     *             .name("cx22")
-     *             .build());
-     * 
      *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
      *             .id(1)
      *             .build());
      * 
-     *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("lb11")
+     *             .build());
+     * 
+     *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
      *             .name("my-load-balancer")
      *             .loadBalancerType(name)
-     *             .location("nbg1")
+     *             .location("fsn1")
      *             .build());
      * 
      *     }
@@ -3846,7 +3858,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Location.
-     * Use this resource to get detailed information about specific location.
+     * 
+     * Use this resource to get detailed information about a specific Location.
      * 
      * ## Example Usage
      * 
@@ -3873,12 +3886,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name("fsn1")
+     *         final var byId = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
      *             .build());
      * 
-     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .id(1)
+     *         final var byName = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name("fsn1")
      *             .build());
      * 
      *     }
@@ -3893,7 +3906,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Location.
-     * Use this resource to get detailed information about specific location.
+     * 
+     * Use this resource to get detailed information about a specific Location.
      * 
      * ## Example Usage
      * 
@@ -3920,12 +3934,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name("fsn1")
+     *         final var byId = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
      *             .build());
      * 
-     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .id(1)
+     *         final var byName = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name("fsn1")
      *             .build());
      * 
      *     }
@@ -3940,7 +3954,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Location.
-     * Use this resource to get detailed information about specific location.
+     * 
+     * Use this resource to get detailed information about a specific Location.
      * 
      * ## Example Usage
      * 
@@ -3967,12 +3982,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name("fsn1")
+     *         final var byId = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
      *             .build());
      * 
-     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .id(1)
+     *         final var byName = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name("fsn1")
      *             .build());
      * 
      *     }
@@ -3987,7 +4002,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Location.
-     * Use this resource to get detailed information about specific location.
+     * 
+     * Use this resource to get detailed information about a specific Location.
      * 
      * ## Example Usage
      * 
@@ -4014,12 +4030,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name("fsn1")
+     *         final var byId = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
      *             .build());
      * 
-     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .id(1)
+     *         final var byName = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name("fsn1")
      *             .build());
      * 
      *     }
@@ -4034,7 +4050,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Location.
-     * Use this resource to get detailed information about specific location.
+     * 
+     * Use this resource to get detailed information about a specific Location.
      * 
      * ## Example Usage
      * 
@@ -4061,12 +4078,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name("fsn1")
+     *         final var byId = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
      *             .build());
      * 
-     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .id(1)
+     *         final var byName = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name("fsn1")
      *             .build());
      * 
      *     }
@@ -4081,7 +4098,8 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Location.
-     * Use this resource to get detailed information about specific location.
+     * 
+     * Use this resource to get detailed information about a specific Location.
      * 
      * ## Example Usage
      * 
@@ -4108,12 +4126,12 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var l1 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .name("fsn1")
+     *         final var byId = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
      *             .build());
      * 
-     *         final var l2 = HcloudFunctions.getLocation(GetLocationArgs.builder()
-     *             .id(1)
+     *         final var byName = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name("fsn1")
      *             .build());
      * 
      *     }
@@ -4128,50 +4146,56 @@ public final class HcloudFunctions {
     }
     /**
      * Provides a list of available Hetzner Cloud Locations.
+     * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
      */
     public static Output<GetLocationsResult> getLocations() {
-        return getLocations(GetLocationsArgs.Empty, InvokeOptions.Empty);
+        return getLocations(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Locations.
+     * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain() {
-        return getLocationsPlain(GetLocationsPlainArgs.Empty, InvokeOptions.Empty);
+        return getLocationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Locations.
+     * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
      */
-    public static Output<GetLocationsResult> getLocations(GetLocationsArgs args) {
+    public static Output<GetLocationsResult> getLocations(InvokeArgs args) {
         return getLocations(args, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Locations.
+     * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
      */
-    public static CompletableFuture<GetLocationsResult> getLocationsPlain(GetLocationsPlainArgs args) {
+    public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args) {
         return getLocationsPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Locations.
+     * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
      */
-    public static Output<GetLocationsResult> getLocations(GetLocationsArgs args, InvokeOptions options) {
+    public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides a list of available Hetzner Cloud Locations.
+     * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
      */
-    public static CompletableFuture<GetLocationsResult> getLocationsPlain(GetLocationsPlainArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6270,6 +6294,7 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Server Type.
+     * 
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
@@ -6284,6 +6309,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6297,12 +6324,19 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *         final var byId = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *             .id(22)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
      *             .name("cx22")
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .id(1)
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .name("my-server")
+     *             .location("fsn1")
+     *             .image("debian-12")
+     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
      *             .build());
      * 
      *     }
@@ -6317,6 +6351,7 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Server Type.
+     * 
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
@@ -6331,6 +6366,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6344,12 +6381,19 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *         final var byId = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *             .id(22)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
      *             .name("cx22")
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .id(1)
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .name("my-server")
+     *             .location("fsn1")
+     *             .image("debian-12")
+     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
      *             .build());
      * 
      *     }
@@ -6364,6 +6408,7 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Server Type.
+     * 
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
@@ -6378,6 +6423,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6391,12 +6438,19 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *         final var byId = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *             .id(22)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
      *             .name("cx22")
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .id(1)
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .name("my-server")
+     *             .location("fsn1")
+     *             .image("debian-12")
+     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
      *             .build());
      * 
      *     }
@@ -6411,6 +6465,7 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Server Type.
+     * 
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
@@ -6425,6 +6480,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6438,12 +6495,19 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *         final var byId = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *             .id(22)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
      *             .name("cx22")
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .id(1)
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .name("my-server")
+     *             .location("fsn1")
+     *             .image("debian-12")
+     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
      *             .build());
      * 
      *     }
@@ -6458,6 +6522,7 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Server Type.
+     * 
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
@@ -6472,6 +6537,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6485,12 +6552,19 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *         final var byId = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *             .id(22)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
      *             .name("cx22")
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .id(1)
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .name("my-server")
+     *             .location("fsn1")
+     *             .image("debian-12")
+     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
      *             .build());
      * 
      *     }
@@ -6505,6 +6579,7 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a specific Hetzner Cloud Server Type.
+     * 
      * Use this resource to get detailed information about specific Server Type.
      * 
      * ## Example Usage
@@ -6519,6 +6594,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6532,12 +6609,19 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ds1 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *         final var byId = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *             .id(22)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
      *             .name("cx22")
      *             .build());
      * 
-     *         final var ds2 = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .id(1)
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .name("my-server")
+     *             .location("fsn1")
+     *             .image("debian-12")
+     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
      *             .build());
      * 
      *     }
@@ -6553,43 +6637,235 @@ public final class HcloudFunctions {
     /**
      * Provides a list of available Hetzner Cloud Server Types.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getServerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetServerTypesResult> getServerTypes() {
-        return getServerTypes(GetServerTypesArgs.Empty, InvokeOptions.Empty);
+        return getServerTypes(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Server Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getServerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerTypesResult> getServerTypesPlain() {
-        return getServerTypesPlain(GetServerTypesPlainArgs.Empty, InvokeOptions.Empty);
+        return getServerTypesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Server Types.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getServerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static Output<GetServerTypesResult> getServerTypes(GetServerTypesArgs args) {
+    public static Output<GetServerTypesResult> getServerTypes(InvokeArgs args) {
         return getServerTypes(args, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Server Types.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getServerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static CompletableFuture<GetServerTypesResult> getServerTypesPlain(GetServerTypesPlainArgs args) {
+    public static CompletableFuture<GetServerTypesResult> getServerTypesPlain(InvokeArgs args) {
         return getServerTypesPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides a list of available Hetzner Cloud Server Types.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getServerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static Output<GetServerTypesResult> getServerTypes(GetServerTypesArgs args, InvokeOptions options) {
+    public static Output<GetServerTypesResult> getServerTypes(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getServerTypes:getServerTypes", TypeShape.of(GetServerTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides a list of available Hetzner Cloud Server Types.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getServerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static CompletableFuture<GetServerTypesResult> getServerTypesPlain(GetServerTypesPlainArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetServerTypesResult> getServerTypesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getServerTypes:getServerTypes", TypeShape.of(GetServerTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6860,27 +7136,27 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id("1234")
+     *         final var byId = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .id(24332897)
      *             .build());
      * 
-     *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byName = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .name("my-ssh-key")
      *             .build());
      * 
-     *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
+     *         final var byFingerprint = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .fingerprint("55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
      *             .build());
      * 
-     *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
@@ -6921,27 +7197,27 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id("1234")
+     *         final var byId = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .id(24332897)
      *             .build());
      * 
-     *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byName = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .name("my-ssh-key")
      *             .build());
      * 
-     *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
+     *         final var byFingerprint = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .fingerprint("55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
      *             .build());
      * 
-     *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
@@ -6982,27 +7258,27 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id("1234")
+     *         final var byId = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .id(24332897)
      *             .build());
      * 
-     *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byName = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .name("my-ssh-key")
      *             .build());
      * 
-     *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
+     *         final var byFingerprint = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .fingerprint("55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
      *             .build());
      * 
-     *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
@@ -7043,27 +7319,27 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id("1234")
+     *         final var byId = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .id(24332897)
      *             .build());
      * 
-     *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byName = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .name("my-ssh-key")
      *             .build());
      * 
-     *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
+     *         final var byFingerprint = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .fingerprint("55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
      *             .build());
      * 
-     *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
@@ -7104,27 +7380,27 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id("1234")
+     *         final var byId = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .id(24332897)
      *             .build());
      * 
-     *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byName = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .name("my-ssh-key")
      *             .build());
      * 
-     *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
+     *         final var byFingerprint = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .fingerprint("55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
      *             .build());
      * 
-     *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
@@ -7165,27 +7441,27 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sshKey1 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .id("1234")
+     *         final var byId = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .id(24332897)
      *             .build());
      * 
-     *         final var sshKey2 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byName = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .name("my-ssh-key")
      *             .build());
      * 
-     *         final var sshKey3 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
-     *             .fingerprint("43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
+     *         final var byFingerprint = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .fingerprint("55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
      *             .build());
      * 
-     *         final var sshKey4 = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 sshKey1.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey2.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 sshKey3.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
      *             .build());
      * 
      *     }
@@ -7226,14 +7502,14 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allKeys = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys();
      * 
-     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -7274,14 +7550,14 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allKeys = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys();
      * 
-     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -7322,14 +7598,14 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allKeys = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys();
      * 
-     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -7370,14 +7646,14 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allKeys = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys();
      * 
-     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -7418,14 +7694,14 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allKeys = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys();
      * 
-     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -7466,14 +7742,14 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allKeys = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys();
      * 
-     *         final var keysBySelector = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(allKeys.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }

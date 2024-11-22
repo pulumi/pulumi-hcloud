@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * Placement Groups can be imported using its `id`:
  * 
  * ```sh
- * $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group id
+ * $ pulumi import hcloud:index/placementGroup:PlacementGroup example &#34;$PLACEMENT_GROUP_ID&#34;
  * ```
  * 
  */

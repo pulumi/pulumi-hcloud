@@ -955,7 +955,7 @@ class Server(pulumi.CustomResource):
         Servers can be imported using the server `id`:
 
         ```sh
-        $ pulumi import hcloud:index/server:Server myserver id
+        $ pulumi import hcloud:index/server:Server example "$SERVER_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -1103,7 +1103,7 @@ class Server(pulumi.CustomResource):
         Servers can be imported using the server `id`:
 
         ```sh
-        $ pulumi import hcloud:index/server:Server myserver id
+        $ pulumi import hcloud:index/server:Server example "$SERVER_ID"
         ```
 
         :param str resource_name: The name of the resource.

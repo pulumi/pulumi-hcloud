@@ -50,7 +50,7 @@ class GetDatacenterResult:
     @pulumi.getter(name="availableServerTypeIds")
     def available_server_type_ids(self) -> Sequence[int]:
         """
-        (list) List of available server types.
+        List of currently available Server Types in the Datacenter.
         """
         return pulumi.get(self, "available_server_type_ids")
 
@@ -58,15 +58,15 @@ class GetDatacenterResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        (string) Description of the datacenter.
+        Description of the Datacenter.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def id(self) -> int:
+    def id(self) -> Optional[int]:
         """
-        (int) Unique ID of the datacenter.
+        ID of the Datacenter.
         """
         return pulumi.get(self, "id")
 
@@ -74,15 +74,15 @@ class GetDatacenterResult:
     @pulumi.getter
     def location(self) -> Mapping[str, str]:
         """
-        (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        (string) Name of the datacenter.
+        Name of the Datacenter.
         """
         return pulumi.get(self, "name")
 
@@ -90,7 +90,7 @@ class GetDatacenterResult:
     @pulumi.getter(name="supportedServerTypeIds")
     def supported_server_type_ids(self) -> Sequence[int]:
         """
-        (list) List of server types supported by the datacenter.
+        List of supported Server Types in the Datacenter.
         """
         return pulumi.get(self, "supported_server_type_ids")
 
@@ -114,7 +114,8 @@ def get_datacenter(id: Optional[int] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatacenterResult:
     """
     Provides details about a specific Hetzner Cloud Datacenter.
-    Use this resource to get detailed information about specific datacenter.
+
+    Use this resource to get detailed information about a specific Datacenter.
 
     ## Example Usage
 
@@ -122,13 +123,13 @@ def get_datacenter(id: Optional[int] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    ds1 = hcloud.get_datacenter(name="fsn1-dc8")
-    ds2 = hcloud.get_datacenter(id=4)
+    by_id = hcloud.get_datacenter(id=4)
+    by_name = hcloud.get_datacenter(name="fsn1-dc14")
     ```
 
 
-    :param int id: ID of the datacenter.
-    :param str name: Name of the datacenter.
+    :param int id: ID of the Datacenter.
+    :param str name: Name of the Datacenter.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -148,7 +149,8 @@ def get_datacenter_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatacenterResult]:
     """
     Provides details about a specific Hetzner Cloud Datacenter.
-    Use this resource to get detailed information about specific datacenter.
+
+    Use this resource to get detailed information about a specific Datacenter.
 
     ## Example Usage
 
@@ -156,13 +158,13 @@ def get_datacenter_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    ds1 = hcloud.get_datacenter(name="fsn1-dc8")
-    ds2 = hcloud.get_datacenter(id=4)
+    by_id = hcloud.get_datacenter(id=4)
+    by_name = hcloud.get_datacenter(name="fsn1-dc14")
     ```
 
 
-    :param int id: ID of the datacenter.
-    :param str name: Name of the datacenter.
+    :param int id: ID of the Datacenter.
+    :param str name: Name of the Datacenter.
     """
     __args__ = dict()
     __args__['id'] = id

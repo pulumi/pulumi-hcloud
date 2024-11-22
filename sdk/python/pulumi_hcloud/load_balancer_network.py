@@ -289,7 +289,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         `<load-balancer-id>-<network-id>`
 
         ```sh
-        $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+        $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork example "$LOAD_BALANCER_ID-$NETWORK_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -354,7 +354,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         `<load-balancer-id>-<network-id>`
 
         ```sh
-        $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+        $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork example "$LOAD_BALANCER_ID-$NETWORK_ID"
         ```
 
         :param str resource_name: The name of the resource.

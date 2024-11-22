@@ -18,14 +18,14 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
     public static final SshKeyArgs Empty = new SshKeyArgs();
 
     /**
-     * User-defined labels (key-value pairs) should be created with.
+     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
      * 
      */
     @Import(name="labels")
     private @Nullable Output<Map<String,String>> labels;
 
     /**
-     * @return User-defined labels (key-value pairs) should be created with.
+     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> labels() {
@@ -33,14 +33,14 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the SSH key.
+     * Name of the SSH Key.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the SSH key.
+     * @return Name of the SSH Key.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The public key. If this is a file, it can be read using the file interpolation function
+     * Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
      * 
      */
     @Import(name="publicKey", required=true)
     private Output<String> publicKey;
 
     /**
-     * @return The public key. If this is a file, it can be read using the file interpolation function
+     * @return Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
      * 
      */
     public Output<String> publicKey() {
@@ -89,7 +89,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels User-defined labels (key-value pairs) should be created with.
+         * @param labels User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels User-defined labels (key-value pairs) should be created with.
+         * @param labels User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the SSH key.
+         * @param name Name of the SSH Key.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the SSH key.
+         * @param name Name of the SSH Key.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey The public key. If this is a file, it can be read using the file interpolation function
+         * @param publicKey Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey The public key. If this is a file, it can be read using the file interpolation function
+         * @param publicKey Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
          * 
          * @return builder
          * 

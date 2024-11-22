@@ -13,29 +13,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDatacentersDatacenter {
+    /**
+     * @return List of currently available Server Types in the Datacenter.
+     * 
+     */
     private List<Integer> availableServerTypeIds;
+    /**
+     * @return Description of the Datacenter.
+     * 
+     */
     private String description;
+    /**
+     * @return ID of the Datacenter.
+     * 
+     */
     private Integer id;
+    /**
+     * @return Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * 
+     */
     private Map<String,String> location;
+    /**
+     * @return Name of the Datacenter.
+     * 
+     */
     private String name;
+    /**
+     * @return List of supported Server Types in the Datacenter.
+     * 
+     */
     private List<Integer> supportedServerTypeIds;
 
     private GetDatacentersDatacenter() {}
+    /**
+     * @return List of currently available Server Types in the Datacenter.
+     * 
+     */
     public List<Integer> availableServerTypeIds() {
         return this.availableServerTypeIds;
     }
+    /**
+     * @return Description of the Datacenter.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return ID of the Datacenter.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * 
+     */
     public Map<String,String> location() {
         return this.location;
     }
+    /**
+     * @return Name of the Datacenter.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return List of supported Server Types in the Datacenter.
+     * 
+     */
     public List<Integer> supportedServerTypeIds() {
         return this.supportedServerTypeIds;
     }

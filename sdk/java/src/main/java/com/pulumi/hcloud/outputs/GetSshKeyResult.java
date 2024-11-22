@@ -15,68 +15,84 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSshKeyResult {
     /**
-     * @return (string) Fingerprint of the SSH Key.
+     * @return Fingerprint of the SSH Key.
      * 
      */
-    private String fingerprint;
+    private @Nullable String fingerprint;
     /**
-     * @return (int) Unique ID of the SSH Key.
+     * @return ID of the SSH Key.
      * 
      */
-    private Integer id;
+    private @Nullable Integer id;
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * 
+     */
     private Map<String,String> labels;
     /**
-     * @return (string) Name of the SSH Key.
+     * @return Name of the SSH Key.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
-     * @return (string) Public Key of the SSH Key.
+     * @return Public key of the SSH Key pair.
      * 
      */
     private String publicKey;
     /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * 
      * @deprecated
      * Please use the with_selector property instead.
      * 
      */
     @Deprecated /* Please use the with_selector property instead. */
     private @Nullable String selector;
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * 
+     */
     private @Nullable String withSelector;
 
     private GetSshKeyResult() {}
     /**
-     * @return (string) Fingerprint of the SSH Key.
+     * @return Fingerprint of the SSH Key.
      * 
      */
-    public String fingerprint() {
-        return this.fingerprint;
+    public Optional<String> fingerprint() {
+        return Optional.ofNullable(this.fingerprint);
     }
     /**
-     * @return (int) Unique ID of the SSH Key.
+     * @return ID of the SSH Key.
      * 
      */
-    public Integer id() {
-        return this.id;
+    public Optional<Integer> id() {
+        return Optional.ofNullable(this.id);
     }
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * 
+     */
     public Map<String,String> labels() {
         return this.labels;
     }
     /**
-     * @return (string) Name of the SSH Key.
+     * @return Name of the SSH Key.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
-     * @return (string) Public Key of the SSH Key.
+     * @return Public key of the SSH Key pair.
      * 
      */
     public String publicKey() {
         return this.publicKey;
     }
     /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * 
      * @deprecated
      * Please use the with_selector property instead.
      * 
@@ -85,6 +101,10 @@ public final class GetSshKeyResult {
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * 
+     */
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
     }
@@ -98,10 +118,10 @@ public final class GetSshKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String fingerprint;
-        private Integer id;
+        private @Nullable String fingerprint;
+        private @Nullable Integer id;
         private Map<String,String> labels;
-        private String name;
+        private @Nullable String name;
         private String publicKey;
         private @Nullable String selector;
         private @Nullable String withSelector;
@@ -118,18 +138,14 @@ public final class GetSshKeyResult {
         }
 
         @CustomType.Setter
-        public Builder fingerprint(String fingerprint) {
-            if (fingerprint == null) {
-              throw new MissingRequiredPropertyException("GetSshKeyResult", "fingerprint");
-            }
+        public Builder fingerprint(@Nullable String fingerprint) {
+
             this.fingerprint = fingerprint;
             return this;
         }
         @CustomType.Setter
-        public Builder id(Integer id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetSshKeyResult", "id");
-            }
+        public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
@@ -142,10 +158,8 @@ public final class GetSshKeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetSshKeyResult", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

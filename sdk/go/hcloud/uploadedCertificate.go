@@ -14,14 +14,58 @@ import (
 
 // Upload a TLS certificate to Hetzner Cloud.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.NewUploadedCertificate(ctx, "sample_certificate", &hcloud.UploadedCertificateArgs{
+//				Name: pulumi.String("test-certificate-%d"),
+//				PrivateKey: pulumi.String(`-----BEGIN RSA PRIVATE KEY-----
+//
+// MIIEpQIBAAKCAQEAorPccsHibgGLJIub5Sb1yvDvARifoKzg7MIhyAYLnJkGn9B1
+// ...
+// AHcjLFCNvobInLHTTmCoAxYBmEv2eakas0+n4g/LM2Ukaw1Bz+3VrVo=
+// -----END RSA PRIVATE KEY-----
+// `),
+//
+//	Certificate: pulumi.String(`-----BEGIN CERTIFICATE-----
+//
+// MIIDMDCCAhigAwIBAgIIJgROscP8RRUwDQYJKoZIhvcNAQELBQAwIDEeMBwGA1UE
+// ...
+// TKS8gQ==
+// -----END CERTIFICATE-----
+// `),
+//
+//				Labels: pulumi.StringMap{
+//					"label_1": pulumi.String("value_1"),
+//					"label_2": pulumi.String("value_2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Uploaded certificates can be imported using their `id`:
 //
-// hcl
-//
 // ```sh
-// $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
+// $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate example "$CERTIFICATE_ID"
 // ```
 type UploadedCertificate struct {
 	pulumi.CustomResourceState

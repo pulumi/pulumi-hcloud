@@ -239,14 +239,30 @@ class ManagedCertificate(pulumi.CustomResource):
         """
         Obtain a Hetzner Cloud managed TLS certificate.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        managed_cert = hcloud.ManagedCertificate("managed_cert",
+            name="managed_cert",
+            domain_names=[
+                "*.example.com",
+                "example.com",
+            ],
+            labels={
+                "label_1": "value_1",
+                "label_2": "value_2",
+            })
+        ```
+
         ## Import
 
         Managed certificates can be imported using their `id`:
 
-        hcl
-
         ```sh
-        $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
+        $ pulumi import hcloud:index/managedCertificate:ManagedCertificate example "$CERTIFICATE_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,14 +282,30 @@ class ManagedCertificate(pulumi.CustomResource):
         """
         Obtain a Hetzner Cloud managed TLS certificate.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        managed_cert = hcloud.ManagedCertificate("managed_cert",
+            name="managed_cert",
+            domain_names=[
+                "*.example.com",
+                "example.com",
+            ],
+            labels={
+                "label_1": "value_1",
+                "label_2": "value_2",
+            })
+        ```
+
         ## Import
 
         Managed certificates can be imported using their `id`:
 
-        hcl
-
         ```sh
-        $ pulumi import hcloud:index/managedCertificate:ManagedCertificate sample_certificate id
+        $ pulumi import hcloud:index/managedCertificate:ManagedCertificate example "$CERTIFICATE_ID"
         ```
 
         :param str resource_name: The name of the resource.

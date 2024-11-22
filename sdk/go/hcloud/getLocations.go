@@ -12,91 +12,46 @@ import (
 )
 
 // Provides a list of available Hetzner Cloud Locations.
+//
 // This resource may be useful to create highly available infrastructure, distributed across several locations.
-func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
+func GetLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationsResult
-	err := ctx.Invoke("hcloud:index/getLocations:getLocations", args, &rv, opts...)
+	err := ctx.Invoke("hcloud:index/getLocations:getLocations", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-// A collection of arguments for invoking getLocations.
-type GetLocationsArgs struct {
-	// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-	//
-	// Deprecated: Use locations list instead
-	Descriptions []string `pulumi:"descriptions"`
-	Id           *string  `pulumi:"id"`
-	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
-	//
-	// Deprecated: Use locations list instead
-	LocationIds []string `pulumi:"locationIds"`
-	// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-	//
-	// Deprecated: Use locations list instead
-	Names []string `pulumi:"names"`
-}
-
 // A collection of values returned by getLocations.
 type GetLocationsResult struct {
-	// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-	//
 	// Deprecated: Use locations list instead
 	Descriptions []string `pulumi:"descriptions"`
-	Id           *string  `pulumi:"id"`
-	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
-	//
+	// The ID of this resource.
+	Id string `pulumi:"id"`
 	// Deprecated: Use locations list instead
-	LocationIds []string `pulumi:"locationIds"`
-	// (list) List of all locations. See `data.hcloud_location` for schema.
-	Locations []GetLocationsLocation `pulumi:"locations"`
-	// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-	//
+	LocationIds []string               `pulumi:"locationIds"`
+	Locations   []GetLocationsLocation `pulumi:"locations"`
 	// Deprecated: Use locations list instead
 	Names []string `pulumi:"names"`
 }
 
-func GetLocationsOutput(ctx *pulumi.Context, args GetLocationsOutputArgs, opts ...pulumi.InvokeOption) GetLocationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLocationsResultOutput, error) {
-			args := v.(GetLocationsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLocationsResult
-			secret, err := ctx.InvokePackageRaw("hcloud:index/getLocations:getLocations", args, &rv, "", opts...)
-			if err != nil {
-				return GetLocationsResultOutput{}, err
-			}
+func GetLocationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLocationsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetLocationsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetLocationsResult
+		secret, err := ctx.InvokePackageRaw("hcloud:index/getLocations:getLocations", nil, &rv, "", opts...)
+		if err != nil {
+			return GetLocationsResultOutput{}, err
+		}
 
-			output := pulumi.ToOutput(rv).(GetLocationsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLocationsResultOutput), nil
-			}
-			return output, nil
-		}).(GetLocationsResultOutput)
-}
-
-// A collection of arguments for invoking getLocations.
-type GetLocationsOutputArgs struct {
-	// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-	//
-	// Deprecated: Use locations list instead
-	Descriptions pulumi.StringArrayInput `pulumi:"descriptions"`
-	Id           pulumi.StringPtrInput   `pulumi:"id"`
-	// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
-	//
-	// Deprecated: Use locations list instead
-	LocationIds pulumi.StringArrayInput `pulumi:"locationIds"`
-	// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-	//
-	// Deprecated: Use locations list instead
-	Names pulumi.StringArrayInput `pulumi:"names"`
-}
-
-func (GetLocationsOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLocationsArgs)(nil)).Elem()
+		output := pulumi.ToOutput(rv).(GetLocationsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetLocationsResultOutput), nil
+		}
+		return output, nil
+	}).(GetLocationsResultOutput)
 }
 
 // A collection of values returned by getLocations.
@@ -114,31 +69,25 @@ func (o GetLocationsResultOutput) ToGetLocationsResultOutputWithContext(ctx cont
 	return o
 }
 
-// (list) List of all location descriptions. **Deprecated**: Use `locations` attribute instead.
-//
 // Deprecated: Use locations list instead
 func (o GetLocationsResultOutput) Descriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationsResult) []string { return v.Descriptions }).(pulumi.StringArrayOutput)
 }
 
-func (o GetLocationsResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetLocationsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The ID of this resource.
+func (o GetLocationsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (list) List of unique location identifiers. **Deprecated**: Use `locations` attribute instead.
-//
 // Deprecated: Use locations list instead
 func (o GetLocationsResultOutput) LocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationsResult) []string { return v.LocationIds }).(pulumi.StringArrayOutput)
 }
 
-// (list) List of all locations. See `data.hcloud_location` for schema.
 func (o GetLocationsResultOutput) Locations() GetLocationsLocationArrayOutput {
 	return o.ApplyT(func(v GetLocationsResult) []GetLocationsLocation { return v.Locations }).(GetLocationsLocationArrayOutput)
 }
 
-// (list) List of location names. **Deprecated**: Use `locations` attribute instead.
-//
 // Deprecated: Use locations list instead
 func (o GetLocationsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationsResult) []string { return v.Names }).(pulumi.StringArrayOutput)

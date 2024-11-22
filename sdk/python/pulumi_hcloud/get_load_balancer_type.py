@@ -53,7 +53,7 @@ class GetLoadBalancerTypeResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        (string) Description of the load_balancer_type.
+        Description of the Load Balancer Type.
         """
         return pulumi.get(self, "description")
 
@@ -61,7 +61,7 @@ class GetLoadBalancerTypeResult:
     @pulumi.getter
     def id(self) -> int:
         """
-        (int) Unique ID of the load_balancer_type.
+        ID of the Load Balancer Type.
         """
         return pulumi.get(self, "id")
 
@@ -69,7 +69,7 @@ class GetLoadBalancerTypeResult:
     @pulumi.getter(name="maxAssignedCertificates")
     def max_assigned_certificates(self) -> int:
         """
-        (int) Maximum number of SSL Certificates that can be assigned to the Load Balancer of this type.
+        Maximum number of certificates that can be assigned for the Load Balancer of this type.
         """
         return pulumi.get(self, "max_assigned_certificates")
 
@@ -77,7 +77,7 @@ class GetLoadBalancerTypeResult:
     @pulumi.getter(name="maxConnections")
     def max_connections(self) -> int:
         """
-        (int) Maximum number of simultaneous open connections for the Load Balancer of this type.
+        Maximum number of simultaneous open connections for the Load Balancer of this type.
         """
         return pulumi.get(self, "max_connections")
 
@@ -85,7 +85,7 @@ class GetLoadBalancerTypeResult:
     @pulumi.getter(name="maxServices")
     def max_services(self) -> int:
         """
-        (int) Maximum number of services for the Load Balancer of this type.
+        Maximum number of services for the Load Balancer of this type.
         """
         return pulumi.get(self, "max_services")
 
@@ -93,7 +93,7 @@ class GetLoadBalancerTypeResult:
     @pulumi.getter(name="maxTargets")
     def max_targets(self) -> int:
         """
-        (int) Maximum number of targets for the Load Balancer of this type.
+        Maximum number of targets for the Load Balancer of this type.
         """
         return pulumi.get(self, "max_targets")
 
@@ -101,7 +101,7 @@ class GetLoadBalancerTypeResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        (string) Name of the load_balancer_type.
+        Name of the Load Balancer Type.
         """
         return pulumi.get(self, "name")
 
@@ -126,7 +126,8 @@ def get_load_balancer_type(id: Optional[int] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerTypeResult:
     """
     Provides details about a specific Hetzner Cloud Load Balancer Type.
-    Use this resource to get detailed information about specific Load Balancer Type.
+
+    Use this resource to get detailed information about a specific Load Balancer Type.
 
     ## Example Usage
 
@@ -134,17 +135,17 @@ def get_load_balancer_type(id: Optional[int] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    by_name = hcloud.get_load_balancer_type(name="cx22")
     by_id = hcloud.get_load_balancer_type(id=1)
-    load_balancer = hcloud.LoadBalancer("load_balancer",
+    by_name = hcloud.get_load_balancer_type(name="lb11")
+    main = hcloud.LoadBalancer("main",
         name="my-load-balancer",
         load_balancer_type=name,
-        location="nbg1")
+        location="fsn1")
     ```
 
 
-    :param int id: ID of the load_balancer_type.
-    :param str name: Name of the load_balancer_type.
+    :param int id: ID of the Load Balancer Type.
+    :param str name: Name of the Load Balancer Type.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -165,7 +166,8 @@ def get_load_balancer_type_output(id: Optional[pulumi.Input[Optional[int]]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerTypeResult]:
     """
     Provides details about a specific Hetzner Cloud Load Balancer Type.
-    Use this resource to get detailed information about specific Load Balancer Type.
+
+    Use this resource to get detailed information about a specific Load Balancer Type.
 
     ## Example Usage
 
@@ -173,17 +175,17 @@ def get_load_balancer_type_output(id: Optional[pulumi.Input[Optional[int]]] = No
     import pulumi
     import pulumi_hcloud as hcloud
 
-    by_name = hcloud.get_load_balancer_type(name="cx22")
     by_id = hcloud.get_load_balancer_type(id=1)
-    load_balancer = hcloud.LoadBalancer("load_balancer",
+    by_name = hcloud.get_load_balancer_type(name="lb11")
+    main = hcloud.LoadBalancer("main",
         name="my-load-balancer",
         load_balancer_type=name,
-        location="nbg1")
+        location="fsn1")
     ```
 
 
-    :param int id: ID of the load_balancer_type.
-    :param str name: Name of the load_balancer_type.
+    :param int id: ID of the Load Balancer Type.
+    :param str name: Name of the Load Balancer Type.
     """
     __args__ = dict()
     __args__['id'] = id

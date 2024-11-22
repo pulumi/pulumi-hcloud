@@ -267,14 +267,38 @@ class UploadedCertificate(pulumi.CustomResource):
         """
         Upload a TLS certificate to Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        sample_certificate = hcloud.UploadedCertificate("sample_certificate",
+            name="test-certificate-%d",
+            private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
+        MIIEpQIBAAKCAQEAorPccsHibgGLJIub5Sb1yvDvARifoKzg7MIhyAYLnJkGn9B1
+        ...
+        AHcjLFCNvobInLHTTmCoAxYBmEv2eakas0+n4g/LM2Ukaw1Bz+3VrVo=
+        -----END RSA PRIVATE KEY-----
+        \"\"\",
+            certificate=\"\"\"-----BEGIN CERTIFICATE-----
+        MIIDMDCCAhigAwIBAgIIJgROscP8RRUwDQYJKoZIhvcNAQELBQAwIDEeMBwGA1UE
+        ...
+        TKS8gQ==
+        -----END CERTIFICATE-----
+        \"\"\",
+            labels={
+                "label_1": "value_1",
+                "label_2": "value_2",
+            })
+        ```
+
         ## Import
 
         Uploaded certificates can be imported using their `id`:
 
-        hcl
-
         ```sh
-        $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
+        $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate example "$CERTIFICATE_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,14 +318,38 @@ class UploadedCertificate(pulumi.CustomResource):
         """
         Upload a TLS certificate to Hetzner Cloud.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        sample_certificate = hcloud.UploadedCertificate("sample_certificate",
+            name="test-certificate-%d",
+            private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
+        MIIEpQIBAAKCAQEAorPccsHibgGLJIub5Sb1yvDvARifoKzg7MIhyAYLnJkGn9B1
+        ...
+        AHcjLFCNvobInLHTTmCoAxYBmEv2eakas0+n4g/LM2Ukaw1Bz+3VrVo=
+        -----END RSA PRIVATE KEY-----
+        \"\"\",
+            certificate=\"\"\"-----BEGIN CERTIFICATE-----
+        MIIDMDCCAhigAwIBAgIIJgROscP8RRUwDQYJKoZIhvcNAQELBQAwIDEeMBwGA1UE
+        ...
+        TKS8gQ==
+        -----END CERTIFICATE-----
+        \"\"\",
+            labels={
+                "label_1": "value_1",
+                "label_2": "value_2",
+            })
+        ```
+
         ## Import
 
         Uploaded certificates can be imported using their `id`:
 
-        hcl
-
         ```sh
-        $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
+        $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate example "$CERTIFICATE_ID"
         ```
 
         :param str resource_name: The name of the resource.

@@ -46,7 +46,7 @@ namespace Pulumi.HCloud
     /// `&lt;network-id&gt;-&lt;ip_range&gt;`
     /// 
     /// ```sh
-    /// $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+    /// $ pulumi import hcloud:index/networkSubnet:NetworkSubnet example "$NETWORK_ID-$IP_RANGE"
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/networkSubnet:NetworkSubnet")]

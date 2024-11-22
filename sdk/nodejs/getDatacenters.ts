@@ -8,42 +8,13 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a list of available Hetzner Cloud Datacenters.
- * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+ *
+ * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
  */
-export function getDatacenters(args?: GetDatacentersArgs, opts?: pulumi.InvokeOptions): Promise<GetDatacentersResult> {
-    args = args || {};
+export function getDatacenters(opts?: pulumi.InvokeOptions): Promise<GetDatacentersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getDatacenters:getDatacenters", {
-        "datacenterIds": args.datacenterIds,
-        "descriptions": args.descriptions,
-        "id": args.id,
-        "names": args.names,
     }, opts);
-}
-
-/**
- * A collection of arguments for invoking getDatacenters.
- */
-export interface GetDatacentersArgs {
-    /**
-     * (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
-     *
-     * @deprecated Use datacenters list instead
-     */
-    datacenterIds?: string[];
-    /**
-     * (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
-     *
-     * @deprecated Use datacenters list instead
-     */
-    descriptions?: string[];
-    id?: string;
-    /**
-     * (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
-     *
-     * @deprecated Use datacenters list instead
-     */
-    names?: string[];
 }
 
 /**
@@ -51,65 +22,30 @@ export interface GetDatacentersArgs {
  */
 export interface GetDatacentersResult {
     /**
-     * (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
-     *
      * @deprecated Use datacenters list instead
      */
-    readonly datacenterIds?: string[];
-    /**
-     * (list) List of all datacenters. See `data.hcloud_datacenter` for schema.
-     */
+    readonly datacenterIds: string[];
     readonly datacenters: outputs.GetDatacentersDatacenter[];
     /**
-     * (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
-     *
      * @deprecated Use datacenters list instead
      */
-    readonly descriptions?: string[];
-    readonly id?: string;
+    readonly descriptions: string[];
     /**
-     * (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
-     *
+     * The ID of this resource.
+     */
+    readonly id: string;
+    /**
      * @deprecated Use datacenters list instead
      */
-    readonly names?: string[];
+    readonly names: string[];
 }
 /**
  * Provides a list of available Hetzner Cloud Datacenters.
- * This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+ *
+ * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
  */
-export function getDatacentersOutput(args?: GetDatacentersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacentersResult> {
-    args = args || {};
+export function getDatacentersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacentersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getDatacenters:getDatacenters", {
-        "datacenterIds": args.datacenterIds,
-        "descriptions": args.descriptions,
-        "id": args.id,
-        "names": args.names,
     }, opts);
-}
-
-/**
- * A collection of arguments for invoking getDatacenters.
- */
-export interface GetDatacentersOutputArgs {
-    /**
-     * (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
-     *
-     * @deprecated Use datacenters list instead
-     */
-    datacenterIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
-     *
-     * @deprecated Use datacenters list instead
-     */
-    descriptions?: pulumi.Input<pulumi.Input<string>[]>;
-    id?: pulumi.Input<string>;
-    /**
-     * (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
-     *
-     * @deprecated Use datacenters list instead
-     */
-    names?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -10,43 +10,47 @@ import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerTypeResult {
     /**
-     * @return (string) Architecture of the server_type.
+     * @return Architecture of the cpu for a Server of this type.
      * 
      */
     private String architecture;
     /**
-     * @return (int) Number of cpu cores a Server of this type will have.
+     * @return Number of cpu cores for a Server of this type.
      * 
      */
     private Double cores;
+    /**
+     * @return Type of cpu for a Server of this type.
+     * 
+     */
     private String cpuType;
     /**
-     * @return (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+     * @return Date of the Server Type deprecation announcement.
      * 
      */
     private String deprecationAnnounced;
     /**
-     * @return (string) Description of the server_type.
+     * @return Description of the Server Type.
      * 
      */
     private String description;
     /**
-     * @return (int) Disk size a Server of this type will have in GB.
+     * @return Disk size in GB for a Server of this type.
      * 
      */
     private Double disk;
     /**
-     * @return (int) Unique ID of the server_type.
+     * @return ID of the Server Type.
      * 
      */
-    private Integer id;
+    private @Nullable Integer id;
     /**
-     * @return (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
-     * 
      * @deprecated
      * The field is deprecated and will always report 0 after 2024-08-05.
      * 
@@ -54,76 +58,82 @@ public final class GetServerTypeResult {
     @Deprecated /* The field is deprecated and will always report 0 after 2024-08-05. */
     private Integer includedTraffic;
     /**
-     * @return (bool) Deprecation status of server type.
+     * @return Whether the Server Type is deprecated.
      * 
      */
     private Boolean isDeprecated;
     /**
-     * @return (int) Memory a Server of this type will have in GB.
+     * @return Memory in GB for a Server of this type.
      * 
      */
     private Double memory;
     /**
-     * @return (string) Name of the server_type.
+     * @return Name of the Server Type.
      * 
      */
-    private String name;
+    private @Nullable String name;
+    /**
+     * @return Type of boot drive for a Server of this type.
+     * 
+     */
     private String storageType;
     /**
-     * @return (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+     * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      * 
      */
     private String unavailableAfter;
 
     private GetServerTypeResult() {}
     /**
-     * @return (string) Architecture of the server_type.
+     * @return Architecture of the cpu for a Server of this type.
      * 
      */
     public String architecture() {
         return this.architecture;
     }
     /**
-     * @return (int) Number of cpu cores a Server of this type will have.
+     * @return Number of cpu cores for a Server of this type.
      * 
      */
     public Double cores() {
         return this.cores;
     }
+    /**
+     * @return Type of cpu for a Server of this type.
+     * 
+     */
     public String cpuType() {
         return this.cpuType;
     }
     /**
-     * @return (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+     * @return Date of the Server Type deprecation announcement.
      * 
      */
     public String deprecationAnnounced() {
         return this.deprecationAnnounced;
     }
     /**
-     * @return (string) Description of the server_type.
+     * @return Description of the Server Type.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return (int) Disk size a Server of this type will have in GB.
+     * @return Disk size in GB for a Server of this type.
      * 
      */
     public Double disk() {
         return this.disk;
     }
     /**
-     * @return (int) Unique ID of the server_type.
+     * @return ID of the Server Type.
      * 
      */
-    public Integer id() {
-        return this.id;
+    public Optional<Integer> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
-     * @return (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
-     * 
      * @deprecated
      * The field is deprecated and will always report 0 after 2024-08-05.
      * 
@@ -133,31 +143,35 @@ public final class GetServerTypeResult {
         return this.includedTraffic;
     }
     /**
-     * @return (bool) Deprecation status of server type.
+     * @return Whether the Server Type is deprecated.
      * 
      */
     public Boolean isDeprecated() {
         return this.isDeprecated;
     }
     /**
-     * @return (int) Memory a Server of this type will have in GB.
+     * @return Memory in GB for a Server of this type.
      * 
      */
     public Double memory() {
         return this.memory;
     }
     /**
-     * @return (string) Name of the server_type.
+     * @return Name of the Server Type.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Type of boot drive for a Server of this type.
+     * 
+     */
     public String storageType() {
         return this.storageType;
     }
     /**
-     * @return (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+     * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      * 
      */
     public String unavailableAfter() {
@@ -179,11 +193,11 @@ public final class GetServerTypeResult {
         private String deprecationAnnounced;
         private String description;
         private Double disk;
-        private Integer id;
+        private @Nullable Integer id;
         private Integer includedTraffic;
         private Boolean isDeprecated;
         private Double memory;
-        private String name;
+        private @Nullable String name;
         private String storageType;
         private String unavailableAfter;
         public Builder() {}
@@ -253,10 +267,8 @@ public final class GetServerTypeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(Integer id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetServerTypeResult", "id");
-            }
+        public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
@@ -285,10 +297,8 @@ public final class GetServerTypeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetServerTypeResult", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

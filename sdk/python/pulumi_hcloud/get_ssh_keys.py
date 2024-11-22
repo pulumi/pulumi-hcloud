@@ -41,19 +41,22 @@ class GetSshKeysResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of this resource.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Sequence['outputs.GetSshKeysSshKeyResult']:
-        """
-        (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
-        """
         return pulumi.get(self, "ssh_keys")
 
     @property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[str]:
+        """
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+        """
         return pulumi.get(self, "with_selector")
 
 
@@ -78,13 +81,14 @@ def get_ssh_keys(id: Optional[str] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    all_keys = hcloud.get_ssh_keys()
-    keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
-    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
+    all = hcloud.get_ssh_keys()
+    by_label = hcloud.get_ssh_keys(with_selector="foo=bar")
+    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all.ssh_keys])
     ```
 
 
-    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param str id: The ID of this resource.
+    :param str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id
@@ -106,13 +110,14 @@ def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    all_keys = hcloud.get_ssh_keys()
-    keys_by_selector = hcloud.get_ssh_keys(with_selector="foo=bar")
-    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all_keys.ssh_keys])
+    all = hcloud.get_ssh_keys()
+    by_label = hcloud.get_ssh_keys(with_selector="foo=bar")
+    main = hcloud.Server("main", ssh_keys=[__item.name for __item in all.ssh_keys])
     ```
 
 
-    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param str id: The ID of this resource.
+    :param str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id

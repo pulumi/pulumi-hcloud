@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * `&lt;network-id&gt;-&lt;ip_range&gt;`
  * 
  * ```sh
- * $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+ * $ pulumi import hcloud:index/networkSubnet:NetworkSubnet example &#34;$NETWORK_ID-$IP_RANGE&#34;
  * ```
  * 
  */

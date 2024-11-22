@@ -13,7 +13,8 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Datacenter.
-        /// Use this resource to get detailed information about specific datacenter.
+        /// 
+        /// Use this resource to get detailed information about a specific Datacenter.
         /// 
         /// ## Example Usage
         /// 
@@ -25,14 +26,14 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ds1 = HCloud.GetDatacenter.Invoke(new()
-        ///     {
-        ///         Name = "fsn1-dc8",
-        ///     });
-        /// 
-        ///     var ds2 = HCloud.GetDatacenter.Invoke(new()
+        ///     var byId = HCloud.GetDatacenter.Invoke(new()
         ///     {
         ///         Id = 4,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetDatacenter.Invoke(new()
+        ///     {
+        ///         Name = "fsn1-dc14",
         ///     });
         /// 
         /// });
@@ -43,7 +44,8 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Datacenter.
-        /// Use this resource to get detailed information about specific datacenter.
+        /// 
+        /// Use this resource to get detailed information about a specific Datacenter.
         /// 
         /// ## Example Usage
         /// 
@@ -55,14 +57,14 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ds1 = HCloud.GetDatacenter.Invoke(new()
-        ///     {
-        ///         Name = "fsn1-dc8",
-        ///     });
-        /// 
-        ///     var ds2 = HCloud.GetDatacenter.Invoke(new()
+        ///     var byId = HCloud.GetDatacenter.Invoke(new()
         ///     {
         ///         Id = 4,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetDatacenter.Invoke(new()
+        ///     {
+        ///         Name = "fsn1-dc14",
         ///     });
         /// 
         /// });
@@ -76,13 +78,13 @@ namespace Pulumi.HCloud
     public sealed class GetDatacenterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the datacenter.
+        /// ID of the Datacenter.
         /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
         /// <summary>
-        /// Name of the datacenter.
+        /// Name of the Datacenter.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -96,13 +98,13 @@ namespace Pulumi.HCloud
     public sealed class GetDatacenterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the datacenter.
+        /// ID of the Datacenter.
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 
         /// <summary>
-        /// Name of the datacenter.
+        /// Name of the Datacenter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -118,27 +120,27 @@ namespace Pulumi.HCloud
     public sealed class GetDatacenterResult
     {
         /// <summary>
-        /// (list) List of available server types.
+        /// List of currently available Server Types in the Datacenter.
         /// </summary>
         public readonly ImmutableArray<int> AvailableServerTypeIds;
         /// <summary>
-        /// (string) Description of the datacenter.
+        /// Description of the Datacenter.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (int) Unique ID of the datacenter.
+        /// ID of the Datacenter.
         /// </summary>
-        public readonly int Id;
+        public readonly int? Id;
         /// <summary>
-        /// (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Location;
         /// <summary>
-        /// (string) Name of the datacenter.
+        /// Name of the Datacenter.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
-        /// (list) List of server types supported by the datacenter.
+        /// List of supported Server Types in the Datacenter.
         /// </summary>
         public readonly ImmutableArray<int> SupportedServerTypeIds;
 
@@ -148,11 +150,11 @@ namespace Pulumi.HCloud
 
             string description,
 
-            int id,
+            int? id,
 
             ImmutableDictionary<string, string> location,
 
-            string name,
+            string? name,
 
             ImmutableArray<int> supportedServerTypeIds)
         {

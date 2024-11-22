@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * Volumes can be imported using their `id`:
  *
  * ```sh
- * $ pulumi import hcloud:index/volume:Volume myvolume id
+ * $ pulumi import hcloud:index/volume:Volume example "$VOLUME_ID"
  * ```
  */
 export class Volume extends pulumi.CustomResource {

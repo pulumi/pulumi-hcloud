@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
+ * Provides a Hetzner Cloud SSH Key resource to manage SSH Keys for server access.
  *
  * ## Example Usage
  *
@@ -14,21 +14,18 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  * import * as std from "@pulumi/std";
  *
- * // Create a new SSH key
- * const _default = new hcloud.SshKey("default", {
- *     name: "Terraform Example",
+ * const main = new hcloud.SshKey("main", {
+ *     name: "my-ssh-key",
  *     publicKey: std.file({
- *         input: "~/.ssh/id_rsa.pub",
+ *         input: "~/.ssh/id_ed25519.pub",
  *     }).then(invoke => invoke.result),
  * });
  * ```
  *
  * ## Import
  *
- * SSH keys can be imported using the SSH key `id`:
- *
  * ```sh
- * $ pulumi import hcloud:index/sshKey:SshKey mykey id
+ * $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
  * ```
  */
 export class SshKey extends pulumi.CustomResource {
@@ -60,19 +57,19 @@ export class SshKey extends pulumi.CustomResource {
     }
 
     /**
-     * (string) The fingerprint of the SSH key
+     * Fingerprint of the SSH public key.
      */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
-     * User-defined labels (key-value pairs) should be created with.
+     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
      */
     public readonly labels!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Name of the SSH key.
+     * Name of the SSH Key.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The public key. If this is a file, it can be read using the file interpolation function
+     * Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
      */
     public readonly publicKey!: pulumi.Output<string>;
 
@@ -113,19 +110,19 @@ export class SshKey extends pulumi.CustomResource {
  */
 export interface SshKeyState {
     /**
-     * (string) The fingerprint of the SSH key
+     * Fingerprint of the SSH public key.
      */
     fingerprint?: pulumi.Input<string>;
     /**
-     * User-defined labels (key-value pairs) should be created with.
+     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Name of the SSH key.
+     * Name of the SSH Key.
      */
     name?: pulumi.Input<string>;
     /**
-     * The public key. If this is a file, it can be read using the file interpolation function
+     * Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
      */
     publicKey?: pulumi.Input<string>;
 }
@@ -135,15 +132,15 @@ export interface SshKeyState {
  */
 export interface SshKeyArgs {
     /**
-     * User-defined labels (key-value pairs) should be created with.
+     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Name of the SSH key.
+     * Name of the SSH Key.
      */
     name?: pulumi.Input<string>;
     /**
-     * The public key. If this is a file, it can be read using the file interpolation function
+     * Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
      */
     publicKey: pulumi.Input<string>;
 }

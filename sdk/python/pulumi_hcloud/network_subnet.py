@@ -237,7 +237,7 @@ class NetworkSubnet(pulumi.CustomResource):
         `<network-id>-<ip_range>`
 
         ```sh
-        $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+        $ pulumi import hcloud:index/networkSubnet:NetworkSubnet example "$NETWORK_ID-$IP_RANGE"
         ```
 
         :param str resource_name: The name of the resource.
@@ -280,7 +280,7 @@ class NetworkSubnet(pulumi.CustomResource):
         `<network-id>-<ip_range>`
 
         ```sh
-        $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+        $ pulumi import hcloud:index/networkSubnet:NetworkSubnet example "$NETWORK_ID-$IP_RANGE"
         ```
 
         :param str resource_name: The name of the resource.

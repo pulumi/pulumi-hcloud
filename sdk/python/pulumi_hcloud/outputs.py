@@ -746,6 +746,14 @@ class GetDatacentersDatacenterResult(dict):
                  location: Mapping[str, str],
                  name: str,
                  supported_server_type_ids: Sequence[int]):
+        """
+        :param Sequence[int] available_server_type_ids: List of currently available Server Types in the Datacenter.
+        :param str description: Description of the Datacenter.
+        :param int id: ID of the Datacenter.
+        :param Mapping[str, str] location: Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        :param str name: Name of the Datacenter.
+        :param Sequence[int] supported_server_type_ids: List of supported Server Types in the Datacenter.
+        """
         pulumi.set(__self__, "available_server_type_ids", available_server_type_ids)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
@@ -756,31 +764,49 @@ class GetDatacentersDatacenterResult(dict):
     @property
     @pulumi.getter(name="availableServerTypeIds")
     def available_server_type_ids(self) -> Sequence[int]:
+        """
+        List of currently available Server Types in the Datacenter.
+        """
         return pulumi.get(self, "available_server_type_ids")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the Datacenter.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        ID of the Datacenter.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def location(self) -> Mapping[str, str]:
+        """
+        Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the Datacenter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="supportedServerTypeIds")
     def supported_server_type_ids(self) -> Sequence[int]:
+        """
+        List of supported Server Types in the Datacenter.
+        """
         return pulumi.get(self, "supported_server_type_ids")
 
 
@@ -1513,6 +1539,15 @@ class GetLoadBalancerTypesLoadBalancerTypeResult(dict):
                  max_services: int,
                  max_targets: int,
                  name: str):
+        """
+        :param str description: Description of the Load Balancer Type.
+        :param int id: ID of the Load Balancer Type.
+        :param int max_assigned_certificates: Maximum number of certificates that can be assigned for the Load Balancer of this type.
+        :param int max_connections: Maximum number of simultaneous open connections for the Load Balancer of this type.
+        :param int max_services: Maximum number of services for the Load Balancer of this type.
+        :param int max_targets: Maximum number of targets for the Load Balancer of this type.
+        :param str name: Name of the Load Balancer Type.
+        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "max_assigned_certificates", max_assigned_certificates)
@@ -1524,36 +1559,57 @@ class GetLoadBalancerTypesLoadBalancerTypeResult(dict):
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the Load Balancer Type.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        ID of the Load Balancer Type.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="maxAssignedCertificates")
     def max_assigned_certificates(self) -> int:
+        """
+        Maximum number of certificates that can be assigned for the Load Balancer of this type.
+        """
         return pulumi.get(self, "max_assigned_certificates")
 
     @property
     @pulumi.getter(name="maxConnections")
     def max_connections(self) -> int:
+        """
+        Maximum number of simultaneous open connections for the Load Balancer of this type.
+        """
         return pulumi.get(self, "max_connections")
 
     @property
     @pulumi.getter(name="maxServices")
     def max_services(self) -> int:
+        """
+        Maximum number of services for the Load Balancer of this type.
+        """
         return pulumi.get(self, "max_services")
 
     @property
     @pulumi.getter(name="maxTargets")
     def max_targets(self) -> int:
+        """
+        Maximum number of targets for the Load Balancer of this type.
+        """
         return pulumi.get(self, "max_targets")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the Load Balancer Type.
+        """
         return pulumi.get(self, "name")
 
 
@@ -1884,6 +1940,16 @@ class GetLocationsLocationResult(dict):
                  longitude: float,
                  name: str,
                  network_zone: str):
+        """
+        :param str city: Name of the closest city to the Location. City name and optionally state in short form.
+        :param str country: Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
+        :param str description: Description of the Location.
+        :param int id: ID of the Location.
+        :param float latitude: Latitude of the city closest to the Location.
+        :param float longitude: Longitude of the city closest to the Location.
+        :param str name: Name of the Location.
+        :param str network_zone: Name of the Network Zone this Location resides in.
+        """
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "country", country)
         pulumi.set(__self__, "description", description)
@@ -1896,41 +1962,65 @@ class GetLocationsLocationResult(dict):
     @property
     @pulumi.getter
     def city(self) -> str:
+        """
+        Name of the closest city to the Location. City name and optionally state in short form.
+        """
         return pulumi.get(self, "city")
 
     @property
     @pulumi.getter
     def country(self) -> str:
+        """
+        Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
+        """
         return pulumi.get(self, "country")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the Location.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        ID of the Location.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def latitude(self) -> float:
+        """
+        Latitude of the city closest to the Location.
+        """
         return pulumi.get(self, "latitude")
 
     @property
     @pulumi.getter
     def longitude(self) -> float:
+        """
+        Longitude of the city closest to the Location.
+        """
         return pulumi.get(self, "longitude")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the Location.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkZone")
     def network_zone(self) -> str:
+        """
+        Name of the Network Zone this Location resides in.
+        """
         return pulumi.get(self, "network_zone")
 
 
@@ -2126,6 +2216,20 @@ class GetServerTypesServerTypeResult(dict):
                  name: str,
                  storage_type: str,
                  unavailable_after: str):
+        """
+        :param str architecture: Architecture of the cpu for a Server of this type.
+        :param float cores: Number of cpu cores for a Server of this type.
+        :param str cpu_type: Type of cpu for a Server of this type.
+        :param str deprecation_announced: Date of the Server Type deprecation announcement.
+        :param str description: Description of the Server Type.
+        :param float disk: Disk size in GB for a Server of this type.
+        :param int id: ID of the Server Type.
+        :param bool is_deprecated: Whether the Server Type is deprecated.
+        :param float memory: Memory in GB for a Server of this type.
+        :param str name: Name of the Server Type.
+        :param str storage_type: Type of boot drive for a Server of this type.
+        :param str unavailable_after: Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+        """
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "cores", cores)
         pulumi.set(__self__, "cpu_type", cpu_type)
@@ -2143,36 +2247,57 @@ class GetServerTypesServerTypeResult(dict):
     @property
     @pulumi.getter
     def architecture(self) -> str:
+        """
+        Architecture of the cpu for a Server of this type.
+        """
         return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
     def cores(self) -> float:
+        """
+        Number of cpu cores for a Server of this type.
+        """
         return pulumi.get(self, "cores")
 
     @property
     @pulumi.getter(name="cpuType")
     def cpu_type(self) -> str:
+        """
+        Type of cpu for a Server of this type.
+        """
         return pulumi.get(self, "cpu_type")
 
     @property
     @pulumi.getter(name="deprecationAnnounced")
     def deprecation_announced(self) -> str:
+        """
+        Date of the Server Type deprecation announcement.
+        """
         return pulumi.get(self, "deprecation_announced")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the Server Type.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def disk(self) -> float:
+        """
+        Disk size in GB for a Server of this type.
+        """
         return pulumi.get(self, "disk")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        ID of the Server Type.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -2184,26 +2309,41 @@ class GetServerTypesServerTypeResult(dict):
     @property
     @pulumi.getter(name="isDeprecated")
     def is_deprecated(self) -> bool:
+        """
+        Whether the Server Type is deprecated.
+        """
         return pulumi.get(self, "is_deprecated")
 
     @property
     @pulumi.getter
     def memory(self) -> float:
+        """
+        Memory in GB for a Server of this type.
+        """
         return pulumi.get(self, "memory")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the Server Type.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> str:
+        """
+        Type of boot drive for a Server of this type.
+        """
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="unavailableAfter")
     def unavailable_after(self) -> str:
+        """
+        Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+        """
         return pulumi.get(self, "unavailable_after")
 
 
@@ -2362,11 +2502,11 @@ class GetSshKeysSshKeyResult(dict):
                  name: str,
                  public_key: str):
         """
-        :param str fingerprint: Fingerprint of the SSH key.
-        :param int id: ID of the SSH key.
+        :param str fingerprint: Fingerprint of the SSH Key.
+        :param int id: ID of the SSH Key.
         :param Mapping[str, str] labels: User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
-        :param str name: Name of the SSH key.
-        :param str public_key: Public key of the SSH key pair.
+        :param str name: Name of the SSH Key.
+        :param str public_key: Public key of the SSH Key pair.
         """
         pulumi.set(__self__, "fingerprint", fingerprint)
         pulumi.set(__self__, "id", id)
@@ -2378,7 +2518,7 @@ class GetSshKeysSshKeyResult(dict):
     @pulumi.getter
     def fingerprint(self) -> str:
         """
-        Fingerprint of the SSH key.
+        Fingerprint of the SSH Key.
         """
         return pulumi.get(self, "fingerprint")
 
@@ -2386,7 +2526,7 @@ class GetSshKeysSshKeyResult(dict):
     @pulumi.getter
     def id(self) -> int:
         """
-        ID of the SSH key.
+        ID of the SSH Key.
         """
         return pulumi.get(self, "id")
 
@@ -2402,7 +2542,7 @@ class GetSshKeysSshKeyResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the SSH key.
+        Name of the SSH Key.
         """
         return pulumi.get(self, "name")
 
@@ -2410,7 +2550,7 @@ class GetSshKeysSshKeyResult(dict):
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
         """
-        Public key of the SSH key pair.
+        Public key of the SSH Key pair.
         """
         return pulumi.get(self, "public_key")
 

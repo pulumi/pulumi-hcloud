@@ -9,8 +9,6 @@ import com.pulumi.hcloud.outputs.GetServerTypesServerType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerTypesResult {
@@ -20,26 +18,26 @@ public final class GetServerTypesResult {
      * 
      */
     @Deprecated /* Use server_types list instead */
-    private @Nullable List<String> descriptions;
-    private @Nullable String id;
+    private List<String> descriptions;
+    /**
+     * @return The ID of this resource.
+     * 
+     */
+    private String id;
     /**
      * @deprecated
      * Use server_types list instead
      * 
      */
     @Deprecated /* Use server_types list instead */
-    private @Nullable List<String> names;
+    private List<String> names;
     /**
      * @deprecated
      * Use server_types list instead
      * 
      */
     @Deprecated /* Use server_types list instead */
-    private @Nullable List<String> serverTypeIds;
-    /**
-     * @return (list) List of all server types. See `data.hcloud_server_type` for schema.
-     * 
-     */
+    private List<String> serverTypeIds;
     private List<GetServerTypesServerType> serverTypes;
 
     private GetServerTypesResult() {}
@@ -50,10 +48,14 @@ public final class GetServerTypesResult {
      */
     @Deprecated /* Use server_types list instead */
     public List<String> descriptions() {
-        return this.descriptions == null ? List.of() : this.descriptions;
+        return this.descriptions;
     }
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    /**
+     * @return The ID of this resource.
+     * 
+     */
+    public String id() {
+        return this.id;
     }
     /**
      * @deprecated
@@ -62,7 +64,7 @@ public final class GetServerTypesResult {
      */
     @Deprecated /* Use server_types list instead */
     public List<String> names() {
-        return this.names == null ? List.of() : this.names;
+        return this.names;
     }
     /**
      * @deprecated
@@ -71,12 +73,8 @@ public final class GetServerTypesResult {
      */
     @Deprecated /* Use server_types list instead */
     public List<String> serverTypeIds() {
-        return this.serverTypeIds == null ? List.of() : this.serverTypeIds;
+        return this.serverTypeIds;
     }
-    /**
-     * @return (list) List of all server types. See `data.hcloud_server_type` for schema.
-     * 
-     */
     public List<GetServerTypesServerType> serverTypes() {
         return this.serverTypes;
     }
@@ -90,10 +88,10 @@ public final class GetServerTypesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<String> descriptions;
-        private @Nullable String id;
-        private @Nullable List<String> names;
-        private @Nullable List<String> serverTypeIds;
+        private List<String> descriptions;
+        private String id;
+        private List<String> names;
+        private List<String> serverTypeIds;
         private List<GetServerTypesServerType> serverTypes;
         public Builder() {}
         public Builder(GetServerTypesResult defaults) {
@@ -106,8 +104,10 @@ public final class GetServerTypesResult {
         }
 
         @CustomType.Setter
-        public Builder descriptions(@Nullable List<String> descriptions) {
-
+        public Builder descriptions(List<String> descriptions) {
+            if (descriptions == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesResult", "descriptions");
+            }
             this.descriptions = descriptions;
             return this;
         }
@@ -115,14 +115,18 @@ public final class GetServerTypesResult {
             return descriptions(List.of(descriptions));
         }
         @CustomType.Setter
-        public Builder id(@Nullable String id) {
-
+        public Builder id(String id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesResult", "id");
+            }
             this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder names(@Nullable List<String> names) {
-
+        public Builder names(List<String> names) {
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesResult", "names");
+            }
             this.names = names;
             return this;
         }
@@ -130,8 +134,10 @@ public final class GetServerTypesResult {
             return names(List.of(names));
         }
         @CustomType.Setter
-        public Builder serverTypeIds(@Nullable List<String> serverTypeIds) {
-
+        public Builder serverTypeIds(List<String> serverTypeIds) {
+            if (serverTypeIds == null) {
+              throw new MissingRequiredPropertyException("GetServerTypesResult", "serverTypeIds");
+            }
             this.serverTypeIds = serverTypeIds;
             return this;
         }

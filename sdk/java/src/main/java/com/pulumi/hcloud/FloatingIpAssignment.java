@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * Floating IP Assignments can be imported using the `floating_ip_id`:
  * 
  * ```sh
- * $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment &lt;floating_ip_id&gt;
+ * $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment example &#34;$FLOATING_IP_ID&#34;
  * ```
  * 
  */

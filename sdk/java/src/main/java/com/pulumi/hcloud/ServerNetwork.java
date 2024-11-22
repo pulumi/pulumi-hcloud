@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * `&lt;server-id&gt;-&lt;network-id&gt;`
  * 
  * ```sh
- * $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+ * $ pulumi import hcloud:index/serverNetwork:ServerNetwork example &#34;$SERVER_ID-$NETWORK_ID&#34;
  * ```
  * 
  */

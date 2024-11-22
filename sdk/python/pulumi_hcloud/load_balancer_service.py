@@ -311,7 +311,7 @@ class LoadBalancerService(pulumi.CustomResource):
         `<load-balancer-id>__<listen-port>`
 
         ```sh
-        $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
+        $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService example "${LOAD_BALANCER_ID}__${LISTEN_PORT}"
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,7 +372,7 @@ class LoadBalancerService(pulumi.CustomResource):
         `<load-balancer-id>__<listen-port>`
 
         ```sh
-        $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
+        $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService example "${LOAD_BALANCER_ID}__${LISTEN_PORT}"
         ```
 
         :param str resource_name: The name of the resource.

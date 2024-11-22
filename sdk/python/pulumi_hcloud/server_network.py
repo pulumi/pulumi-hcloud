@@ -300,7 +300,7 @@ class ServerNetwork(pulumi.CustomResource):
         `<server-id>-<network-id>`
 
         ```sh
-        $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+        $ pulumi import hcloud:index/serverNetwork:ServerNetwork example "$SERVER_ID-$NETWORK_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -364,7 +364,7 @@ class ServerNetwork(pulumi.CustomResource):
         `<server-id>-<network-id>`
 
         ```sh
-        $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+        $ pulumi import hcloud:index/serverNetwork:ServerNetwork example "$SERVER_ID-$NETWORK_ID"
         ```
 
         :param str resource_name: The name of the resource.

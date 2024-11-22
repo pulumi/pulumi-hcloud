@@ -214,7 +214,7 @@ class Firewall(pulumi.CustomResource):
         Firewalls can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/firewall:Firewall myfirewall id
+        $ pulumi import hcloud:index/firewall:Firewall example "$FIREWALL_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,7 +272,7 @@ class Firewall(pulumi.CustomResource):
         Firewalls can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/firewall:Firewall myfirewall id
+        $ pulumi import hcloud:index/firewall:Firewall example "$FIREWALL_ID"
         ```
 
         :param str resource_name: The name of the resource.

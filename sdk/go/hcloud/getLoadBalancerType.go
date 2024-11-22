@@ -12,7 +12,8 @@ import (
 )
 
 // Provides details about a specific Hetzner Cloud Load Balancer Type.
-// Use this resource to get detailed information about specific Load Balancer Type.
+//
+// Use this resource to get detailed information about a specific Load Balancer Type.
 //
 // ## Example Usage
 //
@@ -29,21 +30,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.GetLoadBalancerType(ctx, &hcloud.GetLoadBalancerTypeArgs{
-//				Name: pulumi.StringRef("cx22"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.GetLoadBalancerType(ctx, &hcloud.GetLoadBalancerTypeArgs{
 //				Id: pulumi.IntRef(1),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewLoadBalancer(ctx, "load_balancer", &hcloud.LoadBalancerArgs{
+//			_, err = hcloud.GetLoadBalancerType(ctx, &hcloud.GetLoadBalancerTypeArgs{
+//				Name: pulumi.StringRef("lb11"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewLoadBalancer(ctx, "main", &hcloud.LoadBalancerArgs{
 //				Name:             pulumi.String("my-load-balancer"),
 //				LoadBalancerType: pulumi.Any(name),
-//				Location:         pulumi.String("nbg1"),
+//				Location:         pulumi.String("fsn1"),
 //			})
 //			if err != nil {
 //				return err
@@ -65,27 +66,27 @@ func GetLoadBalancerType(ctx *pulumi.Context, args *GetLoadBalancerTypeArgs, opt
 
 // A collection of arguments for invoking getLoadBalancerType.
 type GetLoadBalancerTypeArgs struct {
-	// ID of the load_balancer_type.
+	// ID of the Load Balancer Type.
 	Id *int `pulumi:"id"`
-	// Name of the load_balancer_type.
+	// Name of the Load Balancer Type.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getLoadBalancerType.
 type GetLoadBalancerTypeResult struct {
-	// (string) Description of the load_balancer_type.
+	// Description of the Load Balancer Type.
 	Description string `pulumi:"description"`
-	// (int) Unique ID of the load_balancer_type.
+	// ID of the Load Balancer Type.
 	Id int `pulumi:"id"`
-	// (int) Maximum number of SSL Certificates that can be assigned to the Load Balancer of this type.
+	// Maximum number of certificates that can be assigned for the Load Balancer of this type.
 	MaxAssignedCertificates int `pulumi:"maxAssignedCertificates"`
-	// (int) Maximum number of simultaneous open connections for the Load Balancer of this type.
+	// Maximum number of simultaneous open connections for the Load Balancer of this type.
 	MaxConnections int `pulumi:"maxConnections"`
-	// (int) Maximum number of services for the Load Balancer of this type.
+	// Maximum number of services for the Load Balancer of this type.
 	MaxServices int `pulumi:"maxServices"`
-	// (int) Maximum number of targets for the Load Balancer of this type.
+	// Maximum number of targets for the Load Balancer of this type.
 	MaxTargets int `pulumi:"maxTargets"`
-	// (string) Name of the load_balancer_type.
+	// Name of the Load Balancer Type.
 	Name string `pulumi:"name"`
 }
 
@@ -110,9 +111,9 @@ func GetLoadBalancerTypeOutput(ctx *pulumi.Context, args GetLoadBalancerTypeOutp
 
 // A collection of arguments for invoking getLoadBalancerType.
 type GetLoadBalancerTypeOutputArgs struct {
-	// ID of the load_balancer_type.
+	// ID of the Load Balancer Type.
 	Id pulumi.IntPtrInput `pulumi:"id"`
-	// Name of the load_balancer_type.
+	// Name of the Load Balancer Type.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -135,37 +136,37 @@ func (o GetLoadBalancerTypeResultOutput) ToGetLoadBalancerTypeResultOutputWithCo
 	return o
 }
 
-// (string) Description of the load_balancer_type.
+// Description of the Load Balancer Type.
 func (o GetLoadBalancerTypeResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// (int) Unique ID of the load_balancer_type.
+// ID of the Load Balancer Type.
 func (o GetLoadBalancerTypeResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// (int) Maximum number of SSL Certificates that can be assigned to the Load Balancer of this type.
+// Maximum number of certificates that can be assigned for the Load Balancer of this type.
 func (o GetLoadBalancerTypeResultOutput) MaxAssignedCertificates() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) int { return v.MaxAssignedCertificates }).(pulumi.IntOutput)
 }
 
-// (int) Maximum number of simultaneous open connections for the Load Balancer of this type.
+// Maximum number of simultaneous open connections for the Load Balancer of this type.
 func (o GetLoadBalancerTypeResultOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
 
-// (int) Maximum number of services for the Load Balancer of this type.
+// Maximum number of services for the Load Balancer of this type.
 func (o GetLoadBalancerTypeResultOutput) MaxServices() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) int { return v.MaxServices }).(pulumi.IntOutput)
 }
 
-// (int) Maximum number of targets for the Load Balancer of this type.
+// Maximum number of targets for the Load Balancer of this type.
 func (o GetLoadBalancerTypeResultOutput) MaxTargets() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) int { return v.MaxTargets }).(pulumi.IntOutput)
 }
 
-// (string) Name of the load_balancer_type.
+// Name of the Load Balancer Type.
 func (o GetLoadBalancerTypeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) string { return v.Name }).(pulumi.StringOutput)
 }

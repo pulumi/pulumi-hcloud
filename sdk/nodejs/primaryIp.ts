@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * Primary IPs can be imported using its `id`:
  *
  * ```sh
- * $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
+ * $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
  * ```
  */
 export class PrimaryIp extends pulumi.CustomResource {

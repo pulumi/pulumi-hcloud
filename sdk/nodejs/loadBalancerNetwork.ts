@@ -44,7 +44,7 @@ import * as utilities from "./utilities";
  * `<load-balancer-id>-<network-id>`
  *
  * ```sh
- * $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork myloadbalancernetwork 123-654
+ * $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork example "$LOAD_BALANCER_ID-$NETWORK_ID"
  * ```
  */
 export class LoadBalancerNetwork extends pulumi.CustomResource {

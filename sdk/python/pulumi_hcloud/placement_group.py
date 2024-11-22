@@ -175,7 +175,7 @@ class PlacementGroup(pulumi.CustomResource):
         Placement Groups can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group id
+        $ pulumi import hcloud:index/placementGroup:PlacementGroup example "$PLACEMENT_GROUP_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,7 +217,7 @@ class PlacementGroup(pulumi.CustomResource):
         Placement Groups can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/placementGroup:PlacementGroup my-placement-group id
+        $ pulumi import hcloud:index/placementGroup:PlacementGroup example "$PLACEMENT_GROUP_ID"
         ```
 
         :param str resource_name: The name of the resource.

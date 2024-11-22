@@ -9,102 +9,104 @@ import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocationResult {
     /**
-     * @return (string) City of the location.
+     * @return Name of the closest city to the Location. City name and optionally state in short form.
      * 
      */
     private String city;
     /**
-     * @return (string) Country of the location.
+     * @return Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
      * 
      */
     private String country;
     /**
-     * @return (string) Description of the location.
+     * @return Description of the Location.
      * 
      */
     private String description;
     /**
-     * @return (int) Unique ID of the location.
+     * @return ID of the Location.
      * 
      */
-    private Integer id;
+    private @Nullable Integer id;
     /**
-     * @return (float) Latitude of the city.
+     * @return Latitude of the city closest to the Location.
      * 
      */
     private Double latitude;
     /**
-     * @return (float) Longitude of the city.
+     * @return Longitude of the city closest to the Location.
      * 
      */
     private Double longitude;
     /**
-     * @return (string) Name of the location.
+     * @return Name of the Location.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
-     * @return (string) Network Zone of the location.
+     * @return Name of the Network Zone this Location resides in.
      * 
      */
     private String networkZone;
 
     private GetLocationResult() {}
     /**
-     * @return (string) City of the location.
+     * @return Name of the closest city to the Location. City name and optionally state in short form.
      * 
      */
     public String city() {
         return this.city;
     }
     /**
-     * @return (string) Country of the location.
+     * @return Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
      * 
      */
     public String country() {
         return this.country;
     }
     /**
-     * @return (string) Description of the location.
+     * @return Description of the Location.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return (int) Unique ID of the location.
+     * @return ID of the Location.
      * 
      */
-    public Integer id() {
-        return this.id;
+    public Optional<Integer> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
-     * @return (float) Latitude of the city.
+     * @return Latitude of the city closest to the Location.
      * 
      */
     public Double latitude() {
         return this.latitude;
     }
     /**
-     * @return (float) Longitude of the city.
+     * @return Longitude of the city closest to the Location.
      * 
      */
     public Double longitude() {
         return this.longitude;
     }
     /**
-     * @return (string) Name of the location.
+     * @return Name of the Location.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
-     * @return (string) Network Zone of the location.
+     * @return Name of the Network Zone this Location resides in.
      * 
      */
     public String networkZone() {
@@ -123,10 +125,10 @@ public final class GetLocationResult {
         private String city;
         private String country;
         private String description;
-        private Integer id;
+        private @Nullable Integer id;
         private Double latitude;
         private Double longitude;
-        private String name;
+        private @Nullable String name;
         private String networkZone;
         public Builder() {}
         public Builder(GetLocationResult defaults) {
@@ -166,10 +168,8 @@ public final class GetLocationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(Integer id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetLocationResult", "id");
-            }
+        public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
@@ -190,10 +190,8 @@ public final class GetLocationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetLocationResult", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

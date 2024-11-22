@@ -221,7 +221,7 @@ class Network(pulumi.CustomResource):
         Networks can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/network:Network myip id
+        $ pulumi import hcloud:index/network:Network example "$NETWORK_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -257,7 +257,7 @@ class Network(pulumi.CustomResource):
         Networks can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/network:Network myip id
+        $ pulumi import hcloud:index/network:Network example "$NETWORK_ID"
         ```
 
         :param str resource_name: The name of the resource.

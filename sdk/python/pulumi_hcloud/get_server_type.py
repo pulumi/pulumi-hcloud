@@ -71,7 +71,7 @@ class GetServerTypeResult:
     @pulumi.getter
     def architecture(self) -> str:
         """
-        (string) Architecture of the server_type.
+        Architecture of the cpu for a Server of this type.
         """
         return pulumi.get(self, "architecture")
 
@@ -79,20 +79,23 @@ class GetServerTypeResult:
     @pulumi.getter
     def cores(self) -> float:
         """
-        (int) Number of cpu cores a Server of this type will have.
+        Number of cpu cores for a Server of this type.
         """
         return pulumi.get(self, "cores")
 
     @property
     @pulumi.getter(name="cpuType")
     def cpu_type(self) -> str:
+        """
+        Type of cpu for a Server of this type.
+        """
         return pulumi.get(self, "cpu_type")
 
     @property
     @pulumi.getter(name="deprecationAnnounced")
     def deprecation_announced(self) -> str:
         """
-        (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+        Date of the Server Type deprecation announcement.
         """
         return pulumi.get(self, "deprecation_announced")
 
@@ -100,7 +103,7 @@ class GetServerTypeResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        (string) Description of the server_type.
+        Description of the Server Type.
         """
         return pulumi.get(self, "description")
 
@@ -108,15 +111,15 @@ class GetServerTypeResult:
     @pulumi.getter
     def disk(self) -> float:
         """
-        (int) Disk size a Server of this type will have in GB.
+        Disk size in GB for a Server of this type.
         """
         return pulumi.get(self, "disk")
 
     @property
     @pulumi.getter
-    def id(self) -> int:
+    def id(self) -> Optional[int]:
         """
-        (int) Unique ID of the server_type.
+        ID of the Server Type.
         """
         return pulumi.get(self, "id")
 
@@ -124,16 +127,13 @@ class GetServerTypeResult:
     @pulumi.getter(name="includedTraffic")
     @_utilities.deprecated("""The field is deprecated and will always report 0 after 2024-08-05.""")
     def included_traffic(self) -> int:
-        """
-        (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
-        """
         return pulumi.get(self, "included_traffic")
 
     @property
     @pulumi.getter(name="isDeprecated")
     def is_deprecated(self) -> bool:
         """
-        (bool) Deprecation status of server type.
+        Whether the Server Type is deprecated.
         """
         return pulumi.get(self, "is_deprecated")
 
@@ -141,28 +141,31 @@ class GetServerTypeResult:
     @pulumi.getter
     def memory(self) -> float:
         """
-        (int) Memory a Server of this type will have in GB.
+        Memory in GB for a Server of this type.
         """
         return pulumi.get(self, "memory")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        (string) Name of the server_type.
+        Name of the Server Type.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> str:
+        """
+        Type of boot drive for a Server of this type.
+        """
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="unavailableAfter")
     def unavailable_after(self) -> str:
         """
-        (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+        Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
         """
         return pulumi.get(self, "unavailable_after")
 
@@ -188,13 +191,12 @@ class AwaitableGetServerTypeResult(GetServerTypeResult):
             unavailable_after=self.unavailable_after)
 
 
-def get_server_type(deprecation_announced: Optional[str] = None,
-                    id: Optional[int] = None,
+def get_server_type(id: Optional[int] = None,
                     name: Optional[str] = None,
-                    unavailable_after: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerTypeResult:
     """
     Provides details about a specific Hetzner Cloud Server Type.
+
     Use this resource to get detailed information about specific Server Type.
 
     ## Example Usage
@@ -203,21 +205,22 @@ def get_server_type(deprecation_announced: Optional[str] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    ds1 = hcloud.get_server_type(name="cx22")
-    ds2 = hcloud.get_server_type(id=1)
+    by_id = hcloud.get_server_type(id=22)
+    by_name = hcloud.get_server_type(name="cx22")
+    main = hcloud.Server("main",
+        name="my-server",
+        location="fsn1",
+        image="debian-12",
+        server_type=by_name.name)
     ```
 
 
-    :param str deprecation_announced: (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
-    :param int id: ID of the server_type.
-    :param str name: Name of the server_type.
-    :param str unavailable_after: (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+    :param int id: ID of the Server Type.
+    :param str name: Name of the Server Type.
     """
     __args__ = dict()
-    __args__['deprecationAnnounced'] = deprecation_announced
     __args__['id'] = id
     __args__['name'] = name
-    __args__['unavailableAfter'] = unavailable_after
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('hcloud:index/getServerType:getServerType', __args__, opts=opts, typ=GetServerTypeResult).value
 
@@ -235,13 +238,12 @@ def get_server_type(deprecation_announced: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         unavailable_after=pulumi.get(__ret__, 'unavailable_after'))
-def get_server_type_output(deprecation_announced: Optional[pulumi.Input[Optional[str]]] = None,
-                           id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_server_type_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
-                           unavailable_after: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTypeResult]:
     """
     Provides details about a specific Hetzner Cloud Server Type.
+
     Use this resource to get detailed information about specific Server Type.
 
     ## Example Usage
@@ -250,21 +252,22 @@ def get_server_type_output(deprecation_announced: Optional[pulumi.Input[Optional
     import pulumi
     import pulumi_hcloud as hcloud
 
-    ds1 = hcloud.get_server_type(name="cx22")
-    ds2 = hcloud.get_server_type(id=1)
+    by_id = hcloud.get_server_type(id=22)
+    by_name = hcloud.get_server_type(name="cx22")
+    main = hcloud.Server("main",
+        name="my-server",
+        location="fsn1",
+        image="debian-12",
+        server_type=by_name.name)
     ```
 
 
-    :param str deprecation_announced: (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
-    :param int id: ID of the server_type.
-    :param str name: Name of the server_type.
-    :param str unavailable_after: (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+    :param int id: ID of the Server Type.
+    :param str name: Name of the Server Type.
     """
     __args__ = dict()
-    __args__['deprecationAnnounced'] = deprecation_announced
     __args__['id'] = id
     __args__['name'] = name
-    __args__['unavailableAfter'] = unavailable_after
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getServerType:getServerType', __args__, opts=opts, typ=GetServerTypeResult)
     return __ret__.apply(lambda __response__: GetServerTypeResult(

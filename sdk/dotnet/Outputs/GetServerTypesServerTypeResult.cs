@@ -13,18 +13,54 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetServerTypesServerTypeResult
     {
+        /// <summary>
+        /// Architecture of the cpu for a Server of this type.
+        /// </summary>
         public readonly string Architecture;
+        /// <summary>
+        /// Number of cpu cores for a Server of this type.
+        /// </summary>
         public readonly double Cores;
+        /// <summary>
+        /// Type of cpu for a Server of this type.
+        /// </summary>
         public readonly string CpuType;
+        /// <summary>
+        /// Date of the Server Type deprecation announcement.
+        /// </summary>
         public readonly string DeprecationAnnounced;
+        /// <summary>
+        /// Description of the Server Type.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Disk size in GB for a Server of this type.
+        /// </summary>
         public readonly double Disk;
+        /// <summary>
+        /// ID of the Server Type.
+        /// </summary>
         public readonly int Id;
         public readonly int IncludedTraffic;
+        /// <summary>
+        /// Whether the Server Type is deprecated.
+        /// </summary>
         public readonly bool IsDeprecated;
+        /// <summary>
+        /// Memory in GB for a Server of this type.
+        /// </summary>
         public readonly double Memory;
+        /// <summary>
+        /// Name of the Server Type.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Type of boot drive for a Server of this type.
+        /// </summary>
         public readonly string StorageType;
+        /// <summary>
+        /// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+        /// </summary>
         public readonly string UnavailableAfter;
 
         [OutputConstructor]

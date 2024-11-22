@@ -38,14 +38,14 @@ class GetLoadBalancerTypesResult:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of this resource.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loadBalancerTypes")
     def load_balancer_types(self) -> Sequence['outputs.GetLoadBalancerTypesLoadBalancerTypeResult']:
-        """
-        (list) List of all load balancer types. See `data.hcloud_load_balancer_type` for the schema.
-        """
         return pulumi.get(self, "load_balancer_types")
 
 

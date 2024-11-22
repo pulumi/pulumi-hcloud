@@ -17,14 +17,14 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLocationArgs Empty = new GetLocationArgs();
 
     /**
-     * ID of the location.
+     * ID of the Location.
      * 
      */
     @Import(name="id")
     private @Nullable Output<Integer> id;
 
     /**
-     * @return ID of the location.
+     * @return ID of the Location.
      * 
      */
     public Optional<Output<Integer>> id() {
@@ -32,14 +32,14 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the location.
+     * Name of the Location.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the location.
+     * @return Name of the Location.
      * 
      */
     public Optional<Output<String>> name() {
@@ -72,7 +72,7 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id ID of the location.
+         * @param id ID of the Location.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id ID of the location.
+         * @param id ID of the Location.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the location.
+         * @param name Name of the Location.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the location.
+         * @param name Name of the Location.
          * 
          * @return builder
          * 

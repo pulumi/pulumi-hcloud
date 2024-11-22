@@ -53,7 +53,7 @@ import (
 // Snapshots can be imported using its image `id`:
 //
 // ```sh
-// $ pulumi import hcloud:index/snapshot:Snapshot myimage id
+// $ pulumi import hcloud:index/snapshot:Snapshot example "$IMAGE_ID"
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState

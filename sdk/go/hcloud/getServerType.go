@@ -12,6 +12,7 @@ import (
 )
 
 // Provides details about a specific Hetzner Cloud Server Type.
+//
 // Use this resource to get detailed information about specific Server Type.
 //
 // ## Example Usage
@@ -29,14 +30,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.GetServerType(ctx, &hcloud.GetServerTypeArgs{
+//				Id: pulumi.IntRef(22),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			byName, err := hcloud.GetServerType(ctx, &hcloud.GetServerTypeArgs{
 //				Name: pulumi.StringRef("cx22"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.GetServerType(ctx, &hcloud.GetServerTypeArgs{
-//				Id: pulumi.IntRef(1),
-//			}, nil)
+//			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
+//				Name:       pulumi.String("my-server"),
+//				Location:   pulumi.String("fsn1"),
+//				Image:      pulumi.String("debian-12"),
+//				ServerType: pulumi.String(byName.Name),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -57,43 +67,39 @@ func GetServerType(ctx *pulumi.Context, args *GetServerTypeArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getServerType.
 type GetServerTypeArgs struct {
-	// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
-	DeprecationAnnounced *string `pulumi:"deprecationAnnounced"`
-	// ID of the server_type.
+	// ID of the Server Type.
 	Id *int `pulumi:"id"`
-	// Name of the server_type.
+	// Name of the Server Type.
 	Name *string `pulumi:"name"`
-	// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
-	UnavailableAfter *string `pulumi:"unavailableAfter"`
 }
 
 // A collection of values returned by getServerType.
 type GetServerTypeResult struct {
-	// (string) Architecture of the server_type.
+	// Architecture of the cpu for a Server of this type.
 	Architecture string `pulumi:"architecture"`
-	// (int) Number of cpu cores a Server of this type will have.
-	Cores   float64 `pulumi:"cores"`
-	CpuType string  `pulumi:"cpuType"`
-	// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+	// Number of cpu cores for a Server of this type.
+	Cores float64 `pulumi:"cores"`
+	// Type of cpu for a Server of this type.
+	CpuType string `pulumi:"cpuType"`
+	// Date of the Server Type deprecation announcement.
 	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
-	// (string) Description of the server_type.
+	// Description of the Server Type.
 	Description string `pulumi:"description"`
-	// (int) Disk size a Server of this type will have in GB.
+	// Disk size in GB for a Server of this type.
 	Disk float64 `pulumi:"disk"`
-	// (int) Unique ID of the server_type.
-	Id int `pulumi:"id"`
-	// (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
-	//
+	// ID of the Server Type.
+	Id *int `pulumi:"id"`
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
 	IncludedTraffic int `pulumi:"includedTraffic"`
-	// (bool) Deprecation status of server type.
+	// Whether the Server Type is deprecated.
 	IsDeprecated bool `pulumi:"isDeprecated"`
-	// (int) Memory a Server of this type will have in GB.
+	// Memory in GB for a Server of this type.
 	Memory float64 `pulumi:"memory"`
-	// (string) Name of the server_type.
-	Name        string `pulumi:"name"`
+	// Name of the Server Type.
+	Name *string `pulumi:"name"`
+	// Type of boot drive for a Server of this type.
 	StorageType string `pulumi:"storageType"`
-	// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
 	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
 
@@ -118,14 +124,10 @@ func GetServerTypeOutput(ctx *pulumi.Context, args GetServerTypeOutputArgs, opts
 
 // A collection of arguments for invoking getServerType.
 type GetServerTypeOutputArgs struct {
-	// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
-	DeprecationAnnounced pulumi.StringPtrInput `pulumi:"deprecationAnnounced"`
-	// ID of the server_type.
+	// ID of the Server Type.
 	Id pulumi.IntPtrInput `pulumi:"id"`
-	// Name of the server_type.
+	// Name of the Server Type.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
-	UnavailableAfter pulumi.StringPtrInput `pulumi:"unavailableAfter"`
 }
 
 func (GetServerTypeOutputArgs) ElementType() reflect.Type {
@@ -147,67 +149,67 @@ func (o GetServerTypeResultOutput) ToGetServerTypeResultOutputWithContext(ctx co
 	return o
 }
 
-// (string) Architecture of the server_type.
+// Architecture of the cpu for a Server of this type.
 func (o GetServerTypeResultOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
-// (int) Number of cpu cores a Server of this type will have.
+// Number of cpu cores for a Server of this type.
 func (o GetServerTypeResultOutput) Cores() pulumi.Float64Output {
 	return o.ApplyT(func(v GetServerTypeResult) float64 { return v.Cores }).(pulumi.Float64Output)
 }
 
+// Type of cpu for a Server of this type.
 func (o GetServerTypeResultOutput) CpuType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.CpuType }).(pulumi.StringOutput)
 }
 
-// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+// Date of the Server Type deprecation announcement.
 func (o GetServerTypeResultOutput) DeprecationAnnounced() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
 }
 
-// (string) Description of the server_type.
+// Description of the Server Type.
 func (o GetServerTypeResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// (int) Disk size a Server of this type will have in GB.
+// Disk size in GB for a Server of this type.
 func (o GetServerTypeResultOutput) Disk() pulumi.Float64Output {
 	return o.ApplyT(func(v GetServerTypeResult) float64 { return v.Disk }).(pulumi.Float64Output)
 }
 
-// (int) Unique ID of the server_type.
-func (o GetServerTypeResultOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetServerTypeResult) int { return v.Id }).(pulumi.IntOutput)
+// ID of the Server Type.
+func (o GetServerTypeResultOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServerTypeResult) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
-// (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
-//
 // Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
 func (o GetServerTypeResultOutput) IncludedTraffic() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypeResult) int { return v.IncludedTraffic }).(pulumi.IntOutput)
 }
 
-// (bool) Deprecation status of server type.
+// Whether the Server Type is deprecated.
 func (o GetServerTypeResultOutput) IsDeprecated() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerTypeResult) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
 }
 
-// (int) Memory a Server of this type will have in GB.
+// Memory in GB for a Server of this type.
 func (o GetServerTypeResultOutput) Memory() pulumi.Float64Output {
 	return o.ApplyT(func(v GetServerTypeResult) float64 { return v.Memory }).(pulumi.Float64Output)
 }
 
-// (string) Name of the server_type.
-func (o GetServerTypeResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerTypeResult) string { return v.Name }).(pulumi.StringOutput)
+// Name of the Server Type.
+func (o GetServerTypeResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServerTypeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Type of boot drive for a Server of this type.
 func (o GetServerTypeResultOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
-// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
 func (o GetServerTypeResultOutput) UnavailableAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.UnavailableAfter }).(pulumi.StringOutput)
 }

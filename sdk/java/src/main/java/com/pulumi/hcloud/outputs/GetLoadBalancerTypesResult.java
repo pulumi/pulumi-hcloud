@@ -12,21 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerTypesResult {
-    private String id;
     /**
-     * @return (list) List of all load balancer types. See `data.hcloud_load_balancer_type` for the schema.
+     * @return The ID of this resource.
      * 
      */
+    private String id;
     private List<GetLoadBalancerTypesLoadBalancerType> loadBalancerTypes;
 
     private GetLoadBalancerTypesResult() {}
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return (list) List of all load balancer types. See `data.hcloud_load_balancer_type` for the schema.
-     * 
-     */
     public List<GetLoadBalancerTypesLoadBalancerType> loadBalancerTypes() {
         return this.loadBalancerTypes;
     }

@@ -14,22 +14,30 @@ public final class GetSshKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSshKeysPlainArgs Empty = new GetSshKeysPlainArgs();
 
+    /**
+     * The ID of this resource.
+     * 
+     */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
      * 
      */
     @Import(name="withSelector")
     private @Nullable String withSelector;
 
     /**
-     * @return [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
      * 
      */
     public Optional<String> withSelector() {
@@ -61,13 +69,19 @@ public final class GetSshKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSshKeysPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The ID of this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
          * 
          * @return builder
          * 

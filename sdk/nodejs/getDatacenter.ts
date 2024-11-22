@@ -6,7 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a specific Hetzner Cloud Datacenter.
- * Use this resource to get detailed information about specific datacenter.
+ *
+ * Use this resource to get detailed information about a specific Datacenter.
  *
  * ## Example Usage
  *
@@ -14,11 +15,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ds1 = hcloud.getDatacenter({
- *     name: "fsn1-dc8",
- * });
- * const ds2 = hcloud.getDatacenter({
+ * const byId = hcloud.getDatacenter({
  *     id: 4,
+ * });
+ * const byName = hcloud.getDatacenter({
+ *     name: "fsn1-dc14",
  * });
  * ```
  */
@@ -36,11 +37,11 @@ export function getDatacenter(args?: GetDatacenterArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetDatacenterArgs {
     /**
-     * ID of the datacenter.
+     * ID of the Datacenter.
      */
     id?: number;
     /**
-     * Name of the datacenter.
+     * Name of the Datacenter.
      */
     name?: string;
 }
@@ -50,33 +51,34 @@ export interface GetDatacenterArgs {
  */
 export interface GetDatacenterResult {
     /**
-     * (list) List of available server types.
+     * List of currently available Server Types in the Datacenter.
      */
     readonly availableServerTypeIds: number[];
     /**
-     * (string) Description of the datacenter.
+     * Description of the Datacenter.
      */
     readonly description: string;
     /**
-     * (int) Unique ID of the datacenter.
+     * ID of the Datacenter.
      */
-    readonly id: number;
+    readonly id?: number;
     /**
-     * (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     readonly location: {[key: string]: string};
     /**
-     * (string) Name of the datacenter.
+     * Name of the Datacenter.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
-     * (list) List of server types supported by the datacenter.
+     * List of supported Server Types in the Datacenter.
      */
     readonly supportedServerTypeIds: number[];
 }
 /**
  * Provides details about a specific Hetzner Cloud Datacenter.
- * Use this resource to get detailed information about specific datacenter.
+ *
+ * Use this resource to get detailed information about a specific Datacenter.
  *
  * ## Example Usage
  *
@@ -84,11 +86,11 @@ export interface GetDatacenterResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ds1 = hcloud.getDatacenter({
- *     name: "fsn1-dc8",
- * });
- * const ds2 = hcloud.getDatacenter({
+ * const byId = hcloud.getDatacenter({
  *     id: 4,
+ * });
+ * const byName = hcloud.getDatacenter({
+ *     name: "fsn1-dc14",
  * });
  * ```
  */
@@ -106,11 +108,11 @@ export function getDatacenterOutput(args?: GetDatacenterOutputArgs, opts?: pulum
  */
 export interface GetDatacenterOutputArgs {
     /**
-     * ID of the datacenter.
+     * ID of the Datacenter.
      */
     id?: pulumi.Input<number>;
     /**
-     * Name of the datacenter.
+     * Name of the Datacenter.
      */
     name?: pulumi.Input<string>;
 }

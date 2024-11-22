@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -47,13 +46,6 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
-    @Import(name="labels")
-    private @Nullable Output<Map<String,String>> labels;
-
-    public Optional<Output<Map<String,String>>> labels() {
-        return Optional.ofNullable(this.labels);
-    }
-
     /**
      * Name of the SSH Key.
      * 
@@ -70,21 +62,8 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (string) Public Key of the SSH Key.
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
      * 
-     */
-    @Import(name="publicKey")
-    private @Nullable Output<String> publicKey;
-
-    /**
-     * @return (string) Public Key of the SSH Key.
-     * 
-     */
-    public Optional<Output<String>> publicKey() {
-        return Optional.ofNullable(this.publicKey);
-    }
-
-    /**
      * @deprecated
      * Please use the with_selector property instead.
      * 
@@ -94,6 +73,8 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<String> selector;
 
     /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * 
      * @deprecated
      * Please use the with_selector property instead.
      * 
@@ -104,14 +85,14 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
      * 
      */
     @Import(name="withSelector")
     private @Nullable Output<String> withSelector;
 
     /**
-     * @return [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
      * 
      */
     public Optional<Output<String>> withSelector() {
@@ -123,9 +104,7 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
     private GetSshKeyArgs(GetSshKeyArgs $) {
         this.fingerprint = $.fingerprint;
         this.id = $.id;
-        this.labels = $.labels;
         this.name = $.name;
-        this.publicKey = $.publicKey;
         this.selector = $.selector;
         this.withSelector = $.withSelector;
     }
@@ -190,15 +169,6 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
             return id(Output.of(id));
         }
 
-        public Builder labels(@Nullable Output<Map<String,String>> labels) {
-            $.labels = labels;
-            return this;
-        }
-
-        public Builder labels(Map<String,String> labels) {
-            return labels(Output.of(labels));
-        }
-
         /**
          * @param name Name of the SSH Key.
          * 
@@ -221,27 +191,8 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param publicKey (string) Public Key of the SSH Key.
+         * @param selector Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
          * 
-         * @return builder
-         * 
-         */
-        public Builder publicKey(@Nullable Output<String> publicKey) {
-            $.publicKey = publicKey;
-            return this;
-        }
-
-        /**
-         * @param publicKey (string) Public Key of the SSH Key.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder publicKey(String publicKey) {
-            return publicKey(Output.of(publicKey));
-        }
-
-        /**
          * @return builder
          * 
          * @deprecated
@@ -255,6 +206,8 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param selector Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+         * 
          * @return builder
          * 
          * @deprecated
@@ -267,7 +220,7 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
          * 
          * @return builder
          * 
@@ -278,7 +231,7 @@ public final class GetSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
          * 
          * @return builder
          * 

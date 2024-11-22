@@ -249,7 +249,7 @@ import javax.annotation.Nullable;
  * Servers can be imported using the server `id`:
  * 
  * ```sh
- * $ pulumi import hcloud:index/server:Server myserver id
+ * $ pulumi import hcloud:index/server:Server example &#34;$SERVER_ID&#34;
  * ```
  * 
  */

@@ -13,140 +13,32 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides a list of available Hetzner Cloud Datacenters.
-        /// This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+        /// 
+        /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
         /// </summary>
-        public static Task<GetDatacentersResult> InvokeAsync(GetDatacentersArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersArgs(), options.WithDefaults());
+        public static Task<GetDatacentersResult> InvokeAsync(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Provides a list of available Hetzner Cloud Datacenters.
-        /// This resource may be useful to create highly available infrastructure, distributed across several datacenters.
+        /// 
+        /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
         /// </summary>
-        public static Output<GetDatacentersResult> Invoke(GetDatacentersInvokeArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", args ?? new GetDatacentersInvokeArgs(), options.WithDefaults());
-    }
-
-
-    public sealed class GetDatacentersArgs : global::Pulumi.InvokeArgs
-    {
-        [Input("datacenterIds")]
-        private List<string>? _datacenterIds;
-
-        /// <summary>
-        /// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use datacenters list instead")]
-        public List<string> DatacenterIds
-        {
-            get => _datacenterIds ?? (_datacenterIds = new List<string>());
-            set => _datacenterIds = value;
-        }
-
-        [Input("descriptions")]
-        private List<string>? _descriptions;
-
-        /// <summary>
-        /// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use datacenters list instead")]
-        public List<string> Descriptions
-        {
-            get => _descriptions ?? (_descriptions = new List<string>());
-            set => _descriptions = value;
-        }
-
-        [Input("id")]
-        public string? Id { get; set; }
-
-        [Input("names")]
-        private List<string>? _names;
-
-        /// <summary>
-        /// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use datacenters list instead")]
-        public List<string> Names
-        {
-            get => _names ?? (_names = new List<string>());
-            set => _names = value;
-        }
-
-        public GetDatacentersArgs()
-        {
-        }
-        public static new GetDatacentersArgs Empty => new GetDatacentersArgs();
-    }
-
-    public sealed class GetDatacentersInvokeArgs : global::Pulumi.InvokeArgs
-    {
-        [Input("datacenterIds")]
-        private InputList<string>? _datacenterIds;
-
-        /// <summary>
-        /// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use datacenters list instead")]
-        public InputList<string> DatacenterIds
-        {
-            get => _datacenterIds ?? (_datacenterIds = new InputList<string>());
-            set => _datacenterIds = value;
-        }
-
-        [Input("descriptions")]
-        private InputList<string>? _descriptions;
-
-        /// <summary>
-        /// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use datacenters list instead")]
-        public InputList<string> Descriptions
-        {
-            get => _descriptions ?? (_descriptions = new InputList<string>());
-            set => _descriptions = value;
-        }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("names")]
-        private InputList<string>? _names;
-
-        /// <summary>
-        /// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
-        /// </summary>
-        [Obsolete(@"Use datacenters list instead")]
-        public InputList<string> Names
-        {
-            get => _names ?? (_names = new InputList<string>());
-            set => _names = value;
-        }
-
-        public GetDatacentersInvokeArgs()
-        {
-        }
-        public static new GetDatacentersInvokeArgs Empty => new GetDatacentersInvokeArgs();
+        public static Output<GetDatacentersResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
     [OutputType]
     public sealed class GetDatacentersResult
     {
-        /// <summary>
-        /// (list) List of unique datacenter identifiers. **Deprecated**: Use `datacenters` attribute instead.
-        /// </summary>
         public readonly ImmutableArray<string> DatacenterIds;
-        /// <summary>
-        /// (list) List of all datacenters. See `data.hcloud_datacenter` for schema.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDatacentersDatacenterResult> Datacenters;
-        /// <summary>
-        /// (list) List of all datacenter descriptions. **Deprecated**: Use `datacenters` attribute instead.
-        /// </summary>
         public readonly ImmutableArray<string> Descriptions;
-        public readonly string? Id;
         /// <summary>
-        /// (list) List of datacenter names. **Deprecated**: Use `datacenters` attribute instead.
+        /// The ID of this resource.
         /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]
@@ -157,7 +49,7 @@ namespace Pulumi.HCloud
 
             ImmutableArray<string> descriptions,
 
-            string? id,
+            string id,
 
             ImmutableArray<string> names)
         {
