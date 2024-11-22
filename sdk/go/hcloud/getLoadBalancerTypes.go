@@ -48,8 +48,8 @@ func GetLoadBalancerTypes(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Ge
 
 // A collection of values returned by getLoadBalancerTypes.
 type GetLoadBalancerTypesResult struct {
-	Id string `pulumi:"id"`
-	// (list) List of all load balancer types. See `data.hcloud_load_balancer_type` for the schema.
+	// The ID of this resource.
+	Id                string                                 `pulumi:"id"`
 	LoadBalancerTypes []GetLoadBalancerTypesLoadBalancerType `pulumi:"loadBalancerTypes"`
 }
 
@@ -85,11 +85,11 @@ func (o GetLoadBalancerTypesResultOutput) ToGetLoadBalancerTypesResultOutputWith
 	return o
 }
 
+// The ID of this resource.
 func (o GetLoadBalancerTypesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (list) List of all load balancer types. See `data.hcloud_load_balancer_type` for the schema.
 func (o GetLoadBalancerTypesResultOutput) LoadBalancerTypes() GetLoadBalancerTypesLoadBalancerTypeArrayOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypesResult) []GetLoadBalancerTypesLoadBalancerType { return v.LoadBalancerTypes }).(GetLoadBalancerTypesLoadBalancerTypeArrayOutput)
 }

@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  * Volume Attachments can be imported using the `volume_id`:
  *
  * ```sh
- * $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment myvolumeattachment <volume_id>
+ * $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment example "$VOLUME_ID"
  * ```
  */
 export class VolumeAttachment extends pulumi.CustomResource {

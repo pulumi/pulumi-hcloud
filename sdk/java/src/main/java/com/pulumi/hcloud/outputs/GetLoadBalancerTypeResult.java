@@ -12,86 +12,86 @@ import java.util.Objects;
 @CustomType
 public final class GetLoadBalancerTypeResult {
     /**
-     * @return (string) Description of the load_balancer_type.
+     * @return Description of the Load Balancer Type.
      * 
      */
     private String description;
     /**
-     * @return (int) Unique ID of the load_balancer_type.
+     * @return ID of the Load Balancer Type.
      * 
      */
     private Integer id;
     /**
-     * @return (int) Maximum number of SSL Certificates that can be assigned to the Load Balancer of this type.
+     * @return Maximum number of certificates that can be assigned for the Load Balancer of this type.
      * 
      */
     private Integer maxAssignedCertificates;
     /**
-     * @return (int) Maximum number of simultaneous open connections for the Load Balancer of this type.
+     * @return Maximum number of simultaneous open connections for the Load Balancer of this type.
      * 
      */
     private Integer maxConnections;
     /**
-     * @return (int) Maximum number of services for the Load Balancer of this type.
+     * @return Maximum number of services for the Load Balancer of this type.
      * 
      */
     private Integer maxServices;
     /**
-     * @return (int) Maximum number of targets for the Load Balancer of this type.
+     * @return Maximum number of targets for the Load Balancer of this type.
      * 
      */
     private Integer maxTargets;
     /**
-     * @return (string) Name of the load_balancer_type.
+     * @return Name of the Load Balancer Type.
      * 
      */
     private String name;
 
     private GetLoadBalancerTypeResult() {}
     /**
-     * @return (string) Description of the load_balancer_type.
+     * @return Description of the Load Balancer Type.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return (int) Unique ID of the load_balancer_type.
+     * @return ID of the Load Balancer Type.
      * 
      */
     public Integer id() {
         return this.id;
     }
     /**
-     * @return (int) Maximum number of SSL Certificates that can be assigned to the Load Balancer of this type.
+     * @return Maximum number of certificates that can be assigned for the Load Balancer of this type.
      * 
      */
     public Integer maxAssignedCertificates() {
         return this.maxAssignedCertificates;
     }
     /**
-     * @return (int) Maximum number of simultaneous open connections for the Load Balancer of this type.
+     * @return Maximum number of simultaneous open connections for the Load Balancer of this type.
      * 
      */
     public Integer maxConnections() {
         return this.maxConnections;
     }
     /**
-     * @return (int) Maximum number of services for the Load Balancer of this type.
+     * @return Maximum number of services for the Load Balancer of this type.
      * 
      */
     public Integer maxServices() {
         return this.maxServices;
     }
     /**
-     * @return (int) Maximum number of targets for the Load Balancer of this type.
+     * @return Maximum number of targets for the Load Balancer of this type.
      * 
      */
     public Integer maxTargets() {
         return this.maxTargets;
     }
     /**
-     * @return (string) Name of the load_balancer_type.
+     * @return Name of the Load Balancer Type.
      * 
      */
     public String name() {

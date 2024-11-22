@@ -62,11 +62,29 @@ export interface GetCertificatesCertificate {
 }
 
 export interface GetDatacentersDatacenter {
+    /**
+     * List of currently available Server Types in the Datacenter.
+     */
     availableServerTypeIds: number[];
+    /**
+     * Description of the Datacenter.
+     */
     description: string;
+    /**
+     * ID of the Datacenter.
+     */
     id: number;
+    /**
+     * Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     */
     location: {[key: string]: string};
+    /**
+     * Name of the Datacenter.
+     */
     name: string;
+    /**
+     * List of supported Server Types in the Datacenter.
+     */
     supportedServerTypeIds: number[];
 }
 
@@ -285,12 +303,33 @@ export interface GetLoadBalancerTarget {
 }
 
 export interface GetLoadBalancerTypesLoadBalancerType {
+    /**
+     * Description of the Load Balancer Type.
+     */
     description: string;
+    /**
+     * ID of the Load Balancer Type.
+     */
     id: number;
+    /**
+     * Maximum number of certificates that can be assigned for the Load Balancer of this type.
+     */
     maxAssignedCertificates: number;
+    /**
+     * Maximum number of simultaneous open connections for the Load Balancer of this type.
+     */
     maxConnections: number;
+    /**
+     * Maximum number of services for the Load Balancer of this type.
+     */
     maxServices: number;
+    /**
+     * Maximum number of targets for the Load Balancer of this type.
+     */
     maxTargets: number;
+    /**
+     * Name of the Load Balancer Type.
+     */
     name: string;
 }
 
@@ -356,13 +395,37 @@ export interface GetLoadBalancersLoadBalancerTarget {
 }
 
 export interface GetLocationsLocation {
+    /**
+     * Name of the closest city to the Location. City name and optionally state in short form.
+     */
     city: string;
+    /**
+     * Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
+     */
     country: string;
+    /**
+     * Description of the Location.
+     */
     description: string;
+    /**
+     * ID of the Location.
+     */
     id: number;
+    /**
+     * Latitude of the city closest to the Location.
+     */
     latitude: number;
+    /**
+     * Longitude of the city closest to the Location.
+     */
     longitude: number;
+    /**
+     * Name of the Location.
+     */
     name: string;
+    /**
+     * Name of the Network Zone this Location resides in.
+     */
     networkZone: string;
 }
 
@@ -401,21 +464,57 @@ export interface GetPrimaryIpsPrimaryIp {
 }
 
 export interface GetServerTypesServerType {
+    /**
+     * Architecture of the cpu for a Server of this type.
+     */
     architecture: string;
+    /**
+     * Number of cpu cores for a Server of this type.
+     */
     cores: number;
+    /**
+     * Type of cpu for a Server of this type.
+     */
     cpuType: string;
+    /**
+     * Date of the Server Type deprecation announcement.
+     */
     deprecationAnnounced: string;
+    /**
+     * Description of the Server Type.
+     */
     description: string;
+    /**
+     * Disk size in GB for a Server of this type.
+     */
     disk: number;
+    /**
+     * ID of the Server Type.
+     */
     id: number;
     /**
      * @deprecated The field is deprecated and will always report 0 after 2024-08-05.
      */
     includedTraffic: number;
+    /**
+     * Whether the Server Type is deprecated.
+     */
     isDeprecated: boolean;
+    /**
+     * Memory in GB for a Server of this type.
+     */
     memory: number;
+    /**
+     * Name of the Server Type.
+     */
     name: string;
+    /**
+     * Type of boot drive for a Server of this type.
+     */
     storageType: string;
+    /**
+     * Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+     */
     unavailableAfter: string;
 }
 
@@ -444,11 +543,11 @@ export interface GetServersServer {
 
 export interface GetSshKeysSshKey {
     /**
-     * Fingerprint of the SSH key.
+     * Fingerprint of the SSH Key.
      */
     fingerprint: string;
     /**
-     * ID of the SSH key.
+     * ID of the SSH Key.
      */
     id: number;
     /**
@@ -456,11 +555,11 @@ export interface GetSshKeysSshKey {
      */
     labels: {[key: string]: string};
     /**
-     * Name of the SSH key.
+     * Name of the SSH Key.
      */
     name: string;
     /**
-     * Public key of the SSH key pair.
+     * Public key of the SSH Key pair.
      */
     publicKey: string;
 }

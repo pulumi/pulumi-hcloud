@@ -28,10 +28,10 @@ export function getLoadBalancerTypes(opts?: pulumi.InvokeOptions): Promise<GetLo
  * A collection of values returned by getLoadBalancerTypes.
  */
 export interface GetLoadBalancerTypesResult {
-    readonly id: string;
     /**
-     * (list) List of all load balancer types. See `data.hcloud_load_balancer_type` for the schema.
+     * The ID of this resource.
      */
+    readonly id: string;
     readonly loadBalancerTypes: outputs.GetLoadBalancerTypesLoadBalancerType[];
 }
 /**

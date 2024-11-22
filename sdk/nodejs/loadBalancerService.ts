@@ -50,7 +50,7 @@ import * as utilities from "./utilities";
  * `<load-balancer-id>__<listen-port>`
  *
  * ```sh
- * $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
+ * $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService example "${LOAD_BALANCER_ID}__${LISTEN_PORT}"
  * ```
  */
 export class LoadBalancerService extends pulumi.CustomResource {

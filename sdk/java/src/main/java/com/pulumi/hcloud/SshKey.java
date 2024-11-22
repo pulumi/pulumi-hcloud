@@ -15,7 +15,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
+ * Provides a Hetzner Cloud SSH Key resource to manage SSH Keys for server access.
  * 
  * ## Example Usage
  * 
@@ -42,11 +42,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Create a new SSH key
- *         var default_ = new SshKey("default", SshKeyArgs.builder()
- *             .name("Terraform Example")
+ *         var main = new SshKey("main", SshKeyArgs.builder()
+ *             .name("my-ssh-key")
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input("~/.ssh/id_rsa.pub")
+ *                 .input("~/.ssh/id_ed25519.pub")
  *                 .build()).result())
  *             .build());
  * 
@@ -58,66 +57,64 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SSH keys can be imported using the SSH key `id`:
- * 
  * ```sh
- * $ pulumi import hcloud:index/sshKey:SshKey mykey id
+ * $ pulumi import hcloud:index/sshKey:SshKey example &#34;$SSH_KEY_ID&#34;
  * ```
  * 
  */
 @ResourceType(type="hcloud:index/sshKey:SshKey")
 public class SshKey extends com.pulumi.resources.CustomResource {
     /**
-     * (string) The fingerprint of the SSH key
+     * Fingerprint of the SSH public key.
      * 
      */
     @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
     /**
-     * @return (string) The fingerprint of the SSH key
+     * @return Fingerprint of the SSH public key.
      * 
      */
     public Output<String> fingerprint() {
         return this.fingerprint;
     }
     /**
-     * User-defined labels (key-value pairs) should be created with.
+     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
      * 
      */
     @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> labels;
 
     /**
-     * @return User-defined labels (key-value pairs) should be created with.
+     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
      * 
      */
     public Output<Map<String,String>> labels() {
         return this.labels;
     }
     /**
-     * Name of the SSH key.
+     * Name of the SSH Key.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the SSH key.
+     * @return Name of the SSH Key.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The public key. If this is a file, it can be read using the file interpolation function
+     * Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
      * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
-     * @return The public key. If this is a file, it can be read using the file interpolation function
+     * @return Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
      * 
      */
     public Output<String> publicKey() {

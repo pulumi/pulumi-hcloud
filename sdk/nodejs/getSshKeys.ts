@@ -13,11 +13,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const allKeys = hcloud.getSshKeys({});
- * const keysBySelector = hcloud.getSshKeys({
+ * const all = hcloud.getSshKeys({});
+ * const byLabel = hcloud.getSshKeys({
  *     withSelector: "foo=bar",
  * });
- * const main = new hcloud.Server("main", {sshKeys: allKeys.then(allKeys => allKeys.sshKeys.map(__item => __item.name))});
+ * const main = new hcloud.Server("main", {sshKeys: all.then(all => all.sshKeys.map(__item => __item.name))});
  * ```
  */
 export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetSshKeysResult> {
@@ -33,9 +33,12 @@ export function getSshKeys(args?: GetSshKeysArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getSshKeys.
  */
 export interface GetSshKeysArgs {
+    /**
+     * The ID of this resource.
+     */
     id?: string;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
      */
     withSelector?: string;
 }
@@ -44,11 +47,14 @@ export interface GetSshKeysArgs {
  * A collection of values returned by getSshKeys.
  */
 export interface GetSshKeysResult {
-    readonly id?: string;
     /**
-     * (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
+     * The ID of this resource.
      */
+    readonly id?: string;
     readonly sshKeys: outputs.GetSshKeysSshKey[];
+    /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     */
     readonly withSelector?: string;
 }
 /**
@@ -58,11 +64,11 @@ export interface GetSshKeysResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const allKeys = hcloud.getSshKeys({});
- * const keysBySelector = hcloud.getSshKeys({
+ * const all = hcloud.getSshKeys({});
+ * const byLabel = hcloud.getSshKeys({
  *     withSelector: "foo=bar",
  * });
- * const main = new hcloud.Server("main", {sshKeys: allKeys.then(allKeys => allKeys.sshKeys.map(__item => __item.name))});
+ * const main = new hcloud.Server("main", {sshKeys: all.then(all => all.sshKeys.map(__item => __item.name))});
  * ```
  */
 export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {
@@ -78,9 +84,12 @@ export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getSshKeys.
  */
 export interface GetSshKeysOutputArgs {
+    /**
+     * The ID of this resource.
+     */
     id?: pulumi.Input<string>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

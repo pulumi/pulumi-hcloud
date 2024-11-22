@@ -6,6 +6,7 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a specific Hetzner Cloud Server Type.
+ *
  * Use this resource to get detailed information about specific Server Type.
  *
  * ## Example Usage
@@ -14,11 +15,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ds1 = hcloud.getServerType({
+ * const byId = hcloud.getServerType({
+ *     id: 22,
+ * });
+ * const byName = hcloud.getServerType({
  *     name: "cx22",
  * });
- * const ds2 = hcloud.getServerType({
- *     id: 1,
+ * const main = new hcloud.Server("main", {
+ *     name: "my-server",
+ *     location: "fsn1",
+ *     image: "debian-12",
+ *     serverType: byName.then(byName => byName.name),
  * });
  * ```
  */
@@ -26,10 +33,8 @@ export function getServerType(args?: GetServerTypeArgs, opts?: pulumi.InvokeOpti
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getServerType:getServerType", {
-        "deprecationAnnounced": args.deprecationAnnounced,
         "id": args.id,
         "name": args.name,
-        "unavailableAfter": args.unavailableAfter,
     }, opts);
 }
 
@@ -38,21 +43,13 @@ export function getServerType(args?: GetServerTypeArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetServerTypeArgs {
     /**
-     * (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
-     */
-    deprecationAnnounced?: string;
-    /**
-     * ID of the server_type.
+     * ID of the Server Type.
      */
     id?: number;
     /**
-     * Name of the server_type.
+     * Name of the Server Type.
      */
     name?: string;
-    /**
-     * (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
-     */
-    unavailableAfter?: string;
 }
 
 /**
@@ -60,56 +57,61 @@ export interface GetServerTypeArgs {
  */
 export interface GetServerTypeResult {
     /**
-     * (string) Architecture of the server_type.
+     * Architecture of the cpu for a Server of this type.
      */
     readonly architecture: string;
     /**
-     * (int) Number of cpu cores a Server of this type will have.
+     * Number of cpu cores for a Server of this type.
      */
     readonly cores: number;
+    /**
+     * Type of cpu for a Server of this type.
+     */
     readonly cpuType: string;
     /**
-     * (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+     * Date of the Server Type deprecation announcement.
      */
     readonly deprecationAnnounced: string;
     /**
-     * (string) Description of the server_type.
+     * Description of the Server Type.
      */
     readonly description: string;
     /**
-     * (int) Disk size a Server of this type will have in GB.
+     * Disk size in GB for a Server of this type.
      */
     readonly disk: number;
     /**
-     * (int) Unique ID of the server_type.
+     * ID of the Server Type.
      */
-    readonly id: number;
+    readonly id?: number;
     /**
-     * (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
-     *
      * @deprecated The field is deprecated and will always report 0 after 2024-08-05.
      */
     readonly includedTraffic: number;
     /**
-     * (bool) Deprecation status of server type.
+     * Whether the Server Type is deprecated.
      */
     readonly isDeprecated: boolean;
     /**
-     * (int) Memory a Server of this type will have in GB.
+     * Memory in GB for a Server of this type.
      */
     readonly memory: number;
     /**
-     * (string) Name of the server_type.
+     * Name of the Server Type.
      */
-    readonly name: string;
+    readonly name?: string;
+    /**
+     * Type of boot drive for a Server of this type.
+     */
     readonly storageType: string;
     /**
-     * (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+     * Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      */
     readonly unavailableAfter: string;
 }
 /**
  * Provides details about a specific Hetzner Cloud Server Type.
+ *
  * Use this resource to get detailed information about specific Server Type.
  *
  * ## Example Usage
@@ -118,11 +120,17 @@ export interface GetServerTypeResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const ds1 = hcloud.getServerType({
+ * const byId = hcloud.getServerType({
+ *     id: 22,
+ * });
+ * const byName = hcloud.getServerType({
  *     name: "cx22",
  * });
- * const ds2 = hcloud.getServerType({
- *     id: 1,
+ * const main = new hcloud.Server("main", {
+ *     name: "my-server",
+ *     location: "fsn1",
+ *     image: "debian-12",
+ *     serverType: byName.then(byName => byName.name),
  * });
  * ```
  */
@@ -130,10 +138,8 @@ export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulum
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getServerType:getServerType", {
-        "deprecationAnnounced": args.deprecationAnnounced,
         "id": args.id,
         "name": args.name,
-        "unavailableAfter": args.unavailableAfter,
     }, opts);
 }
 
@@ -142,19 +148,11 @@ export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulum
  */
 export interface GetServerTypeOutputArgs {
     /**
-     * (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
-     */
-    deprecationAnnounced?: pulumi.Input<string>;
-    /**
-     * ID of the server_type.
+     * ID of the Server Type.
      */
     id?: pulumi.Input<number>;
     /**
-     * Name of the server_type.
+     * Name of the Server Type.
      */
     name?: pulumi.Input<string>;
-    /**
-     * (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
-     */
-    unavailableAfter?: pulumi.Input<string>;
 }

@@ -13,13 +13,37 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetLocationsLocationResult
     {
+        /// <summary>
+        /// Name of the closest city to the Location. City name and optionally state in short form.
+        /// </summary>
         public readonly string City;
+        /// <summary>
+        /// Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
+        /// </summary>
         public readonly string Country;
+        /// <summary>
+        /// Description of the Location.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// ID of the Location.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Latitude of the city closest to the Location.
+        /// </summary>
         public readonly double Latitude;
+        /// <summary>
+        /// Longitude of the city closest to the Location.
+        /// </summary>
         public readonly double Longitude;
+        /// <summary>
+        /// Name of the Location.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Name of the Network Zone this Location resides in.
+        /// </summary>
         public readonly string NetworkZone;
 
         [OutputConstructor]

@@ -12,7 +12,8 @@ import (
 )
 
 // Provides details about a specific Hetzner Cloud Location.
-// Use this resource to get detailed information about specific location.
+//
+// Use this resource to get detailed information about a specific Location.
 //
 // ## Example Usage
 //
@@ -29,13 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.GetLocation(ctx, &hcloud.GetLocationArgs{
-//				Name: pulumi.StringRef("fsn1"),
+//				Id: pulumi.IntRef(1),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = hcloud.GetLocation(ctx, &hcloud.GetLocationArgs{
-//				Id: pulumi.IntRef(1),
+//				Name: pulumi.StringRef("fsn1"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -57,29 +58,29 @@ func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getLocation.
 type GetLocationArgs struct {
-	// ID of the location.
+	// ID of the Location.
 	Id *int `pulumi:"id"`
-	// Name of the location.
+	// Name of the Location.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getLocation.
 type GetLocationResult struct {
-	// (string) City of the location.
+	// Name of the closest city to the Location. City name and optionally state in short form.
 	City string `pulumi:"city"`
-	// (string) Country of the location.
+	// Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
 	Country string `pulumi:"country"`
-	// (string) Description of the location.
+	// Description of the Location.
 	Description string `pulumi:"description"`
-	// (int) Unique ID of the location.
-	Id int `pulumi:"id"`
-	// (float) Latitude of the city.
+	// ID of the Location.
+	Id *int `pulumi:"id"`
+	// Latitude of the city closest to the Location.
 	Latitude float64 `pulumi:"latitude"`
-	// (float) Longitude of the city.
+	// Longitude of the city closest to the Location.
 	Longitude float64 `pulumi:"longitude"`
-	// (string) Name of the location.
-	Name string `pulumi:"name"`
-	// (string) Network Zone of the location.
+	// Name of the Location.
+	Name *string `pulumi:"name"`
+	// Name of the Network Zone this Location resides in.
 	NetworkZone string `pulumi:"networkZone"`
 }
 
@@ -104,9 +105,9 @@ func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...
 
 // A collection of arguments for invoking getLocation.
 type GetLocationOutputArgs struct {
-	// ID of the location.
+	// ID of the Location.
 	Id pulumi.IntPtrInput `pulumi:"id"`
-	// Name of the location.
+	// Name of the Location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -129,42 +130,42 @@ func (o GetLocationResultOutput) ToGetLocationResultOutputWithContext(ctx contex
 	return o
 }
 
-// (string) City of the location.
+// Name of the closest city to the Location. City name and optionally state in short form.
 func (o GetLocationResultOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.City }).(pulumi.StringOutput)
 }
 
-// (string) Country of the location.
+// Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
 func (o GetLocationResultOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.Country }).(pulumi.StringOutput)
 }
 
-// (string) Description of the location.
+// Description of the Location.
 func (o GetLocationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// (int) Unique ID of the location.
-func (o GetLocationResultOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLocationResult) int { return v.Id }).(pulumi.IntOutput)
+// ID of the Location.
+func (o GetLocationResultOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetLocationResult) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
-// (float) Latitude of the city.
+// Latitude of the city closest to the Location.
 func (o GetLocationResultOutput) Latitude() pulumi.Float64Output {
 	return o.ApplyT(func(v GetLocationResult) float64 { return v.Latitude }).(pulumi.Float64Output)
 }
 
-// (float) Longitude of the city.
+// Longitude of the city closest to the Location.
 func (o GetLocationResultOutput) Longitude() pulumi.Float64Output {
 	return o.ApplyT(func(v GetLocationResult) float64 { return v.Longitude }).(pulumi.Float64Output)
 }
 
-// (string) Name of the location.
-func (o GetLocationResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationResult) string { return v.Name }).(pulumi.StringOutput)
+// Name of the Location.
+func (o GetLocationResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (string) Network Zone of the location.
+// Name of the Network Zone this Location resides in.
 func (o GetLocationResultOutput) NetworkZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.NetworkZone }).(pulumi.StringOutput)
 }

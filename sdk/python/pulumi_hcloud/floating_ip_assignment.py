@@ -129,7 +129,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
         Floating IP Assignments can be imported using the `floating_ip_id`:
 
         ```sh
-        $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment <floating_ip_id>
+        $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment example "$FLOATING_IP_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -170,7 +170,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
         Floating IP Assignments can be imported using the `floating_ip_id`:
 
         ```sh
-        $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment myfloatingipassignment <floating_ip_id>
+        $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment example "$FLOATING_IP_ID"
         ```
 
         :param str resource_name: The name of the resource.

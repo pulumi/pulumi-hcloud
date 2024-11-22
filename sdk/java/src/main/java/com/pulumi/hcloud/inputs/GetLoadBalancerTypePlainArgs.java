@@ -16,14 +16,14 @@ public final class GetLoadBalancerTypePlainArgs extends com.pulumi.resources.Inv
     public static final GetLoadBalancerTypePlainArgs Empty = new GetLoadBalancerTypePlainArgs();
 
     /**
-     * ID of the load_balancer_type.
+     * ID of the Load Balancer Type.
      * 
      */
     @Import(name="id")
     private @Nullable Integer id;
 
     /**
-     * @return ID of the load_balancer_type.
+     * @return ID of the Load Balancer Type.
      * 
      */
     public Optional<Integer> id() {
@@ -31,14 +31,14 @@ public final class GetLoadBalancerTypePlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Name of the load_balancer_type.
+     * Name of the Load Balancer Type.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the load_balancer_type.
+     * @return Name of the Load Balancer Type.
      * 
      */
     public Optional<String> name() {
@@ -71,7 +71,7 @@ public final class GetLoadBalancerTypePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param id ID of the load_balancer_type.
+         * @param id ID of the Load Balancer Type.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetLoadBalancerTypePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param name Name of the load_balancer_type.
+         * @param name Name of the Load Balancer Type.
          * 
          * @return builder
          * 

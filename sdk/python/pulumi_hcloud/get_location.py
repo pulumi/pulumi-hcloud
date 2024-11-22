@@ -56,7 +56,7 @@ class GetLocationResult:
     @pulumi.getter
     def city(self) -> str:
         """
-        (string) City of the location.
+        Name of the closest city to the Location. City name and optionally state in short form.
         """
         return pulumi.get(self, "city")
 
@@ -64,7 +64,7 @@ class GetLocationResult:
     @pulumi.getter
     def country(self) -> str:
         """
-        (string) Country of the location.
+        Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
         """
         return pulumi.get(self, "country")
 
@@ -72,15 +72,15 @@ class GetLocationResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        (string) Description of the location.
+        Description of the Location.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def id(self) -> int:
+    def id(self) -> Optional[int]:
         """
-        (int) Unique ID of the location.
+        ID of the Location.
         """
         return pulumi.get(self, "id")
 
@@ -88,7 +88,7 @@ class GetLocationResult:
     @pulumi.getter
     def latitude(self) -> float:
         """
-        (float) Latitude of the city.
+        Latitude of the city closest to the Location.
         """
         return pulumi.get(self, "latitude")
 
@@ -96,15 +96,15 @@ class GetLocationResult:
     @pulumi.getter
     def longitude(self) -> float:
         """
-        (float) Longitude of the city.
+        Longitude of the city closest to the Location.
         """
         return pulumi.get(self, "longitude")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        (string) Name of the location.
+        Name of the Location.
         """
         return pulumi.get(self, "name")
 
@@ -112,7 +112,7 @@ class GetLocationResult:
     @pulumi.getter(name="networkZone")
     def network_zone(self) -> str:
         """
-        (string) Network Zone of the location.
+        Name of the Network Zone this Location resides in.
         """
         return pulumi.get(self, "network_zone")
 
@@ -138,7 +138,8 @@ def get_location(id: Optional[int] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationResult:
     """
     Provides details about a specific Hetzner Cloud Location.
-    Use this resource to get detailed information about specific location.
+
+    Use this resource to get detailed information about a specific Location.
 
     ## Example Usage
 
@@ -146,13 +147,13 @@ def get_location(id: Optional[int] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    l1 = hcloud.get_location(name="fsn1")
-    l2 = hcloud.get_location(id=1)
+    by_id = hcloud.get_location(id=1)
+    by_name = hcloud.get_location(name="fsn1")
     ```
 
 
-    :param int id: ID of the location.
-    :param str name: Name of the location.
+    :param int id: ID of the Location.
+    :param str name: Name of the Location.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -174,7 +175,8 @@ def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
     """
     Provides details about a specific Hetzner Cloud Location.
-    Use this resource to get detailed information about specific location.
+
+    Use this resource to get detailed information about a specific Location.
 
     ## Example Usage
 
@@ -182,13 +184,13 @@ def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    l1 = hcloud.get_location(name="fsn1")
-    l2 = hcloud.get_location(id=1)
+    by_id = hcloud.get_location(id=1)
+    by_name = hcloud.get_location(name="fsn1")
     ```
 
 
-    :param int id: ID of the location.
-    :param str name: Name of the location.
+    :param int id: ID of the Location.
+    :param str name: Name of the Location.
     """
     __args__ = dict()
     __args__['id'] = id

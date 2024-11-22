@@ -51,30 +51,33 @@ class GetSshKeyResult:
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> str:
+    def fingerprint(self) -> Optional[str]:
         """
-        (string) Fingerprint of the SSH Key.
+        Fingerprint of the SSH Key.
         """
         return pulumi.get(self, "fingerprint")
 
     @property
     @pulumi.getter
-    def id(self) -> int:
+    def id(self) -> Optional[int]:
         """
-        (int) Unique ID of the SSH Key.
+        ID of the SSH Key.
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def labels(self) -> Mapping[str, str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        (string) Name of the SSH Key.
+        Name of the SSH Key.
         """
         return pulumi.get(self, "name")
 
@@ -82,7 +85,7 @@ class GetSshKeyResult:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
         """
-        (string) Public Key of the SSH Key.
+        Public key of the SSH Key pair.
         """
         return pulumi.get(self, "public_key")
 
@@ -90,11 +93,17 @@ class GetSshKeyResult:
     @pulumi.getter
     @_utilities.deprecated("""Please use the with_selector property instead.""")
     def selector(self) -> Optional[str]:
+        """
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        """
         return pulumi.get(self, "selector")
 
     @property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[str]:
+        """
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        """
         return pulumi.get(self, "with_selector")
 
 
@@ -115,9 +124,7 @@ class AwaitableGetSshKeyResult(GetSshKeyResult):
 
 def get_ssh_key(fingerprint: Optional[str] = None,
                 id: Optional[int] = None,
-                labels: Optional[Mapping[str, str]] = None,
                 name: Optional[str] = None,
-                public_key: Optional[str] = None,
                 selector: Optional[str] = None,
                 with_selector: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeyResult:
@@ -128,14 +135,14 @@ def get_ssh_key(fingerprint: Optional[str] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    ssh_key1 = hcloud.get_ssh_key(id=1234)
-    ssh_key2 = hcloud.get_ssh_key(name="my-ssh-key")
-    ssh_key3 = hcloud.get_ssh_key(fingerprint="43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
-    ssh_key4 = hcloud.get_ssh_key(with_selector="key=value")
+    by_id = hcloud.get_ssh_key(id=24332897)
+    by_name = hcloud.get_ssh_key(name="my-ssh-key")
+    by_fingerprint = hcloud.get_ssh_key(fingerprint="55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
+    by_label = hcloud.get_ssh_key(with_selector="key=value")
     main = hcloud.Server("main", ssh_keys=[
-        ssh_key1.id,
-        ssh_key2.id,
-        ssh_key3.id,
+        by_id.id,
+        by_name.id,
+        by_fingerprint.id,
     ])
     ```
 
@@ -143,15 +150,13 @@ def get_ssh_key(fingerprint: Optional[str] = None,
     :param str fingerprint: Fingerprint of the SSH Key.
     :param int id: ID of the SSH Key.
     :param str name: Name of the SSH Key.
-    :param str public_key: (string) Public Key of the SSH Key.
-    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param str selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+    :param str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
     """
     __args__ = dict()
     __args__['fingerprint'] = fingerprint
     __args__['id'] = id
-    __args__['labels'] = labels
     __args__['name'] = name
-    __args__['publicKey'] = public_key
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -167,9 +172,7 @@ def get_ssh_key(fingerprint: Optional[str] = None,
         with_selector=pulumi.get(__ret__, 'with_selector'))
 def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[Optional[int]]] = None,
-                       labels: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
-                       public_key: Optional[pulumi.Input[Optional[str]]] = None,
                        selector: Optional[pulumi.Input[Optional[str]]] = None,
                        with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyResult]:
@@ -180,14 +183,14 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
     import pulumi
     import pulumi_hcloud as hcloud
 
-    ssh_key1 = hcloud.get_ssh_key(id=1234)
-    ssh_key2 = hcloud.get_ssh_key(name="my-ssh-key")
-    ssh_key3 = hcloud.get_ssh_key(fingerprint="43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8")
-    ssh_key4 = hcloud.get_ssh_key(with_selector="key=value")
+    by_id = hcloud.get_ssh_key(id=24332897)
+    by_name = hcloud.get_ssh_key(name="my-ssh-key")
+    by_fingerprint = hcloud.get_ssh_key(fingerprint="55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
+    by_label = hcloud.get_ssh_key(with_selector="key=value")
     main = hcloud.Server("main", ssh_keys=[
-        ssh_key1.id,
-        ssh_key2.id,
-        ssh_key3.id,
+        by_id.id,
+        by_name.id,
+        by_fingerprint.id,
     ])
     ```
 
@@ -195,15 +198,13 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
     :param str fingerprint: Fingerprint of the SSH Key.
     :param int id: ID of the SSH Key.
     :param str name: Name of the SSH Key.
-    :param str public_key: (string) Public Key of the SSH Key.
-    :param str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param str selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+    :param str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
     """
     __args__ = dict()
     __args__['fingerprint'] = fingerprint
     __args__['id'] = id
-    __args__['labels'] = labels
     __args__['name'] = name
-    __args__['publicKey'] = public_key
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

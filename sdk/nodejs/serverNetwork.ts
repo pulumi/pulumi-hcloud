@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  * `<server-id>-<network-id>`
  *
  * ```sh
- * $ pulumi import hcloud:index/serverNetwork:ServerNetwork myservernetwork 123-654
+ * $ pulumi import hcloud:index/serverNetwork:ServerNetwork example "$SERVER_ID-$NETWORK_ID"
  * ```
  */
 export class ServerNetwork extends pulumi.CustomResource {

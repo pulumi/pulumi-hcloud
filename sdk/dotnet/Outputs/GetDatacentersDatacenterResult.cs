@@ -13,11 +13,29 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetDatacentersDatacenterResult
     {
+        /// <summary>
+        /// List of currently available Server Types in the Datacenter.
+        /// </summary>
         public readonly ImmutableArray<int> AvailableServerTypeIds;
+        /// <summary>
+        /// Description of the Datacenter.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// ID of the Datacenter.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Location;
+        /// <summary>
+        /// Name of the Datacenter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of supported Server Types in the Datacenter.
+        /// </summary>
         public readonly ImmutableArray<int> SupportedServerTypeIds;
 
         [OutputConstructor]

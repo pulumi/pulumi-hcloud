@@ -58,10 +58,10 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetLoadBalancerTypesResult
     {
-        public readonly string Id;
         /// <summary>
-        /// (list) List of all load balancer types. See `data.hcloud_load_balancer_type` for the schema.
+        /// The ID of this resource.
         /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<Outputs.GetLoadBalancerTypesLoadBalancerTypeResult> LoadBalancerTypes;
 
         [OutputConstructor]

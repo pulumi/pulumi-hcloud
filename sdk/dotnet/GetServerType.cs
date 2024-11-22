@@ -13,6 +13,7 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Server Type.
+        /// 
         /// Use this resource to get detailed information about specific Server Type.
         /// 
         /// ## Example Usage
@@ -25,14 +26,22 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ds1 = HCloud.GetServerType.Invoke(new()
+        ///     var byId = HCloud.GetServerType.Invoke(new()
+        ///     {
+        ///         Id = 22,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetServerType.Invoke(new()
         ///     {
         ///         Name = "cx22",
         ///     });
         /// 
-        ///     var ds2 = HCloud.GetServerType.Invoke(new()
+        ///     var main = new HCloud.Server("main", new()
         ///     {
-        ///         Id = 1,
+        ///         Name = "my-server",
+        ///         Location = "fsn1",
+        ///         Image = "debian-12",
+        ///         ServerType = byName.Apply(getServerTypeResult =&gt; getServerTypeResult.Name),
         ///     });
         /// 
         /// });
@@ -43,6 +52,7 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Server Type.
+        /// 
         /// Use this resource to get detailed information about specific Server Type.
         /// 
         /// ## Example Usage
@@ -55,14 +65,22 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ds1 = HCloud.GetServerType.Invoke(new()
+        ///     var byId = HCloud.GetServerType.Invoke(new()
+        ///     {
+        ///         Id = 22,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetServerType.Invoke(new()
         ///     {
         ///         Name = "cx22",
         ///     });
         /// 
-        ///     var ds2 = HCloud.GetServerType.Invoke(new()
+        ///     var main = new HCloud.Server("main", new()
         ///     {
-        ///         Id = 1,
+        ///         Name = "my-server",
+        ///         Location = "fsn1",
+        ///         Image = "debian-12",
+        ///         ServerType = byName.Apply(getServerTypeResult =&gt; getServerTypeResult.Name),
         ///     });
         /// 
         /// });
@@ -76,28 +94,16 @@ namespace Pulumi.HCloud
     public sealed class GetServerTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
-        /// </summary>
-        [Input("deprecationAnnounced")]
-        public string? DeprecationAnnounced { get; set; }
-
-        /// <summary>
-        /// ID of the server_type.
+        /// ID of the Server Type.
         /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
         /// <summary>
-        /// Name of the server_type.
+        /// Name of the Server Type.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
-
-        /// <summary>
-        /// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
-        /// </summary>
-        [Input("unavailableAfter")]
-        public string? UnavailableAfter { get; set; }
 
         public GetServerTypeArgs()
         {
@@ -108,28 +114,16 @@ namespace Pulumi.HCloud
     public sealed class GetServerTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
-        /// </summary>
-        [Input("deprecationAnnounced")]
-        public Input<string>? DeprecationAnnounced { get; set; }
-
-        /// <summary>
-        /// ID of the server_type.
+        /// ID of the Server Type.
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 
         /// <summary>
-        /// Name of the server_type.
+        /// Name of the Server Type.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
-        /// </summary>
-        [Input("unavailableAfter")]
-        public Input<string>? UnavailableAfter { get; set; }
 
         public GetServerTypeInvokeArgs()
         {
@@ -142,49 +136,52 @@ namespace Pulumi.HCloud
     public sealed class GetServerTypeResult
     {
         /// <summary>
-        /// (string) Architecture of the server_type.
+        /// Architecture of the cpu for a Server of this type.
         /// </summary>
         public readonly string Architecture;
         /// <summary>
-        /// (int) Number of cpu cores a Server of this type will have.
+        /// Number of cpu cores for a Server of this type.
         /// </summary>
         public readonly double Cores;
+        /// <summary>
+        /// Type of cpu for a Server of this type.
+        /// </summary>
         public readonly string CpuType;
         /// <summary>
-        /// (Optional, string) Date when the deprecation of the server type was announced. Only set when the server type is deprecated.
+        /// Date of the Server Type deprecation announcement.
         /// </summary>
         public readonly string DeprecationAnnounced;
         /// <summary>
-        /// (string) Description of the server_type.
+        /// Description of the Server Type.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (int) Disk size a Server of this type will have in GB.
+        /// Disk size in GB for a Server of this type.
         /// </summary>
         public readonly double Disk;
         /// <summary>
-        /// (int) Unique ID of the server_type.
+        /// ID of the Server Type.
         /// </summary>
-        public readonly int Id;
-        /// <summary>
-        /// (int) Free traffic per month in bytes. **Warning**: This field is deprecated and will report `0` after 2024-08-05.
-        /// </summary>
+        public readonly int? Id;
         public readonly int IncludedTraffic;
         /// <summary>
-        /// (bool) Deprecation status of server type.
+        /// Whether the Server Type is deprecated.
         /// </summary>
         public readonly bool IsDeprecated;
         /// <summary>
-        /// (int) Memory a Server of this type will have in GB.
+        /// Memory in GB for a Server of this type.
         /// </summary>
         public readonly double Memory;
         /// <summary>
-        /// (string) Name of the server_type.
+        /// Name of the Server Type.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
+        /// <summary>
+        /// Type of boot drive for a Server of this type.
+        /// </summary>
         public readonly string StorageType;
         /// <summary>
-        /// (Optional, string) Date when the server type will not be available for new servers. Only set when the server type is deprecated.
+        /// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
         /// </summary>
         public readonly string UnavailableAfter;
 
@@ -202,7 +199,7 @@ namespace Pulumi.HCloud
 
             double disk,
 
-            int id,
+            int? id,
 
             int includedTraffic,
 
@@ -210,7 +207,7 @@ namespace Pulumi.HCloud
 
             double memory,
 
-            string name,
+            string? name,
 
             string storageType,
 

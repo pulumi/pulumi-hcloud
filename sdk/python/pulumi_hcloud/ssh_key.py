@@ -24,9 +24,9 @@ class SshKeyArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SshKey resource.
-        :param pulumi.Input[str] public_key: The public key. If this is a file, it can be read using the file interpolation function
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] name: Name of the SSH key.
+        :param pulumi.Input[str] public_key: Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        :param pulumi.Input[str] name: Name of the SSH Key.
         """
         pulumi.set(__self__, "public_key", public_key)
         if labels is not None:
@@ -38,7 +38,7 @@ class SshKeyArgs:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[str]:
         """
-        The public key. If this is a file, it can be read using the file interpolation function
+        Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         """
         return pulumi.get(self, "public_key")
 
@@ -50,7 +50,7 @@ class SshKeyArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        User-defined labels (key-value pairs) should be created with.
+        User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
@@ -62,7 +62,7 @@ class SshKeyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the SSH key.
+        Name of the SSH Key.
         """
         return pulumi.get(self, "name")
 
@@ -80,10 +80,10 @@ class _SshKeyState:
                  public_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SshKey resources.
-        :param pulumi.Input[str] fingerprint: (string) The fingerprint of the SSH key
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] name: Name of the SSH key.
-        :param pulumi.Input[str] public_key: The public key. If this is a file, it can be read using the file interpolation function
+        :param pulumi.Input[str] fingerprint: Fingerprint of the SSH public key.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        :param pulumi.Input[str] name: Name of the SSH Key.
+        :param pulumi.Input[str] public_key: Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         """
         if fingerprint is not None:
             pulumi.set(__self__, "fingerprint", fingerprint)
@@ -98,7 +98,7 @@ class _SshKeyState:
     @pulumi.getter
     def fingerprint(self) -> Optional[pulumi.Input[str]]:
         """
-        (string) The fingerprint of the SSH key
+        Fingerprint of the SSH public key.
         """
         return pulumi.get(self, "fingerprint")
 
@@ -110,7 +110,7 @@ class _SshKeyState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        User-defined labels (key-value pairs) should be created with.
+        User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
@@ -122,7 +122,7 @@ class _SshKeyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the SSH key.
+        Name of the SSH Key.
         """
         return pulumi.get(self, "name")
 
@@ -134,7 +134,7 @@ class _SshKeyState:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The public key. If this is a file, it can be read using the file interpolation function
+        Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         """
         return pulumi.get(self, "public_key")
 
@@ -153,7 +153,7 @@ class SshKey(pulumi.CustomResource):
                  public_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
+        Provides a Hetzner Cloud SSH Key resource to manage SSH Keys for server access.
 
         ## Example Usage
 
@@ -162,25 +162,22 @@ class SshKey(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
         import pulumi_std as std
 
-        # Create a new SSH key
-        default = hcloud.SshKey("default",
-            name="Terraform Example",
-            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
+        main = hcloud.SshKey("main",
+            name="my-ssh-key",
+            public_key=std.file(input="~/.ssh/id_ed25519.pub").result)
         ```
 
         ## Import
 
-        SSH keys can be imported using the SSH key `id`:
-
         ```sh
-        $ pulumi import hcloud:index/sshKey:SshKey mykey id
+        $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] name: Name of the SSH key.
-        :param pulumi.Input[str] public_key: The public key. If this is a file, it can be read using the file interpolation function
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        :param pulumi.Input[str] name: Name of the SSH Key.
+        :param pulumi.Input[str] public_key: Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         """
         ...
     @overload
@@ -189,7 +186,7 @@ class SshKey(pulumi.CustomResource):
                  args: SshKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
+        Provides a Hetzner Cloud SSH Key resource to manage SSH Keys for server access.
 
         ## Example Usage
 
@@ -198,18 +195,15 @@ class SshKey(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
         import pulumi_std as std
 
-        # Create a new SSH key
-        default = hcloud.SshKey("default",
-            name="Terraform Example",
-            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
+        main = hcloud.SshKey("main",
+            name="my-ssh-key",
+            public_key=std.file(input="~/.ssh/id_ed25519.pub").result)
         ```
 
         ## Import
 
-        SSH keys can be imported using the SSH key `id`:
-
         ```sh
-        $ pulumi import hcloud:index/sshKey:SshKey mykey id
+        $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,10 +260,10 @@ class SshKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] fingerprint: (string) The fingerprint of the SSH key
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined labels (key-value pairs) should be created with.
-        :param pulumi.Input[str] name: Name of the SSH key.
-        :param pulumi.Input[str] public_key: The public key. If this is a file, it can be read using the file interpolation function
+        :param pulumi.Input[str] fingerprint: Fingerprint of the SSH public key.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        :param pulumi.Input[str] name: Name of the SSH Key.
+        :param pulumi.Input[str] public_key: Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -285,7 +279,7 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter
     def fingerprint(self) -> pulumi.Output[str]:
         """
-        (string) The fingerprint of the SSH key
+        Fingerprint of the SSH public key.
         """
         return pulumi.get(self, "fingerprint")
 
@@ -293,7 +287,7 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter
     def labels(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        User-defined labels (key-value pairs) should be created with.
+        User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
@@ -301,7 +295,7 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the SSH key.
+        Name of the SSH Key.
         """
         return pulumi.get(self, "name")
 
@@ -309,7 +303,7 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[str]:
         """
-        The public key. If this is a file, it can be read using the file interpolation function
+        Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         """
         return pulumi.get(self, "public_key")
 

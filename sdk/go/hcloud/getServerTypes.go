@@ -12,72 +12,68 @@ import (
 )
 
 // Provides a list of available Hetzner Cloud Server Types.
-func GetServerTypes(ctx *pulumi.Context, args *GetServerTypesArgs, opts ...pulumi.InvokeOption) (*GetServerTypesResult, error) {
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := hcloud.GetServerTypes(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+func GetServerTypes(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetServerTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerTypesResult
-	err := ctx.Invoke("hcloud:index/getServerTypes:getServerTypes", args, &rv, opts...)
+	err := ctx.Invoke("hcloud:index/getServerTypes:getServerTypes", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-// A collection of arguments for invoking getServerTypes.
-type GetServerTypesArgs struct {
-	// Deprecated: Use serverTypes list instead
-	Descriptions []string `pulumi:"descriptions"`
-	Id           *string  `pulumi:"id"`
-	// Deprecated: Use serverTypes list instead
-	Names []string `pulumi:"names"`
-	// Deprecated: Use serverTypes list instead
-	ServerTypeIds []string `pulumi:"serverTypeIds"`
-}
-
 // A collection of values returned by getServerTypes.
 type GetServerTypesResult struct {
 	// Deprecated: Use serverTypes list instead
 	Descriptions []string `pulumi:"descriptions"`
-	Id           *string  `pulumi:"id"`
+	// The ID of this resource.
+	Id string `pulumi:"id"`
 	// Deprecated: Use serverTypes list instead
 	Names []string `pulumi:"names"`
 	// Deprecated: Use serverTypes list instead
-	ServerTypeIds []string `pulumi:"serverTypeIds"`
-	// (list) List of all server types. See `data.hcloud_server_type` for schema.
-	ServerTypes []GetServerTypesServerType `pulumi:"serverTypes"`
+	ServerTypeIds []string                   `pulumi:"serverTypeIds"`
+	ServerTypes   []GetServerTypesServerType `pulumi:"serverTypes"`
 }
 
-func GetServerTypesOutput(ctx *pulumi.Context, args GetServerTypesOutputArgs, opts ...pulumi.InvokeOption) GetServerTypesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServerTypesResultOutput, error) {
-			args := v.(GetServerTypesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetServerTypesResult
-			secret, err := ctx.InvokePackageRaw("hcloud:index/getServerTypes:getServerTypes", args, &rv, "", opts...)
-			if err != nil {
-				return GetServerTypesResultOutput{}, err
-			}
+func GetServerTypesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetServerTypesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetServerTypesResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetServerTypesResult
+		secret, err := ctx.InvokePackageRaw("hcloud:index/getServerTypes:getServerTypes", nil, &rv, "", opts...)
+		if err != nil {
+			return GetServerTypesResultOutput{}, err
+		}
 
-			output := pulumi.ToOutput(rv).(GetServerTypesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetServerTypesResultOutput), nil
-			}
-			return output, nil
-		}).(GetServerTypesResultOutput)
-}
-
-// A collection of arguments for invoking getServerTypes.
-type GetServerTypesOutputArgs struct {
-	// Deprecated: Use serverTypes list instead
-	Descriptions pulumi.StringArrayInput `pulumi:"descriptions"`
-	Id           pulumi.StringPtrInput   `pulumi:"id"`
-	// Deprecated: Use serverTypes list instead
-	Names pulumi.StringArrayInput `pulumi:"names"`
-	// Deprecated: Use serverTypes list instead
-	ServerTypeIds pulumi.StringArrayInput `pulumi:"serverTypeIds"`
-}
-
-func (GetServerTypesOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetServerTypesArgs)(nil)).Elem()
+		output := pulumi.ToOutput(rv).(GetServerTypesResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetServerTypesResultOutput), nil
+		}
+		return output, nil
+	}).(GetServerTypesResultOutput)
 }
 
 // A collection of values returned by getServerTypes.
@@ -100,8 +96,9 @@ func (o GetServerTypesResultOutput) Descriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []string { return v.Descriptions }).(pulumi.StringArrayOutput)
 }
 
-func (o GetServerTypesResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetServerTypesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The ID of this resource.
+func (o GetServerTypesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Deprecated: Use serverTypes list instead
@@ -114,7 +111,6 @@ func (o GetServerTypesResultOutput) ServerTypeIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []string { return v.ServerTypeIds }).(pulumi.StringArrayOutput)
 }
 
-// (list) List of all server types. See `data.hcloud_server_type` for schema.
 func (o GetServerTypesResultOutput) ServerTypes() GetServerTypesServerTypeArrayOutput {
 	return o.ApplyT(func(v GetServerTypesResult) []GetServerTypesServerType { return v.ServerTypes }).(GetServerTypesServerTypeArrayOutput)
 }

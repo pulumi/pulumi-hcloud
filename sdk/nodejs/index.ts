@@ -45,7 +45,7 @@ export const getDatacenter: typeof import("./getDatacenter").getDatacenter = nul
 export const getDatacenterOutput: typeof import("./getDatacenter").getDatacenterOutput = null as any;
 utilities.lazyLoad(exports, ["getDatacenter","getDatacenterOutput"], () => require("./getDatacenter"));
 
-export { GetDatacentersArgs, GetDatacentersResult, GetDatacentersOutputArgs } from "./getDatacenters";
+export { GetDatacentersResult } from "./getDatacenters";
 export const getDatacenters: typeof import("./getDatacenters").getDatacenters = null as any;
 export const getDatacentersOutput: typeof import("./getDatacenters").getDatacentersOutput = null as any;
 utilities.lazyLoad(exports, ["getDatacenters","getDatacentersOutput"], () => require("./getDatacenters"));
@@ -105,7 +105,7 @@ export const getLocation: typeof import("./getLocation").getLocation = null as a
 export const getLocationOutput: typeof import("./getLocation").getLocationOutput = null as any;
 utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("./getLocation"));
 
-export { GetLocationsArgs, GetLocationsResult, GetLocationsOutputArgs } from "./getLocations";
+export { GetLocationsResult } from "./getLocations";
 export const getLocations: typeof import("./getLocations").getLocations = null as any;
 export const getLocationsOutput: typeof import("./getLocations").getLocationsOutput = null as any;
 utilities.lazyLoad(exports, ["getLocations","getLocationsOutput"], () => require("./getLocations"));
@@ -150,7 +150,7 @@ export const getServerType: typeof import("./getServerType").getServerType = nul
 export const getServerTypeOutput: typeof import("./getServerType").getServerTypeOutput = null as any;
 utilities.lazyLoad(exports, ["getServerType","getServerTypeOutput"], () => require("./getServerType"));
 
-export { GetServerTypesArgs, GetServerTypesResult, GetServerTypesOutputArgs } from "./getServerTypes";
+export { GetServerTypesResult } from "./getServerTypes";
 export const getServerTypes: typeof import("./getServerTypes").getServerTypes = null as any;
 export const getServerTypesOutput: typeof import("./getServerTypes").getServerTypesOutput = null as any;
 utilities.lazyLoad(exports, ["getServerTypes","getServerTypesOutput"], () => require("./getServerTypes"));

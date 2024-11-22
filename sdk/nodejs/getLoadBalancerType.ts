@@ -6,7 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a specific Hetzner Cloud Load Balancer Type.
- * Use this resource to get detailed information about specific Load Balancer Type.
+ *
+ * Use this resource to get detailed information about a specific Load Balancer Type.
  *
  * ## Example Usage
  *
@@ -14,16 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const byName = hcloud.getLoadBalancerType({
- *     name: "cx22",
- * });
  * const byId = hcloud.getLoadBalancerType({
  *     id: 1,
  * });
- * const loadBalancer = new hcloud.LoadBalancer("load_balancer", {
+ * const byName = hcloud.getLoadBalancerType({
+ *     name: "lb11",
+ * });
+ * const main = new hcloud.LoadBalancer("main", {
  *     name: "my-load-balancer",
  *     loadBalancerType: name,
- *     location: "nbg1",
+ *     location: "fsn1",
  * });
  * ```
  */
@@ -41,11 +42,11 @@ export function getLoadBalancerType(args?: GetLoadBalancerTypeArgs, opts?: pulum
  */
 export interface GetLoadBalancerTypeArgs {
     /**
-     * ID of the load_balancer_type.
+     * ID of the Load Balancer Type.
      */
     id?: number;
     /**
-     * Name of the load_balancer_type.
+     * Name of the Load Balancer Type.
      */
     name?: string;
 }
@@ -55,37 +56,38 @@ export interface GetLoadBalancerTypeArgs {
  */
 export interface GetLoadBalancerTypeResult {
     /**
-     * (string) Description of the load_balancer_type.
+     * Description of the Load Balancer Type.
      */
     readonly description: string;
     /**
-     * (int) Unique ID of the load_balancer_type.
+     * ID of the Load Balancer Type.
      */
     readonly id: number;
     /**
-     * (int) Maximum number of SSL Certificates that can be assigned to the Load Balancer of this type.
+     * Maximum number of certificates that can be assigned for the Load Balancer of this type.
      */
     readonly maxAssignedCertificates: number;
     /**
-     * (int) Maximum number of simultaneous open connections for the Load Balancer of this type.
+     * Maximum number of simultaneous open connections for the Load Balancer of this type.
      */
     readonly maxConnections: number;
     /**
-     * (int) Maximum number of services for the Load Balancer of this type.
+     * Maximum number of services for the Load Balancer of this type.
      */
     readonly maxServices: number;
     /**
-     * (int) Maximum number of targets for the Load Balancer of this type.
+     * Maximum number of targets for the Load Balancer of this type.
      */
     readonly maxTargets: number;
     /**
-     * (string) Name of the load_balancer_type.
+     * Name of the Load Balancer Type.
      */
     readonly name: string;
 }
 /**
  * Provides details about a specific Hetzner Cloud Load Balancer Type.
- * Use this resource to get detailed information about specific Load Balancer Type.
+ *
+ * Use this resource to get detailed information about a specific Load Balancer Type.
  *
  * ## Example Usage
  *
@@ -93,16 +95,16 @@ export interface GetLoadBalancerTypeResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const byName = hcloud.getLoadBalancerType({
- *     name: "cx22",
- * });
  * const byId = hcloud.getLoadBalancerType({
  *     id: 1,
  * });
- * const loadBalancer = new hcloud.LoadBalancer("load_balancer", {
+ * const byName = hcloud.getLoadBalancerType({
+ *     name: "lb11",
+ * });
+ * const main = new hcloud.LoadBalancer("main", {
  *     name: "my-load-balancer",
  *     loadBalancerType: name,
- *     location: "nbg1",
+ *     location: "fsn1",
  * });
  * ```
  */
@@ -120,11 +122,11 @@ export function getLoadBalancerTypeOutput(args?: GetLoadBalancerTypeOutputArgs, 
  */
 export interface GetLoadBalancerTypeOutputArgs {
     /**
-     * ID of the load_balancer_type.
+     * ID of the Load Balancer Type.
      */
     id?: pulumi.Input<number>;
     /**
-     * Name of the load_balancer_type.
+     * Name of the Load Balancer Type.
      */
     name?: pulumi.Input<string>;
 }

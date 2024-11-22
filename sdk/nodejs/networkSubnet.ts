@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * `<network-id>-<ip_range>`
  *
  * ```sh
- * $ pulumi import hcloud:index/networkSubnet:NetworkSubnet mysubnet 123-10.0.0.0/24
+ * $ pulumi import hcloud:index/networkSubnet:NetworkSubnet example "$NETWORK_ID-$IP_RANGE"
  * ```
  */
 export class NetworkSubnet extends pulumi.CustomResource {

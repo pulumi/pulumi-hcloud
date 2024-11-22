@@ -16,14 +16,14 @@ public final class GetDatacenterPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetDatacenterPlainArgs Empty = new GetDatacenterPlainArgs();
 
     /**
-     * ID of the datacenter.
+     * ID of the Datacenter.
      * 
      */
     @Import(name="id")
     private @Nullable Integer id;
 
     /**
-     * @return ID of the datacenter.
+     * @return ID of the Datacenter.
      * 
      */
     public Optional<Integer> id() {
@@ -31,14 +31,14 @@ public final class GetDatacenterPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Name of the datacenter.
+     * Name of the Datacenter.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the datacenter.
+     * @return Name of the Datacenter.
      * 
      */
     public Optional<String> name() {
@@ -71,7 +71,7 @@ public final class GetDatacenterPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param id ID of the datacenter.
+         * @param id ID of the Datacenter.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetDatacenterPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name Name of the datacenter.
+         * @param name Name of the Datacenter.
          * 
          * @return builder
          * 

@@ -7,14 +7,39 @@ import * as utilities from "./utilities";
 /**
  * Upload a TLS certificate to Hetzner Cloud.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const sampleCertificate = new hcloud.UploadedCertificate("sample_certificate", {
+ *     name: "test-certificate-%d",
+ *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
+ * MIIEpQIBAAKCAQEAorPccsHibgGLJIub5Sb1yvDvARifoKzg7MIhyAYLnJkGn9B1
+ * ...
+ * AHcjLFCNvobInLHTTmCoAxYBmEv2eakas0+n4g/LM2Ukaw1Bz+3VrVo=
+ * -----END RSA PRIVATE KEY-----
+ * `,
+ *     certificate: `-----BEGIN CERTIFICATE-----
+ * MIIDMDCCAhigAwIBAgIIJgROscP8RRUwDQYJKoZIhvcNAQELBQAwIDEeMBwGA1UE
+ * ...
+ * TKS8gQ==
+ * -----END CERTIFICATE-----
+ * `,
+ *     labels: {
+ *         label_1: "value_1",
+ *         label_2: "value_2",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Uploaded certificates can be imported using their `id`:
  *
- * hcl
- *
  * ```sh
- * $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate sample_certificate id
+ * $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate example "$CERTIFICATE_ID"
  * ```
  */
 export class UploadedCertificate extends pulumi.CustomResource {

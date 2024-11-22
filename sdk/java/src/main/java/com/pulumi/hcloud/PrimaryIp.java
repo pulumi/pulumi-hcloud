@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * Primary IPs can be imported using its `id`:
  * 
  * ```sh
- * $ pulumi import hcloud:index/primaryIp:PrimaryIp myip id
+ * $ pulumi import hcloud:index/primaryIp:PrimaryIp example &#34;$PRIMARY_IP_ID&#34;
  * ```
  * 
  */

@@ -11,22 +11,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const sshKey1 = hcloud.getSshKey({
- *     id: 1234,
+ * const byId = hcloud.getSshKey({
+ *     id: 24332897,
  * });
- * const sshKey2 = hcloud.getSshKey({
+ * const byName = hcloud.getSshKey({
  *     name: "my-ssh-key",
  * });
- * const sshKey3 = hcloud.getSshKey({
- *     fingerprint: "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
+ * const byFingerprint = hcloud.getSshKey({
+ *     fingerprint: "55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8",
  * });
- * const sshKey4 = hcloud.getSshKey({
+ * const byLabel = hcloud.getSshKey({
  *     withSelector: "key=value",
  * });
  * const main = new hcloud.Server("main", {sshKeys: [
- *     sshKey1.then(sshKey1 => sshKey1.id),
- *     sshKey2.then(sshKey2 => sshKey2.id),
- *     sshKey3.then(sshKey3 => sshKey3.id),
+ *     byId.then(byId => byId.id),
+ *     byName.then(byName => byName.id),
+ *     byFingerprint.then(byFingerprint => byFingerprint.id),
  * ]});
  * ```
  */
@@ -36,9 +36,7 @@ export function getSshKey(args?: GetSshKeyArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("hcloud:index/getSshKey:getSshKey", {
         "fingerprint": args.fingerprint,
         "id": args.id,
-        "labels": args.labels,
         "name": args.name,
-        "publicKey": args.publicKey,
         "selector": args.selector,
         "withSelector": args.withSelector,
     }, opts);
@@ -56,21 +54,18 @@ export interface GetSshKeyArgs {
      * ID of the SSH Key.
      */
     id?: number;
-    labels?: {[key: string]: string};
     /**
      * Name of the SSH Key.
      */
     name?: string;
     /**
-     * (string) Public Key of the SSH Key.
-     */
-    publicKey?: string;
-    /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     *
      * @deprecated Please use the withSelector property instead.
      */
     selector?: string;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
      */
     withSelector?: string;
 }
@@ -80,26 +75,34 @@ export interface GetSshKeyArgs {
  */
 export interface GetSshKeyResult {
     /**
-     * (string) Fingerprint of the SSH Key.
+     * Fingerprint of the SSH Key.
      */
-    readonly fingerprint: string;
+    readonly fingerprint?: string;
     /**
-     * (int) Unique ID of the SSH Key.
+     * ID of the SSH Key.
      */
-    readonly id: number;
+    readonly id?: number;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     */
     readonly labels: {[key: string]: string};
     /**
-     * (string) Name of the SSH Key.
+     * Name of the SSH Key.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
-     * (string) Public Key of the SSH Key.
+     * Public key of the SSH Key pair.
      */
     readonly publicKey: string;
     /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     *
      * @deprecated Please use the withSelector property instead.
      */
     readonly selector?: string;
+    /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     */
     readonly withSelector?: string;
 }
 /**
@@ -109,22 +112,22 @@ export interface GetSshKeyResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const sshKey1 = hcloud.getSshKey({
- *     id: 1234,
+ * const byId = hcloud.getSshKey({
+ *     id: 24332897,
  * });
- * const sshKey2 = hcloud.getSshKey({
+ * const byName = hcloud.getSshKey({
  *     name: "my-ssh-key",
  * });
- * const sshKey3 = hcloud.getSshKey({
- *     fingerprint: "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
+ * const byFingerprint = hcloud.getSshKey({
+ *     fingerprint: "55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8",
  * });
- * const sshKey4 = hcloud.getSshKey({
+ * const byLabel = hcloud.getSshKey({
  *     withSelector: "key=value",
  * });
  * const main = new hcloud.Server("main", {sshKeys: [
- *     sshKey1.then(sshKey1 => sshKey1.id),
- *     sshKey2.then(sshKey2 => sshKey2.id),
- *     sshKey3.then(sshKey3 => sshKey3.id),
+ *     byId.then(byId => byId.id),
+ *     byName.then(byName => byName.id),
+ *     byFingerprint.then(byFingerprint => byFingerprint.id),
  * ]});
  * ```
  */
@@ -134,9 +137,7 @@ export function getSshKeyOutput(args?: GetSshKeyOutputArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invokeOutput("hcloud:index/getSshKey:getSshKey", {
         "fingerprint": args.fingerprint,
         "id": args.id,
-        "labels": args.labels,
         "name": args.name,
-        "publicKey": args.publicKey,
         "selector": args.selector,
         "withSelector": args.withSelector,
     }, opts);
@@ -154,21 +155,18 @@ export interface GetSshKeyOutputArgs {
      * ID of the SSH Key.
      */
     id?: pulumi.Input<number>;
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the SSH Key.
      */
     name?: pulumi.Input<string>;
     /**
-     * (string) Public Key of the SSH Key.
-     */
-    publicKey?: pulumi.Input<string>;
-    /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     *
      * @deprecated Please use the withSelector property instead.
      */
     selector?: pulumi.Input<string>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
      */
     withSelector?: pulumi.Input<string>;
 }

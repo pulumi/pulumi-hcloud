@@ -307,6 +307,10 @@ class Rdns(pulumi.CustomResource):
 
         `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
 
+        ```sh
+        $ pulumi import hcloud:index/rdns:Rdns example "$PREFIX-$ID-$IP"
+        ```
+
         import reverse dns entry on server with id 123, ip 192.168.100.1
 
         ```sh
@@ -418,6 +422,10 @@ class Rdns(pulumi.CustomResource):
         Reverse DNS entries can be imported using a compound ID with the following format:
 
         `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
+
+        ```sh
+        $ pulumi import hcloud:index/rdns:Rdns example "$PREFIX-$ID-$IP"
+        ```
 
         import reverse dns entry on server with id 123, ip 192.168.100.1
 

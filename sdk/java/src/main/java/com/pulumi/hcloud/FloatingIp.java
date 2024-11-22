@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * Floating IPs can be imported using its `id`:
  * 
  * ```sh
- * $ pulumi import hcloud:index/floatingIp:FloatingIp myip id
+ * $ pulumi import hcloud:index/floatingIp:FloatingIp example &#34;$FLOATING_IP_ID&#34;
  * ```
  * 
  */

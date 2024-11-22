@@ -56,7 +56,7 @@ import (
 // `<network-id>-<destination>`
 //
 // ```sh
-// $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
+// $ pulumi import hcloud:index/networkRoute:NetworkRoute example "$NETWORK_ID-$DESTINATION"
 // ```
 type NetworkRoute struct {
 	pulumi.CustomResourceState

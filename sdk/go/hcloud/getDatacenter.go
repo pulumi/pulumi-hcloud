@@ -12,7 +12,8 @@ import (
 )
 
 // Provides details about a specific Hetzner Cloud Datacenter.
-// Use this resource to get detailed information about specific datacenter.
+//
+// Use this resource to get detailed information about a specific Datacenter.
 //
 // ## Example Usage
 //
@@ -29,13 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.GetDatacenter(ctx, &hcloud.GetDatacenterArgs{
-//				Name: pulumi.StringRef("fsn1-dc8"),
+//				Id: pulumi.IntRef(4),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = hcloud.GetDatacenter(ctx, &hcloud.GetDatacenterArgs{
-//				Id: pulumi.IntRef(4),
+//				Name: pulumi.StringRef("fsn1-dc14"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -57,25 +58,25 @@ func GetDatacenter(ctx *pulumi.Context, args *GetDatacenterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getDatacenter.
 type GetDatacenterArgs struct {
-	// ID of the datacenter.
+	// ID of the Datacenter.
 	Id *int `pulumi:"id"`
-	// Name of the datacenter.
+	// Name of the Datacenter.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getDatacenter.
 type GetDatacenterResult struct {
-	// (list) List of available server types.
+	// List of currently available Server Types in the Datacenter.
 	AvailableServerTypeIds []int `pulumi:"availableServerTypeIds"`
-	// (string) Description of the datacenter.
+	// Description of the Datacenter.
 	Description string `pulumi:"description"`
-	// (int) Unique ID of the datacenter.
-	Id int `pulumi:"id"`
-	// (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	// ID of the Datacenter.
+	Id *int `pulumi:"id"`
+	// Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 	Location map[string]string `pulumi:"location"`
-	// (string) Name of the datacenter.
-	Name string `pulumi:"name"`
-	// (list) List of server types supported by the datacenter.
+	// Name of the Datacenter.
+	Name *string `pulumi:"name"`
+	// List of supported Server Types in the Datacenter.
 	SupportedServerTypeIds []int `pulumi:"supportedServerTypeIds"`
 }
 
@@ -100,9 +101,9 @@ func GetDatacenterOutput(ctx *pulumi.Context, args GetDatacenterOutputArgs, opts
 
 // A collection of arguments for invoking getDatacenter.
 type GetDatacenterOutputArgs struct {
-	// ID of the datacenter.
+	// ID of the Datacenter.
 	Id pulumi.IntPtrInput `pulumi:"id"`
-	// Name of the datacenter.
+	// Name of the Datacenter.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -125,32 +126,32 @@ func (o GetDatacenterResultOutput) ToGetDatacenterResultOutputWithContext(ctx co
 	return o
 }
 
-// (list) List of available server types.
+// List of currently available Server Types in the Datacenter.
 func (o GetDatacenterResultOutput) AvailableServerTypeIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDatacenterResult) []int { return v.AvailableServerTypeIds }).(pulumi.IntArrayOutput)
 }
 
-// (string) Description of the datacenter.
+// Description of the Datacenter.
 func (o GetDatacenterResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatacenterResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// (int) Unique ID of the datacenter.
-func (o GetDatacenterResultOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDatacenterResult) int { return v.Id }).(pulumi.IntOutput)
+// ID of the Datacenter.
+func (o GetDatacenterResultOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDatacenterResult) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
-// (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+// Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
 func (o GetDatacenterResultOutput) Location() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDatacenterResult) map[string]string { return v.Location }).(pulumi.StringMapOutput)
 }
 
-// (string) Name of the datacenter.
-func (o GetDatacenterResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatacenterResult) string { return v.Name }).(pulumi.StringOutput)
+// Name of the Datacenter.
+func (o GetDatacenterResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDatacenterResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (list) List of server types supported by the datacenter.
+// List of supported Server Types in the Datacenter.
 func (o GetDatacenterResultOutput) SupportedServerTypeIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDatacenterResult) []int { return v.SupportedServerTypeIds }).(pulumi.IntArrayOutput)
 }

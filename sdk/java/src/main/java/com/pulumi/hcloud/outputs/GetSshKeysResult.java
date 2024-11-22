@@ -14,25 +14,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSshKeysResult {
-    private @Nullable String id;
     /**
-     * @return (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
+     * @return The ID of this resource.
      * 
      */
+    private @Nullable String id;
     private List<GetSshKeysSshKey> sshKeys;
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * 
+     */
     private @Nullable String withSelector;
 
     private GetSshKeysResult() {}
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return (list) List of all matches SSH keys. See `data.hcloud_ssh_key` for schema.
-     * 
-     */
     public List<GetSshKeysSshKey> sshKeys() {
         return this.sshKeys;
     }
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * 
+     */
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
     }

@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetSshKeysSshKey {
     /**
-     * @return Fingerprint of the SSH key.
+     * @return Fingerprint of the SSH Key.
      * 
      */
     private String fingerprint;
     /**
-     * @return ID of the SSH key.
+     * @return ID of the SSH Key.
      * 
      */
     private Integer id;
@@ -28,26 +28,26 @@ public final class GetSshKeysSshKey {
      */
     private Map<String,String> labels;
     /**
-     * @return Name of the SSH key.
+     * @return Name of the SSH Key.
      * 
      */
     private String name;
     /**
-     * @return Public key of the SSH key pair.
+     * @return Public key of the SSH Key pair.
      * 
      */
     private String publicKey;
 
     private GetSshKeysSshKey() {}
     /**
-     * @return Fingerprint of the SSH key.
+     * @return Fingerprint of the SSH Key.
      * 
      */
     public String fingerprint() {
         return this.fingerprint;
     }
     /**
-     * @return ID of the SSH key.
+     * @return ID of the SSH Key.
      * 
      */
     public Integer id() {
@@ -61,14 +61,14 @@ public final class GetSshKeysSshKey {
         return this.labels;
     }
     /**
-     * @return Name of the SSH key.
+     * @return Name of the SSH Key.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Public key of the SSH key pair.
+     * @return Public key of the SSH Key pair.
      * 
      */
     public String publicKey() {

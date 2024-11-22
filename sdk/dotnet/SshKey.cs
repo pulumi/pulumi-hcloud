@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud SSH key resource to manage SSH keys for server access.
+    /// Provides a Hetzner Cloud SSH Key resource to manage SSH Keys for server access.
     /// 
     /// ## Example Usage
     /// 
@@ -23,13 +23,12 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Create a new SSH key
-    ///     var @default = new HCloud.SshKey("default", new()
+    ///     var main = new HCloud.SshKey("main", new()
     ///     {
-    ///         Name = "Terraform Example",
+    ///         Name = "my-ssh-key",
     ///         PublicKey = Std.File.Invoke(new()
     ///         {
-    ///             Input = "~/.ssh/id_rsa.pub",
+    ///             Input = "~/.ssh/id_ed25519.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
@@ -38,35 +37,33 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// SSH keys can be imported using the SSH key `id`:
-    /// 
     /// ```sh
-    /// $ pulumi import hcloud:index/sshKey:SshKey mykey id
+    /// $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/sshKey:SshKey")]
     public partial class SshKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (string) The fingerprint of the SSH key
+        /// Fingerprint of the SSH public key.
         /// </summary>
         [Output("fingerprint")]
         public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// User-defined labels (key-value pairs) should be created with.
+        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, string>> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the SSH key.
+        /// Name of the SSH Key.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The public key. If this is a file, it can be read using the file interpolation function
+        /// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
@@ -121,7 +118,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// User-defined labels (key-value pairs) should be created with.
+        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
         /// </summary>
         public InputMap<string> Labels
         {
@@ -130,13 +127,13 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Name of the SSH key.
+        /// Name of the SSH Key.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The public key. If this is a file, it can be read using the file interpolation function
+        /// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
@@ -150,7 +147,7 @@ namespace Pulumi.HCloud
     public sealed class SshKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (string) The fingerprint of the SSH key
+        /// Fingerprint of the SSH public key.
         /// </summary>
         [Input("fingerprint")]
         public Input<string>? Fingerprint { get; set; }
@@ -159,7 +156,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// User-defined labels (key-value pairs) should be created with.
+        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
         /// </summary>
         public InputMap<string> Labels
         {
@@ -168,13 +165,13 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Name of the SSH key.
+        /// Name of the SSH Key.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The public key. If this is a file, it can be read using the file interpolation function
+        /// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }

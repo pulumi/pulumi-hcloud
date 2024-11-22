@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * `&lt;load-balancer-id&gt;__&lt;listen-port&gt;`
  * 
  * ```sh
- * $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService myloadbalancernetwork 123__80
+ * $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService example &#34;${LOAD_BALANCER_ID}__${LISTEN_PORT}&#34;
  * ```
  * 
  */

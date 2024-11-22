@@ -17,14 +17,14 @@ public final class GetLoadBalancerTypeArgs extends com.pulumi.resources.InvokeAr
     public static final GetLoadBalancerTypeArgs Empty = new GetLoadBalancerTypeArgs();
 
     /**
-     * ID of the load_balancer_type.
+     * ID of the Load Balancer Type.
      * 
      */
     @Import(name="id")
     private @Nullable Output<Integer> id;
 
     /**
-     * @return ID of the load_balancer_type.
+     * @return ID of the Load Balancer Type.
      * 
      */
     public Optional<Output<Integer>> id() {
@@ -32,14 +32,14 @@ public final class GetLoadBalancerTypeArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Name of the load_balancer_type.
+     * Name of the Load Balancer Type.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the load_balancer_type.
+     * @return Name of the Load Balancer Type.
      * 
      */
     public Optional<Output<String>> name() {
@@ -72,7 +72,7 @@ public final class GetLoadBalancerTypeArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param id ID of the load_balancer_type.
+         * @param id ID of the Load Balancer Type.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetLoadBalancerTypeArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param id ID of the load_balancer_type.
+         * @param id ID of the Load Balancer Type.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetLoadBalancerTypeArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name Name of the load_balancer_type.
+         * @param name Name of the Load Balancer Type.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetLoadBalancerTypeArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name Name of the load_balancer_type.
+         * @param name Name of the Load Balancer Type.
          * 
          * @return builder
          * 

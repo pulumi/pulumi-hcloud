@@ -11,33 +11,89 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerTypesLoadBalancerType {
+    /**
+     * @return Description of the Load Balancer Type.
+     * 
+     */
     private String description;
+    /**
+     * @return ID of the Load Balancer Type.
+     * 
+     */
     private Integer id;
+    /**
+     * @return Maximum number of certificates that can be assigned for the Load Balancer of this type.
+     * 
+     */
     private Integer maxAssignedCertificates;
+    /**
+     * @return Maximum number of simultaneous open connections for the Load Balancer of this type.
+     * 
+     */
     private Integer maxConnections;
+    /**
+     * @return Maximum number of services for the Load Balancer of this type.
+     * 
+     */
     private Integer maxServices;
+    /**
+     * @return Maximum number of targets for the Load Balancer of this type.
+     * 
+     */
     private Integer maxTargets;
+    /**
+     * @return Name of the Load Balancer Type.
+     * 
+     */
     private String name;
 
     private GetLoadBalancerTypesLoadBalancerType() {}
+    /**
+     * @return Description of the Load Balancer Type.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return ID of the Load Balancer Type.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return Maximum number of certificates that can be assigned for the Load Balancer of this type.
+     * 
+     */
     public Integer maxAssignedCertificates() {
         return this.maxAssignedCertificates;
     }
+    /**
+     * @return Maximum number of simultaneous open connections for the Load Balancer of this type.
+     * 
+     */
     public Integer maxConnections() {
         return this.maxConnections;
     }
+    /**
+     * @return Maximum number of services for the Load Balancer of this type.
+     * 
+     */
     public Integer maxServices() {
         return this.maxServices;
     }
+    /**
+     * @return Maximum number of targets for the Load Balancer of this type.
+     * 
+     */
     public Integer maxTargets() {
         return this.maxTargets;
     }
+    /**
+     * @return Name of the Load Balancer Type.
+     * 
+     */
     public String name() {
         return this.name;
     }

@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * `&lt;network-id&gt;-&lt;destination&gt;`
  * 
  * ```sh
- * $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
+ * $ pulumi import hcloud:index/networkRoute:NetworkRoute example &#34;$NETWORK_ID-$DESTINATION&#34;
  * ```
  * 
  */

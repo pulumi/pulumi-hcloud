@@ -13,12 +13,40 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerTypesServerType {
+    /**
+     * @return Architecture of the cpu for a Server of this type.
+     * 
+     */
     private String architecture;
+    /**
+     * @return Number of cpu cores for a Server of this type.
+     * 
+     */
     private Double cores;
+    /**
+     * @return Type of cpu for a Server of this type.
+     * 
+     */
     private String cpuType;
+    /**
+     * @return Date of the Server Type deprecation announcement.
+     * 
+     */
     private String deprecationAnnounced;
+    /**
+     * @return Description of the Server Type.
+     * 
+     */
     private String description;
+    /**
+     * @return Disk size in GB for a Server of this type.
+     * 
+     */
     private Double disk;
+    /**
+     * @return ID of the Server Type.
+     * 
+     */
     private Integer id;
     /**
      * @deprecated
@@ -27,31 +55,79 @@ public final class GetServerTypesServerType {
      */
     @Deprecated /* The field is deprecated and will always report 0 after 2024-08-05. */
     private Integer includedTraffic;
+    /**
+     * @return Whether the Server Type is deprecated.
+     * 
+     */
     private Boolean isDeprecated;
+    /**
+     * @return Memory in GB for a Server of this type.
+     * 
+     */
     private Double memory;
+    /**
+     * @return Name of the Server Type.
+     * 
+     */
     private String name;
+    /**
+     * @return Type of boot drive for a Server of this type.
+     * 
+     */
     private String storageType;
+    /**
+     * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+     * 
+     */
     private String unavailableAfter;
 
     private GetServerTypesServerType() {}
+    /**
+     * @return Architecture of the cpu for a Server of this type.
+     * 
+     */
     public String architecture() {
         return this.architecture;
     }
+    /**
+     * @return Number of cpu cores for a Server of this type.
+     * 
+     */
     public Double cores() {
         return this.cores;
     }
+    /**
+     * @return Type of cpu for a Server of this type.
+     * 
+     */
     public String cpuType() {
         return this.cpuType;
     }
+    /**
+     * @return Date of the Server Type deprecation announcement.
+     * 
+     */
     public String deprecationAnnounced() {
         return this.deprecationAnnounced;
     }
+    /**
+     * @return Description of the Server Type.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Disk size in GB for a Server of this type.
+     * 
+     */
     public Double disk() {
         return this.disk;
     }
+    /**
+     * @return ID of the Server Type.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
@@ -64,18 +140,38 @@ public final class GetServerTypesServerType {
     public Integer includedTraffic() {
         return this.includedTraffic;
     }
+    /**
+     * @return Whether the Server Type is deprecated.
+     * 
+     */
     public Boolean isDeprecated() {
         return this.isDeprecated;
     }
+    /**
+     * @return Memory in GB for a Server of this type.
+     * 
+     */
     public Double memory() {
         return this.memory;
     }
+    /**
+     * @return Name of the Server Type.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Type of boot drive for a Server of this type.
+     * 
+     */
     public String storageType() {
         return this.storageType;
     }
+    /**
+     * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+     * 
+     */
     public String unavailableAfter() {
         return this.unavailableAfter;
     }

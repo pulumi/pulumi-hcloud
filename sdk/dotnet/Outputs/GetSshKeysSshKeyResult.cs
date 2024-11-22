@@ -14,11 +14,11 @@ namespace Pulumi.HCloud.Outputs
     public sealed class GetSshKeysSshKeyResult
     {
         /// <summary>
-        /// Fingerprint of the SSH key.
+        /// Fingerprint of the SSH Key.
         /// </summary>
         public readonly string Fingerprint;
         /// <summary>
-        /// ID of the SSH key.
+        /// ID of the SSH Key.
         /// </summary>
         public readonly int Id;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
-        /// Name of the SSH key.
+        /// Name of the SSH Key.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Public key of the SSH key pair.
+        /// Public key of the SSH Key pair.
         /// </summary>
         public readonly string PublicKey;
 

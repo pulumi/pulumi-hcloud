@@ -22,22 +22,22 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sshKey1 = HCloud.GetSshKey.Invoke(new()
+        ///     var byId = HCloud.GetSshKey.Invoke(new()
         ///     {
-        ///         Id = 1234,
+        ///         Id = 24332897,
         ///     });
         /// 
-        ///     var sshKey2 = HCloud.GetSshKey.Invoke(new()
+        ///     var byName = HCloud.GetSshKey.Invoke(new()
         ///     {
         ///         Name = "my-ssh-key",
         ///     });
         /// 
-        ///     var sshKey3 = HCloud.GetSshKey.Invoke(new()
+        ///     var byFingerprint = HCloud.GetSshKey.Invoke(new()
         ///     {
-        ///         Fingerprint = "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
+        ///         Fingerprint = "55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8",
         ///     });
         /// 
-        ///     var sshKey4 = HCloud.GetSshKey.Invoke(new()
+        ///     var byLabel = HCloud.GetSshKey.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -46,9 +46,9 @@ namespace Pulumi.HCloud
         ///     {
         ///         SshKeys = new[]
         ///         {
-        ///             sshKey1.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             sshKey2.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             sshKey3.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
         ///         },
         ///     });
         /// 
@@ -69,22 +69,22 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sshKey1 = HCloud.GetSshKey.Invoke(new()
+        ///     var byId = HCloud.GetSshKey.Invoke(new()
         ///     {
-        ///         Id = 1234,
+        ///         Id = 24332897,
         ///     });
         /// 
-        ///     var sshKey2 = HCloud.GetSshKey.Invoke(new()
+        ///     var byName = HCloud.GetSshKey.Invoke(new()
         ///     {
         ///         Name = "my-ssh-key",
         ///     });
         /// 
-        ///     var sshKey3 = HCloud.GetSshKey.Invoke(new()
+        ///     var byFingerprint = HCloud.GetSshKey.Invoke(new()
         ///     {
-        ///         Fingerprint = "43:51:43:a1:b5:fc:8b:b7:0a:3a:a9:b1:0f:66:73:a8",
+        ///         Fingerprint = "55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8",
         ///     });
         /// 
-        ///     var sshKey4 = HCloud.GetSshKey.Invoke(new()
+        ///     var byLabel = HCloud.GetSshKey.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -93,9 +93,9 @@ namespace Pulumi.HCloud
         ///     {
         ///         SshKeys = new[]
         ///         {
-        ///             sshKey1.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             sshKey2.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             sshKey3.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
         ///         },
         ///     });
         /// 
@@ -121,14 +121,6 @@ namespace Pulumi.HCloud
         [Input("id")]
         public int? Id { get; set; }
 
-        [Input("labels")]
-        private Dictionary<string, string>? _labels;
-        public Dictionary<string, string> Labels
-        {
-            get => _labels ?? (_labels = new Dictionary<string, string>());
-            set => _labels = value;
-        }
-
         /// <summary>
         /// Name of the SSH Key.
         /// </summary>
@@ -136,16 +128,13 @@ namespace Pulumi.HCloud
         public string? Name { get; set; }
 
         /// <summary>
-        /// (string) Public Key of the SSH Key.
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
         /// </summary>
-        [Input("publicKey")]
-        public string? PublicKey { get; set; }
-
         [Input("selector")]
         public string? Selector { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
         /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
@@ -170,14 +159,6 @@ namespace Pulumi.HCloud
         [Input("id")]
         public Input<int>? Id { get; set; }
 
-        [Input("labels")]
-        private InputMap<string>? _labels;
-        public InputMap<string> Labels
-        {
-            get => _labels ?? (_labels = new InputMap<string>());
-            set => _labels = value;
-        }
-
         /// <summary>
         /// Name of the SSH Key.
         /// </summary>
@@ -185,16 +166,13 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (string) Public Key of the SSH Key.
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
         /// </summary>
-        [Input("publicKey")]
-        public Input<string>? PublicKey { get; set; }
-
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
         /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }
@@ -210,34 +188,43 @@ namespace Pulumi.HCloud
     public sealed class GetSshKeyResult
     {
         /// <summary>
-        /// (string) Fingerprint of the SSH Key.
+        /// Fingerprint of the SSH Key.
         /// </summary>
-        public readonly string Fingerprint;
+        public readonly string? Fingerprint;
         /// <summary>
-        /// (int) Unique ID of the SSH Key.
+        /// ID of the SSH Key.
         /// </summary>
-        public readonly int Id;
+        public readonly int? Id;
+        /// <summary>
+        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
-        /// (string) Name of the SSH Key.
+        /// Name of the SSH Key.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
-        /// (string) Public Key of the SSH Key.
+        /// Public key of the SSH Key pair.
         /// </summary>
         public readonly string PublicKey;
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        /// </summary>
         public readonly string? Selector;
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        /// </summary>
         public readonly string? WithSelector;
 
         [OutputConstructor]
         private GetSshKeyResult(
-            string fingerprint,
+            string? fingerprint,
 
-            int id,
+            int? id,
 
             ImmutableDictionary<string, string> labels,
 
-            string name,
+            string? name,
 
             string publicKey,
 

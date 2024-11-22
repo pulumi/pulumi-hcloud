@@ -13,7 +13,8 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Location.
-        /// Use this resource to get detailed information about specific location.
+        /// 
+        /// Use this resource to get detailed information about a specific Location.
         /// 
         /// ## Example Usage
         /// 
@@ -25,14 +26,14 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var l1 = HCloud.GetLocation.Invoke(new()
-        ///     {
-        ///         Name = "fsn1",
-        ///     });
-        /// 
-        ///     var l2 = HCloud.GetLocation.Invoke(new()
+        ///     var byId = HCloud.GetLocation.Invoke(new()
         ///     {
         ///         Id = 1,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetLocation.Invoke(new()
+        ///     {
+        ///         Name = "fsn1",
         ///     });
         /// 
         /// });
@@ -43,7 +44,8 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Provides details about a specific Hetzner Cloud Location.
-        /// Use this resource to get detailed information about specific location.
+        /// 
+        /// Use this resource to get detailed information about a specific Location.
         /// 
         /// ## Example Usage
         /// 
@@ -55,14 +57,14 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var l1 = HCloud.GetLocation.Invoke(new()
-        ///     {
-        ///         Name = "fsn1",
-        ///     });
-        /// 
-        ///     var l2 = HCloud.GetLocation.Invoke(new()
+        ///     var byId = HCloud.GetLocation.Invoke(new()
         ///     {
         ///         Id = 1,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetLocation.Invoke(new()
+        ///     {
+        ///         Name = "fsn1",
         ///     });
         /// 
         /// });
@@ -76,13 +78,13 @@ namespace Pulumi.HCloud
     public sealed class GetLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the location.
+        /// ID of the Location.
         /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
         /// <summary>
-        /// Name of the location.
+        /// Name of the Location.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -96,13 +98,13 @@ namespace Pulumi.HCloud
     public sealed class GetLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the location.
+        /// ID of the Location.
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 
         /// <summary>
-        /// Name of the location.
+        /// Name of the Location.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -118,35 +120,35 @@ namespace Pulumi.HCloud
     public sealed class GetLocationResult
     {
         /// <summary>
-        /// (string) City of the location.
+        /// Name of the closest city to the Location. City name and optionally state in short form.
         /// </summary>
         public readonly string City;
         /// <summary>
-        /// (string) Country of the location.
+        /// Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
         /// </summary>
         public readonly string Country;
         /// <summary>
-        /// (string) Description of the location.
+        /// Description of the Location.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (int) Unique ID of the location.
+        /// ID of the Location.
         /// </summary>
-        public readonly int Id;
+        public readonly int? Id;
         /// <summary>
-        /// (float) Latitude of the city.
+        /// Latitude of the city closest to the Location.
         /// </summary>
         public readonly double Latitude;
         /// <summary>
-        /// (float) Longitude of the city.
+        /// Longitude of the city closest to the Location.
         /// </summary>
         public readonly double Longitude;
         /// <summary>
-        /// (string) Name of the location.
+        /// Name of the Location.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
-        /// (string) Network Zone of the location.
+        /// Name of the Network Zone this Location resides in.
         /// </summary>
         public readonly string NetworkZone;
 
@@ -158,13 +160,13 @@ namespace Pulumi.HCloud
 
             string description,
 
-            int id,
+            int? id,
 
             double latitude,
 
             double longitude,
 
-            string name,
+            string? name,
 
             string networkZone)
         {

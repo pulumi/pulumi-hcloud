@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * Networks can be imported using its `id`:
  * 
  * ```sh
- * $ pulumi import hcloud:index/network:Network myip id
+ * $ pulumi import hcloud:index/network:Network example &#34;$NETWORK_ID&#34;
  * ```
  * 
  */

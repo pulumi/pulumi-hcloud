@@ -395,7 +395,7 @@ class LoadBalancer(pulumi.CustomResource):
         Load Balancers can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer id
+        $ pulumi import hcloud:index/loadBalancer:LoadBalancer example "$LOAD_BALANCER_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -442,7 +442,7 @@ class LoadBalancer(pulumi.CustomResource):
         Load Balancers can be imported using its `id`:
 
         ```sh
-        $ pulumi import hcloud:index/loadBalancer:LoadBalancer my_load_balancer id
+        $ pulumi import hcloud:index/loadBalancer:LoadBalancer example "$LOAD_BALANCER_ID"
         ```
 
         :param str resource_name: The name of the resource.

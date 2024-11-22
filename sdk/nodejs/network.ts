@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * Networks can be imported using its `id`:
  *
  * ```sh
- * $ pulumi import hcloud:index/network:Network myip id
+ * $ pulumi import hcloud:index/network:Network example "$NETWORK_ID"
  * ```
  */
 export class Network extends pulumi.CustomResource {

@@ -6,7 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a specific Hetzner Cloud Location.
- * Use this resource to get detailed information about specific location.
+ *
+ * Use this resource to get detailed information about a specific Location.
  *
  * ## Example Usage
  *
@@ -14,11 +15,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const l1 = hcloud.getLocation({
- *     name: "fsn1",
- * });
- * const l2 = hcloud.getLocation({
+ * const byId = hcloud.getLocation({
  *     id: 1,
+ * });
+ * const byName = hcloud.getLocation({
+ *     name: "fsn1",
  * });
  * ```
  */
@@ -36,11 +37,11 @@ export function getLocation(args?: GetLocationArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetLocationArgs {
     /**
-     * ID of the location.
+     * ID of the Location.
      */
     id?: number;
     /**
-     * Name of the location.
+     * Name of the Location.
      */
     name?: string;
 }
@@ -50,41 +51,42 @@ export interface GetLocationArgs {
  */
 export interface GetLocationResult {
     /**
-     * (string) City of the location.
+     * Name of the closest city to the Location. City name and optionally state in short form.
      */
     readonly city: string;
     /**
-     * (string) Country of the location.
+     * Country the Location resides in. ISO 3166-1 alpha-2 code of the country.
      */
     readonly country: string;
     /**
-     * (string) Description of the location.
+     * Description of the Location.
      */
     readonly description: string;
     /**
-     * (int) Unique ID of the location.
+     * ID of the Location.
      */
-    readonly id: number;
+    readonly id?: number;
     /**
-     * (float) Latitude of the city.
+     * Latitude of the city closest to the Location.
      */
     readonly latitude: number;
     /**
-     * (float) Longitude of the city.
+     * Longitude of the city closest to the Location.
      */
     readonly longitude: number;
     /**
-     * (string) Name of the location.
+     * Name of the Location.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
-     * (string) Network Zone of the location.
+     * Name of the Network Zone this Location resides in.
      */
     readonly networkZone: string;
 }
 /**
  * Provides details about a specific Hetzner Cloud Location.
- * Use this resource to get detailed information about specific location.
+ *
+ * Use this resource to get detailed information about a specific Location.
  *
  * ## Example Usage
  *
@@ -92,11 +94,11 @@ export interface GetLocationResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const l1 = hcloud.getLocation({
- *     name: "fsn1",
- * });
- * const l2 = hcloud.getLocation({
+ * const byId = hcloud.getLocation({
  *     id: 1,
+ * });
+ * const byName = hcloud.getLocation({
+ *     name: "fsn1",
  * });
  * ```
  */
@@ -114,11 +116,11 @@ export function getLocationOutput(args?: GetLocationOutputArgs, opts?: pulumi.In
  */
 export interface GetLocationOutputArgs {
     /**
-     * ID of the location.
+     * ID of the Location.
      */
     id?: pulumi.Input<number>;
     /**
-     * Name of the location.
+     * Name of the Location.
      */
     name?: pulumi.Input<string>;
 }

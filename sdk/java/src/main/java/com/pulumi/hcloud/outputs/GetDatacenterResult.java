@@ -10,78 +10,80 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDatacenterResult {
     /**
-     * @return (list) List of available server types.
+     * @return List of currently available Server Types in the Datacenter.
      * 
      */
     private List<Integer> availableServerTypeIds;
     /**
-     * @return (string) Description of the datacenter.
+     * @return Description of the Datacenter.
      * 
      */
     private String description;
     /**
-     * @return (int) Unique ID of the datacenter.
+     * @return ID of the Datacenter.
      * 
      */
-    private Integer id;
+    private @Nullable Integer id;
     /**
-     * @return (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * @return Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     private Map<String,String> location;
     /**
-     * @return (string) Name of the datacenter.
+     * @return Name of the Datacenter.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
-     * @return (list) List of server types supported by the datacenter.
+     * @return List of supported Server Types in the Datacenter.
      * 
      */
     private List<Integer> supportedServerTypeIds;
 
     private GetDatacenterResult() {}
     /**
-     * @return (list) List of available server types.
+     * @return List of currently available Server Types in the Datacenter.
      * 
      */
     public List<Integer> availableServerTypeIds() {
         return this.availableServerTypeIds;
     }
     /**
-     * @return (string) Description of the datacenter.
+     * @return Description of the Datacenter.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return (int) Unique ID of the datacenter.
+     * @return ID of the Datacenter.
      * 
      */
-    public Integer id() {
-        return this.id;
+    public Optional<Integer> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
-     * @return (map) Location details of the datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * @return Location of the Datacenter. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Map<String,String> location() {
         return this.location;
     }
     /**
-     * @return (string) Name of the datacenter.
+     * @return Name of the Datacenter.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
-     * @return (list) List of server types supported by the datacenter.
+     * @return List of supported Server Types in the Datacenter.
      * 
      */
     public List<Integer> supportedServerTypeIds() {
@@ -99,9 +101,9 @@ public final class GetDatacenterResult {
     public static final class Builder {
         private List<Integer> availableServerTypeIds;
         private String description;
-        private Integer id;
+        private @Nullable Integer id;
         private Map<String,String> location;
-        private String name;
+        private @Nullable String name;
         private List<Integer> supportedServerTypeIds;
         public Builder() {}
         public Builder(GetDatacenterResult defaults) {
@@ -134,10 +136,8 @@ public final class GetDatacenterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(Integer id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetDatacenterResult", "id");
-            }
+        public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
@@ -150,10 +150,8 @@ public final class GetDatacenterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetDatacenterResult", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

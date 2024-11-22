@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * Volumes can be imported using their `id`:
  * 
  * ```sh
- * $ pulumi import hcloud:index/volume:Volume myvolume id
+ * $ pulumi import hcloud:index/volume:Volume example &#34;$VOLUME_ID&#34;
  * ```
  * 
  */

@@ -159,7 +159,7 @@ class NetworkRoute(pulumi.CustomResource):
         `<network-id>-<destination>`
 
         ```sh
-        $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
+        $ pulumi import hcloud:index/networkRoute:NetworkRoute example "$NETWORK_ID-$DESTINATION"
         ```
 
         :param str resource_name: The name of the resource.
@@ -199,7 +199,7 @@ class NetworkRoute(pulumi.CustomResource):
         `<network-id>-<destination>`
 
         ```sh
-        $ pulumi import hcloud:index/networkRoute:NetworkRoute myroute 123-10.0.0.0/16
+        $ pulumi import hcloud:index/networkRoute:NetworkRoute example "$NETWORK_ID-$DESTINATION"
         ```
 
         :param str resource_name: The name of the resource.
