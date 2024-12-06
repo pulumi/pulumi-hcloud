@@ -46,7 +46,7 @@ export interface GetLoadBalancerTypesResult {
  * const all = hcloud.getLoadBalancerTypes({});
  * ```
  */
-export function getLoadBalancerTypesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerTypesResult> {
+export function getLoadBalancerTypesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadBalancerTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes", {
     }, opts);

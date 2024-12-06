@@ -113,7 +113,7 @@ def get_volumes(with_selector: Optional[str] = None,
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
 def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                        with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumesResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumesResult]:
     """
     Provides details about multiple Hetzner Cloud Volumes.
 
@@ -134,7 +134,7 @@ def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
     __args__ = dict()
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getVolumes:getVolumes', __args__, opts=opts, typ=GetVolumesResult)
     return __ret__.apply(lambda __response__: GetVolumesResult(
         id=pulumi.get(__response__, 'id'),

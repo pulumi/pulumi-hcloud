@@ -131,7 +131,7 @@ export interface GetSshKeyResult {
  * ]});
  * ```
  */
-export function getSshKeyOutput(args?: GetSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeyResult> {
+export function getSshKeyOutput(args?: GetSshKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSshKeyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getSshKey:getSshKey", {

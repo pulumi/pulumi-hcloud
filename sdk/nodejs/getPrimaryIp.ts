@@ -186,7 +186,7 @@ export interface GetPrimaryIpResult {
  * });
  * ```
  */
-export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryIpResult> {
+export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrimaryIpResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getPrimaryIp:getPrimaryIp", {

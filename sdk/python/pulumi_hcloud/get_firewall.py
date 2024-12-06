@@ -171,7 +171,7 @@ def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[Union
                         name: Optional[pulumi.Input[Optional[str]]] = None,
                         rules: Optional[pulumi.Input[Optional[Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']]]]] = None,
                         with_selector: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Provides details about a specific Hetzner Cloud Firewall.
 
@@ -200,7 +200,7 @@ def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[Union
     __args__['name'] = name
     __args__['rules'] = rules
     __args__['withSelector'] = with_selector
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
     return __ret__.apply(lambda __response__: GetFirewallResult(
         apply_tos=pulumi.get(__response__, 'apply_tos'),

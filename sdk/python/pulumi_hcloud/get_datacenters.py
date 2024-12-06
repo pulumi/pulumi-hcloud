@@ -105,14 +105,14 @@ def get_datacenters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGet
         descriptions=pulumi.get(__ret__, 'descriptions'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-def get_datacenters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatacentersResult]:
+def get_datacenters_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatacentersResult]:
     """
     Provides a list of available Hetzner Cloud Datacenters.
 
     This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getDatacenters:getDatacenters', __args__, opts=opts, typ=GetDatacentersResult)
     return __ret__.apply(lambda __response__: GetDatacentersResult(
         datacenter_ids=pulumi.get(__response__, 'datacenter_ids'),
