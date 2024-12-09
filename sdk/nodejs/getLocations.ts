@@ -44,7 +44,7 @@ export interface GetLocationsResult {
  *
  * This resource may be useful to create highly available infrastructure, distributed across several locations.
  */
-export function getLocationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationsResult> {
+export function getLocationsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getLocations:getLocations", {
     }, opts);

@@ -108,7 +108,7 @@ export interface GetLoadBalancerTypeResult {
  * });
  * ```
  */
-export function getLoadBalancerTypeOutput(args?: GetLoadBalancerTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerTypeResult> {
+export function getLoadBalancerTypeOutput(args?: GetLoadBalancerTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadBalancerTypeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getLoadBalancerType:getLoadBalancerType", {

@@ -172,7 +172,7 @@ def get_location(id: Optional[int] = None,
         network_zone=pulumi.get(__ret__, 'network_zone'))
 def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                         name: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
     Provides details about a specific Hetzner Cloud Location.
 
@@ -195,7 +195,7 @@ def get_location_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult)
     return __ret__.apply(lambda __response__: GetLocationResult(
         city=pulumi.get(__response__, 'city'),

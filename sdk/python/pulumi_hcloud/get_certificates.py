@@ -98,7 +98,7 @@ def get_certificates(with_selector: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
 def get_certificates_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificatesResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificatesResult]:
     """
     Provides details about multiple Hetzner Cloud Certificates.
 
@@ -116,7 +116,7 @@ def get_certificates_output(with_selector: Optional[pulumi.Input[Optional[str]]]
     """
     __args__ = dict()
     __args__['withSelector'] = with_selector
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getCertificates:getCertificates', __args__, opts=opts, typ=GetCertificatesResult)
     return __ret__.apply(lambda __response__: GetCertificatesResult(
         certificates=pulumi.get(__response__, 'certificates'),

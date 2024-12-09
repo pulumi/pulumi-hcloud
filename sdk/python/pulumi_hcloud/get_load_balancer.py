@@ -261,7 +261,7 @@ def get_load_balancer(id: Optional[int] = None,
 def get_load_balancer_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                              name: Optional[pulumi.Input[Optional[str]]] = None,
                              with_selector: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Provides details about a specific Hetzner Cloud Load Balancer.
 
@@ -285,7 +285,7 @@ def get_load_balancer_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     __args__['id'] = id
     __args__['name'] = name
     __args__['withSelector'] = with_selector
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         algorithms=pulumi.get(__response__, 'algorithms'),

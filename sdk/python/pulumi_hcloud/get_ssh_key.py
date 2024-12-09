@@ -175,7 +175,7 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        selector: Optional[pulumi.Input[Optional[str]]] = None,
                        with_selector: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSshKeyResult]:
     """
     ## Example Usage
 
@@ -207,7 +207,7 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[str]]] = None
     __args__['name'] = name
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getSshKey:getSshKey', __args__, opts=opts, typ=GetSshKeyResult)
     return __ret__.apply(lambda __response__: GetSshKeyResult(
         fingerprint=pulumi.get(__response__, 'fingerprint'),
