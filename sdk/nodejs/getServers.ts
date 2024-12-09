@@ -68,7 +68,7 @@ export interface GetServersResult {
  * });
  * ```
  */
-export function getServersOutput(args?: GetServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServersResult> {
+export function getServersOutput(args?: GetServersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getServers:getServers", {

@@ -71,7 +71,7 @@ export interface GetSshKeysResult {
  * const main = new hcloud.Server("main", {sshKeys: all.then(all => all.sshKeys.map(__item => __item.name))});
  * ```
  */
-export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {
+export function getSshKeysOutput(args?: GetSshKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSshKeysResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getSshKeys:getSshKeys", {

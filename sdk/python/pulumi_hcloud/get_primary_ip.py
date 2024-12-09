@@ -258,7 +258,7 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
                           ip_address: Optional[pulumi.Input[Optional[str]]] = None,
                           name: Optional[pulumi.Input[Optional[str]]] = None,
                           with_selector: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrimaryIpResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrimaryIpResult]:
     """
     Provides details about a Hetzner Cloud Primary IP.
 
@@ -312,7 +312,7 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[int]]] = N
     __args__['ipAddress'] = ip_address
     __args__['name'] = name
     __args__['withSelector'] = with_selector
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getPrimaryIp:getPrimaryIp', __args__, opts=opts, typ=GetPrimaryIpResult)
     return __ret__.apply(lambda __response__: GetPrimaryIpResult(
         assignee_id=pulumi.get(__response__, 'assignee_id'),

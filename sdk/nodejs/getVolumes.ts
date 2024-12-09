@@ -74,7 +74,7 @@ export interface GetVolumesResult {
  * });
  * ```
  */
-export function getVolumesOutput(args?: GetVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumesResult> {
+export function getVolumesOutput(args?: GetVolumesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getVolumes:getVolumes", {

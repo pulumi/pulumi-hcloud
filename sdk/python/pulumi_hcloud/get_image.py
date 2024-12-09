@@ -291,7 +291,7 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                      with_architecture: Optional[pulumi.Input[Optional[str]]] = None,
                      with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                      with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     ## Example Usage
 
@@ -324,7 +324,7 @@ def get_image_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     __args__['withArchitecture'] = with_architecture
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
         architecture=pulumi.get(__response__, 'architecture'),

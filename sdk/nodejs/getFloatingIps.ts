@@ -66,7 +66,7 @@ export interface GetFloatingIpsResult {
  * });
  * ```
  */
-export function getFloatingIpsOutput(args?: GetFloatingIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFloatingIpsResult> {
+export function getFloatingIpsOutput(args?: GetFloatingIpsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFloatingIpsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getFloatingIps:getFloatingIps", {
