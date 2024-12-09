@@ -219,7 +219,7 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                       server_id: Optional[pulumi.Input[Optional[int]]] = None,
                       with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     ## Example Usage
 
@@ -248,7 +248,7 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     __args__['serverId'] = server_id
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
         delete_protection=pulumi.get(__response__, 'delete_protection'),

@@ -368,7 +368,7 @@ def get_server_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                       selector: Optional[pulumi.Input[Optional[str]]] = None,
                       with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     ## Example Usage
 
@@ -395,7 +395,7 @@ def get_server_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getServer:getServer', __args__, opts=opts, typ=GetServerResult)
     return __ret__.apply(lambda __response__: GetServerResult(
         backup_window=pulumi.get(__response__, 'backup_window'),

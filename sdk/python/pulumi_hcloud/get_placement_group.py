@@ -162,7 +162,7 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                type: Optional[pulumi.Input[Optional[str]]] = None,
                                with_selector: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlacementGroupResult]:
     """
     Provides details about a specific Hetzner Cloud Placement Group.
 
@@ -189,7 +189,7 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     __args__['name'] = name
     __args__['type'] = type
     __args__['withSelector'] = with_selector
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getPlacementGroup:getPlacementGroup', __args__, opts=opts, typ=GetPlacementGroupResult)
     return __ret__.apply(lambda __response__: GetPlacementGroupResult(
         id=pulumi.get(__response__, 'id'),

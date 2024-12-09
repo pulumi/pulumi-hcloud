@@ -74,7 +74,7 @@ export interface GetPlacementGroupsResult {
  * });
  * ```
  */
-export function getPlacementGroupsOutput(args?: GetPlacementGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupsResult> {
+export function getPlacementGroupsOutput(args?: GetPlacementGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlacementGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getPlacementGroups:getPlacementGroups", {

@@ -155,7 +155,7 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]]
                       with_architectures: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagesResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
     Provides details about multiple Hetzner Cloud Images.
 
@@ -182,7 +182,7 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]]
     __args__['withArchitectures'] = with_architectures
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getImages:getImages', __args__, opts=opts, typ=GetImagesResult)
     return __ret__.apply(lambda __response__: GetImagesResult(
         id=pulumi.get(__response__, 'id'),

@@ -44,7 +44,7 @@ export interface GetDatacentersResult {
  *
  * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
  */
-export function getDatacentersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacentersResult> {
+export function getDatacentersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatacentersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getDatacenters:getDatacenters", {
     }, opts);
