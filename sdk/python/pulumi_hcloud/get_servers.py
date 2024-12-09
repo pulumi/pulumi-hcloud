@@ -110,7 +110,7 @@ def get_servers(with_selector: Optional[str] = None,
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
 def get_servers_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
                        with_statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServersResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServersResult]:
     """
     ## Example Usage
 
@@ -128,7 +128,7 @@ def get_servers_output(with_selector: Optional[pulumi.Input[Optional[str]]] = No
     __args__ = dict()
     __args__['withSelector'] = with_selector
     __args__['withStatuses'] = with_statuses
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getServers:getServers', __args__, opts=opts, typ=GetServersResult)
     return __ret__.apply(lambda __response__: GetServersResult(
         id=pulumi.get(__response__, 'id'),

@@ -79,7 +79,7 @@ def get_load_balancer_types(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
     return AwaitableGetLoadBalancerTypesResult(
         id=pulumi.get(__ret__, 'id'),
         load_balancer_types=pulumi.get(__ret__, 'load_balancer_types'))
-def get_load_balancer_types_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerTypesResult]:
+def get_load_balancer_types_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerTypesResult]:
     """
     Provides a list of available Hetzner Cloud Load Balancer Types.
 
@@ -93,7 +93,7 @@ def get_load_balancer_types_output(opts: Optional[pulumi.InvokeOptions] = None) 
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes', __args__, opts=opts, typ=GetLoadBalancerTypesResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerTypesResult(
         id=pulumi.get(__response__, 'id'),

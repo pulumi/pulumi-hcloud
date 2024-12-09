@@ -94,7 +94,7 @@ export interface GetDatacenterResult {
  * });
  * ```
  */
-export function getDatacenterOutput(args?: GetDatacenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatacenterResult> {
+export function getDatacenterOutput(args?: GetDatacenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatacenterResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getDatacenter:getDatacenter", {

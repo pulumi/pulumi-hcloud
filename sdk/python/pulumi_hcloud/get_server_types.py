@@ -112,7 +112,7 @@ def get_server_types(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         names=pulumi.get(__ret__, 'names'),
         server_type_ids=pulumi.get(__ret__, 'server_type_ids'),
         server_types=pulumi.get(__ret__, 'server_types'))
-def get_server_types_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTypesResult]:
+def get_server_types_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerTypesResult]:
     """
     Provides a list of available Hetzner Cloud Server Types.
 
@@ -126,7 +126,7 @@ def get_server_types_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getServerTypes:getServerTypes', __args__, opts=opts, typ=GetServerTypesResult)
     return __ret__.apply(lambda __response__: GetServerTypesResult(
         descriptions=pulumi.get(__response__, 'descriptions'),
