@@ -98,7 +98,7 @@ def get_primary_ips(with_selector: Optional[str] = None,
         primary_ips=pulumi.get(__ret__, 'primary_ips'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
 def get_primary_ips_output(with_selector: Optional[pulumi.Input[Optional[str]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrimaryIpsResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrimaryIpsResult]:
     """
     Provides details about multiple Hetzner Cloud Primary IPs.
 
@@ -116,7 +116,7 @@ def get_primary_ips_output(with_selector: Optional[pulumi.Input[Optional[str]]] 
     """
     __args__ = dict()
     __args__['withSelector'] = with_selector
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getPrimaryIps:getPrimaryIps', __args__, opts=opts, typ=GetPrimaryIpsResult)
     return __ret__.apply(lambda __response__: GetPrimaryIpsResult(
         id=pulumi.get(__response__, 'id'),

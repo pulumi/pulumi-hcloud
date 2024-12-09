@@ -152,7 +152,7 @@ export interface GetImageResult {
  * const main = new hcloud.Server("main", {image: image1.then(image1 => image1.id)});
  * ```
  */
-export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
+export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getImage:getImage", {

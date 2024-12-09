@@ -105,14 +105,14 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
         location_ids=pulumi.get(__ret__, 'location_ids'),
         locations=pulumi.get(__ret__, 'locations'),
         names=pulumi.get(__ret__, 'names'))
-def get_locations_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationsResult]:
+def get_locations_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationsResult]:
     """
     Provides a list of available Hetzner Cloud Locations.
 
     This resource may be useful to create highly available infrastructure, distributed across several locations.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getLocations:getLocations', __args__, opts=opts, typ=GetLocationsResult)
     return __ret__.apply(lambda __response__: GetLocationsResult(
         descriptions=pulumi.get(__response__, 'descriptions'),

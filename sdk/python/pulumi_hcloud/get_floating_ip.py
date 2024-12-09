@@ -242,7 +242,7 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            selector: Optional[pulumi.Input[Optional[str]]] = None,
                            with_selector: Optional[pulumi.Input[Optional[str]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFloatingIpResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFloatingIpResult]:
     """
     Provides details about a Hetzner Cloud Floating IP.
 
@@ -282,7 +282,7 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
     __args__['name'] = name
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getFloatingIp:getFloatingIp', __args__, opts=opts, typ=GetFloatingIpResult)
     return __ret__.apply(lambda __response__: GetFloatingIpResult(
         delete_protection=pulumi.get(__response__, 'delete_protection'),

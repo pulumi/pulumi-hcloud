@@ -58,7 +58,7 @@ export interface GetServerTypesResult {
  * const all = hcloud.getServerTypes({});
  * ```
  */
-export function getServerTypesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypesResult> {
+export function getServerTypesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getServerTypes:getServerTypes", {
     }, opts);

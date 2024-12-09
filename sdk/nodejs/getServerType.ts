@@ -134,7 +134,7 @@ export interface GetServerTypeResult {
  * });
  * ```
  */
-export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypeResult> {
+export function getServerTypeOutput(args?: GetServerTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerTypeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getServerType:getServerType", {
