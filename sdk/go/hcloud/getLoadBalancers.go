@@ -68,21 +68,11 @@ type GetLoadBalancersResult struct {
 }
 
 func GetLoadBalancersOutput(ctx *pulumi.Context, args GetLoadBalancersOutputArgs, opts ...pulumi.InvokeOption) GetLoadBalancersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLoadBalancersResultOutput, error) {
 			args := v.(GetLoadBalancersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLoadBalancersResult
-			secret, err := ctx.InvokePackageRaw("hcloud:index/getLoadBalancers:getLoadBalancers", args, &rv, "", opts...)
-			if err != nil {
-				return GetLoadBalancersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLoadBalancersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLoadBalancersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("hcloud:index/getLoadBalancers:getLoadBalancers", args, GetLoadBalancersResultOutput{}, options).(GetLoadBalancersResultOutput), nil
 		}).(GetLoadBalancersResultOutput)
 }
 

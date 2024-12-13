@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.hcloud.Utilities;
 import com.pulumi.hcloud.inputs.GetCertificateArgs;
 import com.pulumi.hcloud.inputs.GetCertificatePlainArgs;
@@ -355,6 +356,50 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Certificate.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sampleCertificate1 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
+     *             .name("sample-certificate-1")
+     *             .build());
+     * 
+     *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
+     *             .id("4711")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
     }
@@ -566,6 +611,48 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Certificates.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetCertificatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sampleCertificate1 = HcloudFunctions.getCertificates(GetCertificatesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -895,6 +982,54 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDatacenterResult> getDatacenter(GetDatacenterArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getDatacenter:getDatacenter", TypeShape.of(GetDatacenterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Datacenter.
+     * 
+     * Use this resource to get detailed information about a specific Datacenter.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .id(4)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()
+     *             .name("fsn1-dc14")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDatacenterResult> getDatacenterPlain(GetDatacenterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getDatacenter:getDatacenter", TypeShape.of(GetDatacenterResult.class), args, Utilities.withVersion(options));
     }
@@ -941,6 +1076,15 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetDatacentersResult> getDatacenters(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Datacenters.
+     * 
+     * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+     * 
+     */
+    public static Output<GetDatacentersResult> getDatacenters(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1213,6 +1357,50 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getFirewall:getFirewall", TypeShape.of(GetFirewallResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Firewall.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sampleFirewall1 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .name("sample-firewall-1")
+     *             .build());
+     * 
+     *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .id("4711")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getFirewall:getFirewall", TypeShape.of(GetFirewallResult.class), args, Utilities.withVersion(options));
     }
@@ -1424,6 +1612,48 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetFirewallsResult> getFirewalls(GetFirewallsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getFirewalls:getFirewalls", TypeShape.of(GetFirewallsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Firewall.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetFirewallsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sampleFirewall1 = HcloudFunctions.getFirewalls(GetFirewallsArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFirewallsResult> getFirewalls(GetFirewallsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getFirewalls:getFirewalls", TypeShape.of(GetFirewallsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1861,6 +2091,72 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetFloatingIpResult> getFloatingIp(GetFloatingIpArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getFloatingIp:getFloatingIp", TypeShape.of(GetFloatingIpResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Hetzner Cloud Floating IP.
+     * 
+     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
+     * ## Example Usage
+     * 
+     * # Data Source: hcloud.FloatingIp
+     * 
+     * Provides details about a Hetzner Cloud Floating IP.
+     * This resource can be useful when you need to determine a Floating IP ID based on the IP address.
+     * 
+     * ### Additional Examples
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetFloatingIpArgs;
+     * import com.pulumi.hcloud.FloatingIpAssignment;
+     * import com.pulumi.hcloud.FloatingIpAssignmentArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ip1 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
+     *             .ipAddress("1.2.3.4")
+     *             .build());
+     * 
+     *         final var ip2 = HcloudFunctions.getFloatingIp(GetFloatingIpArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *         for (var i = 0; i < counter; i++) {
+     *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
+     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
+     *                 .serverId(mainHcloudServer.id())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetFloatingIpResult> getFloatingIpPlain(GetFloatingIpPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getFloatingIp:getFloatingIp", TypeShape.of(GetFloatingIpResult.class), args, Utilities.withVersion(options));
     }
@@ -2072,6 +2368,48 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetFloatingIpsResult> getFloatingIps(GetFloatingIpsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getFloatingIps:getFloatingIps", TypeShape.of(GetFloatingIpsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Floating IPs.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetFloatingIpsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ip2 = HcloudFunctions.getFloatingIps(GetFloatingIpsArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFloatingIpsResult> getFloatingIps(GetFloatingIpsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getFloatingIps:getFloatingIps", TypeShape.of(GetFloatingIpsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2443,6 +2781,61 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetImageArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .id("1234")
+     *             .build());
+     * 
+     *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("ubuntu-18.04")
+     *             .withArchitecture("x86")
+     *             .build());
+     * 
+     *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
@@ -2674,6 +3067,52 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Images.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetImagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *             .withArchitectures("x86")
+     *             .build());
+     * 
+     *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2970,6 +3409,56 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Load Balancer.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var lb1 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .name("my-load-balancer")
+     *             .build());
+     * 
+     *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .id("123")
+     *             .build());
+     * 
+     *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3355,6 +3844,62 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetLoadBalancerTypeResult> getLoadBalancerType(GetLoadBalancerTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLoadBalancerType:getLoadBalancerType", TypeShape.of(GetLoadBalancerTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Load Balancer Type.
+     * 
+     * Use this resource to get detailed information about a specific Load Balancer Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
+     * import com.pulumi.hcloud.LoadBalancer;
+     * import com.pulumi.hcloud.LoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getLoadBalancerType(GetLoadBalancerTypeArgs.builder()
+     *             .name("lb11")
+     *             .build());
+     * 
+     *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
+     *             .name("my-load-balancer")
+     *             .loadBalancerType(name)
+     *             .location("fsn1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetLoadBalancerTypeResult> getLoadBalancerTypePlain(GetLoadBalancerTypePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getLoadBalancerType:getLoadBalancerType", TypeShape.of(GetLoadBalancerTypeResult.class), args, Utilities.withVersion(options));
     }
@@ -3551,6 +4096,45 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetLoadBalancerTypesResult> getLoadBalancerTypes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes", TypeShape.of(GetLoadBalancerTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Load Balancer Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancerTypesResult> getLoadBalancerTypes(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes", TypeShape.of(GetLoadBalancerTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3810,6 +4394,50 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetLoadBalancersResult> getLoadBalancers(GetLoadBalancersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLoadBalancers:getLoadBalancers", TypeShape.of(GetLoadBalancersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Load Balancers.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var lb2 = HcloudFunctions.getLoadBalancers();
+     * 
+     *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLoadBalancersResult> getLoadBalancers(GetLoadBalancersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getLoadBalancers:getLoadBalancers", TypeShape.of(GetLoadBalancersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4141,6 +4769,54 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Location.
+     * 
+     * Use this resource to get detailed information about a specific Location.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .id(1)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getLocation(GetLocationArgs.builder()
+     *             .name("fsn1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
     }
@@ -4187,6 +4863,15 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Locations.
+     * 
+     * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     */
+    public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4436,6 +5121,54 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .id("1234")
+     *             .build());
+     * 
+     *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .name("my-network")
+     *             .build());
+     * 
+     *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4747,6 +5480,50 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetNetworksResult> getNetworks(GetNetworksArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getNetworks:getNetworks", TypeShape.of(GetNetworksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Networks.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var network2 = HcloudFunctions.getNetwork();
+     * 
+     *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNetworksResult> getNetworksPlain(GetNetworksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getNetworks:getNetworks", TypeShape.of(GetNetworksResult.class), args, Utilities.withVersion(options));
     }
@@ -5011,6 +5788,50 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getPlacementGroup:getPlacementGroup", TypeShape.of(GetPlacementGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Placement Group.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetPlacementGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
+     *             .name("sample-placement-group-1")
+     *             .build());
+     * 
+     *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
+     *             .id("4711")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getPlacementGroup:getPlacementGroup", TypeShape.of(GetPlacementGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -5232,6 +6053,50 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetPlacementGroupsResult> getPlacementGroups(GetPlacementGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getPlacementGroups:getPlacementGroups", TypeShape.of(GetPlacementGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Placement Groups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetPlacementGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
+     * 
+     *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPlacementGroupsResult> getPlacementGroups(GetPlacementGroupsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getPlacementGroups:getPlacementGroups", TypeShape.of(GetPlacementGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5749,6 +6614,85 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPrimaryIpResult> getPrimaryIp(GetPrimaryIpArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getPrimaryIp:getPrimaryIp", TypeShape.of(GetPrimaryIpResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Hetzner Cloud Primary IP.
+     * 
+     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
+     * Side note:
+     * 
+     * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
+     * Currently, Primary IPs can be only attached to servers.
+     * 
+     * ## Example Usage
+     * 
+     * # Data Source: hcloud.PrimaryIp
+     * 
+     * Provides details about a Hetzner Cloud Primary IP.
+     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
+     * 
+     * ### Additional Examples
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetPrimaryIpArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ip1 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
+     *             .ipAddress("1.2.3.4")
+     *             .build());
+     * 
+     *         final var ip2 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
+     *             .name("primary_ip_1")
+     *             .build());
+     * 
+     *         final var ip3 = HcloudFunctions.getPrimaryIp(GetPrimaryIpArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *         // Link a server to an existing primary IP
+     *         var serverTest = new Server("serverTest", ServerArgs.builder()
+     *             .name("test-server")
+     *             .image("ubuntu-20.04")
+     *             .serverType("cx22")
+     *             .datacenter("fsn1-dc14")
+     *             .labels(Map.of("test", "tessst1"))
+     *             .publicNets(ServerPublicNetArgs.builder()
+     *                 .ipv4(ip1HcloudPrimaryIp.id())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPrimaryIpResult> getPrimaryIpPlain(GetPrimaryIpPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getPrimaryIp:getPrimaryIp", TypeShape.of(GetPrimaryIpResult.class), args, Utilities.withVersion(options));
     }
@@ -5960,6 +6904,48 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetPrimaryIpsResult> getPrimaryIps(GetPrimaryIpsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getPrimaryIps:getPrimaryIps", TypeShape.of(GetPrimaryIpsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetPrimaryIpsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ip2 = HcloudFunctions.getPrimaryIps(GetPrimaryIpsArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPrimaryIpsResult> getPrimaryIps(GetPrimaryIpsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getPrimaryIps:getPrimaryIps", TypeShape.of(GetPrimaryIpsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6242,6 +7228,54 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s1 = HcloudFunctions.getServer(GetServerArgs.builder()
+     *             .name("my-server")
+     *             .build());
+     * 
+     *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
+     *             .id("123")
+     *             .build());
+     * 
+     *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6631,6 +7665,63 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetServerTypeResult> getServerType(GetServerTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getServerType:getServerType", TypeShape.of(GetServerTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Hetzner Cloud Server Type.
+     * 
+     * Use this resource to get detailed information about specific Server Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *             .id(22)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
+     *             .name("cx22")
+     *             .build());
+     * 
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .name("my-server")
+     *             .location("fsn1")
+     *             .image("debian-12")
+     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetServerTypeResult> getServerTypePlain(GetServerTypePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getServerType:getServerType", TypeShape.of(GetServerTypeResult.class), args, Utilities.withVersion(options));
     }
@@ -6827,6 +7918,45 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetServerTypesResult> getServerTypes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getServerTypes:getServerTypes", TypeShape.of(GetServerTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of available Hetzner Cloud Server Types.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getServerTypes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServerTypesResult> getServerTypes(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getServerTypes:getServerTypes", TypeShape.of(GetServerTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7066,6 +8196,46 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetServersResult> getServers(GetServersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getServers:getServers", TypeShape.of(GetServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetServersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = HcloudFunctions.getServers(GetServersArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServersResult> getServers(GetServersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getServers:getServers", TypeShape.of(GetServersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7471,6 +8641,67 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSshKeyResult> getSshKey(GetSshKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getSshKey:getSshKey", TypeShape.of(GetSshKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetSshKeyArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .id(24332897)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .name("my-ssh-key")
+     *             .build());
+     * 
+     *         final var byFingerprint = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .fingerprint("55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getSshKey(GetSshKeyArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .sshKeys(            
+     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
+     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSshKeyResult> getSshKeyPlain(GetSshKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getSshKey:getSshKey", TypeShape.of(GetSshKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -7712,6 +8943,54 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetSshKeysResult> getSshKeys(GetSshKeysArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getSshKeys();
+     * 
+     *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .withSelector("foo=bar")
+     *             .build());
+     * 
+     *         var main = new Server("main", ServerArgs.builder()
+     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSshKeysResult> getSshKeys(GetSshKeysArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -8047,6 +9326,54 @@ public final class HcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
+     *             .id("1234")
+     *             .build());
+     * 
+     *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
+     *             .name("my-volume")
+     *             .build());
+     * 
+     *         final var volume3 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
     }
@@ -8268,6 +9595,50 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<GetVolumesResult> getVolumes(GetVolumesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getVolumes:getVolumes", TypeShape.of(GetVolumesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Hetzner Cloud Volumes.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetVolumesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var volume_ = HcloudFunctions.getVolumes();
+     * 
+     *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVolumesResult> getVolumes(GetVolumesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getVolumes:getVolumes", TypeShape.of(GetVolumesResult.class), args, Utilities.withVersion(options));
     }
     /**

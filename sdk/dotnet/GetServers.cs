@@ -54,6 +54,28 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetServersResult> Invoke(GetServersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var s3 = HCloud.GetServers.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServersResult> Invoke(GetServersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithDefaults());
     }
 
 

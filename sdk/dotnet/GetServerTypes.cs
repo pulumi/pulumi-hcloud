@@ -52,6 +52,27 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetServerTypesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Provides a list of available Hetzner Cloud Server Types.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = HCloud.GetServerTypes.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerTypesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerTypesResult>("hcloud:index/getServerTypes:getServerTypes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

@@ -78,21 +78,11 @@ type GetSshKeysResult struct {
 }
 
 func GetSshKeysOutput(ctx *pulumi.Context, args GetSshKeysOutputArgs, opts ...pulumi.InvokeOption) GetSshKeysResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSshKeysResultOutput, error) {
 			args := v.(GetSshKeysArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetSshKeysResult
-			secret, err := ctx.InvokePackageRaw("hcloud:index/getSshKeys:getSshKeys", args, &rv, "", opts...)
-			if err != nil {
-				return GetSshKeysResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetSshKeysResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetSshKeysResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("hcloud:index/getSshKeys:getSshKeys", args, GetSshKeysResultOutput{}, options).(GetSshKeysResultOutput), nil
 		}).(GetSshKeysResultOutput)
 }
 

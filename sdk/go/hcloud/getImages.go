@@ -84,21 +84,11 @@ type GetImagesResult struct {
 }
 
 func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulumi.InvokeOption) GetImagesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetImagesResultOutput, error) {
 			args := v.(GetImagesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetImagesResult
-			secret, err := ctx.InvokePackageRaw("hcloud:index/getImages:getImages", args, &rv, "", opts...)
-			if err != nil {
-				return GetImagesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetImagesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetImagesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("hcloud:index/getImages:getImages", args, GetImagesResultOutput{}, options).(GetImagesResultOutput), nil
 		}).(GetImagesResultOutput)
 }
 

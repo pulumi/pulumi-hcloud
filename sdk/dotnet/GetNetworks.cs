@@ -62,6 +62,32 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetNetworksResult> Invoke(GetNetworksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("hcloud:index/getNetworks:getNetworks", args ?? new GetNetworksInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about multiple Hetzner Cloud Networks.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var network2 = HCloud.GetNetwork.Invoke();
+        /// 
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworksResult> Invoke(GetNetworksInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("hcloud:index/getNetworks:getNetworks", args ?? new GetNetworksInvokeArgs(), options.WithDefaults());
     }
 
 
