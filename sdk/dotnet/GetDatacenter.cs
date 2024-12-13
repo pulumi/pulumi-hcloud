@@ -72,6 +72,37 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetDatacenterResult> Invoke(GetDatacenterInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatacenterResult>("hcloud:index/getDatacenter:getDatacenter", args ?? new GetDatacenterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Datacenter.
+        /// 
+        /// Use this resource to get detailed information about a specific Datacenter.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byId = HCloud.GetDatacenter.Invoke(new()
+        ///     {
+        ///         Id = 4,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetDatacenter.Invoke(new()
+        ///     {
+        ///         Name = "fsn1-dc14",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDatacenterResult> Invoke(GetDatacenterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatacenterResult>("hcloud:index/getDatacenter:getDatacenter", args ?? new GetDatacenterInvokeArgs(), options.WithDefaults());
     }
 
 

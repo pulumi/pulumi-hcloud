@@ -72,6 +72,37 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Location.
+        /// 
+        /// Use this resource to get detailed information about a specific Location.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byId = HCloud.GetLocation.Invoke(new()
+        ///     {
+        ///         Id = 1,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetLocation.Invoke(new()
+        ///     {
+        ///         Name = "fsn1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("hcloud:index/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());
     }
 
 

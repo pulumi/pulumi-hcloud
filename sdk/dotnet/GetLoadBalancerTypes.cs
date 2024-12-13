@@ -52,6 +52,27 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetLoadBalancerTypesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTypesResult>("hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Provides a list of available Hetzner Cloud Load Balancer Types.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = HCloud.GetLoadBalancerTypes.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLoadBalancerTypesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTypesResult>("hcloud:index/getLoadBalancerTypes:getLoadBalancerTypes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

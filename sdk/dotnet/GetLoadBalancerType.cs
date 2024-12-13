@@ -86,6 +86,44 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetLoadBalancerTypeResult> Invoke(GetLoadBalancerTypeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTypeResult>("hcloud:index/getLoadBalancerType:getLoadBalancerType", args ?? new GetLoadBalancerTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Load Balancer Type.
+        /// 
+        /// Use this resource to get detailed information about a specific Load Balancer Type.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byId = HCloud.GetLoadBalancerType.Invoke(new()
+        ///     {
+        ///         Id = 1,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetLoadBalancerType.Invoke(new()
+        ///     {
+        ///         Name = "lb11",
+        ///     });
+        /// 
+        ///     var main = new HCloud.LoadBalancer("main", new()
+        ///     {
+        ///         Name = "my-load-balancer",
+        ///         LoadBalancerType = name,
+        ///         Location = "fsn1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLoadBalancerTypeResult> Invoke(GetLoadBalancerTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTypeResult>("hcloud:index/getLoadBalancerType:getLoadBalancerType", args ?? new GetLoadBalancerTypeInvokeArgs(), options.WithDefaults());
     }
 
 

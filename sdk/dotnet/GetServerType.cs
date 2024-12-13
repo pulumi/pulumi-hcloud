@@ -88,6 +88,45 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetServerTypeResult> Invoke(GetServerTypeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Server Type.
+        /// 
+        /// Use this resource to get detailed information about specific Server Type.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byId = HCloud.GetServerType.Invoke(new()
+        ///     {
+        ///         Id = 22,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetServerType.Invoke(new()
+        ///     {
+        ///         Name = "cx22",
+        ///     });
+        /// 
+        ///     var main = new HCloud.Server("main", new()
+        ///     {
+        ///         Name = "my-server",
+        ///         Location = "fsn1",
+        ///         Image = "debian-12",
+        ///         ServerType = byName.Apply(getServerTypeResult =&gt; getServerTypeResult.Name),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerTypeResult> Invoke(GetServerTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerTypeResult>("hcloud:index/getServerType:getServerType", args ?? new GetServerTypeInvokeArgs(), options.WithDefaults());
     }
 
 

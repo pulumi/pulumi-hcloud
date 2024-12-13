@@ -68,6 +68,35 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetSshKeysResult> Invoke(GetSshKeysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSshKeysResult>("hcloud:index/getSshKeys:getSshKeys", args ?? new GetSshKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = HCloud.GetSshKeys.Invoke();
+        /// 
+        ///     var byLabel = HCloud.GetSshKeys.Invoke(new()
+        ///     {
+        ///         WithSelector = "foo=bar",
+        ///     });
+        /// 
+        ///     var main = new HCloud.Server("main", new()
+        ///     {
+        ///         SshKeys = all.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys).Select(__item =&gt; __item.Name).ToList(),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSshKeysResult> Invoke(GetSshKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSshKeysResult>("hcloud:index/getSshKeys:getSshKeys", args ?? new GetSshKeysInvokeArgs(), options.WithDefaults());
     }
 
 

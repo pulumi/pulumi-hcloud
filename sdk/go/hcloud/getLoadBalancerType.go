@@ -91,21 +91,11 @@ type GetLoadBalancerTypeResult struct {
 }
 
 func GetLoadBalancerTypeOutput(ctx *pulumi.Context, args GetLoadBalancerTypeOutputArgs, opts ...pulumi.InvokeOption) GetLoadBalancerTypeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLoadBalancerTypeResultOutput, error) {
 			args := v.(GetLoadBalancerTypeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLoadBalancerTypeResult
-			secret, err := ctx.InvokePackageRaw("hcloud:index/getLoadBalancerType:getLoadBalancerType", args, &rv, "", opts...)
-			if err != nil {
-				return GetLoadBalancerTypeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLoadBalancerTypeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLoadBalancerTypeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("hcloud:index/getLoadBalancerType:getLoadBalancerType", args, GetLoadBalancerTypeResultOutput{}, options).(GetLoadBalancerTypeResultOutput), nil
 		}).(GetLoadBalancerTypeResultOutput)
 }
 

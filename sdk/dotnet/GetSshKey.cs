@@ -104,6 +104,53 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetSshKeyResult> Invoke(GetSshKeyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSshKeyResult>("hcloud:index/getSshKey:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byId = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         Id = 24332897,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         Name = "my-ssh-key",
+        ///     });
+        /// 
+        ///     var byFingerprint = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         Fingerprint = "55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8",
+        ///     });
+        /// 
+        ///     var byLabel = HCloud.GetSshKey.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        ///     var main = new HCloud.Server("main", new()
+        ///     {
+        ///         SshKeys = new[]
+        ///         {
+        ///             byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSshKeyResult> Invoke(GetSshKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSshKeyResult>("hcloud:index/getSshKey:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
     }
 
 

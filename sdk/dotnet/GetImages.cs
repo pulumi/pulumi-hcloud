@@ -74,6 +74,38 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("hcloud:index/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about multiple Hetzner Cloud Images.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var image2 = HCloud.GetImages.Invoke(new()
+        ///     {
+        ///         WithArchitectures = new[]
+        ///         {
+        ///             "x86",
+        ///         },
+        ///     });
+        /// 
+        ///     var image3 = HCloud.GetImages.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("hcloud:index/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
     }
 
 
