@@ -78,6 +78,40 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("hcloud:index/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Hetzner Cloud Load Balancer.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var lb1 = HCloud.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Name = "my-load-balancer",
+        ///     });
+        /// 
+        ///     var lb2 = HCloud.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Id = 123,
+        ///     });
+        /// 
+        ///     var lb3 = HCloud.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         WithSelector = "key=value",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("hcloud:index/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
     }
 
 

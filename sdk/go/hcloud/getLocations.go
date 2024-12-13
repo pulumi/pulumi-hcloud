@@ -39,18 +39,8 @@ type GetLocationsResult struct {
 
 func GetLocationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLocationsResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetLocationsResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetLocationsResult
-		secret, err := ctx.InvokePackageRaw("hcloud:index/getLocations:getLocations", nil, &rv, "", opts...)
-		if err != nil {
-			return GetLocationsResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetLocationsResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetLocationsResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("hcloud:index/getLocations:getLocations", nil, GetLocationsResultOutput{}, options).(GetLocationsResultOutput), nil
 	}).(GetLocationsResultOutput)
 }
 

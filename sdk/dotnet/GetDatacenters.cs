@@ -26,6 +26,14 @@ namespace Pulumi.HCloud
         /// </summary>
         public static Output<GetDatacentersResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Provides a list of available Hetzner Cloud Datacenters.
+        /// 
+        /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+        /// </summary>
+        public static Output<GetDatacentersResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
