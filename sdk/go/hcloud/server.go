@@ -123,7 +123,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewNetworkSubnet(ctx, "network-subnet", &hcloud.NetworkSubnetArgs{
+//			network_subnet, err := hcloud.NewNetworkSubnet(ctx, "network-subnet", &hcloud.NetworkSubnetArgs{
 //				Type:        pulumi.String("cloud"),
 //				NetworkId:   network.ID(),
 //				NetworkZone: pulumi.String("eu-central"),
