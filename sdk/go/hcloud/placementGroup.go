@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
+//			my_placement_group, err := hcloud.NewPlacementGroup(ctx, "my-placement-group", &hcloud.PlacementGroupArgs{
 //				Name: pulumi.String("my-placement-group"),
 //				Type: pulumi.String("spread"),
 //				Labels: pulumi.StringMap{
