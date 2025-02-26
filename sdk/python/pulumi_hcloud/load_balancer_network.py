@@ -279,7 +279,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             load_balancer_id=lb1.id,
             network_id=mynet.id,
             ip="10.0.1.5",
-            opts = pulumi.ResourceOptions(depends_on=[srvnetwork_hcloud_network_subnet]))
+            opts = pulumi.ResourceOptions(depends_on=[foonet]))
         ```
 
         ## Import
@@ -344,7 +344,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             load_balancer_id=lb1.id,
             network_id=mynet.id,
             ip="10.0.1.5",
-            opts = pulumi.ResourceOptions(depends_on=[srvnetwork_hcloud_network_subnet]))
+            opts = pulumi.ResourceOptions(depends_on=[foonet]))
         ```
 
         ## Import
