@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  *     networkId: mynet.id,
  *     ip: "10.0.1.5",
  * }, {
- *     dependsOn: [srvnetworkHcloudNetworkSubnet],
+ *     dependsOn: [foonet],
  * });
  * ```
  *

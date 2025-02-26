@@ -52,7 +52,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         DependsOn =
     ///         {
-    ///             srvnetworkHcloudNetworkSubnet,
+    ///             foonet,
     ///         },
     ///     });
     /// 

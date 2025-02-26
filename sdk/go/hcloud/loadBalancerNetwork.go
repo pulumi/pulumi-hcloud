@@ -43,7 +43,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
+//			foonet, err := hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
 //				NetworkId:   mynet.ID(),
 //				Type:        pulumi.String("cloud"),
 //				NetworkZone: pulumi.String("eu-central"),
@@ -57,7 +57,7 @@ import (
 //				NetworkId:      mynet.ID(),
 //				Ip:             pulumi.String("10.0.1.5"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				srvnetworkHcloudNetworkSubnet,
+//				foonet,
 //			}))
 //			if err != nil {
 //				return err

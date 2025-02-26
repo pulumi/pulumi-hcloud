@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .networkId(mynet.id())
  *             .ip("10.0.1.5")
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(srvnetworkHcloudNetworkSubnet)
+ *                 .dependsOn(foonet)
  *                 .build());
  * 
  *     }
