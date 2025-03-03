@@ -2204,28 +2204,28 @@ class GetPrimaryIpsPrimaryIpResult(dict):
 class GetServerTypesServerTypeResult(dict):
     def __init__(__self__, *,
                  architecture: str,
-                 cores: float,
+                 cores: int,
                  cpu_type: str,
                  deprecation_announced: str,
                  description: str,
-                 disk: float,
+                 disk: int,
                  id: int,
                  included_traffic: int,
                  is_deprecated: bool,
-                 memory: float,
+                 memory: int,
                  name: str,
                  storage_type: str,
                  unavailable_after: str):
         """
         :param str architecture: Architecture of the cpu for a Server of this type.
-        :param float cores: Number of cpu cores for a Server of this type.
+        :param int cores: Number of cpu cores for a Server of this type.
         :param str cpu_type: Type of cpu for a Server of this type.
         :param str deprecation_announced: Date of the Server Type deprecation announcement.
         :param str description: Description of the Server Type.
-        :param float disk: Disk size in GB for a Server of this type.
+        :param int disk: Disk size in GB for a Server of this type.
         :param int id: ID of the Server Type.
         :param bool is_deprecated: Whether the Server Type is deprecated.
-        :param float memory: Memory in GB for a Server of this type.
+        :param int memory: Memory in GB for a Server of this type.
         :param str name: Name of the Server Type.
         :param str storage_type: Type of boot drive for a Server of this type.
         :param str unavailable_after: Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
@@ -2254,7 +2254,7 @@ class GetServerTypesServerTypeResult(dict):
 
     @property
     @pulumi.getter
-    def cores(self) -> float:
+    def cores(self) -> int:
         """
         Number of cpu cores for a Server of this type.
         """
@@ -2286,7 +2286,7 @@ class GetServerTypesServerTypeResult(dict):
 
     @property
     @pulumi.getter
-    def disk(self) -> float:
+    def disk(self) -> int:
         """
         Disk size in GB for a Server of this type.
         """
@@ -2316,7 +2316,7 @@ class GetServerTypesServerTypeResult(dict):
 
     @property
     @pulumi.getter
-    def memory(self) -> float:
+    def memory(self) -> int:
         """
         Memory in GB for a Server of this type.
         """
