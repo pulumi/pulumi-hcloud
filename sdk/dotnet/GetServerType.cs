@@ -181,7 +181,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Number of cpu cores for a Server of this type.
         /// </summary>
-        public readonly double Cores;
+        public readonly int Cores;
         /// <summary>
         /// Type of cpu for a Server of this type.
         /// </summary>
@@ -197,7 +197,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Disk size in GB for a Server of this type.
         /// </summary>
-        public readonly double Disk;
+        public readonly int Disk;
         /// <summary>
         /// ID of the Server Type.
         /// </summary>
@@ -210,7 +210,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Memory in GB for a Server of this type.
         /// </summary>
-        public readonly double Memory;
+        public readonly int Memory;
         /// <summary>
         /// Name of the Server Type.
         /// </summary>
@@ -228,7 +228,7 @@ namespace Pulumi.HCloud
         private GetServerTypeResult(
             string architecture,
 
-            double cores,
+            int cores,
 
             string cpuType,
 
@@ -236,7 +236,7 @@ namespace Pulumi.HCloud
 
             string description,
 
-            double disk,
+            int disk,
 
             int? id,
 
@@ -244,7 +244,7 @@ namespace Pulumi.HCloud
 
             bool isDeprecated,
 
-            double memory,
+            int memory,
 
             string? name,
 
