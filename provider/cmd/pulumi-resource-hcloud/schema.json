@@ -1449,7 +1449,7 @@
                     "description": "Architecture of the cpu for a Server of this type.\n"
                 },
                 "cores": {
-                    "type": "number",
+                    "type": "integer",
                     "description": "Number of cpu cores for a Server of this type.\n"
                 },
                 "cpuType": {
@@ -1465,7 +1465,7 @@
                     "description": "Description of the Server Type.\n"
                 },
                 "disk": {
-                    "type": "number",
+                    "type": "integer",
                     "description": "Disk size in GB for a Server of this type.\n"
                 },
                 "id": {
@@ -1481,7 +1481,7 @@
                     "description": "Whether the Server Type is deprecated.\n"
                 },
                 "memory": {
-                    "type": "number",
+                    "type": "integer",
                     "description": "Memory in GB for a Server of this type.\n"
                 },
                 "name": {
@@ -6024,7 +6024,7 @@
                     },
                     "cores": {
                         "description": "Number of cpu cores for a Server of this type.\n",
-                        "type": "number"
+                        "type": "integer"
                     },
                     "cpuType": {
                         "description": "Type of cpu for a Server of this type.\n",
@@ -6040,7 +6040,7 @@
                     },
                     "disk": {
                         "description": "Disk size in GB for a Server of this type.\n",
-                        "type": "number"
+                        "type": "integer"
                     },
                     "id": {
                         "description": "ID of the Server Type.\n",
@@ -6056,7 +6056,7 @@
                     },
                     "memory": {
                         "description": "Memory in GB for a Server of this type.\n",
-                        "type": "number"
+                        "type": "integer"
                     },
                     "name": {
                         "description": "Name of the Server Type.\n",

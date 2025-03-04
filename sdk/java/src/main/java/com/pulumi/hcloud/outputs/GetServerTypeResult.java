@@ -6,7 +6,6 @@ package com.pulumi.hcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -24,7 +23,7 @@ public final class GetServerTypeResult {
      * @return Number of cpu cores for a Server of this type.
      * 
      */
-    private Double cores;
+    private Integer cores;
     /**
      * @return Type of cpu for a Server of this type.
      * 
@@ -44,7 +43,7 @@ public final class GetServerTypeResult {
      * @return Disk size in GB for a Server of this type.
      * 
      */
-    private Double disk;
+    private Integer disk;
     /**
      * @return ID of the Server Type.
      * 
@@ -66,7 +65,7 @@ public final class GetServerTypeResult {
      * @return Memory in GB for a Server of this type.
      * 
      */
-    private Double memory;
+    private Integer memory;
     /**
      * @return Name of the Server Type.
      * 
@@ -95,7 +94,7 @@ public final class GetServerTypeResult {
      * @return Number of cpu cores for a Server of this type.
      * 
      */
-    public Double cores() {
+    public Integer cores() {
         return this.cores;
     }
     /**
@@ -123,7 +122,7 @@ public final class GetServerTypeResult {
      * @return Disk size in GB for a Server of this type.
      * 
      */
-    public Double disk() {
+    public Integer disk() {
         return this.disk;
     }
     /**
@@ -153,7 +152,7 @@ public final class GetServerTypeResult {
      * @return Memory in GB for a Server of this type.
      * 
      */
-    public Double memory() {
+    public Integer memory() {
         return this.memory;
     }
     /**
@@ -188,15 +187,15 @@ public final class GetServerTypeResult {
     @CustomType.Builder
     public static final class Builder {
         private String architecture;
-        private Double cores;
+        private Integer cores;
         private String cpuType;
         private String deprecationAnnounced;
         private String description;
-        private Double disk;
+        private Integer disk;
         private @Nullable Integer id;
         private Integer includedTraffic;
         private Boolean isDeprecated;
-        private Double memory;
+        private Integer memory;
         private @Nullable String name;
         private String storageType;
         private String unavailableAfter;
@@ -227,7 +226,7 @@ public final class GetServerTypeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder cores(Double cores) {
+        public Builder cores(Integer cores) {
             if (cores == null) {
               throw new MissingRequiredPropertyException("GetServerTypeResult", "cores");
             }
@@ -259,7 +258,7 @@ public final class GetServerTypeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder disk(Double disk) {
+        public Builder disk(Integer disk) {
             if (disk == null) {
               throw new MissingRequiredPropertyException("GetServerTypeResult", "disk");
             }
@@ -289,7 +288,7 @@ public final class GetServerTypeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder memory(Double memory) {
+        public Builder memory(Integer memory) {
             if (memory == null) {
               throw new MissingRequiredPropertyException("GetServerTypeResult", "memory");
             }

@@ -4946,7 +4946,7 @@ type GetServerTypesServerType struct {
 	// Architecture of the cpu for a Server of this type.
 	Architecture string `pulumi:"architecture"`
 	// Number of cpu cores for a Server of this type.
-	Cores float64 `pulumi:"cores"`
+	Cores int `pulumi:"cores"`
 	// Type of cpu for a Server of this type.
 	CpuType string `pulumi:"cpuType"`
 	// Date of the Server Type deprecation announcement.
@@ -4954,7 +4954,7 @@ type GetServerTypesServerType struct {
 	// Description of the Server Type.
 	Description string `pulumi:"description"`
 	// Disk size in GB for a Server of this type.
-	Disk float64 `pulumi:"disk"`
+	Disk int `pulumi:"disk"`
 	// ID of the Server Type.
 	Id int `pulumi:"id"`
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
@@ -4962,7 +4962,7 @@ type GetServerTypesServerType struct {
 	// Whether the Server Type is deprecated.
 	IsDeprecated bool `pulumi:"isDeprecated"`
 	// Memory in GB for a Server of this type.
-	Memory float64 `pulumi:"memory"`
+	Memory int `pulumi:"memory"`
 	// Name of the Server Type.
 	Name string `pulumi:"name"`
 	// Type of boot drive for a Server of this type.
@@ -4986,7 +4986,7 @@ type GetServerTypesServerTypeArgs struct {
 	// Architecture of the cpu for a Server of this type.
 	Architecture pulumi.StringInput `pulumi:"architecture"`
 	// Number of cpu cores for a Server of this type.
-	Cores pulumi.Float64Input `pulumi:"cores"`
+	Cores pulumi.IntInput `pulumi:"cores"`
 	// Type of cpu for a Server of this type.
 	CpuType pulumi.StringInput `pulumi:"cpuType"`
 	// Date of the Server Type deprecation announcement.
@@ -4994,7 +4994,7 @@ type GetServerTypesServerTypeArgs struct {
 	// Description of the Server Type.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Disk size in GB for a Server of this type.
-	Disk pulumi.Float64Input `pulumi:"disk"`
+	Disk pulumi.IntInput `pulumi:"disk"`
 	// ID of the Server Type.
 	Id pulumi.IntInput `pulumi:"id"`
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
@@ -5002,7 +5002,7 @@ type GetServerTypesServerTypeArgs struct {
 	// Whether the Server Type is deprecated.
 	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
 	// Memory in GB for a Server of this type.
-	Memory pulumi.Float64Input `pulumi:"memory"`
+	Memory pulumi.IntInput `pulumi:"memory"`
 	// Name of the Server Type.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of boot drive for a Server of this type.
@@ -5068,8 +5068,8 @@ func (o GetServerTypesServerTypeOutput) Architecture() pulumi.StringOutput {
 }
 
 // Number of cpu cores for a Server of this type.
-func (o GetServerTypesServerTypeOutput) Cores() pulumi.Float64Output {
-	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Cores }).(pulumi.Float64Output)
+func (o GetServerTypesServerTypeOutput) Cores() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Cores }).(pulumi.IntOutput)
 }
 
 // Type of cpu for a Server of this type.
@@ -5088,8 +5088,8 @@ func (o GetServerTypesServerTypeOutput) Description() pulumi.StringOutput {
 }
 
 // Disk size in GB for a Server of this type.
-func (o GetServerTypesServerTypeOutput) Disk() pulumi.Float64Output {
-	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Disk }).(pulumi.Float64Output)
+func (o GetServerTypesServerTypeOutput) Disk() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Disk }).(pulumi.IntOutput)
 }
 
 // ID of the Server Type.
@@ -5108,8 +5108,8 @@ func (o GetServerTypesServerTypeOutput) IsDeprecated() pulumi.BoolOutput {
 }
 
 // Memory in GB for a Server of this type.
-func (o GetServerTypesServerTypeOutput) Memory() pulumi.Float64Output {
-	return o.ApplyT(func(v GetServerTypesServerType) float64 { return v.Memory }).(pulumi.Float64Output)
+func (o GetServerTypesServerTypeOutput) Memory() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Memory }).(pulumi.IntOutput)
 }
 
 // Name of the Server Type.

@@ -30,8 +30,8 @@ class GetServerTypeResult:
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
-        if cores and not isinstance(cores, float):
-            raise TypeError("Expected argument 'cores' to be a float")
+        if cores and not isinstance(cores, int):
+            raise TypeError("Expected argument 'cores' to be a int")
         pulumi.set(__self__, "cores", cores)
         if cpu_type and not isinstance(cpu_type, str):
             raise TypeError("Expected argument 'cpu_type' to be a str")
@@ -42,8 +42,8 @@ class GetServerTypeResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if disk and not isinstance(disk, float):
-            raise TypeError("Expected argument 'disk' to be a float")
+        if disk and not isinstance(disk, int):
+            raise TypeError("Expected argument 'disk' to be a int")
         pulumi.set(__self__, "disk", disk)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
@@ -54,8 +54,8 @@ class GetServerTypeResult:
         if is_deprecated and not isinstance(is_deprecated, bool):
             raise TypeError("Expected argument 'is_deprecated' to be a bool")
         pulumi.set(__self__, "is_deprecated", is_deprecated)
-        if memory and not isinstance(memory, float):
-            raise TypeError("Expected argument 'memory' to be a float")
+        if memory and not isinstance(memory, int):
+            raise TypeError("Expected argument 'memory' to be a int")
         pulumi.set(__self__, "memory", memory)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -77,7 +77,7 @@ class GetServerTypeResult:
 
     @property
     @pulumi.getter
-    def cores(self) -> float:
+    def cores(self) -> int:
         """
         Number of cpu cores for a Server of this type.
         """
@@ -109,7 +109,7 @@ class GetServerTypeResult:
 
     @property
     @pulumi.getter
-    def disk(self) -> float:
+    def disk(self) -> int:
         """
         Disk size in GB for a Server of this type.
         """
@@ -139,7 +139,7 @@ class GetServerTypeResult:
 
     @property
     @pulumi.getter
-    def memory(self) -> float:
+    def memory(self) -> int:
         """
         Memory in GB for a Server of this type.
         """
