@@ -225,7 +225,7 @@ import javax.annotation.Nullable;
  *         // Create a new server from the snapshot
  *         var fromSnapshot = new Server("fromSnapshot", ServerArgs.builder()
  *             .name("from-snapshot")
- *             .image(packerSnapshot.applyValue(getImageResult -> getImageResult.id()))
+ *             .image(packerSnapshot.id())
  *             .serverType("cx22")
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4Enabled(true)

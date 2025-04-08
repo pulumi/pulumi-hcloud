@@ -126,7 +126,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -170,7 +170,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -214,7 +214,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -258,7 +258,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -302,7 +302,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -346,7 +346,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -390,7 +390,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleCertificate2 = HcloudFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -1127,7 +1127,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -1171,7 +1171,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -1215,7 +1215,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -1259,7 +1259,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -1303,7 +1303,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -1347,7 +1347,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -1391,7 +1391,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var sampleFirewall2 = HcloudFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -1748,7 +1748,7 @@ public final class HcloudFunctions {
      * 
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
+     *                 .floatingIpId(ip1.id())
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1814,7 +1814,7 @@ public final class HcloudFunctions {
      * 
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
+     *                 .floatingIpId(ip1.id())
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1880,7 +1880,7 @@ public final class HcloudFunctions {
      * 
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
+     *                 .floatingIpId(ip1.id())
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -1946,7 +1946,7 @@ public final class HcloudFunctions {
      * 
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
+     *                 .floatingIpId(ip1.id())
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -2012,7 +2012,7 @@ public final class HcloudFunctions {
      * 
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
+     *                 .floatingIpId(ip1.id())
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -2078,7 +2078,7 @@ public final class HcloudFunctions {
      * 
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
+     *                 .floatingIpId(ip1.id())
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -2144,7 +2144,7 @@ public final class HcloudFunctions {
      * 
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
-     *                 .floatingIpId(ip1.applyValue(getFloatingIpResult -> getFloatingIpResult.id()))
+     *                 .floatingIpId(ip1.id())
      *                 .serverId(mainHcloudServer.id())
      *                 .build());
      * 
@@ -2483,7 +2483,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2496,7 +2496,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
+     *             .image(image1.id())
      *             .build());
      * 
      *     }
@@ -2538,7 +2538,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2551,7 +2551,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
+     *             .image(image1.id())
      *             .build());
      * 
      *     }
@@ -2593,7 +2593,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2606,7 +2606,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
+     *             .image(image1.id())
      *             .build());
      * 
      *     }
@@ -2648,7 +2648,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2661,7 +2661,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
+     *             .image(image1.id())
      *             .build());
      * 
      *     }
@@ -2703,7 +2703,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2716,7 +2716,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
+     *             .image(image1.id())
      *             .build());
      * 
      *     }
@@ -2758,7 +2758,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2771,7 +2771,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
+     *             .image(image1.id())
      *             .build());
      * 
      *     }
@@ -2813,7 +2813,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
@@ -2826,7 +2826,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.applyValue(getImageResult -> getImageResult.id()))
+     *             .image(image1.id())
      *             .build());
      * 
      *     }
@@ -3194,7 +3194,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
@@ -3244,7 +3244,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
@@ -3294,7 +3294,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
@@ -3344,7 +3344,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
@@ -3394,7 +3394,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
@@ -3444,7 +3444,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
@@ -3494,7 +3494,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var lb2 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
@@ -3930,7 +3930,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     *         final var all = HcloudFunctions.getLoadBalancerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3969,7 +3969,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     *         final var all = HcloudFunctions.getLoadBalancerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4008,7 +4008,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     *         final var all = HcloudFunctions.getLoadBalancerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4047,7 +4047,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     *         final var all = HcloudFunctions.getLoadBalancerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4086,7 +4086,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     *         final var all = HcloudFunctions.getLoadBalancerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4125,7 +4125,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     *         final var all = HcloudFunctions.getLoadBalancerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4164,7 +4164,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getLoadBalancerTypes();
+     *         final var all = HcloudFunctions.getLoadBalancerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4204,7 +4204,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lb2 = HcloudFunctions.getLoadBalancers();
+     *         final var lb2 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
+     *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
      *             .withSelector("key=value")
@@ -4248,7 +4249,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lb2 = HcloudFunctions.getLoadBalancers();
+     *         final var lb2 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
+     *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
      *             .withSelector("key=value")
@@ -4292,7 +4294,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lb2 = HcloudFunctions.getLoadBalancers();
+     *         final var lb2 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
+     *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
      *             .withSelector("key=value")
@@ -4336,7 +4339,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lb2 = HcloudFunctions.getLoadBalancers();
+     *         final var lb2 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
+     *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
      *             .withSelector("key=value")
@@ -4380,7 +4384,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lb2 = HcloudFunctions.getLoadBalancers();
+     *         final var lb2 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
+     *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
      *             .withSelector("key=value")
@@ -4424,7 +4429,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lb2 = HcloudFunctions.getLoadBalancers();
+     *         final var lb2 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
+     *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
      *             .withSelector("key=value")
@@ -4468,7 +4474,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lb2 = HcloudFunctions.getLoadBalancers();
+     *         final var lb2 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
+     *             .build());
      * 
      *         final var lb3 = HcloudFunctions.getLoadBalancers(GetLoadBalancersArgs.builder()
      *             .withSelector("key=value")
@@ -4910,7 +4917,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -4958,7 +4965,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -5006,7 +5013,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -5054,7 +5061,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -5102,7 +5109,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -5150,7 +5157,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -5198,7 +5205,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network1 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -5247,7 +5254,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network2 = HcloudFunctions.getNetwork();
+     *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .withSelector("key=value")
@@ -5291,7 +5299,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network2 = HcloudFunctions.getNetwork();
+     *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .withSelector("key=value")
@@ -5335,7 +5344,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network2 = HcloudFunctions.getNetwork();
+     *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .withSelector("key=value")
@@ -5379,7 +5389,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network2 = HcloudFunctions.getNetwork();
+     *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .withSelector("key=value")
@@ -5423,7 +5434,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network2 = HcloudFunctions.getNetwork();
+     *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .withSelector("key=value")
@@ -5467,7 +5479,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network2 = HcloudFunctions.getNetwork();
+     *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .withSelector("key=value")
@@ -5511,7 +5524,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network2 = HcloudFunctions.getNetwork();
+     *         final var network2 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .build());
      * 
      *         final var network3 = HcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .withSelector("key=value")
@@ -5558,7 +5572,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -5602,7 +5616,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -5646,7 +5660,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -5690,7 +5704,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -5734,7 +5748,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -5778,7 +5792,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -5822,7 +5836,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .id("4711")
+     *             .id(4711)
      *             .build());
      * 
      *     }
@@ -5863,7 +5877,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
+     *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
      *             .withSelector("key=value")
@@ -5907,7 +5922,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
+     *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
      *             .withSelector("key=value")
@@ -5951,7 +5967,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
+     *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
      *             .withSelector("key=value")
@@ -5995,7 +6012,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
+     *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
      *             .withSelector("key=value")
@@ -6039,7 +6057,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
+     *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
      *             .withSelector("key=value")
@@ -6083,7 +6102,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
+     *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
      *             .withSelector("key=value")
@@ -6127,7 +6147,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups();
+     *         final var samplePlacementGroup1 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
+     *             .build());
      * 
      *         final var samplePlacementGroup2 = HcloudFunctions.getPlacementGroups(GetPlacementGroupsArgs.builder()
      *             .withSelector("key=value")
@@ -7021,7 +7042,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
@@ -7069,7 +7090,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
@@ -7117,7 +7138,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
@@ -7165,7 +7186,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
@@ -7213,7 +7234,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
@@ -7261,7 +7282,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
@@ -7309,7 +7330,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var s2 = HcloudFunctions.getServer(GetServerArgs.builder()
-     *             .id("123")
+     *             .id(123)
      *             .build());
      * 
      *         final var s3 = HcloudFunctions.getServer(GetServerArgs.builder()
@@ -7370,7 +7391,7 @@ public final class HcloudFunctions {
      *             .name("my-server")
      *             .location("fsn1")
      *             .image("debian-12")
-     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
+     *             .serverType(byName.name())
      *             .build());
      * 
      *     }
@@ -7427,7 +7448,7 @@ public final class HcloudFunctions {
      *             .name("my-server")
      *             .location("fsn1")
      *             .image("debian-12")
-     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
+     *             .serverType(byName.name())
      *             .build());
      * 
      *     }
@@ -7484,7 +7505,7 @@ public final class HcloudFunctions {
      *             .name("my-server")
      *             .location("fsn1")
      *             .image("debian-12")
-     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
+     *             .serverType(byName.name())
      *             .build());
      * 
      *     }
@@ -7541,7 +7562,7 @@ public final class HcloudFunctions {
      *             .name("my-server")
      *             .location("fsn1")
      *             .image("debian-12")
-     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
+     *             .serverType(byName.name())
      *             .build());
      * 
      *     }
@@ -7598,7 +7619,7 @@ public final class HcloudFunctions {
      *             .name("my-server")
      *             .location("fsn1")
      *             .image("debian-12")
-     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
+     *             .serverType(byName.name())
      *             .build());
      * 
      *     }
@@ -7655,7 +7676,7 @@ public final class HcloudFunctions {
      *             .name("my-server")
      *             .location("fsn1")
      *             .image("debian-12")
-     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
+     *             .serverType(byName.name())
      *             .build());
      * 
      *     }
@@ -7712,7 +7733,7 @@ public final class HcloudFunctions {
      *             .name("my-server")
      *             .location("fsn1")
      *             .image("debian-12")
-     *             .serverType(byName.applyValue(getServerTypeResult -> getServerTypeResult.name()))
+     *             .serverType(byName.name())
      *             .build());
      * 
      *     }
@@ -7752,7 +7773,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getServerTypes();
+     *         final var all = HcloudFunctions.getServerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7791,7 +7812,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getServerTypes();
+     *         final var all = HcloudFunctions.getServerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7830,7 +7851,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getServerTypes();
+     *         final var all = HcloudFunctions.getServerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7869,7 +7890,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getServerTypes();
+     *         final var all = HcloudFunctions.getServerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7908,7 +7929,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getServerTypes();
+     *         final var all = HcloudFunctions.getServerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7947,7 +7968,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getServerTypes();
+     *         final var all = HcloudFunctions.getServerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7986,7 +8007,7 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getServerTypes();
+     *         final var all = HcloudFunctions.getServerTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8324,9 +8345,9 @@ public final class HcloudFunctions {
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.id(),
+     *                 byName.id(),
+     *                 byFingerprint.id())
      *             .build());
      * 
      *     }
@@ -8385,9 +8406,9 @@ public final class HcloudFunctions {
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.id(),
+     *                 byName.id(),
+     *                 byFingerprint.id())
      *             .build());
      * 
      *     }
@@ -8446,9 +8467,9 @@ public final class HcloudFunctions {
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.id(),
+     *                 byName.id(),
+     *                 byFingerprint.id())
      *             .build());
      * 
      *     }
@@ -8507,9 +8528,9 @@ public final class HcloudFunctions {
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.id(),
+     *                 byName.id(),
+     *                 byFingerprint.id())
      *             .build());
      * 
      *     }
@@ -8568,9 +8589,9 @@ public final class HcloudFunctions {
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.id(),
+     *                 byName.id(),
+     *                 byFingerprint.id())
      *             .build());
      * 
      *     }
@@ -8629,9 +8650,9 @@ public final class HcloudFunctions {
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.id(),
+     *                 byName.id(),
+     *                 byFingerprint.id())
      *             .build());
      * 
      *     }
@@ -8690,9 +8711,9 @@ public final class HcloudFunctions {
      * 
      *         var main = new Server("main", ServerArgs.builder()
      *             .sshKeys(            
-     *                 byId.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byName.applyValue(getSshKeyResult -> getSshKeyResult.id()),
-     *                 byFingerprint.applyValue(getSshKeyResult -> getSshKeyResult.id()))
+     *                 byId.id(),
+     *                 byName.id(),
+     *                 byFingerprint.id())
      *             .build());
      * 
      *     }
@@ -8733,14 +8754,15 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .build());
      * 
      *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.sshKeys().stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -8781,14 +8803,15 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .build());
      * 
      *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.sshKeys().stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -8829,14 +8852,15 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .build());
      * 
      *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.sshKeys().stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -8877,14 +8901,15 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .build());
      * 
      *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.sshKeys().stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -8925,14 +8950,15 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .build());
      * 
      *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.sshKeys().stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -8973,14 +8999,15 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .build());
      * 
      *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.sshKeys().stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -9021,14 +9048,15 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = HcloudFunctions.getSshKeys();
+     *         final var all = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
+     *             .build());
      * 
      *         final var byLabel = HcloudFunctions.getSshKeys(GetSshKeysArgs.builder()
      *             .withSelector("foo=bar")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .sshKeys(all.applyValue(getSshKeysResult -> getSshKeysResult.sshKeys()).stream().map(element -> element.name()).collect(toList()))
+     *             .sshKeys(all.sshKeys().stream().map(element -> element.name()).collect(toList()))
      *             .build());
      * 
      *     }
@@ -9068,7 +9096,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
@@ -9116,7 +9144,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
@@ -9164,7 +9192,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
@@ -9212,7 +9240,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
@@ -9260,7 +9288,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
@@ -9308,7 +9336,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
@@ -9356,7 +9384,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var volume1 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
-     *             .id("1234")
+     *             .id(1234)
      *             .build());
      * 
      *         final var volume2 = HcloudFunctions.getVolume(GetVolumeArgs.builder()
@@ -9405,7 +9433,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var volume_ = HcloudFunctions.getVolumes();
+     *         final var volume_ = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
+     *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
      *             .withSelector("key=value")
@@ -9449,7 +9478,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var volume_ = HcloudFunctions.getVolumes();
+     *         final var volume_ = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
+     *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
      *             .withSelector("key=value")
@@ -9493,7 +9523,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var volume_ = HcloudFunctions.getVolumes();
+     *         final var volume_ = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
+     *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
      *             .withSelector("key=value")
@@ -9537,7 +9568,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var volume_ = HcloudFunctions.getVolumes();
+     *         final var volume_ = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
+     *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
      *             .withSelector("key=value")
@@ -9581,7 +9613,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var volume_ = HcloudFunctions.getVolumes();
+     *         final var volume_ = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
+     *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
      *             .withSelector("key=value")
@@ -9625,7 +9658,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var volume_ = HcloudFunctions.getVolumes();
+     *         final var volume_ = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
+     *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
      *             .withSelector("key=value")
@@ -9669,7 +9703,8 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var volume_ = HcloudFunctions.getVolumes();
+     *         final var volume_ = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
+     *             .build());
      * 
      *         final var volume3 = HcloudFunctions.getVolumes(GetVolumesArgs.builder()
      *             .withSelector("key=value")
