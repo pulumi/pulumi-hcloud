@@ -224,6 +224,9 @@ class _RdnsState:
 
 
 class Rdns(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/rdns:Rdns"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

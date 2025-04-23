@@ -145,6 +145,9 @@ class _SshKeyState:
 
 
 class SshKey(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/sshKey:SshKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

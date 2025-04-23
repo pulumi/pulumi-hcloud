@@ -245,6 +245,9 @@ class _LoadBalancerNetworkState:
 
 
 class LoadBalancerNetwork(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
