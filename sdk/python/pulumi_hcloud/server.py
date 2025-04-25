@@ -819,6 +819,9 @@ class _ServerState:
 
 
 class Server(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/server:Server"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

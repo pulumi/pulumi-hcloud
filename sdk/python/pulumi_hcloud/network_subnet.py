@@ -202,6 +202,9 @@ class _NetworkSubnetState:
 
 
 class NetworkSubnet(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/networkSubnet:NetworkSubnet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
