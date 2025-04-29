@@ -257,6 +257,9 @@ class _ServerNetworkState:
 
 
 class ServerNetwork(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/serverNetwork:ServerNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

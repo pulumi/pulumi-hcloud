@@ -141,6 +141,9 @@ class _FirewallAttachmentState:
 
 
 class FirewallAttachment(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/firewallAttachment:FirewallAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -256,6 +256,9 @@ class _UploadedCertificateState:
 
 
 class UploadedCertificate(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/uploadedCertificate:UploadedCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

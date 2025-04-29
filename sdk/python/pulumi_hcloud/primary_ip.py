@@ -331,6 +331,9 @@ class _PrimaryIpState:
 
 
 class PrimaryIp(pulumi.CustomResource):
+
+    pulumi_type = "hcloud:index/primaryIp:PrimaryIp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
