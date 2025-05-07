@@ -95,10 +95,8 @@ class _FloatingIpAssignmentState:
         pulumi.set(self, "server_id", value)
 
 
+@pulumi.type_token("hcloud:index/floatingIpAssignment:FloatingIpAssignment")
 class FloatingIpAssignment(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/floatingIpAssignment:FloatingIpAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

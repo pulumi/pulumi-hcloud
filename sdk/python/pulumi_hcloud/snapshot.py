@@ -128,10 +128,8 @@ class _SnapshotState:
         pulumi.set(self, "server_id", value)
 
 
+@pulumi.type_token("hcloud:index/snapshot:Snapshot")
 class Snapshot(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/snapshot:Snapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

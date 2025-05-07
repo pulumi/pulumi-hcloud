@@ -201,10 +201,8 @@ class _NetworkSubnetState:
         pulumi.set(self, "vswitch_id", value)
 
 
+@pulumi.type_token("hcloud:index/networkSubnet:NetworkSubnet")
 class NetworkSubnet(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/networkSubnet:NetworkSubnet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

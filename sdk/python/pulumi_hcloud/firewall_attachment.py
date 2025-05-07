@@ -140,10 +140,8 @@ class _FirewallAttachmentState:
         pulumi.set(self, "server_ids", value)
 
 
+@pulumi.type_token("hcloud:index/firewallAttachment:FirewallAttachment")
 class FirewallAttachment(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/firewallAttachment:FirewallAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
