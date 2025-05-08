@@ -163,10 +163,8 @@ class _FirewallState:
         pulumi.set(self, "rules", value)
 
 
+@pulumi.type_token("hcloud:index/firewall:Firewall")
 class Firewall(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/firewall:Firewall"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

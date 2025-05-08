@@ -144,10 +144,8 @@ class _SshKeyState:
         pulumi.set(self, "public_key", value)
 
 
+@pulumi.type_token("hcloud:index/sshKey:SshKey")
 class SshKey(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/sshKey:SshKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

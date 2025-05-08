@@ -192,10 +192,8 @@ class _NetworkState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("hcloud:index/network:Network")
 class Network(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/network:Network"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

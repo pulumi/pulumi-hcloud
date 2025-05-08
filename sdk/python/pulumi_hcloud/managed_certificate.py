@@ -228,10 +228,8 @@ class _ManagedCertificateState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("hcloud:index/managedCertificate:ManagedCertificate")
 class ManagedCertificate(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/managedCertificate:ManagedCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -251,10 +251,8 @@ class _LoadBalancerTargetState:
         pulumi.set(self, "use_private_ip", value)
 
 
+@pulumi.type_token("hcloud:index/loadBalancerTarget:LoadBalancerTarget")
 class LoadBalancerTarget(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/loadBalancerTarget:LoadBalancerTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

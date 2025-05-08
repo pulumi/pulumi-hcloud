@@ -256,10 +256,8 @@ class _ServerNetworkState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("hcloud:index/serverNetwork:ServerNetwork")
 class ServerNetwork(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/serverNetwork:ServerNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

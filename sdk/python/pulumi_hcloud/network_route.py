@@ -126,10 +126,8 @@ class _NetworkRouteState:
         pulumi.set(self, "network_id", value)
 
 
+@pulumi.type_token("hcloud:index/networkRoute:NetworkRoute")
 class NetworkRoute(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/networkRoute:NetworkRoute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

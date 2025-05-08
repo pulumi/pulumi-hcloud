@@ -140,10 +140,8 @@ class _PlacementGroupState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("hcloud:index/placementGroup:PlacementGroup")
 class PlacementGroup(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/placementGroup:PlacementGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -312,10 +312,8 @@ class _VolumeState:
         pulumi.set(self, "size", value)
 
 
+@pulumi.type_token("hcloud:index/volume:Volume")
 class Volume(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/volume:Volume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
