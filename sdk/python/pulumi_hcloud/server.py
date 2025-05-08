@@ -818,10 +818,8 @@ class _ServerState:
         pulumi.set(self, "user_data", value)
 
 
+@pulumi.type_token("hcloud:index/server:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/server:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

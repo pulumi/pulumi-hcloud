@@ -257,10 +257,8 @@ class _LoadBalancerServiceState:
         pulumi.set(self, "proxyprotocol", value)
 
 
+@pulumi.type_token("hcloud:index/loadBalancerService:LoadBalancerService")
 class LoadBalancerService(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/loadBalancerService:LoadBalancerService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1741,6 +1741,9 @@
                 "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.\n",
                 "secret": true
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:hcloud/terraformConfig"
         }
     },
     "resources": {
@@ -6445,6 +6448,35 @@
                 "required": [
                     "volumes",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:hcloud/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:hcloud"
+                    }
+                },
+                "type": "pulumi:providers:hcloud/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }

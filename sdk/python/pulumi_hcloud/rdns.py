@@ -223,10 +223,8 @@ class _RdnsState:
         pulumi.set(self, "server_id", value)
 
 
+@pulumi.type_token("hcloud:index/rdns:Rdns")
 class Rdns(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/rdns:Rdns"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

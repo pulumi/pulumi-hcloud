@@ -244,10 +244,8 @@ class _LoadBalancerNetworkState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("hcloud:index/loadBalancerNetwork:LoadBalancerNetwork")
 class LoadBalancerNetwork(pulumi.CustomResource):
-
-    pulumi_type = "hcloud:index/loadBalancerNetwork:LoadBalancerNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
