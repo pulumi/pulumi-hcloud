@@ -22,25 +22,31 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var image1 = HCloud.GetImage.Invoke(new()
+        ///     var byId = HCloud.GetImage.Invoke(new()
         ///     {
-        ///         Id = 1234,
+        ///         Id = 114690387,
         ///     });
         /// 
-        ///     var image2 = HCloud.GetImage.Invoke(new()
+        ///     var byNameX86 = HCloud.GetImage.Invoke(new()
         ///     {
-        ///         Name = "ubuntu-18.04",
+        ///         Name = "debian-12",
         ///         WithArchitecture = "x86",
         ///     });
         /// 
-        ///     var image3 = HCloud.GetImage.Invoke(new()
+        ///     var byNameArm = HCloud.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "debian-12",
+        ///         WithArchitecture = "arm",
+        ///     });
+        /// 
+        ///     var byLabel = HCloud.GetImage.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()
         ///     {
-        ///         Image = image1.Apply(getImageResult =&gt; getImageResult.Id),
+        ///         Image = byName.Id,
         ///     });
         /// 
         /// });
@@ -60,25 +66,31 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var image1 = HCloud.GetImage.Invoke(new()
+        ///     var byId = HCloud.GetImage.Invoke(new()
         ///     {
-        ///         Id = 1234,
+        ///         Id = 114690387,
         ///     });
         /// 
-        ///     var image2 = HCloud.GetImage.Invoke(new()
+        ///     var byNameX86 = HCloud.GetImage.Invoke(new()
         ///     {
-        ///         Name = "ubuntu-18.04",
+        ///         Name = "debian-12",
         ///         WithArchitecture = "x86",
         ///     });
         /// 
-        ///     var image3 = HCloud.GetImage.Invoke(new()
+        ///     var byNameArm = HCloud.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "debian-12",
+        ///         WithArchitecture = "arm",
+        ///     });
+        /// 
+        ///     var byLabel = HCloud.GetImage.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()
         ///     {
-        ///         Image = image1.Apply(getImageResult =&gt; getImageResult.Id),
+        ///         Image = byName.Id,
         ///     });
         /// 
         /// });
@@ -98,25 +110,31 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var image1 = HCloud.GetImage.Invoke(new()
+        ///     var byId = HCloud.GetImage.Invoke(new()
         ///     {
-        ///         Id = 1234,
+        ///         Id = 114690387,
         ///     });
         /// 
-        ///     var image2 = HCloud.GetImage.Invoke(new()
+        ///     var byNameX86 = HCloud.GetImage.Invoke(new()
         ///     {
-        ///         Name = "ubuntu-18.04",
+        ///         Name = "debian-12",
         ///         WithArchitecture = "x86",
         ///     });
         /// 
-        ///     var image3 = HCloud.GetImage.Invoke(new()
+        ///     var byNameArm = HCloud.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "debian-12",
+        ///         WithArchitecture = "arm",
+        ///     });
+        /// 
+        ///     var byLabel = HCloud.GetImage.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()
         ///     {
-        ///         Image = image1.Apply(getImageResult =&gt; getImageResult.Id),
+        ///         Image = byName.Id,
         ///     });
         /// 
         /// });

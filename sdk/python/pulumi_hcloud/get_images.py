@@ -117,14 +117,17 @@ def get_images(include_deprecated: Optional[builtins.bool] = None,
     """
     Provides details about multiple Hetzner Cloud Images.
 
+    When relevant, it is recommended to always provide the image architecture
+    (`with_architecture`) when fetching images.
+
     ## Example Usage
 
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
 
-    image2 = hcloud.get_images(with_architectures=["x86"])
-    image3 = hcloud.get_images(with_selector="key=value")
+    by_architecture = hcloud.get_images(with_architectures=["x86"])
+    by_label = hcloud.get_images(with_selector="key=value")
     ```
 
 
@@ -160,14 +163,17 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[builtin
     """
     Provides details about multiple Hetzner Cloud Images.
 
+    When relevant, it is recommended to always provide the image architecture
+    (`with_architecture`) when fetching images.
+
     ## Example Usage
 
     ```python
     import pulumi
     import pulumi_hcloud as hcloud
 
-    image2 = hcloud.get_images(with_architectures=["x86"])
-    image3 = hcloud.get_images(with_selector="key=value")
+    by_architecture = hcloud.get_images(with_architectures=["x86"])
+    by_label = hcloud.get_images(with_selector="key=value")
     ```
 
 

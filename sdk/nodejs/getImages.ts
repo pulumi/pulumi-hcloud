@@ -9,16 +9,19 @@ import * as utilities from "./utilities";
 /**
  * Provides details about multiple Hetzner Cloud Images.
  *
+ * When relevant, it is recommended to always provide the image architecture
+ * (`withArchitecture`) when fetching images.
+ *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const image2 = hcloud.getImages({
+ * const byArchitecture = hcloud.getImages({
  *     withArchitectures: ["x86"],
  * });
- * const image3 = hcloud.getImages({
+ * const byLabel = hcloud.getImages({
  *     withSelector: "key=value",
  * });
  * ```
@@ -82,16 +85,19 @@ export interface GetImagesResult {
 /**
  * Provides details about multiple Hetzner Cloud Images.
  *
+ * When relevant, it is recommended to always provide the image architecture
+ * (`withArchitecture`) when fetching images.
+ *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const image2 = hcloud.getImages({
+ * const byArchitecture = hcloud.getImages({
  *     withArchitectures: ["x86"],
  * });
- * const image3 = hcloud.getImages({
+ * const byLabel = hcloud.getImages({
  *     withSelector: "key=value",
  * });
  * ```

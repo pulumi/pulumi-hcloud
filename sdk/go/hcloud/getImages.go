@@ -13,6 +13,9 @@ import (
 
 // Provides details about multiple Hetzner Cloud Images.
 //
+// When relevant, it is recommended to always provide the image architecture
+// (`withArchitecture`) when fetching images.
+//
 // ## Example Usage
 //
 // ```go

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -28,6 +30,7 @@ export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("hcloud:index/getServer:getServer", {
         "id": args.id,
         "name": args.name,
+        "networks": args.networks,
         "placementGroupId": args.placementGroupId,
         "selector": args.selector,
         "withSelector": args.withSelector,
@@ -47,6 +50,10 @@ export interface GetServerArgs {
      * Name of the server.
      */
     name?: string;
+    /**
+     * (map) Private Network the server is attached to.
+     */
+    networks?: inputs.GetServerNetwork[];
     /**
      * (Optional, string) Placement Group ID the server is assigned to.
      */
@@ -126,6 +133,10 @@ export interface GetServerResult {
      */
     readonly name: string;
     /**
+     * (map) Private Network the server is attached to.
+     */
+    readonly networks?: outputs.GetServerNetwork[];
+    /**
      * (Optional, string) Placement Group ID the server is assigned to.
      */
     readonly placementGroupId?: number;
@@ -177,6 +188,7 @@ export function getServerOutput(args?: GetServerOutputArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invokeOutput("hcloud:index/getServer:getServer", {
         "id": args.id,
         "name": args.name,
+        "networks": args.networks,
         "placementGroupId": args.placementGroupId,
         "selector": args.selector,
         "withSelector": args.withSelector,
@@ -196,6 +208,10 @@ export interface GetServerOutputArgs {
      * Name of the server.
      */
     name?: pulumi.Input<string>;
+    /**
+     * (map) Private Network the server is attached to.
+     */
+    networks?: pulumi.Input<pulumi.Input<inputs.GetServerNetworkArgs>[]>;
     /**
      * (Optional, string) Placement Group ID the server is assigned to.
      */

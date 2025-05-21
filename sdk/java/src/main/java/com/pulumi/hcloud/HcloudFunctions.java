@@ -2482,21 +2482,26 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(1234)
+     *         final var byId = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .id(114690387)
      *             .build());
      * 
-     *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name("ubuntu-18.04")
+     *         final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
      *             .withArchitecture("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *         final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
+     *             .withArchitecture("arm")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.id())
+     *             .image(byName.id())
      *             .build());
      * 
      *     }
@@ -2537,21 +2542,26 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(1234)
+     *         final var byId = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .id(114690387)
      *             .build());
      * 
-     *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name("ubuntu-18.04")
+     *         final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
      *             .withArchitecture("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *         final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
+     *             .withArchitecture("arm")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.id())
+     *             .image(byName.id())
      *             .build());
      * 
      *     }
@@ -2592,21 +2602,26 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(1234)
+     *         final var byId = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .id(114690387)
      *             .build());
      * 
-     *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name("ubuntu-18.04")
+     *         final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
      *             .withArchitecture("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *         final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
+     *             .withArchitecture("arm")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.id())
+     *             .image(byName.id())
      *             .build());
      * 
      *     }
@@ -2647,21 +2662,26 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(1234)
+     *         final var byId = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .id(114690387)
      *             .build());
      * 
-     *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name("ubuntu-18.04")
+     *         final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
      *             .withArchitecture("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *         final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
+     *             .withArchitecture("arm")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.id())
+     *             .image(byName.id())
      *             .build());
      * 
      *     }
@@ -2702,21 +2722,26 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(1234)
+     *         final var byId = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .id(114690387)
      *             .build());
      * 
-     *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name("ubuntu-18.04")
+     *         final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
      *             .withArchitecture("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *         final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
+     *             .withArchitecture("arm")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.id())
+     *             .image(byName.id())
      *             .build());
      * 
      *     }
@@ -2757,21 +2782,26 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(1234)
+     *         final var byId = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .id(114690387)
      *             .build());
      * 
-     *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name("ubuntu-18.04")
+     *         final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
      *             .withArchitecture("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *         final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
+     *             .withArchitecture("arm")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.id())
+     *             .image(byName.id())
      *             .build());
      * 
      *     }
@@ -2812,21 +2842,26 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .id(1234)
+     *         final var byId = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .id(114690387)
      *             .build());
      * 
-     *         final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()
-     *             .name("ubuntu-18.04")
+     *         final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
      *             .withArchitecture("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()
+     *         final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()
+     *             .name("debian-12")
+     *             .withArchitecture("arm")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(image1.id())
+     *             .image(byName.id())
      *             .build());
      * 
      *     }
@@ -2841,6 +2876,9 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about multiple Hetzner Cloud Images.
+     * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`with_architecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2867,11 +2905,11 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withArchitectures("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
@@ -2888,6 +2926,9 @@ public final class HcloudFunctions {
     /**
      * Provides details about multiple Hetzner Cloud Images.
      * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`with_architecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2913,11 +2954,11 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withArchitectures("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
@@ -2934,6 +2975,9 @@ public final class HcloudFunctions {
     /**
      * Provides details about multiple Hetzner Cloud Images.
      * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`with_architecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2959,11 +3003,11 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withArchitectures("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
@@ -2980,6 +3024,9 @@ public final class HcloudFunctions {
     /**
      * Provides details about multiple Hetzner Cloud Images.
      * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`with_architecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -3005,11 +3052,11 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withArchitectures("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
@@ -3026,6 +3073,9 @@ public final class HcloudFunctions {
     /**
      * Provides details about multiple Hetzner Cloud Images.
      * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`with_architecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -3051,11 +3101,11 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withArchitectures("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
@@ -3072,6 +3122,9 @@ public final class HcloudFunctions {
     /**
      * Provides details about multiple Hetzner Cloud Images.
      * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`with_architecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -3097,11 +3150,11 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withArchitectures("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 
@@ -3118,6 +3171,9 @@ public final class HcloudFunctions {
     /**
      * Provides details about multiple Hetzner Cloud Images.
      * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`with_architecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -3143,11 +3199,11 @@ public final class HcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withArchitectures("x86")
      *             .build());
      * 
-     *         final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()
+     *         final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()
      *             .withSelector("key=value")
      *             .build());
      * 

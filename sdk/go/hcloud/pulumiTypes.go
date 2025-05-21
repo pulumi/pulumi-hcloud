@@ -4942,6 +4942,130 @@ func (o GetPrimaryIpsPrimaryIpArrayOutput) Index(i pulumi.IntInput) GetPrimaryIp
 	}).(GetPrimaryIpsPrimaryIpOutput)
 }
 
+type GetServerNetworkType struct {
+	// (list) A list of alias IP addresses assigned to the server in the network.
+	AliasIps []string `pulumi:"aliasIps"`
+	// (string) The server's IP address within the network.
+	Ip string `pulumi:"ip"`
+	// (string) The MAC address associated with the server's private network interface.
+	MacAddress string `pulumi:"macAddress"`
+	// (int) The unique identifier for the network.
+	NetworkId int `pulumi:"networkId"`
+}
+
+// GetServerNetworkTypeInput is an input type that accepts GetServerNetworkTypeArgs and GetServerNetworkTypeOutput values.
+// You can construct a concrete instance of `GetServerNetworkTypeInput` via:
+//
+//	GetServerNetworkTypeArgs{...}
+type GetServerNetworkTypeInput interface {
+	pulumi.Input
+
+	ToGetServerNetworkTypeOutput() GetServerNetworkTypeOutput
+	ToGetServerNetworkTypeOutputWithContext(context.Context) GetServerNetworkTypeOutput
+}
+
+type GetServerNetworkTypeArgs struct {
+	// (list) A list of alias IP addresses assigned to the server in the network.
+	AliasIps pulumi.StringArrayInput `pulumi:"aliasIps"`
+	// (string) The server's IP address within the network.
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// (string) The MAC address associated with the server's private network interface.
+	MacAddress pulumi.StringInput `pulumi:"macAddress"`
+	// (int) The unique identifier for the network.
+	NetworkId pulumi.IntInput `pulumi:"networkId"`
+}
+
+func (GetServerNetworkTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerNetworkType)(nil)).Elem()
+}
+
+func (i GetServerNetworkTypeArgs) ToGetServerNetworkTypeOutput() GetServerNetworkTypeOutput {
+	return i.ToGetServerNetworkTypeOutputWithContext(context.Background())
+}
+
+func (i GetServerNetworkTypeArgs) ToGetServerNetworkTypeOutputWithContext(ctx context.Context) GetServerNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerNetworkTypeOutput)
+}
+
+// GetServerNetworkTypeArrayInput is an input type that accepts GetServerNetworkTypeArray and GetServerNetworkTypeArrayOutput values.
+// You can construct a concrete instance of `GetServerNetworkTypeArrayInput` via:
+//
+//	GetServerNetworkTypeArray{ GetServerNetworkTypeArgs{...} }
+type GetServerNetworkTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetServerNetworkTypeArrayOutput() GetServerNetworkTypeArrayOutput
+	ToGetServerNetworkTypeArrayOutputWithContext(context.Context) GetServerNetworkTypeArrayOutput
+}
+
+type GetServerNetworkTypeArray []GetServerNetworkTypeInput
+
+func (GetServerNetworkTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerNetworkType)(nil)).Elem()
+}
+
+func (i GetServerNetworkTypeArray) ToGetServerNetworkTypeArrayOutput() GetServerNetworkTypeArrayOutput {
+	return i.ToGetServerNetworkTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerNetworkTypeArray) ToGetServerNetworkTypeArrayOutputWithContext(ctx context.Context) GetServerNetworkTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerNetworkTypeArrayOutput)
+}
+
+type GetServerNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (GetServerNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerNetworkType)(nil)).Elem()
+}
+
+func (o GetServerNetworkTypeOutput) ToGetServerNetworkTypeOutput() GetServerNetworkTypeOutput {
+	return o
+}
+
+func (o GetServerNetworkTypeOutput) ToGetServerNetworkTypeOutputWithContext(ctx context.Context) GetServerNetworkTypeOutput {
+	return o
+}
+
+// (list) A list of alias IP addresses assigned to the server in the network.
+func (o GetServerNetworkTypeOutput) AliasIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServerNetworkType) []string { return v.AliasIps }).(pulumi.StringArrayOutput)
+}
+
+// (string) The server's IP address within the network.
+func (o GetServerNetworkTypeOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerNetworkType) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+// (string) The MAC address associated with the server's private network interface.
+func (o GetServerNetworkTypeOutput) MacAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerNetworkType) string { return v.MacAddress }).(pulumi.StringOutput)
+}
+
+// (int) The unique identifier for the network.
+func (o GetServerNetworkTypeOutput) NetworkId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerNetworkType) int { return v.NetworkId }).(pulumi.IntOutput)
+}
+
+type GetServerNetworkTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerNetworkTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerNetworkType)(nil)).Elem()
+}
+
+func (o GetServerNetworkTypeArrayOutput) ToGetServerNetworkTypeArrayOutput() GetServerNetworkTypeArrayOutput {
+	return o
+}
+
+func (o GetServerNetworkTypeArrayOutput) ToGetServerNetworkTypeArrayOutputWithContext(ctx context.Context) GetServerNetworkTypeArrayOutput {
+	return o
+}
+
+func (o GetServerNetworkTypeArrayOutput) Index(i pulumi.IntInput) GetServerNetworkTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerNetworkType {
+		return vs[0].([]GetServerNetworkType)[vs[1].(int)]
+	}).(GetServerNetworkTypeOutput)
+}
+
 type GetServerTypesServerType struct {
 	// Architecture of the cpu for a Server of this type.
 	Architecture string `pulumi:"architecture"`
@@ -5148,26 +5272,27 @@ func (o GetServerTypesServerTypeArrayOutput) Index(i pulumi.IntInput) GetServerT
 }
 
 type GetServersServer struct {
-	BackupWindow      string            `pulumi:"backupWindow"`
-	Backups           bool              `pulumi:"backups"`
-	Datacenter        string            `pulumi:"datacenter"`
-	DeleteProtection  bool              `pulumi:"deleteProtection"`
-	FirewallIds       []int             `pulumi:"firewallIds"`
-	Id                int               `pulumi:"id"`
-	Image             string            `pulumi:"image"`
-	Ipv4Address       string            `pulumi:"ipv4Address"`
-	Ipv6Address       string            `pulumi:"ipv6Address"`
-	Ipv6Network       string            `pulumi:"ipv6Network"`
-	Iso               string            `pulumi:"iso"`
-	Labels            map[string]string `pulumi:"labels"`
-	Location          string            `pulumi:"location"`
-	Name              string            `pulumi:"name"`
-	PlacementGroupId  *int              `pulumi:"placementGroupId"`
-	PrimaryDiskSize   int               `pulumi:"primaryDiskSize"`
-	RebuildProtection bool              `pulumi:"rebuildProtection"`
-	Rescue            string            `pulumi:"rescue"`
-	ServerType        string            `pulumi:"serverType"`
-	Status            string            `pulumi:"status"`
+	BackupWindow      string                    `pulumi:"backupWindow"`
+	Backups           bool                      `pulumi:"backups"`
+	Datacenter        string                    `pulumi:"datacenter"`
+	DeleteProtection  bool                      `pulumi:"deleteProtection"`
+	FirewallIds       []int                     `pulumi:"firewallIds"`
+	Id                int                       `pulumi:"id"`
+	Image             string                    `pulumi:"image"`
+	Ipv4Address       string                    `pulumi:"ipv4Address"`
+	Ipv6Address       string                    `pulumi:"ipv6Address"`
+	Ipv6Network       string                    `pulumi:"ipv6Network"`
+	Iso               string                    `pulumi:"iso"`
+	Labels            map[string]string         `pulumi:"labels"`
+	Location          string                    `pulumi:"location"`
+	Name              string                    `pulumi:"name"`
+	Networks          []GetServersServerNetwork `pulumi:"networks"`
+	PlacementGroupId  *int                      `pulumi:"placementGroupId"`
+	PrimaryDiskSize   int                       `pulumi:"primaryDiskSize"`
+	RebuildProtection bool                      `pulumi:"rebuildProtection"`
+	Rescue            string                    `pulumi:"rescue"`
+	ServerType        string                    `pulumi:"serverType"`
+	Status            string                    `pulumi:"status"`
 }
 
 // GetServersServerInput is an input type that accepts GetServersServerArgs and GetServersServerOutput values.
@@ -5182,26 +5307,27 @@ type GetServersServerInput interface {
 }
 
 type GetServersServerArgs struct {
-	BackupWindow      pulumi.StringInput    `pulumi:"backupWindow"`
-	Backups           pulumi.BoolInput      `pulumi:"backups"`
-	Datacenter        pulumi.StringInput    `pulumi:"datacenter"`
-	DeleteProtection  pulumi.BoolInput      `pulumi:"deleteProtection"`
-	FirewallIds       pulumi.IntArrayInput  `pulumi:"firewallIds"`
-	Id                pulumi.IntInput       `pulumi:"id"`
-	Image             pulumi.StringInput    `pulumi:"image"`
-	Ipv4Address       pulumi.StringInput    `pulumi:"ipv4Address"`
-	Ipv6Address       pulumi.StringInput    `pulumi:"ipv6Address"`
-	Ipv6Network       pulumi.StringInput    `pulumi:"ipv6Network"`
-	Iso               pulumi.StringInput    `pulumi:"iso"`
-	Labels            pulumi.StringMapInput `pulumi:"labels"`
-	Location          pulumi.StringInput    `pulumi:"location"`
-	Name              pulumi.StringInput    `pulumi:"name"`
-	PlacementGroupId  pulumi.IntPtrInput    `pulumi:"placementGroupId"`
-	PrimaryDiskSize   pulumi.IntInput       `pulumi:"primaryDiskSize"`
-	RebuildProtection pulumi.BoolInput      `pulumi:"rebuildProtection"`
-	Rescue            pulumi.StringInput    `pulumi:"rescue"`
-	ServerType        pulumi.StringInput    `pulumi:"serverType"`
-	Status            pulumi.StringInput    `pulumi:"status"`
+	BackupWindow      pulumi.StringInput                `pulumi:"backupWindow"`
+	Backups           pulumi.BoolInput                  `pulumi:"backups"`
+	Datacenter        pulumi.StringInput                `pulumi:"datacenter"`
+	DeleteProtection  pulumi.BoolInput                  `pulumi:"deleteProtection"`
+	FirewallIds       pulumi.IntArrayInput              `pulumi:"firewallIds"`
+	Id                pulumi.IntInput                   `pulumi:"id"`
+	Image             pulumi.StringInput                `pulumi:"image"`
+	Ipv4Address       pulumi.StringInput                `pulumi:"ipv4Address"`
+	Ipv6Address       pulumi.StringInput                `pulumi:"ipv6Address"`
+	Ipv6Network       pulumi.StringInput                `pulumi:"ipv6Network"`
+	Iso               pulumi.StringInput                `pulumi:"iso"`
+	Labels            pulumi.StringMapInput             `pulumi:"labels"`
+	Location          pulumi.StringInput                `pulumi:"location"`
+	Name              pulumi.StringInput                `pulumi:"name"`
+	Networks          GetServersServerNetworkArrayInput `pulumi:"networks"`
+	PlacementGroupId  pulumi.IntPtrInput                `pulumi:"placementGroupId"`
+	PrimaryDiskSize   pulumi.IntInput                   `pulumi:"primaryDiskSize"`
+	RebuildProtection pulumi.BoolInput                  `pulumi:"rebuildProtection"`
+	Rescue            pulumi.StringInput                `pulumi:"rescue"`
+	ServerType        pulumi.StringInput                `pulumi:"serverType"`
+	Status            pulumi.StringInput                `pulumi:"status"`
 }
 
 func (GetServersServerArgs) ElementType() reflect.Type {
@@ -5311,6 +5437,10 @@ func (o GetServersServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServersServer) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o GetServersServerOutput) Networks() GetServersServerNetworkArrayOutput {
+	return o.ApplyT(func(v GetServersServer) []GetServersServerNetwork { return v.Networks }).(GetServersServerNetworkArrayOutput)
+}
+
 func (o GetServersServerOutput) PlacementGroupId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetServersServer) *int { return v.PlacementGroupId }).(pulumi.IntPtrOutput)
 }
@@ -5353,6 +5483,118 @@ func (o GetServersServerArrayOutput) Index(i pulumi.IntInput) GetServersServerOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServersServer {
 		return vs[0].([]GetServersServer)[vs[1].(int)]
 	}).(GetServersServerOutput)
+}
+
+type GetServersServerNetwork struct {
+	AliasIps   []string `pulumi:"aliasIps"`
+	Ip         string   `pulumi:"ip"`
+	MacAddress string   `pulumi:"macAddress"`
+	NetworkId  int      `pulumi:"networkId"`
+}
+
+// GetServersServerNetworkInput is an input type that accepts GetServersServerNetworkArgs and GetServersServerNetworkOutput values.
+// You can construct a concrete instance of `GetServersServerNetworkInput` via:
+//
+//	GetServersServerNetworkArgs{...}
+type GetServersServerNetworkInput interface {
+	pulumi.Input
+
+	ToGetServersServerNetworkOutput() GetServersServerNetworkOutput
+	ToGetServersServerNetworkOutputWithContext(context.Context) GetServersServerNetworkOutput
+}
+
+type GetServersServerNetworkArgs struct {
+	AliasIps   pulumi.StringArrayInput `pulumi:"aliasIps"`
+	Ip         pulumi.StringInput      `pulumi:"ip"`
+	MacAddress pulumi.StringInput      `pulumi:"macAddress"`
+	NetworkId  pulumi.IntInput         `pulumi:"networkId"`
+}
+
+func (GetServersServerNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServersServerNetwork)(nil)).Elem()
+}
+
+func (i GetServersServerNetworkArgs) ToGetServersServerNetworkOutput() GetServersServerNetworkOutput {
+	return i.ToGetServersServerNetworkOutputWithContext(context.Background())
+}
+
+func (i GetServersServerNetworkArgs) ToGetServersServerNetworkOutputWithContext(ctx context.Context) GetServersServerNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServersServerNetworkOutput)
+}
+
+// GetServersServerNetworkArrayInput is an input type that accepts GetServersServerNetworkArray and GetServersServerNetworkArrayOutput values.
+// You can construct a concrete instance of `GetServersServerNetworkArrayInput` via:
+//
+//	GetServersServerNetworkArray{ GetServersServerNetworkArgs{...} }
+type GetServersServerNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetServersServerNetworkArrayOutput() GetServersServerNetworkArrayOutput
+	ToGetServersServerNetworkArrayOutputWithContext(context.Context) GetServersServerNetworkArrayOutput
+}
+
+type GetServersServerNetworkArray []GetServersServerNetworkInput
+
+func (GetServersServerNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServersServerNetwork)(nil)).Elem()
+}
+
+func (i GetServersServerNetworkArray) ToGetServersServerNetworkArrayOutput() GetServersServerNetworkArrayOutput {
+	return i.ToGetServersServerNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetServersServerNetworkArray) ToGetServersServerNetworkArrayOutputWithContext(ctx context.Context) GetServersServerNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServersServerNetworkArrayOutput)
+}
+
+type GetServersServerNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetServersServerNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServersServerNetwork)(nil)).Elem()
+}
+
+func (o GetServersServerNetworkOutput) ToGetServersServerNetworkOutput() GetServersServerNetworkOutput {
+	return o
+}
+
+func (o GetServersServerNetworkOutput) ToGetServersServerNetworkOutputWithContext(ctx context.Context) GetServersServerNetworkOutput {
+	return o
+}
+
+func (o GetServersServerNetworkOutput) AliasIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServersServerNetwork) []string { return v.AliasIps }).(pulumi.StringArrayOutput)
+}
+
+func (o GetServersServerNetworkOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServersServerNetwork) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+func (o GetServersServerNetworkOutput) MacAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServersServerNetwork) string { return v.MacAddress }).(pulumi.StringOutput)
+}
+
+func (o GetServersServerNetworkOutput) NetworkId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServersServerNetwork) int { return v.NetworkId }).(pulumi.IntOutput)
+}
+
+type GetServersServerNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServersServerNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServersServerNetwork)(nil)).Elem()
+}
+
+func (o GetServersServerNetworkArrayOutput) ToGetServersServerNetworkArrayOutput() GetServersServerNetworkArrayOutput {
+	return o
+}
+
+func (o GetServersServerNetworkArrayOutput) ToGetServersServerNetworkArrayOutputWithContext(ctx context.Context) GetServersServerNetworkArrayOutput {
+	return o
+}
+
+func (o GetServersServerNetworkArrayOutput) Index(i pulumi.IntInput) GetServersServerNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServersServerNetwork {
+		return vs[0].([]GetServersServerNetwork)[vs[1].(int)]
+	}).(GetServersServerNetworkOutput)
 }
 
 type GetSshKeysSshKey struct {
@@ -5697,10 +5939,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPlacementGroupsPlacementGroupArrayInput)(nil)).Elem(), GetPlacementGroupsPlacementGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrimaryIpsPrimaryIpInput)(nil)).Elem(), GetPrimaryIpsPrimaryIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrimaryIpsPrimaryIpArrayInput)(nil)).Elem(), GetPrimaryIpsPrimaryIpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerNetworkTypeInput)(nil)).Elem(), GetServerNetworkTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerNetworkTypeArrayInput)(nil)).Elem(), GetServerNetworkTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypesServerTypeInput)(nil)).Elem(), GetServerTypesServerTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypesServerTypeArrayInput)(nil)).Elem(), GetServerTypesServerTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerInput)(nil)).Elem(), GetServersServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerArrayInput)(nil)).Elem(), GetServersServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerNetworkInput)(nil)).Elem(), GetServersServerNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerNetworkArrayInput)(nil)).Elem(), GetServersServerNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSshKeysSshKeyInput)(nil)).Elem(), GetSshKeysSshKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSshKeysSshKeyArrayInput)(nil)).Elem(), GetSshKeysSshKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumesVolumeInput)(nil)).Elem(), GetVolumesVolumeArgs{})
@@ -5777,10 +6023,14 @@ func init() {
 	pulumi.RegisterOutputType(GetPlacementGroupsPlacementGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetPrimaryIpsPrimaryIpOutput{})
 	pulumi.RegisterOutputType(GetPrimaryIpsPrimaryIpArrayOutput{})
+	pulumi.RegisterOutputType(GetServerNetworkTypeOutput{})
+	pulumi.RegisterOutputType(GetServerNetworkTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetServerTypesServerTypeOutput{})
 	pulumi.RegisterOutputType(GetServerTypesServerTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetServersServerOutput{})
 	pulumi.RegisterOutputType(GetServersServerArrayOutput{})
+	pulumi.RegisterOutputType(GetServersServerNetworkOutput{})
+	pulumi.RegisterOutputType(GetServersServerNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetSshKeysSshKeyOutput{})
 	pulumi.RegisterOutputType(GetSshKeysSshKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumesVolumeOutput{})

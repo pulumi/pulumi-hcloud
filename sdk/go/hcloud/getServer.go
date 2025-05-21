@@ -64,6 +64,8 @@ type LookupServerArgs struct {
 	Id *int `pulumi:"id"`
 	// Name of the server.
 	Name *string `pulumi:"name"`
+	// (map) Private Network the server is attached to.
+	Networks []GetServerNetworkType `pulumi:"networks"`
 	// (Optional, string) Placement Group ID the server is assigned to.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
 	// Deprecated: Please use the withSelector property instead.
@@ -104,6 +106,8 @@ type LookupServerResult struct {
 	Location string `pulumi:"location"`
 	// (string) Name of the server.
 	Name string `pulumi:"name"`
+	// (map) Private Network the server is attached to.
+	Networks []GetServerNetworkType `pulumi:"networks"`
 	// (Optional, string) Placement Group ID the server is assigned to.
 	PlacementGroupId *int `pulumi:"placementGroupId"`
 	// (int) The size of the primary disk in GB.
@@ -136,6 +140,8 @@ type LookupServerOutputArgs struct {
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Name of the server.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (map) Private Network the server is attached to.
+	Networks GetServerNetworkTypeArrayInput `pulumi:"networks"`
 	// (Optional, string) Placement Group ID the server is assigned to.
 	PlacementGroupId pulumi.IntPtrInput `pulumi:"placementGroupId"`
 	// Deprecated: Please use the withSelector property instead.
@@ -233,6 +239,11 @@ func (o LookupServerResultOutput) Location() pulumi.StringOutput {
 // (string) Name of the server.
 func (o LookupServerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (map) Private Network the server is attached to.
+func (o LookupServerResultOutput) Networks() GetServerNetworkTypeArrayOutput {
+	return o.ApplyT(func(v LookupServerResult) []GetServerNetworkType { return v.Networks }).(GetServerNetworkTypeArrayOutput)
 }
 
 // (Optional, string) Placement Group ID the server is assigned to.

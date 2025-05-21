@@ -25,15 +25,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			image1, err := hcloud.GetImage(ctx, &hcloud.GetImageArgs{
-//				Id: pulumi.IntRef(1234),
+//			_, err := hcloud.GetImage(ctx, &hcloud.GetImageArgs{
+//				Id: pulumi.IntRef(114690387),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = hcloud.GetImage(ctx, &hcloud.GetImageArgs{
-//				Name:             pulumi.StringRef("ubuntu-18.04"),
+//				Name:             pulumi.StringRef("debian-12"),
 //				WithArchitecture: pulumi.StringRef("x86"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.GetImage(ctx, &hcloud.GetImageArgs{
+//				Name:             pulumi.StringRef("debian-12"),
+//				WithArchitecture: pulumi.StringRef("arm"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -45,7 +52,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
-//				Image: pulumi.Int(image1.Id),
+//				Image: pulumi.Any(byName.Id),
 //			})
 //			if err != nil {
 //				return err

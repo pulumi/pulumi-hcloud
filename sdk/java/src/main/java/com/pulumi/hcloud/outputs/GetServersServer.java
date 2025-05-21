@@ -5,6 +5,7 @@ package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.hcloud.outputs.GetServersServerNetwork;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -30,6 +31,7 @@ public final class GetServersServer {
     private Map<String,String> labels;
     private String location;
     private String name;
+    private @Nullable List<GetServersServerNetwork> networks;
     private @Nullable Integer placementGroupId;
     private Integer primaryDiskSize;
     private Boolean rebuildProtection;
@@ -80,6 +82,9 @@ public final class GetServersServer {
     public String name() {
         return this.name;
     }
+    public List<GetServersServerNetwork> networks() {
+        return this.networks == null ? List.of() : this.networks;
+    }
     public Optional<Integer> placementGroupId() {
         return Optional.ofNullable(this.placementGroupId);
     }
@@ -122,6 +127,7 @@ public final class GetServersServer {
         private Map<String,String> labels;
         private String location;
         private String name;
+        private @Nullable List<GetServersServerNetwork> networks;
         private @Nullable Integer placementGroupId;
         private Integer primaryDiskSize;
         private Boolean rebuildProtection;
@@ -145,6 +151,7 @@ public final class GetServersServer {
     	      this.labels = defaults.labels;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.networks = defaults.networks;
     	      this.placementGroupId = defaults.placementGroupId;
     	      this.primaryDiskSize = defaults.primaryDiskSize;
     	      this.rebuildProtection = defaults.rebuildProtection;
@@ -269,6 +276,15 @@ public final class GetServersServer {
             return this;
         }
         @CustomType.Setter
+        public Builder networks(@Nullable List<GetServersServerNetwork> networks) {
+
+            this.networks = networks;
+            return this;
+        }
+        public Builder networks(GetServersServerNetwork... networks) {
+            return networks(List.of(networks));
+        }
+        @CustomType.Setter
         public Builder placementGroupId(@Nullable Integer placementGroupId) {
 
             this.placementGroupId = placementGroupId;
@@ -330,6 +346,7 @@ public final class GetServersServer {
             _resultValue.labels = labels;
             _resultValue.location = location;
             _resultValue.name = name;
+            _resultValue.networks = networks;
             _resultValue.placementGroupId = placementGroupId;
             _resultValue.primaryDiskSize = primaryDiskSize;
             _resultValue.rebuildProtection = rebuildProtection;
