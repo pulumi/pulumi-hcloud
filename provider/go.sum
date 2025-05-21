@@ -1911,8 +1911,8 @@ github.com/hashicorp/yamux v0.1.1 h1:yrQxtgseBDrq9Y652vSRDvsKCJKOUD+GzTS4Y0Y8pvE
 github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbgIO0SLnQ=
 github.com/hetznercloud/hcloud-go/v2 v2.21.0 h1:wUpQT+fgAxIcdMtFvuCJ78ziqc/VARubpOQPQyj4Q84=
 github.com/hetznercloud/hcloud-go/v2 v2.21.0/go.mod h1:WSM7w+9tT86sJTNcF8a/oHljC3HUmQfcLxYsgx6PpSc=
-github.com/hetznercloud/terraform-provider-hcloud v1.50.1 h1:ofhGrKI61KdqKGExL4kGiONq6uSWzOu53UG0vkaJv48=
-github.com/hetznercloud/terraform-provider-hcloud v1.50.1/go.mod h1:J8tA+GaZySBWXSBmBmtZ67GIAhiqQ/4CE/VJZpwrv5U=
+github.com/hetznercloud/terraform-provider-hcloud v1.51.0 h1:YcEf/rx25leIh1WIRNlef1GXVcMVnDiAu5YU71e3qu8=
+github.com/hetznercloud/terraform-provider-hcloud v1.51.0/go.mod h1:BueDapRAhN+TnLmdtTuIN1iaZPrpAjVFDCRnLpxkxkQ=
 github.com/hexops/autogold v1.3.0 h1:IEtGNPxBeBu8RMn8eKWh/Ll9dVNgSnJ7bp/qHgMQ14o=
 github.com/hexops/autogold v1.3.0/go.mod h1:d4hwi2rid66Sag+BVuHgwakW/EmaFr8vdTSbWDbrDRI=
 github.com/hexops/autogold/v2 v2.2.1 h1:JPUXuZQGkcQMv7eeDXuNMovjfoRYaa0yVcm+F3voaGY=

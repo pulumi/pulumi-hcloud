@@ -549,6 +549,16 @@
                     "firewall_ids": {
                         "maxItemsOne": false
                     },
+                    "network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "alias_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "with_status": {
                         "maxItemsOne": false
                     }
@@ -586,6 +596,16 @@
                             "fields": {
                                 "firewall_ids": {
                                     "maxItemsOne": false
+                                },
+                                "network": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "alias_ips": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

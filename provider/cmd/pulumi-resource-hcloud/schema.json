@@ -1442,6 +1442,41 @@
                 }
             }
         },
+        "hcloud:index/getServerNetwork:getServerNetwork": {
+            "properties": {
+                "aliasIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(list) A list of alias IP addresses assigned to the server in the network.\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "(string) The server's IP address within the network.\n"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "(string) The MAC address associated with the server's private network interface.\n"
+                },
+                "networkId": {
+                    "type": "integer",
+                    "description": "(int) The unique identifier for the network.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "aliasIps",
+                "ip",
+                "macAddress",
+                "networkId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "hcloud:index/getServerTypesServerType:getServerTypesServerType": {
             "properties": {
                 "architecture": {
@@ -1569,6 +1604,12 @@
                 "name": {
                     "type": "string"
                 },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getServersServerNetwork:getServersServerNetwork"
+                    }
+                },
                 "placementGroupId": {
                     "type": "integer"
                 },
@@ -1609,6 +1650,37 @@
                 "rescue",
                 "serverType",
                 "status"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getServersServerNetwork:getServersServerNetwork": {
+            "properties": {
+                "aliasIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ip": {
+                    "type": "string"
+                },
+                "macAddress": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "aliasIps",
+                "ip",
+                "macAddress",
+                "networkId"
             ],
             "language": {
                 "nodejs": {
@@ -4915,7 +4987,7 @@
             }
         },
         "hcloud:index/getImage:getImage": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst image1 = hcloud.getImage({\n    id: 1234,\n});\nconst image2 = hcloud.getImage({\n    name: \"ubuntu-18.04\",\n    withArchitecture: \"x86\",\n});\nconst image3 = hcloud.getImage({\n    withSelector: \"key=value\",\n});\nconst main = new hcloud.Server(\"main\", {image: image1.then(image1 =\u003e image1.id)});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nimage1 = hcloud.get_image(id=1234)\nimage2 = hcloud.get_image(name=\"ubuntu-18.04\",\n    with_architecture=\"x86\")\nimage3 = hcloud.get_image(with_selector=\"key=value\")\nmain = hcloud.Server(\"main\", image=image1.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var image1 = HCloud.GetImage.Invoke(new()\n    {\n        Id = 1234,\n    });\n\n    var image2 = HCloud.GetImage.Invoke(new()\n    {\n        Name = \"ubuntu-18.04\",\n        WithArchitecture = \"x86\",\n    });\n\n    var image3 = HCloud.GetImage.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n    var main = new HCloud.Server(\"main\", new()\n    {\n        Image = image1.Apply(getImageResult =\u003e getImageResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\timage1, err := hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tId: pulumi.IntRef(1234),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tName:             pulumi.StringRef(\"ubuntu-18.04\"),\n\t\t\tWithArchitecture: pulumi.StringRef(\"x86\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"main\", \u0026hcloud.ServerArgs{\n\t\t\tImage: pulumi.Int(image1.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetImageArgs;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var image1 = HcloudFunctions.getImage(GetImageArgs.builder()\n            .id(1234)\n            .build());\n\n        final var image2 = HcloudFunctions.getImage(GetImageArgs.builder()\n            .name(\"ubuntu-18.04\")\n            .withArchitecture(\"x86\")\n            .build());\n\n        final var image3 = HcloudFunctions.getImage(GetImageArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n        var main = new Server(\"main\", ServerArgs.builder()\n            .image(image1.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: hcloud:Server\n    properties:\n      image: ${image1.id}\nvariables:\n  image1:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        id: '1234'\n  image2:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        name: ubuntu-18.04\n        withArchitecture: x86\n  image3:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byId = hcloud.getImage({\n    id: 114690387,\n});\nconst byNameX86 = hcloud.getImage({\n    name: \"debian-12\",\n    withArchitecture: \"x86\",\n});\nconst byNameArm = hcloud.getImage({\n    name: \"debian-12\",\n    withArchitecture: \"arm\",\n});\nconst byLabel = hcloud.getImage({\n    withSelector: \"key=value\",\n});\nconst main = new hcloud.Server(\"main\", {image: byName.id});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_id = hcloud.get_image(id=114690387)\nby_name_x86 = hcloud.get_image(name=\"debian-12\",\n    with_architecture=\"x86\")\nby_name_arm = hcloud.get_image(name=\"debian-12\",\n    with_architecture=\"arm\")\nby_label = hcloud.get_image(with_selector=\"key=value\")\nmain = hcloud.Server(\"main\", image=by_name[\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = HCloud.GetImage.Invoke(new()\n    {\n        Id = 114690387,\n    });\n\n    var byNameX86 = HCloud.GetImage.Invoke(new()\n    {\n        Name = \"debian-12\",\n        WithArchitecture = \"x86\",\n    });\n\n    var byNameArm = HCloud.GetImage.Invoke(new()\n    {\n        Name = \"debian-12\",\n        WithArchitecture = \"arm\",\n    });\n\n    var byLabel = HCloud.GetImage.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n    var main = new HCloud.Server(\"main\", new()\n    {\n        Image = byName.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tId: pulumi.IntRef(114690387),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tName:             pulumi.StringRef(\"debian-12\"),\n\t\t\tWithArchitecture: pulumi.StringRef(\"x86\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tName:             pulumi.StringRef(\"debian-12\"),\n\t\t\tWithArchitecture: pulumi.StringRef(\"arm\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"main\", \u0026hcloud.ServerArgs{\n\t\t\tImage: pulumi.Any(byName.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetImageArgs;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = HcloudFunctions.getImage(GetImageArgs.builder()\n            .id(114690387)\n            .build());\n\n        final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()\n            .name(\"debian-12\")\n            .withArchitecture(\"x86\")\n            .build());\n\n        final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()\n            .name(\"debian-12\")\n            .withArchitecture(\"arm\")\n            .build());\n\n        final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n        var main = new Server(\"main\", ServerArgs.builder()\n            .image(byName.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: hcloud:Server\n    properties:\n      image: ${byName.id}\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        id: '114690387'\n  byNameX86:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        name: debian-12\n        withArchitecture: x86\n  byNameArm:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        name: debian-12\n        withArchitecture: arm\n  byLabel:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getImage.\n",
                 "properties": {
@@ -5046,7 +5118,7 @@
             }
         },
         "hcloud:index/getImages:getImages": {
-            "description": "Provides details about multiple Hetzner Cloud Images.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst image2 = hcloud.getImages({\n    withArchitectures: [\"x86\"],\n});\nconst image3 = hcloud.getImages({\n    withSelector: \"key=value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nimage2 = hcloud.get_images(with_architectures=[\"x86\"])\nimage3 = hcloud.get_images(with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var image2 = HCloud.GetImages.Invoke(new()\n    {\n        WithArchitectures = new[]\n        {\n            \"x86\",\n        },\n    });\n\n    var image3 = HCloud.GetImages.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithArchitectures: []string{\n\t\t\t\t\"x86\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetImagesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var image2 = HcloudFunctions.getImages(GetImagesArgs.builder()\n            .withArchitectures(\"x86\")\n            .build());\n\n        final var image3 = HcloudFunctions.getImages(GetImagesArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  image2:\n    fn::invoke:\n      function: hcloud:getImages\n      arguments:\n        withArchitectures:\n          - x86\n  image3:\n    fn::invoke:\n      function: hcloud:getImages\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Provides details about multiple Hetzner Cloud Images.\n\nWhen relevant, it is recommended to always provide the image architecture\n(`with_architecture`) when fetching images.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byArchitecture = hcloud.getImages({\n    withArchitectures: [\"x86\"],\n});\nconst byLabel = hcloud.getImages({\n    withSelector: \"key=value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_architecture = hcloud.get_images(with_architectures=[\"x86\"])\nby_label = hcloud.get_images(with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byArchitecture = HCloud.GetImages.Invoke(new()\n    {\n        WithArchitectures = new[]\n        {\n            \"x86\",\n        },\n    });\n\n    var byLabel = HCloud.GetImages.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithArchitectures: []string{\n\t\t\t\t\"x86\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetImagesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()\n            .withArchitectures(\"x86\")\n            .build());\n\n        final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byArchitecture:\n    fn::invoke:\n      function: hcloud:getImages\n      arguments:\n        withArchitectures:\n          - x86\n  byLabel:\n    fn::invoke:\n      function: hcloud:getImages\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getImages.\n",
                 "properties": {
@@ -5854,6 +5926,13 @@
                         "type": "string",
                         "description": "Name of the server.\n"
                     },
+                    "networks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getServerNetwork:getServerNetwork"
+                        },
+                        "description": "(map) Private Network the server is attached to.\n"
+                    },
                     "placementGroupId": {
                         "type": "integer",
                         "description": "(Optional, string) Placement Group ID the server is assigned to.\n"
@@ -5940,6 +6019,13 @@
                     "name": {
                         "description": "(string) Name of the server.\n",
                         "type": "string"
+                    },
+                    "networks": {
+                        "description": "(map) Private Network the server is attached to.\n",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getServerNetwork:getServerNetwork"
+                        },
+                        "type": "array"
                     },
                     "placementGroupId": {
                         "description": "(Optional, string) Placement Group ID the server is assigned to.\n",
