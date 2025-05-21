@@ -14,6 +14,9 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Images.
         /// 
+        /// When relevant, it is recommended to always provide the image architecture
+        /// (`with_architecture`) when fetching images.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -24,7 +27,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var image2 = HCloud.GetImages.Invoke(new()
+        ///     var byArchitecture = HCloud.GetImages.Invoke(new()
         ///     {
         ///         WithArchitectures = new[]
         ///         {
@@ -32,7 +35,7 @@ namespace Pulumi.HCloud
         ///         },
         ///     });
         /// 
-        ///     var image3 = HCloud.GetImages.Invoke(new()
+        ///     var byLabel = HCloud.GetImages.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -46,6 +49,9 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Images.
         /// 
+        /// When relevant, it is recommended to always provide the image architecture
+        /// (`with_architecture`) when fetching images.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,7 +62,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var image2 = HCloud.GetImages.Invoke(new()
+        ///     var byArchitecture = HCloud.GetImages.Invoke(new()
         ///     {
         ///         WithArchitectures = new[]
         ///         {
@@ -64,7 +70,7 @@ namespace Pulumi.HCloud
         ///         },
         ///     });
         /// 
-        ///     var image3 = HCloud.GetImages.Invoke(new()
+        ///     var byLabel = HCloud.GetImages.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -78,6 +84,9 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about multiple Hetzner Cloud Images.
         /// 
+        /// When relevant, it is recommended to always provide the image architecture
+        /// (`with_architecture`) when fetching images.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -88,7 +97,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var image2 = HCloud.GetImages.Invoke(new()
+        ///     var byArchitecture = HCloud.GetImages.Invoke(new()
         ///     {
         ///         WithArchitectures = new[]
         ///         {
@@ -96,7 +105,7 @@ namespace Pulumi.HCloud
         ///         },
         ///     });
         /// 
-        ///     var image3 = HCloud.GetImages.Invoke(new()
+        ///     var byLabel = HCloud.GetImages.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

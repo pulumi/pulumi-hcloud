@@ -27,6 +27,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly ImmutableDictionary<string, string> Labels;
         public readonly string Location;
         public readonly string Name;
+        public readonly ImmutableArray<Outputs.GetServersServerNetworkResult> Networks;
         public readonly int? PlacementGroupId;
         public readonly int PrimaryDiskSize;
         public readonly bool RebuildProtection;
@@ -64,6 +65,8 @@ namespace Pulumi.HCloud.Outputs
 
             string name,
 
+            ImmutableArray<Outputs.GetServersServerNetworkResult> networks,
+
             int? placementGroupId,
 
             int primaryDiskSize,
@@ -90,6 +93,7 @@ namespace Pulumi.HCloud.Outputs
             Labels = labels;
             Location = location;
             Name = name;
+            Networks = networks;
             PlacementGroupId = placementGroupId;
             PrimaryDiskSize = primaryDiskSize;
             RebuildProtection = rebuildProtection;

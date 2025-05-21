@@ -126,6 +126,44 @@ export interface GetFirewallRuleArgs {
     sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetServerNetwork {
+    /**
+     * (list) A list of alias IP addresses assigned to the server in the network.
+     */
+    aliasIps?: string[];
+    /**
+     * (string) The server's IP address within the network.
+     */
+    ip?: string;
+    /**
+     * (string) The MAC address associated with the server's private network interface.
+     */
+    macAddress?: string;
+    /**
+     * (int) The unique identifier for the network.
+     */
+    networkId?: number;
+}
+
+export interface GetServerNetworkArgs {
+    /**
+     * (list) A list of alias IP addresses assigned to the server in the network.
+     */
+    aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (string) The server's IP address within the network.
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * (string) The MAC address associated with the server's private network interface.
+     */
+    macAddress?: pulumi.Input<string>;
+    /**
+     * (int) The unique identifier for the network.
+     */
+    networkId?: pulumi.Input<number>;
+}
+
 export interface LoadBalancerAlgorithm {
     /**
      * Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`

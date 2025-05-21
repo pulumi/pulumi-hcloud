@@ -238,11 +238,13 @@ def get_image(id: Optional[builtins.int] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    image1 = hcloud.get_image(id=1234)
-    image2 = hcloud.get_image(name="ubuntu-18.04",
+    by_id = hcloud.get_image(id=114690387)
+    by_name_x86 = hcloud.get_image(name="debian-12",
         with_architecture="x86")
-    image3 = hcloud.get_image(with_selector="key=value")
-    main = hcloud.Server("main", image=image1.id)
+    by_name_arm = hcloud.get_image(name="debian-12",
+        with_architecture="arm")
+    by_label = hcloud.get_image(with_selector="key=value")
+    main = hcloud.Server("main", image=by_name["id"])
     ```
 
 
@@ -300,11 +302,13 @@ def get_image_output(id: Optional[pulumi.Input[Optional[builtins.int]]] = None,
     import pulumi
     import pulumi_hcloud as hcloud
 
-    image1 = hcloud.get_image(id=1234)
-    image2 = hcloud.get_image(name="ubuntu-18.04",
+    by_id = hcloud.get_image(id=114690387)
+    by_name_x86 = hcloud.get_image(name="debian-12",
         with_architecture="x86")
-    image3 = hcloud.get_image(with_selector="key=value")
-    main = hcloud.Server("main", image=image1.id)
+    by_name_arm = hcloud.get_image(name="debian-12",
+        with_architecture="arm")
+    by_label = hcloud.get_image(with_selector="key=value")
+    main = hcloud.Server("main", image=by_name["id"])
     ```
 
 

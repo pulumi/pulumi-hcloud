@@ -5,6 +5,7 @@ package com.pulumi.hcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.hcloud.inputs.GetServerNetworkArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -45,6 +46,21 @@ public final class GetServerArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * (map) Private Network the server is attached to.
+     * 
+     */
+    @Import(name="networks")
+    private @Nullable Output<List<GetServerNetworkArgs>> networks;
+
+    /**
+     * @return (map) Private Network the server is attached to.
+     * 
+     */
+    public Optional<Output<List<GetServerNetworkArgs>>> networks() {
+        return Optional.ofNullable(this.networks);
     }
 
     /**
@@ -116,6 +132,7 @@ public final class GetServerArgs extends com.pulumi.resources.InvokeArgs {
     private GetServerArgs(GetServerArgs $) {
         this.id = $.id;
         this.name = $.name;
+        this.networks = $.networks;
         this.placementGroupId = $.placementGroupId;
         this.selector = $.selector;
         this.withSelector = $.withSelector;
@@ -180,6 +197,37 @@ public final class GetServerArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networks (map) Private Network the server is attached to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networks(@Nullable Output<List<GetServerNetworkArgs>> networks) {
+            $.networks = networks;
+            return this;
+        }
+
+        /**
+         * @param networks (map) Private Network the server is attached to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networks(List<GetServerNetworkArgs> networks) {
+            return networks(Output.of(networks));
+        }
+
+        /**
+         * @param networks (map) Private Network the server is attached to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networks(GetServerNetworkArgs... networks) {
+            return networks(List.of(networks));
         }
 
         /**

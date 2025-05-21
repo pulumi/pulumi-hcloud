@@ -123,6 +123,18 @@ namespace Pulumi.HCloud
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("networks")]
+        private List<Inputs.GetServerNetworkArgs>? _networks;
+
+        /// <summary>
+        /// (map) Private Network the server is attached to.
+        /// </summary>
+        public List<Inputs.GetServerNetworkArgs> Networks
+        {
+            get => _networks ?? (_networks = new List<Inputs.GetServerNetworkArgs>());
+            set => _networks = value;
+        }
+
         /// <summary>
         /// (Optional, string) Placement Group ID the server is assigned to.
         /// </summary>
@@ -169,6 +181,18 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("networks")]
+        private InputList<Inputs.GetServerNetworkInputArgs>? _networks;
+
+        /// <summary>
+        /// (map) Private Network the server is attached to.
+        /// </summary>
+        public InputList<Inputs.GetServerNetworkInputArgs> Networks
+        {
+            get => _networks ?? (_networks = new InputList<Inputs.GetServerNetworkInputArgs>());
+            set => _networks = value;
+        }
 
         /// <summary>
         /// (Optional, string) Placement Group ID the server is assigned to.
@@ -264,6 +288,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// (map) Private Network the server is attached to.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServerNetworkResult> Networks;
+        /// <summary>
         /// (Optional, string) Placement Group ID the server is assigned to.
         /// </summary>
         public readonly int? PlacementGroupId;
@@ -318,6 +346,8 @@ namespace Pulumi.HCloud
 
             string name,
 
+            ImmutableArray<Outputs.GetServerNetworkResult> networks,
+
             int? placementGroupId,
 
             int primaryDiskSize,
@@ -350,6 +380,7 @@ namespace Pulumi.HCloud
             Labels = labels;
             Location = location;
             Name = name;
+            Networks = networks;
             PlacementGroupId = placementGroupId;
             PrimaryDiskSize = primaryDiskSize;
             RebuildProtection = rebuildProtection;

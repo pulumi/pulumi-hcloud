@@ -38,6 +38,8 @@ __all__ = [
     'GetFirewallApplyToArgsDict',
     'GetFirewallRuleArgs',
     'GetFirewallRuleArgsDict',
+    'GetServerNetworkArgs',
+    'GetServerNetworkArgsDict',
 ]
 
 MYPY = False
@@ -1012,5 +1014,93 @@ class GetFirewallRuleArgs:
     @source_ips.setter
     def source_ips(self, value: Optional[Sequence[builtins.str]]):
         pulumi.set(self, "source_ips", value)
+
+
+if not MYPY:
+    class GetServerNetworkArgsDict(TypedDict):
+        alias_ips: Sequence[builtins.str]
+        """
+        (list) A list of alias IP addresses assigned to the server in the network.
+        """
+        ip: builtins.str
+        """
+        (string) The server's IP address within the network.
+        """
+        mac_address: builtins.str
+        """
+        (string) The MAC address associated with the server's private network interface.
+        """
+        network_id: builtins.int
+        """
+        (int) The unique identifier for the network.
+        """
+elif False:
+    GetServerNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetServerNetworkArgs:
+    def __init__(__self__, *,
+                 alias_ips: Sequence[builtins.str],
+                 ip: builtins.str,
+                 mac_address: builtins.str,
+                 network_id: builtins.int):
+        """
+        :param Sequence[builtins.str] alias_ips: (list) A list of alias IP addresses assigned to the server in the network.
+        :param builtins.str ip: (string) The server's IP address within the network.
+        :param builtins.str mac_address: (string) The MAC address associated with the server's private network interface.
+        :param builtins.int network_id: (int) The unique identifier for the network.
+        """
+        pulumi.set(__self__, "alias_ips", alias_ips)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "mac_address", mac_address)
+        pulumi.set(__self__, "network_id", network_id)
+
+    @property
+    @pulumi.getter(name="aliasIps")
+    def alias_ips(self) -> Sequence[builtins.str]:
+        """
+        (list) A list of alias IP addresses assigned to the server in the network.
+        """
+        return pulumi.get(self, "alias_ips")
+
+    @alias_ips.setter
+    def alias_ips(self, value: Sequence[builtins.str]):
+        pulumi.set(self, "alias_ips", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> builtins.str:
+        """
+        (string) The server's IP address within the network.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: builtins.str):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> builtins.str:
+        """
+        (string) The MAC address associated with the server's private network interface.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @mac_address.setter
+    def mac_address(self, value: builtins.str):
+        pulumi.set(self, "mac_address", value)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> builtins.int:
+        """
+        (int) The unique identifier for the network.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: builtins.int):
+        pulumi.set(self, "network_id", value)
 
 

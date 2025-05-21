@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetServerResult',
@@ -27,7 +29,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, backup_window=None, backups=None, datacenter=None, delete_protection=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, placement_group_id=None, primary_disk_size=None, rebuild_protection=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, backup_window=None, backups=None, datacenter=None, delete_protection=None, firewall_ids=None, id=None, image=None, ipv4_address=None, ipv6_address=None, ipv6_network=None, iso=None, labels=None, location=None, name=None, networks=None, placement_group_id=None, primary_disk_size=None, rebuild_protection=None, rescue=None, selector=None, server_type=None, status=None, with_selector=None, with_statuses=None):
         if backup_window and not isinstance(backup_window, str):
             raise TypeError("Expected argument 'backup_window' to be a str")
         pulumi.set(__self__, "backup_window", backup_window)
@@ -70,6 +72,9 @@ class GetServerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if networks and not isinstance(networks, list):
+            raise TypeError("Expected argument 'networks' to be a list")
+        pulumi.set(__self__, "networks", networks)
         if placement_group_id and not isinstance(placement_group_id, int):
             raise TypeError("Expected argument 'placement_group_id' to be a int")
         pulumi.set(__self__, "placement_group_id", placement_group_id)
@@ -211,6 +216,14 @@ class GetServerResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def networks(self) -> Optional[Sequence['outputs.GetServerNetworkResult']]:
+        """
+        (map) Private Network the server is attached to.
+        """
+        return pulumi.get(self, "networks")
+
+    @property
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> Optional[builtins.int]:
         """
@@ -292,6 +305,7 @@ class AwaitableGetServerResult(GetServerResult):
             labels=self.labels,
             location=self.location,
             name=self.name,
+            networks=self.networks,
             placement_group_id=self.placement_group_id,
             primary_disk_size=self.primary_disk_size,
             rebuild_protection=self.rebuild_protection,
@@ -305,6 +319,7 @@ class AwaitableGetServerResult(GetServerResult):
 
 def get_server(id: Optional[builtins.int] = None,
                name: Optional[builtins.str] = None,
+               networks: Optional[Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']]] = None,
                placement_group_id: Optional[builtins.int] = None,
                selector: Optional[builtins.str] = None,
                with_selector: Optional[builtins.str] = None,
@@ -325,6 +340,7 @@ def get_server(id: Optional[builtins.int] = None,
 
     :param builtins.int id: ID of the server.
     :param builtins.str name: Name of the server.
+    :param Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']] networks: (map) Private Network the server is attached to.
     :param builtins.int placement_group_id: (Optional, string) Placement Group ID the server is assigned to.
     :param builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     :param Sequence[builtins.str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
@@ -332,6 +348,7 @@ def get_server(id: Optional[builtins.int] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['networks'] = networks
     __args__['placementGroupId'] = placement_group_id
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
@@ -354,6 +371,7 @@ def get_server(id: Optional[builtins.int] = None,
         labels=pulumi.get(__ret__, 'labels'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        networks=pulumi.get(__ret__, 'networks'),
         placement_group_id=pulumi.get(__ret__, 'placement_group_id'),
         primary_disk_size=pulumi.get(__ret__, 'primary_disk_size'),
         rebuild_protection=pulumi.get(__ret__, 'rebuild_protection'),
@@ -365,6 +383,7 @@ def get_server(id: Optional[builtins.int] = None,
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
 def get_server_output(id: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                       name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      networks: Optional[pulumi.Input[Optional[Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']]]]] = None,
                       placement_group_id: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                       selector: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       with_selector: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -385,6 +404,7 @@ def get_server_output(id: Optional[pulumi.Input[Optional[builtins.int]]] = None,
 
     :param builtins.int id: ID of the server.
     :param builtins.str name: Name of the server.
+    :param Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']] networks: (map) Private Network the server is attached to.
     :param builtins.int placement_group_id: (Optional, string) Placement Group ID the server is assigned to.
     :param builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
     :param Sequence[builtins.str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
@@ -392,6 +412,7 @@ def get_server_output(id: Optional[pulumi.Input[Optional[builtins.int]]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['networks'] = networks
     __args__['placementGroupId'] = placement_group_id
     __args__['selector'] = selector
     __args__['withSelector'] = with_selector
@@ -413,6 +434,7 @@ def get_server_output(id: Optional[pulumi.Input[Optional[builtins.int]]] = None,
         labels=pulumi.get(__response__, 'labels'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        networks=pulumi.get(__response__, 'networks'),
         placement_group_id=pulumi.get(__response__, 'placement_group_id'),
         primary_disk_size=pulumi.get(__response__, 'primary_disk_size'),
         rebuild_protection=pulumi.get(__response__, 'rebuild_protection'),

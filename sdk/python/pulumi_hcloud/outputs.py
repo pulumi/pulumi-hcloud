@@ -53,8 +53,10 @@ __all__ = [
     'GetNetworksNetworkResult',
     'GetPlacementGroupsPlacementGroupResult',
     'GetPrimaryIpsPrimaryIpResult',
+    'GetServerNetworkResult',
     'GetServerTypesServerTypeResult',
     'GetServersServerResult',
+    'GetServersServerNetworkResult',
     'GetSshKeysSshKeyResult',
     'GetVolumesVolumeResult',
 ]
@@ -2202,6 +2204,57 @@ class GetPrimaryIpsPrimaryIpResult(dict):
 
 
 @pulumi.output_type
+class GetServerNetworkResult(dict):
+    def __init__(__self__, *,
+                 alias_ips: Sequence[builtins.str],
+                 ip: builtins.str,
+                 mac_address: builtins.str,
+                 network_id: builtins.int):
+        """
+        :param Sequence[builtins.str] alias_ips: (list) A list of alias IP addresses assigned to the server in the network.
+        :param builtins.str ip: (string) The server's IP address within the network.
+        :param builtins.str mac_address: (string) The MAC address associated with the server's private network interface.
+        :param builtins.int network_id: (int) The unique identifier for the network.
+        """
+        pulumi.set(__self__, "alias_ips", alias_ips)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "mac_address", mac_address)
+        pulumi.set(__self__, "network_id", network_id)
+
+    @property
+    @pulumi.getter(name="aliasIps")
+    def alias_ips(self) -> Sequence[builtins.str]:
+        """
+        (list) A list of alias IP addresses assigned to the server in the network.
+        """
+        return pulumi.get(self, "alias_ips")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> builtins.str:
+        """
+        (string) The server's IP address within the network.
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> builtins.str:
+        """
+        (string) The MAC address associated with the server's private network interface.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> builtins.int:
+        """
+        (int) The unique identifier for the network.
+        """
+        return pulumi.get(self, "network_id")
+
+
+@pulumi.output_type
 class GetServerTypesServerTypeResult(dict):
     def __init__(__self__, *,
                  architecture: builtins.str,
@@ -2370,6 +2423,7 @@ class GetServersServerResult(dict):
                  rescue: builtins.str,
                  server_type: builtins.str,
                  status: builtins.str,
+                 networks: Optional[Sequence['outputs.GetServersServerNetworkResult']] = None,
                  placement_group_id: Optional[builtins.int] = None):
         pulumi.set(__self__, "backup_window", backup_window)
         pulumi.set(__self__, "backups", backups)
@@ -2390,6 +2444,8 @@ class GetServersServerResult(dict):
         pulumi.set(__self__, "rescue", rescue)
         pulumi.set(__self__, "server_type", server_type)
         pulumi.set(__self__, "status", status)
+        if networks is not None:
+            pulumi.set(__self__, "networks", networks)
         if placement_group_id is not None:
             pulumi.set(__self__, "placement_group_id", placement_group_id)
 
@@ -2489,9 +2545,47 @@ class GetServersServerResult(dict):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter
+    def networks(self) -> Optional[Sequence['outputs.GetServersServerNetworkResult']]:
+        return pulumi.get(self, "networks")
+
+    @property
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> Optional[builtins.int]:
         return pulumi.get(self, "placement_group_id")
+
+
+@pulumi.output_type
+class GetServersServerNetworkResult(dict):
+    def __init__(__self__, *,
+                 alias_ips: Sequence[builtins.str],
+                 ip: builtins.str,
+                 mac_address: builtins.str,
+                 network_id: builtins.int):
+        pulumi.set(__self__, "alias_ips", alias_ips)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "mac_address", mac_address)
+        pulumi.set(__self__, "network_id", network_id)
+
+    @property
+    @pulumi.getter(name="aliasIps")
+    def alias_ips(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "alias_ips")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> builtins.str:
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> builtins.str:
+        return pulumi.get(self, "mac_address")
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> builtins.int:
+        return pulumi.get(self, "network_id")
 
 
 @pulumi.output_type

@@ -4,6 +4,7 @@
 package com.pulumi.hcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.hcloud.inputs.GetServerNetwork;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -44,6 +45,21 @@ public final class GetServerPlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * (map) Private Network the server is attached to.
+     * 
+     */
+    @Import(name="networks")
+    private @Nullable List<GetServerNetwork> networks;
+
+    /**
+     * @return (map) Private Network the server is attached to.
+     * 
+     */
+    public Optional<List<GetServerNetwork>> networks() {
+        return Optional.ofNullable(this.networks);
     }
 
     /**
@@ -115,6 +131,7 @@ public final class GetServerPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetServerPlainArgs(GetServerPlainArgs $) {
         this.id = $.id;
         this.name = $.name;
+        this.networks = $.networks;
         this.placementGroupId = $.placementGroupId;
         this.selector = $.selector;
         this.withSelector = $.withSelector;
@@ -159,6 +176,27 @@ public final class GetServerPlainArgs extends com.pulumi.resources.InvokeArgs {
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
+        }
+
+        /**
+         * @param networks (map) Private Network the server is attached to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networks(@Nullable List<GetServerNetwork> networks) {
+            $.networks = networks;
+            return this;
+        }
+
+        /**
+         * @param networks (map) Private Network the server is attached to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networks(GetServerNetwork... networks) {
+            return networks(List.of(networks));
         }
 
         /**

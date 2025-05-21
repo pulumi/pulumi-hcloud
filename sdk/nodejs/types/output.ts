@@ -463,6 +463,25 @@ export interface GetPrimaryIpsPrimaryIp {
     type: string;
 }
 
+export interface GetServerNetwork {
+    /**
+     * (list) A list of alias IP addresses assigned to the server in the network.
+     */
+    aliasIps: string[];
+    /**
+     * (string) The server's IP address within the network.
+     */
+    ip: string;
+    /**
+     * (string) The MAC address associated with the server's private network interface.
+     */
+    macAddress: string;
+    /**
+     * (int) The unique identifier for the network.
+     */
+    networkId: number;
+}
+
 export interface GetServerTypesServerType {
     /**
      * Architecture of the cpu for a Server of this type.
@@ -533,12 +552,20 @@ export interface GetServersServer {
     labels: {[key: string]: string};
     location: string;
     name: string;
+    networks?: outputs.GetServersServerNetwork[];
     placementGroupId?: number;
     primaryDiskSize: number;
     rebuildProtection: boolean;
     rescue: string;
     serverType: string;
     status: string;
+}
+
+export interface GetServersServerNetwork {
+    aliasIps: string[];
+    ip: string;
+    macAddress: string;
+    networkId: number;
 }
 
 export interface GetSshKeysSshKey {
