@@ -1703,7 +1703,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.\n"
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4067,7 +4067,7 @@
             }
         },
         "hcloud:index/sshKey:SshKey": {
-            "description": "Provides a Hetzner Cloud SSH Key resource to manage SSH Keys for server access.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst main = new hcloud.SshKey(\"main\", {\n    name: \"my-ssh-key\",\n    publicKey: std.file({\n        input: \"~/.ssh/id_ed25519.pub\",\n    }).then(invoke =\u003e invoke.result),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\nimport pulumi_std as std\n\nmain = hcloud.SshKey(\"main\",\n    name=\"my-ssh-key\",\n    public_key=std.file(input=\"~/.ssh/id_ed25519.pub\").result)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new HCloud.SshKey(\"main\", new()\n    {\n        Name = \"my-ssh-key\",\n        PublicKey = Std.File.Invoke(new()\n        {\n            Input = \"~/.ssh/id_ed25519.pub\",\n        }).Apply(invoke =\u003e invoke.Result),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"~/.ssh/id_ed25519.pub\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewSshKey(ctx, \"main\", \u0026hcloud.SshKeyArgs{\n\t\t\tName:      pulumi.String(\"my-ssh-key\"),\n\t\t\tPublicKey: pulumi.String(invokeFile.Result),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.SshKey;\nimport com.pulumi.hcloud.SshKeyArgs;\nimport com.pulumi.std.StdFunctions;\nimport com.pulumi.std.inputs.FileArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new SshKey(\"main\", SshKeyArgs.builder()\n            .name(\"my-ssh-key\")\n            .publicKey(StdFunctions.file(FileArgs.builder()\n                .input(\"~/.ssh/id_ed25519.pub\")\n                .build()).result())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: hcloud:SshKey\n    properties:\n      name: my-ssh-key\n      publicKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ~/.ssh/id_ed25519.pub\n          return: result\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import hcloud:index/sshKey:SshKey example \"$SSH_KEY_ID\"\n```\n\n",
+            "description": "Provides a Hetzner Cloud SSH Key resource to manage SSH Keys for server access.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst main = new hcloud.SshKey(\"main\", {\n    name: \"my-ssh-key\",\n    publicKey: std.file({\n        input: \"~/.ssh/id_ed25519.pub\",\n    }).then(invoke =\u003e invoke.result),\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\nimport pulumi_std as std\n\nmain = hcloud.SshKey(\"main\",\n    name=\"my-ssh-key\",\n    public_key=std.file(input=\"~/.ssh/id_ed25519.pub\").result)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new HCloud.SshKey(\"main\", new()\n    {\n        Name = \"my-ssh-key\",\n        PublicKey = Std.File.Invoke(new()\n        {\n            Input = \"~/.ssh/id_ed25519.pub\",\n        }).Apply(invoke =\u003e invoke.Result),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"~/.ssh/id_ed25519.pub\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewSshKey(ctx, \"main\", \u0026hcloud.SshKeyArgs{\n\t\t\tName:      pulumi.String(\"my-ssh-key\"),\n\t\t\tPublicKey: pulumi.String(invokeFile.Result),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.SshKey;\nimport com.pulumi.hcloud.SshKeyArgs;\nimport com.pulumi.std.StdFunctions;\nimport com.pulumi.std.inputs.FileArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new SshKey(\"main\", SshKeyArgs.builder()\n            .name(\"my-ssh-key\")\n            .publicKey(StdFunctions.file(FileArgs.builder()\n                .input(\"~/.ssh/id_ed25519.pub\")\n                .build()).result())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: hcloud:SshKey\n    properties:\n      name: my-ssh-key\n      publicKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ~/.ssh/id_ed25519.pub\n          return: result\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nIn Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:\n\nterraform\n\nimport {\n\n  to = hcloud_ssh_key.main\n\n  id = \"$SSH_KEY_ID\"\n\n}\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import hcloud:index/sshKey:SshKey example \"$SSH_KEY_ID\"\n```\n\n",
             "properties": {
                 "fingerprint": {
                     "type": "string",
@@ -4078,7 +4078,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.\n"
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4101,7 +4101,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.\n"
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4127,7 +4127,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.\n"
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
                     },
                     "name": {
                         "type": "string",
@@ -4502,7 +4502,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -4580,7 +4580,7 @@
                 "properties": {
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -4759,7 +4759,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -4820,7 +4820,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -4876,7 +4876,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -4956,7 +4956,7 @@
                 "properties": {
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -5017,7 +5017,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     },
                     "withStatuses": {
                         "type": "array",
@@ -5139,7 +5139,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     },
                     "withStatuses": {
                         "type": "array",
@@ -5209,7 +5209,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).\n"
                     }
                 },
                 "type": "object"
@@ -5396,7 +5396,7 @@
                 "properties": {
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -5565,7 +5565,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).\n"
                     }
                 },
                 "type": "object"
@@ -5625,7 +5625,7 @@
                 "properties": {
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -5685,7 +5685,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -5746,7 +5746,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -5802,7 +5802,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -5883,7 +5883,7 @@
                 "properties": {
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -5943,7 +5943,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).\n"
                     },
                     "withStatuses": {
                         "type": "array",
@@ -6230,7 +6230,7 @@
                 "properties": {
                     "withSelector": {
                         "type": "string",
-                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).\n"
                     },
                     "withStatuses": {
                         "type": "array",
@@ -6292,12 +6292,12 @@
                     },
                     "selector": {
                         "type": "string",
-                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).\n",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n",
                         "deprecationMessage": "Please use the with_selector property instead."
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).\n"
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n"
                     }
                 },
                 "type": "object"
@@ -6317,7 +6317,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.\n",
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n",
                         "type": "object"
                     },
                     "name": {
@@ -6330,11 +6330,11 @@
                     },
                     "selector": {
                         "deprecationMessage": "Please use the with_selector property instead.",
-                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).\n",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n",
                         "type": "string"
                     },
                     "withSelector": {
-                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).\n",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n",
                         "type": "string"
                     }
                 },
@@ -6356,7 +6356,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)\n"
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     }
                 },
                 "type": "object"
@@ -6375,7 +6375,7 @@
                         "type": "array"
                     },
                     "withSelector": {
-                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)\n",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n",
                         "type": "string"
                     }
                 },
@@ -6413,7 +6413,7 @@
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).\n"
+                        "description": "Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).\n"
                     },
                     "withStatuses": {
                         "type": "array",
@@ -6495,7 +6495,7 @@
                 "properties": {
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/#overview-label-selector)\n"
+                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
                     },
                     "withStatuses": {
                         "type": "array",
