@@ -34,7 +34,7 @@ export function getLoadBalancers(args?: GetLoadBalancersArgs, opts?: pulumi.Invo
  */
 export interface GetLoadBalancersArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -81,7 +81,7 @@ export function getLoadBalancersOutput(args?: GetLoadBalancersOutputArgs, opts?:
  */
 export interface GetLoadBalancersOutputArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

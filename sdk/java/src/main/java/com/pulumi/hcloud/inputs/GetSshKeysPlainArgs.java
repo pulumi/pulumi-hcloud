@@ -30,14 +30,14 @@ public final class GetSshKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     @Import(name="withSelector")
     private @Nullable String withSelector;
 
     /**
-     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     public Optional<String> withSelector() {
@@ -81,7 +81,7 @@ public final class GetSshKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
          * 
          * @return builder
          * 

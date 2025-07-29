@@ -38,7 +38,7 @@ export interface GetSshKeysArgs {
      */
     id?: string;
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -53,7 +53,7 @@ export interface GetSshKeysResult {
     readonly id?: string;
     readonly sshKeys: outputs.GetSshKeysSshKey[];
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     readonly withSelector?: string;
 }
@@ -89,7 +89,7 @@ export interface GetSshKeysOutputArgs {
      */
     id?: pulumi.Input<string>;
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

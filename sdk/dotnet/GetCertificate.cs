@@ -109,7 +109,7 @@ namespace Pulumi.HCloud
         public string? Name { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
         /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
@@ -135,7 +135,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
         /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }

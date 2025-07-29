@@ -97,7 +97,7 @@ def get_firewalls(most_recent: Optional[_builtins.bool] = None,
 
 
     :param _builtins.bool most_recent: Sorts list by date.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent
@@ -127,7 +127,7 @@ def get_firewalls_output(most_recent: Optional[pulumi.Input[Optional[_builtins.b
 
 
     :param _builtins.bool most_recent: Sorts list by date.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent

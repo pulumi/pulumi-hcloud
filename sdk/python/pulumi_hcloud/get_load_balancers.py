@@ -87,7 +87,7 @@ def get_load_balancers(with_selector: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['withSelector'] = with_selector
@@ -114,7 +114,7 @@ def get_load_balancers_output(with_selector: Optional[pulumi.Input[Optional[_bui
     ```
 
 
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['withSelector'] = with_selector

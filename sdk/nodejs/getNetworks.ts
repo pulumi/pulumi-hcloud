@@ -34,7 +34,7 @@ export function getNetworks(args?: GetNetworksArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetNetworksArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -81,7 +81,7 @@ export function getNetworksOutput(args?: GetNetworksOutputArgs, opts?: pulumi.In
  */
 export interface GetNetworksOutputArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

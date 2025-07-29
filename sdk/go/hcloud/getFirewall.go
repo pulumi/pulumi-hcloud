@@ -66,7 +66,7 @@ type LookupFirewallArgs struct {
 	Name *string `pulumi:"name"`
 	// (string) Configuration of a Rule from this Firewall.
 	Rules []GetFirewallRule `pulumi:"rules"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -109,7 +109,7 @@ type LookupFirewallOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// (string) Configuration of a Rule from this Firewall.
 	Rules GetFirewallRuleArrayInput `pulumi:"rules"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

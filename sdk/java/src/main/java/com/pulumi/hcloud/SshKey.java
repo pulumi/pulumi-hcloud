@@ -59,6 +59,20 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
+ * 
+ * terraform
+ * 
+ * import {
+ * 
+ *   to = hcloud_ssh_key.main
+ * 
+ *   id = &#34;$SSH_KEY_ID&#34;
+ * 
+ * }
+ * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import hcloud:index/sshKey:SshKey example &#34;$SSH_KEY_ID&#34;
  * ```
@@ -81,14 +95,14 @@ public class SshKey extends com.pulumi.resources.CustomResource {
         return this.fingerprint;
     }
     /**
-     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> labels;
 
     /**
-     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     public Output<Map<String,String>> labels() {

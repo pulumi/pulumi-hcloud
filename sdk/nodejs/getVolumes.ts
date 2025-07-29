@@ -35,7 +35,7 @@ export function getVolumes(args?: GetVolumesArgs, opts?: pulumi.InvokeOptions): 
  */
 export interface GetVolumesArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
     /**
@@ -88,7 +88,7 @@ export function getVolumesOutput(args?: GetVolumesOutputArgs, opts?: pulumi.Invo
  */
 export interface GetVolumesOutputArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
     /**

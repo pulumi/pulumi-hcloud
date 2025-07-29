@@ -33,7 +33,7 @@ export function getPrimaryIps(args?: GetPrimaryIpsArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetPrimaryIpsArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -79,7 +79,7 @@ export function getPrimaryIpsOutput(args?: GetPrimaryIpsOutputArgs, opts?: pulum
  */
 export interface GetPrimaryIpsOutputArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

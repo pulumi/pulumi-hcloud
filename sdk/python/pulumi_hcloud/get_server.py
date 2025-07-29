@@ -341,7 +341,7 @@ def get_server(id: Optional[_builtins.int] = None,
     :param _builtins.str name: Name of the server.
     :param Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']] networks: (map) Private Network the server is attached to.
     :param _builtins.int placement_group_id: (Optional, string) Placement Group ID the server is assigned to.
-    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     :param Sequence[_builtins.str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
     __args__ = dict()
@@ -405,7 +405,7 @@ def get_server_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None
     :param _builtins.str name: Name of the server.
     :param Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']] networks: (map) Private Network the server is attached to.
     :param _builtins.int placement_group_id: (Optional, string) Placement Group ID the server is assigned to.
-    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     :param Sequence[_builtins.str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
     __args__ = dict()

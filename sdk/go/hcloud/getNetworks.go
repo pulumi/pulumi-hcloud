@@ -54,7 +54,7 @@ func GetNetworks(ctx *pulumi.Context, args *GetNetworksArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getNetworks.
 type GetNetworksArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -78,7 +78,7 @@ func GetNetworksOutput(ctx *pulumi.Context, args GetNetworksOutputArgs, opts ...
 
 // A collection of arguments for invoking getNetworks.
 type GetNetworksOutputArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

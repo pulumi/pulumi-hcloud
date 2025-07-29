@@ -186,7 +186,7 @@ def get_volume(id: Optional[_builtins.int] = None,
     :param _builtins.str location: (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
     :param _builtins.str name: Name of the volume.
     :param _builtins.int server_id: (Optional, int) Server ID the volume is attached to
-    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     :param Sequence[_builtins.str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
@@ -237,7 +237,7 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None
     :param _builtins.str location: (string) The location name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
     :param _builtins.str name: Name of the volume.
     :param _builtins.int server_id: (Optional, int) Server ID the volume is attached to
-    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     :param Sequence[_builtins.str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()

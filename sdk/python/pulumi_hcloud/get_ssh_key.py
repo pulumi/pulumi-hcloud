@@ -69,7 +69,7 @@ class GetSshKeyResult:
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
         """
-        User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
@@ -94,7 +94,7 @@ class GetSshKeyResult:
     @_utilities.deprecated("""Please use the with_selector property instead.""")
     def selector(self) -> Optional[_builtins.str]:
         """
-        Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         """
         return pulumi.get(self, "selector")
 
@@ -102,7 +102,7 @@ class GetSshKeyResult:
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[_builtins.str]:
         """
-        Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         """
         return pulumi.get(self, "with_selector")
 
@@ -150,8 +150,8 @@ def get_ssh_key(fingerprint: Optional[_builtins.str] = None,
     :param _builtins.str fingerprint: Fingerprint of the SSH Key.
     :param _builtins.int id: ID of the SSH Key.
     :param _builtins.str name: Name of the SSH Key.
-    :param _builtins.str selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
-    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+    :param _builtins.str selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
     """
     __args__ = dict()
     __args__['fingerprint'] = fingerprint
@@ -198,8 +198,8 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[_builtins.str
     :param _builtins.str fingerprint: Fingerprint of the SSH Key.
     :param _builtins.int id: ID of the SSH Key.
     :param _builtins.str name: Name of the SSH Key.
-    :param _builtins.str selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
-    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+    :param _builtins.str selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
     """
     __args__ = dict()
     __args__['fingerprint'] = fingerprint

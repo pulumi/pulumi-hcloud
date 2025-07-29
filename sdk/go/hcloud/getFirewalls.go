@@ -52,7 +52,7 @@ func GetFirewalls(ctx *pulumi.Context, args *GetFirewallsArgs, opts ...pulumi.In
 type GetFirewallsArgs struct {
 	// Sorts list by date.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -79,7 +79,7 @@ func GetFirewallsOutput(ctx *pulumi.Context, args GetFirewallsOutputArgs, opts .
 type GetFirewallsOutputArgs struct {
 	// Sorts list by date.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

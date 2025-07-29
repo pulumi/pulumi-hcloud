@@ -98,7 +98,7 @@ def get_placement_groups(most_recent: Optional[_builtins.bool] = None,
 
 
     :param _builtins.bool most_recent: Sorts list by date.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent
@@ -129,7 +129,7 @@ def get_placement_groups_output(most_recent: Optional[pulumi.Input[Optional[_bui
 
 
     :param _builtins.bool most_recent: Sorts list by date.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent

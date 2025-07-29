@@ -112,14 +112,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     @Import(name="withSelector")
     private @Nullable String withSelector;
 
     /**
-     * @return [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * @return [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     public Optional<String> withSelector() {
@@ -241,7 +241,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+         * @param withSelector [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
          * 
          * @return builder
          * 

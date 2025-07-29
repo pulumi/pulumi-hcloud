@@ -69,7 +69,7 @@ type LookupNetworkArgs struct {
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the Network.
 	Name *string `pulumi:"name"`
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -111,7 +111,7 @@ type LookupNetworkOutputArgs struct {
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the Network.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

@@ -67,7 +67,7 @@ type GetImagesArgs struct {
 	MostRecent *bool `pulumi:"mostRecent"`
 	// List only images with this architecture, could contain `x86` or `arm`.
 	WithArchitectures []string `pulumi:"withArchitectures"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 	// List only images with the specified status, could contain `creating` or `available`.
 	WithStatuses []string `pulumi:"withStatuses"`
@@ -103,7 +103,7 @@ type GetImagesOutputArgs struct {
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// List only images with this architecture, could contain `x86` or `arm`.
 	WithArchitectures pulumi.StringArrayInput `pulumi:"withArchitectures"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 	// List only images with the specified status, could contain `creating` or `available`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`

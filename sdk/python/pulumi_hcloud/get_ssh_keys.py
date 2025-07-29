@@ -55,7 +55,7 @@ class GetSshKeysResult:
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[_builtins.str]:
         """
-        Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
         """
         return pulumi.get(self, "with_selector")
 
@@ -88,7 +88,7 @@ def get_ssh_keys(id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str id: The ID of this resource.
-    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id
@@ -117,7 +117,7 @@ def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = No
 
 
     :param _builtins.str id: The ID of this resource.
-    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id

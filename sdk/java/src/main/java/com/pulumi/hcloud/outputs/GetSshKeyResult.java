@@ -25,7 +25,7 @@ public final class GetSshKeyResult {
      */
     private @Nullable Integer id;
     /**
-     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     private Map<String,String> labels;
@@ -40,7 +40,7 @@ public final class GetSshKeyResult {
      */
     private String publicKey;
     /**
-     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      * @deprecated
      * Please use the with_selector property instead.
@@ -49,7 +49,7 @@ public final class GetSshKeyResult {
     @Deprecated /* Please use the with_selector property instead. */
     private @Nullable String selector;
     /**
-     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      */
     private @Nullable String withSelector;
@@ -70,7 +70,7 @@ public final class GetSshKeyResult {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     public Map<String,String> labels() {
@@ -91,7 +91,7 @@ public final class GetSshKeyResult {
         return this.publicKey;
     }
     /**
-     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      * @deprecated
      * Please use the with_selector property instead.
@@ -102,7 +102,7 @@ public final class GetSshKeyResult {
         return Optional.ofNullable(this.selector);
     }
     /**
-     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      */
     public Optional<String> withSelector() {

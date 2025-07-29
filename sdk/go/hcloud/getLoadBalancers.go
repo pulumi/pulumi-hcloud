@@ -54,7 +54,7 @@ func GetLoadBalancers(ctx *pulumi.Context, args *GetLoadBalancersArgs, opts ...p
 
 // A collection of arguments for invoking getLoadBalancers.
 type GetLoadBalancersArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -78,7 +78,7 @@ func GetLoadBalancersOutput(ctx *pulumi.Context, args GetLoadBalancersOutputArgs
 
 // A collection of arguments for invoking getLoadBalancers.
 type GetLoadBalancersOutputArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

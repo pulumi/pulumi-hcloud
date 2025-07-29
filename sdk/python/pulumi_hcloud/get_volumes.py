@@ -97,7 +97,7 @@ def get_volumes(with_selector: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     :param Sequence[_builtins.str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
@@ -128,7 +128,7 @@ def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[_builtins.s
     ```
 
 
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     :param Sequence[_builtins.str] with_statuses: List only volumes with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()

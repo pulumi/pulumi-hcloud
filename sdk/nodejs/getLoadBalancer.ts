@@ -49,7 +49,7 @@ export interface GetLoadBalancerArgs {
      */
     name?: string;
     /**
-     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
     withSelector?: string;
 }
@@ -156,7 +156,7 @@ export interface GetLoadBalancerOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
     withSelector?: pulumi.Input<string>;
 }

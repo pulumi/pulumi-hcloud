@@ -94,7 +94,7 @@ def get_servers(with_selector: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     :param Sequence[_builtins.str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
     __args__ = dict()
@@ -122,7 +122,7 @@ def get_servers_output(with_selector: Optional[pulumi.Input[Optional[_builtins.s
     ```
 
 
-    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     :param Sequence[_builtins.str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
     """
     __args__ = dict()

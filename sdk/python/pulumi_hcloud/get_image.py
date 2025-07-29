@@ -252,7 +252,7 @@ def get_image(id: Optional[_builtins.int] = None,
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent Image.
     :param _builtins.str name: Name of the Image.
     :param _builtins.str with_architecture: Select only images with this architecture, could be `x86` (default) or `arm`.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     :param Sequence[_builtins.str] with_statuses: Select only images with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
@@ -316,7 +316,7 @@ def get_image_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent Image.
     :param _builtins.str name: Name of the Image.
     :param _builtins.str with_architecture: Select only images with this architecture, could be `x86` (default) or `arm`.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     :param Sequence[_builtins.str] with_statuses: Select only images with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()

@@ -22,7 +22,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>

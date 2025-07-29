@@ -50,7 +50,7 @@ func GetCertificates(ctx *pulumi.Context, args *GetCertificatesArgs, opts ...pul
 
 // A collection of arguments for invoking getCertificates.
 type GetCertificatesArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -74,7 +74,7 @@ func GetCertificatesOutput(ctx *pulumi.Context, args GetCertificatesOutputArgs, 
 
 // A collection of arguments for invoking getCertificates.
 type GetCertificatesOutputArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

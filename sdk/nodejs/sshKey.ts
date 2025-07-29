@@ -24,6 +24,20 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
+ *
+ * terraform
+ *
+ * import {
+ *
+ *   to = hcloud_ssh_key.main
+ *
+ *   id = "$SSH_KEY_ID"
+ *
+ * }
+ *
+ * The `pulumi import` command can be used, for example:
+ *
  * ```sh
  * $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
  * ```
@@ -61,7 +75,7 @@ export class SshKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
-     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     public readonly labels!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -114,7 +128,7 @@ export interface SshKeyState {
      */
     fingerprint?: pulumi.Input<string>;
     /**
-     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -132,7 +146,7 @@ export interface SshKeyState {
  */
 export interface SshKeyArgs {
     /**
-     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

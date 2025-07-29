@@ -21,7 +21,7 @@ public final class GetSshKeysResult {
     private @Nullable String id;
     private List<GetSshKeysSshKey> sshKeys;
     /**
-     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     private @Nullable String withSelector;
@@ -38,7 +38,7 @@ public final class GetSshKeysResult {
         return this.sshKeys;
     }
     /**
-     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     public Optional<String> withSelector() {

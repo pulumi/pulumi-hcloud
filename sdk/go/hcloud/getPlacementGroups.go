@@ -56,7 +56,7 @@ func GetPlacementGroups(ctx *pulumi.Context, args *GetPlacementGroupsArgs, opts 
 type GetPlacementGroupsArgs struct {
 	// Sorts list by date.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -83,7 +83,7 @@ func GetPlacementGroupsOutput(ctx *pulumi.Context, args GetPlacementGroupsOutput
 type GetPlacementGroupsOutputArgs struct {
 	// Sorts list by date.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

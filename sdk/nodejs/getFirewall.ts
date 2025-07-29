@@ -64,7 +64,7 @@ export interface GetFirewallArgs {
      */
     rules?: inputs.GetFirewallRule[];
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -154,7 +154,7 @@ export interface GetFirewallOutputArgs {
      */
     rules?: pulumi.Input<pulumi.Input<inputs.GetFirewallRuleArgs>[]>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

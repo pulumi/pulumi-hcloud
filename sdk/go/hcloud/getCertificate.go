@@ -58,7 +58,7 @@ type LookupCertificateArgs struct {
 	Id *int `pulumi:"id"`
 	// Name of the certificate.
 	Name *string `pulumi:"name"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -101,7 +101,7 @@ type LookupCertificateOutputArgs struct {
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Name of the certificate.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

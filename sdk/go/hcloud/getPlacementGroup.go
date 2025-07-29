@@ -64,7 +64,7 @@ type LookupPlacementGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// (string) Type of the Placement Group.
 	Type *string `pulumi:"type"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -104,7 +104,7 @@ type LookupPlacementGroupOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// (string) Type of the Placement Group.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

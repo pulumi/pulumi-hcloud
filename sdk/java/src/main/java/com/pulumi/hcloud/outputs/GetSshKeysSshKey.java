@@ -23,7 +23,7 @@ public final class GetSshKeysSshKey {
      */
     private Integer id;
     /**
-     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     private Map<String,String> labels;
@@ -54,7 +54,7 @@ public final class GetSshKeysSshKey {
         return this.id;
     }
     /**
-     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     public Map<String,String> labels() {

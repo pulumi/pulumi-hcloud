@@ -55,7 +55,7 @@ export interface GetImagesArgs {
      */
     withArchitectures?: string[];
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
     /**
@@ -131,7 +131,7 @@ export interface GetImagesOutputArgs {
      */
     withArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
     /**

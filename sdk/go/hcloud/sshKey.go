@@ -50,6 +50,20 @@ import (
 //
 // ## Import
 //
+// In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
+//
+// terraform
+//
+// import {
+//
+//	to = hcloud_ssh_key.main
+//
+//	id = "$SSH_KEY_ID"
+//
+// }
+//
+// The `pulumi import` command can be used, for example:
+//
 // ```sh
 // $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
 // ```
@@ -58,7 +72,7 @@ type SshKey struct {
 
 	// Fingerprint of the SSH public key.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the SSH Key.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -101,7 +115,7 @@ func GetSshKey(ctx *pulumi.Context,
 type sshKeyState struct {
 	// Fingerprint of the SSH public key.
 	Fingerprint *string `pulumi:"fingerprint"`
-	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the SSH Key.
 	Name *string `pulumi:"name"`
@@ -112,7 +126,7 @@ type sshKeyState struct {
 type SshKeyState struct {
 	// Fingerprint of the SSH public key.
 	Fingerprint pulumi.StringPtrInput
-	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
 	// Name of the SSH Key.
 	Name pulumi.StringPtrInput
@@ -125,7 +139,7 @@ func (SshKeyState) ElementType() reflect.Type {
 }
 
 type sshKeyArgs struct {
-	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the SSH Key.
 	Name *string `pulumi:"name"`
@@ -135,7 +149,7 @@ type sshKeyArgs struct {
 
 // The set of arguments for constructing a SshKey resource.
 type SshKeyArgs struct {
-	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
 	// Name of the SSH Key.
 	Name pulumi.StringPtrInput
@@ -235,7 +249,7 @@ func (o SshKeyOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o SshKeyOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }

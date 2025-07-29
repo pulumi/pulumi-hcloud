@@ -33,7 +33,7 @@ export function getFloatingIps(args?: GetFloatingIpsArgs, opts?: pulumi.InvokeOp
  */
 export interface GetFloatingIpsArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -79,7 +79,7 @@ export function getFloatingIpsOutput(args?: GetFloatingIpsOutputArgs, opts?: pul
  */
 export interface GetFloatingIpsOutputArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

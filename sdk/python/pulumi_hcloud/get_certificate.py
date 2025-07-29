@@ -181,7 +181,7 @@ def get_certificate(id: Optional[_builtins.int] = None,
 
     :param _builtins.int id: ID of the certificate.
     :param _builtins.str name: Name of the certificate.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id
@@ -220,7 +220,7 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] =
 
     :param _builtins.int id: ID of the certificate.
     :param _builtins.str name: Name of the certificate.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id

@@ -233,7 +233,7 @@ def get_load_balancer(id: Optional[_builtins.int] = None,
 
     :param _builtins.int id: ID of the Load Balancer.
     :param _builtins.str name: Name of the Load Balancer.
-    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     """
     __args__ = dict()
     __args__['id'] = id
@@ -279,7 +279,7 @@ def get_load_balancer_output(id: Optional[pulumi.Input[Optional[_builtins.int]]]
 
     :param _builtins.int id: ID of the Load Balancer.
     :param _builtins.str name: Name of the Load Balancer.
-    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+    :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     """
     __args__ = dict()
     __args__['id'] = id

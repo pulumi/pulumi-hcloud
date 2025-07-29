@@ -213,7 +213,7 @@ def get_floating_ip(id: Optional[_builtins.int] = None,
     :param _builtins.int id: ID of the Floating IP.
     :param _builtins.str ip_address: IP address of the Floating IP.
     :param _builtins.str name: Name of the Floating IP.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id
@@ -274,7 +274,7 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] =
     :param _builtins.int id: ID of the Floating IP.
     :param _builtins.str ip_address: IP address of the Floating IP.
     :param _builtins.str name: Name of the Floating IP.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id
