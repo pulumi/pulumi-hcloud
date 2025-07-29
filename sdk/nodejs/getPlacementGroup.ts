@@ -57,7 +57,7 @@ export interface GetPlacementGroupArgs {
      */
     type?: string;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -139,7 +139,7 @@ export interface GetPlacementGroupOutputArgs {
      */
     type?: pulumi.Input<string>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

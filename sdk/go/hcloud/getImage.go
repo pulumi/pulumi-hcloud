@@ -86,7 +86,7 @@ type GetImageArgs struct {
 	Selector *string `pulumi:"selector"`
 	// Select only images with this architecture, could be `x86` (default) or `arm`.
 	WithArchitecture *string `pulumi:"withArchitecture"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 	// Select only images with the specified status, could contain `creating` or `available`.
 	WithStatuses []string `pulumi:"withStatuses"`
@@ -147,7 +147,7 @@ type GetImageOutputArgs struct {
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// Select only images with this architecture, could be `x86` (default) or `arm`.
 	WithArchitecture pulumi.StringPtrInput `pulumi:"withArchitecture"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 	// Select only images with the specified status, could contain `creating` or `available`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`

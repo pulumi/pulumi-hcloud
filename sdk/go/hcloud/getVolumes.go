@@ -54,7 +54,7 @@ func GetVolumes(ctx *pulumi.Context, args *GetVolumesArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getVolumes.
 type GetVolumesArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 	// List only volumes with the specified status, could contain `creating` or `available`.
 	WithStatuses []string `pulumi:"withStatuses"`
@@ -81,7 +81,7 @@ func GetVolumesOutput(ctx *pulumi.Context, args GetVolumesOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getVolumes.
 type GetVolumesOutputArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 	// List only volumes with the specified status, could contain `creating` or `available`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`

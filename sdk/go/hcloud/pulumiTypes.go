@@ -5602,7 +5602,7 @@ type GetSshKeysSshKey struct {
 	Fingerprint string `pulumi:"fingerprint"`
 	// ID of the SSH Key.
 	Id int `pulumi:"id"`
-	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the SSH Key.
 	Name string `pulumi:"name"`
@@ -5626,7 +5626,7 @@ type GetSshKeysSshKeyArgs struct {
 	Fingerprint pulumi.StringInput `pulumi:"fingerprint"`
 	// ID of the SSH Key.
 	Id pulumi.IntInput `pulumi:"id"`
-	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Name of the SSH Key.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5695,7 +5695,7 @@ func (o GetSshKeysSshKeyOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o GetSshKeysSshKeyOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSshKeysSshKey) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }

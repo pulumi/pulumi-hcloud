@@ -578,7 +578,7 @@ export interface GetSshKeysSshKey {
      */
     id: number;
     /**
-     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     labels: {[key: string]: string};
     /**

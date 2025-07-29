@@ -143,7 +143,7 @@ def get_firewall(apply_tos: Optional[Sequence[Union['GetFirewallApplyToArgs', 'G
     :param _builtins.bool most_recent: Return most recent firewall if multiple are found.
     :param _builtins.str name: Name of the firewall.
     :param Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']] rules: (string) Configuration of a Rule from this Firewall.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['applyTos'] = apply_tos
@@ -190,7 +190,7 @@ def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[Union
     :param _builtins.bool most_recent: Return most recent firewall if multiple are found.
     :param _builtins.str name: Name of the firewall.
     :param Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']] rules: (string) Configuration of a Rule from this Firewall.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['applyTos'] = apply_tos

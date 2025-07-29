@@ -66,7 +66,7 @@ type LookupLoadBalancerArgs struct {
 	Id *int `pulumi:"id"`
 	// Name of the Load Balancer.
 	Name *string `pulumi:"name"`
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -117,7 +117,7 @@ type LookupLoadBalancerOutputArgs struct {
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Name of the Load Balancer.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

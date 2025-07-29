@@ -33,7 +33,7 @@ export function getCertificates(args?: GetCertificatesArgs, opts?: pulumi.Invoke
  */
 export interface GetCertificatesArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -79,7 +79,7 @@ export function getCertificatesOutput(args?: GetCertificatesOutputArgs, opts?: p
  */
 export interface GetCertificatesOutputArgs {
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

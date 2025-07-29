@@ -136,7 +136,7 @@ def get_placement_group(id: Optional[_builtins.int] = None,
     :param _builtins.bool most_recent: Return most recent placement group if multiple are found.
     :param _builtins.str name: Name of the placement group.
     :param _builtins.str type: (string) Type of the Placement Group.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id
@@ -180,7 +180,7 @@ def get_placement_group_output(id: Optional[pulumi.Input[Optional[_builtins.int]
     :param _builtins.bool most_recent: Return most recent placement group if multiple are found.
     :param _builtins.str name: Name of the placement group.
     :param _builtins.str type: (string) Type of the Placement Group.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id

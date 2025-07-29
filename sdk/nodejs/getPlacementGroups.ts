@@ -39,7 +39,7 @@ export interface GetPlacementGroupsArgs {
      */
     mostRecent?: boolean;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -92,7 +92,7 @@ export interface GetPlacementGroupsOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

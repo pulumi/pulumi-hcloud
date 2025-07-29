@@ -64,7 +64,7 @@ func GetSshKeys(ctx *pulumi.Context, args *GetSshKeysArgs, opts ...pulumi.Invoke
 type GetSshKeysArgs struct {
 	// The ID of this resource.
 	Id *string `pulumi:"id"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -73,7 +73,7 @@ type GetSshKeysResult struct {
 	// The ID of this resource.
 	Id      *string            `pulumi:"id"`
 	SshKeys []GetSshKeysSshKey `pulumi:"sshKeys"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -90,7 +90,7 @@ func GetSshKeysOutput(ctx *pulumi.Context, args GetSshKeysOutputArgs, opts ...pu
 type GetSshKeysOutputArgs struct {
 	// The ID of this resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 
@@ -122,7 +122,7 @@ func (o GetSshKeysResultOutput) SshKeys() GetSshKeysSshKeyArrayOutput {
 	return o.ApplyT(func(v GetSshKeysResult) []GetSshKeysSshKey { return v.SshKeys }).(GetSshKeysSshKeyArrayOutput)
 }
 
-// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector)
+// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 func (o GetSshKeysResultOutput) WithSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSshKeysResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
 }

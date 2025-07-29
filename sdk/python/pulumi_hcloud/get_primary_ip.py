@@ -229,7 +229,7 @@ def get_primary_ip(assignee_id: Optional[_builtins.int] = None,
     :param _builtins.int id: ID of the Primary IP.
     :param _builtins.str ip_address: IP address of the Primary IP.
     :param _builtins.str name: Name of the Primary IP.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['assigneeId'] = assignee_id
@@ -304,7 +304,7 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[_builtins.
     :param _builtins.int id: ID of the Primary IP.
     :param _builtins.str ip_address: IP address of the Primary IP.
     :param _builtins.str name: Name of the Primary IP.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['assigneeId'] = assignee_id

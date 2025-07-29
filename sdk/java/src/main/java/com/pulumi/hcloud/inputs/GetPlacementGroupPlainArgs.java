@@ -93,14 +93,14 @@ public final class GetPlacementGroupPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     @Import(name="withSelector")
     private @Nullable String withSelector;
 
     /**
-     * @return [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * @return [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     public Optional<String> withSelector() {
@@ -192,7 +192,7 @@ public final class GetPlacementGroupPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+         * @param withSelector [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
          * 
          * @return builder
          * 

@@ -82,7 +82,7 @@ namespace Pulumi.HCloud
     public sealed class GetServersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.HCloud
     public sealed class GetServersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+        /// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }

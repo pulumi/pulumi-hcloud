@@ -102,7 +102,7 @@ type LookupPrimaryIpArgs struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -152,7 +152,7 @@ type LookupPrimaryIpOutputArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Name of the Primary IP.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

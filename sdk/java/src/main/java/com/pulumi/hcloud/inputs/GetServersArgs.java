@@ -17,14 +17,14 @@ public final class GetServersArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetServersArgs Empty = new GetServersArgs();
 
     /**
-     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      */
     @Import(name="withSelector")
     private @Nullable Output<String> withSelector;
 
     /**
-     * @return Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+     * @return Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      */
     public Optional<Output<String>> withSelector() {
@@ -72,7 +72,7 @@ public final class GetServersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+         * @param withSelector Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetServersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+         * @param withSelector Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
          * 
          * @return builder
          * 

@@ -59,13 +59,13 @@ export interface GetSshKeyArgs {
      */
     name?: string;
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      *
      * @deprecated Please use the withSelector property instead.
      */
     selector?: string;
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
     withSelector?: string;
 }
@@ -83,7 +83,7 @@ export interface GetSshKeyResult {
      */
     readonly id?: number;
     /**
-     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     readonly labels: {[key: string]: string};
     /**
@@ -95,13 +95,13 @@ export interface GetSshKeyResult {
      */
     readonly publicKey: string;
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      *
      * @deprecated Please use the withSelector property instead.
      */
     readonly selector?: string;
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
     readonly withSelector?: string;
 }
@@ -160,13 +160,13 @@ export interface GetSshKeyOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      *
      * @deprecated Please use the withSelector property instead.
      */
     selector?: pulumi.Input<string>;
     /**
-     * Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
     withSelector?: pulumi.Input<string>;
 }

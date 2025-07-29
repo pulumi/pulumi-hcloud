@@ -32,14 +32,14 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     @Import(name="labels")
     private @Nullable Output<Map<String,String>> labels;
 
     /**
-     * @return User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> labels() {
@@ -125,7 +125,7 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+         * @param labels User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+         * @param labels User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
          * 
          * @return builder
          * 

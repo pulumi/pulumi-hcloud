@@ -48,7 +48,7 @@ func GetServers(ctx *pulumi.Context, args *GetServersArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getServers.
 type GetServersArgs struct {
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 	// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
 	WithStatuses []string `pulumi:"withStatuses"`
@@ -75,7 +75,7 @@ func GetServersOutput(ctx *pulumi.Context, args GetServersOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getServers.
 type GetServersOutputArgs struct {
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 	// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`

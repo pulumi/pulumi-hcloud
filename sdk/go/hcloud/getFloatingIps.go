@@ -50,7 +50,7 @@ func GetFloatingIps(ctx *pulumi.Context, args *GetFloatingIpsArgs, opts ...pulum
 
 // A collection of arguments for invoking getFloatingIps.
 type GetFloatingIpsArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -74,7 +74,7 @@ func GetFloatingIpsOutput(ctx *pulumi.Context, args GetFloatingIpsOutputArgs, op
 
 // A collection of arguments for invoking getFloatingIps.
 type GetFloatingIpsOutputArgs struct {
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

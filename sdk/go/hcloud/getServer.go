@@ -70,7 +70,7 @@ type LookupServerArgs struct {
 	PlacementGroupId *int `pulumi:"placementGroupId"`
 	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 	// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
 	WithStatuses []string `pulumi:"withStatuses"`
@@ -146,7 +146,7 @@ type LookupServerOutputArgs struct {
 	PlacementGroupId pulumi.IntPtrInput `pulumi:"placementGroupId"`
 	// Deprecated: Please use the withSelector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 	// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`

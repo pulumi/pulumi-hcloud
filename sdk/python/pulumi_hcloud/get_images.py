@@ -133,7 +133,7 @@ def get_images(include_deprecated: Optional[_builtins.bool] = None,
     :param _builtins.bool include_deprecated: Also list images that are marked as deprecated.
     :param _builtins.bool most_recent: Sorts list by date.
     :param Sequence[_builtins.str] with_architectures: List only images with this architecture, could contain `x86` or `arm`.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     :param Sequence[_builtins.str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()
@@ -179,7 +179,7 @@ def get_images_output(include_deprecated: Optional[pulumi.Input[Optional[_builti
     :param _builtins.bool include_deprecated: Also list images that are marked as deprecated.
     :param _builtins.bool most_recent: Sorts list by date.
     :param Sequence[_builtins.str] with_architectures: List only images with this architecture, could contain `x86` or `arm`.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     :param Sequence[_builtins.str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
     """
     __args__ = dict()

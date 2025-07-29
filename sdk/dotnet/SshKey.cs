@@ -37,6 +37,20 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
+    /// In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
+    /// 
+    /// terraform
+    /// 
+    /// import {
+    /// 
+    ///   to = hcloud_ssh_key.main
+    /// 
+    ///   id = "$SSH_KEY_ID"
+    /// 
+    /// }
+    /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// ```sh
     /// $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
     /// ```
@@ -51,7 +65,7 @@ namespace Pulumi.HCloud
         public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, string>> Labels { get; private set; } = null!;
@@ -118,7 +132,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         public InputMap<string> Labels
         {
@@ -156,7 +170,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         public InputMap<string> Labels
         {

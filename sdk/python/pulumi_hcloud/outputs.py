@@ -2598,7 +2598,7 @@ class GetSshKeysSshKeyResult(dict):
         """
         :param _builtins.str fingerprint: Fingerprint of the SSH Key.
         :param _builtins.int id: ID of the SSH Key.
-        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param _builtins.str name: Name of the SSH Key.
         :param _builtins.str public_key: Public key of the SSH Key pair.
         """
@@ -2628,7 +2628,7 @@ class GetSshKeysSshKeyResult(dict):
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
         """
-        User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 

@@ -70,7 +70,7 @@ type LookupVolumeArgs struct {
 	Selector *string `pulumi:"selector"`
 	// (Optional, int) Server ID the volume is attached to
 	ServerId *int `pulumi:"serverId"`
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 	// List only volumes with the specified status, could contain `creating` or `available`.
 	WithStatuses []string `pulumi:"withStatuses"`
@@ -121,7 +121,7 @@ type LookupVolumeOutputArgs struct {
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// (Optional, int) Server ID the volume is attached to
 	ServerId pulumi.IntPtrInput `pulumi:"serverId"`
-	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/#overview-label-selector).
+	// Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 	// List only volumes with the specified status, could contain `creating` or `available`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`

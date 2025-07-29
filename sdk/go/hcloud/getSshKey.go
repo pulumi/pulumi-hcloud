@@ -82,11 +82,11 @@ type LookupSshKeyArgs struct {
 	Id *int `pulumi:"id"`
 	// Name of the SSH Key.
 	Name *string `pulumi:"name"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	//
 	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -96,17 +96,17 @@ type LookupSshKeyResult struct {
 	Fingerprint *string `pulumi:"fingerprint"`
 	// ID of the SSH Key.
 	Id *int `pulumi:"id"`
-	// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the SSH Key.
 	Name *string `pulumi:"name"`
 	// Public key of the SSH Key pair.
 	PublicKey string `pulumi:"publicKey"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	//
 	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -127,11 +127,11 @@ type LookupSshKeyOutputArgs struct {
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Name of the SSH Key.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	//
 	// Deprecated: Please use the withSelector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 
@@ -164,7 +164,7 @@ func (o LookupSshKeyResultOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupSshKeyResult) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
-// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o LookupSshKeyResultOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSshKeyResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
@@ -179,14 +179,14 @@ func (o LookupSshKeyResultOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSshKeyResult) string { return v.PublicKey }).(pulumi.StringOutput)
 }
 
-// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 //
 // Deprecated: Please use the withSelector property instead.
 func (o LookupSshKeyResultOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSshKeyResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
-// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 func (o LookupSshKeyResultOutput) WithSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSshKeyResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
 }

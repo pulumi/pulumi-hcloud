@@ -42,7 +42,7 @@ export interface GetCertificateArgs {
      */
     name?: string;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -128,7 +128,7 @@ export interface GetCertificateOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string>;
 }

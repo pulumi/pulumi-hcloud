@@ -86,7 +86,7 @@ type LookupFloatingIpArgs struct {
 	Name *string `pulumi:"name"`
 	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -136,7 +136,7 @@ type LookupFloatingIpOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Deprecated: Please use the withSelector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// [Label selector](https://docs.hetzner.cloud/#overview-label-selector)
+	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 

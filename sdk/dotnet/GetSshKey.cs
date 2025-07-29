@@ -175,13 +175,13 @@ namespace Pulumi.HCloud
         public string? Name { get; set; }
 
         /// <summary>
-        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         [Input("selector")]
         public string? Selector { get; set; }
 
         /// <summary>
-        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
@@ -213,13 +213,13 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
         /// <summary>
-        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly int? Id;
         /// <summary>
-        /// User-defined [labels](https://docs.hetzner.cloud/#labels) (key-value pairs) for the resource.
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
@@ -255,11 +255,11 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string PublicKey;
         /// <summary>
-        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         public readonly string? Selector;
         /// <summary>
-        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/#label-selector).
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         public readonly string? WithSelector;
 
