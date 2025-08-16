@@ -27,10 +27,6 @@ permissions:
   issues: write
   pull-requests: write
 
-env:
-  GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   upgrade_provider:
     name: upgrade-provider
@@ -60,6 +56,7 @@ jobs:
         run: upgrade-provider "$REPO" --kind=check-upstream-version
         env:
           REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
         shell: bash
       - name: Calculate target version
         id: target_version
@@ -79,10 +76,14 @@ jobs:
           automerge: true
           target-version: ${{ steps.target_version.outputs.version }}
           allow-missing-docs: true
+        env:
+          GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
       - name: Comment on upgrade issue if automated PR failed
         if: steps.upgrade_provider.outcome == 'failure'
         shell: bash
         run: |
           issue_number=$(gh issue list --search "pulumiupgradeproviderissue" --repo "${{ github.repository }}" --json=number --jq=".[0].number")
           gh issue comment "${issue_number}" --repo "${{ github.repository }}" --body "Failed to create automatic PR: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/"
+        env:
+          GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
 
