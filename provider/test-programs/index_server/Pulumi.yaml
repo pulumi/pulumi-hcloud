@@ -10,7 +10,7 @@ outputs:
 resources:
   server:
     properties:
-      image: ubuntu-20.04
+      image: ubuntu-24.04
 
       serverType: cx22
       sshKeys:
