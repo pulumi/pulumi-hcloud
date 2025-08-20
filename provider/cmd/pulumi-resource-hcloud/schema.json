@@ -6544,7 +6544,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:hcloud"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:hcloud/terraformConfig",
