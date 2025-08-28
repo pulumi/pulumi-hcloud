@@ -30,8 +30,7 @@ Object.defineProperty(exports, "pollFunction", {
 });
 
 /**
- * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
- * limiting errors.
+ * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
  */
 export declare const pollInterval: string | undefined;
 Object.defineProperty(exports, "pollInterval", {

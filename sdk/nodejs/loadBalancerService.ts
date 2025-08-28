@@ -84,31 +84,31 @@ export class LoadBalancerService extends pulumi.CustomResource {
     /**
      * Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
      */
-    public readonly destinationPort!: pulumi.Output<number>;
+    declare public readonly destinationPort: pulumi.Output<number>;
     /**
      * Health Check configuration when `protocol` is `http` or `https`.
      */
-    public readonly healthCheck!: pulumi.Output<outputs.LoadBalancerServiceHealthCheck>;
+    declare public readonly healthCheck: pulumi.Output<outputs.LoadBalancerServiceHealthCheck>;
     /**
      * HTTP configuration when `protocol` is `http` or `https`.
      */
-    public readonly http!: pulumi.Output<outputs.LoadBalancerServiceHttp>;
+    declare public readonly http: pulumi.Output<outputs.LoadBalancerServiceHttp>;
     /**
      * Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
      */
-    public readonly listenPort!: pulumi.Output<number>;
+    declare public readonly listenPort: pulumi.Output<number>;
     /**
      * Id of the load balancer this service belongs to.
      */
-    public readonly loadBalancerId!: pulumi.Output<string>;
+    declare public readonly loadBalancerId: pulumi.Output<string>;
     /**
      * Protocol of the service. `http`, `https` or `tcp`
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * Enable proxyprotocol.
      */
-    public readonly proxyprotocol!: pulumi.Output<boolean>;
+    declare public readonly proxyprotocol: pulumi.Output<boolean>;
 
     /**
      * Create a LoadBalancerService resource with the given unique name, arguments, and options.
@@ -123,28 +123,28 @@ export class LoadBalancerService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerServiceState | undefined;
-            resourceInputs["destinationPort"] = state ? state.destinationPort : undefined;
-            resourceInputs["healthCheck"] = state ? state.healthCheck : undefined;
-            resourceInputs["http"] = state ? state.http : undefined;
-            resourceInputs["listenPort"] = state ? state.listenPort : undefined;
-            resourceInputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["proxyprotocol"] = state ? state.proxyprotocol : undefined;
+            resourceInputs["destinationPort"] = state?.destinationPort;
+            resourceInputs["healthCheck"] = state?.healthCheck;
+            resourceInputs["http"] = state?.http;
+            resourceInputs["listenPort"] = state?.listenPort;
+            resourceInputs["loadBalancerId"] = state?.loadBalancerId;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["proxyprotocol"] = state?.proxyprotocol;
         } else {
             const args = argsOrState as LoadBalancerServiceArgs | undefined;
-            if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
+            if (args?.loadBalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
-            resourceInputs["healthCheck"] = args ? args.healthCheck : undefined;
-            resourceInputs["http"] = args ? args.http : undefined;
-            resourceInputs["listenPort"] = args ? args.listenPort : undefined;
-            resourceInputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["proxyprotocol"] = args ? args.proxyprotocol : undefined;
+            resourceInputs["destinationPort"] = args?.destinationPort;
+            resourceInputs["healthCheck"] = args?.healthCheck;
+            resourceInputs["http"] = args?.http;
+            resourceInputs["listenPort"] = args?.listenPort;
+            resourceInputs["loadBalancerId"] = args?.loadBalancerId;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["proxyprotocol"] = args?.proxyprotocol;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LoadBalancerService.__pulumiType, name, resourceInputs, opts);

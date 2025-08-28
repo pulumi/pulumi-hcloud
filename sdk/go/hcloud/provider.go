@@ -22,8 +22,7 @@ type Provider struct {
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// The type of function to be used during the polling.
 	PollFunction pulumi.StringPtrOutput `pulumi:"pollFunction"`
-	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-	// limiting errors.
+	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
 	PollInterval pulumi.StringPtrOutput `pulumi:"pollInterval"`
 	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
 	Token pulumi.StringPtrOutput `pulumi:"token"`
@@ -57,8 +56,7 @@ type providerArgs struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// The type of function to be used during the polling.
 	PollFunction *string `pulumi:"pollFunction"`
-	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-	// limiting errors.
+	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
 	PollInterval *string `pulumi:"pollInterval"`
 	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
 	Token *string `pulumi:"token"`
@@ -70,8 +68,7 @@ type ProviderArgs struct {
 	Endpoint pulumi.StringPtrInput
 	// The type of function to be used during the polling.
 	PollFunction pulumi.StringPtrInput
-	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-	// limiting errors.
+	// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
 	PollInterval pulumi.StringPtrInput
 	// The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
 	Token pulumi.StringPtrInput
@@ -147,8 +144,7 @@ func (o ProviderOutput) PollFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PollFunction }).(pulumi.StringPtrOutput)
 }
 
-// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-// limiting errors.
+// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
 func (o ProviderOutput) PollInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PollInterval }).(pulumi.StringPtrOutput)
 }

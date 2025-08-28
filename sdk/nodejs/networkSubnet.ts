@@ -63,27 +63,27 @@ export class NetworkSubnet extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkSubnet.__pulumiType;
     }
 
-    public /*out*/ readonly gateway!: pulumi.Output<string>;
+    declare public /*out*/ readonly gateway: pulumi.Output<string>;
     /**
      * Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
      */
-    public readonly ipRange!: pulumi.Output<string>;
+    declare public readonly ipRange: pulumi.Output<string>;
     /**
      * ID of the Network the subnet should be added to.
      */
-    public readonly networkId!: pulumi.Output<number>;
+    declare public readonly networkId: pulumi.Output<number>;
     /**
      * Name of network zone.
      */
-    public readonly networkZone!: pulumi.Output<string>;
+    declare public readonly networkZone: pulumi.Output<string>;
     /**
      * Type of subnet. `server`, `cloud` or `vswitch`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * ID of the vswitch, Required if type is `vswitch`
      */
-    public readonly vswitchId!: pulumi.Output<number | undefined>;
+    declare public readonly vswitchId: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkSubnet resource with the given unique name, arguments, and options.
@@ -98,31 +98,31 @@ export class NetworkSubnet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkSubnetState | undefined;
-            resourceInputs["gateway"] = state ? state.gateway : undefined;
-            resourceInputs["ipRange"] = state ? state.ipRange : undefined;
-            resourceInputs["networkId"] = state ? state.networkId : undefined;
-            resourceInputs["networkZone"] = state ? state.networkZone : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["vswitchId"] = state ? state.vswitchId : undefined;
+            resourceInputs["gateway"] = state?.gateway;
+            resourceInputs["ipRange"] = state?.ipRange;
+            resourceInputs["networkId"] = state?.networkId;
+            resourceInputs["networkZone"] = state?.networkZone;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["vswitchId"] = state?.vswitchId;
         } else {
             const args = argsOrState as NetworkSubnetArgs | undefined;
-            if ((!args || args.ipRange === undefined) && !opts.urn) {
+            if (args?.ipRange === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipRange'");
             }
-            if ((!args || args.networkId === undefined) && !opts.urn) {
+            if (args?.networkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkId'");
             }
-            if ((!args || args.networkZone === undefined) && !opts.urn) {
+            if (args?.networkZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkZone'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["ipRange"] = args ? args.ipRange : undefined;
-            resourceInputs["networkId"] = args ? args.networkId : undefined;
-            resourceInputs["networkZone"] = args ? args.networkZone : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vswitchId"] = args ? args.vswitchId : undefined;
+            resourceInputs["ipRange"] = args?.ipRange;
+            resourceInputs["networkId"] = args?.networkId;
+            resourceInputs["networkZone"] = args?.networkZone;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vswitchId"] = args?.vswitchId;
             resourceInputs["gateway"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -69,15 +69,15 @@ export class VolumeAttachment extends pulumi.CustomResource {
     /**
      * Automount the volume upon attaching it.
      */
-    public readonly automount!: pulumi.Output<boolean>;
+    declare public readonly automount: pulumi.Output<boolean>;
     /**
      * Server to attach the Volume to.
      */
-    public readonly serverId!: pulumi.Output<number>;
+    declare public readonly serverId: pulumi.Output<number>;
     /**
      * ID of the Volume.
      */
-    public readonly volumeId!: pulumi.Output<number>;
+    declare public readonly volumeId: pulumi.Output<number>;
 
     /**
      * Create a VolumeAttachment resource with the given unique name, arguments, and options.
@@ -92,20 +92,20 @@ export class VolumeAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeAttachmentState | undefined;
-            resourceInputs["automount"] = state ? state.automount : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["automount"] = state?.automount;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["volumeId"] = state?.volumeId;
         } else {
             const args = argsOrState as VolumeAttachmentArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.volumeId === undefined) && !opts.urn) {
+            if (args?.volumeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            resourceInputs["automount"] = args ? args.automount : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["automount"] = args?.automount;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["volumeId"] = args?.volumeId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VolumeAttachment.__pulumiType, name, resourceInputs, opts);

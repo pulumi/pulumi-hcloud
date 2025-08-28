@@ -27,8 +27,7 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[_builtins.str] endpoint: The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
         :param pulumi.Input[_builtins.str] poll_function: The type of function to be used during the polling.
-        :param pulumi.Input[_builtins.str] poll_interval: The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-               limiting errors.
+        :param pulumi.Input[_builtins.str] poll_interval: The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         :param pulumi.Input[_builtins.str] token: The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         """
         if endpoint is not None:
@@ -68,8 +67,7 @@ class ProviderArgs:
     @pulumi.getter(name="pollInterval")
     def poll_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-        limiting errors.
+        The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         """
         return pulumi.get(self, "poll_interval")
 
@@ -111,8 +109,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] endpoint: The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
         :param pulumi.Input[_builtins.str] poll_function: The type of function to be used during the polling.
-        :param pulumi.Input[_builtins.str] poll_interval: The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-               limiting errors.
+        :param pulumi.Input[_builtins.str] poll_interval: The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         :param pulumi.Input[_builtins.str] token: The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         """
         ...
@@ -187,8 +184,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="pollInterval")
     def poll_interval(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-        limiting errors.
+        The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         """
         return pulumi.get(self, "poll_interval")
 

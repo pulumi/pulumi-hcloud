@@ -36,16 +36,16 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
-    public readonly certificate!: pulumi.Output<string>;
-    public /*out*/ readonly created!: pulumi.Output<string>;
-    public /*out*/ readonly domainNames!: pulumi.Output<string[]>;
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly notValidAfter!: pulumi.Output<string>;
-    public /*out*/ readonly notValidBefore!: pulumi.Output<string>;
-    public readonly privateKey!: pulumi.Output<string>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public readonly certificate: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
+    declare public /*out*/ readonly domainNames: pulumi.Output<string[]>;
+    declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly notValidAfter: pulumi.Output<string>;
+    declare public /*out*/ readonly notValidBefore: pulumi.Output<string>;
+    declare public readonly privateKey: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -60,27 +60,27 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["domainNames"] = state ? state.domainNames : undefined;
-            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notValidAfter"] = state ? state.notValidAfter : undefined;
-            resourceInputs["notValidBefore"] = state ? state.notValidBefore : undefined;
-            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["domainNames"] = state?.domainNames;
+            resourceInputs["fingerprint"] = state?.fingerprint;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notValidAfter"] = state?.notValidAfter;
+            resourceInputs["notValidBefore"] = state?.notValidBefore;
+            resourceInputs["privateKey"] = state?.privateKey;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.certificate === undefined) && !opts.urn) {
+            if (args?.certificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.privateKey === undefined) && !opts.urn) {
+            if (args?.privateKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["domainNames"] = undefined /*out*/;

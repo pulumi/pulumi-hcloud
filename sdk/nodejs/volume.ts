@@ -66,41 +66,41 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Automount the volume upon attaching it (server_id must be provided).
      */
-    public readonly automount!: pulumi.Output<boolean | undefined>;
+    declare public readonly automount: pulumi.Output<boolean | undefined>;
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      *
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
      */
-    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
     /**
      * Format volume after creation. `xfs` or `ext4`
      */
-    public readonly format!: pulumi.Output<string | undefined>;
+    declare public readonly format: pulumi.Output<string | undefined>;
     /**
      * User-defined labels (key-value pairs).
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * (string) Device path on the file system for the Volume.
      */
-    public /*out*/ readonly linuxDevice!: pulumi.Output<string>;
+    declare public /*out*/ readonly linuxDevice: pulumi.Output<string>;
     /**
      * The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Name of the volume to create (must be unique per project).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Server to attach the Volume to, not allowed if location argument is passed.
      */
-    public readonly serverId!: pulumi.Output<number>;
+    declare public readonly serverId: pulumi.Output<number>;
     /**
      * Size of the volume (in GB).
      */
-    public readonly size!: pulumi.Output<number>;
+    declare public readonly size: pulumi.Output<number>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -115,28 +115,28 @@ export class Volume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
-            resourceInputs["automount"] = state ? state.automount : undefined;
-            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            resourceInputs["format"] = state ? state.format : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["linuxDevice"] = state ? state.linuxDevice : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["size"] = state ? state.size : undefined;
+            resourceInputs["automount"] = state?.automount;
+            resourceInputs["deleteProtection"] = state?.deleteProtection;
+            resourceInputs["format"] = state?.format;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["linuxDevice"] = state?.linuxDevice;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["size"] = state?.size;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["automount"] = args ? args.automount : undefined;
-            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["automount"] = args?.automount;
+            resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["size"] = args?.size;
             resourceInputs["linuxDevice"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

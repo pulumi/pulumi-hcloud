@@ -31,8 +31,7 @@ namespace Pulumi.HCloud
         public Output<string?> PollFunction { get; private set; } = null!;
 
         /// <summary>
-        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-        /// limiting errors.
+        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         /// </summary>
         [Output("pollInterval")]
         public Output<string?> PollInterval { get; private set; } = null!;
@@ -94,8 +93,7 @@ namespace Pulumi.HCloud
         public Input<string>? PollFunction { get; set; }
 
         /// <summary>
-        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-        /// limiting errors.
+        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         /// </summary>
         [Input("pollInterval")]
         public Input<string>? PollInterval { get; set; }

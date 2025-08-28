@@ -37,8 +37,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def poll_interval(self) -> Optional[str]:
         """
-        The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-        limiting errors.
+        The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         """
         return __config__.get('pollInterval')
 

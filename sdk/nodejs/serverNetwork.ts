@@ -77,14 +77,14 @@ export class ServerNetwork extends pulumi.CustomResource {
      * Additional IPs to be assigned
      * to this server.
      */
-    public readonly aliasIps!: pulumi.Output<string[] | undefined>;
+    declare public readonly aliasIps: pulumi.Output<string[] | undefined>;
     /**
      * IP to request to be assigned to this server.
      * If you do not provide this then you will be auto assigned an IP
      * address.
      */
-    public readonly ip!: pulumi.Output<string>;
-    public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    declare public readonly ip: pulumi.Output<string>;
+    declare public /*out*/ readonly macAddress: pulumi.Output<string>;
     /**
      * ID of the network which should be added
      * to the server. Required if `subnetId` is not set. Successful creation
@@ -95,18 +95,18 @@ export class ServerNetwork extends pulumi.CustomResource {
      * will create an explicit dependency between `hcloud.ServerNetwork` and
      * the existence of a subnet.
      */
-    public readonly networkId!: pulumi.Output<number | undefined>;
+    declare public readonly networkId: pulumi.Output<number | undefined>;
     /**
      * ID of the server.
      */
-    public readonly serverId!: pulumi.Output<number>;
+    declare public readonly serverId: pulumi.Output<number>;
     /**
      * ID of the sub-network which should be
      * added to the Server. Required if `networkId` is not set.
      * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerNetwork resource with the given unique name, arguments, and options.
@@ -121,22 +121,22 @@ export class ServerNetwork extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerNetworkState | undefined;
-            resourceInputs["aliasIps"] = state ? state.aliasIps : undefined;
-            resourceInputs["ip"] = state ? state.ip : undefined;
-            resourceInputs["macAddress"] = state ? state.macAddress : undefined;
-            resourceInputs["networkId"] = state ? state.networkId : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["aliasIps"] = state?.aliasIps;
+            resourceInputs["ip"] = state?.ip;
+            resourceInputs["macAddress"] = state?.macAddress;
+            resourceInputs["networkId"] = state?.networkId;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as ServerNetworkArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["aliasIps"] = args ? args.aliasIps : undefined;
-            resourceInputs["ip"] = args ? args.ip : undefined;
-            resourceInputs["networkId"] = args ? args.networkId : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["aliasIps"] = args?.aliasIps;
+            resourceInputs["ip"] = args?.ip;
+            resourceInputs["networkId"] = args?.networkId;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["macAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

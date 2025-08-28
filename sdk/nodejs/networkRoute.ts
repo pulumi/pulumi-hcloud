@@ -65,15 +65,15 @@ export class NetworkRoute extends pulumi.CustomResource {
     /**
      * Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
      */
-    public readonly destination!: pulumi.Output<string>;
+    declare public readonly destination: pulumi.Output<string>;
     /**
      * Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
      */
-    public readonly gateway!: pulumi.Output<string>;
+    declare public readonly gateway: pulumi.Output<string>;
     /**
      * ID of the Network the route should be added to.
      */
-    public readonly networkId!: pulumi.Output<number>;
+    declare public readonly networkId: pulumi.Output<number>;
 
     /**
      * Create a NetworkRoute resource with the given unique name, arguments, and options.
@@ -88,23 +88,23 @@ export class NetworkRoute extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkRouteState | undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["gateway"] = state ? state.gateway : undefined;
-            resourceInputs["networkId"] = state ? state.networkId : undefined;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["gateway"] = state?.gateway;
+            resourceInputs["networkId"] = state?.networkId;
         } else {
             const args = argsOrState as NetworkRouteArgs | undefined;
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.gateway === undefined) && !opts.urn) {
+            if (args?.gateway === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gateway'");
             }
-            if ((!args || args.networkId === undefined) && !opts.urn) {
+            if (args?.networkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkId'");
             }
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["gateway"] = args ? args.gateway : undefined;
-            resourceInputs["networkId"] = args ? args.networkId : undefined;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["gateway"] = args?.gateway;
+            resourceInputs["networkId"] = args?.networkId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkRoute.__pulumiType, name, resourceInputs, opts);

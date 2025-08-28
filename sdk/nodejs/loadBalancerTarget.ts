@@ -88,33 +88,33 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
      * IP address for an IP Target. Required if
      * `type` is `ip`.
      */
-    public readonly ip!: pulumi.Output<string | undefined>;
+    declare public readonly ip: pulumi.Output<string | undefined>;
     /**
      * Label Selector selecting targets
      * for this Load Balancer. Required if `type` is `labelSelector`.
      */
-    public readonly labelSelector!: pulumi.Output<string | undefined>;
+    declare public readonly labelSelector: pulumi.Output<string | undefined>;
     /**
      * ID of the Load Balancer to which
      * the target gets attached.
      */
-    public readonly loadBalancerId!: pulumi.Output<number>;
+    declare public readonly loadBalancerId: pulumi.Output<number>;
     /**
      * ID of the server which should be a
      * target for this Load Balancer. Required if `type` is `server`
      */
-    public readonly serverId!: pulumi.Output<number | undefined>;
+    declare public readonly serverId: pulumi.Output<number | undefined>;
     /**
      * Type of the target. Possible values
      * `server`, `labelSelector`, `ip`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * use the private IP to connect to
      * Load Balancer targets. Only allowed if type is `server` or
      * `labelSelector`.
      */
-    public readonly usePrivateIp!: pulumi.Output<boolean>;
+    declare public readonly usePrivateIp: pulumi.Output<boolean>;
 
     /**
      * Create a LoadBalancerTarget resource with the given unique name, arguments, and options.
@@ -129,26 +129,26 @@ export class LoadBalancerTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerTargetState | undefined;
-            resourceInputs["ip"] = state ? state.ip : undefined;
-            resourceInputs["labelSelector"] = state ? state.labelSelector : undefined;
-            resourceInputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["usePrivateIp"] = state ? state.usePrivateIp : undefined;
+            resourceInputs["ip"] = state?.ip;
+            resourceInputs["labelSelector"] = state?.labelSelector;
+            resourceInputs["loadBalancerId"] = state?.loadBalancerId;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["usePrivateIp"] = state?.usePrivateIp;
         } else {
             const args = argsOrState as LoadBalancerTargetArgs | undefined;
-            if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
+            if (args?.loadBalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["ip"] = args ? args.ip : undefined;
-            resourceInputs["labelSelector"] = args ? args.labelSelector : undefined;
-            resourceInputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["usePrivateIp"] = args ? args.usePrivateIp : undefined;
+            resourceInputs["ip"] = args?.ip;
+            resourceInputs["labelSelector"] = args?.labelSelector;
+            resourceInputs["loadBalancerId"] = args?.loadBalancerId;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["usePrivateIp"] = args?.usePrivateIp;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LoadBalancerTarget.__pulumiType, name, resourceInputs, opts);

@@ -52,16 +52,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.pollFunction);
     }
     /**
-     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-     * limiting errors.
+     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
      * 
      */
     @Export(name="pollInterval", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pollInterval;
 
     /**
-     * @return The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-     * limiting errors.
+     * @return The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
      * 
      */
     public Output<Optional<String>> pollInterval() {

@@ -68,11 +68,11 @@ export class FloatingIpAssignment extends pulumi.CustomResource {
     /**
      * ID of the Floating IP.
      */
-    public readonly floatingIpId!: pulumi.Output<number>;
+    declare public readonly floatingIpId: pulumi.Output<number>;
     /**
      * Server to assign the Floating IP to.
      */
-    public readonly serverId!: pulumi.Output<number>;
+    declare public readonly serverId: pulumi.Output<number>;
 
     /**
      * Create a FloatingIpAssignment resource with the given unique name, arguments, and options.
@@ -87,18 +87,18 @@ export class FloatingIpAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FloatingIpAssignmentState | undefined;
-            resourceInputs["floatingIpId"] = state ? state.floatingIpId : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["floatingIpId"] = state?.floatingIpId;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as FloatingIpAssignmentArgs | undefined;
-            if ((!args || args.floatingIpId === undefined) && !opts.urn) {
+            if (args?.floatingIpId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'floatingIpId'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["floatingIpId"] = args ? args.floatingIpId : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["floatingIpId"] = args?.floatingIpId;
+            resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FloatingIpAssignment.__pulumiType, name, resourceInputs, opts);
