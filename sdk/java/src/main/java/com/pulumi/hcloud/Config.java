@@ -25,8 +25,7 @@ public final class Config {
         return Codegen.stringProp("pollFunction").config(config).get();
     }
 /**
- * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
- * limiting errors.
+ * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
  * 
  */
     public Optional<String> pollInterval() {

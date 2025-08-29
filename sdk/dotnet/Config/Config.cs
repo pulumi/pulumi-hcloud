@@ -54,8 +54,7 @@ namespace Pulumi.HCloud
 
         private static readonly __Value<string?> _pollInterval = new __Value<string?>(() => __config.Get("pollInterval"));
         /// <summary>
-        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-        /// limiting errors.
+        /// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         /// </summary>
         public static string? PollInterval
         {

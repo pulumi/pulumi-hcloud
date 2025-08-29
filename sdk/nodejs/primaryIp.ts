@@ -80,46 +80,46 @@ export class PrimaryIp extends pulumi.CustomResource {
     /**
      * ID of the assigned resource.
      */
-    public readonly assigneeId!: pulumi.Output<number>;
+    declare public readonly assigneeId: pulumi.Output<number>;
     /**
      * The type of the assigned resource. Currently supported: `server`
      */
-    public readonly assigneeType!: pulumi.Output<string>;
+    declare public readonly assigneeType: pulumi.Output<string>;
     /**
      * Whether auto delete is enabled.
      * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      */
-    public readonly autoDelete!: pulumi.Output<boolean>;
+    declare public readonly autoDelete: pulumi.Output<boolean>;
     /**
      * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
-    public readonly datacenter!: pulumi.Output<string>;
+    declare public readonly datacenter: pulumi.Output<string>;
     /**
      * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
      *
      * Note: At least one of `datacenter` or `assigneeId` is required.
      */
-    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
     /**
      * (string) IP Address of the Primary IP.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
      */
-    public /*out*/ readonly ipNetwork!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipNetwork: pulumi.Output<string>;
     /**
      * User-defined labels (key-value pairs).
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the Primary IP.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Type of the Primary IP. `ipv4` or `ipv6`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a PrimaryIp resource with the given unique name, arguments, and options.
@@ -134,35 +134,35 @@ export class PrimaryIp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrimaryIpState | undefined;
-            resourceInputs["assigneeId"] = state ? state.assigneeId : undefined;
-            resourceInputs["assigneeType"] = state ? state.assigneeType : undefined;
-            resourceInputs["autoDelete"] = state ? state.autoDelete : undefined;
-            resourceInputs["datacenter"] = state ? state.datacenter : undefined;
-            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["ipNetwork"] = state ? state.ipNetwork : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["assigneeId"] = state?.assigneeId;
+            resourceInputs["assigneeType"] = state?.assigneeType;
+            resourceInputs["autoDelete"] = state?.autoDelete;
+            resourceInputs["datacenter"] = state?.datacenter;
+            resourceInputs["deleteProtection"] = state?.deleteProtection;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["ipNetwork"] = state?.ipNetwork;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as PrimaryIpArgs | undefined;
-            if ((!args || args.assigneeType === undefined) && !opts.urn) {
+            if (args?.assigneeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assigneeType'");
             }
-            if ((!args || args.autoDelete === undefined) && !opts.urn) {
+            if (args?.autoDelete === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoDelete'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["assigneeId"] = args ? args.assigneeId : undefined;
-            resourceInputs["assigneeType"] = args ? args.assigneeType : undefined;
-            resourceInputs["autoDelete"] = args ? args.autoDelete : undefined;
-            resourceInputs["datacenter"] = args ? args.datacenter : undefined;
-            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["assigneeId"] = args?.assigneeId;
+            resourceInputs["assigneeType"] = args?.assigneeType;
+            resourceInputs["autoDelete"] = args?.autoDelete;
+            resourceInputs["datacenter"] = args?.datacenter;
+            resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["type"] = args?.type;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["ipNetwork"] = undefined /*out*/;
         }

@@ -28,20 +28,19 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * The type of function to be used during the polling.
      */
-    public readonly pollFunction!: pulumi.Output<string | undefined>;
+    declare public readonly pollFunction: pulumi.Output<string | undefined>;
     /**
-     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-     * limiting errors.
+     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
      */
-    public readonly pollInterval!: pulumi.Output<string | undefined>;
+    declare public readonly pollInterval: pulumi.Output<string | undefined>;
     /**
      * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      */
-    public readonly token!: pulumi.Output<string | undefined>;
+    declare public readonly token: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -54,9 +53,9 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["pollFunction"] = args ? args.pollFunction : undefined;
-            resourceInputs["pollInterval"] = args ? args.pollInterval : undefined;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["pollFunction"] = args?.pollFunction;
+            resourceInputs["pollInterval"] = args?.pollInterval;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -88,8 +87,7 @@ export interface ProviderArgs {
      */
     pollFunction?: pulumi.Input<string>;
     /**
-     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-     * limiting errors.
+     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
      */
     pollInterval?: pulumi.Input<string>;
     /**
