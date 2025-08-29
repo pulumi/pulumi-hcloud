@@ -161,29 +161,29 @@ export class Server extends pulumi.CustomResource {
     /**
      * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
      */
-    public readonly allowDeprecatedImages!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowDeprecatedImages: pulumi.Output<boolean | undefined>;
     /**
      * (string) The backup window of the server, if enabled.
      *
      * @deprecated You should remove this property from your terraform configuration.
      */
-    public /*out*/ readonly backupWindow!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupWindow: pulumi.Output<string>;
     /**
      * Enable or disable backups.
      */
-    public readonly backups!: pulumi.Output<boolean | undefined>;
+    declare public readonly backups: pulumi.Output<boolean | undefined>;
     /**
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      */
-    public readonly datacenter!: pulumi.Output<string>;
+    declare public readonly datacenter: pulumi.Output<string>;
     /**
      * Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
      */
-    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
     /**
      * Firewall IDs the server should be attached to on creation.
      */
-    public readonly firewallIds!: pulumi.Output<number[]>;
+    declare public readonly firewallIds: pulumi.Output<number[]>;
     /**
      * Ignores any updates
      * to the `firewallIds` argument which were received from the server.
@@ -191,85 +191,85 @@ export class Server extends pulumi.CustomResource {
      * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
      */
-    public readonly ignoreRemoteFirewallIds!: pulumi.Output<boolean | undefined>;
-    public readonly image!: pulumi.Output<string | undefined>;
+    declare public readonly ignoreRemoteFirewallIds: pulumi.Output<boolean | undefined>;
+    declare public readonly image: pulumi.Output<string | undefined>;
     /**
      * (string) The IPv4 address.
      */
-    public /*out*/ readonly ipv4Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv4Address: pulumi.Output<string>;
     /**
      * (string) The first IPv6 address of the assigned network.
      */
-    public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv6Address: pulumi.Output<string>;
     /**
      * (string) The IPv6 network.
      */
-    public /*out*/ readonly ipv6Network!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv6Network: pulumi.Output<string>;
     /**
      * ID or Name of an ISO image to mount.
      */
-    public readonly iso!: pulumi.Output<string | undefined>;
+    declare public readonly iso: pulumi.Output<string | undefined>;
     /**
      * If true, do not upgrade the disk. This allows downgrading the server type later.
      */
-    public readonly keepDisk!: pulumi.Output<boolean | undefined>;
+    declare public readonly keepDisk: pulumi.Output<boolean | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Network the server should be attached to on creation. (Can be specified multiple times)
      */
-    public readonly networks!: pulumi.Output<outputs.ServerNetwork[] | undefined>;
+    declare public readonly networks: pulumi.Output<outputs.ServerNetwork[] | undefined>;
     /**
      * Placement Group ID the server added to on creation.
      */
-    public readonly placementGroupId!: pulumi.Output<number | undefined>;
+    declare public readonly placementGroupId: pulumi.Output<number | undefined>;
     /**
      * (int) The size of the primary disk in GB.
      */
-    public /*out*/ readonly primaryDiskSize!: pulumi.Output<number>;
+    declare public /*out*/ readonly primaryDiskSize: pulumi.Output<number>;
     /**
      * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
-    public readonly publicNets!: pulumi.Output<outputs.ServerPublicNet[] | undefined>;
+    declare public readonly publicNets: pulumi.Output<outputs.ServerPublicNet[] | undefined>;
     /**
      * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      */
-    public readonly rebuildProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly rebuildProtection: pulumi.Output<boolean | undefined>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      */
-    public readonly rescue!: pulumi.Output<string | undefined>;
+    declare public readonly rescue: pulumi.Output<string | undefined>;
     /**
      * Name of the server type this server should be created with.
      */
-    public readonly serverType!: pulumi.Output<string>;
+    declare public readonly serverType: pulumi.Output<string>;
     /**
      * Whether to try shutting the server down gracefully before deleting it.
      */
-    public readonly shutdownBeforeDeletion!: pulumi.Output<boolean | undefined>;
+    declare public readonly shutdownBeforeDeletion: pulumi.Output<boolean | undefined>;
     /**
      * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
      */
-    public readonly sshKeys!: pulumi.Output<string[] | undefined>;
+    declare public readonly sshKeys: pulumi.Output<string[] | undefined>;
     /**
      * (string) The status of the server.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Cloud-Init user data to use during server creation
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -284,59 +284,59 @@ export class Server extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            resourceInputs["allowDeprecatedImages"] = state ? state.allowDeprecatedImages : undefined;
-            resourceInputs["backupWindow"] = state ? state.backupWindow : undefined;
-            resourceInputs["backups"] = state ? state.backups : undefined;
-            resourceInputs["datacenter"] = state ? state.datacenter : undefined;
-            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            resourceInputs["firewallIds"] = state ? state.firewallIds : undefined;
-            resourceInputs["ignoreRemoteFirewallIds"] = state ? state.ignoreRemoteFirewallIds : undefined;
-            resourceInputs["image"] = state ? state.image : undefined;
-            resourceInputs["ipv4Address"] = state ? state.ipv4Address : undefined;
-            resourceInputs["ipv6Address"] = state ? state.ipv6Address : undefined;
-            resourceInputs["ipv6Network"] = state ? state.ipv6Network : undefined;
-            resourceInputs["iso"] = state ? state.iso : undefined;
-            resourceInputs["keepDisk"] = state ? state.keepDisk : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networks"] = state ? state.networks : undefined;
-            resourceInputs["placementGroupId"] = state ? state.placementGroupId : undefined;
-            resourceInputs["primaryDiskSize"] = state ? state.primaryDiskSize : undefined;
-            resourceInputs["publicNets"] = state ? state.publicNets : undefined;
-            resourceInputs["rebuildProtection"] = state ? state.rebuildProtection : undefined;
-            resourceInputs["rescue"] = state ? state.rescue : undefined;
-            resourceInputs["serverType"] = state ? state.serverType : undefined;
-            resourceInputs["shutdownBeforeDeletion"] = state ? state.shutdownBeforeDeletion : undefined;
-            resourceInputs["sshKeys"] = state ? state.sshKeys : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["userData"] = state ? state.userData : undefined;
+            resourceInputs["allowDeprecatedImages"] = state?.allowDeprecatedImages;
+            resourceInputs["backupWindow"] = state?.backupWindow;
+            resourceInputs["backups"] = state?.backups;
+            resourceInputs["datacenter"] = state?.datacenter;
+            resourceInputs["deleteProtection"] = state?.deleteProtection;
+            resourceInputs["firewallIds"] = state?.firewallIds;
+            resourceInputs["ignoreRemoteFirewallIds"] = state?.ignoreRemoteFirewallIds;
+            resourceInputs["image"] = state?.image;
+            resourceInputs["ipv4Address"] = state?.ipv4Address;
+            resourceInputs["ipv6Address"] = state?.ipv6Address;
+            resourceInputs["ipv6Network"] = state?.ipv6Network;
+            resourceInputs["iso"] = state?.iso;
+            resourceInputs["keepDisk"] = state?.keepDisk;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networks"] = state?.networks;
+            resourceInputs["placementGroupId"] = state?.placementGroupId;
+            resourceInputs["primaryDiskSize"] = state?.primaryDiskSize;
+            resourceInputs["publicNets"] = state?.publicNets;
+            resourceInputs["rebuildProtection"] = state?.rebuildProtection;
+            resourceInputs["rescue"] = state?.rescue;
+            resourceInputs["serverType"] = state?.serverType;
+            resourceInputs["shutdownBeforeDeletion"] = state?.shutdownBeforeDeletion;
+            resourceInputs["sshKeys"] = state?.sshKeys;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["userData"] = state?.userData;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.serverType === undefined) && !opts.urn) {
+            if (args?.serverType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverType'");
             }
-            resourceInputs["allowDeprecatedImages"] = args ? args.allowDeprecatedImages : undefined;
-            resourceInputs["backups"] = args ? args.backups : undefined;
-            resourceInputs["datacenter"] = args ? args.datacenter : undefined;
-            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            resourceInputs["firewallIds"] = args ? args.firewallIds : undefined;
-            resourceInputs["ignoreRemoteFirewallIds"] = args ? args.ignoreRemoteFirewallIds : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["iso"] = args ? args.iso : undefined;
-            resourceInputs["keepDisk"] = args ? args.keepDisk : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networks"] = args ? args.networks : undefined;
-            resourceInputs["placementGroupId"] = args ? args.placementGroupId : undefined;
-            resourceInputs["publicNets"] = args ? args.publicNets : undefined;
-            resourceInputs["rebuildProtection"] = args ? args.rebuildProtection : undefined;
-            resourceInputs["rescue"] = args ? args.rescue : undefined;
-            resourceInputs["serverType"] = args ? args.serverType : undefined;
-            resourceInputs["shutdownBeforeDeletion"] = args ? args.shutdownBeforeDeletion : undefined;
-            resourceInputs["sshKeys"] = args ? args.sshKeys : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["allowDeprecatedImages"] = args?.allowDeprecatedImages;
+            resourceInputs["backups"] = args?.backups;
+            resourceInputs["datacenter"] = args?.datacenter;
+            resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["firewallIds"] = args?.firewallIds;
+            resourceInputs["ignoreRemoteFirewallIds"] = args?.ignoreRemoteFirewallIds;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["iso"] = args?.iso;
+            resourceInputs["keepDisk"] = args?.keepDisk;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networks"] = args?.networks;
+            resourceInputs["placementGroupId"] = args?.placementGroupId;
+            resourceInputs["publicNets"] = args?.publicNets;
+            resourceInputs["rebuildProtection"] = args?.rebuildProtection;
+            resourceInputs["rescue"] = args?.rescue;
+            resourceInputs["serverType"] = args?.serverType;
+            resourceInputs["shutdownBeforeDeletion"] = args?.shutdownBeforeDeletion;
+            resourceInputs["sshKeys"] = args?.sshKeys;
+            resourceInputs["userData"] = args?.userData;
             resourceInputs["backupWindow"] = undefined /*out*/;
             resourceInputs["ipv4Address"] = undefined /*out*/;
             resourceInputs["ipv6Address"] = undefined /*out*/;

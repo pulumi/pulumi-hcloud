@@ -79,17 +79,17 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
      * Enable or disable the
      * Load Balancers public interface. Default: `true`
      */
-    public readonly enablePublicInterface!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePublicInterface: pulumi.Output<boolean | undefined>;
     /**
      * IP to request to be assigned to this Load
      * Balancer. If you do not provide this then you will be auto assigned an
      * IP address.
      */
-    public readonly ip!: pulumi.Output<string>;
+    declare public readonly ip: pulumi.Output<string>;
     /**
      * ID of the Load Balancer.
      */
-    public readonly loadBalancerId!: pulumi.Output<number>;
+    declare public readonly loadBalancerId: pulumi.Output<number>;
     /**
      * ID of the network which should be added
      * to the Load Balancer. Required if `subnetId` is not set. Successful
@@ -100,14 +100,14 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
      * property can be used, which will create an explicit dependency between
      * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
      */
-    public readonly networkId!: pulumi.Output<number | undefined>;
+    declare public readonly networkId: pulumi.Output<number | undefined>;
     /**
      * ID of the sub-network which should be
      * added to the Load Balancer. Required if `networkId` is not set.
      * _Note_: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
 
     /**
      * Create a LoadBalancerNetwork resource with the given unique name, arguments, and options.
@@ -122,21 +122,21 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerNetworkState | undefined;
-            resourceInputs["enablePublicInterface"] = state ? state.enablePublicInterface : undefined;
-            resourceInputs["ip"] = state ? state.ip : undefined;
-            resourceInputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
-            resourceInputs["networkId"] = state ? state.networkId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["enablePublicInterface"] = state?.enablePublicInterface;
+            resourceInputs["ip"] = state?.ip;
+            resourceInputs["loadBalancerId"] = state?.loadBalancerId;
+            resourceInputs["networkId"] = state?.networkId;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as LoadBalancerNetworkArgs | undefined;
-            if ((!args || args.loadBalancerId === undefined) && !opts.urn) {
+            if (args?.loadBalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerId'");
             }
-            resourceInputs["enablePublicInterface"] = args ? args.enablePublicInterface : undefined;
-            resourceInputs["ip"] = args ? args.ip : undefined;
-            resourceInputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
-            resourceInputs["networkId"] = args ? args.networkId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["enablePublicInterface"] = args?.enablePublicInterface;
+            resourceInputs["ip"] = args?.ip;
+            resourceInputs["loadBalancerId"] = args?.loadBalancerId;
+            resourceInputs["networkId"] = args?.networkId;
+            resourceInputs["subnetId"] = args?.subnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LoadBalancerNetwork.__pulumiType, name, resourceInputs, opts);

@@ -58,23 +58,23 @@ export class Network extends pulumi.CustomResource {
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
     /**
      * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
      */
-    public readonly exposeRoutesToVswitch!: pulumi.Output<boolean | undefined>;
+    declare public readonly exposeRoutesToVswitch: pulumi.Output<boolean | undefined>;
     /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */
-    public readonly ipRange!: pulumi.Output<string>;
+    declare public readonly ipRange: pulumi.Output<string>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the Network to create (must be unique per project).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Network resource with the given unique name, arguments, and options.
@@ -89,21 +89,21 @@ export class Network extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkState | undefined;
-            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            resourceInputs["exposeRoutesToVswitch"] = state ? state.exposeRoutesToVswitch : undefined;
-            resourceInputs["ipRange"] = state ? state.ipRange : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["deleteProtection"] = state?.deleteProtection;
+            resourceInputs["exposeRoutesToVswitch"] = state?.exposeRoutesToVswitch;
+            resourceInputs["ipRange"] = state?.ipRange;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as NetworkArgs | undefined;
-            if ((!args || args.ipRange === undefined) && !opts.urn) {
+            if (args?.ipRange === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipRange'");
             }
-            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            resourceInputs["exposeRoutesToVswitch"] = args ? args.exposeRoutesToVswitch : undefined;
-            resourceInputs["ipRange"] = args ? args.ipRange : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["exposeRoutesToVswitch"] = args?.exposeRoutesToVswitch;
+            resourceInputs["ipRange"] = args?.ipRange;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Network.__pulumiType, name, resourceInputs, opts);

@@ -65,38 +65,38 @@ export class ManagedCertificate extends pulumi.CustomResource {
     /**
      * (string) PEM encoded TLS certificate.
      */
-    public /*out*/ readonly certificate!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificate: pulumi.Output<string>;
     /**
      * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * Domain names for which a certificate
      * should be obtained.
      */
-    public readonly domainNames!: pulumi.Output<string[]>;
+    declare public readonly domainNames: pulumi.Output<string[]>;
     /**
      * (string) Fingerprint of the certificate.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
     /**
      * User-defined labels (key-value pairs) the
      * certificate should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the Certificate.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
      */
-    public /*out*/ readonly notValidAfter!: pulumi.Output<string>;
+    declare public /*out*/ readonly notValidAfter: pulumi.Output<string>;
     /**
      * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
      */
-    public /*out*/ readonly notValidBefore!: pulumi.Output<string>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly notValidBefore: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagedCertificate resource with the given unique name, arguments, and options.
@@ -111,23 +111,23 @@ export class ManagedCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedCertificateState | undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["domainNames"] = state ? state.domainNames : undefined;
-            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notValidAfter"] = state ? state.notValidAfter : undefined;
-            resourceInputs["notValidBefore"] = state ? state.notValidBefore : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["domainNames"] = state?.domainNames;
+            resourceInputs["fingerprint"] = state?.fingerprint;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notValidAfter"] = state?.notValidAfter;
+            resourceInputs["notValidBefore"] = state?.notValidBefore;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ManagedCertificateArgs | undefined;
-            if ((!args || args.domainNames === undefined) && !opts.urn) {
+            if (args?.domainNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainNames'");
             }
-            resourceInputs["domainNames"] = args ? args.domainNames : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["domainNames"] = args?.domainNames;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["fingerprint"] = undefined /*out*/;

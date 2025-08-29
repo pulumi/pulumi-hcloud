@@ -84,19 +84,19 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * Resources the firewall should be assigned to
      */
-    public readonly applyTos!: pulumi.Output<outputs.FirewallApplyTo[]>;
+    declare public readonly applyTos: pulumi.Output<outputs.FirewallApplyTo[]>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the Firewall.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration of a Rule from this Firewall.
      */
-    public readonly rules!: pulumi.Output<outputs.FirewallRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.FirewallRule[] | undefined>;
 
     /**
      * Create a Firewall resource with the given unique name, arguments, and options.
@@ -111,16 +111,16 @@ export class Firewall extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallState | undefined;
-            resourceInputs["applyTos"] = state ? state.applyTos : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["applyTos"] = state?.applyTos;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rules"] = state?.rules;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
-            resourceInputs["applyTos"] = args ? args.applyTos : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["applyTos"] = args?.applyTos;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rules"] = args?.rules;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Firewall.__pulumiType, name, resourceInputs, opts);

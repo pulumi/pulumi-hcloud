@@ -144,27 +144,27 @@ export class Rdns extends pulumi.CustomResource {
     /**
      * The DNS address the `ipAddress` should resolve to.
      */
-    public readonly dnsPtr!: pulumi.Output<string>;
+    declare public readonly dnsPtr: pulumi.Output<string>;
     /**
      * The Floating IP the `ipAddress` belongs to.
      */
-    public readonly floatingIpId!: pulumi.Output<number | undefined>;
+    declare public readonly floatingIpId: pulumi.Output<number | undefined>;
     /**
      * The IP address that should point to `dnsPtr`.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    declare public readonly ipAddress: pulumi.Output<string>;
     /**
      * The Load Balancer the `ipAddress` belongs to.
      */
-    public readonly loadBalancerId!: pulumi.Output<number | undefined>;
+    declare public readonly loadBalancerId: pulumi.Output<number | undefined>;
     /**
      * The Primary IP the `ipAddress` belongs to.
      */
-    public readonly primaryIpId!: pulumi.Output<number | undefined>;
+    declare public readonly primaryIpId: pulumi.Output<number | undefined>;
     /**
      * The server the `ipAddress` belongs to.
      */
-    public readonly serverId!: pulumi.Output<number | undefined>;
+    declare public readonly serverId: pulumi.Output<number | undefined>;
 
     /**
      * Create a Rdns resource with the given unique name, arguments, and options.
@@ -179,26 +179,26 @@ export class Rdns extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RdnsState | undefined;
-            resourceInputs["dnsPtr"] = state ? state.dnsPtr : undefined;
-            resourceInputs["floatingIpId"] = state ? state.floatingIpId : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["loadBalancerId"] = state ? state.loadBalancerId : undefined;
-            resourceInputs["primaryIpId"] = state ? state.primaryIpId : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["dnsPtr"] = state?.dnsPtr;
+            resourceInputs["floatingIpId"] = state?.floatingIpId;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["loadBalancerId"] = state?.loadBalancerId;
+            resourceInputs["primaryIpId"] = state?.primaryIpId;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as RdnsArgs | undefined;
-            if ((!args || args.dnsPtr === undefined) && !opts.urn) {
+            if (args?.dnsPtr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsPtr'");
             }
-            if ((!args || args.ipAddress === undefined) && !opts.urn) {
+            if (args?.ipAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddress'");
             }
-            resourceInputs["dnsPtr"] = args ? args.dnsPtr : undefined;
-            resourceInputs["floatingIpId"] = args ? args.floatingIpId : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["loadBalancerId"] = args ? args.loadBalancerId : undefined;
-            resourceInputs["primaryIpId"] = args ? args.primaryIpId : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["dnsPtr"] = args?.dnsPtr;
+            resourceInputs["floatingIpId"] = args?.floatingIpId;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["loadBalancerId"] = args?.loadBalancerId;
+            resourceInputs["primaryIpId"] = args?.primaryIpId;
+            resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Rdns.__pulumiType, name, resourceInputs, opts);

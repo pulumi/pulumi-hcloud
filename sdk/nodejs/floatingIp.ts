@@ -63,39 +63,39 @@ export class FloatingIp extends pulumi.CustomResource {
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
     /**
      * Description of the Floating IP.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      */
-    public readonly homeLocation!: pulumi.Output<string>;
+    declare public readonly homeLocation: pulumi.Output<string>;
     /**
      * (string) IP Address of the Floating IP.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * (string) IPv6 subnet. (Only set if `type` is `ipv6`)
      */
-    public /*out*/ readonly ipNetwork!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipNetwork: pulumi.Output<string>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the Floating IP.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      */
-    public readonly serverId!: pulumi.Output<number>;
+    declare public readonly serverId: pulumi.Output<number>;
     /**
      * Type of the Floating IP. `ipv4` `ipv6`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a FloatingIp resource with the given unique name, arguments, and options.
@@ -110,27 +110,27 @@ export class FloatingIp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FloatingIpState | undefined;
-            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["homeLocation"] = state ? state.homeLocation : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["ipNetwork"] = state ? state.ipNetwork : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["deleteProtection"] = state?.deleteProtection;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["homeLocation"] = state?.homeLocation;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["ipNetwork"] = state?.ipNetwork;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as FloatingIpArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["homeLocation"] = args ? args.homeLocation : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["homeLocation"] = args?.homeLocation;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["type"] = args?.type;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["ipNetwork"] = undefined /*out*/;
         }

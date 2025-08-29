@@ -46,16 +46,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-     * limiting errors.
+     * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
      * 
      */
     @Import(name="pollInterval")
     private @Nullable Output<String> pollInterval;
 
     /**
-     * @return The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-     * limiting errors.
+     * @return The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
      * 
      */
     public Optional<Output<String>> pollInterval() {
@@ -147,8 +145,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pollInterval The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-         * limiting errors.
+         * @param pollInterval The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
          * 
          * @return builder
          * 
@@ -159,8 +156,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pollInterval The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-         * limiting errors.
+         * @param pollInterval The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
          * 
          * @return builder
          * 

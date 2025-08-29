@@ -84,17 +84,17 @@ export class FirewallAttachment extends pulumi.CustomResource {
      * ID of the firewall the resources
      * should be attached to.
      */
-    public readonly firewallId!: pulumi.Output<number>;
+    declare public readonly firewallId: pulumi.Output<number>;
     /**
      * List of label selectors used to
      * select resources to attach to the firewall.
      */
-    public readonly labelSelectors!: pulumi.Output<string[] | undefined>;
+    declare public readonly labelSelectors: pulumi.Output<string[] | undefined>;
     /**
      * List of Server IDs to attach to the
      * firewall.
      */
-    public readonly serverIds!: pulumi.Output<number[] | undefined>;
+    declare public readonly serverIds: pulumi.Output<number[] | undefined>;
 
     /**
      * Create a FirewallAttachment resource with the given unique name, arguments, and options.
@@ -109,17 +109,17 @@ export class FirewallAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallAttachmentState | undefined;
-            resourceInputs["firewallId"] = state ? state.firewallId : undefined;
-            resourceInputs["labelSelectors"] = state ? state.labelSelectors : undefined;
-            resourceInputs["serverIds"] = state ? state.serverIds : undefined;
+            resourceInputs["firewallId"] = state?.firewallId;
+            resourceInputs["labelSelectors"] = state?.labelSelectors;
+            resourceInputs["serverIds"] = state?.serverIds;
         } else {
             const args = argsOrState as FirewallAttachmentArgs | undefined;
-            if ((!args || args.firewallId === undefined) && !opts.urn) {
+            if (args?.firewallId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallId'");
             }
-            resourceInputs["firewallId"] = args ? args.firewallId : undefined;
-            resourceInputs["labelSelectors"] = args ? args.labelSelectors : undefined;
-            resourceInputs["serverIds"] = args ? args.serverIds : undefined;
+            resourceInputs["firewallId"] = args?.firewallId;
+            resourceInputs["labelSelectors"] = args?.labelSelectors;
+            resourceInputs["serverIds"] = args?.serverIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FirewallAttachment.__pulumiType, name, resourceInputs, opts);

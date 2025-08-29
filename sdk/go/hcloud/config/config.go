@@ -21,8 +21,7 @@ func GetPollFunction(ctx *pulumi.Context) string {
 	return config.Get(ctx, "hcloud:pollFunction")
 }
 
-// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate
-// limiting errors.
+// The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
 func GetPollInterval(ctx *pulumi.Context) string {
 	return config.Get(ctx, "hcloud:pollInterval")
 }

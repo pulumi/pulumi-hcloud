@@ -53,19 +53,19 @@
         "variables": {
             "endpoint": {
                 "type": "string",
-                "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
+                "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1."
             },
             "pollFunction": {
                 "type": "string",
-                "description": "The type of function to be used during the polling.\n"
+                "description": "The type of function to be used during the polling."
             },
             "pollInterval": {
                 "type": "string",
-                "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate\nlimiting errors.\n"
+                "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors."
             },
             "token": {
                 "type": "string",
-                "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.\n",
+                "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.",
                 "secret": true
             }
         }
@@ -1779,38 +1779,38 @@
         "properties": {
             "endpoint": {
                 "type": "string",
-                "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
+                "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1."
             },
             "pollFunction": {
                 "type": "string",
-                "description": "The type of function to be used during the polling.\n"
+                "description": "The type of function to be used during the polling."
             },
             "pollInterval": {
                 "type": "string",
-                "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate\nlimiting errors.\n"
+                "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors."
             },
             "token": {
                 "type": "string",
-                "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.\n",
+                "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.",
                 "secret": true
             }
         },
         "inputProperties": {
             "endpoint": {
                 "type": "string",
-                "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.\n"
+                "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1."
             },
             "pollFunction": {
                 "type": "string",
-                "description": "The type of function to be used during the polling.\n"
+                "description": "The type of function to be used during the polling."
             },
             "pollInterval": {
                 "type": "string",
-                "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate\nlimiting errors.\n"
+                "description": "The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors."
             },
             "token": {
                 "type": "string",
-                "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.\n",
+                "description": "The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.",
                 "secret": true
             }
         },
@@ -4596,7 +4596,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "withSelector": {
@@ -4836,7 +4836,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "mostRecent": {
@@ -4972,7 +4972,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "withSelector": {
@@ -5155,7 +5155,7 @@
                 "description": "A collection of values returned by getImages.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "images": {
@@ -5405,7 +5405,7 @@
                 "description": "A collection of values returned by getLoadBalancers.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "loadBalancers": {
@@ -5634,7 +5634,7 @@
                 "description": "A collection of values returned by getNetworks.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "networks": {
@@ -5755,7 +5755,7 @@
                 "description": "A collection of values returned by getPlacementGroups.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "mostRecent": {
@@ -5892,7 +5892,7 @@
                 "description": "A collection of values returned by getPrimaryIps.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "primaryIps": {
@@ -6246,7 +6246,7 @@
                 "description": "A collection of values returned by getServers.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "servers": {
@@ -6511,7 +6511,7 @@
                 "description": "A collection of values returned by getVolumes.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "volumes": {

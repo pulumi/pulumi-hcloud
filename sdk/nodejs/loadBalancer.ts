@@ -71,51 +71,51 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Configuration of the algorithm the Load Balancer use.
      */
-    public readonly algorithm!: pulumi.Output<outputs.LoadBalancerAlgorithm>;
+    declare public readonly algorithm: pulumi.Output<outputs.LoadBalancerAlgorithm>;
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
     /**
      * (string) IPv4 Address of the Load Balancer.
      */
-    public /*out*/ readonly ipv4!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv4: pulumi.Output<string>;
     /**
      * (string) IPv6 Address of the Load Balancer.
      */
-    public /*out*/ readonly ipv6!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv6: pulumi.Output<string>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of the Load Balancer.
      */
-    public readonly loadBalancerType!: pulumi.Output<string>;
+    declare public readonly loadBalancerType: pulumi.Output<string>;
     /**
      * The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Name of the Load Balancer.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (int) ID of the first private network that this Load Balancer is connected to.
      */
-    public /*out*/ readonly networkId!: pulumi.Output<number>;
+    declare public /*out*/ readonly networkId: pulumi.Output<number>;
     /**
      * (string) IP of the Load Balancer in the first private network that it is connected to.
      */
-    public /*out*/ readonly networkIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkIp: pulumi.Output<string>;
     /**
      * The Network Zone of the Load Balancer. Require when no location is set.
      */
-    public readonly networkZone!: pulumi.Output<string>;
+    declare public readonly networkZone: pulumi.Output<string>;
     /**
      * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
      */
-    public readonly targets!: pulumi.Output<outputs.LoadBalancerTarget[]>;
+    declare public readonly targets: pulumi.Output<outputs.LoadBalancerTarget[]>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -130,31 +130,31 @@ export class LoadBalancer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
-            resourceInputs["algorithm"] = state ? state.algorithm : undefined;
-            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            resourceInputs["ipv4"] = state ? state.ipv4 : undefined;
-            resourceInputs["ipv6"] = state ? state.ipv6 : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkId"] = state ? state.networkId : undefined;
-            resourceInputs["networkIp"] = state ? state.networkIp : undefined;
-            resourceInputs["networkZone"] = state ? state.networkZone : undefined;
-            resourceInputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["algorithm"] = state?.algorithm;
+            resourceInputs["deleteProtection"] = state?.deleteProtection;
+            resourceInputs["ipv4"] = state?.ipv4;
+            resourceInputs["ipv6"] = state?.ipv6;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["loadBalancerType"] = state?.loadBalancerType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkId"] = state?.networkId;
+            resourceInputs["networkIp"] = state?.networkIp;
+            resourceInputs["networkZone"] = state?.networkZone;
+            resourceInputs["targets"] = state?.targets;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
+            if (args?.loadBalancerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
-            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkZone"] = args ? args.networkZone : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["algorithm"] = args?.algorithm;
+            resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["loadBalancerType"] = args?.loadBalancerType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkZone"] = args?.networkZone;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["ipv4"] = undefined /*out*/;
             resourceInputs["ipv6"] = undefined /*out*/;
             resourceInputs["networkId"] = undefined /*out*/;
