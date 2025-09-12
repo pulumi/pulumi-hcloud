@@ -1,5 +1,7 @@
 provider: hcloud
 major-version: 1
+esc:
+  enabled: true
 env:
   HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
 makeTemplate: bridged
