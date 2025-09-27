@@ -77,11 +77,15 @@ type GetServerTypeArgs struct {
 type GetServerTypeResult struct {
 	// Architecture of the cpu for a Server of this type.
 	Architecture string `pulumi:"architecture"`
+	// Category of the Server Type.
+	Category string `pulumi:"category"`
 	// Number of cpu cores for a Server of this type.
 	Cores int `pulumi:"cores"`
 	// Type of cpu for a Server of this type.
 	CpuType string `pulumi:"cpuType"`
 	// Date of the Server Type deprecation announcement.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
 	// Description of the Server Type.
 	Description string `pulumi:"description"`
@@ -92,7 +96,11 @@ type GetServerTypeResult struct {
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
 	IncludedTraffic int `pulumi:"includedTraffic"`
 	// Whether the Server Type is deprecated.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	IsDeprecated bool `pulumi:"isDeprecated"`
+	// List of supported Locations for this Server Type.
+	Locations []GetServerTypeLocation `pulumi:"locations"`
 	// Memory in GB for a Server of this type.
 	Memory int `pulumi:"memory"`
 	// Name of the Server Type.
@@ -100,6 +108,8 @@ type GetServerTypeResult struct {
 	// Type of boot drive for a Server of this type.
 	StorageType string `pulumi:"storageType"`
 	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
 
@@ -144,6 +154,11 @@ func (o GetServerTypeResultOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
+// Category of the Server Type.
+func (o GetServerTypeResultOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypeResult) string { return v.Category }).(pulumi.StringOutput)
+}
+
 // Number of cpu cores for a Server of this type.
 func (o GetServerTypeResultOutput) Cores() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypeResult) int { return v.Cores }).(pulumi.IntOutput)
@@ -155,6 +170,8 @@ func (o GetServerTypeResultOutput) CpuType() pulumi.StringOutput {
 }
 
 // Date of the Server Type deprecation announcement.
+//
+// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 func (o GetServerTypeResultOutput) DeprecationAnnounced() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
 }
@@ -180,8 +197,15 @@ func (o GetServerTypeResultOutput) IncludedTraffic() pulumi.IntOutput {
 }
 
 // Whether the Server Type is deprecated.
+//
+// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 func (o GetServerTypeResultOutput) IsDeprecated() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerTypeResult) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
+}
+
+// List of supported Locations for this Server Type.
+func (o GetServerTypeResultOutput) Locations() GetServerTypeLocationArrayOutput {
+	return o.ApplyT(func(v GetServerTypeResult) []GetServerTypeLocation { return v.Locations }).(GetServerTypeLocationArrayOutput)
 }
 
 // Memory in GB for a Server of this type.
@@ -200,6 +224,8 @@ func (o GetServerTypeResultOutput) StorageType() pulumi.StringOutput {
 }
 
 // Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+//
+// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 func (o GetServerTypeResultOutput) UnavailableAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeResult) string { return v.UnavailableAfter }).(pulumi.StringOutput)
 }

@@ -5066,14 +5066,151 @@ func (o GetServerNetworkTypeArrayOutput) Index(i pulumi.IntInput) GetServerNetwo
 	}).(GetServerNetworkTypeOutput)
 }
 
+type GetServerTypeLocation struct {
+	// Date of the Server Type deprecation announcement.
+	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
+	// ID of the Location.
+	Id int `pulumi:"id"`
+	// Whether the Server Type is deprecated.
+	IsDeprecated bool `pulumi:"isDeprecated"`
+	// Name of the Location.
+	Name string `pulumi:"name"`
+	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	UnavailableAfter string `pulumi:"unavailableAfter"`
+}
+
+// GetServerTypeLocationInput is an input type that accepts GetServerTypeLocationArgs and GetServerTypeLocationOutput values.
+// You can construct a concrete instance of `GetServerTypeLocationInput` via:
+//
+//	GetServerTypeLocationArgs{...}
+type GetServerTypeLocationInput interface {
+	pulumi.Input
+
+	ToGetServerTypeLocationOutput() GetServerTypeLocationOutput
+	ToGetServerTypeLocationOutputWithContext(context.Context) GetServerTypeLocationOutput
+}
+
+type GetServerTypeLocationArgs struct {
+	// Date of the Server Type deprecation announcement.
+	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
+	// ID of the Location.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Whether the Server Type is deprecated.
+	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
+	// Name of the Location.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
+}
+
+func (GetServerTypeLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerTypeLocation)(nil)).Elem()
+}
+
+func (i GetServerTypeLocationArgs) ToGetServerTypeLocationOutput() GetServerTypeLocationOutput {
+	return i.ToGetServerTypeLocationOutputWithContext(context.Background())
+}
+
+func (i GetServerTypeLocationArgs) ToGetServerTypeLocationOutputWithContext(ctx context.Context) GetServerTypeLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerTypeLocationOutput)
+}
+
+// GetServerTypeLocationArrayInput is an input type that accepts GetServerTypeLocationArray and GetServerTypeLocationArrayOutput values.
+// You can construct a concrete instance of `GetServerTypeLocationArrayInput` via:
+//
+//	GetServerTypeLocationArray{ GetServerTypeLocationArgs{...} }
+type GetServerTypeLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetServerTypeLocationArrayOutput() GetServerTypeLocationArrayOutput
+	ToGetServerTypeLocationArrayOutputWithContext(context.Context) GetServerTypeLocationArrayOutput
+}
+
+type GetServerTypeLocationArray []GetServerTypeLocationInput
+
+func (GetServerTypeLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerTypeLocation)(nil)).Elem()
+}
+
+func (i GetServerTypeLocationArray) ToGetServerTypeLocationArrayOutput() GetServerTypeLocationArrayOutput {
+	return i.ToGetServerTypeLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerTypeLocationArray) ToGetServerTypeLocationArrayOutputWithContext(ctx context.Context) GetServerTypeLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerTypeLocationArrayOutput)
+}
+
+type GetServerTypeLocationOutput struct{ *pulumi.OutputState }
+
+func (GetServerTypeLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerTypeLocation)(nil)).Elem()
+}
+
+func (o GetServerTypeLocationOutput) ToGetServerTypeLocationOutput() GetServerTypeLocationOutput {
+	return o
+}
+
+func (o GetServerTypeLocationOutput) ToGetServerTypeLocationOutputWithContext(ctx context.Context) GetServerTypeLocationOutput {
+	return o
+}
+
+// Date of the Server Type deprecation announcement.
+func (o GetServerTypeLocationOutput) DeprecationAnnounced() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypeLocation) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
+}
+
+// ID of the Location.
+func (o GetServerTypeLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerTypeLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Whether the Server Type is deprecated.
+func (o GetServerTypeLocationOutput) IsDeprecated() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerTypeLocation) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
+}
+
+// Name of the Location.
+func (o GetServerTypeLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypeLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+func (o GetServerTypeLocationOutput) UnavailableAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypeLocation) string { return v.UnavailableAfter }).(pulumi.StringOutput)
+}
+
+type GetServerTypeLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerTypeLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerTypeLocation)(nil)).Elem()
+}
+
+func (o GetServerTypeLocationArrayOutput) ToGetServerTypeLocationArrayOutput() GetServerTypeLocationArrayOutput {
+	return o
+}
+
+func (o GetServerTypeLocationArrayOutput) ToGetServerTypeLocationArrayOutputWithContext(ctx context.Context) GetServerTypeLocationArrayOutput {
+	return o
+}
+
+func (o GetServerTypeLocationArrayOutput) Index(i pulumi.IntInput) GetServerTypeLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerTypeLocation {
+		return vs[0].([]GetServerTypeLocation)[vs[1].(int)]
+	}).(GetServerTypeLocationOutput)
+}
+
 type GetServerTypesServerType struct {
 	// Architecture of the cpu for a Server of this type.
 	Architecture string `pulumi:"architecture"`
+	// Category of the Server Type.
+	Category string `pulumi:"category"`
 	// Number of cpu cores for a Server of this type.
 	Cores int `pulumi:"cores"`
 	// Type of cpu for a Server of this type.
 	CpuType string `pulumi:"cpuType"`
 	// Date of the Server Type deprecation announcement.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
 	// Description of the Server Type.
 	Description string `pulumi:"description"`
@@ -5084,7 +5221,11 @@ type GetServerTypesServerType struct {
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
 	IncludedTraffic int `pulumi:"includedTraffic"`
 	// Whether the Server Type is deprecated.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	IsDeprecated bool `pulumi:"isDeprecated"`
+	// List of supported Locations for this Server Type.
+	Locations []GetServerTypesServerTypeLocation `pulumi:"locations"`
 	// Memory in GB for a Server of this type.
 	Memory int `pulumi:"memory"`
 	// Name of the Server Type.
@@ -5092,6 +5233,8 @@ type GetServerTypesServerType struct {
 	// Type of boot drive for a Server of this type.
 	StorageType string `pulumi:"storageType"`
 	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
 
@@ -5109,11 +5252,15 @@ type GetServerTypesServerTypeInput interface {
 type GetServerTypesServerTypeArgs struct {
 	// Architecture of the cpu for a Server of this type.
 	Architecture pulumi.StringInput `pulumi:"architecture"`
+	// Category of the Server Type.
+	Category pulumi.StringInput `pulumi:"category"`
 	// Number of cpu cores for a Server of this type.
 	Cores pulumi.IntInput `pulumi:"cores"`
 	// Type of cpu for a Server of this type.
 	CpuType pulumi.StringInput `pulumi:"cpuType"`
 	// Date of the Server Type deprecation announcement.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
 	// Description of the Server Type.
 	Description pulumi.StringInput `pulumi:"description"`
@@ -5124,7 +5271,11 @@ type GetServerTypesServerTypeArgs struct {
 	// Deprecated: The field is deprecated and will always report 0 after 2024-08-05.
 	IncludedTraffic pulumi.IntInput `pulumi:"includedTraffic"`
 	// Whether the Server Type is deprecated.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
+	// List of supported Locations for this Server Type.
+	Locations GetServerTypesServerTypeLocationArrayInput `pulumi:"locations"`
 	// Memory in GB for a Server of this type.
 	Memory pulumi.IntInput `pulumi:"memory"`
 	// Name of the Server Type.
@@ -5132,6 +5283,8 @@ type GetServerTypesServerTypeArgs struct {
 	// Type of boot drive for a Server of this type.
 	StorageType pulumi.StringInput `pulumi:"storageType"`
 	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	//
+	// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
 }
 
@@ -5191,6 +5344,11 @@ func (o GetServerTypesServerTypeOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
+// Category of the Server Type.
+func (o GetServerTypesServerTypeOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) string { return v.Category }).(pulumi.StringOutput)
+}
+
 // Number of cpu cores for a Server of this type.
 func (o GetServerTypesServerTypeOutput) Cores() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) int { return v.Cores }).(pulumi.IntOutput)
@@ -5202,6 +5360,8 @@ func (o GetServerTypesServerTypeOutput) CpuType() pulumi.StringOutput {
 }
 
 // Date of the Server Type deprecation announcement.
+//
+// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 func (o GetServerTypesServerTypeOutput) DeprecationAnnounced() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
 }
@@ -5227,8 +5387,15 @@ func (o GetServerTypesServerTypeOutput) IncludedTraffic() pulumi.IntOutput {
 }
 
 // Whether the Server Type is deprecated.
+//
+// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 func (o GetServerTypesServerTypeOutput) IsDeprecated() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
+}
+
+// List of supported Locations for this Server Type.
+func (o GetServerTypesServerTypeOutput) Locations() GetServerTypesServerTypeLocationArrayOutput {
+	return o.ApplyT(func(v GetServerTypesServerType) []GetServerTypesServerTypeLocation { return v.Locations }).(GetServerTypesServerTypeLocationArrayOutput)
 }
 
 // Memory in GB for a Server of this type.
@@ -5247,6 +5414,8 @@ func (o GetServerTypesServerTypeOutput) StorageType() pulumi.StringOutput {
 }
 
 // Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+//
+// Deprecated: The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
 func (o GetServerTypesServerTypeOutput) UnavailableAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerType) string { return v.UnavailableAfter }).(pulumi.StringOutput)
 }
@@ -5269,6 +5438,139 @@ func (o GetServerTypesServerTypeArrayOutput) Index(i pulumi.IntInput) GetServerT
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerTypesServerType {
 		return vs[0].([]GetServerTypesServerType)[vs[1].(int)]
 	}).(GetServerTypesServerTypeOutput)
+}
+
+type GetServerTypesServerTypeLocation struct {
+	// Date of the Server Type deprecation announcement.
+	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
+	// ID of the Location.
+	Id int `pulumi:"id"`
+	// Whether the Server Type is deprecated.
+	IsDeprecated bool `pulumi:"isDeprecated"`
+	// Name of the Location.
+	Name string `pulumi:"name"`
+	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	UnavailableAfter string `pulumi:"unavailableAfter"`
+}
+
+// GetServerTypesServerTypeLocationInput is an input type that accepts GetServerTypesServerTypeLocationArgs and GetServerTypesServerTypeLocationOutput values.
+// You can construct a concrete instance of `GetServerTypesServerTypeLocationInput` via:
+//
+//	GetServerTypesServerTypeLocationArgs{...}
+type GetServerTypesServerTypeLocationInput interface {
+	pulumi.Input
+
+	ToGetServerTypesServerTypeLocationOutput() GetServerTypesServerTypeLocationOutput
+	ToGetServerTypesServerTypeLocationOutputWithContext(context.Context) GetServerTypesServerTypeLocationOutput
+}
+
+type GetServerTypesServerTypeLocationArgs struct {
+	// Date of the Server Type deprecation announcement.
+	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
+	// ID of the Location.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Whether the Server Type is deprecated.
+	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
+	// Name of the Location.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
+}
+
+func (GetServerTypesServerTypeLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerTypesServerTypeLocation)(nil)).Elem()
+}
+
+func (i GetServerTypesServerTypeLocationArgs) ToGetServerTypesServerTypeLocationOutput() GetServerTypesServerTypeLocationOutput {
+	return i.ToGetServerTypesServerTypeLocationOutputWithContext(context.Background())
+}
+
+func (i GetServerTypesServerTypeLocationArgs) ToGetServerTypesServerTypeLocationOutputWithContext(ctx context.Context) GetServerTypesServerTypeLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerTypesServerTypeLocationOutput)
+}
+
+// GetServerTypesServerTypeLocationArrayInput is an input type that accepts GetServerTypesServerTypeLocationArray and GetServerTypesServerTypeLocationArrayOutput values.
+// You can construct a concrete instance of `GetServerTypesServerTypeLocationArrayInput` via:
+//
+//	GetServerTypesServerTypeLocationArray{ GetServerTypesServerTypeLocationArgs{...} }
+type GetServerTypesServerTypeLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetServerTypesServerTypeLocationArrayOutput() GetServerTypesServerTypeLocationArrayOutput
+	ToGetServerTypesServerTypeLocationArrayOutputWithContext(context.Context) GetServerTypesServerTypeLocationArrayOutput
+}
+
+type GetServerTypesServerTypeLocationArray []GetServerTypesServerTypeLocationInput
+
+func (GetServerTypesServerTypeLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerTypesServerTypeLocation)(nil)).Elem()
+}
+
+func (i GetServerTypesServerTypeLocationArray) ToGetServerTypesServerTypeLocationArrayOutput() GetServerTypesServerTypeLocationArrayOutput {
+	return i.ToGetServerTypesServerTypeLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerTypesServerTypeLocationArray) ToGetServerTypesServerTypeLocationArrayOutputWithContext(ctx context.Context) GetServerTypesServerTypeLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerTypesServerTypeLocationArrayOutput)
+}
+
+type GetServerTypesServerTypeLocationOutput struct{ *pulumi.OutputState }
+
+func (GetServerTypesServerTypeLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerTypesServerTypeLocation)(nil)).Elem()
+}
+
+func (o GetServerTypesServerTypeLocationOutput) ToGetServerTypesServerTypeLocationOutput() GetServerTypesServerTypeLocationOutput {
+	return o
+}
+
+func (o GetServerTypesServerTypeLocationOutput) ToGetServerTypesServerTypeLocationOutputWithContext(ctx context.Context) GetServerTypesServerTypeLocationOutput {
+	return o
+}
+
+// Date of the Server Type deprecation announcement.
+func (o GetServerTypesServerTypeLocationOutput) DeprecationAnnounced() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesServerTypeLocation) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
+}
+
+// ID of the Location.
+func (o GetServerTypesServerTypeLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerTypesServerTypeLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Whether the Server Type is deprecated.
+func (o GetServerTypesServerTypeLocationOutput) IsDeprecated() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerTypesServerTypeLocation) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
+}
+
+// Name of the Location.
+func (o GetServerTypesServerTypeLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesServerTypeLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+func (o GetServerTypesServerTypeLocationOutput) UnavailableAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerTypesServerTypeLocation) string { return v.UnavailableAfter }).(pulumi.StringOutput)
+}
+
+type GetServerTypesServerTypeLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerTypesServerTypeLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerTypesServerTypeLocation)(nil)).Elem()
+}
+
+func (o GetServerTypesServerTypeLocationArrayOutput) ToGetServerTypesServerTypeLocationArrayOutput() GetServerTypesServerTypeLocationArrayOutput {
+	return o
+}
+
+func (o GetServerTypesServerTypeLocationArrayOutput) ToGetServerTypesServerTypeLocationArrayOutputWithContext(ctx context.Context) GetServerTypesServerTypeLocationArrayOutput {
+	return o
+}
+
+func (o GetServerTypesServerTypeLocationArrayOutput) Index(i pulumi.IntInput) GetServerTypesServerTypeLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerTypesServerTypeLocation {
+		return vs[0].([]GetServerTypesServerTypeLocation)[vs[1].(int)]
+	}).(GetServerTypesServerTypeLocationOutput)
 }
 
 type GetServersServer struct {
@@ -5941,8 +6243,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrimaryIpsPrimaryIpArrayInput)(nil)).Elem(), GetPrimaryIpsPrimaryIpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerNetworkTypeInput)(nil)).Elem(), GetServerNetworkTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerNetworkTypeArrayInput)(nil)).Elem(), GetServerNetworkTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypeLocationInput)(nil)).Elem(), GetServerTypeLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypeLocationArrayInput)(nil)).Elem(), GetServerTypeLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypesServerTypeInput)(nil)).Elem(), GetServerTypesServerTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypesServerTypeArrayInput)(nil)).Elem(), GetServerTypesServerTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypesServerTypeLocationInput)(nil)).Elem(), GetServerTypesServerTypeLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerTypesServerTypeLocationArrayInput)(nil)).Elem(), GetServerTypesServerTypeLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerInput)(nil)).Elem(), GetServersServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerArrayInput)(nil)).Elem(), GetServersServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerNetworkInput)(nil)).Elem(), GetServersServerNetworkArgs{})
@@ -6025,8 +6331,12 @@ func init() {
 	pulumi.RegisterOutputType(GetPrimaryIpsPrimaryIpArrayOutput{})
 	pulumi.RegisterOutputType(GetServerNetworkTypeOutput{})
 	pulumi.RegisterOutputType(GetServerNetworkTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetServerTypeLocationOutput{})
+	pulumi.RegisterOutputType(GetServerTypeLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetServerTypesServerTypeOutput{})
 	pulumi.RegisterOutputType(GetServerTypesServerTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetServerTypesServerTypeLocationOutput{})
+	pulumi.RegisterOutputType(GetServerTypesServerTypeLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetServersServerOutput{})
 	pulumi.RegisterOutputType(GetServersServerArrayOutput{})
 	pulumi.RegisterOutputType(GetServersServerNetworkOutput{})

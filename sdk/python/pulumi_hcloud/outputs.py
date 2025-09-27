@@ -53,7 +53,9 @@ __all__ = [
     'GetPlacementGroupsPlacementGroupResult',
     'GetPrimaryIpsPrimaryIpResult',
     'GetServerNetworkResult',
+    'GetServerTypeLocationResult',
     'GetServerTypesServerTypeResult',
+    'GetServerTypesServerTypeLocationResult',
     'GetServersServerResult',
     'GetServersServerNetworkResult',
     'GetSshKeysSshKeyResult',
@@ -2254,9 +2256,72 @@ class GetServerNetworkResult(dict):
 
 
 @pulumi.output_type
+class GetServerTypeLocationResult(dict):
+    def __init__(__self__, *,
+                 deprecation_announced: _builtins.str,
+                 id: _builtins.int,
+                 is_deprecated: _builtins.bool,
+                 name: _builtins.str,
+                 unavailable_after: _builtins.str):
+        """
+        :param _builtins.str deprecation_announced: Date of the Server Type deprecation announcement.
+        :param _builtins.int id: ID of the Location.
+        :param _builtins.bool is_deprecated: Whether the Server Type is deprecated.
+        :param _builtins.str name: Name of the Location.
+        :param _builtins.str unavailable_after: Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+        """
+        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "unavailable_after", unavailable_after)
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationAnnounced")
+    def deprecation_announced(self) -> _builtins.str:
+        """
+        Date of the Server Type deprecation announcement.
+        """
+        return pulumi.get(self, "deprecation_announced")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        ID of the Location.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> _builtins.bool:
+        """
+        Whether the Server Type is deprecated.
+        """
+        return pulumi.get(self, "is_deprecated")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Location.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="unavailableAfter")
+    def unavailable_after(self) -> _builtins.str:
+        """
+        Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+        """
+        return pulumi.get(self, "unavailable_after")
+
+
+@pulumi.output_type
 class GetServerTypesServerTypeResult(dict):
     def __init__(__self__, *,
                  architecture: _builtins.str,
+                 category: _builtins.str,
                  cores: _builtins.int,
                  cpu_type: _builtins.str,
                  deprecation_announced: _builtins.str,
@@ -2265,12 +2330,14 @@ class GetServerTypesServerTypeResult(dict):
                  id: _builtins.int,
                  included_traffic: _builtins.int,
                  is_deprecated: _builtins.bool,
+                 locations: Sequence['outputs.GetServerTypesServerTypeLocationResult'],
                  memory: _builtins.int,
                  name: _builtins.str,
                  storage_type: _builtins.str,
                  unavailable_after: _builtins.str):
         """
         :param _builtins.str architecture: Architecture of the cpu for a Server of this type.
+        :param _builtins.str category: Category of the Server Type.
         :param _builtins.int cores: Number of cpu cores for a Server of this type.
         :param _builtins.str cpu_type: Type of cpu for a Server of this type.
         :param _builtins.str deprecation_announced: Date of the Server Type deprecation announcement.
@@ -2278,12 +2345,14 @@ class GetServerTypesServerTypeResult(dict):
         :param _builtins.int disk: Disk size in GB for a Server of this type.
         :param _builtins.int id: ID of the Server Type.
         :param _builtins.bool is_deprecated: Whether the Server Type is deprecated.
+        :param Sequence['GetServerTypesServerTypeLocationArgs'] locations: List of supported Locations for this Server Type.
         :param _builtins.int memory: Memory in GB for a Server of this type.
         :param _builtins.str name: Name of the Server Type.
         :param _builtins.str storage_type: Type of boot drive for a Server of this type.
         :param _builtins.str unavailable_after: Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
         """
         pulumi.set(__self__, "architecture", architecture)
+        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "cores", cores)
         pulumi.set(__self__, "cpu_type", cpu_type)
         pulumi.set(__self__, "deprecation_announced", deprecation_announced)
@@ -2292,6 +2361,7 @@ class GetServerTypesServerTypeResult(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "included_traffic", included_traffic)
         pulumi.set(__self__, "is_deprecated", is_deprecated)
+        pulumi.set(__self__, "locations", locations)
         pulumi.set(__self__, "memory", memory)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "storage_type", storage_type)
@@ -2304,6 +2374,14 @@ class GetServerTypesServerTypeResult(dict):
         Architecture of the cpu for a Server of this type.
         """
         return pulumi.get(self, "architecture")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        """
+        Category of the Server Type.
+        """
+        return pulumi.get(self, "category")
 
     @_builtins.property
     @pulumi.getter
@@ -2323,6 +2401,7 @@ class GetServerTypesServerTypeResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="deprecationAnnounced")
+    @_utilities.deprecated("""The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.""")
     def deprecation_announced(self) -> _builtins.str:
         """
         Date of the Server Type deprecation announcement.
@@ -2361,11 +2440,20 @@ class GetServerTypesServerTypeResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="isDeprecated")
+    @_utilities.deprecated("""The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.""")
     def is_deprecated(self) -> _builtins.bool:
         """
         Whether the Server Type is deprecated.
         """
         return pulumi.get(self, "is_deprecated")
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Sequence['outputs.GetServerTypesServerTypeLocationResult']:
+        """
+        List of supported Locations for this Server Type.
+        """
+        return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
@@ -2390,6 +2478,69 @@ class GetServerTypesServerTypeResult(dict):
         Type of boot drive for a Server of this type.
         """
         return pulumi.get(self, "storage_type")
+
+    @_builtins.property
+    @pulumi.getter(name="unavailableAfter")
+    @_utilities.deprecated("""The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.""")
+    def unavailable_after(self) -> _builtins.str:
+        """
+        Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+        """
+        return pulumi.get(self, "unavailable_after")
+
+
+@pulumi.output_type
+class GetServerTypesServerTypeLocationResult(dict):
+    def __init__(__self__, *,
+                 deprecation_announced: _builtins.str,
+                 id: _builtins.int,
+                 is_deprecated: _builtins.bool,
+                 name: _builtins.str,
+                 unavailable_after: _builtins.str):
+        """
+        :param _builtins.str deprecation_announced: Date of the Server Type deprecation announcement.
+        :param _builtins.int id: ID of the Location.
+        :param _builtins.bool is_deprecated: Whether the Server Type is deprecated.
+        :param _builtins.str name: Name of the Location.
+        :param _builtins.str unavailable_after: Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+        """
+        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "unavailable_after", unavailable_after)
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationAnnounced")
+    def deprecation_announced(self) -> _builtins.str:
+        """
+        Date of the Server Type deprecation announcement.
+        """
+        return pulumi.get(self, "deprecation_announced")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        ID of the Location.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> _builtins.bool:
+        """
+        Whether the Server Type is deprecated.
+        """
+        return pulumi.get(self, "is_deprecated")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Location.
+        """
+        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="unavailableAfter")

@@ -482,11 +482,38 @@ export interface GetServerNetwork {
     networkId: number;
 }
 
+export interface GetServerTypeLocation {
+    /**
+     * Date of the Server Type deprecation announcement.
+     */
+    deprecationAnnounced: string;
+    /**
+     * ID of the Location.
+     */
+    id: number;
+    /**
+     * Whether the Server Type is deprecated.
+     */
+    isDeprecated: boolean;
+    /**
+     * Name of the Location.
+     */
+    name: string;
+    /**
+     * Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+     */
+    unavailableAfter: string;
+}
+
 export interface GetServerTypesServerType {
     /**
      * Architecture of the cpu for a Server of this type.
      */
     architecture: string;
+    /**
+     * Category of the Server Type.
+     */
+    category: string;
     /**
      * Number of cpu cores for a Server of this type.
      */
@@ -497,6 +524,8 @@ export interface GetServerTypesServerType {
     cpuType: string;
     /**
      * Date of the Server Type deprecation announcement.
+     *
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      */
     deprecationAnnounced: string;
     /**
@@ -517,8 +546,14 @@ export interface GetServerTypesServerType {
     includedTraffic: number;
     /**
      * Whether the Server Type is deprecated.
+     *
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      */
     isDeprecated: boolean;
+    /**
+     * List of supported Locations for this Server Type.
+     */
+    locations: outputs.GetServerTypesServerTypeLocation[];
     /**
      * Memory in GB for a Server of this type.
      */
@@ -531,6 +566,31 @@ export interface GetServerTypesServerType {
      * Type of boot drive for a Server of this type.
      */
     storageType: string;
+    /**
+     * Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+     *
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     */
+    unavailableAfter: string;
+}
+
+export interface GetServerTypesServerTypeLocation {
+    /**
+     * Date of the Server Type deprecation announcement.
+     */
+    deprecationAnnounced: string;
+    /**
+     * ID of the Location.
+     */
+    id: number;
+    /**
+     * Whether the Server Type is deprecated.
+     */
+    isDeprecated: boolean;
+    /**
+     * Name of the Location.
+     */
+    name: string;
     /**
      * Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      */

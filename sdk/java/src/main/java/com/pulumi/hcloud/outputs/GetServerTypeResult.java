@@ -5,9 +5,11 @@ package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.hcloud.outputs.GetServerTypeLocation;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,6 +21,11 @@ public final class GetServerTypeResult {
      * 
      */
     private String architecture;
+    /**
+     * @return Category of the Server Type.
+     * 
+     */
+    private String category;
     /**
      * @return Number of cpu cores for a Server of this type.
      * 
@@ -32,7 +39,11 @@ public final class GetServerTypeResult {
     /**
      * @return Date of the Server Type deprecation announcement.
      * 
+     * @deprecated
+     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * 
      */
+    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
     private String deprecationAnnounced;
     /**
      * @return Description of the Server Type.
@@ -59,8 +70,17 @@ public final class GetServerTypeResult {
     /**
      * @return Whether the Server Type is deprecated.
      * 
+     * @deprecated
+     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * 
      */
+    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
     private Boolean isDeprecated;
+    /**
+     * @return List of supported Locations for this Server Type.
+     * 
+     */
+    private List<GetServerTypeLocation> locations;
     /**
      * @return Memory in GB for a Server of this type.
      * 
@@ -79,7 +99,11 @@ public final class GetServerTypeResult {
     /**
      * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      * 
+     * @deprecated
+     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * 
      */
+    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
     private String unavailableAfter;
 
     private GetServerTypeResult() {}
@@ -89,6 +113,13 @@ public final class GetServerTypeResult {
      */
     public String architecture() {
         return this.architecture;
+    }
+    /**
+     * @return Category of the Server Type.
+     * 
+     */
+    public String category() {
+        return this.category;
     }
     /**
      * @return Number of cpu cores for a Server of this type.
@@ -107,7 +138,11 @@ public final class GetServerTypeResult {
     /**
      * @return Date of the Server Type deprecation announcement.
      * 
+     * @deprecated
+     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * 
      */
+    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
     public String deprecationAnnounced() {
         return this.deprecationAnnounced;
     }
@@ -144,9 +179,20 @@ public final class GetServerTypeResult {
     /**
      * @return Whether the Server Type is deprecated.
      * 
+     * @deprecated
+     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * 
      */
+    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
     public Boolean isDeprecated() {
         return this.isDeprecated;
+    }
+    /**
+     * @return List of supported Locations for this Server Type.
+     * 
+     */
+    public List<GetServerTypeLocation> locations() {
+        return this.locations;
     }
     /**
      * @return Memory in GB for a Server of this type.
@@ -172,7 +218,11 @@ public final class GetServerTypeResult {
     /**
      * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      * 
+     * @deprecated
+     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * 
      */
+    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
     public String unavailableAfter() {
         return this.unavailableAfter;
     }
@@ -187,6 +237,7 @@ public final class GetServerTypeResult {
     @CustomType.Builder
     public static final class Builder {
         private String architecture;
+        private String category;
         private Integer cores;
         private String cpuType;
         private String deprecationAnnounced;
@@ -195,6 +246,7 @@ public final class GetServerTypeResult {
         private @Nullable Integer id;
         private Integer includedTraffic;
         private Boolean isDeprecated;
+        private List<GetServerTypeLocation> locations;
         private Integer memory;
         private @Nullable String name;
         private String storageType;
@@ -203,6 +255,7 @@ public final class GetServerTypeResult {
         public Builder(GetServerTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.architecture = defaults.architecture;
+    	      this.category = defaults.category;
     	      this.cores = defaults.cores;
     	      this.cpuType = defaults.cpuType;
     	      this.deprecationAnnounced = defaults.deprecationAnnounced;
@@ -211,6 +264,7 @@ public final class GetServerTypeResult {
     	      this.id = defaults.id;
     	      this.includedTraffic = defaults.includedTraffic;
     	      this.isDeprecated = defaults.isDeprecated;
+    	      this.locations = defaults.locations;
     	      this.memory = defaults.memory;
     	      this.name = defaults.name;
     	      this.storageType = defaults.storageType;
@@ -223,6 +277,14 @@ public final class GetServerTypeResult {
               throw new MissingRequiredPropertyException("GetServerTypeResult", "architecture");
             }
             this.architecture = architecture;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder category(String category) {
+            if (category == null) {
+              throw new MissingRequiredPropertyException("GetServerTypeResult", "category");
+            }
+            this.category = category;
             return this;
         }
         @CustomType.Setter
@@ -288,6 +350,17 @@ public final class GetServerTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder locations(List<GetServerTypeLocation> locations) {
+            if (locations == null) {
+              throw new MissingRequiredPropertyException("GetServerTypeResult", "locations");
+            }
+            this.locations = locations;
+            return this;
+        }
+        public Builder locations(GetServerTypeLocation... locations) {
+            return locations(List.of(locations));
+        }
+        @CustomType.Setter
         public Builder memory(Integer memory) {
             if (memory == null) {
               throw new MissingRequiredPropertyException("GetServerTypeResult", "memory");
@@ -320,6 +393,7 @@ public final class GetServerTypeResult {
         public GetServerTypeResult build() {
             final var _resultValue = new GetServerTypeResult();
             _resultValue.architecture = architecture;
+            _resultValue.category = category;
             _resultValue.cores = cores;
             _resultValue.cpuType = cpuType;
             _resultValue.deprecationAnnounced = deprecationAnnounced;
@@ -328,6 +402,7 @@ public final class GetServerTypeResult {
             _resultValue.id = id;
             _resultValue.includedTraffic = includedTraffic;
             _resultValue.isDeprecated = isDeprecated;
+            _resultValue.locations = locations;
             _resultValue.memory = memory;
             _resultValue.name = name;
             _resultValue.storageType = storageType;

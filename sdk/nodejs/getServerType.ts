@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -61,6 +63,10 @@ export interface GetServerTypeResult {
      */
     readonly architecture: string;
     /**
+     * Category of the Server Type.
+     */
+    readonly category: string;
+    /**
      * Number of cpu cores for a Server of this type.
      */
     readonly cores: number;
@@ -70,6 +76,8 @@ export interface GetServerTypeResult {
     readonly cpuType: string;
     /**
      * Date of the Server Type deprecation announcement.
+     *
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      */
     readonly deprecationAnnounced: string;
     /**
@@ -90,8 +98,14 @@ export interface GetServerTypeResult {
     readonly includedTraffic: number;
     /**
      * Whether the Server Type is deprecated.
+     *
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      */
     readonly isDeprecated: boolean;
+    /**
+     * List of supported Locations for this Server Type.
+     */
+    readonly locations: outputs.GetServerTypeLocation[];
     /**
      * Memory in GB for a Server of this type.
      */
@@ -106,6 +120,8 @@ export interface GetServerTypeResult {
     readonly storageType: string;
     /**
      * Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
+     *
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      */
     readonly unavailableAfter: string;
 }
