@@ -1477,11 +1477,52 @@
                 }
             }
         },
+        "hcloud:index/getServerTypeLocation:getServerTypeLocation": {
+            "properties": {
+                "deprecationAnnounced": {
+                    "type": "string",
+                    "description": "Date of the Server Type deprecation announcement.\n"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "ID of the Location.\n"
+                },
+                "isDeprecated": {
+                    "type": "boolean",
+                    "description": "Whether the Server Type is deprecated.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Location.\n"
+                },
+                "unavailableAfter": {
+                    "type": "string",
+                    "description": "Date of the Server Type removal. After this date, the Server Type cannot be used anymore.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "deprecationAnnounced",
+                "id",
+                "isDeprecated",
+                "name",
+                "unavailableAfter"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "hcloud:index/getServerTypesServerType:getServerTypesServerType": {
             "properties": {
                 "architecture": {
                     "type": "string",
                     "description": "Architecture of the cpu for a Server of this type.\n"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "Category of the Server Type.\n"
                 },
                 "cores": {
                     "type": "integer",
@@ -1493,7 +1534,8 @@
                 },
                 "deprecationAnnounced": {
                     "type": "string",
-                    "description": "Date of the Server Type deprecation announcement.\n"
+                    "description": "Date of the Server Type deprecation announcement.\n",
+                    "deprecationMessage": "The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead."
                 },
                 "description": {
                     "type": "string",
@@ -1513,7 +1555,15 @@
                 },
                 "isDeprecated": {
                     "type": "boolean",
-                    "description": "Whether the Server Type is deprecated.\n"
+                    "description": "Whether the Server Type is deprecated.\n",
+                    "deprecationMessage": "The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead."
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getServerTypesServerTypeLocation:getServerTypesServerTypeLocation"
+                    },
+                    "description": "List of supported Locations for this Server Type.\n"
                 },
                 "memory": {
                     "type": "integer",
@@ -1529,12 +1579,14 @@
                 },
                 "unavailableAfter": {
                     "type": "string",
-                    "description": "Date of the Server Type removal. After this date, the Server Type cannot be used anymore.\n"
+                    "description": "Date of the Server Type removal. After this date, the Server Type cannot be used anymore.\n",
+                    "deprecationMessage": "The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead."
                 }
             },
             "type": "object",
             "required": [
                 "architecture",
+                "category",
                 "cores",
                 "cpuType",
                 "deprecationAnnounced",
@@ -1543,9 +1595,47 @@
                 "id",
                 "includedTraffic",
                 "isDeprecated",
+                "locations",
                 "memory",
                 "name",
                 "storageType",
+                "unavailableAfter"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getServerTypesServerTypeLocation:getServerTypesServerTypeLocation": {
+            "properties": {
+                "deprecationAnnounced": {
+                    "type": "string",
+                    "description": "Date of the Server Type deprecation announcement.\n"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "ID of the Location.\n"
+                },
+                "isDeprecated": {
+                    "type": "boolean",
+                    "description": "Whether the Server Type is deprecated.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Location.\n"
+                },
+                "unavailableAfter": {
+                    "type": "string",
+                    "description": "Date of the Server Type removal. After this date, the Server Type cannot be used anymore.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "deprecationAnnounced",
+                "id",
+                "isDeprecated",
+                "name",
                 "unavailableAfter"
             ],
             "language": {
@@ -6111,6 +6201,10 @@
                         "description": "Architecture of the cpu for a Server of this type.\n",
                         "type": "string"
                     },
+                    "category": {
+                        "description": "Category of the Server Type.\n",
+                        "type": "string"
+                    },
                     "cores": {
                         "description": "Number of cpu cores for a Server of this type.\n",
                         "type": "integer"
@@ -6120,6 +6214,7 @@
                         "type": "string"
                     },
                     "deprecationAnnounced": {
+                        "deprecationMessage": "The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.",
                         "description": "Date of the Server Type deprecation announcement.\n",
                         "type": "string"
                     },
@@ -6140,8 +6235,16 @@
                         "type": "integer"
                     },
                     "isDeprecated": {
+                        "deprecationMessage": "The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.",
                         "description": "Whether the Server Type is deprecated.\n",
                         "type": "boolean"
+                    },
+                    "locations": {
+                        "description": "List of supported Locations for this Server Type.\n",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getServerTypeLocation:getServerTypeLocation"
+                        },
+                        "type": "array"
                     },
                     "memory": {
                         "description": "Memory in GB for a Server of this type.\n",
@@ -6156,12 +6259,14 @@
                         "type": "string"
                     },
                     "unavailableAfter": {
+                        "deprecationMessage": "The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.",
                         "description": "Date of the Server Type removal. After this date, the Server Type cannot be used anymore.\n",
                         "type": "string"
                     }
                 },
                 "required": [
                     "architecture",
+                    "category",
                     "cores",
                     "cpuType",
                     "deprecationAnnounced",
@@ -6169,6 +6274,7 @@
                     "disk",
                     "includedTraffic",
                     "isDeprecated",
+                    "locations",
                     "memory",
                     "storageType",
                     "unavailableAfter"
