@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetServerTypeResult',
@@ -26,10 +27,13 @@ class GetServerTypeResult:
     """
     A collection of values returned by getServerType.
     """
-    def __init__(__self__, architecture=None, cores=None, cpu_type=None, deprecation_announced=None, description=None, disk=None, id=None, included_traffic=None, is_deprecated=None, memory=None, name=None, storage_type=None, unavailable_after=None):
+    def __init__(__self__, architecture=None, category=None, cores=None, cpu_type=None, deprecation_announced=None, description=None, disk=None, id=None, included_traffic=None, is_deprecated=None, locations=None, memory=None, name=None, storage_type=None, unavailable_after=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
+        if category and not isinstance(category, str):
+            raise TypeError("Expected argument 'category' to be a str")
+        pulumi.set(__self__, "category", category)
         if cores and not isinstance(cores, int):
             raise TypeError("Expected argument 'cores' to be a int")
         pulumi.set(__self__, "cores", cores)
@@ -54,6 +58,9 @@ class GetServerTypeResult:
         if is_deprecated and not isinstance(is_deprecated, bool):
             raise TypeError("Expected argument 'is_deprecated' to be a bool")
         pulumi.set(__self__, "is_deprecated", is_deprecated)
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        pulumi.set(__self__, "locations", locations)
         if memory and not isinstance(memory, int):
             raise TypeError("Expected argument 'memory' to be a int")
         pulumi.set(__self__, "memory", memory)
@@ -77,6 +84,14 @@ class GetServerTypeResult:
 
     @_builtins.property
     @pulumi.getter
+    def category(self) -> _builtins.str:
+        """
+        Category of the Server Type.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
     def cores(self) -> _builtins.int:
         """
         Number of cpu cores for a Server of this type.
@@ -93,6 +108,7 @@ class GetServerTypeResult:
 
     @_builtins.property
     @pulumi.getter(name="deprecationAnnounced")
+    @_utilities.deprecated("""The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.""")
     def deprecation_announced(self) -> _builtins.str:
         """
         Date of the Server Type deprecation announcement.
@@ -131,11 +147,20 @@ class GetServerTypeResult:
 
     @_builtins.property
     @pulumi.getter(name="isDeprecated")
+    @_utilities.deprecated("""The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.""")
     def is_deprecated(self) -> _builtins.bool:
         """
         Whether the Server Type is deprecated.
         """
         return pulumi.get(self, "is_deprecated")
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Sequence['outputs.GetServerTypeLocationResult']:
+        """
+        List of supported Locations for this Server Type.
+        """
+        return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
@@ -163,6 +188,7 @@ class GetServerTypeResult:
 
     @_builtins.property
     @pulumi.getter(name="unavailableAfter")
+    @_utilities.deprecated("""The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.""")
     def unavailable_after(self) -> _builtins.str:
         """
         Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
@@ -177,6 +203,7 @@ class AwaitableGetServerTypeResult(GetServerTypeResult):
             yield self
         return GetServerTypeResult(
             architecture=self.architecture,
+            category=self.category,
             cores=self.cores,
             cpu_type=self.cpu_type,
             deprecation_announced=self.deprecation_announced,
@@ -185,6 +212,7 @@ class AwaitableGetServerTypeResult(GetServerTypeResult):
             id=self.id,
             included_traffic=self.included_traffic,
             is_deprecated=self.is_deprecated,
+            locations=self.locations,
             memory=self.memory,
             name=self.name,
             storage_type=self.storage_type,
@@ -226,6 +254,7 @@ def get_server_type(id: Optional[_builtins.int] = None,
 
     return AwaitableGetServerTypeResult(
         architecture=pulumi.get(__ret__, 'architecture'),
+        category=pulumi.get(__ret__, 'category'),
         cores=pulumi.get(__ret__, 'cores'),
         cpu_type=pulumi.get(__ret__, 'cpu_type'),
         deprecation_announced=pulumi.get(__ret__, 'deprecation_announced'),
@@ -234,6 +263,7 @@ def get_server_type(id: Optional[_builtins.int] = None,
         id=pulumi.get(__ret__, 'id'),
         included_traffic=pulumi.get(__ret__, 'included_traffic'),
         is_deprecated=pulumi.get(__ret__, 'is_deprecated'),
+        locations=pulumi.get(__ret__, 'locations'),
         memory=pulumi.get(__ret__, 'memory'),
         name=pulumi.get(__ret__, 'name'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
@@ -272,6 +302,7 @@ def get_server_type_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] =
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getServerType:getServerType', __args__, opts=opts, typ=GetServerTypeResult)
     return __ret__.apply(lambda __response__: GetServerTypeResult(
         architecture=pulumi.get(__response__, 'architecture'),
+        category=pulumi.get(__response__, 'category'),
         cores=pulumi.get(__response__, 'cores'),
         cpu_type=pulumi.get(__response__, 'cpu_type'),
         deprecation_announced=pulumi.get(__response__, 'deprecation_announced'),
@@ -280,6 +311,7 @@ def get_server_type_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] =
         id=pulumi.get(__response__, 'id'),
         included_traffic=pulumi.get(__response__, 'included_traffic'),
         is_deprecated=pulumi.get(__response__, 'is_deprecated'),
+        locations=pulumi.get(__response__, 'locations'),
         memory=pulumi.get(__response__, 'memory'),
         name=pulumi.get(__response__, 'name'),
         storage_type=pulumi.get(__response__, 'storage_type'),

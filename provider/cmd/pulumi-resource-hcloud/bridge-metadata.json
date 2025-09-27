@@ -566,7 +566,12 @@
             },
             "hcloud_server_type": {
                 "current": "hcloud:index/getServerType:getServerType",
-                "majorVersion": 1
+                "majorVersion": 1,
+                "fields": {
+                    "locations": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "hcloud_server_types": {
                 "current": "hcloud:index/getServerTypes:getServerTypes",
@@ -582,7 +587,14 @@
                         "maxItemsOne": false
                     },
                     "server_types": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "locations": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
