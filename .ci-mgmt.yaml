@@ -1,16 +1,16 @@
 provider: hcloud
 major-version: 1
 esc:
-  enabled: true
+    enabled: true
 env:
-  HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+    HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
 makeTemplate: bridged
 pulumiConvert: 1
 registryDocs: true
 plugins:
-  - name: std
-    version: "1.6.2"
-  - name: terraform
-    version: "1.0.16"
-    kind: converter
+    - name: std
+      version: "1.6.2"
+    - name: terraform
+      version: "1.0.16"
+      kind: converter
 integrationTestProvider: true
