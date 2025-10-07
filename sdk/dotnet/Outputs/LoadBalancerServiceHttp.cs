@@ -26,7 +26,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string? CookieName;
         /// <summary>
-        /// Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
+        /// Redirect HTTP to HTTPS traffic. Only supported for services with `Protocol` `Https` using the default HTTP port `80`.
         /// </summary>
         public readonly bool? RedirectHttp;
         /// <summary>

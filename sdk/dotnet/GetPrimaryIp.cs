@@ -329,7 +329,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
-        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `Type` is `Ipv6`)
         /// </summary>
         public readonly string IpNetwork;
         /// <summary>

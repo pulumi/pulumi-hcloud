@@ -14,6 +14,8 @@ import (
 // Provides a list of available Hetzner Cloud Datacenters.
 //
 // This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+//
+// ## Example Usage
 func GetDatacenters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDatacentersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDatacentersResult

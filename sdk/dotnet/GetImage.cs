@@ -175,7 +175,7 @@ namespace Pulumi.HCloud
         public string? Selector { get; set; }
 
         /// <summary>
-        /// Select only images with this architecture, could be `x86` (default) or `arm`.
+        /// Select only images with this architecture, could be `X86` (default) or `Arm`.
         /// </summary>
         [Input("withArchitecture")]
         public string? WithArchitecture { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.HCloud
         private List<string>? _withStatuses;
 
         /// <summary>
-        /// Select only images with the specified status, could contain `creating` or `available`.
+        /// Select only images with the specified status, could contain `Creating` or `Available`.
         /// </summary>
         public List<string> WithStatuses
         {
@@ -234,7 +234,7 @@ namespace Pulumi.HCloud
         public Input<string>? Selector { get; set; }
 
         /// <summary>
-        /// Select only images with this architecture, could be `x86` (default) or `arm`.
+        /// Select only images with this architecture, could be `X86` (default) or `Arm`.
         /// </summary>
         [Input("withArchitecture")]
         public Input<string>? WithArchitecture { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withStatuses;
 
         /// <summary>
-        /// Select only images with the specified status, could contain `creating` or `available`.
+        /// Select only images with the specified status, could contain `Creating` or `Available`.
         /// </summary>
         public InputList<string> WithStatuses
         {
@@ -291,11 +291,11 @@ namespace Pulumi.HCloud
         public readonly ImmutableDictionary<string, string> Labels;
         public readonly bool? MostRecent;
         /// <summary>
-        /// (string) Name of the Image, only present when the Image is of type `system`.
+        /// (string) Name of the Image, only present when the Image is of type `System`.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
+        /// (string) Flavor of operating system contained in the image, could be `Ubuntu`, `Centos`, `Debian`, `Fedora` or `Unknown`.
         /// </summary>
         public readonly string OsFlavor;
         /// <summary>
@@ -308,7 +308,7 @@ namespace Pulumi.HCloud
         public readonly bool RapidDeploy;
         public readonly string? Selector;
         /// <summary>
-        /// (string) Type of the Image, could be `system`, `backup` or `snapshot`.
+        /// (string) Type of the Image, could be `System`, `Backup` or `Snapshot`.
         /// </summary>
         public readonly string Type;
         public readonly string? WithArchitecture;

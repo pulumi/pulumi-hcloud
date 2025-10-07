@@ -102,14 +102,14 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+     * Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      * 
      */
     @Export(name="homeLocation", refs={String.class}, tree="[0]")
     private Output<String> homeLocation;
 
     /**
-     * @return Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+     * @return Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      * 
      */
     public Output<String> homeLocation() {
@@ -172,14 +172,14 @@ public class FloatingIp extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+     * Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      * 
      */
     @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverId;
 
     /**
-     * @return Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+     * @return Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      * 
      */
     public Output<Integer> serverId() {

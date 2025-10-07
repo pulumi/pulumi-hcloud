@@ -15,6 +15,33 @@ namespace Pulumi.HCloud
         /// Provides a list of available Hetzner Cloud Datacenters.
         /// 
         /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = HCloud.GetDatacenters.Invoke();
+        /// 
+        ///     var workers = new List&lt;HCloud.Server&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
+        ///         {
+        ///             Name = $"node{range.Value}",
+        ///             Image = "debian-12",
+        ///             ServerType = "cx22",
+        ///             Datacenter = all.Apply(getDatacentersResult =&gt; getDatacentersResult.Datacenters)[range.Value].Apply(datacenters =&gt; datacenters.Name),
+        ///         }));
+        ///     }
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetDatacentersResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", InvokeArgs.Empty, options.WithDefaults());
@@ -23,6 +50,33 @@ namespace Pulumi.HCloud
         /// Provides a list of available Hetzner Cloud Datacenters.
         /// 
         /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = HCloud.GetDatacenters.Invoke();
+        /// 
+        ///     var workers = new List&lt;HCloud.Server&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
+        ///         {
+        ///             Name = $"node{range.Value}",
+        ///             Image = "debian-12",
+        ///             ServerType = "cx22",
+        ///             Datacenter = all.Apply(getDatacentersResult =&gt; getDatacentersResult.Datacenters)[range.Value].Apply(datacenters =&gt; datacenters.Name),
+        ///         }));
+        ///     }
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetDatacentersResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", InvokeArgs.Empty, options.WithDefaults());
@@ -31,6 +85,33 @@ namespace Pulumi.HCloud
         /// Provides a list of available Hetzner Cloud Datacenters.
         /// 
         /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = HCloud.GetDatacenters.Invoke();
+        /// 
+        ///     var workers = new List&lt;HCloud.Server&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
+        ///         {
+        ///             Name = $"node{range.Value}",
+        ///             Image = "debian-12",
+        ///             ServerType = "cx22",
+        ///             Datacenter = all.Apply(getDatacentersResult =&gt; getDatacentersResult.Datacenters)[range.Value].Apply(datacenters =&gt; datacenters.Name),
+        ///         }));
+        ///     }
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetDatacentersResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatacentersResult>("hcloud:index/getDatacenters:getDatacenters", InvokeArgs.Empty, options.WithDefaults());

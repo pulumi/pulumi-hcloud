@@ -996,6 +996,49 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .datacenter(all.datacenters()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetDatacentersResult> getDatacenters() {
         return getDatacenters(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -1004,6 +1047,49 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Datacenters.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .datacenter(all.datacenters()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetDatacentersResult> getDatacentersPlain() {
@@ -1014,6 +1100,49 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .datacenter(all.datacenters()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetDatacentersResult> getDatacenters(InvokeArgs args) {
         return getDatacenters(args, InvokeOptions.Empty);
@@ -1022,6 +1151,49 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Datacenters.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .datacenter(all.datacenters()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(InvokeArgs args) {
@@ -1032,6 +1204,49 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .datacenter(all.datacenters()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetDatacentersResult> getDatacenters(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
@@ -1041,6 +1256,49 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .datacenter(all.datacenters()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetDatacentersResult> getDatacenters(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getDatacenters:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
@@ -1049,6 +1307,49 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Datacenters.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .datacenter(all.datacenters()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(InvokeArgs args, InvokeOptions options) {
@@ -2766,7 +3067,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2813,7 +3114,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2860,7 +3161,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2907,7 +3208,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2954,7 +3255,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -3001,7 +3302,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -3048,7 +3349,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -4692,6 +4993,49 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .location(all.locations()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetLocationsResult> getLocations() {
         return getLocations(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -4700,6 +5044,49 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Locations.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .location(all.locations()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain() {
@@ -4710,6 +5097,49 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .location(all.locations()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetLocationsResult> getLocations(InvokeArgs args) {
         return getLocations(args, InvokeOptions.Empty);
@@ -4718,6 +5148,49 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Locations.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .location(all.locations()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args) {
@@ -4728,6 +5201,49 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .location(all.locations()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
@@ -4737,6 +5253,49 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .location(all.locations()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
@@ -4745,6 +5304,49 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Locations.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several locations.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.Server;
+     * import com.pulumi.hcloud.ServerArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         for (var i = 0; i < 5; i++) {
+     *             new Server("workers-" + i, ServerArgs.builder()
+     *                 .name(String.format("node%s", range.value()))
+     *                 .image("debian-12")
+     *                 .serverType("cx22")
+     *                 .location(all.locations()[range.value()].name())
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args, InvokeOptions options) {

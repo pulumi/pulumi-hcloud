@@ -22,7 +22,7 @@ public final class GetLoadBalancerTarget {
      */
     private Integer serverId;
     /**
-     * @return (string) Type of the target. `server` or `label_selector`
+     * @return (string) Type of the target. `server` or `labelSelector`
      * 
      */
     private String type;
@@ -43,7 +43,7 @@ public final class GetLoadBalancerTarget {
         return this.serverId;
     }
     /**
-     * @return (string) Type of the target. `server` or `label_selector`
+     * @return (string) Type of the target. `server` or `labelSelector`
      * 
      */
     public String type() {
