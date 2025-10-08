@@ -94,6 +94,22 @@ def get_datacenters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGet
     Provides a list of available Hetzner Cloud Datacenters.
 
     This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    all = hcloud.get_datacenters()
+    workers = []
+    for range in [{"value": i} for i in range(0, 5)]:
+        workers.append(hcloud.Server(f"workers-{range['value']}",
+            name=f"node{range['value']}",
+            image="debian-12",
+            server_type="cx22",
+            datacenter=all.datacenters[range["value"]]["name"]))
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -110,6 +126,22 @@ def get_datacenters_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Inv
     Provides a list of available Hetzner Cloud Datacenters.
 
     This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    all = hcloud.get_datacenters()
+    workers = []
+    for range in [{"value": i} for i in range(0, 5)]:
+        workers.append(hcloud.Server(f"workers-{range['value']}",
+            name=f"node{range['value']}",
+            image="debian-12",
+            server_type="cx22",
+            datacenter=all.datacenters[range["value"]]["name"]))
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

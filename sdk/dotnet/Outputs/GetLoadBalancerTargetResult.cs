@@ -22,7 +22,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly int ServerId;
         /// <summary>
-        /// (string) Type of the target. `server` or `label_selector`
+        /// (string) Type of the target. `Server` or `LabelSelector`
         /// </summary>
         public readonly string Type;
 

@@ -61,13 +61,13 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
+        /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `Location` argument instead of the `ServerId` argument.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Format volume after creation. `xfs` or `ext4`
+        /// Format volume after creation. `Xfs` or `Ext4`
         /// </summary>
         [Output("format")]
         public Output<string?> Format { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.HCloud
         public Output<string> LinuxDevice { get; private set; } = null!;
 
         /// <summary>
-        /// The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// The location name of the volume to create, not allowed if ServerId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
+        /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `Location` argument instead of the `ServerId` argument.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
         /// <summary>
-        /// Format volume after creation. `xfs` or `ext4`
+        /// Format volume after creation. `Xfs` or `Ext4`
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// The location name of the volume to create, not allowed if ServerId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -227,13 +227,13 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
+        /// **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `Location` argument instead of the `ServerId` argument.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
         /// <summary>
-        /// Format volume after creation. `xfs` or `ext4`
+        /// Format volume after creation. `Xfs` or `Ext4`
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.HCloud
         public Input<string>? LinuxDevice { get; set; }
 
         /// <summary>
-        /// The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// The location name of the volume to create, not allowed if ServerId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
