@@ -18,7 +18,7 @@ public final class FirewallApplyToArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * Label Selector to select servers the firewall should be applied to (only one
-     * of `server` and `label_selector`can be applied in one block)
+     * of `server` and `labelSelector`can be applied in one block)
      * 
      */
     @Import(name="labelSelector")
@@ -26,7 +26,7 @@ public final class FirewallApplyToArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return Label Selector to select servers the firewall should be applied to (only one
-     * of `server` and `label_selector`can be applied in one block)
+     * of `server` and `labelSelector`can be applied in one block)
      * 
      */
     public Optional<Output<String>> labelSelector() {
@@ -35,7 +35,7 @@ public final class FirewallApplyToArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * ID of the server you want to apply the firewall to (only one of `server`
-     * and `label_selector`can be applied in one block)
+     * and `labelSelector`can be applied in one block)
      * 
      */
     @Import(name="server")
@@ -43,7 +43,7 @@ public final class FirewallApplyToArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return ID of the server you want to apply the firewall to (only one of `server`
-     * and `label_selector`can be applied in one block)
+     * and `labelSelector`can be applied in one block)
      * 
      */
     public Optional<Output<Integer>> server() {
@@ -77,7 +77,7 @@ public final class FirewallApplyToArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param labelSelector Label Selector to select servers the firewall should be applied to (only one
-         * of `server` and `label_selector`can be applied in one block)
+         * of `server` and `labelSelector`can be applied in one block)
          * 
          * @return builder
          * 
@@ -89,7 +89,7 @@ public final class FirewallApplyToArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param labelSelector Label Selector to select servers the firewall should be applied to (only one
-         * of `server` and `label_selector`can be applied in one block)
+         * of `server` and `labelSelector`can be applied in one block)
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class FirewallApplyToArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param server ID of the server you want to apply the firewall to (only one of `server`
-         * and `label_selector`can be applied in one block)
+         * and `labelSelector`can be applied in one block)
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class FirewallApplyToArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param server ID of the server you want to apply the firewall to (only one of `server`
-         * and `label_selector`can be applied in one block)
+         * and `labelSelector`can be applied in one block)
          * 
          * @return builder
          * 

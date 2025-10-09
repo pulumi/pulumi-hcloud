@@ -81,14 +81,14 @@ public class NetworkSubnet extends com.pulumi.resources.CustomResource {
         return this.gateway;
     }
     /**
-     * Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+     * Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
      * 
      */
     @Export(name="ipRange", refs={String.class}, tree="[0]")
     private Output<String> ipRange;
 
     /**
-     * @return Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+     * @return Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
      * 
      */
     public Output<String> ipRange() {

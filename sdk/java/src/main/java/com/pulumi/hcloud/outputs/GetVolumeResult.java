@@ -48,10 +48,10 @@ public final class GetVolumeResult {
     private String name;
     /**
      * @deprecated
-     * Please use the with_selector property instead.
+     * Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the with_selector property instead. */
+    @Deprecated /* Please use the withSelector property instead. */
     private @Nullable String selector;
     /**
      * @return (Optional, int) Server ID the volume is attached to
@@ -111,10 +111,10 @@ public final class GetVolumeResult {
     }
     /**
      * @deprecated
-     * Please use the with_selector property instead.
+     * Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the with_selector property instead. */
+    @Deprecated /* Please use the withSelector property instead. */
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }

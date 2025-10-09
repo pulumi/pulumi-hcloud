@@ -18,14 +18,14 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
     public static final RdnsArgs Empty = new RdnsArgs();
 
     /**
-     * The DNS address the `ip_address` should resolve to.
+     * The DNS address the `ipAddress` should resolve to.
      * 
      */
     @Import(name="dnsPtr", required=true)
     private Output<String> dnsPtr;
 
     /**
-     * @return The DNS address the `ip_address` should resolve to.
+     * @return The DNS address the `ipAddress` should resolve to.
      * 
      */
     public Output<String> dnsPtr() {
@@ -33,14 +33,14 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Floating IP the `ip_address` belongs to.
+     * The Floating IP the `ipAddress` belongs to.
      * 
      */
     @Import(name="floatingIpId")
     private @Nullable Output<Integer> floatingIpId;
 
     /**
-     * @return The Floating IP the `ip_address` belongs to.
+     * @return The Floating IP the `ipAddress` belongs to.
      * 
      */
     public Optional<Output<Integer>> floatingIpId() {
@@ -48,14 +48,14 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP address that should point to `dns_ptr`.
+     * The IP address that should point to `dnsPtr`.
      * 
      */
     @Import(name="ipAddress", required=true)
     private Output<String> ipAddress;
 
     /**
-     * @return The IP address that should point to `dns_ptr`.
+     * @return The IP address that should point to `dnsPtr`.
      * 
      */
     public Output<String> ipAddress() {
@@ -63,14 +63,14 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Load Balancer the `ip_address` belongs to.
+     * The Load Balancer the `ipAddress` belongs to.
      * 
      */
     @Import(name="loadBalancerId")
     private @Nullable Output<Integer> loadBalancerId;
 
     /**
-     * @return The Load Balancer the `ip_address` belongs to.
+     * @return The Load Balancer the `ipAddress` belongs to.
      * 
      */
     public Optional<Output<Integer>> loadBalancerId() {
@@ -78,14 +78,14 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Primary IP the `ip_address` belongs to.
+     * The Primary IP the `ipAddress` belongs to.
      * 
      */
     @Import(name="primaryIpId")
     private @Nullable Output<Integer> primaryIpId;
 
     /**
-     * @return The Primary IP the `ip_address` belongs to.
+     * @return The Primary IP the `ipAddress` belongs to.
      * 
      */
     public Optional<Output<Integer>> primaryIpId() {
@@ -93,14 +93,14 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The server the `ip_address` belongs to.
+     * The server the `ipAddress` belongs to.
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<Integer> serverId;
 
     /**
-     * @return The server the `ip_address` belongs to.
+     * @return The server the `ipAddress` belongs to.
      * 
      */
     public Optional<Output<Integer>> serverId() {
@@ -137,7 +137,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsPtr The DNS address the `ip_address` should resolve to.
+         * @param dnsPtr The DNS address the `ipAddress` should resolve to.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsPtr The DNS address the `ip_address` should resolve to.
+         * @param dnsPtr The DNS address the `ipAddress` should resolve to.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param floatingIpId The Floating IP the `ip_address` belongs to.
+         * @param floatingIpId The Floating IP the `ipAddress` belongs to.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param floatingIpId The Floating IP the `ip_address` belongs to.
+         * @param floatingIpId The Floating IP the `ipAddress` belongs to.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress The IP address that should point to `dns_ptr`.
+         * @param ipAddress The IP address that should point to `dnsPtr`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress The IP address that should point to `dns_ptr`.
+         * @param ipAddress The IP address that should point to `dnsPtr`.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerId The Load Balancer the `ip_address` belongs to.
+         * @param loadBalancerId The Load Balancer the `ipAddress` belongs to.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerId The Load Balancer the `ip_address` belongs to.
+         * @param loadBalancerId The Load Balancer the `ipAddress` belongs to.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryIpId The Primary IP the `ip_address` belongs to.
+         * @param primaryIpId The Primary IP the `ipAddress` belongs to.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryIpId The Primary IP the `ip_address` belongs to.
+         * @param primaryIpId The Primary IP the `ipAddress` belongs to.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The server the `ip_address` belongs to.
+         * @param serverId The server the `ipAddress` belongs to.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class RdnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The server the `ip_address` belongs to.
+         * @param serverId The server the `ipAddress` belongs to.
          * 
          * @return builder
          * 
