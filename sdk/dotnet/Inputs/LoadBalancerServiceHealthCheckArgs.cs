@@ -13,7 +13,7 @@ namespace Pulumi.HCloud.Inputs
     public sealed class LoadBalancerServiceHealthCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// HTTP configuration. Required if `protocol` is `http`.
+        /// HTTP configuration. Required if `Protocol` is `Http`.
         /// </summary>
         [Input("http")]
         public Input<Inputs.LoadBalancerServiceHealthCheckHttpArgs>? Http { get; set; }
@@ -25,19 +25,19 @@ namespace Pulumi.HCloud.Inputs
         public Input<int> Interval { get; set; } = null!;
 
         /// <summary>
-        /// Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+        /// Port the health check tries to connect to, required if protocol is `Tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// Protocol the health check uses. `http` or `tcp`
+        /// Protocol the health check uses. `Http` or `Tcp`
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+        /// Number of tries a health check will be performed until a target will be listed as `Unhealthy`.
         /// </summary>
         [Input("retries")]
         public Input<int>? Retries { get; set; }

@@ -158,37 +158,37 @@ namespace Pulumi.HCloud
     public partial class Rdns : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The DNS address the `ip_address` should resolve to.
+        /// The DNS address the `IpAddress` should resolve to.
         /// </summary>
         [Output("dnsPtr")]
         public Output<string> DnsPtr { get; private set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to.
+        /// The Floating IP the `IpAddress` belongs to.
         /// </summary>
         [Output("floatingIpId")]
         public Output<int?> FloatingIpId { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address that should point to `dns_ptr`.
+        /// The IP address that should point to `DnsPtr`.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The Load Balancer the `ip_address` belongs to.
+        /// The Load Balancer the `IpAddress` belongs to.
         /// </summary>
         [Output("loadBalancerId")]
         public Output<int?> LoadBalancerId { get; private set; } = null!;
 
         /// <summary>
-        /// The Primary IP the `ip_address` belongs to.
+        /// The Primary IP the `IpAddress` belongs to.
         /// </summary>
         [Output("primaryIpId")]
         public Output<int?> PrimaryIpId { get; private set; } = null!;
 
         /// <summary>
-        /// The server the `ip_address` belongs to.
+        /// The server the `IpAddress` belongs to.
         /// </summary>
         [Output("serverId")]
         public Output<int?> ServerId { get; private set; } = null!;
@@ -240,37 +240,37 @@ namespace Pulumi.HCloud
     public sealed class RdnsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS address the `ip_address` should resolve to.
+        /// The DNS address the `IpAddress` should resolve to.
         /// </summary>
         [Input("dnsPtr", required: true)]
         public Input<string> DnsPtr { get; set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to.
+        /// The Floating IP the `IpAddress` belongs to.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
 
         /// <summary>
-        /// The IP address that should point to `dns_ptr`.
+        /// The IP address that should point to `DnsPtr`.
         /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// The Load Balancer the `ip_address` belongs to.
+        /// The Load Balancer the `IpAddress` belongs to.
         /// </summary>
         [Input("loadBalancerId")]
         public Input<int>? LoadBalancerId { get; set; }
 
         /// <summary>
-        /// The Primary IP the `ip_address` belongs to.
+        /// The Primary IP the `IpAddress` belongs to.
         /// </summary>
         [Input("primaryIpId")]
         public Input<int>? PrimaryIpId { get; set; }
 
         /// <summary>
-        /// The server the `ip_address` belongs to.
+        /// The server the `IpAddress` belongs to.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
@@ -284,37 +284,37 @@ namespace Pulumi.HCloud
     public sealed class RdnsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS address the `ip_address` should resolve to.
+        /// The DNS address the `IpAddress` should resolve to.
         /// </summary>
         [Input("dnsPtr")]
         public Input<string>? DnsPtr { get; set; }
 
         /// <summary>
-        /// The Floating IP the `ip_address` belongs to.
+        /// The Floating IP the `IpAddress` belongs to.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
 
         /// <summary>
-        /// The IP address that should point to `dns_ptr`.
+        /// The IP address that should point to `DnsPtr`.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The Load Balancer the `ip_address` belongs to.
+        /// The Load Balancer the `IpAddress` belongs to.
         /// </summary>
         [Input("loadBalancerId")]
         public Input<int>? LoadBalancerId { get; set; }
 
         /// <summary>
-        /// The Primary IP the `ip_address` belongs to.
+        /// The Primary IP the `IpAddress` belongs to.
         /// </summary>
         [Input("primaryIpId")]
         public Input<int>? PrimaryIpId { get; set; }
 
         /// <summary>
-        /// The server the `ip_address` belongs to.
+        /// The server the `IpAddress` belongs to.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }

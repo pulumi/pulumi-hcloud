@@ -24,14 +24,14 @@ public final class NetworkSubnetState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+     * Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
      * 
      */
     @Import(name="ipRange")
     private @Nullable Output<String> ipRange;
 
     /**
-     * @return Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+     * @return Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
      * 
      */
     public Optional<Output<String>> ipRange() {
@@ -137,7 +137,7 @@ public final class NetworkSubnetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ipRange Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+         * @param ipRange Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class NetworkSubnetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ipRange Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+         * @param ipRange Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
          * 
          * @return builder
          * 

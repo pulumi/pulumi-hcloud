@@ -14,10 +14,10 @@ import java.util.Objects;
 public final class GetServerTypesResult {
     /**
      * @deprecated
-     * Use server_types list instead
+     * Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use server_types list instead */
+    @Deprecated /* Use serverTypes list instead */
     private List<String> descriptions;
     /**
      * @return The ID of this resource.
@@ -26,27 +26,27 @@ public final class GetServerTypesResult {
     private String id;
     /**
      * @deprecated
-     * Use server_types list instead
+     * Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use server_types list instead */
+    @Deprecated /* Use serverTypes list instead */
     private List<String> names;
     /**
      * @deprecated
-     * Use server_types list instead
+     * Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use server_types list instead */
+    @Deprecated /* Use serverTypes list instead */
     private List<String> serverTypeIds;
     private List<GetServerTypesServerType> serverTypes;
 
     private GetServerTypesResult() {}
     /**
      * @deprecated
-     * Use server_types list instead
+     * Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use server_types list instead */
+    @Deprecated /* Use serverTypes list instead */
     public List<String> descriptions() {
         return this.descriptions;
     }
@@ -59,19 +59,19 @@ public final class GetServerTypesResult {
     }
     /**
      * @deprecated
-     * Use server_types list instead
+     * Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use server_types list instead */
+    @Deprecated /* Use serverTypes list instead */
     public List<String> names() {
         return this.names;
     }
     /**
      * @deprecated
-     * Use server_types list instead
+     * Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use server_types list instead */
+    @Deprecated /* Use serverTypes list instead */
     public List<String> serverTypeIds() {
         return this.serverTypeIds;
     }

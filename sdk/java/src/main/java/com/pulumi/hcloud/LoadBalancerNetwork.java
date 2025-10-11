@@ -144,11 +144,11 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
     }
     /**
      * ID of the network which should be added
-     * to the Load Balancer. Required if `subnet_id` is not set. Successful
+     * to the Load Balancer. Required if `subnetId` is not set. Successful
      * creation of the resource depends on the existence of a subnet in the
-     * Hetzner Cloud Backend. Using `network_id` will not create an explicit
+     * Hetzner Cloud Backend. Using `networkId` will not create an explicit
      * dependency between the Load Balancer and the subnet. Therefore
-     * `depends_on` may need to be used. Alternatively the `subnet_id`
+     * `dependsOn` may need to be used. Alternatively the `subnetId`
      * property can be used, which will create an explicit dependency between
      * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
      * 
@@ -158,11 +158,11 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
 
     /**
      * @return ID of the network which should be added
-     * to the Load Balancer. Required if `subnet_id` is not set. Successful
+     * to the Load Balancer. Required if `subnetId` is not set. Successful
      * creation of the resource depends on the existence of a subnet in the
-     * Hetzner Cloud Backend. Using `network_id` will not create an explicit
+     * Hetzner Cloud Backend. Using `networkId` will not create an explicit
      * dependency between the Load Balancer and the subnet. Therefore
-     * `depends_on` may need to be used. Alternatively the `subnet_id`
+     * `dependsOn` may need to be used. Alternatively the `subnetId`
      * property can be used, which will create an explicit dependency between
      * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
      * 
@@ -172,7 +172,7 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
     }
     /**
      * ID of the sub-network which should be
-     * added to the Load Balancer. Required if `network_id` is not set.
+     * added to the Load Balancer. Required if `networkId` is not set.
      * _Note_: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      * 
@@ -182,7 +182,7 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
 
     /**
      * @return ID of the sub-network which should be
-     * added to the Load Balancer. Required if `network_id` is not set.
+     * added to the Load Balancer. Required if `networkId` is not set.
      * _Note_: if the `ip` property is missing, the Load Balancer is
      * currently added to the last created subnet.
      * 

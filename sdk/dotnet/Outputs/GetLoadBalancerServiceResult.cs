@@ -18,11 +18,11 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly int DestinationPort;
         /// <summary>
-        /// (list) List of http configurations when `protocol` is `http` or `https`.
+        /// (list) List of http configurations when `Protocol` is `Http` or `Https`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLoadBalancerServiceHealthCheckResult> HealthChecks;
         /// <summary>
-        /// (list) List of http configurations when `protocol` is `http` or `https`.
+        /// (list) List of http configurations when `Protocol` is `Http` or `Https`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLoadBalancerServiceHttpResult> Https;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly int ListenPort;
         /// <summary>
-        /// (string) Protocol the health check uses. `http`, `https` or `tcp`
+        /// (string) Protocol the health check uses. `Http`, `Https` or `Tcp`
         /// </summary>
         public readonly string Protocol;
         /// <summary>

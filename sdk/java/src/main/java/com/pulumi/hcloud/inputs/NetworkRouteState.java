@@ -17,14 +17,14 @@ public final class NetworkRouteState extends com.pulumi.resources.ResourceArgs {
     public static final NetworkRouteState Empty = new NetworkRouteState();
 
     /**
-     * Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+     * Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
      * 
      */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
     /**
-     * @return Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+     * @return Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
      * 
      */
     public Optional<Output<String>> destination() {
@@ -32,14 +32,14 @@ public final class NetworkRouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+     * Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
      * 
      */
     @Import(name="gateway")
     private @Nullable Output<String> gateway;
 
     /**
-     * @return Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+     * @return Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
      * 
      */
     public Optional<Output<String>> gateway() {
@@ -88,7 +88,7 @@ public final class NetworkRouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destination Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+         * @param destination Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class NetworkRouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destination Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
+         * @param destination Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class NetworkRouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gateway Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+         * @param gateway Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class NetworkRouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gateway Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
+         * @param gateway Gateway for the route. Cannot be the first ip of the networks ipRange and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
          * 
          * @return builder
          * 

@@ -93,7 +93,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
+     * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
@@ -102,7 +102,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * @return Enable or disable delete protection. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `server_id` argument.
+     * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {
@@ -151,14 +151,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.linuxDevice;
     }
     /**
-     * The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * @return The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Output<String> location() {

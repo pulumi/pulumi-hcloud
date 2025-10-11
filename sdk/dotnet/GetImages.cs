@@ -15,7 +15,7 @@ namespace Pulumi.HCloud
         /// Provides details about multiple Hetzner Cloud Images.
         /// 
         /// When relevant, it is recommended to always provide the image architecture
-        /// (`with_architecture`) when fetching images.
+        /// (`WithArchitecture`) when fetching images.
         /// 
         /// ## Example Usage
         /// 
@@ -50,7 +50,7 @@ namespace Pulumi.HCloud
         /// Provides details about multiple Hetzner Cloud Images.
         /// 
         /// When relevant, it is recommended to always provide the image architecture
-        /// (`with_architecture`) when fetching images.
+        /// (`WithArchitecture`) when fetching images.
         /// 
         /// ## Example Usage
         /// 
@@ -85,7 +85,7 @@ namespace Pulumi.HCloud
         /// Provides details about multiple Hetzner Cloud Images.
         /// 
         /// When relevant, it is recommended to always provide the image architecture
-        /// (`with_architecture`) when fetching images.
+        /// (`WithArchitecture`) when fetching images.
         /// 
         /// ## Example Usage
         /// 
@@ -136,7 +136,7 @@ namespace Pulumi.HCloud
         private List<string>? _withArchitectures;
 
         /// <summary>
-        /// List only images with this architecture, could contain `x86` or `arm`.
+        /// List only images with this architecture, could contain `X86` or `Arm`.
         /// </summary>
         public List<string> WithArchitectures
         {
@@ -154,7 +154,7 @@ namespace Pulumi.HCloud
         private List<string>? _withStatuses;
 
         /// <summary>
-        /// List only images with the specified status, could contain `creating` or `available`.
+        /// List only images with the specified status, could contain `Creating` or `Available`.
         /// </summary>
         public List<string> WithStatuses
         {
@@ -186,7 +186,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withArchitectures;
 
         /// <summary>
-        /// List only images with this architecture, could contain `x86` or `arm`.
+        /// List only images with this architecture, could contain `X86` or `Arm`.
         /// </summary>
         public InputList<string> WithArchitectures
         {
@@ -204,7 +204,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withStatuses;
 
         /// <summary>
-        /// List only images with the specified status, could contain `creating` or `available`.
+        /// List only images with the specified status, could contain `Creating` or `Available`.
         /// </summary>
         public InputList<string> WithStatuses
         {

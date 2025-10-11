@@ -64,19 +64,19 @@ public final class GetVolumeArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @deprecated
-     * Please use the with_selector property instead.
+     * Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the with_selector property instead. */
+    @Deprecated /* Please use the withSelector property instead. */
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
      * @deprecated
-     * Please use the with_selector property instead.
+     * Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the with_selector property instead. */
+    @Deprecated /* Please use the withSelector property instead. */
     public Optional<Output<String>> selector() {
         return Optional.ofNullable(this.selector);
     }
@@ -223,10 +223,10 @@ public final class GetVolumeArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * Please use the with_selector property instead.
+         * Please use the withSelector property instead.
          * 
          */
-        @Deprecated /* Please use the with_selector property instead. */
+        @Deprecated /* Please use the withSelector property instead. */
         public Builder selector(@Nullable Output<String> selector) {
             $.selector = selector;
             return this;
@@ -236,10 +236,10 @@ public final class GetVolumeArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * Please use the with_selector property instead.
+         * Please use the withSelector property instead.
          * 
          */
-        @Deprecated /* Please use the with_selector property instead. */
+        @Deprecated /* Please use the withSelector property instead. */
         public Builder selector(String selector) {
             return selector(Output.of(selector));
         }

@@ -79,19 +79,19 @@ public final class GetServerPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @deprecated
-     * Please use the with_selector property instead.
+     * Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the with_selector property instead. */
+    @Deprecated /* Please use the withSelector property instead. */
     @Import(name="selector")
     private @Nullable String selector;
 
     /**
      * @deprecated
-     * Please use the with_selector property instead.
+     * Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the with_selector property instead. */
+    @Deprecated /* Please use the withSelector property instead. */
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }
@@ -214,10 +214,10 @@ public final class GetServerPlainArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * Please use the with_selector property instead.
+         * Please use the withSelector property instead.
          * 
          */
-        @Deprecated /* Please use the with_selector property instead. */
+        @Deprecated /* Please use the withSelector property instead. */
         public Builder selector(@Nullable String selector) {
             $.selector = selector;
             return this;

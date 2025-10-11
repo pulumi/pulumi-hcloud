@@ -37,7 +37,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Label Selector selecting targets
-     * for this Load Balancer. Required if `type` is `label_selector`.
+     * for this Load Balancer. Required if `type` is `labelSelector`.
      * 
      */
     @Import(name="labelSelector")
@@ -45,7 +45,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Label Selector selecting targets
-     * for this Load Balancer. Required if `type` is `label_selector`.
+     * for this Load Balancer. Required if `type` is `labelSelector`.
      * 
      */
     public Optional<Output<String>> labelSelector() {
@@ -88,7 +88,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Type of the target. Possible values
-     * `server`, `label_selector`, `ip`.
+     * `server`, `labelSelector`, `ip`.
      * 
      */
     @Import(name="type", required=true)
@@ -96,7 +96,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Type of the target. Possible values
-     * `server`, `label_selector`, `ip`.
+     * `server`, `labelSelector`, `ip`.
      * 
      */
     public Output<String> type() {
@@ -106,7 +106,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
     /**
      * use the private IP to connect to
      * Load Balancer targets. Only allowed if type is `server` or
-     * `label_selector`.
+     * `labelSelector`.
      * 
      */
     @Import(name="usePrivateIp")
@@ -115,7 +115,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
     /**
      * @return use the private IP to connect to
      * Load Balancer targets. Only allowed if type is `server` or
-     * `label_selector`.
+     * `labelSelector`.
      * 
      */
     public Optional<Output<Boolean>> usePrivateIp() {
@@ -176,7 +176,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param labelSelector Label Selector selecting targets
-         * for this Load Balancer. Required if `type` is `label_selector`.
+         * for this Load Balancer. Required if `type` is `labelSelector`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param labelSelector Label Selector selecting targets
-         * for this Load Balancer. Required if `type` is `label_selector`.
+         * for this Load Balancer. Required if `type` is `labelSelector`.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param type Type of the target. Possible values
-         * `server`, `label_selector`, `ip`.
+         * `server`, `labelSelector`, `ip`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param type Type of the target. Possible values
-         * `server`, `label_selector`, `ip`.
+         * `server`, `labelSelector`, `ip`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
         /**
          * @param usePrivateIp use the private IP to connect to
          * Load Balancer targets. Only allowed if type is `server` or
-         * `label_selector`.
+         * `labelSelector`.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
         /**
          * @param usePrivateIp use the private IP to connect to
          * Load Balancer targets. Only allowed if type is `server` or
-         * `label_selector`.
+         * `labelSelector`.
          * 
          * @return builder
          * 

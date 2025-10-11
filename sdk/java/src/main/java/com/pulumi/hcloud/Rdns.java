@@ -228,84 +228,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="hcloud:index/rdns:Rdns")
 public class Rdns extends com.pulumi.resources.CustomResource {
     /**
-     * The DNS address the `ip_address` should resolve to.
+     * The DNS address the `ipAddress` should resolve to.
      * 
      */
     @Export(name="dnsPtr", refs={String.class}, tree="[0]")
     private Output<String> dnsPtr;
 
     /**
-     * @return The DNS address the `ip_address` should resolve to.
+     * @return The DNS address the `ipAddress` should resolve to.
      * 
      */
     public Output<String> dnsPtr() {
         return this.dnsPtr;
     }
     /**
-     * The Floating IP the `ip_address` belongs to.
+     * The Floating IP the `ipAddress` belongs to.
      * 
      */
     @Export(name="floatingIpId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> floatingIpId;
 
     /**
-     * @return The Floating IP the `ip_address` belongs to.
+     * @return The Floating IP the `ipAddress` belongs to.
      * 
      */
     public Output<Optional<Integer>> floatingIpId() {
         return Codegen.optional(this.floatingIpId);
     }
     /**
-     * The IP address that should point to `dns_ptr`.
+     * The IP address that should point to `dnsPtr`.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
-     * @return The IP address that should point to `dns_ptr`.
+     * @return The IP address that should point to `dnsPtr`.
      * 
      */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
     /**
-     * The Load Balancer the `ip_address` belongs to.
+     * The Load Balancer the `ipAddress` belongs to.
      * 
      */
     @Export(name="loadBalancerId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> loadBalancerId;
 
     /**
-     * @return The Load Balancer the `ip_address` belongs to.
+     * @return The Load Balancer the `ipAddress` belongs to.
      * 
      */
     public Output<Optional<Integer>> loadBalancerId() {
         return Codegen.optional(this.loadBalancerId);
     }
     /**
-     * The Primary IP the `ip_address` belongs to.
+     * The Primary IP the `ipAddress` belongs to.
      * 
      */
     @Export(name="primaryIpId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> primaryIpId;
 
     /**
-     * @return The Primary IP the `ip_address` belongs to.
+     * @return The Primary IP the `ipAddress` belongs to.
      * 
      */
     public Output<Optional<Integer>> primaryIpId() {
         return Codegen.optional(this.primaryIpId);
     }
     /**
-     * The server the `ip_address` belongs to.
+     * The server the `ipAddress` belongs to.
      * 
      */
     @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> serverId;
 
     /**
-     * @return The server the `ip_address` belongs to.
+     * @return The server the `ipAddress` belongs to.
      * 
      */
     public Output<Optional<Integer>> serverId() {

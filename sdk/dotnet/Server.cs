@@ -182,7 +182,7 @@ namespace Pulumi.HCloud
     /// ## Primary IPs
     /// 
     /// When creating a server without linking at least one ´primary_ip´, it automatically creates &amp; assigns two (ipv4 &amp; ipv6).
-    /// With the public_net block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+    /// With the PublicNet block, you can enable or link primary ips. If you don't define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
     /// 
     /// ## Import
     /// 
@@ -220,7 +220,7 @@ namespace Pulumi.HCloud
         public Output<string> Datacenter { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
+        /// Enable or disable delete protection (Needs to be the same as `RebuildProtection`). See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Ignores any updates
-        /// to the `firewall_ids` argument which were received from the server.
+        /// to the `FirewallIds` argument which were received from the server.
         /// This should not be used in normal cases. See the documentation of the
         /// `hcloud.FirewallAttachment` resource for a reason to use this
         /// argument.
@@ -318,13 +318,13 @@ namespace Pulumi.HCloud
         public Output<ImmutableArray<Outputs.ServerPublicNet>> PublicNets { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+        /// Enable or disable rebuild protection (Needs to be the same as `DeleteProtection`).
         /// </summary>
         [Output("rebuildProtection")]
         public Output<bool?> RebuildProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `Linux64` or `Linux32`
         /// </summary>
         [Output("rescue")]
         public Output<string?> Rescue { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.HCloud
         public Output<bool?> ShutdownBeforeDeletion { get; private set; } = null!;
 
         /// <summary>
-        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ SshKeys ]`.
         /// </summary>
         [Output("sshKeys")]
         public Output<ImmutableArray<string>> SshKeys { get; private set; } = null!;
@@ -424,7 +424,7 @@ namespace Pulumi.HCloud
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
+        /// Enable or disable delete protection (Needs to be the same as `RebuildProtection`). See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Ignores any updates
-        /// to the `firewall_ids` argument which were received from the server.
+        /// to the `FirewallIds` argument which were received from the server.
         /// This should not be used in normal cases. See the documentation of the
         /// `hcloud.FirewallAttachment` resource for a reason to use this
         /// argument.
@@ -522,13 +522,13 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+        /// Enable or disable rebuild protection (Needs to be the same as `DeleteProtection`).
         /// </summary>
         [Input("rebuildProtection")]
         public Input<bool>? RebuildProtection { get; set; }
 
         /// <summary>
-        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `Linux64` or `Linux32`
         /// </summary>
         [Input("rescue")]
         public Input<string>? Rescue { get; set; }
@@ -549,7 +549,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _sshKeys;
 
         /// <summary>
-        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ SshKeys ]`.
         /// </summary>
         public InputList<string> SshKeys
         {
@@ -596,7 +596,7 @@ namespace Pulumi.HCloud
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
+        /// Enable or disable delete protection (Needs to be the same as `RebuildProtection`). See "Delete Protection" in the Provider Docs for details.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -615,7 +615,7 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Ignores any updates
-        /// to the `firewall_ids` argument which were received from the server.
+        /// to the `FirewallIds` argument which were received from the server.
         /// This should not be used in normal cases. See the documentation of the
         /// `hcloud.FirewallAttachment` resource for a reason to use this
         /// argument.
@@ -718,13 +718,13 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+        /// Enable or disable rebuild protection (Needs to be the same as `DeleteProtection`).
         /// </summary>
         [Input("rebuildProtection")]
         public Input<bool>? RebuildProtection { get; set; }
 
         /// <summary>
-        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
+        /// Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `Linux64` or `Linux32`
         /// </summary>
         [Input("rescue")]
         public Input<string>? Rescue { get; set; }
@@ -745,7 +745,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _sshKeys;
 
         /// <summary>
-        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+        /// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ SshKeys ]`.
         /// </summary>
         public InputList<string> SshKeys
         {

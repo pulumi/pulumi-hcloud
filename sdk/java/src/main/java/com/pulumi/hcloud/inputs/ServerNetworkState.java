@@ -62,11 +62,11 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * ID of the network which should be added
-     * to the server. Required if `subnet_id` is not set. Successful creation
+     * to the server. Required if `subnetId` is not set. Successful creation
      * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `network_id` will not create an explicit
-     * dependency between server and subnet. Therefore `depends_on` may need
-     * to be used. Alternatively the `subnet_id` property can be used, which
+     * Cloud Backend. Using `networkId` will not create an explicit
+     * dependency between server and subnet. Therefore `dependsOn` may need
+     * to be used. Alternatively the `subnetId` property can be used, which
      * will create an explicit dependency between `hcloud.ServerNetwork` and
      * the existence of a subnet.
      * 
@@ -76,11 +76,11 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return ID of the network which should be added
-     * to the server. Required if `subnet_id` is not set. Successful creation
+     * to the server. Required if `subnetId` is not set. Successful creation
      * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `network_id` will not create an explicit
-     * dependency between server and subnet. Therefore `depends_on` may need
-     * to be used. Alternatively the `subnet_id` property can be used, which
+     * Cloud Backend. Using `networkId` will not create an explicit
+     * dependency between server and subnet. Therefore `dependsOn` may need
+     * to be used. Alternatively the `subnetId` property can be used, which
      * will create an explicit dependency between `hcloud.ServerNetwork` and
      * the existence of a subnet.
      * 
@@ -106,7 +106,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * ID of the sub-network which should be
-     * added to the Server. Required if `network_id` is not set.
+     * added to the Server. Required if `networkId` is not set.
      * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      * 
@@ -116,7 +116,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return ID of the sub-network which should be
-     * added to the Server. Required if `network_id` is not set.
+     * added to the Server. Required if `networkId` is not set.
      * _Note_: if the `ip` property is missing, the Server is currently added
      * to the last created subnet.
      * 
@@ -224,11 +224,11 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param networkId ID of the network which should be added
-         * to the server. Required if `subnet_id` is not set. Successful creation
+         * to the server. Required if `subnetId` is not set. Successful creation
          * of the resource depends on the existence of a subnet in the Hetzner
-         * Cloud Backend. Using `network_id` will not create an explicit
-         * dependency between server and subnet. Therefore `depends_on` may need
-         * to be used. Alternatively the `subnet_id` property can be used, which
+         * Cloud Backend. Using `networkId` will not create an explicit
+         * dependency between server and subnet. Therefore `dependsOn` may need
+         * to be used. Alternatively the `subnetId` property can be used, which
          * will create an explicit dependency between `hcloud.ServerNetwork` and
          * the existence of a subnet.
          * 
@@ -242,11 +242,11 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param networkId ID of the network which should be added
-         * to the server. Required if `subnet_id` is not set. Successful creation
+         * to the server. Required if `subnetId` is not set. Successful creation
          * of the resource depends on the existence of a subnet in the Hetzner
-         * Cloud Backend. Using `network_id` will not create an explicit
-         * dependency between server and subnet. Therefore `depends_on` may need
-         * to be used. Alternatively the `subnet_id` property can be used, which
+         * Cloud Backend. Using `networkId` will not create an explicit
+         * dependency between server and subnet. Therefore `dependsOn` may need
+         * to be used. Alternatively the `subnetId` property can be used, which
          * will create an explicit dependency between `hcloud.ServerNetwork` and
          * the existence of a subnet.
          * 
@@ -280,7 +280,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param subnetId ID of the sub-network which should be
-         * added to the Server. Required if `network_id` is not set.
+         * added to the Server. Required if `networkId` is not set.
          * _Note_: if the `ip` property is missing, the Server is currently added
          * to the last created subnet.
          * 
@@ -294,7 +294,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param subnetId ID of the sub-network which should be
-         * added to the Server. Required if `network_id` is not set.
+         * added to the Server. Required if `networkId` is not set.
          * _Note_: if the `ip` property is missing, the Server is currently added
          * to the last created subnet.
          * 

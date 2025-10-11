@@ -56,7 +56,7 @@ namespace Pulumi.HCloud
         public Output<string> Gateway { get; private set; } = null!;
 
         /// <summary>
-        /// Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        /// Range to allocate IPs from. Must be a subnet of the IpRange of the Network and must not overlap with any other subnets or with any destinations in routes.
         /// </summary>
         [Output("ipRange")]
         public Output<string> IpRange { get; private set; } = null!;
@@ -74,13 +74,13 @@ namespace Pulumi.HCloud
         public Output<string> NetworkZone { get; private set; } = null!;
 
         /// <summary>
-        /// Type of subnet. `server`, `cloud` or `vswitch`
+        /// Type of subnet. `Server`, `Cloud` or `Vswitch`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the vswitch, Required if type is `vswitch`
+        /// ID of the vswitch, Required if type is `Vswitch`
         /// </summary>
         [Output("vswitchId")]
         public Output<int?> VswitchId { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.HCloud
     public sealed class NetworkSubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        /// Range to allocate IPs from. Must be a subnet of the IpRange of the Network and must not overlap with any other subnets or with any destinations in routes.
         /// </summary>
         [Input("ipRange", required: true)]
         public Input<string> IpRange { get; set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.HCloud
         public Input<string> NetworkZone { get; set; } = null!;
 
         /// <summary>
-        /// Type of subnet. `server`, `cloud` or `vswitch`
+        /// Type of subnet. `Server`, `Cloud` or `Vswitch`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// ID of the vswitch, Required if type is `vswitch`
+        /// ID of the vswitch, Required if type is `Vswitch`
         /// </summary>
         [Input("vswitchId")]
         public Input<int>? VswitchId { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.HCloud
         public Input<string>? Gateway { get; set; }
 
         /// <summary>
-        /// Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
+        /// Range to allocate IPs from. Must be a subnet of the IpRange of the Network and must not overlap with any other subnets or with any destinations in routes.
         /// </summary>
         [Input("ipRange")]
         public Input<string>? IpRange { get; set; }
@@ -191,13 +191,13 @@ namespace Pulumi.HCloud
         public Input<string>? NetworkZone { get; set; }
 
         /// <summary>
-        /// Type of subnet. `server`, `cloud` or `vswitch`
+        /// Type of subnet. `Server`, `Cloud` or `Vswitch`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// ID of the vswitch, Required if type is `vswitch`
+        /// ID of the vswitch, Required if type is `Vswitch`
         /// </summary>
         [Input("vswitchId")]
         public Input<int>? VswitchId { get; set; }

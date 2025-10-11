@@ -62,7 +62,7 @@ namespace Pulumi.HCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if `ServerId` argument is passed.
         /// </summary>
         [Output("homeLocation")]
         public Output<string> HomeLocation { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.HCloud
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+        /// (string) IPv6 subnet. (Only set if `Type` is `Ipv6`)
         /// </summary>
         [Output("ipNetwork")]
         public Output<string> IpNetwork { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.HCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+        /// Server to assign the Floating IP to. Optional if `HomeLocation` argument is passed.
         /// </summary>
         [Output("serverId")]
         public Output<int> ServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Floating IP. `ipv4` `ipv6`
+        /// Type of the Floating IP. `Ipv4` `Ipv6`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.HCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if `ServerId` argument is passed.
         /// </summary>
         [Input("homeLocation")]
         public Input<string>? HomeLocation { get; set; }
@@ -186,13 +186,13 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+        /// Server to assign the Floating IP to. Optional if `HomeLocation` argument is passed.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
         /// <summary>
-        /// Type of the Floating IP. `ipv4` `ipv6`
+        /// Type of the Floating IP. `Ipv4` `Ipv6`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.HCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+        /// Name of home location (routing is optimized for that location). Optional if `ServerId` argument is passed.
         /// </summary>
         [Input("homeLocation")]
         public Input<string>? HomeLocation { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.HCloud
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// (string) IPv6 subnet. (Only set if `type` is `ipv6`)
+        /// (string) IPv6 subnet. (Only set if `Type` is `Ipv6`)
         /// </summary>
         [Input("ipNetwork")]
         public Input<string>? IpNetwork { get; set; }
@@ -254,13 +254,13 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+        /// Server to assign the Floating IP to. Optional if `HomeLocation` argument is passed.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
         /// <summary>
-        /// Type of the Floating IP. `ipv4` `ipv6`
+        /// Type of the Floating IP. `Ipv4` `Ipv6`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

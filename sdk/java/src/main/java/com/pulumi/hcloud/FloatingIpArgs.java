@@ -50,14 +50,14 @@ public final class FloatingIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+     * Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      * 
      */
     @Import(name="homeLocation")
     private @Nullable Output<String> homeLocation;
 
     /**
-     * @return Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+     * @return Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      * 
      */
     public Optional<Output<String>> homeLocation() {
@@ -95,14 +95,14 @@ public final class FloatingIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+     * Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<Integer> serverId;
 
     /**
-     * @return Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+     * @return Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      * 
      */
     public Optional<Output<Integer>> serverId() {
@@ -197,7 +197,7 @@ public final class FloatingIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param homeLocation Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+         * @param homeLocation Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class FloatingIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param homeLocation Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
+         * @param homeLocation Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class FloatingIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+         * @param serverId Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class FloatingIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId Server to assign the Floating IP to. Optional if `home_location` argument is passed.
+         * @param serverId Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
          * 
          * @return builder
          * 

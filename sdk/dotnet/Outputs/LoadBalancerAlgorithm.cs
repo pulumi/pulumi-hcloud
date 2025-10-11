@@ -14,7 +14,7 @@ namespace Pulumi.HCloud.Outputs
     public sealed class LoadBalancerAlgorithm
     {
         /// <summary>
-        /// Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+        /// Type of the Load Balancer Algorithm. `RoundRobin` or `LeastConnections`
         /// </summary>
         public readonly string? Type;
 

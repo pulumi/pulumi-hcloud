@@ -14,14 +14,14 @@ namespace Pulumi.HCloud.Inputs
     {
         /// <summary>
         /// Label Selector to select servers the firewall should be applied to (only one
-        /// of `server` and `label_selector`can be applied in one block)
+        /// of `Server` and `LabelSelector`can be applied in one block)
         /// </summary>
         [Input("labelSelector")]
         public Input<string>? LabelSelector { get; set; }
 
         /// <summary>
-        /// ID of the server you want to apply the firewall to (only one of `server`
-        /// and `label_selector`can be applied in one block)
+        /// ID of the server you want to apply the firewall to (only one of `Server`
+        /// and `LabelSelector`can be applied in one block)
         /// </summary>
         [Input("server")]
         public Input<int>? Server { get; set; }

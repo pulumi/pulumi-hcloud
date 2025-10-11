@@ -103,7 +103,7 @@ namespace Pulumi.HCloud
         private List<string>? _withStatuses;
 
         /// <summary>
-        /// List only volumes with the specified status, could contain `creating` or `available`.
+        /// List only volumes with the specified status, could contain `Creating` or `Available`.
         /// </summary>
         public List<string> WithStatuses
         {
@@ -129,7 +129,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withStatuses;
 
         /// <summary>
-        /// List only volumes with the specified status, could contain `creating` or `available`.
+        /// List only volumes with the specified status, could contain `Creating` or `Available`.
         /// </summary>
         public InputList<string> WithStatuses
         {

@@ -2766,7 +2766,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2813,7 +2813,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2860,7 +2860,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2907,7 +2907,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -2954,7 +2954,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -3001,7 +3001,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 
@@ -3048,7 +3048,7 @@ public final class HcloudFunctions {
      * Provides details about multiple Hetzner Cloud Images.
      * 
      * When relevant, it is recommended to always provide the image architecture
-     * (`with_architecture`) when fetching images.
+     * (`withArchitecture`) when fetching images.
      * 
      * ## Example Usage
      * 

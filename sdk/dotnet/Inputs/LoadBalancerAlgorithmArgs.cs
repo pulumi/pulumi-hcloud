@@ -13,7 +13,7 @@ namespace Pulumi.HCloud.Inputs
     public sealed class LoadBalancerAlgorithmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+        /// Type of the Load Balancer Algorithm. `RoundRobin` or `LeastConnections`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

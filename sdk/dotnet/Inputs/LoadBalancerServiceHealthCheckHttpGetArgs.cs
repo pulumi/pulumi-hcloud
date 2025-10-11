@@ -34,7 +34,7 @@ namespace Pulumi.HCloud.Inputs
         private InputList<string>? _statusCodes;
 
         /// <summary>
-        /// We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        /// We expect that the target answers with these status codes. If not the target is marked as `Unhealthy`.
         /// </summary>
         public InputList<string> StatusCodes
         {

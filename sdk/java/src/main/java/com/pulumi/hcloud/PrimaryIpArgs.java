@@ -51,7 +51,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
     @Import(name="autoDelete", required=true)
@@ -59,7 +59,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
     public Output<Boolean> autoDelete() {
@@ -84,7 +84,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * Note: At least one of `datacenter` or `assignee_id` is required.
+     * Note: At least one of `datacenter` or `assigneeId` is required.
      * 
      */
     @Import(name="deleteProtection")
@@ -93,7 +93,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * Note: At least one of `datacenter` or `assignee_id` is required.
+     * Note: At least one of `datacenter` or `assigneeId` is required.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -220,7 +220,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param autoDelete Whether auto delete is enabled.
-         * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+         * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param autoDelete Whether auto delete is enabled.
-         * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+         * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
-         * Note: At least one of `datacenter` or `assignee_id` is required.
+         * Note: At least one of `datacenter` or `assigneeId` is required.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
-         * Note: At least one of `datacenter` or `assignee_id` is required.
+         * Note: At least one of `datacenter` or `assigneeId` is required.
          * 
          * @return builder
          * 

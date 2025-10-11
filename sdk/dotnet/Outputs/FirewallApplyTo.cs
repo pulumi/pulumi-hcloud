@@ -15,12 +15,12 @@ namespace Pulumi.HCloud.Outputs
     {
         /// <summary>
         /// Label Selector to select servers the firewall should be applied to (only one
-        /// of `server` and `label_selector`can be applied in one block)
+        /// of `Server` and `LabelSelector`can be applied in one block)
         /// </summary>
         public readonly string? LabelSelector;
         /// <summary>
-        /// ID of the server you want to apply the firewall to (only one of `server`
-        /// and `label_selector`can be applied in one block)
+        /// ID of the server you want to apply the firewall to (only one of `Server`
+        /// and `LabelSelector`can be applied in one block)
         /// </summary>
         public readonly int? Server;
 

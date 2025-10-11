@@ -26,14 +26,14 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+     * (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+     * @return (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      * 
      */
     public Output<String> type() {
@@ -95,7 +95,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+         * @param type (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+         * @param type (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
          * 
          * @return builder
          * 

@@ -117,7 +117,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
     }
     /**
      * Label Selector selecting targets
-     * for this Load Balancer. Required if `type` is `label_selector`.
+     * for this Load Balancer. Required if `type` is `labelSelector`.
      * 
      */
     @Export(name="labelSelector", refs={String.class}, tree="[0]")
@@ -125,7 +125,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Label Selector selecting targets
-     * for this Load Balancer. Required if `type` is `label_selector`.
+     * for this Load Balancer. Required if `type` is `labelSelector`.
      * 
      */
     public Output<Optional<String>> labelSelector() {
@@ -165,7 +165,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
     }
     /**
      * Type of the target. Possible values
-     * `server`, `label_selector`, `ip`.
+     * `server`, `labelSelector`, `ip`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
@@ -173,7 +173,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Type of the target. Possible values
-     * `server`, `label_selector`, `ip`.
+     * `server`, `labelSelector`, `ip`.
      * 
      */
     public Output<String> type() {
@@ -182,7 +182,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
     /**
      * use the private IP to connect to
      * Load Balancer targets. Only allowed if type is `server` or
-     * `label_selector`.
+     * `labelSelector`.
      * 
      */
     @Export(name="usePrivateIp", refs={Boolean.class}, tree="[0]")
@@ -191,7 +191,7 @@ public class LoadBalancerTarget extends com.pulumi.resources.CustomResource {
     /**
      * @return use the private IP to connect to
      * Load Balancer targets. Only allowed if type is `server` or
-     * `label_selector`.
+     * `labelSelector`.
      * 
      */
     public Output<Boolean> usePrivateIp() {
