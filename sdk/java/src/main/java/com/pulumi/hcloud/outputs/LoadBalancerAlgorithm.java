@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LoadBalancerAlgorithm {
     /**
-     * @return Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+     * @return Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      * 
      */
     private @Nullable String type;
 
     private LoadBalancerAlgorithm() {}
     /**
-     * @return Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+     * @return Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      * 
      */
     public Optional<String> type() {

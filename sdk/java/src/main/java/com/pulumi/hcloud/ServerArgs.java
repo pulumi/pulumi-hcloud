@@ -68,14 +68,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
+     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
+     * @return Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -99,7 +99,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Ignores any updates
-     * to the `firewall_ids` argument which were received from the server.
+     * to the `firewallIds` argument which were received from the server.
      * This should not be used in normal cases. See the documentation of the
      * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
@@ -110,7 +110,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Ignores any updates
-     * to the `firewall_ids` argument which were received from the server.
+     * to the `firewallIds` argument which were received from the server.
      * This should not be used in normal cases. See the documentation of the
      * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
@@ -250,14 +250,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+     * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      * 
      */
     @Import(name="rebuildProtection")
     private @Nullable Output<Boolean> rebuildProtection;
 
     /**
-     * @return Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+     * @return Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      * 
      */
     public Optional<Output<Boolean>> rebuildProtection() {
@@ -310,14 +310,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
      * 
      */
     @Import(name="sshKeys")
     private @Nullable Output<List<String>> sshKeys;
 
     /**
-     * @return SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+     * @return SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
      * 
      */
     public Optional<Output<List<String>>> sshKeys() {
@@ -447,7 +447,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
+         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
+         * @param deleteProtection Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ignoreRemoteFirewallIds Ignores any updates
-         * to the `firewall_ids` argument which were received from the server.
+         * to the `firewallIds` argument which were received from the server.
          * This should not be used in normal cases. See the documentation of the
          * `hcloud.FirewallAttachment` resource for a reason to use this
          * argument.
@@ -515,7 +515,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ignoreRemoteFirewallIds Ignores any updates
-         * to the `firewall_ids` argument which were received from the server.
+         * to the `firewallIds` argument which were received from the server.
          * This should not be used in normal cases. See the documentation of the
          * `hcloud.FirewallAttachment` resource for a reason to use this
          * argument.
@@ -728,7 +728,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rebuildProtection Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+         * @param rebuildProtection Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rebuildProtection Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+         * @param rebuildProtection Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
          * 
          * @return builder
          * 
@@ -812,7 +812,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
          * 
          * @return builder
          * 
@@ -833,7 +833,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+         * @param sshKeys SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
          * 
          * @return builder
          * 

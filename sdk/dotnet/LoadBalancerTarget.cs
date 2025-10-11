@@ -77,14 +77,14 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// IP address for an IP Target. Required if
-        /// `type` is `ip`.
+        /// `Type` is `Ip`.
         /// </summary>
         [Output("ip")]
         public Output<string?> Ip { get; private set; } = null!;
 
         /// <summary>
         /// Label Selector selecting targets
-        /// for this Load Balancer. Required if `type` is `label_selector`.
+        /// for this Load Balancer. Required if `Type` is `LabelSelector`.
         /// </summary>
         [Output("labelSelector")]
         public Output<string?> LabelSelector { get; private set; } = null!;
@@ -98,22 +98,22 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// ID of the server which should be a
-        /// target for this Load Balancer. Required if `type` is `server`
+        /// target for this Load Balancer. Required if `Type` is `Server`
         /// </summary>
         [Output("serverId")]
         public Output<int?> ServerId { get; private set; } = null!;
 
         /// <summary>
         /// Type of the target. Possible values
-        /// `server`, `label_selector`, `ip`.
+        /// `Server`, `LabelSelector`, `Ip`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
         /// use the private IP to connect to
-        /// Load Balancer targets. Only allowed if type is `server` or
-        /// `label_selector`.
+        /// Load Balancer targets. Only allowed if type is `Server` or
+        /// `LabelSelector`.
         /// </summary>
         [Output("usePrivateIp")]
         public Output<bool> UsePrivateIp { get; private set; } = null!;
@@ -166,14 +166,14 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// IP address for an IP Target. Required if
-        /// `type` is `ip`.
+        /// `Type` is `Ip`.
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
         /// <summary>
         /// Label Selector selecting targets
-        /// for this Load Balancer. Required if `type` is `label_selector`.
+        /// for this Load Balancer. Required if `Type` is `LabelSelector`.
         /// </summary>
         [Input("labelSelector")]
         public Input<string>? LabelSelector { get; set; }
@@ -187,22 +187,22 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// ID of the server which should be a
-        /// target for this Load Balancer. Required if `type` is `server`
+        /// target for this Load Balancer. Required if `Type` is `Server`
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
         /// <summary>
         /// Type of the target. Possible values
-        /// `server`, `label_selector`, `ip`.
+        /// `Server`, `LabelSelector`, `Ip`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
         /// use the private IP to connect to
-        /// Load Balancer targets. Only allowed if type is `server` or
-        /// `label_selector`.
+        /// Load Balancer targets. Only allowed if type is `Server` or
+        /// `LabelSelector`.
         /// </summary>
         [Input("usePrivateIp")]
         public Input<bool>? UsePrivateIp { get; set; }
@@ -217,14 +217,14 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// IP address for an IP Target. Required if
-        /// `type` is `ip`.
+        /// `Type` is `Ip`.
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
         /// <summary>
         /// Label Selector selecting targets
-        /// for this Load Balancer. Required if `type` is `label_selector`.
+        /// for this Load Balancer. Required if `Type` is `LabelSelector`.
         /// </summary>
         [Input("labelSelector")]
         public Input<string>? LabelSelector { get; set; }
@@ -238,22 +238,22 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// ID of the server which should be a
-        /// target for this Load Balancer. Required if `type` is `server`
+        /// target for this Load Balancer. Required if `Type` is `Server`
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
 
         /// <summary>
         /// Type of the target. Possible values
-        /// `server`, `label_selector`, `ip`.
+        /// `Server`, `LabelSelector`, `Ip`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
         /// use the private IP to connect to
-        /// Load Balancer targets. Only allowed if type is `server` or
-        /// `label_selector`.
+        /// Load Balancer targets. Only allowed if type is `Server` or
+        /// `LabelSelector`.
         /// </summary>
         [Input("usePrivateIp")]
         public Input<bool>? UsePrivateIp { get; set; }
