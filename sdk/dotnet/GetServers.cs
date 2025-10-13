@@ -91,7 +91,7 @@ namespace Pulumi.HCloud
         private List<string>? _withStatuses;
 
         /// <summary>
-        /// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+        /// List only servers with the specified status, could contain `Initializing`, `Starting`, `Running`, `Stopping`, `Off`, `Deleting`, `Rebuilding`, `Migrating`, `Unknown`.
         /// </summary>
         public List<string> WithStatuses
         {
@@ -117,7 +117,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withStatuses;
 
         /// <summary>
-        /// List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
+        /// List only servers with the specified status, could contain `Initializing`, `Starting`, `Running`, `Stopping`, `Off`, `Deleting`, `Rebuilding`, `Migrating`, `Unknown`.
         /// </summary>
         public InputList<string> WithStatuses
         {

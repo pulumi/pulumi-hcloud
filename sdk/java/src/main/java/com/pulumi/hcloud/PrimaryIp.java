@@ -117,7 +117,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
     @Export(name="autoDelete", refs={Boolean.class}, tree="[0]")
@@ -125,7 +125,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
      * 
      */
     public Output<Boolean> autoDelete() {
@@ -148,7 +148,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
      * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * Note: At least one of `datacenter` or `assignee_id` is required.
+     * Note: At least one of `datacenter` or `assigneeId` is required.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
@@ -157,7 +157,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * Note: At least one of `datacenter` or `assignee_id` is required.
+     * Note: At least one of `datacenter` or `assigneeId` is required.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {

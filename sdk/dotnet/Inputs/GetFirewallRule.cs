@@ -22,7 +22,7 @@ namespace Pulumi.HCloud.Inputs
         private List<string>? _destinationIps;
 
         /// <summary>
-        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `Direction` is `Out`)
         /// </summary>
         public List<string> DestinationIps
         {
@@ -31,19 +31,19 @@ namespace Pulumi.HCloud.Inputs
         }
 
         /// <summary>
-        /// (Required, string) Direction of the Firewall Rule. `in`, `out`
+        /// (Required, string) Direction of the Firewall Rule. `In`, `Out`
         /// </summary>
         [Input("direction", required: true)]
         public string Direction { get; set; } = null!;
 
         /// <summary>
-        /// (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+        /// (Required, string) Port of the Firewall Rule. Required when `Protocol` is `Tcp` or `Udp`
         /// </summary>
         [Input("port")]
         public string? Port { get; set; }
 
         /// <summary>
-        /// (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+        /// (Required, string) Protocol of the Firewall Rule. `Tcp`, `Icmp`, `Udp`, `Gre`, `Esp`
         /// </summary>
         [Input("protocol")]
         public string? Protocol { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.HCloud.Inputs
         private List<string>? _sourceIps;
 
         /// <summary>
-        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
+        /// (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `Direction` is `In`)
         /// </summary>
         public List<string> SourceIps
         {

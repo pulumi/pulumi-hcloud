@@ -14,7 +14,7 @@ namespace Pulumi.HCloud.Outputs
     public sealed class GetLoadBalancerAlgorithmResult
     {
         /// <summary>
-        /// (string) Type of the target. `server` or `label_selector`
+        /// (string) Type of the target. `Server` or `LabelSelector`
         /// </summary>
         public readonly string Type;
 
