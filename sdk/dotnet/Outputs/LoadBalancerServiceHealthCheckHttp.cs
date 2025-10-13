@@ -26,7 +26,7 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string? Response;
         /// <summary>
-        /// We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+        /// We expect that the target answers with these status codes. If not the target is marked as `Unhealthy`.
         /// </summary>
         public readonly ImmutableArray<string> StatusCodes;
         /// <summary>

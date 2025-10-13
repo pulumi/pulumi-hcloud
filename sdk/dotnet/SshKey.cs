@@ -77,7 +77,7 @@ namespace Pulumi.HCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
+        /// Public key of the SSH Key pair. If this is a file, it can be read using the `File` interpolation function.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
+        /// Public key of the SSH Key pair. If this is a file, it can be read using the `File` interpolation function.
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
+        /// Public key of the SSH Key pair. If this is a file, it can be read using the `File` interpolation function.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }

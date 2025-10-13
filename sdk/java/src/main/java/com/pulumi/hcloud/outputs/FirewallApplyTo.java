@@ -14,13 +14,13 @@ import javax.annotation.Nullable;
 public final class FirewallApplyTo {
     /**
      * @return Label Selector to select servers the firewall should be applied to (only one
-     * of `server` and `label_selector`can be applied in one block)
+     * of `server` and `labelSelector`can be applied in one block)
      * 
      */
     private @Nullable String labelSelector;
     /**
      * @return ID of the server you want to apply the firewall to (only one of `server`
-     * and `label_selector`can be applied in one block)
+     * and `labelSelector`can be applied in one block)
      * 
      */
     private @Nullable Integer server;
@@ -28,7 +28,7 @@ public final class FirewallApplyTo {
     private FirewallApplyTo() {}
     /**
      * @return Label Selector to select servers the firewall should be applied to (only one
-     * of `server` and `label_selector`can be applied in one block)
+     * of `server` and `labelSelector`can be applied in one block)
      * 
      */
     public Optional<String> labelSelector() {
@@ -36,7 +36,7 @@ public final class FirewallApplyTo {
     }
     /**
      * @return ID of the server you want to apply the firewall to (only one of `server`
-     * and `label_selector`can be applied in one block)
+     * and `labelSelector`can be applied in one block)
      * 
      */
     public Optional<Integer> server() {

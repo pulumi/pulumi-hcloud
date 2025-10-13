@@ -79,14 +79,14 @@ namespace Pulumi.HCloud
         public Output<int> AssigneeId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `server`
+        /// The type of the assigned resource. Currently supported: `Server`
         /// </summary>
         [Output("assigneeType")]
         public Output<string> AssigneeType { get; private set; } = null!;
 
         /// <summary>
         /// Whether auto delete is enabled.
-        /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        /// `Important note:`It is recommended to set `AutoDelete` to `False`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Output("autoDelete")]
         public Output<bool> AutoDelete { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// Note: At least one of `datacenter` or `assignee_id` is required.
+        /// Note: At least one of `Datacenter` or `AssigneeId` is required.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.HCloud
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `Type` is `Ipv6`)
         /// </summary>
         [Output("ipNetwork")]
         public Output<string> IpNetwork { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.HCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Primary IP. `ipv4` or `ipv6`
+        /// Type of the Primary IP. `Ipv4` or `Ipv6`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -188,14 +188,14 @@ namespace Pulumi.HCloud
         public Input<int>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `server`
+        /// The type of the assigned resource. Currently supported: `Server`
         /// </summary>
         [Input("assigneeType", required: true)]
         public Input<string> AssigneeType { get; set; } = null!;
 
         /// <summary>
         /// Whether auto delete is enabled.
-        /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        /// `Important note:`It is recommended to set `AutoDelete` to `False`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Input("autoDelete", required: true)]
         public Input<bool> AutoDelete { get; set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// Note: At least one of `datacenter` or `assignee_id` is required.
+        /// Note: At least one of `Datacenter` or `AssigneeId` is required.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of the Primary IP. `ipv4` or `ipv6`
+        /// Type of the Primary IP. `Ipv4` or `Ipv6`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -253,14 +253,14 @@ namespace Pulumi.HCloud
         public Input<int>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `server`
+        /// The type of the assigned resource. Currently supported: `Server`
         /// </summary>
         [Input("assigneeType")]
         public Input<string>? AssigneeType { get; set; }
 
         /// <summary>
         /// Whether auto delete is enabled.
-        /// `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        /// `Important note:`It is recommended to set `AutoDelete` to `False`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
         /// </summary>
         [Input("autoDelete")]
         public Input<bool>? AutoDelete { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// Note: At least one of `datacenter` or `assignee_id` is required.
+        /// Note: At least one of `Datacenter` or `AssigneeId` is required.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.HCloud
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `Type` is `Ipv6`)
         /// </summary>
         [Input("ipNetwork")]
         public Input<string>? IpNetwork { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of the Primary IP. `ipv4` or `ipv6`
+        /// Type of the Primary IP. `Ipv4` or `Ipv6`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

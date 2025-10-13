@@ -234,7 +234,7 @@ import javax.annotation.Nullable;
  * ## Primary IPs
  * 
  * When creating a server without linking at least one ´primary_ip´, it automatically creates &amp; assigns two (ipv4 &amp; ipv6).
- * With the public_net block, you can enable or link primary ips. If you don&#39;t define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
+ * With the publicNet block, you can enable or link primary ips. If you don&#39;t define this block, two primary ips (ipv4, ipv6) will be created and assigned to the server automatically.
  * 
  * ## Import
  * 
@@ -308,14 +308,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.datacenter;
     }
     /**
-     * Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
+     * Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
-     * @return Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
+     * @return Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {
@@ -337,7 +337,7 @@ public class Server extends com.pulumi.resources.CustomResource {
     }
     /**
      * Ignores any updates
-     * to the `firewall_ids` argument which were received from the server.
+     * to the `firewallIds` argument which were received from the server.
      * This should not be used in normal cases. See the documentation of the
      * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
@@ -348,7 +348,7 @@ public class Server extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Ignores any updates
-     * to the `firewall_ids` argument which were received from the server.
+     * to the `firewallIds` argument which were received from the server.
      * This should not be used in normal cases. See the documentation of the
      * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
@@ -534,14 +534,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNets);
     }
     /**
-     * Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+     * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      * 
      */
     @Export(name="rebuildProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rebuildProtection;
 
     /**
-     * @return Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
+     * @return Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      * 
      */
     public Output<Optional<Boolean>> rebuildProtection() {
@@ -590,14 +590,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.shutdownBeforeDeletion);
     }
     /**
-     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+     * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
      * 
      */
     @Export(name="sshKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sshKeys;
 
     /**
-     * @return SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
+     * @return SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
      * 
      */
     public Output<Optional<List<String>>> sshKeys() {

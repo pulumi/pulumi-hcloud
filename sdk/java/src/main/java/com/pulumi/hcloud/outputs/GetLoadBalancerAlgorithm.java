@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetLoadBalancerAlgorithm {
     /**
-     * @return (string) Type of the target. `server` or `label_selector`
+     * @return (string) Type of the target. `server` or `labelSelector`
      * 
      */
     private String type;
 
     private GetLoadBalancerAlgorithm() {}
     /**
-     * @return (string) Type of the target. `server` or `label_selector`
+     * @return (string) Type of the target. `server` or `labelSelector`
      * 
      */
     public String type() {

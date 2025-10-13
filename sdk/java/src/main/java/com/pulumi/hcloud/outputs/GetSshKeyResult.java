@@ -43,10 +43,10 @@ public final class GetSshKeyResult {
      * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      * @deprecated
-     * Please use the with_selector property instead.
+     * Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the with_selector property instead. */
+    @Deprecated /* Please use the withSelector property instead. */
     private @Nullable String selector;
     /**
      * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
@@ -94,10 +94,10 @@ public final class GetSshKeyResult {
      * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      * @deprecated
-     * Please use the with_selector property instead.
+     * Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the with_selector property instead. */
+    @Deprecated /* Please use the withSelector property instead. */
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }
