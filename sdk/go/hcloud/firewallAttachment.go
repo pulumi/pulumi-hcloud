@@ -108,6 +108,104 @@ import (
 //	}
 //
 // ```
+//
+// ### Ensure a server is attached to a Firewall on first boot
+//
+// The `firewallIds` property of the `Server` resource ensures that
+// a server is attached to the specified Firewalls before its first boot.
+// This is **not** the case when using the `FirewallAttachment`
+// resource to attach servers to a Firewall. In some scenarios this may
+// pose a security risk.
+//
+// The following workaround ensures that a server is attached to a Firewall
+// _before_ it first boots. However, the workaround requires two Firewalls.
+// Additionally the server resource definition needs to ignore any remote
+// changes to the `hcloud_server.firewall_ids` property. This is done using
+// the `ignoreRemoteFirewallIds` property of `Server`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			denyAll, err := hcloud.NewFirewall(ctx, "deny_all", &hcloud.FirewallArgs{
+//				Name: pulumi.String("deny_all"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testServer, err := hcloud.NewServer(ctx, "test_server", &hcloud.ServerArgs{
+//				Name:                    pulumi.String("test-server"),
+//				ServerType:              pulumi.String("cx22"),
+//				Image:                   pulumi.String("ubuntu-20.04"),
+//				IgnoreRemoteFirewallIds: pulumi.Bool(true),
+//				FirewallIds: pulumi.IntArray{
+//					denyAll.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFormat, err := std.Format(ctx, &std.FormatArgs{
+//				Input: "%s/32",
+//				Args: pulumi.StringArray{
+//					testServer.Ipv4Address,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			allowRules, err := hcloud.NewFirewall(ctx, "allow_rules", &hcloud.FirewallArgs{
+//				Name: pulumi.String("allow_rules"),
+//				Rules: hcloud.FirewallRuleArray{
+//					&hcloud.FirewallRuleArgs{
+//						Direction: pulumi.String("in"),
+//						Protocol:  pulumi.String("tcp"),
+//						Port:      pulumi.String("22"),
+//						SourceIps: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//							pulumi.String("::/0"),
+//						},
+//						DestinationIps: pulumi.StringArray{
+//							pulumi.String(invokeFormat.Result),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewFirewallAttachment(ctx, "deny_all_att", &hcloud.FirewallAttachmentArgs{
+//				FirewallId: denyAll.ID(),
+//				ServerIds: pulumi.IntArray{
+//					testServer.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewFirewallAttachment(ctx, "allow_rules_att", &hcloud.FirewallAttachmentArgs{
+//				FirewallId: allowRules.ID(),
+//				ServerIds: pulumi.IntArray{
+//					testServer.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type FirewallAttachment struct {
 	pulumi.CustomResourceState
 

@@ -61,6 +61,14 @@ import com.pulumi.hcloud.inputs.GetVolumeArgs;
 import com.pulumi.hcloud.inputs.GetVolumePlainArgs;
 import com.pulumi.hcloud.inputs.GetVolumesArgs;
 import com.pulumi.hcloud.inputs.GetVolumesPlainArgs;
+import com.pulumi.hcloud.inputs.GetZoneArgs;
+import com.pulumi.hcloud.inputs.GetZonePlainArgs;
+import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
+import com.pulumi.hcloud.inputs.GetZoneRrsetPlainArgs;
+import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
+import com.pulumi.hcloud.inputs.GetZoneRrsetsPlainArgs;
+import com.pulumi.hcloud.inputs.GetZonesArgs;
+import com.pulumi.hcloud.inputs.GetZonesPlainArgs;
 import com.pulumi.hcloud.outputs.GetCertificateResult;
 import com.pulumi.hcloud.outputs.GetCertificatesResult;
 import com.pulumi.hcloud.outputs.GetDatacenterResult;
@@ -91,6 +99,10 @@ import com.pulumi.hcloud.outputs.GetSshKeyResult;
 import com.pulumi.hcloud.outputs.GetSshKeysResult;
 import com.pulumi.hcloud.outputs.GetVolumeResult;
 import com.pulumi.hcloud.outputs.GetVolumesResult;
+import com.pulumi.hcloud.outputs.GetZoneResult;
+import com.pulumi.hcloud.outputs.GetZoneRrsetResult;
+import com.pulumi.hcloud.outputs.GetZoneRrsetsResult;
+import com.pulumi.hcloud.outputs.GetZonesResult;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -9383,5 +9395,1311 @@ public final class HcloudFunctions {
      */
     public static CompletableFuture<GetVolumesResult> getVolumesPlain(GetVolumesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getVolumes:getVolumes", TypeShape.of(GetVolumesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone.
+     * 
+     * For Internationalized domain names (IDN), see the `provider::hcloud::idna` function.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .id(1234)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneResult> getZone() {
+        return getZone(GetZoneArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone.
+     * 
+     * For Internationalized domain names (IDN), see the `provider::hcloud::idna` function.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .id(1234)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZoneResult> getZonePlain() {
+        return getZonePlain(GetZonePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone.
+     * 
+     * For Internationalized domain names (IDN), see the `provider::hcloud::idna` function.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .id(1234)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneResult> getZone(GetZoneArgs args) {
+        return getZone(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone.
+     * 
+     * For Internationalized domain names (IDN), see the `provider::hcloud::idna` function.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .id(1234)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args) {
+        return getZonePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone.
+     * 
+     * For Internationalized domain names (IDN), see the `provider::hcloud::idna` function.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .id(1234)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone.
+     * 
+     * For Internationalized domain names (IDN), see the `provider::hcloud::idna` function.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .id(1234)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone.
+     * 
+     * For Internationalized domain names (IDN), see the `provider::hcloud::idna` function.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .id(1234)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .id("www/A")
+     *             .build());
+     * 
+     *         final var byNameAndType = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .name("www")
+     *             .type("A")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneRrsetResult> getZoneRrset(GetZoneRrsetArgs args) {
+        return getZoneRrset(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .id("www/A")
+     *             .build());
+     * 
+     *         final var byNameAndType = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .name("www")
+     *             .type("A")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZoneRrsetResult> getZoneRrsetPlain(GetZoneRrsetPlainArgs args) {
+        return getZoneRrsetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .id("www/A")
+     *             .build());
+     * 
+     *         final var byNameAndType = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .name("www")
+     *             .type("A")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneRrsetResult> getZoneRrset(GetZoneRrsetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getZoneRrset:getZoneRrset", TypeShape.of(GetZoneRrsetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .id("www/A")
+     *             .build());
+     * 
+     *         final var byNameAndType = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .name("www")
+     *             .type("A")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneRrsetResult> getZoneRrset(GetZoneRrsetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getZoneRrset:getZoneRrset", TypeShape.of(GetZoneRrsetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var byId = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .id("www/A")
+     *             .build());
+     * 
+     *         final var byNameAndType = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .name("www")
+     *             .type("A")
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZoneRrsetResult> getZoneRrsetPlain(GetZoneRrsetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getZoneRrset:getZoneRrset", TypeShape.of(GetZoneRrsetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var all = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneRrsetsResult> getZoneRrsets(GetZoneRrsetsArgs args) {
+        return getZoneRrsets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var all = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZoneRrsetsResult> getZoneRrsetsPlain(GetZoneRrsetsPlainArgs args) {
+        return getZoneRrsetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var all = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneRrsetsResult> getZoneRrsets(GetZoneRrsetsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getZoneRrsets:getZoneRrsets", TypeShape.of(GetZoneRrsetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var all = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZoneRrsetsResult> getZoneRrsets(GetZoneRrsetsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getZoneRrsets:getZoneRrsets", TypeShape.of(GetZoneRrsetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone Resource Record Set (RRSet).
+     * 
+     * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZoneArgs;
+     * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HcloudFunctions.getZone(GetZoneArgs.builder()
+     *             .name("example.com")
+     *             .build());
+     * 
+     *         final var all = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()
+     *             .zone(example.name())
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZoneRrsetsResult> getZoneRrsetsPlain(GetZoneRrsetsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getZoneRrsets:getZoneRrsets", TypeShape.of(GetZoneRrsetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZonesResult> getZones() {
+        return getZones(GetZonesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZonesResult> getZonesPlain() {
+        return getZonesPlain(GetZonesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZonesResult> getZones(GetZonesArgs args) {
+        return getZones(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZonesResult> getZonesPlain(GetZonesPlainArgs args) {
+        return getZonesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZonesResult> getZones(GetZonesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getZones:getZones", TypeShape.of(GetZonesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetZonesResult> getZones(GetZonesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getZones:getZones", TypeShape.of(GetZonesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Zone.
+     * 
+     * See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
+     * 
+     * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
+     * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabel = HcloudFunctions.getZones(GetZonesArgs.builder()
+     *             .withSelector("key=value")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetZonesResult> getZonesPlain(GetZonesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getZones:getZones", TypeShape.of(GetZonesResult.class), args, Utilities.withVersion(options));
     }
 }

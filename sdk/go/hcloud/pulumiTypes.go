@@ -1416,6 +1416,373 @@ func (o ServerPublicNetArrayOutput) Index(i pulumi.IntInput) ServerPublicNetOutp
 	}).(ServerPublicNetOutput)
 }
 
+type ZoneAuthoritativeNameservers struct {
+	// Authoritative Hetzner nameservers assigned to the Zone.
+	Assigneds []string `pulumi:"assigneds"`
+}
+
+// ZoneAuthoritativeNameserversInput is an input type that accepts ZoneAuthoritativeNameserversArgs and ZoneAuthoritativeNameserversOutput values.
+// You can construct a concrete instance of `ZoneAuthoritativeNameserversInput` via:
+//
+//	ZoneAuthoritativeNameserversArgs{...}
+type ZoneAuthoritativeNameserversInput interface {
+	pulumi.Input
+
+	ToZoneAuthoritativeNameserversOutput() ZoneAuthoritativeNameserversOutput
+	ToZoneAuthoritativeNameserversOutputWithContext(context.Context) ZoneAuthoritativeNameserversOutput
+}
+
+type ZoneAuthoritativeNameserversArgs struct {
+	// Authoritative Hetzner nameservers assigned to the Zone.
+	Assigneds pulumi.StringArrayInput `pulumi:"assigneds"`
+}
+
+func (ZoneAuthoritativeNameserversArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneAuthoritativeNameservers)(nil)).Elem()
+}
+
+func (i ZoneAuthoritativeNameserversArgs) ToZoneAuthoritativeNameserversOutput() ZoneAuthoritativeNameserversOutput {
+	return i.ToZoneAuthoritativeNameserversOutputWithContext(context.Background())
+}
+
+func (i ZoneAuthoritativeNameserversArgs) ToZoneAuthoritativeNameserversOutputWithContext(ctx context.Context) ZoneAuthoritativeNameserversOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneAuthoritativeNameserversOutput)
+}
+
+func (i ZoneAuthoritativeNameserversArgs) ToZoneAuthoritativeNameserversPtrOutput() ZoneAuthoritativeNameserversPtrOutput {
+	return i.ToZoneAuthoritativeNameserversPtrOutputWithContext(context.Background())
+}
+
+func (i ZoneAuthoritativeNameserversArgs) ToZoneAuthoritativeNameserversPtrOutputWithContext(ctx context.Context) ZoneAuthoritativeNameserversPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneAuthoritativeNameserversOutput).ToZoneAuthoritativeNameserversPtrOutputWithContext(ctx)
+}
+
+// ZoneAuthoritativeNameserversPtrInput is an input type that accepts ZoneAuthoritativeNameserversArgs, ZoneAuthoritativeNameserversPtr and ZoneAuthoritativeNameserversPtrOutput values.
+// You can construct a concrete instance of `ZoneAuthoritativeNameserversPtrInput` via:
+//
+//	        ZoneAuthoritativeNameserversArgs{...}
+//
+//	or:
+//
+//	        nil
+type ZoneAuthoritativeNameserversPtrInput interface {
+	pulumi.Input
+
+	ToZoneAuthoritativeNameserversPtrOutput() ZoneAuthoritativeNameserversPtrOutput
+	ToZoneAuthoritativeNameserversPtrOutputWithContext(context.Context) ZoneAuthoritativeNameserversPtrOutput
+}
+
+type zoneAuthoritativeNameserversPtrType ZoneAuthoritativeNameserversArgs
+
+func ZoneAuthoritativeNameserversPtr(v *ZoneAuthoritativeNameserversArgs) ZoneAuthoritativeNameserversPtrInput {
+	return (*zoneAuthoritativeNameserversPtrType)(v)
+}
+
+func (*zoneAuthoritativeNameserversPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ZoneAuthoritativeNameservers)(nil)).Elem()
+}
+
+func (i *zoneAuthoritativeNameserversPtrType) ToZoneAuthoritativeNameserversPtrOutput() ZoneAuthoritativeNameserversPtrOutput {
+	return i.ToZoneAuthoritativeNameserversPtrOutputWithContext(context.Background())
+}
+
+func (i *zoneAuthoritativeNameserversPtrType) ToZoneAuthoritativeNameserversPtrOutputWithContext(ctx context.Context) ZoneAuthoritativeNameserversPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneAuthoritativeNameserversPtrOutput)
+}
+
+type ZoneAuthoritativeNameserversOutput struct{ *pulumi.OutputState }
+
+func (ZoneAuthoritativeNameserversOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneAuthoritativeNameservers)(nil)).Elem()
+}
+
+func (o ZoneAuthoritativeNameserversOutput) ToZoneAuthoritativeNameserversOutput() ZoneAuthoritativeNameserversOutput {
+	return o
+}
+
+func (o ZoneAuthoritativeNameserversOutput) ToZoneAuthoritativeNameserversOutputWithContext(ctx context.Context) ZoneAuthoritativeNameserversOutput {
+	return o
+}
+
+func (o ZoneAuthoritativeNameserversOutput) ToZoneAuthoritativeNameserversPtrOutput() ZoneAuthoritativeNameserversPtrOutput {
+	return o.ToZoneAuthoritativeNameserversPtrOutputWithContext(context.Background())
+}
+
+func (o ZoneAuthoritativeNameserversOutput) ToZoneAuthoritativeNameserversPtrOutputWithContext(ctx context.Context) ZoneAuthoritativeNameserversPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZoneAuthoritativeNameservers) *ZoneAuthoritativeNameservers {
+		return &v
+	}).(ZoneAuthoritativeNameserversPtrOutput)
+}
+
+// Authoritative Hetzner nameservers assigned to the Zone.
+func (o ZoneAuthoritativeNameserversOutput) Assigneds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ZoneAuthoritativeNameservers) []string { return v.Assigneds }).(pulumi.StringArrayOutput)
+}
+
+type ZoneAuthoritativeNameserversPtrOutput struct{ *pulumi.OutputState }
+
+func (ZoneAuthoritativeNameserversPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ZoneAuthoritativeNameservers)(nil)).Elem()
+}
+
+func (o ZoneAuthoritativeNameserversPtrOutput) ToZoneAuthoritativeNameserversPtrOutput() ZoneAuthoritativeNameserversPtrOutput {
+	return o
+}
+
+func (o ZoneAuthoritativeNameserversPtrOutput) ToZoneAuthoritativeNameserversPtrOutputWithContext(ctx context.Context) ZoneAuthoritativeNameserversPtrOutput {
+	return o
+}
+
+func (o ZoneAuthoritativeNameserversPtrOutput) Elem() ZoneAuthoritativeNameserversOutput {
+	return o.ApplyT(func(v *ZoneAuthoritativeNameservers) ZoneAuthoritativeNameservers {
+		if v != nil {
+			return *v
+		}
+		var ret ZoneAuthoritativeNameservers
+		return ret
+	}).(ZoneAuthoritativeNameserversOutput)
+}
+
+// Authoritative Hetzner nameservers assigned to the Zone.
+func (o ZoneAuthoritativeNameserversPtrOutput) Assigneds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ZoneAuthoritativeNameservers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Assigneds
+	}).(pulumi.StringArrayOutput)
+}
+
+type ZonePrimaryNameserver struct {
+	// Public IPv4 or IPv6 address of the primary nameserver.
+	Address string `pulumi:"address"`
+	// Port of the primary nameserver.
+	Port *int `pulumi:"port"`
+	// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+	TsigAlgorithm *string `pulumi:"tsigAlgorithm"`
+	// Transaction signature (TSIG) key
+	TsigKey *string `pulumi:"tsigKey"`
+}
+
+// ZonePrimaryNameserverInput is an input type that accepts ZonePrimaryNameserverArgs and ZonePrimaryNameserverOutput values.
+// You can construct a concrete instance of `ZonePrimaryNameserverInput` via:
+//
+//	ZonePrimaryNameserverArgs{...}
+type ZonePrimaryNameserverInput interface {
+	pulumi.Input
+
+	ToZonePrimaryNameserverOutput() ZonePrimaryNameserverOutput
+	ToZonePrimaryNameserverOutputWithContext(context.Context) ZonePrimaryNameserverOutput
+}
+
+type ZonePrimaryNameserverArgs struct {
+	// Public IPv4 or IPv6 address of the primary nameserver.
+	Address pulumi.StringInput `pulumi:"address"`
+	// Port of the primary nameserver.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+	TsigAlgorithm pulumi.StringPtrInput `pulumi:"tsigAlgorithm"`
+	// Transaction signature (TSIG) key
+	TsigKey pulumi.StringPtrInput `pulumi:"tsigKey"`
+}
+
+func (ZonePrimaryNameserverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (i ZonePrimaryNameserverArgs) ToZonePrimaryNameserverOutput() ZonePrimaryNameserverOutput {
+	return i.ToZonePrimaryNameserverOutputWithContext(context.Background())
+}
+
+func (i ZonePrimaryNameserverArgs) ToZonePrimaryNameserverOutputWithContext(ctx context.Context) ZonePrimaryNameserverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZonePrimaryNameserverOutput)
+}
+
+// ZonePrimaryNameserverArrayInput is an input type that accepts ZonePrimaryNameserverArray and ZonePrimaryNameserverArrayOutput values.
+// You can construct a concrete instance of `ZonePrimaryNameserverArrayInput` via:
+//
+//	ZonePrimaryNameserverArray{ ZonePrimaryNameserverArgs{...} }
+type ZonePrimaryNameserverArrayInput interface {
+	pulumi.Input
+
+	ToZonePrimaryNameserverArrayOutput() ZonePrimaryNameserverArrayOutput
+	ToZonePrimaryNameserverArrayOutputWithContext(context.Context) ZonePrimaryNameserverArrayOutput
+}
+
+type ZonePrimaryNameserverArray []ZonePrimaryNameserverInput
+
+func (ZonePrimaryNameserverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (i ZonePrimaryNameserverArray) ToZonePrimaryNameserverArrayOutput() ZonePrimaryNameserverArrayOutput {
+	return i.ToZonePrimaryNameserverArrayOutputWithContext(context.Background())
+}
+
+func (i ZonePrimaryNameserverArray) ToZonePrimaryNameserverArrayOutputWithContext(ctx context.Context) ZonePrimaryNameserverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZonePrimaryNameserverArrayOutput)
+}
+
+type ZonePrimaryNameserverOutput struct{ *pulumi.OutputState }
+
+func (ZonePrimaryNameserverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (o ZonePrimaryNameserverOutput) ToZonePrimaryNameserverOutput() ZonePrimaryNameserverOutput {
+	return o
+}
+
+func (o ZonePrimaryNameserverOutput) ToZonePrimaryNameserverOutputWithContext(ctx context.Context) ZonePrimaryNameserverOutput {
+	return o
+}
+
+// Public IPv4 or IPv6 address of the primary nameserver.
+func (o ZonePrimaryNameserverOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v ZonePrimaryNameserver) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// Port of the primary nameserver.
+func (o ZonePrimaryNameserverOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ZonePrimaryNameserver) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+func (o ZonePrimaryNameserverOutput) TsigAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZonePrimaryNameserver) *string { return v.TsigAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Transaction signature (TSIG) key
+func (o ZonePrimaryNameserverOutput) TsigKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZonePrimaryNameserver) *string { return v.TsigKey }).(pulumi.StringPtrOutput)
+}
+
+type ZonePrimaryNameserverArrayOutput struct{ *pulumi.OutputState }
+
+func (ZonePrimaryNameserverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (o ZonePrimaryNameserverArrayOutput) ToZonePrimaryNameserverArrayOutput() ZonePrimaryNameserverArrayOutput {
+	return o
+}
+
+func (o ZonePrimaryNameserverArrayOutput) ToZonePrimaryNameserverArrayOutputWithContext(ctx context.Context) ZonePrimaryNameserverArrayOutput {
+	return o
+}
+
+func (o ZonePrimaryNameserverArrayOutput) Index(i pulumi.IntInput) ZonePrimaryNameserverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ZonePrimaryNameserver {
+		return vs[0].([]ZonePrimaryNameserver)[vs[1].(int)]
+	}).(ZonePrimaryNameserverOutput)
+}
+
+type ZoneRrsetRecord struct {
+	// Comment of the record.
+	Comment *string `pulumi:"comment"`
+	// Value of the record.
+	Value string `pulumi:"value"`
+}
+
+// ZoneRrsetRecordInput is an input type that accepts ZoneRrsetRecordArgs and ZoneRrsetRecordOutput values.
+// You can construct a concrete instance of `ZoneRrsetRecordInput` via:
+//
+//	ZoneRrsetRecordArgs{...}
+type ZoneRrsetRecordInput interface {
+	pulumi.Input
+
+	ToZoneRrsetRecordOutput() ZoneRrsetRecordOutput
+	ToZoneRrsetRecordOutputWithContext(context.Context) ZoneRrsetRecordOutput
+}
+
+type ZoneRrsetRecordArgs struct {
+	// Comment of the record.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// Value of the record.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ZoneRrsetRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneRrsetRecord)(nil)).Elem()
+}
+
+func (i ZoneRrsetRecordArgs) ToZoneRrsetRecordOutput() ZoneRrsetRecordOutput {
+	return i.ToZoneRrsetRecordOutputWithContext(context.Background())
+}
+
+func (i ZoneRrsetRecordArgs) ToZoneRrsetRecordOutputWithContext(ctx context.Context) ZoneRrsetRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneRrsetRecordOutput)
+}
+
+// ZoneRrsetRecordArrayInput is an input type that accepts ZoneRrsetRecordArray and ZoneRrsetRecordArrayOutput values.
+// You can construct a concrete instance of `ZoneRrsetRecordArrayInput` via:
+//
+//	ZoneRrsetRecordArray{ ZoneRrsetRecordArgs{...} }
+type ZoneRrsetRecordArrayInput interface {
+	pulumi.Input
+
+	ToZoneRrsetRecordArrayOutput() ZoneRrsetRecordArrayOutput
+	ToZoneRrsetRecordArrayOutputWithContext(context.Context) ZoneRrsetRecordArrayOutput
+}
+
+type ZoneRrsetRecordArray []ZoneRrsetRecordInput
+
+func (ZoneRrsetRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZoneRrsetRecord)(nil)).Elem()
+}
+
+func (i ZoneRrsetRecordArray) ToZoneRrsetRecordArrayOutput() ZoneRrsetRecordArrayOutput {
+	return i.ToZoneRrsetRecordArrayOutputWithContext(context.Background())
+}
+
+func (i ZoneRrsetRecordArray) ToZoneRrsetRecordArrayOutputWithContext(ctx context.Context) ZoneRrsetRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneRrsetRecordArrayOutput)
+}
+
+type ZoneRrsetRecordOutput struct{ *pulumi.OutputState }
+
+func (ZoneRrsetRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneRrsetRecord)(nil)).Elem()
+}
+
+func (o ZoneRrsetRecordOutput) ToZoneRrsetRecordOutput() ZoneRrsetRecordOutput {
+	return o
+}
+
+func (o ZoneRrsetRecordOutput) ToZoneRrsetRecordOutputWithContext(ctx context.Context) ZoneRrsetRecordOutput {
+	return o
+}
+
+// Comment of the record.
+func (o ZoneRrsetRecordOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZoneRrsetRecord) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Value of the record.
+func (o ZoneRrsetRecordOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ZoneRrsetRecord) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ZoneRrsetRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (ZoneRrsetRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZoneRrsetRecord)(nil)).Elem()
+}
+
+func (o ZoneRrsetRecordArrayOutput) ToZoneRrsetRecordArrayOutput() ZoneRrsetRecordArrayOutput {
+	return o
+}
+
+func (o ZoneRrsetRecordArrayOutput) ToZoneRrsetRecordArrayOutputWithContext(ctx context.Context) ZoneRrsetRecordArrayOutput {
+	return o
+}
+
+func (o ZoneRrsetRecordArrayOutput) Index(i pulumi.IntInput) ZoneRrsetRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ZoneRrsetRecord {
+		return vs[0].([]ZoneRrsetRecord)[vs[1].(int)]
+	}).(ZoneRrsetRecordOutput)
+}
+
 type GetCertificatesCertificate struct {
 	Certificate    string            `pulumi:"certificate"`
 	Created        string            `pulumi:"created"`
@@ -6168,6 +6535,899 @@ func (o GetVolumesVolumeArrayOutput) Index(i pulumi.IntInput) GetVolumesVolumeOu
 	}).(GetVolumesVolumeOutput)
 }
 
+type GetZoneAuthoritativeNameservers struct {
+	// Authoritative Hetzner nameservers assigned to the Zone.
+	Assigneds []string `pulumi:"assigneds"`
+}
+
+// GetZoneAuthoritativeNameserversInput is an input type that accepts GetZoneAuthoritativeNameserversArgs and GetZoneAuthoritativeNameserversOutput values.
+// You can construct a concrete instance of `GetZoneAuthoritativeNameserversInput` via:
+//
+//	GetZoneAuthoritativeNameserversArgs{...}
+type GetZoneAuthoritativeNameserversInput interface {
+	pulumi.Input
+
+	ToGetZoneAuthoritativeNameserversOutput() GetZoneAuthoritativeNameserversOutput
+	ToGetZoneAuthoritativeNameserversOutputWithContext(context.Context) GetZoneAuthoritativeNameserversOutput
+}
+
+type GetZoneAuthoritativeNameserversArgs struct {
+	// Authoritative Hetzner nameservers assigned to the Zone.
+	Assigneds pulumi.StringArrayInput `pulumi:"assigneds"`
+}
+
+func (GetZoneAuthoritativeNameserversArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZoneAuthoritativeNameservers)(nil)).Elem()
+}
+
+func (i GetZoneAuthoritativeNameserversArgs) ToGetZoneAuthoritativeNameserversOutput() GetZoneAuthoritativeNameserversOutput {
+	return i.ToGetZoneAuthoritativeNameserversOutputWithContext(context.Background())
+}
+
+func (i GetZoneAuthoritativeNameserversArgs) ToGetZoneAuthoritativeNameserversOutputWithContext(ctx context.Context) GetZoneAuthoritativeNameserversOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZoneAuthoritativeNameserversOutput)
+}
+
+type GetZoneAuthoritativeNameserversOutput struct{ *pulumi.OutputState }
+
+func (GetZoneAuthoritativeNameserversOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZoneAuthoritativeNameservers)(nil)).Elem()
+}
+
+func (o GetZoneAuthoritativeNameserversOutput) ToGetZoneAuthoritativeNameserversOutput() GetZoneAuthoritativeNameserversOutput {
+	return o
+}
+
+func (o GetZoneAuthoritativeNameserversOutput) ToGetZoneAuthoritativeNameserversOutputWithContext(ctx context.Context) GetZoneAuthoritativeNameserversOutput {
+	return o
+}
+
+// Authoritative Hetzner nameservers assigned to the Zone.
+func (o GetZoneAuthoritativeNameserversOutput) Assigneds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetZoneAuthoritativeNameservers) []string { return v.Assigneds }).(pulumi.StringArrayOutput)
+}
+
+type GetZonePrimaryNameserver struct {
+	// Public IPv4 or IPv6 address of the primary nameserver.
+	Address string `pulumi:"address"`
+	// Port of the primary nameserver.
+	Port int `pulumi:"port"`
+	// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+	TsigAlgorithm string `pulumi:"tsigAlgorithm"`
+	// Transaction signature (TSIG) key
+	TsigKey string `pulumi:"tsigKey"`
+}
+
+// GetZonePrimaryNameserverInput is an input type that accepts GetZonePrimaryNameserverArgs and GetZonePrimaryNameserverOutput values.
+// You can construct a concrete instance of `GetZonePrimaryNameserverInput` via:
+//
+//	GetZonePrimaryNameserverArgs{...}
+type GetZonePrimaryNameserverInput interface {
+	pulumi.Input
+
+	ToGetZonePrimaryNameserverOutput() GetZonePrimaryNameserverOutput
+	ToGetZonePrimaryNameserverOutputWithContext(context.Context) GetZonePrimaryNameserverOutput
+}
+
+type GetZonePrimaryNameserverArgs struct {
+	// Public IPv4 or IPv6 address of the primary nameserver.
+	Address pulumi.StringInput `pulumi:"address"`
+	// Port of the primary nameserver.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+	TsigAlgorithm pulumi.StringInput `pulumi:"tsigAlgorithm"`
+	// Transaction signature (TSIG) key
+	TsigKey pulumi.StringInput `pulumi:"tsigKey"`
+}
+
+func (GetZonePrimaryNameserverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (i GetZonePrimaryNameserverArgs) ToGetZonePrimaryNameserverOutput() GetZonePrimaryNameserverOutput {
+	return i.ToGetZonePrimaryNameserverOutputWithContext(context.Background())
+}
+
+func (i GetZonePrimaryNameserverArgs) ToGetZonePrimaryNameserverOutputWithContext(ctx context.Context) GetZonePrimaryNameserverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZonePrimaryNameserverOutput)
+}
+
+// GetZonePrimaryNameserverArrayInput is an input type that accepts GetZonePrimaryNameserverArray and GetZonePrimaryNameserverArrayOutput values.
+// You can construct a concrete instance of `GetZonePrimaryNameserverArrayInput` via:
+//
+//	GetZonePrimaryNameserverArray{ GetZonePrimaryNameserverArgs{...} }
+type GetZonePrimaryNameserverArrayInput interface {
+	pulumi.Input
+
+	ToGetZonePrimaryNameserverArrayOutput() GetZonePrimaryNameserverArrayOutput
+	ToGetZonePrimaryNameserverArrayOutputWithContext(context.Context) GetZonePrimaryNameserverArrayOutput
+}
+
+type GetZonePrimaryNameserverArray []GetZonePrimaryNameserverInput
+
+func (GetZonePrimaryNameserverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (i GetZonePrimaryNameserverArray) ToGetZonePrimaryNameserverArrayOutput() GetZonePrimaryNameserverArrayOutput {
+	return i.ToGetZonePrimaryNameserverArrayOutputWithContext(context.Background())
+}
+
+func (i GetZonePrimaryNameserverArray) ToGetZonePrimaryNameserverArrayOutputWithContext(ctx context.Context) GetZonePrimaryNameserverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZonePrimaryNameserverArrayOutput)
+}
+
+type GetZonePrimaryNameserverOutput struct{ *pulumi.OutputState }
+
+func (GetZonePrimaryNameserverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (o GetZonePrimaryNameserverOutput) ToGetZonePrimaryNameserverOutput() GetZonePrimaryNameserverOutput {
+	return o
+}
+
+func (o GetZonePrimaryNameserverOutput) ToGetZonePrimaryNameserverOutputWithContext(ctx context.Context) GetZonePrimaryNameserverOutput {
+	return o
+}
+
+// Public IPv4 or IPv6 address of the primary nameserver.
+func (o GetZonePrimaryNameserverOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonePrimaryNameserver) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// Port of the primary nameserver.
+func (o GetZonePrimaryNameserverOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetZonePrimaryNameserver) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+func (o GetZonePrimaryNameserverOutput) TsigAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonePrimaryNameserver) string { return v.TsigAlgorithm }).(pulumi.StringOutput)
+}
+
+// Transaction signature (TSIG) key
+func (o GetZonePrimaryNameserverOutput) TsigKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonePrimaryNameserver) string { return v.TsigKey }).(pulumi.StringOutput)
+}
+
+type GetZonePrimaryNameserverArrayOutput struct{ *pulumi.OutputState }
+
+func (GetZonePrimaryNameserverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (o GetZonePrimaryNameserverArrayOutput) ToGetZonePrimaryNameserverArrayOutput() GetZonePrimaryNameserverArrayOutput {
+	return o
+}
+
+func (o GetZonePrimaryNameserverArrayOutput) ToGetZonePrimaryNameserverArrayOutputWithContext(ctx context.Context) GetZonePrimaryNameserverArrayOutput {
+	return o
+}
+
+func (o GetZonePrimaryNameserverArrayOutput) Index(i pulumi.IntInput) GetZonePrimaryNameserverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetZonePrimaryNameserver {
+		return vs[0].([]GetZonePrimaryNameserver)[vs[1].(int)]
+	}).(GetZonePrimaryNameserverOutput)
+}
+
+type GetZoneRrsetRecord struct {
+	// Comment of the record.
+	Comment string `pulumi:"comment"`
+	// Value of the record.
+	Value string `pulumi:"value"`
+}
+
+// GetZoneRrsetRecordInput is an input type that accepts GetZoneRrsetRecordArgs and GetZoneRrsetRecordOutput values.
+// You can construct a concrete instance of `GetZoneRrsetRecordInput` via:
+//
+//	GetZoneRrsetRecordArgs{...}
+type GetZoneRrsetRecordInput interface {
+	pulumi.Input
+
+	ToGetZoneRrsetRecordOutput() GetZoneRrsetRecordOutput
+	ToGetZoneRrsetRecordOutputWithContext(context.Context) GetZoneRrsetRecordOutput
+}
+
+type GetZoneRrsetRecordArgs struct {
+	// Comment of the record.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Value of the record.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetZoneRrsetRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZoneRrsetRecord)(nil)).Elem()
+}
+
+func (i GetZoneRrsetRecordArgs) ToGetZoneRrsetRecordOutput() GetZoneRrsetRecordOutput {
+	return i.ToGetZoneRrsetRecordOutputWithContext(context.Background())
+}
+
+func (i GetZoneRrsetRecordArgs) ToGetZoneRrsetRecordOutputWithContext(ctx context.Context) GetZoneRrsetRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZoneRrsetRecordOutput)
+}
+
+// GetZoneRrsetRecordArrayInput is an input type that accepts GetZoneRrsetRecordArray and GetZoneRrsetRecordArrayOutput values.
+// You can construct a concrete instance of `GetZoneRrsetRecordArrayInput` via:
+//
+//	GetZoneRrsetRecordArray{ GetZoneRrsetRecordArgs{...} }
+type GetZoneRrsetRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetZoneRrsetRecordArrayOutput() GetZoneRrsetRecordArrayOutput
+	ToGetZoneRrsetRecordArrayOutputWithContext(context.Context) GetZoneRrsetRecordArrayOutput
+}
+
+type GetZoneRrsetRecordArray []GetZoneRrsetRecordInput
+
+func (GetZoneRrsetRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZoneRrsetRecord)(nil)).Elem()
+}
+
+func (i GetZoneRrsetRecordArray) ToGetZoneRrsetRecordArrayOutput() GetZoneRrsetRecordArrayOutput {
+	return i.ToGetZoneRrsetRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetZoneRrsetRecordArray) ToGetZoneRrsetRecordArrayOutputWithContext(ctx context.Context) GetZoneRrsetRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZoneRrsetRecordArrayOutput)
+}
+
+type GetZoneRrsetRecordOutput struct{ *pulumi.OutputState }
+
+func (GetZoneRrsetRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZoneRrsetRecord)(nil)).Elem()
+}
+
+func (o GetZoneRrsetRecordOutput) ToGetZoneRrsetRecordOutput() GetZoneRrsetRecordOutput {
+	return o
+}
+
+func (o GetZoneRrsetRecordOutput) ToGetZoneRrsetRecordOutputWithContext(ctx context.Context) GetZoneRrsetRecordOutput {
+	return o
+}
+
+// Comment of the record.
+func (o GetZoneRrsetRecordOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZoneRrsetRecord) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// Value of the record.
+func (o GetZoneRrsetRecordOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZoneRrsetRecord) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetZoneRrsetRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetZoneRrsetRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZoneRrsetRecord)(nil)).Elem()
+}
+
+func (o GetZoneRrsetRecordArrayOutput) ToGetZoneRrsetRecordArrayOutput() GetZoneRrsetRecordArrayOutput {
+	return o
+}
+
+func (o GetZoneRrsetRecordArrayOutput) ToGetZoneRrsetRecordArrayOutputWithContext(ctx context.Context) GetZoneRrsetRecordArrayOutput {
+	return o
+}
+
+func (o GetZoneRrsetRecordArrayOutput) Index(i pulumi.IntInput) GetZoneRrsetRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetZoneRrsetRecord {
+		return vs[0].([]GetZoneRrsetRecord)[vs[1].(int)]
+	}).(GetZoneRrsetRecordOutput)
+}
+
+type GetZoneRrsetsRrset struct {
+	// Whether change protection is enabled.
+	ChangeProtection bool `pulumi:"changeProtection"`
+	// ID of the Zone RRSet.
+	Id string `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the Zone RRSet.
+	Name string `pulumi:"name"`
+	// Records of the Zone RRSet.
+	Records []GetZoneRrsetsRrsetRecord `pulumi:"records"`
+	// Time To Live (TTL) of the Zone RRSet.
+	Ttl int `pulumi:"ttl"`
+	// Type of the Zone RRSet.
+	Type string `pulumi:"type"`
+	// ID or Name of the parent Zone.
+	Zone string `pulumi:"zone"`
+}
+
+// GetZoneRrsetsRrsetInput is an input type that accepts GetZoneRrsetsRrsetArgs and GetZoneRrsetsRrsetOutput values.
+// You can construct a concrete instance of `GetZoneRrsetsRrsetInput` via:
+//
+//	GetZoneRrsetsRrsetArgs{...}
+type GetZoneRrsetsRrsetInput interface {
+	pulumi.Input
+
+	ToGetZoneRrsetsRrsetOutput() GetZoneRrsetsRrsetOutput
+	ToGetZoneRrsetsRrsetOutputWithContext(context.Context) GetZoneRrsetsRrsetOutput
+}
+
+type GetZoneRrsetsRrsetArgs struct {
+	// Whether change protection is enabled.
+	ChangeProtection pulumi.BoolInput `pulumi:"changeProtection"`
+	// ID of the Zone RRSet.
+	Id pulumi.StringInput `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the Zone RRSet.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Records of the Zone RRSet.
+	Records GetZoneRrsetsRrsetRecordArrayInput `pulumi:"records"`
+	// Time To Live (TTL) of the Zone RRSet.
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+	// Type of the Zone RRSet.
+	Type pulumi.StringInput `pulumi:"type"`
+	// ID or Name of the parent Zone.
+	Zone pulumi.StringInput `pulumi:"zone"`
+}
+
+func (GetZoneRrsetsRrsetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZoneRrsetsRrset)(nil)).Elem()
+}
+
+func (i GetZoneRrsetsRrsetArgs) ToGetZoneRrsetsRrsetOutput() GetZoneRrsetsRrsetOutput {
+	return i.ToGetZoneRrsetsRrsetOutputWithContext(context.Background())
+}
+
+func (i GetZoneRrsetsRrsetArgs) ToGetZoneRrsetsRrsetOutputWithContext(ctx context.Context) GetZoneRrsetsRrsetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZoneRrsetsRrsetOutput)
+}
+
+// GetZoneRrsetsRrsetArrayInput is an input type that accepts GetZoneRrsetsRrsetArray and GetZoneRrsetsRrsetArrayOutput values.
+// You can construct a concrete instance of `GetZoneRrsetsRrsetArrayInput` via:
+//
+//	GetZoneRrsetsRrsetArray{ GetZoneRrsetsRrsetArgs{...} }
+type GetZoneRrsetsRrsetArrayInput interface {
+	pulumi.Input
+
+	ToGetZoneRrsetsRrsetArrayOutput() GetZoneRrsetsRrsetArrayOutput
+	ToGetZoneRrsetsRrsetArrayOutputWithContext(context.Context) GetZoneRrsetsRrsetArrayOutput
+}
+
+type GetZoneRrsetsRrsetArray []GetZoneRrsetsRrsetInput
+
+func (GetZoneRrsetsRrsetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZoneRrsetsRrset)(nil)).Elem()
+}
+
+func (i GetZoneRrsetsRrsetArray) ToGetZoneRrsetsRrsetArrayOutput() GetZoneRrsetsRrsetArrayOutput {
+	return i.ToGetZoneRrsetsRrsetArrayOutputWithContext(context.Background())
+}
+
+func (i GetZoneRrsetsRrsetArray) ToGetZoneRrsetsRrsetArrayOutputWithContext(ctx context.Context) GetZoneRrsetsRrsetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZoneRrsetsRrsetArrayOutput)
+}
+
+type GetZoneRrsetsRrsetOutput struct{ *pulumi.OutputState }
+
+func (GetZoneRrsetsRrsetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZoneRrsetsRrset)(nil)).Elem()
+}
+
+func (o GetZoneRrsetsRrsetOutput) ToGetZoneRrsetsRrsetOutput() GetZoneRrsetsRrsetOutput {
+	return o
+}
+
+func (o GetZoneRrsetsRrsetOutput) ToGetZoneRrsetsRrsetOutputWithContext(ctx context.Context) GetZoneRrsetsRrsetOutput {
+	return o
+}
+
+// Whether change protection is enabled.
+func (o GetZoneRrsetsRrsetOutput) ChangeProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrset) bool { return v.ChangeProtection }).(pulumi.BoolOutput)
+}
+
+// ID of the Zone RRSet.
+func (o GetZoneRrsetsRrsetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrset) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+func (o GetZoneRrsetsRrsetOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrset) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Name of the Zone RRSet.
+func (o GetZoneRrsetsRrsetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Records of the Zone RRSet.
+func (o GetZoneRrsetsRrsetOutput) Records() GetZoneRrsetsRrsetRecordArrayOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrset) []GetZoneRrsetsRrsetRecord { return v.Records }).(GetZoneRrsetsRrsetRecordArrayOutput)
+}
+
+// Time To Live (TTL) of the Zone RRSet.
+func (o GetZoneRrsetsRrsetOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrset) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+// Type of the Zone RRSet.
+func (o GetZoneRrsetsRrsetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrset) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// ID or Name of the parent Zone.
+func (o GetZoneRrsetsRrsetOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrset) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type GetZoneRrsetsRrsetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetZoneRrsetsRrsetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZoneRrsetsRrset)(nil)).Elem()
+}
+
+func (o GetZoneRrsetsRrsetArrayOutput) ToGetZoneRrsetsRrsetArrayOutput() GetZoneRrsetsRrsetArrayOutput {
+	return o
+}
+
+func (o GetZoneRrsetsRrsetArrayOutput) ToGetZoneRrsetsRrsetArrayOutputWithContext(ctx context.Context) GetZoneRrsetsRrsetArrayOutput {
+	return o
+}
+
+func (o GetZoneRrsetsRrsetArrayOutput) Index(i pulumi.IntInput) GetZoneRrsetsRrsetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetZoneRrsetsRrset {
+		return vs[0].([]GetZoneRrsetsRrset)[vs[1].(int)]
+	}).(GetZoneRrsetsRrsetOutput)
+}
+
+type GetZoneRrsetsRrsetRecord struct {
+	// Comment of the record.
+	Comment string `pulumi:"comment"`
+	// Value of the record.
+	Value string `pulumi:"value"`
+}
+
+// GetZoneRrsetsRrsetRecordInput is an input type that accepts GetZoneRrsetsRrsetRecordArgs and GetZoneRrsetsRrsetRecordOutput values.
+// You can construct a concrete instance of `GetZoneRrsetsRrsetRecordInput` via:
+//
+//	GetZoneRrsetsRrsetRecordArgs{...}
+type GetZoneRrsetsRrsetRecordInput interface {
+	pulumi.Input
+
+	ToGetZoneRrsetsRrsetRecordOutput() GetZoneRrsetsRrsetRecordOutput
+	ToGetZoneRrsetsRrsetRecordOutputWithContext(context.Context) GetZoneRrsetsRrsetRecordOutput
+}
+
+type GetZoneRrsetsRrsetRecordArgs struct {
+	// Comment of the record.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Value of the record.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetZoneRrsetsRrsetRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZoneRrsetsRrsetRecord)(nil)).Elem()
+}
+
+func (i GetZoneRrsetsRrsetRecordArgs) ToGetZoneRrsetsRrsetRecordOutput() GetZoneRrsetsRrsetRecordOutput {
+	return i.ToGetZoneRrsetsRrsetRecordOutputWithContext(context.Background())
+}
+
+func (i GetZoneRrsetsRrsetRecordArgs) ToGetZoneRrsetsRrsetRecordOutputWithContext(ctx context.Context) GetZoneRrsetsRrsetRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZoneRrsetsRrsetRecordOutput)
+}
+
+// GetZoneRrsetsRrsetRecordArrayInput is an input type that accepts GetZoneRrsetsRrsetRecordArray and GetZoneRrsetsRrsetRecordArrayOutput values.
+// You can construct a concrete instance of `GetZoneRrsetsRrsetRecordArrayInput` via:
+//
+//	GetZoneRrsetsRrsetRecordArray{ GetZoneRrsetsRrsetRecordArgs{...} }
+type GetZoneRrsetsRrsetRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetZoneRrsetsRrsetRecordArrayOutput() GetZoneRrsetsRrsetRecordArrayOutput
+	ToGetZoneRrsetsRrsetRecordArrayOutputWithContext(context.Context) GetZoneRrsetsRrsetRecordArrayOutput
+}
+
+type GetZoneRrsetsRrsetRecordArray []GetZoneRrsetsRrsetRecordInput
+
+func (GetZoneRrsetsRrsetRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZoneRrsetsRrsetRecord)(nil)).Elem()
+}
+
+func (i GetZoneRrsetsRrsetRecordArray) ToGetZoneRrsetsRrsetRecordArrayOutput() GetZoneRrsetsRrsetRecordArrayOutput {
+	return i.ToGetZoneRrsetsRrsetRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetZoneRrsetsRrsetRecordArray) ToGetZoneRrsetsRrsetRecordArrayOutputWithContext(ctx context.Context) GetZoneRrsetsRrsetRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZoneRrsetsRrsetRecordArrayOutput)
+}
+
+type GetZoneRrsetsRrsetRecordOutput struct{ *pulumi.OutputState }
+
+func (GetZoneRrsetsRrsetRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZoneRrsetsRrsetRecord)(nil)).Elem()
+}
+
+func (o GetZoneRrsetsRrsetRecordOutput) ToGetZoneRrsetsRrsetRecordOutput() GetZoneRrsetsRrsetRecordOutput {
+	return o
+}
+
+func (o GetZoneRrsetsRrsetRecordOutput) ToGetZoneRrsetsRrsetRecordOutputWithContext(ctx context.Context) GetZoneRrsetsRrsetRecordOutput {
+	return o
+}
+
+// Comment of the record.
+func (o GetZoneRrsetsRrsetRecordOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrsetRecord) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// Value of the record.
+func (o GetZoneRrsetsRrsetRecordOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZoneRrsetsRrsetRecord) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetZoneRrsetsRrsetRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetZoneRrsetsRrsetRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZoneRrsetsRrsetRecord)(nil)).Elem()
+}
+
+func (o GetZoneRrsetsRrsetRecordArrayOutput) ToGetZoneRrsetsRrsetRecordArrayOutput() GetZoneRrsetsRrsetRecordArrayOutput {
+	return o
+}
+
+func (o GetZoneRrsetsRrsetRecordArrayOutput) ToGetZoneRrsetsRrsetRecordArrayOutputWithContext(ctx context.Context) GetZoneRrsetsRrsetRecordArrayOutput {
+	return o
+}
+
+func (o GetZoneRrsetsRrsetRecordArrayOutput) Index(i pulumi.IntInput) GetZoneRrsetsRrsetRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetZoneRrsetsRrsetRecord {
+		return vs[0].([]GetZoneRrsetsRrsetRecord)[vs[1].(int)]
+	}).(GetZoneRrsetsRrsetRecordOutput)
+}
+
+type GetZonesZone struct {
+	// Authoritative nameservers of the Zone.
+	AuthoritativeNameservers GetZonesZoneAuthoritativeNameservers `pulumi:"authoritativeNameservers"`
+	// Whether delete protection is enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
+	// ID of the Zone.
+	Id int `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// Mode of the Zone.
+	Mode string `pulumi:"mode"`
+	// Name of the Zone.
+	Name string `pulumi:"name"`
+	// Primary nameservers of the Zone.
+	PrimaryNameservers []GetZonesZonePrimaryNameserver `pulumi:"primaryNameservers"`
+	// Registrar of the Zone.
+	Registrar string `pulumi:"registrar"`
+	// Default Time To Live (TTL) of the Zone.
+	Ttl int `pulumi:"ttl"`
+}
+
+// GetZonesZoneInput is an input type that accepts GetZonesZoneArgs and GetZonesZoneOutput values.
+// You can construct a concrete instance of `GetZonesZoneInput` via:
+//
+//	GetZonesZoneArgs{...}
+type GetZonesZoneInput interface {
+	pulumi.Input
+
+	ToGetZonesZoneOutput() GetZonesZoneOutput
+	ToGetZonesZoneOutputWithContext(context.Context) GetZonesZoneOutput
+}
+
+type GetZonesZoneArgs struct {
+	// Authoritative nameservers of the Zone.
+	AuthoritativeNameservers GetZonesZoneAuthoritativeNameserversInput `pulumi:"authoritativeNameservers"`
+	// Whether delete protection is enabled.
+	DeleteProtection pulumi.BoolInput `pulumi:"deleteProtection"`
+	// ID of the Zone.
+	Id pulumi.IntInput `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Mode of the Zone.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Name of the Zone.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Primary nameservers of the Zone.
+	PrimaryNameservers GetZonesZonePrimaryNameserverArrayInput `pulumi:"primaryNameservers"`
+	// Registrar of the Zone.
+	Registrar pulumi.StringInput `pulumi:"registrar"`
+	// Default Time To Live (TTL) of the Zone.
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+}
+
+func (GetZonesZoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZonesZone)(nil)).Elem()
+}
+
+func (i GetZonesZoneArgs) ToGetZonesZoneOutput() GetZonesZoneOutput {
+	return i.ToGetZonesZoneOutputWithContext(context.Background())
+}
+
+func (i GetZonesZoneArgs) ToGetZonesZoneOutputWithContext(ctx context.Context) GetZonesZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZonesZoneOutput)
+}
+
+// GetZonesZoneArrayInput is an input type that accepts GetZonesZoneArray and GetZonesZoneArrayOutput values.
+// You can construct a concrete instance of `GetZonesZoneArrayInput` via:
+//
+//	GetZonesZoneArray{ GetZonesZoneArgs{...} }
+type GetZonesZoneArrayInput interface {
+	pulumi.Input
+
+	ToGetZonesZoneArrayOutput() GetZonesZoneArrayOutput
+	ToGetZonesZoneArrayOutputWithContext(context.Context) GetZonesZoneArrayOutput
+}
+
+type GetZonesZoneArray []GetZonesZoneInput
+
+func (GetZonesZoneArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZonesZone)(nil)).Elem()
+}
+
+func (i GetZonesZoneArray) ToGetZonesZoneArrayOutput() GetZonesZoneArrayOutput {
+	return i.ToGetZonesZoneArrayOutputWithContext(context.Background())
+}
+
+func (i GetZonesZoneArray) ToGetZonesZoneArrayOutputWithContext(ctx context.Context) GetZonesZoneArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZonesZoneArrayOutput)
+}
+
+type GetZonesZoneOutput struct{ *pulumi.OutputState }
+
+func (GetZonesZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZonesZone)(nil)).Elem()
+}
+
+func (o GetZonesZoneOutput) ToGetZonesZoneOutput() GetZonesZoneOutput {
+	return o
+}
+
+func (o GetZonesZoneOutput) ToGetZonesZoneOutputWithContext(ctx context.Context) GetZonesZoneOutput {
+	return o
+}
+
+// Authoritative nameservers of the Zone.
+func (o GetZonesZoneOutput) AuthoritativeNameservers() GetZonesZoneAuthoritativeNameserversOutput {
+	return o.ApplyT(func(v GetZonesZone) GetZonesZoneAuthoritativeNameservers { return v.AuthoritativeNameservers }).(GetZonesZoneAuthoritativeNameserversOutput)
+}
+
+// Whether delete protection is enabled.
+func (o GetZonesZoneOutput) DeleteProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetZonesZone) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+// ID of the Zone.
+func (o GetZonesZoneOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetZonesZone) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+func (o GetZonesZoneOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetZonesZone) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Mode of the Zone.
+func (o GetZonesZoneOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonesZone) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Name of the Zone.
+func (o GetZonesZoneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonesZone) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Primary nameservers of the Zone.
+func (o GetZonesZoneOutput) PrimaryNameservers() GetZonesZonePrimaryNameserverArrayOutput {
+	return o.ApplyT(func(v GetZonesZone) []GetZonesZonePrimaryNameserver { return v.PrimaryNameservers }).(GetZonesZonePrimaryNameserverArrayOutput)
+}
+
+// Registrar of the Zone.
+func (o GetZonesZoneOutput) Registrar() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonesZone) string { return v.Registrar }).(pulumi.StringOutput)
+}
+
+// Default Time To Live (TTL) of the Zone.
+func (o GetZonesZoneOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetZonesZone) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+type GetZonesZoneArrayOutput struct{ *pulumi.OutputState }
+
+func (GetZonesZoneArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZonesZone)(nil)).Elem()
+}
+
+func (o GetZonesZoneArrayOutput) ToGetZonesZoneArrayOutput() GetZonesZoneArrayOutput {
+	return o
+}
+
+func (o GetZonesZoneArrayOutput) ToGetZonesZoneArrayOutputWithContext(ctx context.Context) GetZonesZoneArrayOutput {
+	return o
+}
+
+func (o GetZonesZoneArrayOutput) Index(i pulumi.IntInput) GetZonesZoneOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetZonesZone {
+		return vs[0].([]GetZonesZone)[vs[1].(int)]
+	}).(GetZonesZoneOutput)
+}
+
+type GetZonesZoneAuthoritativeNameservers struct {
+	// Authoritative Hetzner nameservers assigned to the Zone.
+	Assigneds []string `pulumi:"assigneds"`
+}
+
+// GetZonesZoneAuthoritativeNameserversInput is an input type that accepts GetZonesZoneAuthoritativeNameserversArgs and GetZonesZoneAuthoritativeNameserversOutput values.
+// You can construct a concrete instance of `GetZonesZoneAuthoritativeNameserversInput` via:
+//
+//	GetZonesZoneAuthoritativeNameserversArgs{...}
+type GetZonesZoneAuthoritativeNameserversInput interface {
+	pulumi.Input
+
+	ToGetZonesZoneAuthoritativeNameserversOutput() GetZonesZoneAuthoritativeNameserversOutput
+	ToGetZonesZoneAuthoritativeNameserversOutputWithContext(context.Context) GetZonesZoneAuthoritativeNameserversOutput
+}
+
+type GetZonesZoneAuthoritativeNameserversArgs struct {
+	// Authoritative Hetzner nameservers assigned to the Zone.
+	Assigneds pulumi.StringArrayInput `pulumi:"assigneds"`
+}
+
+func (GetZonesZoneAuthoritativeNameserversArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZonesZoneAuthoritativeNameservers)(nil)).Elem()
+}
+
+func (i GetZonesZoneAuthoritativeNameserversArgs) ToGetZonesZoneAuthoritativeNameserversOutput() GetZonesZoneAuthoritativeNameserversOutput {
+	return i.ToGetZonesZoneAuthoritativeNameserversOutputWithContext(context.Background())
+}
+
+func (i GetZonesZoneAuthoritativeNameserversArgs) ToGetZonesZoneAuthoritativeNameserversOutputWithContext(ctx context.Context) GetZonesZoneAuthoritativeNameserversOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZonesZoneAuthoritativeNameserversOutput)
+}
+
+type GetZonesZoneAuthoritativeNameserversOutput struct{ *pulumi.OutputState }
+
+func (GetZonesZoneAuthoritativeNameserversOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZonesZoneAuthoritativeNameservers)(nil)).Elem()
+}
+
+func (o GetZonesZoneAuthoritativeNameserversOutput) ToGetZonesZoneAuthoritativeNameserversOutput() GetZonesZoneAuthoritativeNameserversOutput {
+	return o
+}
+
+func (o GetZonesZoneAuthoritativeNameserversOutput) ToGetZonesZoneAuthoritativeNameserversOutputWithContext(ctx context.Context) GetZonesZoneAuthoritativeNameserversOutput {
+	return o
+}
+
+// Authoritative Hetzner nameservers assigned to the Zone.
+func (o GetZonesZoneAuthoritativeNameserversOutput) Assigneds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetZonesZoneAuthoritativeNameservers) []string { return v.Assigneds }).(pulumi.StringArrayOutput)
+}
+
+type GetZonesZonePrimaryNameserver struct {
+	// Public IPv4 or IPv6 address of the primary nameserver.
+	Address string `pulumi:"address"`
+	// Port of the primary nameserver.
+	Port int `pulumi:"port"`
+	// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+	TsigAlgorithm string `pulumi:"tsigAlgorithm"`
+	// Transaction signature (TSIG) key
+	TsigKey string `pulumi:"tsigKey"`
+}
+
+// GetZonesZonePrimaryNameserverInput is an input type that accepts GetZonesZonePrimaryNameserverArgs and GetZonesZonePrimaryNameserverOutput values.
+// You can construct a concrete instance of `GetZonesZonePrimaryNameserverInput` via:
+//
+//	GetZonesZonePrimaryNameserverArgs{...}
+type GetZonesZonePrimaryNameserverInput interface {
+	pulumi.Input
+
+	ToGetZonesZonePrimaryNameserverOutput() GetZonesZonePrimaryNameserverOutput
+	ToGetZonesZonePrimaryNameserverOutputWithContext(context.Context) GetZonesZonePrimaryNameserverOutput
+}
+
+type GetZonesZonePrimaryNameserverArgs struct {
+	// Public IPv4 or IPv6 address of the primary nameserver.
+	Address pulumi.StringInput `pulumi:"address"`
+	// Port of the primary nameserver.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+	TsigAlgorithm pulumi.StringInput `pulumi:"tsigAlgorithm"`
+	// Transaction signature (TSIG) key
+	TsigKey pulumi.StringInput `pulumi:"tsigKey"`
+}
+
+func (GetZonesZonePrimaryNameserverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZonesZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (i GetZonesZonePrimaryNameserverArgs) ToGetZonesZonePrimaryNameserverOutput() GetZonesZonePrimaryNameserverOutput {
+	return i.ToGetZonesZonePrimaryNameserverOutputWithContext(context.Background())
+}
+
+func (i GetZonesZonePrimaryNameserverArgs) ToGetZonesZonePrimaryNameserverOutputWithContext(ctx context.Context) GetZonesZonePrimaryNameserverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZonesZonePrimaryNameserverOutput)
+}
+
+// GetZonesZonePrimaryNameserverArrayInput is an input type that accepts GetZonesZonePrimaryNameserverArray and GetZonesZonePrimaryNameserverArrayOutput values.
+// You can construct a concrete instance of `GetZonesZonePrimaryNameserverArrayInput` via:
+//
+//	GetZonesZonePrimaryNameserverArray{ GetZonesZonePrimaryNameserverArgs{...} }
+type GetZonesZonePrimaryNameserverArrayInput interface {
+	pulumi.Input
+
+	ToGetZonesZonePrimaryNameserverArrayOutput() GetZonesZonePrimaryNameserverArrayOutput
+	ToGetZonesZonePrimaryNameserverArrayOutputWithContext(context.Context) GetZonesZonePrimaryNameserverArrayOutput
+}
+
+type GetZonesZonePrimaryNameserverArray []GetZonesZonePrimaryNameserverInput
+
+func (GetZonesZonePrimaryNameserverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZonesZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (i GetZonesZonePrimaryNameserverArray) ToGetZonesZonePrimaryNameserverArrayOutput() GetZonesZonePrimaryNameserverArrayOutput {
+	return i.ToGetZonesZonePrimaryNameserverArrayOutputWithContext(context.Background())
+}
+
+func (i GetZonesZonePrimaryNameserverArray) ToGetZonesZonePrimaryNameserverArrayOutputWithContext(ctx context.Context) GetZonesZonePrimaryNameserverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetZonesZonePrimaryNameserverArrayOutput)
+}
+
+type GetZonesZonePrimaryNameserverOutput struct{ *pulumi.OutputState }
+
+func (GetZonesZonePrimaryNameserverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetZonesZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (o GetZonesZonePrimaryNameserverOutput) ToGetZonesZonePrimaryNameserverOutput() GetZonesZonePrimaryNameserverOutput {
+	return o
+}
+
+func (o GetZonesZonePrimaryNameserverOutput) ToGetZonesZonePrimaryNameserverOutputWithContext(ctx context.Context) GetZonesZonePrimaryNameserverOutput {
+	return o
+}
+
+// Public IPv4 or IPv6 address of the primary nameserver.
+func (o GetZonesZonePrimaryNameserverOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonesZonePrimaryNameserver) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// Port of the primary nameserver.
+func (o GetZonesZonePrimaryNameserverOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetZonesZonePrimaryNameserver) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Transaction signature (TSIG) algorithm used to generate the TSIG key.
+func (o GetZonesZonePrimaryNameserverOutput) TsigAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonesZonePrimaryNameserver) string { return v.TsigAlgorithm }).(pulumi.StringOutput)
+}
+
+// Transaction signature (TSIG) key
+func (o GetZonesZonePrimaryNameserverOutput) TsigKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetZonesZonePrimaryNameserver) string { return v.TsigKey }).(pulumi.StringOutput)
+}
+
+type GetZonesZonePrimaryNameserverArrayOutput struct{ *pulumi.OutputState }
+
+func (GetZonesZonePrimaryNameserverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetZonesZonePrimaryNameserver)(nil)).Elem()
+}
+
+func (o GetZonesZonePrimaryNameserverArrayOutput) ToGetZonesZonePrimaryNameserverArrayOutput() GetZonesZonePrimaryNameserverArrayOutput {
+	return o
+}
+
+func (o GetZonesZonePrimaryNameserverArrayOutput) ToGetZonesZonePrimaryNameserverArrayOutputWithContext(ctx context.Context) GetZonesZonePrimaryNameserverArrayOutput {
+	return o
+}
+
+func (o GetZonesZonePrimaryNameserverArrayOutput) Index(i pulumi.IntInput) GetZonesZonePrimaryNameserverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetZonesZonePrimaryNameserver {
+		return vs[0].([]GetZonesZonePrimaryNameserver)[vs[1].(int)]
+	}).(GetZonesZonePrimaryNameserverOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallApplyToInput)(nil)).Elem(), FirewallApplyToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallApplyToArrayInput)(nil)).Elem(), FirewallApplyToArray{})
@@ -6187,6 +7447,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerNetworkTypeArrayInput)(nil)).Elem(), ServerNetworkTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerPublicNetInput)(nil)).Elem(), ServerPublicNetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerPublicNetArrayInput)(nil)).Elem(), ServerPublicNetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAuthoritativeNameserversInput)(nil)).Elem(), ZoneAuthoritativeNameserversArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAuthoritativeNameserversPtrInput)(nil)).Elem(), ZoneAuthoritativeNameserversArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZonePrimaryNameserverInput)(nil)).Elem(), ZonePrimaryNameserverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZonePrimaryNameserverArrayInput)(nil)).Elem(), ZonePrimaryNameserverArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneRrsetRecordInput)(nil)).Elem(), ZoneRrsetRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneRrsetRecordArrayInput)(nil)).Elem(), ZoneRrsetRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatesCertificateInput)(nil)).Elem(), GetCertificatesCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatesCertificateArrayInput)(nil)).Elem(), GetCertificatesCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatacentersDatacenterInput)(nil)).Elem(), GetDatacentersDatacenterArgs{})
@@ -6257,6 +7523,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSshKeysSshKeyArrayInput)(nil)).Elem(), GetSshKeysSshKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumesVolumeInput)(nil)).Elem(), GetVolumesVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumesVolumeArrayInput)(nil)).Elem(), GetVolumesVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneAuthoritativeNameserversInput)(nil)).Elem(), GetZoneAuthoritativeNameserversArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZonePrimaryNameserverInput)(nil)).Elem(), GetZonePrimaryNameserverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZonePrimaryNameserverArrayInput)(nil)).Elem(), GetZonePrimaryNameserverArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneRrsetRecordInput)(nil)).Elem(), GetZoneRrsetRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneRrsetRecordArrayInput)(nil)).Elem(), GetZoneRrsetRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneRrsetsRrsetInput)(nil)).Elem(), GetZoneRrsetsRrsetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneRrsetsRrsetArrayInput)(nil)).Elem(), GetZoneRrsetsRrsetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneRrsetsRrsetRecordInput)(nil)).Elem(), GetZoneRrsetsRrsetRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneRrsetsRrsetRecordArrayInput)(nil)).Elem(), GetZoneRrsetsRrsetRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZonesZoneInput)(nil)).Elem(), GetZonesZoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZonesZoneArrayInput)(nil)).Elem(), GetZonesZoneArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZonesZoneAuthoritativeNameserversInput)(nil)).Elem(), GetZonesZoneAuthoritativeNameserversArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZonesZonePrimaryNameserverInput)(nil)).Elem(), GetZonesZonePrimaryNameserverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZonesZonePrimaryNameserverArrayInput)(nil)).Elem(), GetZonesZonePrimaryNameserverArray{})
 	pulumi.RegisterOutputType(FirewallApplyToOutput{})
 	pulumi.RegisterOutputType(FirewallApplyToArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleOutput{})
@@ -6275,6 +7555,12 @@ func init() {
 	pulumi.RegisterOutputType(ServerNetworkTypeArrayOutput{})
 	pulumi.RegisterOutputType(ServerPublicNetOutput{})
 	pulumi.RegisterOutputType(ServerPublicNetArrayOutput{})
+	pulumi.RegisterOutputType(ZoneAuthoritativeNameserversOutput{})
+	pulumi.RegisterOutputType(ZoneAuthoritativeNameserversPtrOutput{})
+	pulumi.RegisterOutputType(ZonePrimaryNameserverOutput{})
+	pulumi.RegisterOutputType(ZonePrimaryNameserverArrayOutput{})
+	pulumi.RegisterOutputType(ZoneRrsetRecordOutput{})
+	pulumi.RegisterOutputType(ZoneRrsetRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificatesCertificateOutput{})
 	pulumi.RegisterOutputType(GetCertificatesCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetDatacentersDatacenterOutput{})
@@ -6345,4 +7631,18 @@ func init() {
 	pulumi.RegisterOutputType(GetSshKeysSshKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumesVolumeOutput{})
 	pulumi.RegisterOutputType(GetVolumesVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GetZoneAuthoritativeNameserversOutput{})
+	pulumi.RegisterOutputType(GetZonePrimaryNameserverOutput{})
+	pulumi.RegisterOutputType(GetZonePrimaryNameserverArrayOutput{})
+	pulumi.RegisterOutputType(GetZoneRrsetRecordOutput{})
+	pulumi.RegisterOutputType(GetZoneRrsetRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetZoneRrsetsRrsetOutput{})
+	pulumi.RegisterOutputType(GetZoneRrsetsRrsetArrayOutput{})
+	pulumi.RegisterOutputType(GetZoneRrsetsRrsetRecordOutput{})
+	pulumi.RegisterOutputType(GetZoneRrsetsRrsetRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetZonesZoneOutput{})
+	pulumi.RegisterOutputType(GetZonesZoneArrayOutput{})
+	pulumi.RegisterOutputType(GetZonesZoneAuthoritativeNameserversOutput{})
+	pulumi.RegisterOutputType(GetZonesZonePrimaryNameserverOutput{})
+	pulumi.RegisterOutputType(GetZonesZonePrimaryNameserverArrayOutput{})
 }

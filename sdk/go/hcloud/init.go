@@ -67,6 +67,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Volume{}
 	case "hcloud:index/volumeAttachment:VolumeAttachment":
 		r = &VolumeAttachment{}
+	case "hcloud:index/zone:Zone":
+		r = &Zone{}
+	case "hcloud:index/zoneRrset:ZoneRrset":
+		r = &ZoneRrset{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -211,6 +215,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"hcloud",
 		"index/volumeAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/zone",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/zoneRrset",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

@@ -33,6 +33,12 @@ __all__ = [
     'ServerNetworkArgsDict',
     'ServerPublicNetArgs',
     'ServerPublicNetArgsDict',
+    'ZoneAuthoritativeNameserversArgs',
+    'ZoneAuthoritativeNameserversArgsDict',
+    'ZonePrimaryNameserverArgs',
+    'ZonePrimaryNameserverArgsDict',
+    'ZoneRrsetRecordArgs',
+    'ZoneRrsetRecordArgsDict',
     'GetFirewallApplyToArgs',
     'GetFirewallApplyToArgsDict',
     'GetFirewallRuleArgs',
@@ -829,6 +835,180 @@ class ServerPublicNetArgs:
     @ipv6_enabled.setter
     def ipv6_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "ipv6_enabled", value)
+
+
+if not MYPY:
+    class ZoneAuthoritativeNameserversArgsDict(TypedDict):
+        assigneds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Authoritative Hetzner nameservers assigned to the Zone.
+        """
+elif False:
+    ZoneAuthoritativeNameserversArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ZoneAuthoritativeNameserversArgs:
+    def __init__(__self__, *,
+                 assigneds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assigneds: Authoritative Hetzner nameservers assigned to the Zone.
+        """
+        if assigneds is not None:
+            pulumi.set(__self__, "assigneds", assigneds)
+
+    @_builtins.property
+    @pulumi.getter
+    def assigneds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Authoritative Hetzner nameservers assigned to the Zone.
+        """
+        return pulumi.get(self, "assigneds")
+
+    @assigneds.setter
+    def assigneds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "assigneds", value)
+
+
+if not MYPY:
+    class ZonePrimaryNameserverArgsDict(TypedDict):
+        address: pulumi.Input[_builtins.str]
+        """
+        Public IPv4 or IPv6 address of the primary nameserver.
+        """
+        port: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Port of the primary nameserver.
+        """
+        tsig_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        """
+        tsig_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Transaction signature (TSIG) key
+        """
+elif False:
+    ZonePrimaryNameserverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ZonePrimaryNameserverArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[_builtins.str],
+                 port: Optional[pulumi.Input[_builtins.int]] = None,
+                 tsig_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
+                 tsig_key: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] address: Public IPv4 or IPv6 address of the primary nameserver.
+        :param pulumi.Input[_builtins.int] port: Port of the primary nameserver.
+        :param pulumi.Input[_builtins.str] tsig_algorithm: Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        :param pulumi.Input[_builtins.str] tsig_key: Transaction signature (TSIG) key
+        """
+        pulumi.set(__self__, "address", address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if tsig_algorithm is not None:
+            pulumi.set(__self__, "tsig_algorithm", tsig_algorithm)
+        if tsig_key is not None:
+            pulumi.set(__self__, "tsig_key", tsig_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[_builtins.str]:
+        """
+        Public IPv4 or IPv6 address of the primary nameserver.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "address", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Port of the primary nameserver.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tsigAlgorithm")
+    def tsig_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        """
+        return pulumi.get(self, "tsig_algorithm")
+
+    @tsig_algorithm.setter
+    def tsig_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tsig_algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tsigKey")
+    def tsig_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Transaction signature (TSIG) key
+        """
+        return pulumi.get(self, "tsig_key")
+
+    @tsig_key.setter
+    def tsig_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tsig_key", value)
+
+
+if not MYPY:
+    class ZoneRrsetRecordArgsDict(TypedDict):
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the record.
+        """
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Comment of the record.
+        """
+elif False:
+    ZoneRrsetRecordArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ZoneRrsetRecordArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[_builtins.str],
+                 comment: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] value: Value of the record.
+        :param pulumi.Input[_builtins.str] comment: Comment of the record.
+        """
+        pulumi.set(__self__, "value", value)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the record.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Comment of the record.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
 
 
 if not MYPY:

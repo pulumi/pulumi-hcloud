@@ -25,6 +25,9 @@ __all__ = [
     'LoadBalancerTarget',
     'ServerNetwork',
     'ServerPublicNet',
+    'ZoneAuthoritativeNameservers',
+    'ZonePrimaryNameserver',
+    'ZoneRrsetRecord',
     'GetCertificatesCertificateResult',
     'GetDatacentersDatacenterResult',
     'GetFirewallApplyToResult',
@@ -60,6 +63,14 @@ __all__ = [
     'GetServersServerNetworkResult',
     'GetSshKeysSshKeyResult',
     'GetVolumesVolumeResult',
+    'GetZoneAuthoritativeNameserversResult',
+    'GetZonePrimaryNameserverResult',
+    'GetZoneRrsetRecordResult',
+    'GetZoneRrsetsRrsetResult',
+    'GetZoneRrsetsRrsetRecordResult',
+    'GetZonesZoneResult',
+    'GetZonesZoneAuthoritativeNameserversResult',
+    'GetZonesZonePrimaryNameserverResult',
 ]
 
 @pulumi.output_type
@@ -663,6 +674,128 @@ class ServerPublicNet(dict):
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "ipv6_enabled")
+
+
+@pulumi.output_type
+class ZoneAuthoritativeNameservers(dict):
+    def __init__(__self__, *,
+                 assigneds: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] assigneds: Authoritative Hetzner nameservers assigned to the Zone.
+        """
+        if assigneds is not None:
+            pulumi.set(__self__, "assigneds", assigneds)
+
+    @_builtins.property
+    @pulumi.getter
+    def assigneds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Authoritative Hetzner nameservers assigned to the Zone.
+        """
+        return pulumi.get(self, "assigneds")
+
+
+@pulumi.output_type
+class ZonePrimaryNameserver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tsigAlgorithm":
+            suggest = "tsig_algorithm"
+        elif key == "tsigKey":
+            suggest = "tsig_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZonePrimaryNameserver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZonePrimaryNameserver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZonePrimaryNameserver.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address: _builtins.str,
+                 port: Optional[_builtins.int] = None,
+                 tsig_algorithm: Optional[_builtins.str] = None,
+                 tsig_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str address: Public IPv4 or IPv6 address of the primary nameserver.
+        :param _builtins.int port: Port of the primary nameserver.
+        :param _builtins.str tsig_algorithm: Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        :param _builtins.str tsig_key: Transaction signature (TSIG) key
+        """
+        pulumi.set(__self__, "address", address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if tsig_algorithm is not None:
+            pulumi.set(__self__, "tsig_algorithm", tsig_algorithm)
+        if tsig_key is not None:
+            pulumi.set(__self__, "tsig_key", tsig_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> _builtins.str:
+        """
+        Public IPv4 or IPv6 address of the primary nameserver.
+        """
+        return pulumi.get(self, "address")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[_builtins.int]:
+        """
+        Port of the primary nameserver.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="tsigAlgorithm")
+    def tsig_algorithm(self) -> Optional[_builtins.str]:
+        """
+        Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        """
+        return pulumi.get(self, "tsig_algorithm")
+
+    @_builtins.property
+    @pulumi.getter(name="tsigKey")
+    def tsig_key(self) -> Optional[_builtins.str]:
+        """
+        Transaction signature (TSIG) key
+        """
+        return pulumi.get(self, "tsig_key")
+
+
+@pulumi.output_type
+class ZoneRrsetRecord(dict):
+    def __init__(__self__, *,
+                 value: _builtins.str,
+                 comment: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str value: Value of the record.
+        :param _builtins.str comment: Comment of the record.
+        """
+        pulumi.set(__self__, "value", value)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the record.
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Comment of the record.
+        """
+        return pulumi.get(self, "comment")
 
 
 @pulumi.output_type
@@ -2861,5 +2994,402 @@ class GetVolumesVolumeResult(dict):
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "server_id")
+
+
+@pulumi.output_type
+class GetZoneAuthoritativeNameserversResult(dict):
+    def __init__(__self__, *,
+                 assigneds: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] assigneds: Authoritative Hetzner nameservers assigned to the Zone.
+        """
+        pulumi.set(__self__, "assigneds", assigneds)
+
+    @_builtins.property
+    @pulumi.getter
+    def assigneds(self) -> Sequence[_builtins.str]:
+        """
+        Authoritative Hetzner nameservers assigned to the Zone.
+        """
+        return pulumi.get(self, "assigneds")
+
+
+@pulumi.output_type
+class GetZonePrimaryNameserverResult(dict):
+    def __init__(__self__, *,
+                 address: _builtins.str,
+                 port: _builtins.int,
+                 tsig_algorithm: _builtins.str,
+                 tsig_key: _builtins.str):
+        """
+        :param _builtins.str address: Public IPv4 or IPv6 address of the primary nameserver.
+        :param _builtins.int port: Port of the primary nameserver.
+        :param _builtins.str tsig_algorithm: Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        :param _builtins.str tsig_key: Transaction signature (TSIG) key
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "tsig_algorithm", tsig_algorithm)
+        pulumi.set(__self__, "tsig_key", tsig_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> _builtins.str:
+        """
+        Public IPv4 or IPv6 address of the primary nameserver.
+        """
+        return pulumi.get(self, "address")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        Port of the primary nameserver.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="tsigAlgorithm")
+    def tsig_algorithm(self) -> _builtins.str:
+        """
+        Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        """
+        return pulumi.get(self, "tsig_algorithm")
+
+    @_builtins.property
+    @pulumi.getter(name="tsigKey")
+    def tsig_key(self) -> _builtins.str:
+        """
+        Transaction signature (TSIG) key
+        """
+        return pulumi.get(self, "tsig_key")
+
+
+@pulumi.output_type
+class GetZoneRrsetRecordResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str comment: Comment of the record.
+        :param _builtins.str value: Value of the record.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        """
+        Comment of the record.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the record.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetZoneRrsetsRrsetResult(dict):
+    def __init__(__self__, *,
+                 change_protection: _builtins.bool,
+                 id: _builtins.str,
+                 labels: Mapping[str, _builtins.str],
+                 name: _builtins.str,
+                 records: Sequence['outputs.GetZoneRrsetsRrsetRecordResult'],
+                 ttl: _builtins.int,
+                 type: _builtins.str,
+                 zone: _builtins.str):
+        """
+        :param _builtins.bool change_protection: Whether change protection is enabled.
+        :param _builtins.str id: ID of the Zone RRSet.
+        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param _builtins.str name: Name of the Zone RRSet.
+        :param Sequence['GetZoneRrsetsRrsetRecordArgs'] records: Records of the Zone RRSet.
+        :param _builtins.int ttl: Time To Live (TTL) of the Zone RRSet.
+        :param _builtins.str type: Type of the Zone RRSet.
+        :param _builtins.str zone: ID or Name of the parent Zone.
+        """
+        pulumi.set(__self__, "change_protection", change_protection)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "records", records)
+        pulumi.set(__self__, "ttl", ttl)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @_builtins.property
+    @pulumi.getter(name="changeProtection")
+    def change_protection(self) -> _builtins.bool:
+        """
+        Whether change protection is enabled.
+        """
+        return pulumi.get(self, "change_protection")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        ID of the Zone RRSet.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        """
+        return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Zone RRSet.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def records(self) -> Sequence['outputs.GetZoneRrsetsRrsetRecordResult']:
+        """
+        Records of the Zone RRSet.
+        """
+        return pulumi.get(self, "records")
+
+    @_builtins.property
+    @pulumi.getter
+    def ttl(self) -> _builtins.int:
+        """
+        Time To Live (TTL) of the Zone RRSet.
+        """
+        return pulumi.get(self, "ttl")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of the Zone RRSet.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def zone(self) -> _builtins.str:
+        """
+        ID or Name of the parent Zone.
+        """
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class GetZoneRrsetsRrsetRecordResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str comment: Comment of the record.
+        :param _builtins.str value: Value of the record.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        """
+        Comment of the record.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the record.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetZonesZoneResult(dict):
+    def __init__(__self__, *,
+                 authoritative_nameservers: 'outputs.GetZonesZoneAuthoritativeNameserversResult',
+                 delete_protection: _builtins.bool,
+                 id: _builtins.int,
+                 labels: Mapping[str, _builtins.str],
+                 mode: _builtins.str,
+                 name: _builtins.str,
+                 primary_nameservers: Sequence['outputs.GetZonesZonePrimaryNameserverResult'],
+                 registrar: _builtins.str,
+                 ttl: _builtins.int):
+        """
+        :param 'GetZonesZoneAuthoritativeNameserversArgs' authoritative_nameservers: Authoritative nameservers of the Zone.
+        :param _builtins.bool delete_protection: Whether delete protection is enabled.
+        :param _builtins.int id: ID of the Zone.
+        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param _builtins.str mode: Mode of the Zone.
+        :param _builtins.str name: Name of the Zone.
+        :param Sequence['GetZonesZonePrimaryNameserverArgs'] primary_nameservers: Primary nameservers of the Zone.
+        :param _builtins.str registrar: Registrar of the Zone.
+        :param _builtins.int ttl: Default Time To Live (TTL) of the Zone.
+        """
+        pulumi.set(__self__, "authoritative_nameservers", authoritative_nameservers)
+        pulumi.set(__self__, "delete_protection", delete_protection)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_nameservers", primary_nameservers)
+        pulumi.set(__self__, "registrar", registrar)
+        pulumi.set(__self__, "ttl", ttl)
+
+    @_builtins.property
+    @pulumi.getter(name="authoritativeNameservers")
+    def authoritative_nameservers(self) -> 'outputs.GetZonesZoneAuthoritativeNameserversResult':
+        """
+        Authoritative nameservers of the Zone.
+        """
+        return pulumi.get(self, "authoritative_nameservers")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> _builtins.bool:
+        """
+        Whether delete protection is enabled.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        ID of the Zone.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        """
+        return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        Mode of the Zone.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Zone.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryNameservers")
+    def primary_nameservers(self) -> Sequence['outputs.GetZonesZonePrimaryNameserverResult']:
+        """
+        Primary nameservers of the Zone.
+        """
+        return pulumi.get(self, "primary_nameservers")
+
+    @_builtins.property
+    @pulumi.getter
+    def registrar(self) -> _builtins.str:
+        """
+        Registrar of the Zone.
+        """
+        return pulumi.get(self, "registrar")
+
+    @_builtins.property
+    @pulumi.getter
+    def ttl(self) -> _builtins.int:
+        """
+        Default Time To Live (TTL) of the Zone.
+        """
+        return pulumi.get(self, "ttl")
+
+
+@pulumi.output_type
+class GetZonesZoneAuthoritativeNameserversResult(dict):
+    def __init__(__self__, *,
+                 assigneds: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] assigneds: Authoritative Hetzner nameservers assigned to the Zone.
+        """
+        pulumi.set(__self__, "assigneds", assigneds)
+
+    @_builtins.property
+    @pulumi.getter
+    def assigneds(self) -> Sequence[_builtins.str]:
+        """
+        Authoritative Hetzner nameservers assigned to the Zone.
+        """
+        return pulumi.get(self, "assigneds")
+
+
+@pulumi.output_type
+class GetZonesZonePrimaryNameserverResult(dict):
+    def __init__(__self__, *,
+                 address: _builtins.str,
+                 port: _builtins.int,
+                 tsig_algorithm: _builtins.str,
+                 tsig_key: _builtins.str):
+        """
+        :param _builtins.str address: Public IPv4 or IPv6 address of the primary nameserver.
+        :param _builtins.int port: Port of the primary nameserver.
+        :param _builtins.str tsig_algorithm: Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        :param _builtins.str tsig_key: Transaction signature (TSIG) key
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "tsig_algorithm", tsig_algorithm)
+        pulumi.set(__self__, "tsig_key", tsig_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> _builtins.str:
+        """
+        Public IPv4 or IPv6 address of the primary nameserver.
+        """
+        return pulumi.get(self, "address")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        Port of the primary nameserver.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="tsigAlgorithm")
+    def tsig_algorithm(self) -> _builtins.str:
+        """
+        Transaction signature (TSIG) algorithm used to generate the TSIG key.
+        """
+        return pulumi.get(self, "tsig_algorithm")
+
+    @_builtins.property
+    @pulumi.getter(name="tsigKey")
+    def tsig_key(self) -> _builtins.str:
+        """
+        Transaction signature (TSIG) key
+        """
+        return pulumi.get(self, "tsig_key")
 
 

@@ -122,6 +122,92 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Ensure a server is attached to a Firewall on first boot
+ * 
+ * The `firewallIds` property of the `hcloud.Server` resource ensures that
+ * a server is attached to the specified Firewalls before its first boot.
+ * This is **not** the case when using the `hcloud.FirewallAttachment`
+ * resource to attach servers to a Firewall. In some scenarios this may
+ * pose a security risk.
+ * 
+ * The following workaround ensures that a server is attached to a Firewall
+ * _before_ it first boots. However, the workaround requires two Firewalls.
+ * Additionally the server resource definition needs to ignore any remote
+ * changes to the `hcloud_server.firewall_ids` property. This is done using
+ * the `ignoreRemoteFirewallIds` property of `hcloud.Server`.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.hcloud.Firewall;
+ * import com.pulumi.hcloud.FirewallArgs;
+ * import com.pulumi.hcloud.Server;
+ * import com.pulumi.hcloud.ServerArgs;
+ * import com.pulumi.hcloud.inputs.FirewallRuleArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FormatArgs;
+ * import com.pulumi.hcloud.FirewallAttachment;
+ * import com.pulumi.hcloud.FirewallAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var denyAll = new Firewall("denyAll", FirewallArgs.builder()
+ *             .name("deny_all")
+ *             .build());
+ * 
+ *         var testServer = new Server("testServer", ServerArgs.builder()
+ *             .name("test-server")
+ *             .serverType("cx22")
+ *             .image("ubuntu-20.04")
+ *             .ignoreRemoteFirewallIds(true)
+ *             .firewallIds(denyAll.id())
+ *             .build());
+ * 
+ *         var allowRules = new Firewall("allowRules", FirewallArgs.builder()
+ *             .name("allow_rules")
+ *             .rules(FirewallRuleArgs.builder()
+ *                 .direction("in")
+ *                 .protocol("tcp")
+ *                 .port("22")
+ *                 .sourceIps(                
+ *                     "0.0.0.0/0",
+ *                     "::/0")
+ *                 .destinationIps(StdFunctions.format(FormatArgs.builder()
+ *                     .input("%s/32")
+ *                     .args(testServer.ipv4Address())
+ *                     .build()).result())
+ *                 .build())
+ *             .build());
+ * 
+ *         var denyAllAtt = new FirewallAttachment("denyAllAtt", FirewallAttachmentArgs.builder()
+ *             .firewallId(denyAll.id())
+ *             .serverIds(testServer.id())
+ *             .build());
+ * 
+ *         var allowRulesAtt = new FirewallAttachment("allowRulesAtt", FirewallAttachmentArgs.builder()
+ *             .firewallId(allowRules.id())
+ *             .serverIds(testServer.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  */
 @ResourceType(type="hcloud:index/firewallAttachment:FirewallAttachment")
 public class FirewallAttachment extends com.pulumi.resources.CustomResource {
