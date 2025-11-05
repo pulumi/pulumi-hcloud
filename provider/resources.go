@@ -26,6 +26,7 @@ import (
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 
@@ -135,6 +136,17 @@ func Provider() tfbridge.ProviderInfo {
 	prov.MustComputeTokens(tks.SingleModule("hcloud_",
 		mainMod, tks.MakeStandard(mainPkg)))
 	prov.MustApplyAutoAliases()
+
+	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
+		if id, ok := value.Schema().GetOk("id"); ok && id.Type() != shim.TypeString {
+			r := prov.Resources[key]
+			if r.Fields == nil {
+				r.Fields = make(map[string]*tfbridge.SchemaInfo, 1)
+			}
+			r.Fields["id"] = &tfbridge.SchemaInfo{Type: "string"}
+		}
+		return true
+	})
 
 	prov.SetAutonaming(255, "-")
 

@@ -341,6 +341,73 @@
                 }
             }
         },
+        "hcloud:index/ZoneAuthoritativeNameservers:ZoneAuthoritativeNameservers": {
+            "properties": {
+                "assigneds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authoritative Hetzner nameservers assigned to the Zone.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "assigneds"
+                    ]
+                }
+            }
+        },
+        "hcloud:index/ZonePrimaryNameserver:ZonePrimaryNameserver": {
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "description": "Public IPv4 or IPv6 address of the primary nameserver.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port of the primary nameserver.\n"
+                },
+                "tsigAlgorithm": {
+                    "type": "string",
+                    "description": "Transaction signature (TSIG) algorithm used to generate the TSIG key.\n"
+                },
+                "tsigKey": {
+                    "type": "string",
+                    "description": "Transaction signature (TSIG) key\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "address",
+                        "port"
+                    ]
+                }
+            }
+        },
+        "hcloud:index/ZoneRrsetRecord:ZoneRrsetRecord": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Comment of the record.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the record.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
+        },
         "hcloud:index/getCertificatesCertificate:getCertificatesCertificate": {
             "properties": {
                 "certificate": {
@@ -1862,6 +1929,275 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "hcloud:index/getZoneAuthoritativeNameservers:getZoneAuthoritativeNameservers": {
+            "properties": {
+                "assigneds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authoritative Hetzner nameservers assigned to the Zone.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "assigneds"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getZonePrimaryNameserver:getZonePrimaryNameserver": {
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "description": "Public IPv4 or IPv6 address of the primary nameserver.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port of the primary nameserver.\n"
+                },
+                "tsigAlgorithm": {
+                    "type": "string",
+                    "description": "Transaction signature (TSIG) algorithm used to generate the TSIG key.\n"
+                },
+                "tsigKey": {
+                    "type": "string",
+                    "description": "Transaction signature (TSIG) key\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "address",
+                "port",
+                "tsigAlgorithm",
+                "tsigKey"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getZoneRrsetRecord:getZoneRrsetRecord": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Comment of the record.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the record.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getZoneRrsetsRrset:getZoneRrsetsRrset": {
+            "properties": {
+                "changeProtection": {
+                    "type": "boolean",
+                    "description": "Whether change protection is enabled.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "ID of the Zone RRSet.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Zone RRSet.\n"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getZoneRrsetsRrsetRecord:getZoneRrsetsRrsetRecord"
+                    },
+                    "description": "Records of the Zone RRSet.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "Time To Live (TTL) of the Zone RRSet.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the Zone RRSet.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "ID or Name of the parent Zone.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "changeProtection",
+                "id",
+                "labels",
+                "name",
+                "records",
+                "ttl",
+                "type",
+                "zone"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getZoneRrsetsRrsetRecord:getZoneRrsetsRrsetRecord": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Comment of the record.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the record.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getZonesZone:getZonesZone": {
+            "properties": {
+                "authoritativeNameservers": {
+                    "$ref": "#/types/hcloud:index/getZonesZoneAuthoritativeNameservers:getZonesZoneAuthoritativeNameservers",
+                    "description": "Authoritative nameservers of the Zone.\n"
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Whether delete protection is enabled.\n"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "ID of the Zone.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Mode of the Zone.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Zone.\n"
+                },
+                "primaryNameservers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/getZonesZonePrimaryNameserver:getZonesZonePrimaryNameserver"
+                    },
+                    "description": "Primary nameservers of the Zone.\n"
+                },
+                "registrar": {
+                    "type": "string",
+                    "description": "Registrar of the Zone.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "Default Time To Live (TTL) of the Zone.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "authoritativeNameservers",
+                "deleteProtection",
+                "id",
+                "labels",
+                "mode",
+                "name",
+                "primaryNameservers",
+                "registrar",
+                "ttl"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getZonesZoneAuthoritativeNameservers:getZonesZoneAuthoritativeNameservers": {
+            "properties": {
+                "assigneds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authoritative Hetzner nameservers assigned to the Zone.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "assigneds"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getZonesZonePrimaryNameserver:getZonesZonePrimaryNameserver": {
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "description": "Public IPv4 or IPv6 address of the primary nameserver.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port of the primary nameserver.\n"
+                },
+                "tsigAlgorithm": {
+                    "type": "string",
+                    "description": "Transaction signature (TSIG) algorithm used to generate the TSIG key.\n"
+                },
+                "tsigKey": {
+                    "type": "string",
+                    "description": "Transaction signature (TSIG) key\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "address",
+                "port",
+                "tsigAlgorithm",
+                "tsigKey"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
     },
     "provider": {
@@ -2140,7 +2476,7 @@
             }
         },
         "hcloud:index/firewallAttachment:FirewallAttachment": {
-            "description": "Attaches resource to a Hetzner Cloud Firewall.\n\n_Note_: only one \u003cspan pulumi-lang-nodejs=\"`hcloud.FirewallAttachment`\" pulumi-lang-dotnet=\"`hcloud.FirewallAttachment`\" pulumi-lang-go=\"`FirewallAttachment`\" pulumi-lang-python=\"`FirewallAttachment`\" pulumi-lang-yaml=\"`hcloud.FirewallAttachment`\" pulumi-lang-java=\"`hcloud.FirewallAttachment`\"\u003e`hcloud.FirewallAttachment`\u003c/span\u003e per Firewall is allowed.\nAny resources that should be attached to that Firewall need to be\nspecified in that \u003cspan pulumi-lang-nodejs=\"`hcloud.FirewallAttachment`\" pulumi-lang-dotnet=\"`hcloud.FirewallAttachment`\" pulumi-lang-go=\"`FirewallAttachment`\" pulumi-lang-python=\"`FirewallAttachment`\" pulumi-lang-yaml=\"`hcloud.FirewallAttachment`\" pulumi-lang-java=\"`hcloud.FirewallAttachment`\"\u003e`hcloud.FirewallAttachment`\u003c/span\u003e.\n\n## Example Usage\n\n### Attach Servers\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst testServer = new hcloud.Server(\"test_server\", {\n    name: \"test-server\",\n    serverType: \"cx22\",\n    image: \"ubuntu-20.04\",\n});\nconst basicFirewall = new hcloud.Firewall(\"basic_firewall\", {name: \"basic_firewall\"});\nconst fwRef = new hcloud.FirewallAttachment(\"fw_ref\", {\n    firewallId: basicFirewall.id,\n    serverIds: [testServer.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\ntest_server = hcloud.Server(\"test_server\",\n    name=\"test-server\",\n    server_type=\"cx22\",\n    image=\"ubuntu-20.04\")\nbasic_firewall = hcloud.Firewall(\"basic_firewall\", name=\"basic_firewall\")\nfw_ref = hcloud.FirewallAttachment(\"fw_ref\",\n    firewall_id=basic_firewall.id,\n    server_ids=[test_server.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testServer = new HCloud.Server(\"test_server\", new()\n    {\n        Name = \"test-server\",\n        ServerType = \"cx22\",\n        Image = \"ubuntu-20.04\",\n    });\n\n    var basicFirewall = new HCloud.Firewall(\"basic_firewall\", new()\n    {\n        Name = \"basic_firewall\",\n    });\n\n    var fwRef = new HCloud.FirewallAttachment(\"fw_ref\", new()\n    {\n        FirewallId = basicFirewall.Id,\n        ServerIds = new[]\n        {\n            testServer.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestServer, err := hcloud.NewServer(ctx, \"test_server\", \u0026hcloud.ServerArgs{\n\t\t\tName:       pulumi.String(\"test-server\"),\n\t\t\tServerType: pulumi.String(\"cx22\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tbasicFirewall, err := hcloud.NewFirewall(ctx, \"basic_firewall\", \u0026hcloud.FirewallArgs{\n\t\t\tName: pulumi.String(\"basic_firewall\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFirewallAttachment(ctx, \"fw_ref\", \u0026hcloud.FirewallAttachmentArgs{\n\t\t\tFirewallId: basicFirewall.ID(),\n\t\t\tServerIds: pulumi.IntArray{\n\t\t\t\ttestServer.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.hcloud.Firewall;\nimport com.pulumi.hcloud.FirewallArgs;\nimport com.pulumi.hcloud.FirewallAttachment;\nimport com.pulumi.hcloud.FirewallAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testServer = new Server(\"testServer\", ServerArgs.builder()\n            .name(\"test-server\")\n            .serverType(\"cx22\")\n            .image(\"ubuntu-20.04\")\n            .build());\n\n        var basicFirewall = new Firewall(\"basicFirewall\", FirewallArgs.builder()\n            .name(\"basic_firewall\")\n            .build());\n\n        var fwRef = new FirewallAttachment(\"fwRef\", FirewallAttachmentArgs.builder()\n            .firewallId(basicFirewall.id())\n            .serverIds(testServer.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testServer:\n    type: hcloud:Server\n    name: test_server\n    properties:\n      name: test-server\n      serverType: cx22\n      image: ubuntu-20.04\n  basicFirewall:\n    type: hcloud:Firewall\n    name: basic_firewall\n    properties:\n      name: basic_firewall\n  fwRef:\n    type: hcloud:FirewallAttachment\n    name: fw_ref\n    properties:\n      firewallId: ${basicFirewall.id}\n      serverIds:\n        - ${testServer.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Attach Label Selectors\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst testServer = new hcloud.Server(\"test_server\", {\n    name: \"test-server\",\n    serverType: \"cx22\",\n    image: \"ubuntu-20.04\",\n    labels: {\n        \"firewall-attachment\": \"test-server\",\n    },\n});\nconst basicFirewall = new hcloud.Firewall(\"basic_firewall\", {name: \"basic_firewall\"});\nconst fwRef = new hcloud.FirewallAttachment(\"fw_ref\", {\n    firewallId: basicFirewall.id,\n    labelSelectors: [\"firewall-attachment=test-server\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\ntest_server = hcloud.Server(\"test_server\",\n    name=\"test-server\",\n    server_type=\"cx22\",\n    image=\"ubuntu-20.04\",\n    labels={\n        \"firewall-attachment\": \"test-server\",\n    })\nbasic_firewall = hcloud.Firewall(\"basic_firewall\", name=\"basic_firewall\")\nfw_ref = hcloud.FirewallAttachment(\"fw_ref\",\n    firewall_id=basic_firewall.id,\n    label_selectors=[\"firewall-attachment=test-server\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testServer = new HCloud.Server(\"test_server\", new()\n    {\n        Name = \"test-server\",\n        ServerType = \"cx22\",\n        Image = \"ubuntu-20.04\",\n        Labels = \n        {\n            { \"firewall-attachment\", \"test-server\" },\n        },\n    });\n\n    var basicFirewall = new HCloud.Firewall(\"basic_firewall\", new()\n    {\n        Name = \"basic_firewall\",\n    });\n\n    var fwRef = new HCloud.FirewallAttachment(\"fw_ref\", new()\n    {\n        FirewallId = basicFirewall.Id,\n        LabelSelectors = new[]\n        {\n            \"firewall-attachment=test-server\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewServer(ctx, \"test_server\", \u0026hcloud.ServerArgs{\n\t\t\tName:       pulumi.String(\"test-server\"),\n\t\t\tServerType: pulumi.String(\"cx22\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t\tLabels: pulumi.StringMap{\n\t\t\t\t\"firewall-attachment\": pulumi.String(\"test-server\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tbasicFirewall, err := hcloud.NewFirewall(ctx, \"basic_firewall\", \u0026hcloud.FirewallArgs{\n\t\t\tName: pulumi.String(\"basic_firewall\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFirewallAttachment(ctx, \"fw_ref\", \u0026hcloud.FirewallAttachmentArgs{\n\t\t\tFirewallId: basicFirewall.ID(),\n\t\t\tLabelSelectors: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"firewall-attachment=test-server\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.hcloud.Firewall;\nimport com.pulumi.hcloud.FirewallArgs;\nimport com.pulumi.hcloud.FirewallAttachment;\nimport com.pulumi.hcloud.FirewallAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testServer = new Server(\"testServer\", ServerArgs.builder()\n            .name(\"test-server\")\n            .serverType(\"cx22\")\n            .image(\"ubuntu-20.04\")\n            .labels(Map.of(\"firewall-attachment\", \"test-server\"))\n            .build());\n\n        var basicFirewall = new Firewall(\"basicFirewall\", FirewallArgs.builder()\n            .name(\"basic_firewall\")\n            .build());\n\n        var fwRef = new FirewallAttachment(\"fwRef\", FirewallAttachmentArgs.builder()\n            .firewallId(basicFirewall.id())\n            .labelSelectors(\"firewall-attachment=test-server\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testServer:\n    type: hcloud:Server\n    name: test_server\n    properties:\n      name: test-server\n      serverType: cx22\n      image: ubuntu-20.04\n      labels:\n        firewall-attachment: test-server\n  basicFirewall:\n    type: hcloud:Firewall\n    name: basic_firewall\n    properties:\n      name: basic_firewall\n  fwRef:\n    type: hcloud:FirewallAttachment\n    name: fw_ref\n    properties:\n      firewallId: ${basicFirewall.id}\n      labelSelectors:\n        - firewall-attachment=test-server\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n",
+            "description": "Attaches resource to a Hetzner Cloud Firewall.\n\n_Note_: only one \u003cspan pulumi-lang-nodejs=\"`hcloud.FirewallAttachment`\" pulumi-lang-dotnet=\"`hcloud.FirewallAttachment`\" pulumi-lang-go=\"`FirewallAttachment`\" pulumi-lang-python=\"`FirewallAttachment`\" pulumi-lang-yaml=\"`hcloud.FirewallAttachment`\" pulumi-lang-java=\"`hcloud.FirewallAttachment`\"\u003e`hcloud.FirewallAttachment`\u003c/span\u003e per Firewall is allowed.\nAny resources that should be attached to that Firewall need to be\nspecified in that \u003cspan pulumi-lang-nodejs=\"`hcloud.FirewallAttachment`\" pulumi-lang-dotnet=\"`hcloud.FirewallAttachment`\" pulumi-lang-go=\"`FirewallAttachment`\" pulumi-lang-python=\"`FirewallAttachment`\" pulumi-lang-yaml=\"`hcloud.FirewallAttachment`\" pulumi-lang-java=\"`hcloud.FirewallAttachment`\"\u003e`hcloud.FirewallAttachment`\u003c/span\u003e.\n\n## Example Usage\n\n### Attach Servers\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst testServer = new hcloud.Server(\"test_server\", {\n    name: \"test-server\",\n    serverType: \"cx22\",\n    image: \"ubuntu-20.04\",\n});\nconst basicFirewall = new hcloud.Firewall(\"basic_firewall\", {name: \"basic_firewall\"});\nconst fwRef = new hcloud.FirewallAttachment(\"fw_ref\", {\n    firewallId: basicFirewall.id,\n    serverIds: [testServer.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\ntest_server = hcloud.Server(\"test_server\",\n    name=\"test-server\",\n    server_type=\"cx22\",\n    image=\"ubuntu-20.04\")\nbasic_firewall = hcloud.Firewall(\"basic_firewall\", name=\"basic_firewall\")\nfw_ref = hcloud.FirewallAttachment(\"fw_ref\",\n    firewall_id=basic_firewall.id,\n    server_ids=[test_server.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testServer = new HCloud.Server(\"test_server\", new()\n    {\n        Name = \"test-server\",\n        ServerType = \"cx22\",\n        Image = \"ubuntu-20.04\",\n    });\n\n    var basicFirewall = new HCloud.Firewall(\"basic_firewall\", new()\n    {\n        Name = \"basic_firewall\",\n    });\n\n    var fwRef = new HCloud.FirewallAttachment(\"fw_ref\", new()\n    {\n        FirewallId = basicFirewall.Id,\n        ServerIds = new[]\n        {\n            testServer.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestServer, err := hcloud.NewServer(ctx, \"test_server\", \u0026hcloud.ServerArgs{\n\t\t\tName:       pulumi.String(\"test-server\"),\n\t\t\tServerType: pulumi.String(\"cx22\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tbasicFirewall, err := hcloud.NewFirewall(ctx, \"basic_firewall\", \u0026hcloud.FirewallArgs{\n\t\t\tName: pulumi.String(\"basic_firewall\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFirewallAttachment(ctx, \"fw_ref\", \u0026hcloud.FirewallAttachmentArgs{\n\t\t\tFirewallId: basicFirewall.ID(),\n\t\t\tServerIds: pulumi.IntArray{\n\t\t\t\ttestServer.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.hcloud.Firewall;\nimport com.pulumi.hcloud.FirewallArgs;\nimport com.pulumi.hcloud.FirewallAttachment;\nimport com.pulumi.hcloud.FirewallAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testServer = new Server(\"testServer\", ServerArgs.builder()\n            .name(\"test-server\")\n            .serverType(\"cx22\")\n            .image(\"ubuntu-20.04\")\n            .build());\n\n        var basicFirewall = new Firewall(\"basicFirewall\", FirewallArgs.builder()\n            .name(\"basic_firewall\")\n            .build());\n\n        var fwRef = new FirewallAttachment(\"fwRef\", FirewallAttachmentArgs.builder()\n            .firewallId(basicFirewall.id())\n            .serverIds(testServer.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testServer:\n    type: hcloud:Server\n    name: test_server\n    properties:\n      name: test-server\n      serverType: cx22\n      image: ubuntu-20.04\n  basicFirewall:\n    type: hcloud:Firewall\n    name: basic_firewall\n    properties:\n      name: basic_firewall\n  fwRef:\n    type: hcloud:FirewallAttachment\n    name: fw_ref\n    properties:\n      firewallId: ${basicFirewall.id}\n      serverIds:\n        - ${testServer.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Attach Label Selectors\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst testServer = new hcloud.Server(\"test_server\", {\n    name: \"test-server\",\n    serverType: \"cx22\",\n    image: \"ubuntu-20.04\",\n    labels: {\n        \"firewall-attachment\": \"test-server\",\n    },\n});\nconst basicFirewall = new hcloud.Firewall(\"basic_firewall\", {name: \"basic_firewall\"});\nconst fwRef = new hcloud.FirewallAttachment(\"fw_ref\", {\n    firewallId: basicFirewall.id,\n    labelSelectors: [\"firewall-attachment=test-server\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\ntest_server = hcloud.Server(\"test_server\",\n    name=\"test-server\",\n    server_type=\"cx22\",\n    image=\"ubuntu-20.04\",\n    labels={\n        \"firewall-attachment\": \"test-server\",\n    })\nbasic_firewall = hcloud.Firewall(\"basic_firewall\", name=\"basic_firewall\")\nfw_ref = hcloud.FirewallAttachment(\"fw_ref\",\n    firewall_id=basic_firewall.id,\n    label_selectors=[\"firewall-attachment=test-server\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testServer = new HCloud.Server(\"test_server\", new()\n    {\n        Name = \"test-server\",\n        ServerType = \"cx22\",\n        Image = \"ubuntu-20.04\",\n        Labels = \n        {\n            { \"firewall-attachment\", \"test-server\" },\n        },\n    });\n\n    var basicFirewall = new HCloud.Firewall(\"basic_firewall\", new()\n    {\n        Name = \"basic_firewall\",\n    });\n\n    var fwRef = new HCloud.FirewallAttachment(\"fw_ref\", new()\n    {\n        FirewallId = basicFirewall.Id,\n        LabelSelectors = new[]\n        {\n            \"firewall-attachment=test-server\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewServer(ctx, \"test_server\", \u0026hcloud.ServerArgs{\n\t\t\tName:       pulumi.String(\"test-server\"),\n\t\t\tServerType: pulumi.String(\"cx22\"),\n\t\t\tImage:      pulumi.String(\"ubuntu-20.04\"),\n\t\t\tLabels: pulumi.StringMap{\n\t\t\t\t\"firewall-attachment\": pulumi.String(\"test-server\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tbasicFirewall, err := hcloud.NewFirewall(ctx, \"basic_firewall\", \u0026hcloud.FirewallArgs{\n\t\t\tName: pulumi.String(\"basic_firewall\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFirewallAttachment(ctx, \"fw_ref\", \u0026hcloud.FirewallAttachmentArgs{\n\t\t\tFirewallId: basicFirewall.ID(),\n\t\t\tLabelSelectors: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"firewall-attachment=test-server\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.hcloud.Firewall;\nimport com.pulumi.hcloud.FirewallArgs;\nimport com.pulumi.hcloud.FirewallAttachment;\nimport com.pulumi.hcloud.FirewallAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testServer = new Server(\"testServer\", ServerArgs.builder()\n            .name(\"test-server\")\n            .serverType(\"cx22\")\n            .image(\"ubuntu-20.04\")\n            .labels(Map.of(\"firewall-attachment\", \"test-server\"))\n            .build());\n\n        var basicFirewall = new Firewall(\"basicFirewall\", FirewallArgs.builder()\n            .name(\"basic_firewall\")\n            .build());\n\n        var fwRef = new FirewallAttachment(\"fwRef\", FirewallAttachmentArgs.builder()\n            .firewallId(basicFirewall.id())\n            .labelSelectors(\"firewall-attachment=test-server\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testServer:\n    type: hcloud:Server\n    name: test_server\n    properties:\n      name: test-server\n      serverType: cx22\n      image: ubuntu-20.04\n      labels:\n        firewall-attachment: test-server\n  basicFirewall:\n    type: hcloud:Firewall\n    name: basic_firewall\n    properties:\n      name: basic_firewall\n  fwRef:\n    type: hcloud:FirewallAttachment\n    name: fw_ref\n    properties:\n      firewallId: ${basicFirewall.id}\n      labelSelectors:\n        - firewall-attachment=test-server\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Ensure a server is attached to a Firewall on first boot\n\nThe \u003cspan pulumi-lang-nodejs=\"`firewallIds`\" pulumi-lang-dotnet=\"`FirewallIds`\" pulumi-lang-go=\"`firewallIds`\" pulumi-lang-python=\"`firewall_ids`\" pulumi-lang-yaml=\"`firewallIds`\" pulumi-lang-java=\"`firewallIds`\"\u003e`firewall_ids`\u003c/span\u003e property of the \u003cspan pulumi-lang-nodejs=\"`hcloud.Server`\" pulumi-lang-dotnet=\"`hcloud.Server`\" pulumi-lang-go=\"`Server`\" pulumi-lang-python=\"`Server`\" pulumi-lang-yaml=\"`hcloud.Server`\" pulumi-lang-java=\"`hcloud.Server`\"\u003e`hcloud.Server`\u003c/span\u003e resource ensures that\na server is attached to the specified Firewalls before its first boot.\nThis is **not** the case when using the \u003cspan pulumi-lang-nodejs=\"`hcloud.FirewallAttachment`\" pulumi-lang-dotnet=\"`hcloud.FirewallAttachment`\" pulumi-lang-go=\"`FirewallAttachment`\" pulumi-lang-python=\"`FirewallAttachment`\" pulumi-lang-yaml=\"`hcloud.FirewallAttachment`\" pulumi-lang-java=\"`hcloud.FirewallAttachment`\"\u003e`hcloud.FirewallAttachment`\u003c/span\u003e\nresource to attach servers to a Firewall. In some scenarios this may\npose a security risk.\n\nThe following workaround ensures that a server is attached to a Firewall\n_before_ it first boots. However, the workaround requires two Firewalls.\nAdditionally the server resource definition needs to ignore any remote\nchanges to the `hcloud_server.firewall_ids` property. This is done using\nthe \u003cspan pulumi-lang-nodejs=\"`ignoreRemoteFirewallIds`\" pulumi-lang-dotnet=\"`IgnoreRemoteFirewallIds`\" pulumi-lang-go=\"`ignoreRemoteFirewallIds`\" pulumi-lang-python=\"`ignore_remote_firewall_ids`\" pulumi-lang-yaml=\"`ignoreRemoteFirewallIds`\" pulumi-lang-java=\"`ignoreRemoteFirewallIds`\"\u003e`ignore_remote_firewall_ids`\u003c/span\u003e property of \u003cspan pulumi-lang-nodejs=\"`hcloud.Server`\" pulumi-lang-dotnet=\"`hcloud.Server`\" pulumi-lang-go=\"`Server`\" pulumi-lang-python=\"`Server`\" pulumi-lang-yaml=\"`hcloud.Server`\" pulumi-lang-java=\"`hcloud.Server`\"\u003e`hcloud.Server`\u003c/span\u003e.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst denyAll = new hcloud.Firewall(\"deny_all\", {name: \"deny_all\"});\nconst testServer = new hcloud.Server(\"test_server\", {\n    name: \"test-server\",\n    serverType: \"cx22\",\n    image: \"ubuntu-20.04\",\n    ignoreRemoteFirewallIds: true,\n    firewallIds: [denyAll.id],\n});\nconst allowRules = new hcloud.Firewall(\"allow_rules\", {\n    name: \"allow_rules\",\n    rules: [{\n        direction: \"in\",\n        protocol: \"tcp\",\n        port: \"22\",\n        sourceIps: [\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n        destinationIps: [std.format({\n            input: \"%s/32\",\n            args: [testServer.ipv4Address],\n        }).then(invoke =\u003e invoke.result)],\n    }],\n});\nconst denyAllAtt = new hcloud.FirewallAttachment(\"deny_all_att\", {\n    firewallId: denyAll.id,\n    serverIds: [testServer.id],\n});\nconst allowRulesAtt = new hcloud.FirewallAttachment(\"allow_rules_att\", {\n    firewallId: allowRules.id,\n    serverIds: [testServer.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\nimport pulumi_std as std\n\ndeny_all = hcloud.Firewall(\"deny_all\", name=\"deny_all\")\ntest_server = hcloud.Server(\"test_server\",\n    name=\"test-server\",\n    server_type=\"cx22\",\n    image=\"ubuntu-20.04\",\n    ignore_remote_firewall_ids=True,\n    firewall_ids=[deny_all.id])\nallow_rules = hcloud.Firewall(\"allow_rules\",\n    name=\"allow_rules\",\n    rules=[{\n        \"direction\": \"in\",\n        \"protocol\": \"tcp\",\n        \"port\": \"22\",\n        \"source_ips\": [\n            \"0.0.0.0/0\",\n            \"::/0\",\n        ],\n        \"destination_ips\": [std.format(input=\"%s/32\",\n            args=[test_server.ipv4_address]).result],\n    }])\ndeny_all_att = hcloud.FirewallAttachment(\"deny_all_att\",\n    firewall_id=deny_all.id,\n    server_ids=[test_server.id])\nallow_rules_att = hcloud.FirewallAttachment(\"allow_rules_att\",\n    firewall_id=allow_rules.id,\n    server_ids=[test_server.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var denyAll = new HCloud.Firewall(\"deny_all\", new()\n    {\n        Name = \"deny_all\",\n    });\n\n    var testServer = new HCloud.Server(\"test_server\", new()\n    {\n        Name = \"test-server\",\n        ServerType = \"cx22\",\n        Image = \"ubuntu-20.04\",\n        IgnoreRemoteFirewallIds = true,\n        FirewallIds = new[]\n        {\n            denyAll.Id,\n        },\n    });\n\n    var allowRules = new HCloud.Firewall(\"allow_rules\", new()\n    {\n        Name = \"allow_rules\",\n        Rules = new[]\n        {\n            new HCloud.Inputs.FirewallRuleArgs\n            {\n                Direction = \"in\",\n                Protocol = \"tcp\",\n                Port = \"22\",\n                SourceIps = new[]\n                {\n                    \"0.0.0.0/0\",\n                    \"::/0\",\n                },\n                DestinationIps = new[]\n                {\n                    Std.Format.Invoke(new()\n                    {\n                        Input = \"%s/32\",\n                        Args = new[]\n                        {\n                            testServer.Ipv4Address,\n                        },\n                    }).Apply(invoke =\u003e invoke.Result),\n                },\n            },\n        },\n    });\n\n    var denyAllAtt = new HCloud.FirewallAttachment(\"deny_all_att\", new()\n    {\n        FirewallId = denyAll.Id,\n        ServerIds = new[]\n        {\n            testServer.Id,\n        },\n    });\n\n    var allowRulesAtt = new HCloud.FirewallAttachment(\"allow_rules_att\", new()\n    {\n        FirewallId = allowRules.Id,\n        ServerIds = new[]\n        {\n            testServer.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdenyAll, err := hcloud.NewFirewall(ctx, \"deny_all\", \u0026hcloud.FirewallArgs{\n\t\t\tName: pulumi.String(\"deny_all\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestServer, err := hcloud.NewServer(ctx, \"test_server\", \u0026hcloud.ServerArgs{\n\t\t\tName:                    pulumi.String(\"test-server\"),\n\t\t\tServerType:              pulumi.String(\"cx22\"),\n\t\t\tImage:                   pulumi.String(\"ubuntu-20.04\"),\n\t\t\tIgnoreRemoteFirewallIds: pulumi.Bool(true),\n\t\t\tFirewallIds: pulumi.IntArray{\n\t\t\t\tdenyAll.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFormat, err := std.Format(ctx, \u0026std.FormatArgs{\n\t\t\tInput: \"%s/32\",\n\t\t\tArgs: pulumi.StringArray{\n\t\t\t\ttestServer.Ipv4Address,\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tallowRules, err := hcloud.NewFirewall(ctx, \"allow_rules\", \u0026hcloud.FirewallArgs{\n\t\t\tName: pulumi.String(\"allow_rules\"),\n\t\t\tRules: hcloud.FirewallRuleArray{\n\t\t\t\t\u0026hcloud.FirewallRuleArgs{\n\t\t\t\t\tDirection: pulumi.String(\"in\"),\n\t\t\t\t\tProtocol:  pulumi.String(\"tcp\"),\n\t\t\t\t\tPort:      pulumi.String(\"22\"),\n\t\t\t\t\tSourceIps: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"0.0.0.0/0\"),\n\t\t\t\t\t\tpulumi.String(\"::/0\"),\n\t\t\t\t\t},\n\t\t\t\t\tDestinationIps: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(invokeFormat.Result),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFirewallAttachment(ctx, \"deny_all_att\", \u0026hcloud.FirewallAttachmentArgs{\n\t\t\tFirewallId: denyAll.ID(),\n\t\t\tServerIds: pulumi.IntArray{\n\t\t\t\ttestServer.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewFirewallAttachment(ctx, \"allow_rules_att\", \u0026hcloud.FirewallAttachmentArgs{\n\t\t\tFirewallId: allowRules.ID(),\n\t\t\tServerIds: pulumi.IntArray{\n\t\t\t\ttestServer.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.Firewall;\nimport com.pulumi.hcloud.FirewallArgs;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.hcloud.inputs.FirewallRuleArgs;\nimport com.pulumi.std.StdFunctions;\nimport com.pulumi.std.inputs.FormatArgs;\nimport com.pulumi.hcloud.FirewallAttachment;\nimport com.pulumi.hcloud.FirewallAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var denyAll = new Firewall(\"denyAll\", FirewallArgs.builder()\n            .name(\"deny_all\")\n            .build());\n\n        var testServer = new Server(\"testServer\", ServerArgs.builder()\n            .name(\"test-server\")\n            .serverType(\"cx22\")\n            .image(\"ubuntu-20.04\")\n            .ignoreRemoteFirewallIds(true)\n            .firewallIds(denyAll.id())\n            .build());\n\n        var allowRules = new Firewall(\"allowRules\", FirewallArgs.builder()\n            .name(\"allow_rules\")\n            .rules(FirewallRuleArgs.builder()\n                .direction(\"in\")\n                .protocol(\"tcp\")\n                .port(\"22\")\n                .sourceIps(                \n                    \"0.0.0.0/0\",\n                    \"::/0\")\n                .destinationIps(StdFunctions.format(FormatArgs.builder()\n                    .input(\"%s/32\")\n                    .args(testServer.ipv4Address())\n                    .build()).result())\n                .build())\n            .build());\n\n        var denyAllAtt = new FirewallAttachment(\"denyAllAtt\", FirewallAttachmentArgs.builder()\n            .firewallId(denyAll.id())\n            .serverIds(testServer.id())\n            .build());\n\n        var allowRulesAtt = new FirewallAttachment(\"allowRulesAtt\", FirewallAttachmentArgs.builder()\n            .firewallId(allowRules.id())\n            .serverIds(testServer.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  denyAll:\n    type: hcloud:Firewall\n    name: deny_all\n    properties:\n      name: deny_all\n  testServer:\n    type: hcloud:Server\n    name: test_server\n    properties:\n      name: test-server\n      serverType: cx22\n      image: ubuntu-20.04\n      ignoreRemoteFirewallIds: true\n      firewallIds:\n        - ${denyAll.id}\n  allowRules:\n    type: hcloud:Firewall\n    name: allow_rules\n    properties:\n      name: allow_rules\n      rules:\n        - direction: in\n          protocol: tcp\n          port: '22'\n          sourceIps:\n            - 0.0.0.0/0\n            - ::/0\n          destinationIps:\n            - fn::invoke:\n                function: std:format\n                arguments:\n                  input: '%s/32'\n                  args:\n                    - ${testServer.ipv4Address}\n                return: result\n  denyAllAtt:\n    type: hcloud:FirewallAttachment\n    name: deny_all_att\n    properties:\n      firewallId: ${denyAll.id}\n      serverIds:\n        - ${testServer.id}\n  allowRulesAtt:\n    type: hcloud:FirewallAttachment\n    name: allow_rules_att\n    properties:\n      firewallId: ${allowRules.id}\n      serverIds:\n        - ${testServer.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "firewallId": {
                     "type": "integer",
@@ -4574,6 +4910,266 @@
                 },
                 "type": "object"
             }
+        },
+        "hcloud:index/zone:Zone": {
+            "description": "Provides a Hetzner Cloud Zone resource.\n\nThis can be used to create, modify, and delete Zones.\n\nFor Internationalized domain names (IDN), see the `provider::hcloud::idna` function.\n\nSee the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.\n\n**Experimental:** DNS API is in beta, breaking changes may occur within minor releases.\nSee https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.\n\n## Import\n\nIn Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:\n\nterraform\n\nimport {\n\n  to = hcloud_zone.example_primary\n\n  id = \"$SSH_KEY_ID\"\n\n}\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import hcloud:index/zone:Zone example \"$ZONE_ID_OR_NAME\"\n```\n\n",
+            "properties": {
+                "authoritativeNameservers": {
+                    "$ref": "#/types/hcloud:index/ZoneAuthoritativeNameservers:ZoneAuthoritativeNameservers",
+                    "description": "Authoritative nameservers of the Zone.\n"
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Whether delete protection is enabled.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Mode of the Zone.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Zone.\n"
+                },
+                "primaryNameservers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/ZonePrimaryNameserver:ZonePrimaryNameserver"
+                    },
+                    "description": "Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.\n"
+                },
+                "registrar": {
+                    "type": "string",
+                    "description": "Registrar of the Zone.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "Default Time To Live (TTL) of the Zone.\n"
+                }
+            },
+            "required": [
+                "authoritativeNameservers",
+                "deleteProtection",
+                "labels",
+                "mode",
+                "name",
+                "primaryNameservers",
+                "registrar",
+                "ttl"
+            ],
+            "inputProperties": {
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Whether delete protection is enabled.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Mode of the Zone.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Zone.\n"
+                },
+                "primaryNameservers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/ZonePrimaryNameserver:ZonePrimaryNameserver"
+                    },
+                    "description": "Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "Default Time To Live (TTL) of the Zone.\n"
+                }
+            },
+            "requiredInputs": [
+                "mode"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Zone resources.\n",
+                "properties": {
+                    "authoritativeNameservers": {
+                        "$ref": "#/types/hcloud:index/ZoneAuthoritativeNameservers:ZoneAuthoritativeNameservers",
+                        "description": "Authoritative nameservers of the Zone.\n"
+                    },
+                    "deleteProtection": {
+                        "type": "boolean",
+                        "description": "Whether delete protection is enabled.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Mode of the Zone.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Zone.\n"
+                    },
+                    "primaryNameservers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/ZonePrimaryNameserver:ZonePrimaryNameserver"
+                        },
+                        "description": "Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.\n"
+                    },
+                    "registrar": {
+                        "type": "string",
+                        "description": "Registrar of the Zone.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "Default Time To Live (TTL) of the Zone.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/zoneRrset:ZoneRrset": {
+            "description": "Provides a Hetzner Cloud Zone Resource Record Set (RRSet) resource.\n\nThis can be used to create, modify, and delete Zone RRSets.\n\nSee the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.\n\n**Experimental:** DNS API is in beta, breaking changes may occur within minor releases.\nSee https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst example = new hcloud.Zone(\"example\", {\n    name: \"example.com\",\n    mode: \"primary\",\n});\nconst exampleZoneRrset = new hcloud.ZoneRrset(\"example\", {\n    zone: example.name,\n    name: \"www\",\n    type: \"A\",\n    ttl: 10800,\n    labels: {\n        key: \"value\",\n    },\n    records: [{\n        value: \"201.78.10.45\",\n        comment: \"web server 1\",\n    }],\n    changeProtection: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nexample = hcloud.Zone(\"example\",\n    name=\"example.com\",\n    mode=\"primary\")\nexample_zone_rrset = hcloud.ZoneRrset(\"example\",\n    zone=example.name,\n    name=\"www\",\n    type=\"A\",\n    ttl=10800,\n    labels={\n        \"key\": \"value\",\n    },\n    records=[{\n        \"value\": \"201.78.10.45\",\n        \"comment\": \"web server 1\",\n    }],\n    change_protection=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new HCloud.Zone(\"example\", new()\n    {\n        Name = \"example.com\",\n        Mode = \"primary\",\n    });\n\n    var exampleZoneRrset = new HCloud.ZoneRrset(\"example\", new()\n    {\n        Zone = example.Name,\n        Name = \"www\",\n        Type = \"A\",\n        Ttl = 10800,\n        Labels = \n        {\n            { \"key\", \"value\" },\n        },\n        Records = new[]\n        {\n            new HCloud.Inputs.ZoneRrsetRecordArgs\n            {\n                Value = \"201.78.10.45\",\n                Comment = \"web server 1\",\n            },\n        },\n        ChangeProtection = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := hcloud.NewZone(ctx, \"example\", \u0026hcloud.ZoneArgs{\n\t\t\tName: pulumi.String(\"example.com\"),\n\t\t\tMode: pulumi.String(\"primary\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewZoneRrset(ctx, \"example\", \u0026hcloud.ZoneRrsetArgs{\n\t\t\tZone: example.Name,\n\t\t\tName: pulumi.String(\"www\"),\n\t\t\tType: pulumi.String(\"A\"),\n\t\t\tTtl:  pulumi.Int(10800),\n\t\t\tLabels: pulumi.StringMap{\n\t\t\t\t\"key\": pulumi.String(\"value\"),\n\t\t\t},\n\t\t\tRecords: hcloud.ZoneRrsetRecordArray{\n\t\t\t\t\u0026hcloud.ZoneRrsetRecordArgs{\n\t\t\t\t\tValue:   pulumi.String(\"201.78.10.45\"),\n\t\t\t\t\tComment: pulumi.String(\"web server 1\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tChangeProtection: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.Zone;\nimport com.pulumi.hcloud.ZoneArgs;\nimport com.pulumi.hcloud.ZoneRrset;\nimport com.pulumi.hcloud.ZoneRrsetArgs;\nimport com.pulumi.hcloud.inputs.ZoneRrsetRecordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Zone(\"example\", ZoneArgs.builder()\n            .name(\"example.com\")\n            .mode(\"primary\")\n            .build());\n\n        var exampleZoneRrset = new ZoneRrset(\"exampleZoneRrset\", ZoneRrsetArgs.builder()\n            .zone(example.name())\n            .name(\"www\")\n            .type(\"A\")\n            .ttl(10800)\n            .labels(Map.of(\"key\", \"value\"))\n            .records(ZoneRrsetRecordArgs.builder()\n                .value(\"201.78.10.45\")\n                .comment(\"web server 1\")\n                .build())\n            .changeProtection(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: hcloud:Zone\n    properties:\n      name: example.com\n      mode: primary\n  exampleZoneRrset:\n    type: hcloud:ZoneRrset\n    name: example\n    properties:\n      zone: ${example.name}\n      name: www\n      type: A\n      ttl: 10800\n      labels:\n        key: value\n      records:\n        - value: 201.78.10.45\n          comment: web server 1\n      changeProtection: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nIn Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:\n\nterraform\n\nimport {\n\n  to = hcloud_zone_rrset.example\n\n  id = \"$ZONE_ID_OR_NAME/$RRSET_NAME/$RRSET_TYPE\"\n\n}\n\nimport {\n\n  to = hcloud_zone_rrset.example\n\n  id = \"$ZONE_ID_OR_NAME/$RRSET_ID\"\n\n}\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import hcloud:index/zoneRrset:ZoneRrset example \"$ZONE_ID_OR_NAME/$RRSET_NAME/$RRSET_TYPE\"\n```\n\n```sh\n$ pulumi import hcloud:index/zoneRrset:ZoneRrset example \"$ZONE_ID_OR_NAME/$RRSET_ID\"\n```\n\n",
+            "properties": {
+                "changeProtection": {
+                    "type": "boolean",
+                    "description": "Whether change protection is enabled.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Zone RRSet.\n"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/ZoneRrsetRecord:ZoneRrsetRecord"
+                    },
+                    "description": "Records of the Zone RRSet.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "Time To Live (TTL) of the Zone RRSet.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the Zone RRSet.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "ID or Name of the parent Zone.\n"
+                }
+            },
+            "required": [
+                "changeProtection",
+                "labels",
+                "name",
+                "records",
+                "type",
+                "zone"
+            ],
+            "inputProperties": {
+                "changeProtection": {
+                    "type": "boolean",
+                    "description": "Whether change protection is enabled.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Zone RRSet.\n"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/hcloud:index/ZoneRrsetRecord:ZoneRrsetRecord"
+                    },
+                    "description": "Records of the Zone RRSet.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "Time To Live (TTL) of the Zone RRSet.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the Zone RRSet.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "ID or Name of the parent Zone.\n"
+                }
+            },
+            "requiredInputs": [
+                "records",
+                "type",
+                "zone"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ZoneRrset resources.\n",
+                "properties": {
+                    "changeProtection": {
+                        "type": "boolean",
+                        "description": "Whether change protection is enabled.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Zone RRSet.\n"
+                    },
+                    "records": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/ZoneRrsetRecord:ZoneRrsetRecord"
+                        },
+                        "description": "Records of the Zone RRSet.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "Time To Live (TTL) of the Zone RRSet.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the Zone RRSet.\n"
+                    },
+                    "zone": {
+                        "type": "string",
+                        "description": "ID or Name of the parent Zone.\n"
+                    }
+                },
+                "type": "object"
+            }
         }
     },
     "functions": {
@@ -6640,6 +7236,261 @@
                 "required": [
                     "volumes",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getZone:getZone": {
+            "description": "Provides details about a Hetzner Cloud Zone.\n\nFor Internationalized domain names (IDN), see the `provider::hcloud::idna` function.\n\nSee the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.\n\n**Experimental:** DNS API is in beta, breaking changes may occur within minor releases.\nSee https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byId = hcloud.getZone({\n    id: 1234,\n});\nconst byName = hcloud.getZone({\n    name: \"example.com\",\n});\nconst byLabel = hcloud.getZone({\n    withSelector: \"key=value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_id = hcloud.get_zone(id=1234)\nby_name = hcloud.get_zone(name=\"example.com\")\nby_label = hcloud.get_zone(with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = HCloud.GetZone.Invoke(new()\n    {\n        Id = 1234,\n    });\n\n    var byName = HCloud.GetZone.Invoke(new()\n    {\n        Name = \"example.com\",\n    });\n\n    var byLabel = HCloud.GetZone.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.LookupZone(ctx, \u0026hcloud.LookupZoneArgs{\n\t\t\tId: pulumi.IntRef(1234),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupZone(ctx, \u0026hcloud.LookupZoneArgs{\n\t\t\tName: pulumi.StringRef(\"example.com\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupZone(ctx, \u0026hcloud.LookupZoneArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetZoneArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = HcloudFunctions.getZone(GetZoneArgs.builder()\n            .id(1234)\n            .build());\n\n        final var byName = HcloudFunctions.getZone(GetZoneArgs.builder()\n            .name(\"example.com\")\n            .build());\n\n        final var byLabel = HcloudFunctions.getZone(GetZoneArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getZone\n      arguments:\n        id: 1234\n  byName:\n    fn::invoke:\n      function: hcloud:getZone\n      arguments:\n        name: example.com\n  byLabel:\n    fn::invoke:\n      function: hcloud:getZone\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getZone.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the Zone.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Zone.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getZone.\n",
+                "properties": {
+                    "authoritativeNameservers": {
+                        "$ref": "#/types/hcloud:index/getZoneAuthoritativeNameservers:getZoneAuthoritativeNameservers",
+                        "description": "Authoritative nameservers of the Zone.\n"
+                    },
+                    "deleteProtection": {
+                        "description": "Whether delete protection is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "ID of the Zone.\n",
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n",
+                        "type": "object"
+                    },
+                    "mode": {
+                        "description": "Mode of the Zone.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the Zone.\n",
+                        "type": "string"
+                    },
+                    "primaryNameservers": {
+                        "description": "Primary nameservers of the Zone.\n",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getZonePrimaryNameserver:getZonePrimaryNameserver"
+                        },
+                        "type": "array"
+                    },
+                    "registrar": {
+                        "description": "Registrar of the Zone.\n",
+                        "type": "string"
+                    },
+                    "ttl": {
+                        "description": "Default Time To Live (TTL) of the Zone.\n",
+                        "type": "integer"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "authoritativeNameservers",
+                    "deleteProtection",
+                    "labels",
+                    "mode",
+                    "primaryNameservers",
+                    "registrar",
+                    "ttl"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getZoneRrset:getZoneRrset": {
+            "description": "Provides details about a Hetzner Cloud Zone Resource Record Set (RRSet).\n\nSee the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.\n\n**Experimental:** DNS API is in beta, breaking changes may occur within minor releases.\nSee https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst example = hcloud.getZone({\n    name: \"example.com\",\n});\nconst byId = example.then(example =\u003e hcloud.getZoneRrset({\n    zone: example.name,\n    id: \"www/A\",\n}));\nconst byNameAndType = example.then(example =\u003e hcloud.getZoneRrset({\n    zone: example.name,\n    name: \"www\",\n    type: \"A\",\n}));\nconst byLabel = example.then(example =\u003e hcloud.getZoneRrset({\n    zone: example.name,\n    withSelector: \"key=value\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nexample = hcloud.get_zone(name=\"example.com\")\nby_id = hcloud.get_zone_rrset(zone=example.name,\n    id=\"www/A\")\nby_name_and_type = hcloud.get_zone_rrset(zone=example.name,\n    name=\"www\",\n    type=\"A\")\nby_label = hcloud.get_zone_rrset(zone=example.name,\n    with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = HCloud.GetZone.Invoke(new()\n    {\n        Name = \"example.com\",\n    });\n\n    var byId = HCloud.GetZoneRrset.Invoke(new()\n    {\n        Zone = example.Apply(getZoneResult =\u003e getZoneResult.Name),\n        Id = \"www/A\",\n    });\n\n    var byNameAndType = HCloud.GetZoneRrset.Invoke(new()\n    {\n        Zone = example.Apply(getZoneResult =\u003e getZoneResult.Name),\n        Name = \"www\",\n        Type = \"A\",\n    });\n\n    var byLabel = HCloud.GetZoneRrset.Invoke(new()\n    {\n        Zone = example.Apply(getZoneResult =\u003e getZoneResult.Name),\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := hcloud.LookupZone(ctx, \u0026hcloud.LookupZoneArgs{\n\t\t\tName: pulumi.StringRef(\"example.com\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupZoneRrset(ctx, \u0026hcloud.LookupZoneRrsetArgs{\n\t\t\tZone: example.Name,\n\t\t\tId:   pulumi.StringRef(\"www/A\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupZoneRrset(ctx, \u0026hcloud.LookupZoneRrsetArgs{\n\t\t\tZone: example.Name,\n\t\t\tName: pulumi.StringRef(\"www\"),\n\t\t\tType: pulumi.StringRef(\"A\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupZoneRrset(ctx, \u0026hcloud.LookupZoneRrsetArgs{\n\t\t\tZone:         example.Name,\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetZoneArgs;\nimport com.pulumi.hcloud.inputs.GetZoneRrsetArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = HcloudFunctions.getZone(GetZoneArgs.builder()\n            .name(\"example.com\")\n            .build());\n\n        final var byId = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()\n            .zone(example.name())\n            .id(\"www/A\")\n            .build());\n\n        final var byNameAndType = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()\n            .zone(example.name())\n            .name(\"www\")\n            .type(\"A\")\n            .build());\n\n        final var byLabel = HcloudFunctions.getZoneRrset(GetZoneRrsetArgs.builder()\n            .zone(example.name())\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: hcloud:getZone\n      arguments:\n        name: example.com\n  byId:\n    fn::invoke:\n      function: hcloud:getZoneRrset\n      arguments:\n        zone: ${example.name}\n        id: www/A\n  byNameAndType:\n    fn::invoke:\n      function: hcloud:getZoneRrset\n      arguments:\n        zone: ${example.name}\n        name: www\n        type: A\n  byLabel:\n    fn::invoke:\n      function: hcloud:getZoneRrset\n      arguments:\n        zone: ${example.name}\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getZoneRrset.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the Zone RRSet.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Zone RRSet.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the Zone RRSet.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n"
+                    },
+                    "zone": {
+                        "type": "string",
+                        "description": "ID or Name of the parent Zone.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "zone"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getZoneRrset.\n",
+                "properties": {
+                    "changeProtection": {
+                        "description": "Whether change protection is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "ID of the Zone RRSet.\n",
+                        "type": "string"
+                    },
+                    "labels": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n",
+                        "type": "object"
+                    },
+                    "name": {
+                        "description": "Name of the Zone RRSet.\n",
+                        "type": "string"
+                    },
+                    "records": {
+                        "description": "Records of the Zone RRSet.\n",
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getZoneRrsetRecord:getZoneRrsetRecord"
+                        },
+                        "type": "array"
+                    },
+                    "ttl": {
+                        "description": "Time To Live (TTL) of the Zone RRSet.\n",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "description": "Type of the Zone RRSet.\n",
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n",
+                        "type": "string"
+                    },
+                    "zone": {
+                        "description": "ID or Name of the parent Zone.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "changeProtection",
+                    "labels",
+                    "records",
+                    "ttl",
+                    "zone"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getZoneRrsets:getZoneRrsets": {
+            "description": "Provides a list of Hetzner Cloud Zone Resource Record Set (RRSet).\n\nSee the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.\n\n**Experimental:** DNS API is in beta, breaking changes may occur within minor releases.\nSee https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst example = hcloud.getZone({\n    name: \"example.com\",\n});\nconst all = example.then(example =\u003e hcloud.getZoneRrsets({\n    zone: example.name,\n}));\nconst byLabel = example.then(example =\u003e hcloud.getZoneRrsets({\n    zone: example.name,\n    withSelector: \"key=value\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nexample = hcloud.get_zone(name=\"example.com\")\nall = hcloud.get_zone_rrsets(zone=example.name)\nby_label = hcloud.get_zone_rrsets(zone=example.name,\n    with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = HCloud.GetZone.Invoke(new()\n    {\n        Name = \"example.com\",\n    });\n\n    var all = HCloud.GetZoneRrsets.Invoke(new()\n    {\n        Zone = example.Apply(getZoneResult =\u003e getZoneResult.Name),\n    });\n\n    var byLabel = HCloud.GetZoneRrsets.Invoke(new()\n    {\n        Zone = example.Apply(getZoneResult =\u003e getZoneResult.Name),\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := hcloud.LookupZone(ctx, \u0026hcloud.LookupZoneArgs{\n\t\t\tName: pulumi.StringRef(\"example.com\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetZoneRrsets(ctx, \u0026hcloud.GetZoneRrsetsArgs{\n\t\t\tZone: example.Name,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetZoneRrsets(ctx, \u0026hcloud.GetZoneRrsetsArgs{\n\t\t\tZone:         example.Name,\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetZoneArgs;\nimport com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = HcloudFunctions.getZone(GetZoneArgs.builder()\n            .name(\"example.com\")\n            .build());\n\n        final var all = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()\n            .zone(example.name())\n            .build());\n\n        final var byLabel = HcloudFunctions.getZoneRrsets(GetZoneRrsetsArgs.builder()\n            .zone(example.name())\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: hcloud:getZone\n      arguments:\n        name: example.com\n  all:\n    fn::invoke:\n      function: hcloud:getZoneRrsets\n      arguments:\n        zone: ${example.name}\n  byLabel:\n    fn::invoke:\n      function: hcloud:getZoneRrsets\n      arguments:\n        zone: ${example.name}\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getZoneRrsets.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
+                    },
+                    "zone": {
+                        "type": "string",
+                        "description": "ID or Name of the parent Zone.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "zone"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getZoneRrsets.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "rrsets": {
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getZoneRrsetsRrset:getZoneRrsetsRrset"
+                        },
+                        "type": "array"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n",
+                        "type": "string"
+                    },
+                    "zone": {
+                        "description": "ID or Name of the parent Zone.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "rrsets",
+                    "zone"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getZones:getZones": {
+            "description": "Provides a list of Hetzner Cloud Zone.\n\nSee the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.\n\n**Experimental:** DNS API is in beta, breaking changes may occur within minor releases.\nSee https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst all = hcloud.getZones({});\nconst byLabel = hcloud.getZones({\n    withSelector: \"key=value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nall = hcloud.get_zones()\nby_label = hcloud.get_zones(with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = HCloud.GetZones.Invoke();\n\n    var byLabel = HCloud.GetZones.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetZones(ctx, \u0026hcloud.GetZonesArgs{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetZones(ctx, \u0026hcloud.GetZonesArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetZonesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var all = HcloudFunctions.getZones(GetZonesArgs.builder()\n            .build());\n\n        final var byLabel = HcloudFunctions.getZones(GetZonesArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  all:\n    fn::invoke:\n      function: hcloud:getZones\n      arguments: {}\n  byLabel:\n    fn::invoke:\n      function: hcloud:getZones\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getZones.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getZones.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n",
+                        "type": "string"
+                    },
+                    "zones": {
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getZonesZone:getZonesZone"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "zones"
                 ],
                 "type": "object"
             }
