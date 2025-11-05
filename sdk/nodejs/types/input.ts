@@ -278,3 +278,40 @@ export interface ServerPublicNet {
     ipv6?: pulumi.Input<number>;
     ipv6Enabled?: pulumi.Input<boolean>;
 }
+
+export interface ZoneAuthoritativeNameservers {
+    /**
+     * Authoritative Hetzner nameservers assigned to the Zone.
+     */
+    assigneds?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ZonePrimaryNameserver {
+    /**
+     * Public IPv4 or IPv6 address of the primary nameserver.
+     */
+    address: pulumi.Input<string>;
+    /**
+     * Port of the primary nameserver.
+     */
+    port?: pulumi.Input<number>;
+    /**
+     * Transaction signature (TSIG) algorithm used to generate the TSIG key.
+     */
+    tsigAlgorithm?: pulumi.Input<string>;
+    /**
+     * Transaction signature (TSIG) key
+     */
+    tsigKey?: pulumi.Input<string>;
+}
+
+export interface ZoneRrsetRecord {
+    /**
+     * Comment of the record.
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * Value of the record.
+     */
+    value: pulumi.Input<string>;
+}

@@ -89,6 +89,97 @@ namespace Pulumi.HCloud
     /// 
     /// });
     /// ```
+    /// 
+    /// ### Ensure a server is attached to a Firewall on first boot
+    /// 
+    /// The `FirewallIds` property of the `hcloud.Server` resource ensures that
+    /// a server is attached to the specified Firewalls before its first boot.
+    /// This is **not** the case when using the `hcloud.FirewallAttachment`
+    /// resource to attach servers to a Firewall. In some scenarios this may
+    /// pose a security risk.
+    /// 
+    /// The following workaround ensures that a server is attached to a Firewall
+    /// _before_ it first boots. However, the workaround requires two Firewalls.
+    /// Additionally the server resource definition needs to ignore any remote
+    /// changes to the `hcloud_server.firewall_ids` property. This is done using
+    /// the `IgnoreRemoteFirewallIds` property of `hcloud.Server`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var denyAll = new HCloud.Firewall("deny_all", new()
+    ///     {
+    ///         Name = "deny_all",
+    ///     });
+    /// 
+    ///     var testServer = new HCloud.Server("test_server", new()
+    ///     {
+    ///         Name = "test-server",
+    ///         ServerType = "cx22",
+    ///         Image = "ubuntu-20.04",
+    ///         IgnoreRemoteFirewallIds = true,
+    ///         FirewallIds = new[]
+    ///         {
+    ///             denyAll.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var allowRules = new HCloud.Firewall("allow_rules", new()
+    ///     {
+    ///         Name = "allow_rules",
+    ///         Rules = new[]
+    ///         {
+    ///             new HCloud.Inputs.FirewallRuleArgs
+    ///             {
+    ///                 Direction = "in",
+    ///                 Protocol = "tcp",
+    ///                 Port = "22",
+    ///                 SourceIps = new[]
+    ///                 {
+    ///                     "0.0.0.0/0",
+    ///                     "::/0",
+    ///                 },
+    ///                 DestinationIps = new[]
+    ///                 {
+    ///                     Std.Format.Invoke(new()
+    ///                     {
+    ///                         Input = "%s/32",
+    ///                         Args = new[]
+    ///                         {
+    ///                             testServer.Ipv4Address,
+    ///                         },
+    ///                     }).Apply(invoke =&gt; invoke.Result),
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var denyAllAtt = new HCloud.FirewallAttachment("deny_all_att", new()
+    ///     {
+    ///         FirewallId = denyAll.Id,
+    ///         ServerIds = new[]
+    ///         {
+    ///             testServer.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var allowRulesAtt = new HCloud.FirewallAttachment("allow_rules_att", new()
+    ///     {
+    ///         FirewallId = allowRules.Id,
+    ///         ServerIds = new[]
+    ///         {
+    ///             testServer.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/firewallAttachment:FirewallAttachment")]
     public partial class FirewallAttachment : global::Pulumi.CustomResource

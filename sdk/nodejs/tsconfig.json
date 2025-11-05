@@ -50,6 +50,10 @@
         "getSshKeys.ts",
         "getVolume.ts",
         "getVolumes.ts",
+        "getZone.ts",
+        "getZoneRrset.ts",
+        "getZoneRrsets.ts",
+        "getZones.ts",
         "index.ts",
         "loadBalancer.ts",
         "loadBalancerNetwork.ts",
@@ -73,6 +77,8 @@
         "uploadedCertificate.ts",
         "utilities.ts",
         "volume.ts",
-        "volumeAttachment.ts"
+        "volumeAttachment.ts",
+        "zone.ts",
+        "zoneRrset.ts"
     ]
 }

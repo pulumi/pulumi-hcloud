@@ -201,6 +201,31 @@
             "hcloud_volume_attachment": {
                 "current": "hcloud:index/volumeAttachment:VolumeAttachment",
                 "majorVersion": 1
+            },
+            "hcloud_zone": {
+                "current": "hcloud:index/zone:Zone",
+                "majorVersion": 1,
+                "fields": {
+                    "authoritative_nameservers": {
+                        "fields": {
+                            "assigned": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "primary_nameservers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "hcloud_zone_rrset": {
+                "current": "hcloud:index/zoneRrset:ZoneRrset",
+                "majorVersion": 1,
+                "fields": {
+                    "records": {
+                        "maxItemsOne": false
+                    }
+                }
             }
         },
         "datasources": {
@@ -660,6 +685,70 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "hcloud_zone": {
+                "current": "hcloud:index/getZone:getZone",
+                "majorVersion": 1,
+                "fields": {
+                    "authoritative_nameservers": {
+                        "fields": {
+                            "assigned": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "primary_nameservers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "hcloud_zone_rrset": {
+                "current": "hcloud:index/getZoneRrset:getZoneRrset",
+                "majorVersion": 1,
+                "fields": {
+                    "records": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "hcloud_zone_rrsets": {
+                "current": "hcloud:index/getZoneRrsets:getZoneRrsets",
+                "majorVersion": 1,
+                "fields": {
+                    "rrsets": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "records": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "hcloud_zones": {
+                "current": "hcloud:index/getZones:getZones",
+                "majorVersion": 1,
+                "fields": {
+                    "zones": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "authoritative_nameservers": {
+                                    "fields": {
+                                        "assigned": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "primary_nameservers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },
@@ -688,7 +777,9 @@
             "hcloud:index/sshKey:SshKey": 1,
             "hcloud:index/uploadedCertificate:UploadedCertificate": 0,
             "hcloud:index/volume:Volume": 0,
-            "hcloud:index/volumeAttachment:VolumeAttachment": 0
+            "hcloud:index/volumeAttachment:VolumeAttachment": 0,
+            "hcloud:index/zone:Zone": 1,
+            "hcloud:index/zoneRrset:ZoneRrset": 1
         },
         "functions": {
             "hcloud:index/getCertificate:getCertificate": 0,
@@ -720,7 +811,11 @@
             "hcloud:index/getSshKey:getSshKey": 1,
             "hcloud:index/getSshKeys:getSshKeys": 1,
             "hcloud:index/getVolume:getVolume": 0,
-            "hcloud:index/getVolumes:getVolumes": 0
+            "hcloud:index/getVolumes:getVolumes": 0,
+            "hcloud:index/getZone:getZone": 1,
+            "hcloud:index/getZoneRrset:getZoneRrset": 1,
+            "hcloud:index/getZoneRrsets:getZoneRrsets": 1,
+            "hcloud:index/getZones:getZones": 1
         }
     },
     "renames": {

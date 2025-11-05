@@ -662,6 +662,154 @@ export interface GetVolumesVolume {
     size: number;
 }
 
+export interface GetZoneAuthoritativeNameservers {
+    /**
+     * Authoritative Hetzner nameservers assigned to the Zone.
+     */
+    assigneds: string[];
+}
+
+export interface GetZonePrimaryNameserver {
+    /**
+     * Public IPv4 or IPv6 address of the primary nameserver.
+     */
+    address: string;
+    /**
+     * Port of the primary nameserver.
+     */
+    port: number;
+    /**
+     * Transaction signature (TSIG) algorithm used to generate the TSIG key.
+     */
+    tsigAlgorithm: string;
+    /**
+     * Transaction signature (TSIG) key
+     */
+    tsigKey: string;
+}
+
+export interface GetZoneRrsetRecord {
+    /**
+     * Comment of the record.
+     */
+    comment: string;
+    /**
+     * Value of the record.
+     */
+    value: string;
+}
+
+export interface GetZoneRrsetsRrset {
+    /**
+     * Whether change protection is enabled.
+     */
+    changeProtection: boolean;
+    /**
+     * ID of the Zone RRSet.
+     */
+    id: string;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     */
+    labels: {[key: string]: string};
+    /**
+     * Name of the Zone RRSet.
+     */
+    name: string;
+    /**
+     * Records of the Zone RRSet.
+     */
+    records: outputs.GetZoneRrsetsRrsetRecord[];
+    /**
+     * Time To Live (TTL) of the Zone RRSet.
+     */
+    ttl: number;
+    /**
+     * Type of the Zone RRSet.
+     */
+    type: string;
+    /**
+     * ID or Name of the parent Zone.
+     */
+    zone: string;
+}
+
+export interface GetZoneRrsetsRrsetRecord {
+    /**
+     * Comment of the record.
+     */
+    comment: string;
+    /**
+     * Value of the record.
+     */
+    value: string;
+}
+
+export interface GetZonesZone {
+    /**
+     * Authoritative nameservers of the Zone.
+     */
+    authoritativeNameservers: outputs.GetZonesZoneAuthoritativeNameservers;
+    /**
+     * Whether delete protection is enabled.
+     */
+    deleteProtection: boolean;
+    /**
+     * ID of the Zone.
+     */
+    id: number;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     */
+    labels: {[key: string]: string};
+    /**
+     * Mode of the Zone.
+     */
+    mode: string;
+    /**
+     * Name of the Zone.
+     */
+    name: string;
+    /**
+     * Primary nameservers of the Zone.
+     */
+    primaryNameservers: outputs.GetZonesZonePrimaryNameserver[];
+    /**
+     * Registrar of the Zone.
+     */
+    registrar: string;
+    /**
+     * Default Time To Live (TTL) of the Zone.
+     */
+    ttl: number;
+}
+
+export interface GetZonesZoneAuthoritativeNameservers {
+    /**
+     * Authoritative Hetzner nameservers assigned to the Zone.
+     */
+    assigneds: string[];
+}
+
+export interface GetZonesZonePrimaryNameserver {
+    /**
+     * Public IPv4 or IPv6 address of the primary nameserver.
+     */
+    address: string;
+    /**
+     * Port of the primary nameserver.
+     */
+    port: number;
+    /**
+     * Transaction signature (TSIG) algorithm used to generate the TSIG key.
+     */
+    tsigAlgorithm: string;
+    /**
+     * Transaction signature (TSIG) key
+     */
+    tsigKey: string;
+}
+
 export interface LoadBalancerAlgorithm {
     /**
      * Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
@@ -775,5 +923,42 @@ export interface ServerPublicNet {
     ipv4Enabled?: boolean;
     ipv6: number;
     ipv6Enabled?: boolean;
+}
+
+export interface ZoneAuthoritativeNameservers {
+    /**
+     * Authoritative Hetzner nameservers assigned to the Zone.
+     */
+    assigneds: string[];
+}
+
+export interface ZonePrimaryNameserver {
+    /**
+     * Public IPv4 or IPv6 address of the primary nameserver.
+     */
+    address: string;
+    /**
+     * Port of the primary nameserver.
+     */
+    port: number;
+    /**
+     * Transaction signature (TSIG) algorithm used to generate the TSIG key.
+     */
+    tsigAlgorithm?: string;
+    /**
+     * Transaction signature (TSIG) key
+     */
+    tsigKey?: string;
+}
+
+export interface ZoneRrsetRecord {
+    /**
+     * Comment of the record.
+     */
+    comment?: string;
+    /**
+     * Value of the record.
+     */
+    value: string;
 }
 

@@ -51,6 +51,59 @@ import * as utilities from "./utilities";
  *     labelSelectors: ["firewall-attachment=test-server"],
  * });
  * ```
+ *
+ * ### Ensure a server is attached to a Firewall on first boot
+ *
+ * The `firewallIds` property of the `hcloud.Server` resource ensures that
+ * a server is attached to the specified Firewalls before its first boot.
+ * This is **not** the case when using the `hcloud.FirewallAttachment`
+ * resource to attach servers to a Firewall. In some scenarios this may
+ * pose a security risk.
+ *
+ * The following workaround ensures that a server is attached to a Firewall
+ * _before_ it first boots. However, the workaround requires two Firewalls.
+ * Additionally the server resource definition needs to ignore any remote
+ * changes to the `hcloud_server.firewall_ids` property. This is done using
+ * the `ignoreRemoteFirewallIds` property of `hcloud.Server`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ * import * as std from "@pulumi/std";
+ *
+ * const denyAll = new hcloud.Firewall("deny_all", {name: "deny_all"});
+ * const testServer = new hcloud.Server("test_server", {
+ *     name: "test-server",
+ *     serverType: "cx22",
+ *     image: "ubuntu-20.04",
+ *     ignoreRemoteFirewallIds: true,
+ *     firewallIds: [denyAll.id],
+ * });
+ * const allowRules = new hcloud.Firewall("allow_rules", {
+ *     name: "allow_rules",
+ *     rules: [{
+ *         direction: "in",
+ *         protocol: "tcp",
+ *         port: "22",
+ *         sourceIps: [
+ *             "0.0.0.0/0",
+ *             "::/0",
+ *         ],
+ *         destinationIps: [std.format({
+ *             input: "%s/32",
+ *             args: [testServer.ipv4Address],
+ *         }).then(invoke => invoke.result)],
+ *     }],
+ * });
+ * const denyAllAtt = new hcloud.FirewallAttachment("deny_all_att", {
+ *     firewallId: denyAll.id,
+ *     serverIds: [testServer.id],
+ * });
+ * const allowRulesAtt = new hcloud.FirewallAttachment("allow_rules_att", {
+ *     firewallId: allowRules.id,
+ *     serverIds: [testServer.id],
+ * });
+ * ```
  */
 export class FirewallAttachment extends pulumi.CustomResource {
     /**

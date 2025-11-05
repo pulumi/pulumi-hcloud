@@ -193,6 +193,53 @@ class FirewallAttachment(pulumi.CustomResource):
             label_selectors=["firewall-attachment=test-server"])
         ```
 
+        ### Ensure a server is attached to a Firewall on first boot
+
+        The `firewall_ids` property of the `Server` resource ensures that
+        a server is attached to the specified Firewalls before its first boot.
+        This is **not** the case when using the `FirewallAttachment`
+        resource to attach servers to a Firewall. In some scenarios this may
+        pose a security risk.
+
+        The following workaround ensures that a server is attached to a Firewall
+        _before_ it first boots. However, the workaround requires two Firewalls.
+        Additionally the server resource definition needs to ignore any remote
+        changes to the `hcloud_server.firewall_ids` property. This is done using
+        the `ignore_remote_firewall_ids` property of `Server`.
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+        import pulumi_std as std
+
+        deny_all = hcloud.Firewall("deny_all", name="deny_all")
+        test_server = hcloud.Server("test_server",
+            name="test-server",
+            server_type="cx22",
+            image="ubuntu-20.04",
+            ignore_remote_firewall_ids=True,
+            firewall_ids=[deny_all.id])
+        allow_rules = hcloud.Firewall("allow_rules",
+            name="allow_rules",
+            rules=[{
+                "direction": "in",
+                "protocol": "tcp",
+                "port": "22",
+                "source_ips": [
+                    "0.0.0.0/0",
+                    "::/0",
+                ],
+                "destination_ips": [std.format(input="%s/32",
+                    args=[test_server.ipv4_address]).result],
+            }])
+        deny_all_att = hcloud.FirewallAttachment("deny_all_att",
+            firewall_id=deny_all.id,
+            server_ids=[test_server.id])
+        allow_rules_att = hcloud.FirewallAttachment("allow_rules_att",
+            firewall_id=allow_rules.id,
+            server_ids=[test_server.id])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] firewall_id: ID of the firewall the resources
@@ -250,6 +297,53 @@ class FirewallAttachment(pulumi.CustomResource):
         fw_ref = hcloud.FirewallAttachment("fw_ref",
             firewall_id=basic_firewall.id,
             label_selectors=["firewall-attachment=test-server"])
+        ```
+
+        ### Ensure a server is attached to a Firewall on first boot
+
+        The `firewall_ids` property of the `Server` resource ensures that
+        a server is attached to the specified Firewalls before its first boot.
+        This is **not** the case when using the `FirewallAttachment`
+        resource to attach servers to a Firewall. In some scenarios this may
+        pose a security risk.
+
+        The following workaround ensures that a server is attached to a Firewall
+        _before_ it first boots. However, the workaround requires two Firewalls.
+        Additionally the server resource definition needs to ignore any remote
+        changes to the `hcloud_server.firewall_ids` property. This is done using
+        the `ignore_remote_firewall_ids` property of `Server`.
+
+        ```python
+        import pulumi
+        import pulumi_hcloud as hcloud
+        import pulumi_std as std
+
+        deny_all = hcloud.Firewall("deny_all", name="deny_all")
+        test_server = hcloud.Server("test_server",
+            name="test-server",
+            server_type="cx22",
+            image="ubuntu-20.04",
+            ignore_remote_firewall_ids=True,
+            firewall_ids=[deny_all.id])
+        allow_rules = hcloud.Firewall("allow_rules",
+            name="allow_rules",
+            rules=[{
+                "direction": "in",
+                "protocol": "tcp",
+                "port": "22",
+                "source_ips": [
+                    "0.0.0.0/0",
+                    "::/0",
+                ],
+                "destination_ips": [std.format(input="%s/32",
+                    args=[test_server.ipv4_address]).result],
+            }])
+        deny_all_att = hcloud.FirewallAttachment("deny_all_att",
+            firewall_id=deny_all.id,
+            server_ids=[test_server.id])
+        allow_rules_att = hcloud.FirewallAttachment("allow_rules_att",
+            firewall_id=allow_rules.id,
+            server_ids=[test_server.id])
         ```
 
         :param str resource_name: The name of the resource.

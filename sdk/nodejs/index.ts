@@ -180,6 +180,26 @@ export const getVolumes: typeof import("./getVolumes").getVolumes = null as any;
 export const getVolumesOutput: typeof import("./getVolumes").getVolumesOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumes","getVolumesOutput"], () => require("./getVolumes"));
 
+export { GetZoneArgs, GetZoneResult, GetZoneOutputArgs } from "./getZone";
+export const getZone: typeof import("./getZone").getZone = null as any;
+export const getZoneOutput: typeof import("./getZone").getZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
+
+export { GetZoneRrsetArgs, GetZoneRrsetResult, GetZoneRrsetOutputArgs } from "./getZoneRrset";
+export const getZoneRrset: typeof import("./getZoneRrset").getZoneRrset = null as any;
+export const getZoneRrsetOutput: typeof import("./getZoneRrset").getZoneRrsetOutput = null as any;
+utilities.lazyLoad(exports, ["getZoneRrset","getZoneRrsetOutput"], () => require("./getZoneRrset"));
+
+export { GetZoneRrsetsArgs, GetZoneRrsetsResult, GetZoneRrsetsOutputArgs } from "./getZoneRrsets";
+export const getZoneRrsets: typeof import("./getZoneRrsets").getZoneRrsets = null as any;
+export const getZoneRrsetsOutput: typeof import("./getZoneRrsets").getZoneRrsetsOutput = null as any;
+utilities.lazyLoad(exports, ["getZoneRrsets","getZoneRrsetsOutput"], () => require("./getZoneRrsets"));
+
+export { GetZonesArgs, GetZonesResult, GetZonesOutputArgs } from "./getZones";
+export const getZones: typeof import("./getZones").getZones = null as any;
+export const getZonesOutput: typeof import("./getZones").getZonesOutput = null as any;
+utilities.lazyLoad(exports, ["getZones","getZonesOutput"], () => require("./getZones"));
+
 export { LoadBalancerArgs, LoadBalancerState } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
 export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
@@ -273,6 +293,16 @@ export type VolumeAttachment = import("./volumeAttachment").VolumeAttachment;
 export const VolumeAttachment: typeof import("./volumeAttachment").VolumeAttachment = null as any;
 utilities.lazyLoad(exports, ["VolumeAttachment"], () => require("./volumeAttachment"));
 
+export { ZoneArgs, ZoneState } from "./zone";
+export type Zone = import("./zone").Zone;
+export const Zone: typeof import("./zone").Zone = null as any;
+utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
+
+export { ZoneRrsetArgs, ZoneRrsetState } from "./zoneRrset";
+export type ZoneRrset = import("./zoneRrset").ZoneRrset;
+export const ZoneRrset: typeof import("./zoneRrset").ZoneRrset = null as any;
+utilities.lazyLoad(exports, ["ZoneRrset"], () => require("./zoneRrset"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -333,6 +363,10 @@ const _module = {
                 return new Volume(name, <any>undefined, { urn })
             case "hcloud:index/volumeAttachment:VolumeAttachment":
                 return new VolumeAttachment(name, <any>undefined, { urn })
+            case "hcloud:index/zone:Zone":
+                return new Zone(name, <any>undefined, { urn })
+            case "hcloud:index/zoneRrset:ZoneRrset":
+                return new ZoneRrset(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -361,6 +395,8 @@ pulumi.runtime.registerResourceModule("hcloud", "index/sshKey", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/uploadedCertificate", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volume", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volumeAttachment", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/zone", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/zoneRrset", _module)
 pulumi.runtime.registerResourcePackage("hcloud", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

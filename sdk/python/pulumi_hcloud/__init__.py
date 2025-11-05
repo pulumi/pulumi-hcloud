@@ -41,6 +41,10 @@ from .get_ssh_key import *
 from .get_ssh_keys import *
 from .get_volume import *
 from .get_volumes import *
+from .get_zone import *
+from .get_zone_rrset import *
+from .get_zone_rrsets import *
+from .get_zones import *
 from .load_balancer import *
 from .load_balancer_network import *
 from .load_balancer_service import *
@@ -60,6 +64,8 @@ from .ssh_key import *
 from .uploaded_certificate import *
 from .volume import *
 from .volume_attachment import *
+from .zone import *
+from .zone_rrset import *
 from ._inputs import *
 from . import outputs
 
@@ -255,6 +261,22 @@ _utilities.register(
   "fqn": "pulumi_hcloud",
   "classes": {
    "hcloud:index/volumeAttachment:VolumeAttachment": "VolumeAttachment"
+  }
+ },
+ {
+  "pkg": "hcloud",
+  "mod": "index/zone",
+  "fqn": "pulumi_hcloud",
+  "classes": {
+   "hcloud:index/zone:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "hcloud",
+  "mod": "index/zoneRrset",
+  "fqn": "pulumi_hcloud",
+  "classes": {
+   "hcloud:index/zoneRrset:ZoneRrset": "ZoneRrset"
   }
  }
 ]
