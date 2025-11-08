@@ -248,8 +248,8 @@ class Rdns(pulumi.CustomResource):
 
         node1 = hcloud.Server("node1",
             name="node1",
-            image="debian-11",
-            server_type="cx22")
+            image="debian-12",
+            server_type="cx23")
         master = hcloud.Rdns("master",
             server_id=node1.id,
             ip_address=node1.ipv4_address,
@@ -364,8 +364,8 @@ class Rdns(pulumi.CustomResource):
 
         node1 = hcloud.Server("node1",
             name="node1",
-            image="debian-11",
-            server_type="cx22")
+            image="debian-12",
+            server_type="cx23")
         master = hcloud.Rdns("master",
             server_id=node1.id,
             ip_address=node1.ipv4_address,

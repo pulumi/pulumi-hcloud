@@ -15,8 +15,8 @@ import * as utilities from "./utilities";
  *
  * const node1 = new hcloud.Server("node1", {
  *     name: "node1",
- *     image: "debian-11",
- *     serverType: "cx22",
+ *     image: "debian-12",
+ *     serverType: "cx23",
  *     datacenter: "fsn1-dc8",
  * });
  * const master = new hcloud.FloatingIp("master", {

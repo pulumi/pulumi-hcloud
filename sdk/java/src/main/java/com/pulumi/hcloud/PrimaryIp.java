@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  *         // Link a server to a primary IP
  *         var serverTest = new Server("serverTest", ServerArgs.builder()
  *             .name("test-server")
- *             .image("ubuntu-20.04")
- *             .serverType("cx22")
+ *             .image("ubuntu-24.04")
+ *             .serverType("cx23")
  *             .datacenter("fsn1-dc14")
  *             .labels(Map.of("test", "tessst1"))
  *             .publicNets(ServerPublicNetArgs.builder()

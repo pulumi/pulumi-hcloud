@@ -32,7 +32,7 @@ namespace Pulumi.HCloud.Outputs
         /// <summary>
         /// Number of tries a health check will be performed until a target will be listed as `Unhealthy`.
         /// </summary>
-        public readonly int? Retries;
+        public readonly int Retries;
         /// <summary>
         /// Timeout when a health check try will be canceled if there is no response, in seconds.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.HCloud.Outputs
 
             string protocol,
 
-            int? retries,
+            int retries,
 
             int timeout)
         {

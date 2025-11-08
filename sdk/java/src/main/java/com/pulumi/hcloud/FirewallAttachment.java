@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testServer = new Server("testServer", ServerArgs.builder()
  *             .name("test-server")
- *             .serverType("cx22")
- *             .image("ubuntu-20.04")
+ *             .serverType("cx23")
+ *             .image("ubuntu-24.04")
  *             .build());
  * 
  *         var basicFirewall = new Firewall("basicFirewall", FirewallArgs.builder()
@@ -103,8 +103,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testServer = new Server("testServer", ServerArgs.builder()
  *             .name("test-server")
- *             .serverType("cx22")
- *             .image("ubuntu-20.04")
+ *             .serverType("cx23")
+ *             .image("ubuntu-24.04")
  *             .labels(Map.of("firewall-attachment", "test-server"))
  *             .build());
  * 
@@ -171,8 +171,8 @@ import javax.annotation.Nullable;
  * 
  *         var testServer = new Server("testServer", ServerArgs.builder()
  *             .name("test-server")
- *             .serverType("cx22")
- *             .image("ubuntu-20.04")
+ *             .serverType("cx23")
+ *             .image("ubuntu-24.04")
  *             .ignoreRemoteFirewallIds(true)
  *             .firewallIds(denyAll.id())
  *             .build());
@@ -207,6 +207,14 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ## Import
+ * 
+ * Firewall Attachments can be imported using the `id` of the firewall:
+ * 
+ * ```sh
+ * $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example &#34;$FIREWALL_ID&#34;
+ * ```
  * 
  */
 @ResourceType(type="hcloud:index/firewallAttachment:FirewallAttachment")

@@ -10,54 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud Zone Resource Record Set (RRSet) resource.
-    /// 
-    /// This can be used to create, modify, and delete Zone RRSets.
-    /// 
-    /// See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
-    /// 
-    /// **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
-    /// See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
-    /// 
     /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new HCloud.Zone("example", new()
-    ///     {
-    ///         Name = "example.com",
-    ///         Mode = "primary",
-    ///     });
-    /// 
-    ///     var exampleZoneRrset = new HCloud.ZoneRrset("example", new()
-    ///     {
-    ///         Zone = example.Name,
-    ///         Name = "www",
-    ///         Type = "A",
-    ///         Ttl = 10800,
-    ///         Labels = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///         Records = new[]
-    ///         {
-    ///             new HCloud.Inputs.ZoneRrsetRecordArgs
-    ///             {
-    ///                 Value = "201.78.10.45",
-    ///                 Comment = "web server 1",
-    ///             },
-    ///         },
-    ///         ChangeProtection = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

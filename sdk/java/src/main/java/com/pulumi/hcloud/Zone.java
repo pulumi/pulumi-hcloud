@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *   to = hcloud_zone.example_primary
  * 
- *   id = &#34;$SSH_KEY_ID&#34;
+ *   id = &#34;$ZONE_ID_OR_NAME&#34;
  * 
  * }
  * 

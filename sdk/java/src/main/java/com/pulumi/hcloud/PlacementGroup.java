@@ -54,8 +54,8 @@ import javax.annotation.Nullable;
  * 
  *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
- *             .image("debian-11")
- *             .serverType("cx22")
+ *             .image("debian-12")
+ *             .serverType("cx23")
  *             .placementGroupId(my_placement_group.id())
  *             .build());
  * 

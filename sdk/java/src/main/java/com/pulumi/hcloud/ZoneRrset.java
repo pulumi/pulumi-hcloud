@@ -20,64 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Hetzner Cloud Zone Resource Record Set (RRSet) resource.
- * 
- * This can be used to create, modify, and delete Zone RRSets.
- * 
- * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
- * 
- * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
- * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
- * 
  * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.hcloud.Zone;
- * import com.pulumi.hcloud.ZoneArgs;
- * import com.pulumi.hcloud.ZoneRrset;
- * import com.pulumi.hcloud.ZoneRrsetArgs;
- * import com.pulumi.hcloud.inputs.ZoneRrsetRecordArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Zone("example", ZoneArgs.builder()
- *             .name("example.com")
- *             .mode("primary")
- *             .build());
- * 
- *         var exampleZoneRrset = new ZoneRrset("exampleZoneRrset", ZoneRrsetArgs.builder()
- *             .zone(example.name())
- *             .name("www")
- *             .type("A")
- *             .ttl(10800)
- *             .labels(Map.of("key", "value"))
- *             .records(ZoneRrsetRecordArgs.builder()
- *                 .value("201.78.10.45")
- *                 .comment("web server 1")
- *                 .build())
- *             .changeProtection(false)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * 
  * ## Import
  * 

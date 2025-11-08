@@ -252,25 +252,24 @@ class LoadBalancerServiceHealthCheck(dict):
                  interval: _builtins.int,
                  port: _builtins.int,
                  protocol: _builtins.str,
+                 retries: _builtins.int,
                  timeout: _builtins.int,
-                 http: Optional['outputs.LoadBalancerServiceHealthCheckHttp'] = None,
-                 retries: Optional[_builtins.int] = None):
+                 http: Optional['outputs.LoadBalancerServiceHealthCheckHttp'] = None):
         """
         :param _builtins.int interval: Interval how often the health check will be performed, in seconds.
         :param _builtins.int port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param _builtins.str protocol: Protocol the health check uses. `http` or `tcp`
+        :param _builtins.int retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         :param _builtins.int timeout: Timeout when a health check try will be canceled if there is no response, in seconds.
         :param 'LoadBalancerServiceHealthCheckHttpArgs' http: HTTP configuration. Required if `protocol` is `http`.
-        :param _builtins.int retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "retries", retries)
         pulumi.set(__self__, "timeout", timeout)
         if http is not None:
             pulumi.set(__self__, "http", http)
-        if retries is not None:
-            pulumi.set(__self__, "retries", retries)
 
     @_builtins.property
     @pulumi.getter
@@ -298,6 +297,14 @@ class LoadBalancerServiceHealthCheck(dict):
 
     @_builtins.property
     @pulumi.getter
+    def retries(self) -> _builtins.int:
+        """
+        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+        """
+        return pulumi.get(self, "retries")
+
+    @_builtins.property
+    @pulumi.getter
     def timeout(self) -> _builtins.int:
         """
         Timeout when a health check try will be canceled if there is no response, in seconds.
@@ -311,14 +318,6 @@ class LoadBalancerServiceHealthCheck(dict):
         HTTP configuration. Required if `protocol` is `http`.
         """
         return pulumi.get(self, "http")
-
-    @_builtins.property
-    @pulumi.getter
-    def retries(self) -> Optional[_builtins.int]:
-        """
-        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
-        """
-        return pulumi.get(self, "retries")
 
 
 @pulumi.output_type

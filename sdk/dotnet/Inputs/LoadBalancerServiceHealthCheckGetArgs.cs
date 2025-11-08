@@ -39,8 +39,8 @@ namespace Pulumi.HCloud.Inputs
         /// <summary>
         /// Number of tries a health check will be performed until a target will be listed as `Unhealthy`.
         /// </summary>
-        [Input("retries")]
-        public Input<int>? Retries { get; set; }
+        [Input("retries", required: true)]
+        public Input<int> Retries { get; set; } = null!;
 
         /// <summary>
         /// Timeout when a health check try will be canceled if there is no response, in seconds.

@@ -213,8 +213,8 @@ def get_primary_ip(assignee_id: Optional[_builtins.int] = None,
     # Link a server to an existing primary IP
     server_test = hcloud.Server("server_test",
         name="test-server",
-        image="ubuntu-20.04",
-        server_type="cx22",
+        image="ubuntu-24.04",
+        server_type="cx23",
         datacenter="fsn1-dc14",
         labels={
             "test": "tessst1",
@@ -288,8 +288,8 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[_builtins.
     # Link a server to an existing primary IP
     server_test = hcloud.Server("server_test",
         name="test-server",
-        image="ubuntu-20.04",
-        server_type="cx22",
+        image="ubuntu-24.04",
+        server_type="cx23",
         datacenter="fsn1-dc14",
         labels={
             "test": "tessst1",

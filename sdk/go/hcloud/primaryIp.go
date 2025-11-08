@@ -47,8 +47,8 @@ import (
 //			// Link a server to a primary IP
 //			_, err = hcloud.NewServer(ctx, "server_test", &hcloud.ServerArgs{
 //				Name:       pulumi.String("test-server"),
-//				Image:      pulumi.String("ubuntu-20.04"),
-//				ServerType: pulumi.String("cx22"),
+//				Image:      pulumi.String("ubuntu-24.04"),
+//				ServerType: pulumi.String("cx23"),
 //				Datacenter: pulumi.String("fsn1-dc14"),
 //				Labels: pulumi.StringMap{
 //					"test": pulumi.String("tessst1"),

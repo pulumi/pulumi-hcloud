@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var myServer = new Server("myServer", ServerArgs.builder()
  *             .name("server-%d")
- *             .serverType("cx22")
- *             .image("ubuntu-18.04")
+ *             .serverType("cx23")
+ *             .image("ubuntu-24.04")
  *             .build());
  * 
  *         var loadBalancer = new LoadBalancer("loadBalancer", LoadBalancerArgs.builder()

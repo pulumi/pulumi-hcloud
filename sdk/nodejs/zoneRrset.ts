@@ -7,40 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud Zone Resource Record Set (RRSet) resource.
- *
- * This can be used to create, modify, and delete Zone RRSets.
- *
- * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
- *
- * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
- * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
- *
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const example = new hcloud.Zone("example", {
- *     name: "example.com",
- *     mode: "primary",
- * });
- * const exampleZoneRrset = new hcloud.ZoneRrset("example", {
- *     zone: example.name,
- *     name: "www",
- *     type: "A",
- *     ttl: 10800,
- *     labels: {
- *         key: "value",
- *     },
- *     records: [{
- *         value: "201.78.10.45",
- *         comment: "web server 1",
- *     }],
- *     changeProtection: false,
- * });
- * ```
  *
  * ## Import
  *

@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *     id: 22,
  * });
  * const byName = hcloud.getServerType({
- *     name: "cx22",
+ *     name: "cx23",
  * });
  * const main = new hcloud.Server("main", {
  *     name: "my-server",
@@ -140,7 +140,7 @@ export interface GetServerTypeResult {
  *     id: 22,
  * });
  * const byName = hcloud.getServerType({
- *     name: "cx22",
+ *     name: "cx23",
  * });
  * const main = new hcloud.Server("main", {
  *     name: "my-server",
