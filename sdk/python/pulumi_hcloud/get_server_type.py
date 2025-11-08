@@ -234,7 +234,7 @@ def get_server_type(id: Optional[_builtins.int] = None,
     import pulumi_hcloud as hcloud
 
     by_id = hcloud.get_server_type(id=22)
-    by_name = hcloud.get_server_type(name="cx22")
+    by_name = hcloud.get_server_type(name="cx23")
     main = hcloud.Server("main",
         name="my-server",
         location="fsn1",
@@ -283,7 +283,7 @@ def get_server_type_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] =
     import pulumi_hcloud as hcloud
 
     by_id = hcloud.get_server_type(id=22)
-    by_name = hcloud.get_server_type(name="cx22")
+    by_name = hcloud.get_server_type(name="cx23")
     main = hcloud.Server("main",
         name="my-server",
         location="fsn1",

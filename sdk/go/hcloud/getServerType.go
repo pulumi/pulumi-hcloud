@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			byName, err := hcloud.GetServerType(ctx, &hcloud.GetServerTypeArgs{
-//				Name: pulumi.StringRef("cx22"),
+//				Name: pulumi.StringRef("cx23"),
 //			}, nil)
 //			if err != nil {
 //				return err

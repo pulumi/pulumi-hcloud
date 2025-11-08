@@ -31,8 +31,8 @@ namespace Pulumi.HCloud
     ///     var testServer = new HCloud.Server("test_server", new()
     ///     {
     ///         Name = "test-server",
-    ///         ServerType = "cx22",
-    ///         Image = "ubuntu-20.04",
+    ///         ServerType = "cx23",
+    ///         Image = "ubuntu-24.04",
     ///     });
     /// 
     ///     var basicFirewall = new HCloud.Firewall("basic_firewall", new()
@@ -65,8 +65,8 @@ namespace Pulumi.HCloud
     ///     var testServer = new HCloud.Server("test_server", new()
     ///     {
     ///         Name = "test-server",
-    ///         ServerType = "cx22",
-    ///         Image = "ubuntu-20.04",
+    ///         ServerType = "cx23",
+    ///         Image = "ubuntu-24.04",
     ///         Labels = 
     ///         {
     ///             { "firewall-attachment", "test-server" },
@@ -121,8 +121,8 @@ namespace Pulumi.HCloud
     ///     var testServer = new HCloud.Server("test_server", new()
     ///     {
     ///         Name = "test-server",
-    ///         ServerType = "cx22",
-    ///         Image = "ubuntu-20.04",
+    ///         ServerType = "cx23",
+    ///         Image = "ubuntu-24.04",
     ///         IgnoreRemoteFirewallIds = true,
     ///         FirewallIds = new[]
     ///         {
@@ -179,6 +179,14 @@ namespace Pulumi.HCloud
     ///     });
     /// 
     /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Firewall Attachments can be imported using the `id` of the firewall:
+    /// 
+    /// ```sh
+    /// $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example "$FIREWALL_ID"
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/firewallAttachment:FirewallAttachment")]

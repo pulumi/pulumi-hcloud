@@ -270,38 +270,7 @@ class ZoneRrset(pulumi.CustomResource):
                  zone: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Hetzner Cloud Zone Resource Record Set (RRSet) resource.
-
-        This can be used to create, modify, and delete Zone RRSets.
-
-        See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
-
-        **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
-        See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
-
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        example = hcloud.Zone("example",
-            name="example.com",
-            mode="primary")
-        example_zone_rrset = hcloud.ZoneRrset("example",
-            zone=example.name,
-            name="www",
-            type="A",
-            ttl=10800,
-            labels={
-                "key": "value",
-            },
-            records=[{
-                "value": "201.78.10.45",
-                "comment": "web server 1",
-            }],
-            change_protection=False)
-        ```
 
         ## Import
 
@@ -352,38 +321,7 @@ class ZoneRrset(pulumi.CustomResource):
                  args: ZoneRrsetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Hetzner Cloud Zone Resource Record Set (RRSet) resource.
-
-        This can be used to create, modify, and delete Zone RRSets.
-
-        See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
-
-        **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
-        See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
-
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        example = hcloud.Zone("example",
-            name="example.com",
-            mode="primary")
-        example_zone_rrset = hcloud.ZoneRrset("example",
-            zone=example.name,
-            name="www",
-            type="A",
-            ttl=10800,
-            labels={
-                "key": "value",
-            },
-            records=[{
-                "value": "201.78.10.45",
-                "comment": "web server 1",
-            }],
-            change_protection=False)
-        ```
 
         ## Import
 

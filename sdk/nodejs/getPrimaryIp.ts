@@ -39,8 +39,8 @@ import * as utilities from "./utilities";
  * // Link a server to an existing primary IP
  * const serverTest = new hcloud.Server("server_test", {
  *     name: "test-server",
- *     image: "ubuntu-20.04",
- *     serverType: "cx22",
+ *     image: "ubuntu-24.04",
+ *     serverType: "cx23",
  *     datacenter: "fsn1-dc14",
  *     labels: {
  *         test: "tessst1",
@@ -174,8 +174,8 @@ export interface GetPrimaryIpResult {
  * // Link a server to an existing primary IP
  * const serverTest = new hcloud.Server("server_test", {
  *     name: "test-server",
- *     image: "ubuntu-20.04",
- *     serverType: "cx22",
+ *     image: "ubuntu-24.04",
+ *     serverType: "cx23",
  *     datacenter: "fsn1-dc14",
  *     labels: {
  *         test: "tessst1",

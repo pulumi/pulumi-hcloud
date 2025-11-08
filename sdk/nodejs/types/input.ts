@@ -191,7 +191,7 @@ export interface LoadBalancerServiceHealthCheck {
     /**
      * Number of tries a health check will be performed until a target will be listed as `unhealthy`.
      */
-    retries?: pulumi.Input<number>;
+    retries: pulumi.Input<number>;
     /**
      * Timeout when a health check try will be canceled if there is no response, in seconds.
      */

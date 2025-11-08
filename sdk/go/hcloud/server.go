@@ -33,8 +33,8 @@ import (
 //			// Create a new server running debian
 //			_, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
 //				Name:       pulumi.String("node1"),
-//				Image:      pulumi.String("debian-11"),
-//				ServerType: pulumi.String("cx22"),
+//				Image:      pulumi.String("debian-12"),
+//				ServerType: pulumi.String("cx23"),
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
 //						Ipv4Enabled: pulumi.Bool(true),
@@ -79,8 +79,8 @@ import (
 //			}
 //			_, err = hcloud.NewServer(ctx, "server_test", &hcloud.ServerArgs{
 //				Name:       pulumi.String("test-server"),
-//				Image:      pulumi.String("ubuntu-20.04"),
-//				ServerType: pulumi.String("cx22"),
+//				Image:      pulumi.String("ubuntu-24.04"),
+//				ServerType: pulumi.String("cx23"),
 //				Datacenter: pulumi.String("fsn1-dc14"),
 //				Labels: pulumi.StringMap{
 //					"test": pulumi.String("tessst1"),
@@ -134,8 +134,8 @@ import (
 //			}
 //			_, err = hcloud.NewServer(ctx, "server", &hcloud.ServerArgs{
 //				Name:       pulumi.String("server"),
-//				ServerType: pulumi.String("cx22"),
-//				Image:      pulumi.String("ubuntu-20.04"),
+//				ServerType: pulumi.String("cx23"),
+//				Image:      pulumi.String("ubuntu-24.04"),
 //				Location:   pulumi.String("nbg1"),
 //				Networks: hcloud.ServerNetworkTypeArray{
 //					&hcloud.ServerNetworkTypeArgs{
@@ -185,7 +185,7 @@ import (
 //			_, err = hcloud.NewServer(ctx, "from_snapshot", &hcloud.ServerArgs{
 //				Name:       pulumi.String("from-snapshot"),
 //				Image:      pulumi.Int(packerSnapshot.Id),
-//				ServerType: pulumi.String("cx22"),
+//				ServerType: pulumi.String("cx23"),
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
 //						Ipv4Enabled: pulumi.Bool(true),

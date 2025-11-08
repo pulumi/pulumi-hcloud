@@ -33,7 +33,7 @@ namespace Pulumi.HCloud
         /// 
         ///     var byName = HCloud.GetServerType.Invoke(new()
         ///     {
-        ///         Name = "cx22",
+        ///         Name = "cx23",
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()
@@ -72,7 +72,7 @@ namespace Pulumi.HCloud
         /// 
         ///     var byName = HCloud.GetServerType.Invoke(new()
         ///     {
-        ///         Name = "cx22",
+        ///         Name = "cx23",
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()
@@ -111,7 +111,7 @@ namespace Pulumi.HCloud
         /// 
         ///     var byName = HCloud.GetServerType.Invoke(new()
         ///     {
-        ///         Name = "cx22",
+        ///         Name = "cx23",
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()

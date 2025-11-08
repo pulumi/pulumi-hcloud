@@ -36,8 +36,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testServer, err := hcloud.NewServer(ctx, "test_server", &hcloud.ServerArgs{
 //				Name:       pulumi.String("test-server"),
-//				ServerType: pulumi.String("cx22"),
-//				Image:      pulumi.String("ubuntu-20.04"),
+//				ServerType: pulumi.String("cx23"),
+//				Image:      pulumi.String("ubuntu-24.04"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,8 +79,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := hcloud.NewServer(ctx, "test_server", &hcloud.ServerArgs{
 //				Name:       pulumi.String("test-server"),
-//				ServerType: pulumi.String("cx22"),
-//				Image:      pulumi.String("ubuntu-20.04"),
+//				ServerType: pulumi.String("cx23"),
+//				Image:      pulumi.String("ubuntu-24.04"),
 //				Labels: pulumi.StringMap{
 //					"firewall-attachment": pulumi.String("test-server"),
 //				},
@@ -144,8 +144,8 @@ import (
 //			}
 //			testServer, err := hcloud.NewServer(ctx, "test_server", &hcloud.ServerArgs{
 //				Name:                    pulumi.String("test-server"),
-//				ServerType:              pulumi.String("cx22"),
-//				Image:                   pulumi.String("ubuntu-20.04"),
+//				ServerType:              pulumi.String("cx23"),
+//				Image:                   pulumi.String("ubuntu-24.04"),
 //				IgnoreRemoteFirewallIds: pulumi.Bool(true),
 //				FirewallIds: pulumi.IntArray{
 //					denyAll.ID(),
@@ -205,6 +205,14 @@ import (
 //		})
 //	}
 //
+// ```
+//
+// ## Import
+//
+// Firewall Attachments can be imported using the `id` of the firewall:
+//
+// ```sh
+// $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example "$FIREWALL_ID"
 // ```
 type FirewallAttachment struct {
 	pulumi.CustomResourceState

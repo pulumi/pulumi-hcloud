@@ -274,8 +274,8 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         my_server = hcloud.Server("my_server",
             name="my-server",
-            server_type="cx22",
-            image="ubuntu-18.04")
+            server_type="cx23",
+            image="ubuntu-24.04")
         load_balancer = hcloud.LoadBalancer("load_balancer",
             name="my-load-balancer",
             load_balancer_type="lb11",
@@ -345,8 +345,8 @@ class LoadBalancerTarget(pulumi.CustomResource):
 
         my_server = hcloud.Server("my_server",
             name="my-server",
-            server_type="cx22",
-            image="ubuntu-18.04")
+            server_type="cx23",
+            image="ubuntu-24.04")
         load_balancer = hcloud.LoadBalancer("load_balancer",
             name="my-load-balancer",
             load_balancer_type="lb11",

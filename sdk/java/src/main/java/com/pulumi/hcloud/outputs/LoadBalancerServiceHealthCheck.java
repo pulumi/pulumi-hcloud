@@ -38,7 +38,7 @@ public final class LoadBalancerServiceHealthCheck {
      * @return Number of tries a health check will be performed until a target will be listed as `unhealthy`.
      * 
      */
-    private @Nullable Integer retries;
+    private Integer retries;
     /**
      * @return Timeout when a health check try will be canceled if there is no response, in seconds.
      * 
@@ -78,8 +78,8 @@ public final class LoadBalancerServiceHealthCheck {
      * @return Number of tries a health check will be performed until a target will be listed as `unhealthy`.
      * 
      */
-    public Optional<Integer> retries() {
-        return Optional.ofNullable(this.retries);
+    public Integer retries() {
+        return this.retries;
     }
     /**
      * @return Timeout when a health check try will be canceled if there is no response, in seconds.
@@ -102,7 +102,7 @@ public final class LoadBalancerServiceHealthCheck {
         private Integer interval;
         private Integer port;
         private String protocol;
-        private @Nullable Integer retries;
+        private Integer retries;
         private Integer timeout;
         public Builder() {}
         public Builder(LoadBalancerServiceHealthCheck defaults) {
@@ -146,8 +146,10 @@ public final class LoadBalancerServiceHealthCheck {
             return this;
         }
         @CustomType.Setter
-        public Builder retries(@Nullable Integer retries) {
-
+        public Builder retries(Integer retries) {
+            if (retries == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheck", "retries");
+            }
             this.retries = retries;
             return this;
         }

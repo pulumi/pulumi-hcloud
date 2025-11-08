@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var node1 = new Server("node1", ServerArgs.builder()
  *             .name("node1")
- *             .image("debian-11")
- *             .serverType("cx22")
+ *             .image("debian-12")
+ *             .serverType("cx23")
  *             .build());
  * 
  *         var mynet = new Network("mynet", NetworkArgs.builder()

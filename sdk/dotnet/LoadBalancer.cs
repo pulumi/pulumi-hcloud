@@ -25,8 +25,8 @@ namespace Pulumi.HCloud
     ///     var myServer = new HCloud.Server("my_server", new()
     ///     {
     ///         Name = "server-%d",
-    ///         ServerType = "cx22",
-    ///         Image = "ubuntu-18.04",
+    ///         ServerType = "cx23",
+    ///         Image = "ubuntu-24.04",
     ///     });
     /// 
     ///     var loadBalancer = new HCloud.LoadBalancer("load_balancer", new()

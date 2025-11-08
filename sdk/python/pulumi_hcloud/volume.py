@@ -337,8 +337,8 @@ class Volume(pulumi.CustomResource):
 
         node1 = hcloud.Server("node1",
             name="node1",
-            image="debian-11",
-            server_type="cx22")
+            image="debian-12",
+            server_type="cx23")
         master = hcloud.Volume("master",
             name="volume1",
             size=50,
@@ -385,8 +385,8 @@ class Volume(pulumi.CustomResource):
 
         node1 = hcloud.Server("node1",
             name="node1",
-            image="debian-11",
-            server_type="cx22")
+            image="debian-12",
+            server_type="cx23")
         master = hcloud.Volume("master",
             name="volume1",
             size=50,

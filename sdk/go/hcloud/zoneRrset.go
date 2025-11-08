@@ -12,60 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Hetzner Cloud Zone Resource Record Set (RRSet) resource.
-//
-// This can be used to create, modify, and delete Zone RRSets.
-//
-// See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
-//
-// **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
-// See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
-//
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := hcloud.NewZone(ctx, "example", &hcloud.ZoneArgs{
-//				Name: pulumi.String("example.com"),
-//				Mode: pulumi.String("primary"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hcloud.NewZoneRrset(ctx, "example", &hcloud.ZoneRrsetArgs{
-//				Zone: example.Name,
-//				Name: pulumi.String("www"),
-//				Type: pulumi.String("A"),
-//				Ttl:  pulumi.Int(10800),
-//				Labels: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//				Records: hcloud.ZoneRrsetRecordArray{
-//					&hcloud.ZoneRrsetRecordArgs{
-//						Value:   pulumi.String("201.78.10.45"),
-//						Comment: pulumi.String("web server 1"),
-//					},
-//				},
-//				ChangeProtection: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -82,15 +82,15 @@ public final class LoadBalancerServiceHealthCheckArgs extends com.pulumi.resourc
      * Number of tries a health check will be performed until a target will be listed as `unhealthy`.
      * 
      */
-    @Import(name="retries")
-    private @Nullable Output<Integer> retries;
+    @Import(name="retries", required=true)
+    private Output<Integer> retries;
 
     /**
      * @return Number of tries a health check will be performed until a target will be listed as `unhealthy`.
      * 
      */
-    public Optional<Output<Integer>> retries() {
-        return Optional.ofNullable(this.retries);
+    public Output<Integer> retries() {
+        return this.retries;
     }
 
     /**
@@ -227,7 +227,7 @@ public final class LoadBalancerServiceHealthCheckArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder retries(@Nullable Output<Integer> retries) {
+        public Builder retries(Output<Integer> retries) {
             $.retries = retries;
             return this;
         }
@@ -272,6 +272,9 @@ public final class LoadBalancerServiceHealthCheckArgs extends com.pulumi.resourc
             }
             if ($.protocol == null) {
                 throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheckArgs", "protocol");
+            }
+            if ($.retries == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheckArgs", "retries");
             }
             if ($.timeout == null) {
                 throw new MissingRequiredPropertyException("LoadBalancerServiceHealthCheckArgs", "timeout");

@@ -6039,8 +6039,8 @@ public final class HcloudFunctions {
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
-     *             .image("ubuntu-20.04")
-     *             .serverType("cx22")
+     *             .image("ubuntu-24.04")
+     *             .serverType("cx23")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -6116,8 +6116,8 @@ public final class HcloudFunctions {
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
-     *             .image("ubuntu-20.04")
-     *             .serverType("cx22")
+     *             .image("ubuntu-24.04")
+     *             .serverType("cx23")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -6193,8 +6193,8 @@ public final class HcloudFunctions {
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
-     *             .image("ubuntu-20.04")
-     *             .serverType("cx22")
+     *             .image("ubuntu-24.04")
+     *             .serverType("cx23")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -6270,8 +6270,8 @@ public final class HcloudFunctions {
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
-     *             .image("ubuntu-20.04")
-     *             .serverType("cx22")
+     *             .image("ubuntu-24.04")
+     *             .serverType("cx23")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -6347,8 +6347,8 @@ public final class HcloudFunctions {
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
-     *             .image("ubuntu-20.04")
-     *             .serverType("cx22")
+     *             .image("ubuntu-24.04")
+     *             .serverType("cx23")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -6424,8 +6424,8 @@ public final class HcloudFunctions {
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
-     *             .image("ubuntu-20.04")
-     *             .serverType("cx22")
+     *             .image("ubuntu-24.04")
+     *             .serverType("cx23")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -6501,8 +6501,8 @@ public final class HcloudFunctions {
      *         // Link a server to an existing primary IP
      *         var serverTest = new Server("serverTest", ServerArgs.builder()
      *             .name("test-server")
-     *             .image("ubuntu-20.04")
-     *             .serverType("cx22")
+     *             .image("ubuntu-24.04")
+     *             .serverType("cx23")
      *             .datacenter("fsn1-dc14")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
@@ -7157,7 +7157,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx22")
+     *             .name("cx23")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -7212,7 +7212,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx22")
+     *             .name("cx23")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -7267,7 +7267,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx22")
+     *             .name("cx23")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -7322,7 +7322,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx22")
+     *             .name("cx23")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -7377,7 +7377,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx22")
+     *             .name("cx23")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -7432,7 +7432,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx22")
+     *             .name("cx23")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -7487,7 +7487,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         final var byName = HcloudFunctions.getServerType(GetServerTypeArgs.builder()
-     *             .name("cx22")
+     *             .name("cx23")
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()

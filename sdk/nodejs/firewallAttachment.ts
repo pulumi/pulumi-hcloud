@@ -21,8 +21,8 @@ import * as utilities from "./utilities";
  *
  * const testServer = new hcloud.Server("test_server", {
  *     name: "test-server",
- *     serverType: "cx22",
- *     image: "ubuntu-20.04",
+ *     serverType: "cx23",
+ *     image: "ubuntu-24.04",
  * });
  * const basicFirewall = new hcloud.Firewall("basic_firewall", {name: "basic_firewall"});
  * const fwRef = new hcloud.FirewallAttachment("fw_ref", {
@@ -39,8 +39,8 @@ import * as utilities from "./utilities";
  *
  * const testServer = new hcloud.Server("test_server", {
  *     name: "test-server",
- *     serverType: "cx22",
- *     image: "ubuntu-20.04",
+ *     serverType: "cx23",
+ *     image: "ubuntu-24.04",
  *     labels: {
  *         "firewall-attachment": "test-server",
  *     },
@@ -74,8 +74,8 @@ import * as utilities from "./utilities";
  * const denyAll = new hcloud.Firewall("deny_all", {name: "deny_all"});
  * const testServer = new hcloud.Server("test_server", {
  *     name: "test-server",
- *     serverType: "cx22",
- *     image: "ubuntu-20.04",
+ *     serverType: "cx23",
+ *     image: "ubuntu-24.04",
  *     ignoreRemoteFirewallIds: true,
  *     firewallIds: [denyAll.id],
  * });
@@ -103,6 +103,14 @@ import * as utilities from "./utilities";
  *     firewallId: allowRules.id,
  *     serverIds: [testServer.id],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Firewall Attachments can be imported using the `id` of the firewall:
+ *
+ * ```sh
+ * $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example "$FIREWALL_ID"
  * ```
  */
 export class FirewallAttachment extends pulumi.CustomResource {

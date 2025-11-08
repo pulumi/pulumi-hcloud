@@ -423,7 +423,7 @@ type LoadBalancerServiceHealthCheck struct {
 	// Protocol the health check uses. `http` or `tcp`
 	Protocol string `pulumi:"protocol"`
 	// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
-	Retries *int `pulumi:"retries"`
+	Retries int `pulumi:"retries"`
 	// Timeout when a health check try will be canceled if there is no response, in seconds.
 	Timeout int `pulumi:"timeout"`
 }
@@ -449,7 +449,7 @@ type LoadBalancerServiceHealthCheckArgs struct {
 	// Protocol the health check uses. `http` or `tcp`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Number of tries a health check will be performed until a target will be listed as `unhealthy`.
-	Retries pulumi.IntPtrInput `pulumi:"retries"`
+	Retries pulumi.IntInput `pulumi:"retries"`
 	// Timeout when a health check try will be canceled if there is no response, in seconds.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
 }
@@ -552,8 +552,8 @@ func (o LoadBalancerServiceHealthCheckOutput) Protocol() pulumi.StringOutput {
 }
 
 // Number of tries a health check will be performed until a target will be listed as `unhealthy`.
-func (o LoadBalancerServiceHealthCheckOutput) Retries() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) *int { return v.Retries }).(pulumi.IntPtrOutput)
+func (o LoadBalancerServiceHealthCheckOutput) Retries() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHealthCheck) int { return v.Retries }).(pulumi.IntOutput)
 }
 
 // Timeout when a health check try will be canceled if there is no response, in seconds.
@@ -631,7 +631,7 @@ func (o LoadBalancerServiceHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Retries
+		return &v.Retries
 	}).(pulumi.IntPtrOutput)
 }
 

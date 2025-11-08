@@ -292,6 +292,10 @@ if not MYPY:
         """
         Protocol the health check uses. `http` or `tcp`
         """
+        retries: pulumi.Input[_builtins.int]
+        """
+        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+        """
         timeout: pulumi.Input[_builtins.int]
         """
         Timeout when a health check try will be canceled if there is no response, in seconds.
@@ -299,10 +303,6 @@ if not MYPY:
         http: NotRequired[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgsDict']]
         """
         HTTP configuration. Required if `protocol` is `http`.
-        """
-        retries: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
 elif False:
     LoadBalancerServiceHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
@@ -313,25 +313,24 @@ class LoadBalancerServiceHealthCheckArgs:
                  interval: pulumi.Input[_builtins.int],
                  port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
+                 retries: pulumi.Input[_builtins.int],
                  timeout: pulumi.Input[_builtins.int],
-                 http: Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']] = None,
-                 retries: Optional[pulumi.Input[_builtins.int]] = None):
+                 http: Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] interval: Interval how often the health check will be performed, in seconds.
         :param pulumi.Input[_builtins.int] port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param pulumi.Input[_builtins.str] protocol: Protocol the health check uses. `http` or `tcp`
+        :param pulumi.Input[_builtins.int] retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         :param pulumi.Input[_builtins.int] timeout: Timeout when a health check try will be canceled if there is no response, in seconds.
         :param pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs'] http: HTTP configuration. Required if `protocol` is `http`.
-        :param pulumi.Input[_builtins.int] retries: Number of tries a health check will be performed until a target will be listed as `unhealthy`.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "retries", retries)
         pulumi.set(__self__, "timeout", timeout)
         if http is not None:
             pulumi.set(__self__, "http", http)
-        if retries is not None:
-            pulumi.set(__self__, "retries", retries)
 
     @_builtins.property
     @pulumi.getter
@@ -371,6 +370,18 @@ class LoadBalancerServiceHealthCheckArgs:
 
     @_builtins.property
     @pulumi.getter
+    def retries(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+        """
+        return pulumi.get(self, "retries")
+
+    @retries.setter
+    def retries(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "retries", value)
+
+    @_builtins.property
+    @pulumi.getter
     def timeout(self) -> pulumi.Input[_builtins.int]:
         """
         Timeout when a health check try will be canceled if there is no response, in seconds.
@@ -392,18 +403,6 @@ class LoadBalancerServiceHealthCheckArgs:
     @http.setter
     def http(self, value: Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']]):
         pulumi.set(self, "http", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def retries(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
-        """
-        return pulumi.get(self, "retries")
-
-    @retries.setter
-    def retries(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "retries", value)
 
 
 if not MYPY:

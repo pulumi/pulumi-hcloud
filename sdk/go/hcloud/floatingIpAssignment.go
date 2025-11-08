@@ -30,8 +30,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
 //				Name:       pulumi.String("node1"),
-//				Image:      pulumi.String("debian-11"),
-//				ServerType: pulumi.String("cx22"),
+//				Image:      pulumi.String("debian-12"),
+//				ServerType: pulumi.String("cx23"),
 //				Datacenter: pulumi.String("fsn1-dc8"),
 //			})
 //			if err != nil {

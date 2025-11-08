@@ -166,8 +166,8 @@ class FirewallAttachment(pulumi.CustomResource):
 
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx22",
-            image="ubuntu-20.04")
+            server_type="cx23",
+            image="ubuntu-24.04")
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
             firewall_id=basic_firewall.id,
@@ -182,8 +182,8 @@ class FirewallAttachment(pulumi.CustomResource):
 
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx22",
-            image="ubuntu-20.04",
+            server_type="cx23",
+            image="ubuntu-24.04",
             labels={
                 "firewall-attachment": "test-server",
             })
@@ -215,8 +215,8 @@ class FirewallAttachment(pulumi.CustomResource):
         deny_all = hcloud.Firewall("deny_all", name="deny_all")
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx22",
-            image="ubuntu-20.04",
+            server_type="cx23",
+            image="ubuntu-24.04",
             ignore_remote_firewall_ids=True,
             firewall_ids=[deny_all.id])
         allow_rules = hcloud.Firewall("allow_rules",
@@ -238,6 +238,14 @@ class FirewallAttachment(pulumi.CustomResource):
         allow_rules_att = hcloud.FirewallAttachment("allow_rules_att",
             firewall_id=allow_rules.id,
             server_ids=[test_server.id])
+        ```
+
+        ## Import
+
+        Firewall Attachments can be imported using the `id` of the firewall:
+
+        ```sh
+        $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example "$FIREWALL_ID"
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,8 +280,8 @@ class FirewallAttachment(pulumi.CustomResource):
 
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx22",
-            image="ubuntu-20.04")
+            server_type="cx23",
+            image="ubuntu-24.04")
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
             firewall_id=basic_firewall.id,
@@ -288,8 +296,8 @@ class FirewallAttachment(pulumi.CustomResource):
 
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx22",
-            image="ubuntu-20.04",
+            server_type="cx23",
+            image="ubuntu-24.04",
             labels={
                 "firewall-attachment": "test-server",
             })
@@ -321,8 +329,8 @@ class FirewallAttachment(pulumi.CustomResource):
         deny_all = hcloud.Firewall("deny_all", name="deny_all")
         test_server = hcloud.Server("test_server",
             name="test-server",
-            server_type="cx22",
-            image="ubuntu-20.04",
+            server_type="cx23",
+            image="ubuntu-24.04",
             ignore_remote_firewall_ids=True,
             firewall_ids=[deny_all.id])
         allow_rules = hcloud.Firewall("allow_rules",
@@ -344,6 +352,14 @@ class FirewallAttachment(pulumi.CustomResource):
         allow_rules_att = hcloud.FirewallAttachment("allow_rules_att",
             firewall_id=allow_rules.id,
             server_ids=[test_server.id])
+        ```
+
+        ## Import
+
+        Firewall Attachments can be imported using the `id` of the firewall:
+
+        ```sh
+        $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example "$FIREWALL_ID"
         ```
 
         :param str resource_name: The name of the resource.
