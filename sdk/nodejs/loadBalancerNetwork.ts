@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+ * Manage the attachment of a Load Balancer in a Network in the Hetzner Cloud.
  *
  * ## Example Usage
  *
@@ -13,35 +13,43 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const lb1 = new hcloud.LoadBalancer("lb1", {
- *     name: "lb1",
+ * const main = new hcloud.LoadBalancer("main", {
+ *     name: "main",
  *     loadBalancerType: "lb11",
  *     networkZone: "eu-central",
  * });
- * const mynet = new hcloud.Network("mynet", {
- *     name: "my-net",
- *     ipRange: "10.0.0.0/8",
+ * const network = new hcloud.Network("network", {
+ *     name: "network",
+ *     ipRange: "10.0.0.0/16",
  * });
- * const foonet = new hcloud.NetworkSubnet("foonet", {
- *     networkId: mynet.id,
+ * const subnet = new hcloud.NetworkSubnet("subnet", {
+ *     networkId: network.id,
  *     type: "cloud",
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
  * });
- * const srvnetwork = new hcloud.LoadBalancerNetwork("srvnetwork", {
- *     loadBalancerId: lb1.id,
- *     networkId: mynet.id,
+ * const attachment = new hcloud.LoadBalancerNetwork("attachment", {
+ *     loadBalancerId: main.id,
+ *     subnetId: subnet.id,
  *     ip: "10.0.1.5",
- * }, {
- *     dependsOn: [foonet],
  * });
  * ```
  *
  * ## Import
  *
- * Load Balancer Network entries can be imported using a compound ID with the following format:
+ * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
  *
- * `<load-balancer-id>-<network-id>`
+ * terraform
+ *
+ * import {
+ *
+ *   id = "${hcloud_load_balancer.example.id}-${hcloud_network.example.id}"
+ *
+ *   to = hcloud_load_balancer_network.attachment
+ *
+ * }
+ *
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
  * $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork example "$LOAD_BALANCER_ID-$NETWORK_ID"
@@ -76,14 +84,11 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
     }
 
     /**
-     * Enable or disable the
-     * Load Balancers public interface. Default: `true`
+     * Wether the Load Balancer public interface is enabled. Default is `true`.
      */
-    declare public readonly enablePublicInterface: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePublicInterface: pulumi.Output<boolean>;
     /**
-     * IP to request to be assigned to this Load
-     * Balancer. If you do not provide this then you will be auto assigned an
-     * IP address.
+     * IP to assign to the Load Balancer.
      */
     declare public readonly ip: pulumi.Output<string>;
     /**
@@ -91,21 +96,11 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
      */
     declare public readonly loadBalancerId: pulumi.Output<number>;
     /**
-     * ID of the network which should be added
-     * to the Load Balancer. Required if `subnetId` is not set. Successful
-     * creation of the resource depends on the existence of a subnet in the
-     * Hetzner Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between the Load Balancer and the subnet. Therefore
-     * `dependsOn` may need to be used. Alternatively the `subnetId`
-     * property can be used, which will create an explicit dependency between
-     * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
+     * ID of the Network to attach the Load Balancer to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ipRange`).
      */
-    declare public readonly networkId: pulumi.Output<number | undefined>;
+    declare public readonly networkId: pulumi.Output<number>;
     /**
-     * ID of the sub-network which should be
-     * added to the Load Balancer. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Load Balancer is
-     * currently added to the last created subnet.
+     * ID of the Subnet to attach the Load Balancer to. Required if `networkId` is not set.
      */
     declare public readonly subnetId: pulumi.Output<string | undefined>;
 
@@ -148,14 +143,11 @@ export class LoadBalancerNetwork extends pulumi.CustomResource {
  */
 export interface LoadBalancerNetworkState {
     /**
-     * Enable or disable the
-     * Load Balancers public interface. Default: `true`
+     * Wether the Load Balancer public interface is enabled. Default is `true`.
      */
     enablePublicInterface?: pulumi.Input<boolean>;
     /**
-     * IP to request to be assigned to this Load
-     * Balancer. If you do not provide this then you will be auto assigned an
-     * IP address.
+     * IP to assign to the Load Balancer.
      */
     ip?: pulumi.Input<string>;
     /**
@@ -163,21 +155,11 @@ export interface LoadBalancerNetworkState {
      */
     loadBalancerId?: pulumi.Input<number>;
     /**
-     * ID of the network which should be added
-     * to the Load Balancer. Required if `subnetId` is not set. Successful
-     * creation of the resource depends on the existence of a subnet in the
-     * Hetzner Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between the Load Balancer and the subnet. Therefore
-     * `dependsOn` may need to be used. Alternatively the `subnetId`
-     * property can be used, which will create an explicit dependency between
-     * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
+     * ID of the Network to attach the Load Balancer to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ipRange`).
      */
     networkId?: pulumi.Input<number>;
     /**
-     * ID of the sub-network which should be
-     * added to the Load Balancer. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Load Balancer is
-     * currently added to the last created subnet.
+     * ID of the Subnet to attach the Load Balancer to. Required if `networkId` is not set.
      */
     subnetId?: pulumi.Input<string>;
 }
@@ -187,14 +169,11 @@ export interface LoadBalancerNetworkState {
  */
 export interface LoadBalancerNetworkArgs {
     /**
-     * Enable or disable the
-     * Load Balancers public interface. Default: `true`
+     * Wether the Load Balancer public interface is enabled. Default is `true`.
      */
     enablePublicInterface?: pulumi.Input<boolean>;
     /**
-     * IP to request to be assigned to this Load
-     * Balancer. If you do not provide this then you will be auto assigned an
-     * IP address.
+     * IP to assign to the Load Balancer.
      */
     ip?: pulumi.Input<string>;
     /**
@@ -202,21 +181,11 @@ export interface LoadBalancerNetworkArgs {
      */
     loadBalancerId: pulumi.Input<number>;
     /**
-     * ID of the network which should be added
-     * to the Load Balancer. Required if `subnetId` is not set. Successful
-     * creation of the resource depends on the existence of a subnet in the
-     * Hetzner Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between the Load Balancer and the subnet. Therefore
-     * `dependsOn` may need to be used. Alternatively the `subnetId`
-     * property can be used, which will create an explicit dependency between
-     * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
+     * ID of the Network to attach the Load Balancer to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ipRange`).
      */
     networkId?: pulumi.Input<number>;
     /**
-     * ID of the sub-network which should be
-     * added to the Load Balancer. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Load Balancer is
-     * currently added to the last created subnet.
+     * ID of the Subnet to attach the Load Balancer to. Required if `networkId` is not set.
      */
     subnetId?: pulumi.Input<string>;
 }

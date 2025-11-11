@@ -18,16 +18,14 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
     public static final ServerNetworkState Empty = new ServerNetworkState();
 
     /**
-     * Additional IPs to be assigned
-     * to this server.
+     * Additional IPs to assign to the Server.
      * 
      */
     @Import(name="aliasIps")
     private @Nullable Output<List<String>> aliasIps;
 
     /**
-     * @return Additional IPs to be assigned
-     * to this server.
+     * @return Additional IPs to assign to the Server.
      * 
      */
     public Optional<Output<List<String>>> aliasIps() {
@@ -35,54 +33,44 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * IP to request to be assigned to this server.
-     * If you do not provide this then you will be auto assigned an IP
-     * address.
+     * IP to assign to the Server.
      * 
      */
     @Import(name="ip")
     private @Nullable Output<String> ip;
 
     /**
-     * @return IP to request to be assigned to this server.
-     * If you do not provide this then you will be auto assigned an IP
-     * address.
+     * @return IP to assign to the Server.
      * 
      */
     public Optional<Output<String>> ip() {
         return Optional.ofNullable(this.ip);
     }
 
+    /**
+     * MAC address of the Server on the Network.
+     * 
+     */
     @Import(name="macAddress")
     private @Nullable Output<String> macAddress;
 
+    /**
+     * @return MAC address of the Server on the Network.
+     * 
+     */
     public Optional<Output<String>> macAddress() {
         return Optional.ofNullable(this.macAddress);
     }
 
     /**
-     * ID of the network which should be added
-     * to the server. Required if `subnetId` is not set. Successful creation
-     * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between server and subnet. Therefore `dependsOn` may need
-     * to be used. Alternatively the `subnetId` property can be used, which
-     * will create an explicit dependency between `hcloud.ServerNetwork` and
-     * the existence of a subnet.
+     * ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      * 
      */
     @Import(name="networkId")
     private @Nullable Output<Integer> networkId;
 
     /**
-     * @return ID of the network which should be added
-     * to the server. Required if `subnetId` is not set. Successful creation
-     * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between server and subnet. Therefore `dependsOn` may need
-     * to be used. Alternatively the `subnetId` property can be used, which
-     * will create an explicit dependency between `hcloud.ServerNetwork` and
-     * the existence of a subnet.
+     * @return ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      * 
      */
     public Optional<Output<Integer>> networkId() {
@@ -90,14 +78,14 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * ID of the server.
+     * ID of the Server.
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<Integer> serverId;
 
     /**
-     * @return ID of the server.
+     * @return ID of the Server.
      * 
      */
     public Optional<Output<Integer>> serverId() {
@@ -105,20 +93,14 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * ID of the sub-network which should be
-     * added to the Server. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Server is currently added
-     * to the last created subnet.
+     * ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return ID of the sub-network which should be
-     * added to the Server. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Server is currently added
-     * to the last created subnet.
+     * @return ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -155,8 +137,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param aliasIps Additional IPs to be assigned
-         * to this server.
+         * @param aliasIps Additional IPs to assign to the Server.
          * 
          * @return builder
          * 
@@ -167,8 +148,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param aliasIps Additional IPs to be assigned
-         * to this server.
+         * @param aliasIps Additional IPs to assign to the Server.
          * 
          * @return builder
          * 
@@ -178,8 +158,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param aliasIps Additional IPs to be assigned
-         * to this server.
+         * @param aliasIps Additional IPs to assign to the Server.
          * 
          * @return builder
          * 
@@ -189,9 +168,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ip IP to request to be assigned to this server.
-         * If you do not provide this then you will be auto assigned an IP
-         * address.
+         * @param ip IP to assign to the Server.
          * 
          * @return builder
          * 
@@ -202,9 +179,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ip IP to request to be assigned to this server.
-         * If you do not provide this then you will be auto assigned an IP
-         * address.
+         * @param ip IP to assign to the Server.
          * 
          * @return builder
          * 
@@ -213,24 +188,29 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
             return ip(Output.of(ip));
         }
 
+        /**
+         * @param macAddress MAC address of the Server on the Network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder macAddress(@Nullable Output<String> macAddress) {
             $.macAddress = macAddress;
             return this;
         }
 
+        /**
+         * @param macAddress MAC address of the Server on the Network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder macAddress(String macAddress) {
             return macAddress(Output.of(macAddress));
         }
 
         /**
-         * @param networkId ID of the network which should be added
-         * to the server. Required if `subnetId` is not set. Successful creation
-         * of the resource depends on the existence of a subnet in the Hetzner
-         * Cloud Backend. Using `networkId` will not create an explicit
-         * dependency between server and subnet. Therefore `dependsOn` may need
-         * to be used. Alternatively the `subnetId` property can be used, which
-         * will create an explicit dependency between `hcloud.ServerNetwork` and
-         * the existence of a subnet.
+         * @param networkId ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
          * 
          * @return builder
          * 
@@ -241,14 +221,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkId ID of the network which should be added
-         * to the server. Required if `subnetId` is not set. Successful creation
-         * of the resource depends on the existence of a subnet in the Hetzner
-         * Cloud Backend. Using `networkId` will not create an explicit
-         * dependency between server and subnet. Therefore `dependsOn` may need
-         * to be used. Alternatively the `subnetId` property can be used, which
-         * will create an explicit dependency between `hcloud.ServerNetwork` and
-         * the existence of a subnet.
+         * @param networkId ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
          * 
          * @return builder
          * 
@@ -258,7 +231,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serverId ID of the server.
+         * @param serverId ID of the Server.
          * 
          * @return builder
          * 
@@ -269,7 +242,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serverId ID of the server.
+         * @param serverId ID of the Server.
          * 
          * @return builder
          * 
@@ -279,10 +252,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnetId ID of the sub-network which should be
-         * added to the Server. Required if `networkId` is not set.
-         * _Note_: if the `ip` property is missing, the Server is currently added
-         * to the last created subnet.
+         * @param subnetId ID of the Subnet to attach the Server to. Required if `networkId` is not set.
          * 
          * @return builder
          * 
@@ -293,10 +263,7 @@ public final class ServerNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnetId ID of the sub-network which should be
-         * added to the Server. Required if `networkId` is not set.
-         * _Note_: if the `ip` property is missing, the Server is currently added
-         * to the last created subnet.
+         * @param subnetId ID of the Subnet to attach the Server to. Required if `networkId` is not set.
          * 
          * @return builder
          * 

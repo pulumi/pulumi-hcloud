@@ -11,9 +11,6 @@ import * as utilities from "./utilities";
  *
  * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
  *
- * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
- * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -76,9 +73,6 @@ export interface GetZoneRrsetsResult {
  * Provides a list of Hetzner Cloud Zone Resource Record Set (RRSet).
  *
  * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
- *
- * **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
- * See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
  *
  * ## Example Usage
  *

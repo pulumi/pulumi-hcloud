@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
+// Manage the attachment of a Server in a Network in the Hetzner Cloud.
 //
 // ## Example Usage
 //
@@ -36,15 +36,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			mynet, err := hcloud.NewNetwork(ctx, "mynet", &hcloud.NetworkArgs{
-//				Name:    pulumi.String("my-net"),
-//				IpRange: pulumi.String("10.0.0.0/8"),
+//			network, err := hcloud.NewNetwork(ctx, "network", &hcloud.NetworkArgs{
+//				Name:    pulumi.String("network"),
+//				IpRange: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewNetworkSubnet(ctx, "foonet", &hcloud.NetworkSubnetArgs{
-//				NetworkId:   mynet.ID(),
+//			subnet1, err := hcloud.NewNetworkSubnet(ctx, "subnet1", &hcloud.NetworkSubnetArgs{
+//				NetworkId:   network.ID(),
 //				Type:        pulumi.String("cloud"),
 //				NetworkZone: pulumi.String("eu-central"),
 //				IpRange:     pulumi.String("10.0.1.0/24"),
@@ -52,10 +52,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewServerNetwork(ctx, "srvnetwork", &hcloud.ServerNetworkArgs{
-//				ServerId:  node1.ID(),
-//				NetworkId: mynet.ID(),
-//				Ip:        pulumi.String("10.0.1.5"),
+//			_, err = hcloud.NewServerNetwork(ctx, "node1_subnet1", &hcloud.ServerNetworkArgs{
+//				ServerId: node1.ID(),
+//				SubnetId: subnet1.ID(),
+//				Ip:       pulumi.String("10.0.1.5"),
+//				AliasIps: pulumi.StringArray{
+//					pulumi.String("10.0.1.10"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -68,9 +71,7 @@ import (
 //
 // ## Import
 //
-// Server Network entries can be imported using a compound ID with the following format:
-//
-// `<server-id>-<network-id>`
+// The `pulumi import` command can be used, for example:
 //
 // ```sh
 // $ pulumi import hcloud:index/serverNetwork:ServerNetwork example "$SERVER_ID-$NETWORK_ID"
@@ -78,29 +79,17 @@ import (
 type ServerNetwork struct {
 	pulumi.CustomResourceState
 
-	// Additional IPs to be assigned
-	// to this server.
+	// Additional IPs to assign to the Server.
 	AliasIps pulumi.StringArrayOutput `pulumi:"aliasIps"`
-	// IP to request to be assigned to this server.
-	// If you do not provide this then you will be auto assigned an IP
-	// address.
-	Ip         pulumi.StringOutput `pulumi:"ip"`
+	// IP to assign to the Server.
+	Ip pulumi.StringOutput `pulumi:"ip"`
+	// MAC address of the Server on the Network.
 	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
-	// ID of the network which should be added
-	// to the server. Required if `subnetId` is not set. Successful creation
-	// of the resource depends on the existence of a subnet in the Hetzner
-	// Cloud Backend. Using `networkId` will not create an explicit
-	// dependency between server and subnet. Therefore `dependsOn` may need
-	// to be used. Alternatively the `subnetId` property can be used, which
-	// will create an explicit dependency between `ServerNetwork` and
-	// the existence of a subnet.
-	NetworkId pulumi.IntPtrOutput `pulumi:"networkId"`
-	// ID of the server.
+	// ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
+	NetworkId pulumi.IntOutput `pulumi:"networkId"`
+	// ID of the Server.
 	ServerId pulumi.IntOutput `pulumi:"serverId"`
-	// ID of the sub-network which should be
-	// added to the Server. Required if `networkId` is not set.
-	// _Note_: if the `ip` property is missing, the Server is currently added
-	// to the last created subnet.
+	// ID of the Subnet to attach the Server to. Required if `networkId` is not set.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 }
 
@@ -137,56 +126,32 @@ func GetServerNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerNetwork resources.
 type serverNetworkState struct {
-	// Additional IPs to be assigned
-	// to this server.
+	// Additional IPs to assign to the Server.
 	AliasIps []string `pulumi:"aliasIps"`
-	// IP to request to be assigned to this server.
-	// If you do not provide this then you will be auto assigned an IP
-	// address.
-	Ip         *string `pulumi:"ip"`
+	// IP to assign to the Server.
+	Ip *string `pulumi:"ip"`
+	// MAC address of the Server on the Network.
 	MacAddress *string `pulumi:"macAddress"`
-	// ID of the network which should be added
-	// to the server. Required if `subnetId` is not set. Successful creation
-	// of the resource depends on the existence of a subnet in the Hetzner
-	// Cloud Backend. Using `networkId` will not create an explicit
-	// dependency between server and subnet. Therefore `dependsOn` may need
-	// to be used. Alternatively the `subnetId` property can be used, which
-	// will create an explicit dependency between `ServerNetwork` and
-	// the existence of a subnet.
+	// ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
 	NetworkId *int `pulumi:"networkId"`
-	// ID of the server.
+	// ID of the Server.
 	ServerId *int `pulumi:"serverId"`
-	// ID of the sub-network which should be
-	// added to the Server. Required if `networkId` is not set.
-	// _Note_: if the `ip` property is missing, the Server is currently added
-	// to the last created subnet.
+	// ID of the Subnet to attach the Server to. Required if `networkId` is not set.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
 type ServerNetworkState struct {
-	// Additional IPs to be assigned
-	// to this server.
+	// Additional IPs to assign to the Server.
 	AliasIps pulumi.StringArrayInput
-	// IP to request to be assigned to this server.
-	// If you do not provide this then you will be auto assigned an IP
-	// address.
-	Ip         pulumi.StringPtrInput
+	// IP to assign to the Server.
+	Ip pulumi.StringPtrInput
+	// MAC address of the Server on the Network.
 	MacAddress pulumi.StringPtrInput
-	// ID of the network which should be added
-	// to the server. Required if `subnetId` is not set. Successful creation
-	// of the resource depends on the existence of a subnet in the Hetzner
-	// Cloud Backend. Using `networkId` will not create an explicit
-	// dependency between server and subnet. Therefore `dependsOn` may need
-	// to be used. Alternatively the `subnetId` property can be used, which
-	// will create an explicit dependency between `ServerNetwork` and
-	// the existence of a subnet.
+	// ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
 	NetworkId pulumi.IntPtrInput
-	// ID of the server.
+	// ID of the Server.
 	ServerId pulumi.IntPtrInput
-	// ID of the sub-network which should be
-	// added to the Server. Required if `networkId` is not set.
-	// _Note_: if the `ip` property is missing, the Server is currently added
-	// to the last created subnet.
+	// ID of the Subnet to attach the Server to. Required if `networkId` is not set.
 	SubnetId pulumi.StringPtrInput
 }
 
@@ -195,55 +160,29 @@ func (ServerNetworkState) ElementType() reflect.Type {
 }
 
 type serverNetworkArgs struct {
-	// Additional IPs to be assigned
-	// to this server.
+	// Additional IPs to assign to the Server.
 	AliasIps []string `pulumi:"aliasIps"`
-	// IP to request to be assigned to this server.
-	// If you do not provide this then you will be auto assigned an IP
-	// address.
+	// IP to assign to the Server.
 	Ip *string `pulumi:"ip"`
-	// ID of the network which should be added
-	// to the server. Required if `subnetId` is not set. Successful creation
-	// of the resource depends on the existence of a subnet in the Hetzner
-	// Cloud Backend. Using `networkId` will not create an explicit
-	// dependency between server and subnet. Therefore `dependsOn` may need
-	// to be used. Alternatively the `subnetId` property can be used, which
-	// will create an explicit dependency between `ServerNetwork` and
-	// the existence of a subnet.
+	// ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
 	NetworkId *int `pulumi:"networkId"`
-	// ID of the server.
+	// ID of the Server.
 	ServerId int `pulumi:"serverId"`
-	// ID of the sub-network which should be
-	// added to the Server. Required if `networkId` is not set.
-	// _Note_: if the `ip` property is missing, the Server is currently added
-	// to the last created subnet.
+	// ID of the Subnet to attach the Server to. Required if `networkId` is not set.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a ServerNetwork resource.
 type ServerNetworkArgs struct {
-	// Additional IPs to be assigned
-	// to this server.
+	// Additional IPs to assign to the Server.
 	AliasIps pulumi.StringArrayInput
-	// IP to request to be assigned to this server.
-	// If you do not provide this then you will be auto assigned an IP
-	// address.
+	// IP to assign to the Server.
 	Ip pulumi.StringPtrInput
-	// ID of the network which should be added
-	// to the server. Required if `subnetId` is not set. Successful creation
-	// of the resource depends on the existence of a subnet in the Hetzner
-	// Cloud Backend. Using `networkId` will not create an explicit
-	// dependency between server and subnet. Therefore `dependsOn` may need
-	// to be used. Alternatively the `subnetId` property can be used, which
-	// will create an explicit dependency between `ServerNetwork` and
-	// the existence of a subnet.
+	// ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
 	NetworkId pulumi.IntPtrInput
-	// ID of the server.
+	// ID of the Server.
 	ServerId pulumi.IntInput
-	// ID of the sub-network which should be
-	// added to the Server. Required if `networkId` is not set.
-	// _Note_: if the `ip` property is missing, the Server is currently added
-	// to the last created subnet.
+	// ID of the Subnet to attach the Server to. Required if `networkId` is not set.
 	SubnetId pulumi.StringPtrInput
 }
 
@@ -334,44 +273,32 @@ func (o ServerNetworkOutput) ToServerNetworkOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Additional IPs to be assigned
-// to this server.
+// Additional IPs to assign to the Server.
 func (o ServerNetworkOutput) AliasIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerNetwork) pulumi.StringArrayOutput { return v.AliasIps }).(pulumi.StringArrayOutput)
 }
 
-// IP to request to be assigned to this server.
-// If you do not provide this then you will be auto assigned an IP
-// address.
+// IP to assign to the Server.
 func (o ServerNetworkOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerNetwork) pulumi.StringOutput { return v.Ip }).(pulumi.StringOutput)
 }
 
+// MAC address of the Server on the Network.
 func (o ServerNetworkOutput) MacAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerNetwork) pulumi.StringOutput { return v.MacAddress }).(pulumi.StringOutput)
 }
 
-// ID of the network which should be added
-// to the server. Required if `subnetId` is not set. Successful creation
-// of the resource depends on the existence of a subnet in the Hetzner
-// Cloud Backend. Using `networkId` will not create an explicit
-// dependency between server and subnet. Therefore `dependsOn` may need
-// to be used. Alternatively the `subnetId` property can be used, which
-// will create an explicit dependency between `ServerNetwork` and
-// the existence of a subnet.
-func (o ServerNetworkOutput) NetworkId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServerNetwork) pulumi.IntPtrOutput { return v.NetworkId }).(pulumi.IntPtrOutput)
+// ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
+func (o ServerNetworkOutput) NetworkId() pulumi.IntOutput {
+	return o.ApplyT(func(v *ServerNetwork) pulumi.IntOutput { return v.NetworkId }).(pulumi.IntOutput)
 }
 
-// ID of the server.
+// ID of the Server.
 func (o ServerNetworkOutput) ServerId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServerNetwork) pulumi.IntOutput { return v.ServerId }).(pulumi.IntOutput)
 }
 
-// ID of the sub-network which should be
-// added to the Server. Required if `networkId` is not set.
-// _Note_: if the `ip` property is missing, the Server is currently added
-// to the last created subnet.
+// ID of the Subnet to attach the Server to. Required if `networkId` is not set.
 func (o ServerNetworkOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerNetwork) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }

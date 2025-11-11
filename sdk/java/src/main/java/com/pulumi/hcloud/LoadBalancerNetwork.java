@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Hetzner Cloud Load Balancer Network to represent a private network on a Load Balancer in the Hetzner Cloud.
+ * Manage the attachment of a Load Balancer in a Network in the Hetzner Cloud.
  * 
  * ## Example Usage
  * 
@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.NetworkSubnetArgs;
  * import com.pulumi.hcloud.LoadBalancerNetwork;
  * import com.pulumi.hcloud.LoadBalancerNetworkArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,31 +49,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb1 = new LoadBalancer("lb1", LoadBalancerArgs.builder()
- *             .name("lb1")
+ *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
+ *             .name("main")
  *             .loadBalancerType("lb11")
  *             .networkZone("eu-central")
  *             .build());
  * 
- *         var mynet = new Network("mynet", NetworkArgs.builder()
- *             .name("my-net")
- *             .ipRange("10.0.0.0/8")
+ *         var network = new Network("network", NetworkArgs.builder()
+ *             .name("network")
+ *             .ipRange("10.0.0.0/16")
  *             .build());
  * 
- *         var foonet = new NetworkSubnet("foonet", NetworkSubnetArgs.builder()
- *             .networkId(mynet.id())
+ *         var subnet = new NetworkSubnet("subnet", NetworkSubnetArgs.builder()
+ *             .networkId(network.id())
  *             .type("cloud")
  *             .networkZone("eu-central")
  *             .ipRange("10.0.1.0/24")
  *             .build());
  * 
- *         var srvnetwork = new LoadBalancerNetwork("srvnetwork", LoadBalancerNetworkArgs.builder()
- *             .loadBalancerId(lb1.id())
- *             .networkId(mynet.id())
+ *         var attachment = new LoadBalancerNetwork("attachment", LoadBalancerNetworkArgs.builder()
+ *             .loadBalancerId(main.id())
+ *             .subnetId(subnet.id())
  *             .ip("10.0.1.5")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(foonet)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -83,9 +80,19 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Load Balancer Network entries can be imported using a compound ID with the following format:
+ * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
  * 
- * `&lt;load-balancer-id&gt;-&lt;network-id&gt;`
+ * terraform
+ * 
+ * import {
+ * 
+ *   id = &#34;${hcloud_load_balancer.example.id}-${hcloud_network.example.id}&#34;
+ * 
+ *   to = hcloud_load_balancer_network.attachment
+ * 
+ * }
+ * 
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
  * $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork example &#34;$LOAD_BALANCER_ID-$NETWORK_ID&#34;
@@ -95,34 +102,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="hcloud:index/loadBalancerNetwork:LoadBalancerNetwork")
 public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
     /**
-     * Enable or disable the
-     * Load Balancers public interface. Default: `true`
+     * Wether the Load Balancer public interface is enabled. Default is `true`.
      * 
      */
     @Export(name="enablePublicInterface", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enablePublicInterface;
+    private Output<Boolean> enablePublicInterface;
 
     /**
-     * @return Enable or disable the
-     * Load Balancers public interface. Default: `true`
+     * @return Wether the Load Balancer public interface is enabled. Default is `true`.
      * 
      */
-    public Output<Optional<Boolean>> enablePublicInterface() {
-        return Codegen.optional(this.enablePublicInterface);
+    public Output<Boolean> enablePublicInterface() {
+        return this.enablePublicInterface;
     }
     /**
-     * IP to request to be assigned to this Load
-     * Balancer. If you do not provide this then you will be auto assigned an
-     * IP address.
+     * IP to assign to the Load Balancer.
      * 
      */
     @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**
-     * @return IP to request to be assigned to this Load
-     * Balancer. If you do not provide this then you will be auto assigned an
-     * IP address.
+     * @return IP to assign to the Load Balancer.
      * 
      */
     public Output<String> ip() {
@@ -143,48 +144,28 @@ public class LoadBalancerNetwork extends com.pulumi.resources.CustomResource {
         return this.loadBalancerId;
     }
     /**
-     * ID of the network which should be added
-     * to the Load Balancer. Required if `subnetId` is not set. Successful
-     * creation of the resource depends on the existence of a subnet in the
-     * Hetzner Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between the Load Balancer and the subnet. Therefore
-     * `dependsOn` may need to be used. Alternatively the `subnetId`
-     * property can be used, which will create an explicit dependency between
-     * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
+     * ID of the Network to attach the Load Balancer to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ipRange`).
      * 
      */
     @Export(name="networkId", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> networkId;
+    private Output<Integer> networkId;
 
     /**
-     * @return ID of the network which should be added
-     * to the Load Balancer. Required if `subnetId` is not set. Successful
-     * creation of the resource depends on the existence of a subnet in the
-     * Hetzner Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between the Load Balancer and the subnet. Therefore
-     * `dependsOn` may need to be used. Alternatively the `subnetId`
-     * property can be used, which will create an explicit dependency between
-     * `hcloud.LoadBalancerNetwork` and the existence of a subnet.
+     * @return ID of the Network to attach the Load Balancer to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ipRange`).
      * 
      */
-    public Output<Optional<Integer>> networkId() {
-        return Codegen.optional(this.networkId);
+    public Output<Integer> networkId() {
+        return this.networkId;
     }
     /**
-     * ID of the sub-network which should be
-     * added to the Load Balancer. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Load Balancer is
-     * currently added to the last created subnet.
+     * ID of the Subnet to attach the Load Balancer to. Required if `networkId` is not set.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
-     * @return ID of the sub-network which should be
-     * added to the Load Balancer. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Load Balancer is
-     * currently added to the last created subnet.
+     * @return ID of the Subnet to attach the Load Balancer to. Required if `networkId` is not set.
      * 
      */
     public Output<Optional<String>> subnetId() {

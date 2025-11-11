@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
+ * Manage the attachment of a Server in a Network in the Hetzner Cloud.
  *
  * ## Example Usage
  *
@@ -18,28 +18,27 @@ import * as utilities from "./utilities";
  *     image: "debian-12",
  *     serverType: "cx23",
  * });
- * const mynet = new hcloud.Network("mynet", {
- *     name: "my-net",
- *     ipRange: "10.0.0.0/8",
+ * const network = new hcloud.Network("network", {
+ *     name: "network",
+ *     ipRange: "10.0.0.0/16",
  * });
- * const foonet = new hcloud.NetworkSubnet("foonet", {
- *     networkId: mynet.id,
+ * const subnet1 = new hcloud.NetworkSubnet("subnet1", {
+ *     networkId: network.id,
  *     type: "cloud",
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
  * });
- * const srvnetwork = new hcloud.ServerNetwork("srvnetwork", {
+ * const node1Subnet1 = new hcloud.ServerNetwork("node1_subnet1", {
  *     serverId: node1.id,
- *     networkId: mynet.id,
+ *     subnetId: subnet1.id,
  *     ip: "10.0.1.5",
+ *     aliasIps: ["10.0.1.10"],
  * });
  * ```
  *
  * ## Import
  *
- * Server Network entries can be imported using a compound ID with the following format:
- *
- * `<server-id>-<network-id>`
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
  * $ pulumi import hcloud:index/serverNetwork:ServerNetwork example "$SERVER_ID-$NETWORK_ID"
@@ -74,37 +73,27 @@ export class ServerNetwork extends pulumi.CustomResource {
     }
 
     /**
-     * Additional IPs to be assigned
-     * to this server.
+     * Additional IPs to assign to the Server.
      */
-    declare public readonly aliasIps: pulumi.Output<string[] | undefined>;
+    declare public readonly aliasIps: pulumi.Output<string[]>;
     /**
-     * IP to request to be assigned to this server.
-     * If you do not provide this then you will be auto assigned an IP
-     * address.
+     * IP to assign to the Server.
      */
     declare public readonly ip: pulumi.Output<string>;
+    /**
+     * MAC address of the Server on the Network.
+     */
     declare public /*out*/ readonly macAddress: pulumi.Output<string>;
     /**
-     * ID of the network which should be added
-     * to the server. Required if `subnetId` is not set. Successful creation
-     * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between server and subnet. Therefore `dependsOn` may need
-     * to be used. Alternatively the `subnetId` property can be used, which
-     * will create an explicit dependency between `hcloud.ServerNetwork` and
-     * the existence of a subnet.
+     * ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      */
-    declare public readonly networkId: pulumi.Output<number | undefined>;
+    declare public readonly networkId: pulumi.Output<number>;
     /**
-     * ID of the server.
+     * ID of the Server.
      */
     declare public readonly serverId: pulumi.Output<number>;
     /**
-     * ID of the sub-network which should be
-     * added to the Server. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Server is currently added
-     * to the last created subnet.
+     * ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      */
     declare public readonly subnetId: pulumi.Output<string | undefined>;
 
@@ -149,37 +138,27 @@ export class ServerNetwork extends pulumi.CustomResource {
  */
 export interface ServerNetworkState {
     /**
-     * Additional IPs to be assigned
-     * to this server.
+     * Additional IPs to assign to the Server.
      */
     aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * IP to request to be assigned to this server.
-     * If you do not provide this then you will be auto assigned an IP
-     * address.
+     * IP to assign to the Server.
      */
     ip?: pulumi.Input<string>;
+    /**
+     * MAC address of the Server on the Network.
+     */
     macAddress?: pulumi.Input<string>;
     /**
-     * ID of the network which should be added
-     * to the server. Required if `subnetId` is not set. Successful creation
-     * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between server and subnet. Therefore `dependsOn` may need
-     * to be used. Alternatively the `subnetId` property can be used, which
-     * will create an explicit dependency between `hcloud.ServerNetwork` and
-     * the existence of a subnet.
+     * ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      */
     networkId?: pulumi.Input<number>;
     /**
-     * ID of the server.
+     * ID of the Server.
      */
     serverId?: pulumi.Input<number>;
     /**
-     * ID of the sub-network which should be
-     * added to the Server. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Server is currently added
-     * to the last created subnet.
+     * ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      */
     subnetId?: pulumi.Input<string>;
 }
@@ -189,36 +168,23 @@ export interface ServerNetworkState {
  */
 export interface ServerNetworkArgs {
     /**
-     * Additional IPs to be assigned
-     * to this server.
+     * Additional IPs to assign to the Server.
      */
     aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * IP to request to be assigned to this server.
-     * If you do not provide this then you will be auto assigned an IP
-     * address.
+     * IP to assign to the Server.
      */
     ip?: pulumi.Input<string>;
     /**
-     * ID of the network which should be added
-     * to the server. Required if `subnetId` is not set. Successful creation
-     * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between server and subnet. Therefore `dependsOn` may need
-     * to be used. Alternatively the `subnetId` property can be used, which
-     * will create an explicit dependency between `hcloud.ServerNetwork` and
-     * the existence of a subnet.
+     * ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      */
     networkId?: pulumi.Input<number>;
     /**
-     * ID of the server.
+     * ID of the Server.
      */
     serverId: pulumi.Input<number>;
     /**
-     * ID of the sub-network which should be
-     * added to the Server. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Server is currently added
-     * to the last created subnet.
+     * ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      */
     subnetId?: pulumi.Input<string>;
 }
