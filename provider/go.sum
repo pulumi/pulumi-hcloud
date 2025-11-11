@@ -2021,6 +2021,8 @@ github.com/hashicorp/terraform-json v0.27.1 h1:zWhEracxJW6lcjt/JvximOYyc12pS/gaK
 github.com/hashicorp/terraform-json v0.27.1/go.mod h1:GzPLJ1PLdUG5xL6xn1OXWIjteQRT2CNT9o/6A9mi9hE=
 github.com/hashicorp/terraform-plugin-framework v1.16.1 h1:1+zwFm3MEqd/0K3YBB2v9u9DtyYHyEuhVOfeIXbteWA=
 github.com/hashicorp/terraform-plugin-framework v1.16.1/go.mod h1:0xFOxLy5lRzDTayc4dzK/FakIgBhNf/lC4499R9cV4Y=
+github.com/hashicorp/terraform-plugin-framework-nettypes v0.3.0 h1:cEiRvdFAhFnivRm9JI/8l2g8oruzkioUAwItkEM7bmU=
+github.com/hashicorp/terraform-plugin-framework-nettypes v0.3.0/go.mod h1:SDIm7W2x3Bs9otNC0ysbaSQ7H4H/EPimoACTy+7Z9rU=
 github.com/hashicorp/terraform-plugin-framework-validators v0.19.0 h1:Zz3iGgzxe/1XBkooZCewS0nJAaCFPFPHdNJd8FgE4Ow=
 github.com/hashicorp/terraform-plugin-framework-validators v0.19.0/go.mod h1:GBKTNGbGVJohU03dZ7U8wHqc2zYnMUawgCN+gC0itLc=
 github.com/hashicorp/terraform-plugin-go v0.29.0 h1:1nXKl/nSpaYIUBU1IG/EsDOX0vv+9JxAltQyDMpq5mU=
@@ -2049,8 +2051,8 @@ github.com/hashicorp/yamux v0.1.2 h1:XtB8kyFOyHXYVFnwT5C3+Bdo8gArse7j2AQ0DA0Uey8
 github.com/hashicorp/yamux v0.1.2/go.mod h1:C+zze2n6e/7wshOZep2A70/aQU6QBRWJO/G6FT1wIns=
 github.com/hetznercloud/hcloud-go/v2 v2.29.0 h1:LzNFw5XLBfftyu3WM1sdSLjOZBlWORtz2hgGydHaYV8=
 github.com/hetznercloud/hcloud-go/v2 v2.29.0/go.mod h1:XBU4+EDH2KVqu2KU7Ws0+ciZcX4ygukQl/J0L5GS8P8=
-github.com/hetznercloud/terraform-provider-hcloud v1.55.0 h1:MbRpYHWQqMwEA01ZTZEHyEALZKzUO1s9PbgLmrxNSIg=
-github.com/hetznercloud/terraform-provider-hcloud v1.55.0/go.mod h1:J9yFRWPhcm56ROn+DhcxoL/tO7DZUqNekRlEqnDNujQ=
+github.com/hetznercloud/terraform-provider-hcloud v1.56.0 h1:gHEEVKCTfSMBrZp6UPTvB0p7glB4nShvjzp5KusEiEg=
+github.com/hetznercloud/terraform-provider-hcloud v1.56.0/go.mod h1:uj520lT3oXqjpLyfvF7nBa/G1IFXuFrispSBg9edEhA=
 github.com/hexops/autogold v1.3.0 h1:IEtGNPxBeBu8RMn8eKWh/Ll9dVNgSnJ7bp/qHgMQ14o=
 github.com/hexops/autogold v1.3.0/go.mod h1:d4hwi2rid66Sag+BVuHgwakW/EmaFr8vdTSbWDbrDRI=
 github.com/hexops/autogold/v2 v2.2.1 h1:JPUXuZQGkcQMv7eeDXuNMovjfoRYaa0yVcm+F3voaGY=

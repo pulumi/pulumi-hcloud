@@ -157,9 +157,6 @@ def get_zone_rrset(id: Optional[_builtins.str] = None,
 
     See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
 
-    **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
-    See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
-
     ## Example Usage
 
     ```python
@@ -212,9 +209,6 @@ def get_zone_rrset_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = 
     Provides details about a Hetzner Cloud Zone Resource Record Set (RRSet).
 
     See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
-
-    **Experimental:** DNS API is in beta, breaking changes may occur within minor releases.
-    See https://docs.hetzner.cloud/changelog#2025-10-07-dns-beta for more details.
 
     ## Example Usage
 

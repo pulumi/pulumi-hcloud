@@ -10,7 +10,7 @@ replace (
 )
 
 require (
-	github.com/hetznercloud/terraform-provider-hcloud v1.55.0
+	github.com/hetznercloud/terraform-provider-hcloud v1.56.0
 	github.com/pulumi/providertest v0.3.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.116.0
 	github.com/pulumi/pulumi/sdk/v3 v3.190.0
@@ -97,6 +97,7 @@ require (
 	github.com/hashicorp/terraform-exec v0.24.0 // indirect
 	github.com/hashicorp/terraform-json v0.27.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework v1.16.1 // indirect
+	github.com/hashicorp/terraform-plugin-framework-nettypes v0.3.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.19.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.29.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect

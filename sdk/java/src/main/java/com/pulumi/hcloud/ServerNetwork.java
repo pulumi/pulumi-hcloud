@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Hetzner Cloud Server Network to represent a private network on a server in the Hetzner Cloud.
+ * Manage the attachment of a Server in a Network in the Hetzner Cloud.
  * 
  * ## Example Usage
  * 
@@ -55,22 +55,23 @@ import javax.annotation.Nullable;
  *             .serverType("cx23")
  *             .build());
  * 
- *         var mynet = new Network("mynet", NetworkArgs.builder()
- *             .name("my-net")
- *             .ipRange("10.0.0.0/8")
+ *         var network = new Network("network", NetworkArgs.builder()
+ *             .name("network")
+ *             .ipRange("10.0.0.0/16")
  *             .build());
  * 
- *         var foonet = new NetworkSubnet("foonet", NetworkSubnetArgs.builder()
- *             .networkId(mynet.id())
+ *         var subnet1 = new NetworkSubnet("subnet1", NetworkSubnetArgs.builder()
+ *             .networkId(network.id())
  *             .type("cloud")
  *             .networkZone("eu-central")
  *             .ipRange("10.0.1.0/24")
  *             .build());
  * 
- *         var srvnetwork = new ServerNetwork("srvnetwork", ServerNetworkArgs.builder()
+ *         var node1Subnet1 = new ServerNetwork("node1Subnet1", ServerNetworkArgs.builder()
  *             .serverId(node1.id())
- *             .networkId(mynet.id())
+ *             .subnetId(subnet1.id())
  *             .ip("10.0.1.5")
+ *             .aliasIps("10.0.1.10")
  *             .build());
  * 
  *     }
@@ -80,9 +81,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Server Network entries can be imported using a compound ID with the following format:
- * 
- * `&lt;server-id&gt;-&lt;network-id&gt;`
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
  * $ pulumi import hcloud:index/serverNetwork:ServerNetwork example &#34;$SERVER_ID-$NETWORK_ID&#34;
@@ -92,102 +91,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="hcloud:index/serverNetwork:ServerNetwork")
 public class ServerNetwork extends com.pulumi.resources.CustomResource {
     /**
-     * Additional IPs to be assigned
-     * to this server.
+     * Additional IPs to assign to the Server.
      * 
      */
     @Export(name="aliasIps", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> aliasIps;
+    private Output<List<String>> aliasIps;
 
     /**
-     * @return Additional IPs to be assigned
-     * to this server.
+     * @return Additional IPs to assign to the Server.
      * 
      */
-    public Output<Optional<List<String>>> aliasIps() {
-        return Codegen.optional(this.aliasIps);
+    public Output<List<String>> aliasIps() {
+        return this.aliasIps;
     }
     /**
-     * IP to request to be assigned to this server.
-     * If you do not provide this then you will be auto assigned an IP
-     * address.
+     * IP to assign to the Server.
      * 
      */
     @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**
-     * @return IP to request to be assigned to this server.
-     * If you do not provide this then you will be auto assigned an IP
-     * address.
+     * @return IP to assign to the Server.
      * 
      */
     public Output<String> ip() {
         return this.ip;
     }
+    /**
+     * MAC address of the Server on the Network.
+     * 
+     */
     @Export(name="macAddress", refs={String.class}, tree="[0]")
     private Output<String> macAddress;
 
+    /**
+     * @return MAC address of the Server on the Network.
+     * 
+     */
     public Output<String> macAddress() {
         return this.macAddress;
     }
     /**
-     * ID of the network which should be added
-     * to the server. Required if `subnetId` is not set. Successful creation
-     * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between server and subnet. Therefore `dependsOn` may need
-     * to be used. Alternatively the `subnetId` property can be used, which
-     * will create an explicit dependency between `hcloud.ServerNetwork` and
-     * the existence of a subnet.
+     * ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      * 
      */
     @Export(name="networkId", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> networkId;
+    private Output<Integer> networkId;
 
     /**
-     * @return ID of the network which should be added
-     * to the server. Required if `subnetId` is not set. Successful creation
-     * of the resource depends on the existence of a subnet in the Hetzner
-     * Cloud Backend. Using `networkId` will not create an explicit
-     * dependency between server and subnet. Therefore `dependsOn` may need
-     * to be used. Alternatively the `subnetId` property can be used, which
-     * will create an explicit dependency between `hcloud.ServerNetwork` and
-     * the existence of a subnet.
+     * @return ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      * 
      */
-    public Output<Optional<Integer>> networkId() {
-        return Codegen.optional(this.networkId);
+    public Output<Integer> networkId() {
+        return this.networkId;
     }
     /**
-     * ID of the server.
+     * ID of the Server.
      * 
      */
     @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverId;
 
     /**
-     * @return ID of the server.
+     * @return ID of the Server.
      * 
      */
     public Output<Integer> serverId() {
         return this.serverId;
     }
     /**
-     * ID of the sub-network which should be
-     * added to the Server. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Server is currently added
-     * to the last created subnet.
+     * ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
-     * @return ID of the sub-network which should be
-     * added to the Server. Required if `networkId` is not set.
-     * _Note_: if the `ip` property is missing, the Server is currently added
-     * to the last created subnet.
+     * @return ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      * 
      */
     public Output<Optional<String>> subnetId() {
