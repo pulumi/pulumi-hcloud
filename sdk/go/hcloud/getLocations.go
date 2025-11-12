@@ -14,6 +14,8 @@ import (
 // Provides a list of available Hetzner Cloud Locations.
 //
 // This resource may be useful to create highly available infrastructure, distributed across several locations.
+//
+// ## Example Usage
 func GetLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationsResult
