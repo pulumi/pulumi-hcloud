@@ -10,6 +10,24 @@ import * as utilities from "./utilities";
  * Provides a list of available Hetzner Cloud Datacenters.
  *
  * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const all = hcloud.getDatacenters({});
+ * const workers: hcloud.Server[] = [];
+ * for (const range = {value: 0}; range.value < 5; range.value++) {
+ *     workers.push(new hcloud.Server(`workers-${range.value}`, {
+ *         name: `node${range.value}`,
+ *         image: "debian-12",
+ *         serverType: "cx23",
+ *         datacenter: all.then(all => all.datacenters[range.value]).then(datacenters => datacenters.name),
+ *     }));
+ * }
+ * ```
  */
 export function getDatacenters(opts?: pulumi.InvokeOptions): Promise<GetDatacentersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +61,24 @@ export interface GetDatacentersResult {
  * Provides a list of available Hetzner Cloud Datacenters.
  *
  * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const all = hcloud.getDatacenters({});
+ * const workers: hcloud.Server[] = [];
+ * for (const range = {value: 0}; range.value < 5; range.value++) {
+ *     workers.push(new hcloud.Server(`workers-${range.value}`, {
+ *         name: `node${range.value}`,
+ *         image: "debian-12",
+ *         serverType: "cx23",
+ *         datacenter: all.then(all => all.datacenters[range.value]).then(datacenters => datacenters.name),
+ *     }));
+ * }
+ * ```
  */
 export function getDatacentersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatacentersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
