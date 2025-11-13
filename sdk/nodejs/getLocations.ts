@@ -10,6 +10,24 @@ import * as utilities from "./utilities";
  * Provides a list of available Hetzner Cloud Locations.
  *
  * This resource may be useful to create highly available infrastructure, distributed across several locations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const all = hcloud.getLocations({});
+ * const workers: hcloud.Server[] = [];
+ * for (const range = {value: 0}; range.value < 5; range.value++) {
+ *     workers.push(new hcloud.Server(`workers-${range.value}`, {
+ *         name: `node${range.value}`,
+ *         image: "debian-12",
+ *         serverType: "cx23",
+ *         location: all.then(all => all.locations[range.value]).then(locations => locations.name),
+ *     }));
+ * }
+ * ```
  */
 export function getLocations(opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +61,24 @@ export interface GetLocationsResult {
  * Provides a list of available Hetzner Cloud Locations.
  *
  * This resource may be useful to create highly available infrastructure, distributed across several locations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const all = hcloud.getLocations({});
+ * const workers: hcloud.Server[] = [];
+ * for (const range = {value: 0}; range.value < 5; range.value++) {
+ *     workers.push(new hcloud.Server(`workers-${range.value}`, {
+ *         name: `node${range.value}`,
+ *         image: "debian-12",
+ *         serverType: "cx23",
+ *         location: all.then(all => all.locations[range.value]).then(locations => locations.name),
+ *     }));
+ * }
+ * ```
  */
 export function getLocationsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
