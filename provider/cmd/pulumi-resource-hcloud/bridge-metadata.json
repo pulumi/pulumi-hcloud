@@ -185,6 +185,23 @@
                 "current": "hcloud:index/sshKey:SshKey",
                 "majorVersion": 1
             },
+            "hcloud_storage_box": {
+                "current": "hcloud:index/storageBox:StorageBox",
+                "majorVersion": 1,
+                "fields": {
+                    "ssh_keys": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "hcloud_storage_box_snapshot": {
+                "current": "hcloud:index/storageBoxSnapshot:StorageBoxSnapshot",
+                "majorVersion": 1
+            },
+            "hcloud_storage_box_subaccount": {
+                "current": "hcloud:index/storageBoxSubaccount:StorageBoxSubaccount",
+                "majorVersion": 1
+            },
             "hcloud_uploaded_certificate": {
                 "current": "hcloud:index/uploadedCertificate:UploadedCertificate",
                 "majorVersion": 1,
@@ -665,6 +682,58 @@
                     }
                 }
             },
+            "hcloud_storage_box": {
+                "current": "hcloud:index/getStorageBox:getStorageBox",
+                "majorVersion": 1
+            },
+            "hcloud_storage_box_snapshot": {
+                "current": "hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot",
+                "majorVersion": 1
+            },
+            "hcloud_storage_box_snapshots": {
+                "current": "hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots",
+                "majorVersion": 1,
+                "fields": {
+                    "snapshots": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "hcloud_storage_box_subaccount": {
+                "current": "hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount",
+                "majorVersion": 1
+            },
+            "hcloud_storage_box_subaccounts": {
+                "current": "hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts",
+                "majorVersion": 1,
+                "fields": {
+                    "subaccounts": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "hcloud_storage_box_type": {
+                "current": "hcloud:index/getStorageBoxType:getStorageBoxType",
+                "majorVersion": 1
+            },
+            "hcloud_storage_box_types": {
+                "current": "hcloud:index/getStorageBoxTypes:getStorageBoxTypes",
+                "majorVersion": 1,
+                "fields": {
+                    "storage_box_types": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "hcloud_storage_boxes": {
+                "current": "hcloud:index/getStorageBoxes:getStorageBoxes",
+                "majorVersion": 1,
+                "fields": {
+                    "storage_boxes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "hcloud_volume": {
                 "current": "hcloud:index/getVolume:getVolume",
                 "majorVersion": 1,
@@ -775,6 +844,9 @@
             "hcloud:index/serverNetwork:ServerNetwork": 1,
             "hcloud:index/snapshot:Snapshot": 0,
             "hcloud:index/sshKey:SshKey": 1,
+            "hcloud:index/storageBox:StorageBox": 1,
+            "hcloud:index/storageBoxSnapshot:StorageBoxSnapshot": 1,
+            "hcloud:index/storageBoxSubaccount:StorageBoxSubaccount": 1,
             "hcloud:index/uploadedCertificate:UploadedCertificate": 0,
             "hcloud:index/volume:Volume": 0,
             "hcloud:index/volumeAttachment:VolumeAttachment": 0,
@@ -810,6 +882,14 @@
             "hcloud:index/getServers:getServers": 0,
             "hcloud:index/getSshKey:getSshKey": 1,
             "hcloud:index/getSshKeys:getSshKeys": 1,
+            "hcloud:index/getStorageBox:getStorageBox": 1,
+            "hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot": 1,
+            "hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots": 1,
+            "hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount": 1,
+            "hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts": 1,
+            "hcloud:index/getStorageBoxType:getStorageBoxType": 1,
+            "hcloud:index/getStorageBoxTypes:getStorageBoxTypes": 1,
+            "hcloud:index/getStorageBoxes:getStorageBoxes": 1,
             "hcloud:index/getVolume:getVolume": 0,
             "hcloud:index/getVolumes:getVolumes": 0,
             "hcloud:index/getZone:getZone": 1,

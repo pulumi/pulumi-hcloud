@@ -55,6 +55,10 @@
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1."
             },
+            "endpointHetzner": {
+                "type": "string",
+                "description": "The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1."
+            },
             "pollFunction": {
                 "type": "string",
                 "description": "The type of function to be used during the polling."
@@ -338,6 +342,108 @@
                     "requiredOutputs": [
                         "ipv4",
                         "ipv6"
+                    ]
+                }
+            }
+        },
+        "hcloud:index/StorageBoxAccessSettings:StorageBoxAccessSettings": {
+            "properties": {
+                "reachableExternally": {
+                    "type": "boolean",
+                    "description": "Whether access from outside the Hetzner network is allowed.\n"
+                },
+                "sambaEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the Samba subsystem is enabled.\n"
+                },
+                "sshEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the SSH subsystem is enabled.\n"
+                },
+                "webdavEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the WebDAV subsystem is enabled.\n"
+                },
+                "zfsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the ZFS snapshot folder is visible.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "reachableExternally",
+                        "sambaEnabled",
+                        "sshEnabled",
+                        "webdavEnabled",
+                        "zfsEnabled"
+                    ]
+                }
+            }
+        },
+        "hcloud:index/StorageBoxSnapshotPlan:StorageBoxSnapshotPlan": {
+            "properties": {
+                "dayOfMonth": {
+                    "type": "integer",
+                    "description": "Day of the month when the Snapshot Plan is executed. Null means every day.\n"
+                },
+                "dayOfWeek": {
+                    "type": "integer",
+                    "description": "Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.\n"
+                },
+                "hour": {
+                    "type": "integer",
+                    "description": "Hour when the Snapshot Plan is executed (UTC).\n"
+                },
+                "maxSnapshots": {
+                    "type": "integer",
+                    "description": "Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.\n"
+                },
+                "minute": {
+                    "type": "integer",
+                    "description": "Minute when the Snapshot Plan is executed (UTC).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "hour",
+                "maxSnapshots",
+                "minute"
+            ]
+        },
+        "hcloud:index/StorageBoxSubaccountAccessSettings:StorageBoxSubaccountAccessSettings": {
+            "properties": {
+                "reachableExternally": {
+                    "type": "boolean",
+                    "description": "Whether access from outside the Hetzner network is allowed.\n"
+                },
+                "readonly": {
+                    "type": "boolean",
+                    "description": "Whether the Subaccount is read-only.\n"
+                },
+                "sambaEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the Samba subsystem is enabled.\n"
+                },
+                "sshEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the SSH subsystem is enabled.\n"
+                },
+                "webdavEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the WebDAV subsystem is enabled.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "reachableExternally",
+                        "readonly",
+                        "sambaEnabled",
+                        "sshEnabled",
+                        "webdavEnabled"
                     ]
                 }
             }
@@ -1886,6 +1992,509 @@
                 }
             }
         },
+        "hcloud:index/getStorageBoxAccessSettings:getStorageBoxAccessSettings": {
+            "properties": {
+                "reachableExternally": {
+                    "type": "boolean",
+                    "description": "Whether access from outside the Hetzner network is allowed.\n"
+                },
+                "sambaEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the Samba subsystem is enabled.\n"
+                },
+                "sshEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the SSH subsystem is enabled.\n"
+                },
+                "webdavEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the WebDAV subsystem is enabled.\n"
+                },
+                "zfsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the ZFS snapshot folder is visible.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "reachableExternally",
+                "sambaEnabled",
+                "sshEnabled",
+                "webdavEnabled",
+                "zfsEnabled"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxSnapshotPlan:getStorageBoxSnapshotPlan": {
+            "properties": {
+                "dayOfMonth": {
+                    "type": "integer",
+                    "description": "Day of the month when the Snapshot Plan is executed. Null means every day.\n"
+                },
+                "dayOfWeek": {
+                    "type": "integer",
+                    "description": "Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.\n"
+                },
+                "hour": {
+                    "type": "integer",
+                    "description": "Hour when the Snapshot Plan is executed (UTC).\n"
+                },
+                "maxSnapshots": {
+                    "type": "integer",
+                    "description": "Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.\n"
+                },
+                "minute": {
+                    "type": "integer",
+                    "description": "Minute when the Snapshot Plan is executed (UTC).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dayOfMonth",
+                "dayOfWeek",
+                "hour",
+                "maxSnapshots",
+                "minute"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxSnapshotStats:getStorageBoxSnapshotStats": {
+            "properties": {
+                "size": {
+                    "type": "integer",
+                    "description": "Current storage requirements of the Snapshot in bytes.\n"
+                },
+                "sizeFilesystem": {
+                    "type": "integer",
+                    "description": "Size of the compressed file system contained in the Snapshot in bytes.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "size",
+                "sizeFilesystem"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxSnapshotsSnapshot:getStorageBoxSnapshotsSnapshot": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Storage Box Snapshot.\n"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box Snapshot.\n"
+                },
+                "isAutomatic": {
+                    "type": "boolean",
+                    "description": "Whether the Storage Box Snapshot was created automatically.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Storage Box Snapshot.\n"
+                },
+                "stats": {
+                    "$ref": "#/types/hcloud:index/getStorageBoxSnapshotsSnapshotStats:getStorageBoxSnapshotsSnapshotStats",
+                    "description": "Statistics of the Storage Box Snapshot.\n"
+                },
+                "storageBoxId": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "description",
+                "id",
+                "isAutomatic",
+                "labels",
+                "name",
+                "stats",
+                "storageBoxId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxSnapshotsSnapshotStats:getStorageBoxSnapshotsSnapshotStats": {
+            "properties": {
+                "size": {
+                    "type": "integer",
+                    "description": "Current storage requirements of the Snapshot in bytes.\n"
+                },
+                "sizeFilesystem": {
+                    "type": "integer",
+                    "description": "Size of the compressed file system contained in the Snapshot in bytes.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "size",
+                "sizeFilesystem"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxSubaccountAccessSettings:getStorageBoxSubaccountAccessSettings": {
+            "properties": {
+                "reachableExternally": {
+                    "type": "boolean",
+                    "description": "Whether access from outside the Hetzner network is allowed.\n"
+                },
+                "readonly": {
+                    "type": "boolean",
+                    "description": "Whether the Subaccount is read-only.\n"
+                },
+                "sambaEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the Samba subsystem is enabled.\n"
+                },
+                "sshEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the SSH subsystem is enabled.\n"
+                },
+                "webdavEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the WebDAV subsystem is enabled.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "reachableExternally",
+                "readonly",
+                "sambaEnabled",
+                "sshEnabled",
+                "webdavEnabled"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxSubaccountsSubaccount:getStorageBoxSubaccountsSubaccount": {
+            "properties": {
+                "accessSettings": {
+                    "$ref": "#/types/hcloud:index/getStorageBoxSubaccountsSubaccountAccessSettings:getStorageBoxSubaccountsSubaccountAccessSettings",
+                    "description": "Access settings for the Subaccount.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Storage Box Subaccount.\n"
+                },
+                "homeDirectory": {
+                    "type": "string",
+                    "description": "Home directory of the Storage Box Subaccount.\n"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box Subaccount.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "server": {
+                    "type": "string",
+                    "description": "FQDN of the Storage Box Subaccount.\n"
+                },
+                "storageBoxId": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Username of the Storage Box Subaccount.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessSettings",
+                "description",
+                "homeDirectory",
+                "id",
+                "labels",
+                "server",
+                "storageBoxId",
+                "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxSubaccountsSubaccountAccessSettings:getStorageBoxSubaccountsSubaccountAccessSettings": {
+            "properties": {
+                "reachableExternally": {
+                    "type": "boolean",
+                    "description": "Whether access from outside the Hetzner network is allowed.\n"
+                },
+                "readonly": {
+                    "type": "boolean",
+                    "description": "Whether the Subaccount is read-only.\n"
+                },
+                "sambaEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the Samba subsystem is enabled.\n"
+                },
+                "sshEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the SSH subsystem is enabled.\n"
+                },
+                "webdavEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the WebDAV subsystem is enabled.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "reachableExternally",
+                "readonly",
+                "sambaEnabled",
+                "sshEnabled",
+                "webdavEnabled"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxTypesStorageBoxType:getStorageBoxTypesStorageBoxType": {
+            "properties": {
+                "automaticSnapshotLimit": {
+                    "type": "integer",
+                    "description": "Maximum number of snapshots created automatically by a snapshot plan.\n"
+                },
+                "deprecationAnnounced": {
+                    "type": "string",
+                    "description": "Date of the Storage Box Type deprecation announcement.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Storage Box Type.\n"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box Type.\n"
+                },
+                "isDeprecated": {
+                    "type": "boolean",
+                    "description": "Whether the Storage Box Type is deprecated.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Storage Box Type.\n"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "Available storage in bytes.\n"
+                },
+                "snapshotLimit": {
+                    "type": "integer",
+                    "description": "Maximum number of allowed manual snapshots.\n"
+                },
+                "subaccountsLimit": {
+                    "type": "integer",
+                    "description": "Maximum number of subaccounts.\n"
+                },
+                "unavailableAfter": {
+                    "type": "string",
+                    "description": "Date of the Storage Box Type removal. After this date, the Storage Box Type cannot be used anymore.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "automaticSnapshotLimit",
+                "deprecationAnnounced",
+                "description",
+                "id",
+                "isDeprecated",
+                "name",
+                "size",
+                "snapshotLimit",
+                "subaccountsLimit",
+                "unavailableAfter"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxesStorageBox:getStorageBoxesStorageBox": {
+            "properties": {
+                "accessSettings": {
+                    "$ref": "#/types/hcloud:index/getStorageBoxesStorageBoxAccessSettings:getStorageBoxesStorageBoxAccessSettings",
+                    "description": "Access settings of the Storage Box.\n"
+                },
+                "deleteProtection": {
+                    "type": "boolean",
+                    "description": "Whether delete protection is enabled.\n"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Name of the Location.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Storage Box.\n"
+                },
+                "server": {
+                    "type": "string",
+                    "description": "FQDN of the Storage Box.\n"
+                },
+                "snapshotPlan": {
+                    "$ref": "#/types/hcloud:index/getStorageBoxesStorageBoxSnapshotPlan:getStorageBoxesStorageBoxSnapshotPlan",
+                    "description": "Details of the active snapshot plan.\n"
+                },
+                "storageBoxType": {
+                    "type": "string",
+                    "description": "Name of the Storage Box Type.\n"
+                },
+                "system": {
+                    "type": "string",
+                    "description": "Host system of the Storage Box.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Primary username of the Storage Box.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessSettings",
+                "deleteProtection",
+                "id",
+                "labels",
+                "location",
+                "name",
+                "server",
+                "snapshotPlan",
+                "storageBoxType",
+                "system",
+                "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxesStorageBoxAccessSettings:getStorageBoxesStorageBoxAccessSettings": {
+            "properties": {
+                "reachableExternally": {
+                    "type": "boolean",
+                    "description": "Whether access from outside the Hetzner network is allowed.\n"
+                },
+                "sambaEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the Samba subsystem is enabled.\n"
+                },
+                "sshEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the SSH subsystem is enabled.\n"
+                },
+                "webdavEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the WebDAV subsystem is enabled.\n"
+                },
+                "zfsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the ZFS snapshot folder is visible.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "reachableExternally",
+                "sambaEnabled",
+                "sshEnabled",
+                "webdavEnabled",
+                "zfsEnabled"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getStorageBoxesStorageBoxSnapshotPlan:getStorageBoxesStorageBoxSnapshotPlan": {
+            "properties": {
+                "dayOfMonth": {
+                    "type": "integer",
+                    "description": "Day of the month when the Snapshot Plan is executed. Null means every day.\n"
+                },
+                "dayOfWeek": {
+                    "type": "integer",
+                    "description": "Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.\n"
+                },
+                "hour": {
+                    "type": "integer",
+                    "description": "Hour when the Snapshot Plan is executed (UTC).\n"
+                },
+                "maxSnapshots": {
+                    "type": "integer",
+                    "description": "Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.\n"
+                },
+                "minute": {
+                    "type": "integer",
+                    "description": "Minute when the Snapshot Plan is executed (UTC).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dayOfMonth",
+                "dayOfWeek",
+                "hour",
+                "maxSnapshots",
+                "minute"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "hcloud:index/getVolumesVolume:getVolumesVolume": {
             "properties": {
                 "deleteProtection": {
@@ -2208,6 +2817,10 @@
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1."
             },
+            "endpointHetzner": {
+                "type": "string",
+                "description": "The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1."
+            },
             "pollFunction": {
                 "type": "string",
                 "description": "The type of function to be used during the polling."
@@ -2226,6 +2839,10 @@
             "endpoint": {
                 "type": "string",
                 "description": "The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1."
+            },
+            "endpointHetzner": {
+                "type": "string",
+                "description": "The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1."
             },
             "pollFunction": {
                 "type": "string",
@@ -4553,6 +5170,399 @@
                     "publicKey": {
                         "type": "string",
                         "description": "Public key of the SSH Key pair. If this is a file, it can be read using the \u003cspan pulumi-lang-nodejs=\"`file`\" pulumi-lang-dotnet=\"`File`\" pulumi-lang-go=\"`file`\" pulumi-lang-python=\"`file`\" pulumi-lang-yaml=\"`file`\" pulumi-lang-java=\"`file`\"\u003e`file`\u003c/span\u003e interpolation function.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/storageBox:StorageBox": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst backups = new hcloud.StorageBox(\"backups\", {\n    name: \"backups\",\n    storageBoxType: \"bx21\",\n    location: \"hel1\",\n    password: storageBoxPassword,\n    labels: {\n        foo: \"bar\",\n    },\n    accessSettings: {\n        reachableExternally: true,\n        sambaEnabled: true,\n        sshEnabled: true,\n        webdavEnabled: true,\n        zfsEnabled: true,\n    },\n    snapshotPlan: {\n        maxSnapshots: 10,\n        minute: 16,\n        hour: 18,\n        dayOfWeek: 3,\n    },\n    deleteProtection: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nbackups = hcloud.StorageBox(\"backups\",\n    name=\"backups\",\n    storage_box_type=\"bx21\",\n    location=\"hel1\",\n    password=storage_box_password,\n    labels={\n        \"foo\": \"bar\",\n    },\n    access_settings={\n        \"reachable_externally\": True,\n        \"samba_enabled\": True,\n        \"ssh_enabled\": True,\n        \"webdav_enabled\": True,\n        \"zfs_enabled\": True,\n    },\n    snapshot_plan={\n        \"max_snapshots\": 10,\n        \"minute\": 16,\n        \"hour\": 18,\n        \"day_of_week\": 3,\n    },\n    delete_protection=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var backups = new HCloud.StorageBox(\"backups\", new()\n    {\n        Name = \"backups\",\n        StorageBoxType = \"bx21\",\n        Location = \"hel1\",\n        Password = storageBoxPassword,\n        Labels = \n        {\n            { \"foo\", \"bar\" },\n        },\n        AccessSettings = new HCloud.Inputs.StorageBoxAccessSettingsArgs\n        {\n            ReachableExternally = true,\n            SambaEnabled = true,\n            SshEnabled = true,\n            WebdavEnabled = true,\n            ZfsEnabled = true,\n        },\n        SnapshotPlan = new HCloud.Inputs.StorageBoxSnapshotPlanArgs\n        {\n            MaxSnapshots = 10,\n            Minute = 16,\n            Hour = 18,\n            DayOfWeek = 3,\n        },\n        DeleteProtection = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.NewStorageBox(ctx, \"backups\", \u0026hcloud.StorageBoxArgs{\n\t\t\tName:           pulumi.String(\"backups\"),\n\t\t\tStorageBoxType: pulumi.String(\"bx21\"),\n\t\t\tLocation:       pulumi.String(\"hel1\"),\n\t\t\tPassword:       pulumi.Any(storageBoxPassword),\n\t\t\tLabels: pulumi.StringMap{\n\t\t\t\t\"foo\": pulumi.String(\"bar\"),\n\t\t\t},\n\t\t\tAccessSettings: \u0026hcloud.StorageBoxAccessSettingsArgs{\n\t\t\t\tReachableExternally: pulumi.Bool(true),\n\t\t\t\tSambaEnabled:        pulumi.Bool(true),\n\t\t\t\tSshEnabled:          pulumi.Bool(true),\n\t\t\t\tWebdavEnabled:       pulumi.Bool(true),\n\t\t\t\tZfsEnabled:          pulumi.Bool(true),\n\t\t\t},\n\t\t\tSnapshotPlan: \u0026hcloud.StorageBoxSnapshotPlanArgs{\n\t\t\t\tMaxSnapshots: pulumi.Int(10),\n\t\t\t\tMinute:       pulumi.Int(16),\n\t\t\t\tHour:         pulumi.Int(18),\n\t\t\t\tDayOfWeek:    pulumi.Int(3),\n\t\t\t},\n\t\t\tDeleteProtection: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.StorageBox;\nimport com.pulumi.hcloud.StorageBoxArgs;\nimport com.pulumi.hcloud.inputs.StorageBoxAccessSettingsArgs;\nimport com.pulumi.hcloud.inputs.StorageBoxSnapshotPlanArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var backups = new StorageBox(\"backups\", StorageBoxArgs.builder()\n            .name(\"backups\")\n            .storageBoxType(\"bx21\")\n            .location(\"hel1\")\n            .password(storageBoxPassword)\n            .labels(Map.of(\"foo\", \"bar\"))\n            .accessSettings(StorageBoxAccessSettingsArgs.builder()\n                .reachableExternally(true)\n                .sambaEnabled(true)\n                .sshEnabled(true)\n                .webdavEnabled(true)\n                .zfsEnabled(true)\n                .build())\n            .snapshotPlan(StorageBoxSnapshotPlanArgs.builder()\n                .maxSnapshots(10)\n                .minute(16)\n                .hour(18)\n                .dayOfWeek(3)\n                .build())\n            .deleteProtection(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  backups:\n    type: hcloud:StorageBox\n    properties:\n      name: backups\n      storageBoxType: bx21\n      location: hel1\n      password: ${storageBoxPassword}\n      labels:\n        foo: bar\n      accessSettings:\n        reachableExternally: true\n        sambaEnabled: true\n        sshEnabled: true\n        webdavEnabled: true\n        zfsEnabled: true\n      snapshotPlan:\n        maxSnapshots: 10\n        minute: 16\n        hour: 18\n        dayOfWeek: 3\n      deleteProtection: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nIn Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:\n\nterraform\n\nimport {\n\n  to = hcloud_storage_box.example\n\n  id = \"$STORAGE_BOX_ID\"\n\n}\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import hcloud:index/storageBox:StorageBox example \"$STORAGE_BOX_ID\"\n```\n\n",
+            "properties": {
+                "accessSettings": {
+                    "$ref": "#/types/hcloud:index/StorageBoxAccessSettings:StorageBoxAccessSettings",
+                    "description": "Access settings of the Storage Box.\n"
+                },
+                "deleteProtection": {
+                    "type": "boolean"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Name of the Location.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Storage Box.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).\n",
+                    "secret": true
+                },
+                "server": {
+                    "type": "string",
+                    "description": "FQDN of the Storage Box.\n"
+                },
+                "snapshotPlan": {
+                    "$ref": "#/types/hcloud:index/StorageBoxSnapshotPlan:StorageBoxSnapshotPlan",
+                    "description": "Details of the active snapshot plan.\n"
+                },
+                "sshKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.\n"
+                },
+                "storageBoxType": {
+                    "type": "string",
+                    "description": "Name of the Storage Box Type.\n"
+                },
+                "system": {
+                    "type": "string",
+                    "description": "Host system of the Storage Box.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Primary username of the Storage Box.\n"
+                }
+            },
+            "required": [
+                "accessSettings",
+                "deleteProtection",
+                "labels",
+                "location",
+                "name",
+                "password",
+                "server",
+                "sshKeys",
+                "storageBoxType",
+                "system",
+                "username"
+            ],
+            "inputProperties": {
+                "accessSettings": {
+                    "$ref": "#/types/hcloud:index/StorageBoxAccessSettings:StorageBoxAccessSettings",
+                    "description": "Access settings of the Storage Box.\n"
+                },
+                "deleteProtection": {
+                    "type": "boolean"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Name of the Location.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Storage Box.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).\n",
+                    "secret": true
+                },
+                "snapshotPlan": {
+                    "$ref": "#/types/hcloud:index/StorageBoxSnapshotPlan:StorageBoxSnapshotPlan",
+                    "description": "Details of the active snapshot plan.\n"
+                },
+                "sshKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.\n"
+                },
+                "storageBoxType": {
+                    "type": "string",
+                    "description": "Name of the Storage Box Type.\n"
+                }
+            },
+            "requiredInputs": [
+                "location",
+                "password",
+                "storageBoxType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering StorageBox resources.\n",
+                "properties": {
+                    "accessSettings": {
+                        "$ref": "#/types/hcloud:index/StorageBoxAccessSettings:StorageBoxAccessSettings",
+                        "description": "Access settings of the Storage Box.\n"
+                    },
+                    "deleteProtection": {
+                        "type": "boolean"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                    },
+                    "location": {
+                        "type": "string",
+                        "description": "Name of the Location.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Storage Box.\n"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).\n",
+                        "secret": true
+                    },
+                    "server": {
+                        "type": "string",
+                        "description": "FQDN of the Storage Box.\n"
+                    },
+                    "snapshotPlan": {
+                        "$ref": "#/types/hcloud:index/StorageBoxSnapshotPlan:StorageBoxSnapshotPlan",
+                        "description": "Details of the active snapshot plan.\n"
+                    },
+                    "sshKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.\n"
+                    },
+                    "storageBoxType": {
+                        "type": "string",
+                        "description": "Name of the Storage Box Type.\n"
+                    },
+                    "system": {
+                        "type": "string",
+                        "description": "Host system of the Storage Box.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "Primary username of the Storage Box.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/storageBoxSnapshot:StorageBoxSnapshot": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst main = new hcloud.StorageBox(\"main\", {});\nconst backup = new hcloud.StorageBoxSnapshot(\"backup\", {\n    storageBoxId: main.id,\n    description: \"Before Tool XYZ Migration\",\n    labels: {\n        env: \"production\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nmain = hcloud.StorageBox(\"main\")\nbackup = hcloud.StorageBoxSnapshot(\"backup\",\n    storage_box_id=main.id,\n    description=\"Before Tool XYZ Migration\",\n    labels={\n        \"env\": \"production\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new HCloud.StorageBox(\"main\");\n\n    var backup = new HCloud.StorageBoxSnapshot(\"backup\", new()\n    {\n        StorageBoxId = main.Id,\n        Description = \"Before Tool XYZ Migration\",\n        Labels = \n        {\n            { \"env\", \"production\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := hcloud.NewStorageBox(ctx, \"main\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewStorageBoxSnapshot(ctx, \"backup\", \u0026hcloud.StorageBoxSnapshotArgs{\n\t\t\tStorageBoxId: main.ID(),\n\t\t\tDescription:  pulumi.String(\"Before Tool XYZ Migration\"),\n\t\t\tLabels: pulumi.StringMap{\n\t\t\t\t\"env\": pulumi.String(\"production\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.StorageBox;\nimport com.pulumi.hcloud.StorageBoxSnapshot;\nimport com.pulumi.hcloud.StorageBoxSnapshotArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new StorageBox(\"main\");\n\n        var backup = new StorageBoxSnapshot(\"backup\", StorageBoxSnapshotArgs.builder()\n            .storageBoxId(main.id())\n            .description(\"Before Tool XYZ Migration\")\n            .labels(Map.of(\"env\", \"production\"))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: hcloud:StorageBox\n  backup:\n    type: hcloud:StorageBoxSnapshot\n    properties:\n      storageBoxId: ${main.id}\n      description: Before Tool XYZ Migration\n      labels:\n        env: production\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nIn Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:\n\nterraform\n\nimport {\n\n  to = hcloud_storage_box_snapshot.example\n\n  id = \"$STORAGE_BOX_ID/$STORAGE_BOX_SNAPSHOT_ID\"\n\n}\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import hcloud:index/storageBoxSnapshot:StorageBoxSnapshot example \"$STORAGE_BOX_ID/$STORAGE_BOX_SNAPSHOT_ID\"\n```\n\n",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Storage Box Snapshot.\n"
+                },
+                "isAutomatic": {
+                    "type": "boolean",
+                    "description": "Whether the Storage Box Snapshot was created automatically.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Storage Box Snapshot.\n"
+                },
+                "storageBoxId": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box.\n"
+                }
+            },
+            "required": [
+                "description",
+                "isAutomatic",
+                "labels",
+                "name",
+                "storageBoxId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Storage Box Snapshot.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "storageBoxId": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box.\n"
+                }
+            },
+            "requiredInputs": [
+                "storageBoxId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering StorageBoxSnapshot resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the Storage Box Snapshot.\n"
+                    },
+                    "isAutomatic": {
+                        "type": "boolean",
+                        "description": "Whether the Storage Box Snapshot was created automatically.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Storage Box Snapshot.\n"
+                    },
+                    "storageBoxId": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "hcloud:index/storageBoxSubaccount:StorageBoxSubaccount": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst config = new pulumi.Config();\nconst teamBadgerPassword = config.require(\"teamBadgerPassword\");\nconst main = new hcloud.StorageBox(\"main\", {});\nconst teamBadger = new hcloud.StorageBoxSubaccount(\"team_badger\", {\n    storageBoxId: main.id,\n    homeDirectory: \"teams/badger/\",\n    password: teamBadgerPassword,\n    accessSettings: {\n        reachableExternally: true,\n        sambaEnabled: true,\n    },\n    description: \"Primary account for the Badger team to upload files.\",\n    labels: {\n        env: \"production\",\n        team: \"badger\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nconfig = pulumi.Config()\nteam_badger_password = config.require(\"teamBadgerPassword\")\nmain = hcloud.StorageBox(\"main\")\nteam_badger = hcloud.StorageBoxSubaccount(\"team_badger\",\n    storage_box_id=main.id,\n    home_directory=\"teams/badger/\",\n    password=team_badger_password,\n    access_settings={\n        \"reachable_externally\": True,\n        \"samba_enabled\": True,\n    },\n    description=\"Primary account for the Badger team to upload files.\",\n    labels={\n        \"env\": \"production\",\n        \"team\": \"badger\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var config = new Config();\n    var teamBadgerPassword = config.Require(\"teamBadgerPassword\");\n    var main = new HCloud.StorageBox(\"main\");\n\n    var teamBadger = new HCloud.StorageBoxSubaccount(\"team_badger\", new()\n    {\n        StorageBoxId = main.Id,\n        HomeDirectory = \"teams/badger/\",\n        Password = teamBadgerPassword,\n        AccessSettings = new HCloud.Inputs.StorageBoxSubaccountAccessSettingsArgs\n        {\n            ReachableExternally = true,\n            SambaEnabled = true,\n        },\n        Description = \"Primary account for the Badger team to upload files.\",\n        Labels = \n        {\n            { \"env\", \"production\" },\n            { \"team\", \"badger\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcfg := config.New(ctx, \"\")\n\t\tteamBadgerPassword := cfg.Require(\"teamBadgerPassword\")\n\t\tmain, err := hcloud.NewStorageBox(ctx, \"main\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewStorageBoxSubaccount(ctx, \"team_badger\", \u0026hcloud.StorageBoxSubaccountArgs{\n\t\t\tStorageBoxId:  main.ID(),\n\t\t\tHomeDirectory: pulumi.String(\"teams/badger/\"),\n\t\t\tPassword:      pulumi.String(teamBadgerPassword),\n\t\t\tAccessSettings: \u0026hcloud.StorageBoxSubaccountAccessSettingsArgs{\n\t\t\t\tReachableExternally: pulumi.Bool(true),\n\t\t\t\tSambaEnabled:        pulumi.Bool(true),\n\t\t\t},\n\t\t\tDescription: pulumi.String(\"Primary account for the Badger team to upload files.\"),\n\t\t\tLabels: pulumi.StringMap{\n\t\t\t\t\"env\":  pulumi.String(\"production\"),\n\t\t\t\t\"team\": pulumi.String(\"badger\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.StorageBox;\nimport com.pulumi.hcloud.StorageBoxSubaccount;\nimport com.pulumi.hcloud.StorageBoxSubaccountArgs;\nimport com.pulumi.hcloud.inputs.StorageBoxSubaccountAccessSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var config = ctx.config();\n        final var teamBadgerPassword = config.get(\"teamBadgerPassword\");\n        var main = new StorageBox(\"main\");\n\n        var teamBadger = new StorageBoxSubaccount(\"teamBadger\", StorageBoxSubaccountArgs.builder()\n            .storageBoxId(main.id())\n            .homeDirectory(\"teams/badger/\")\n            .password(teamBadgerPassword)\n            .accessSettings(StorageBoxSubaccountAccessSettingsArgs.builder()\n                .reachableExternally(true)\n                .sambaEnabled(true)\n                .build())\n            .description(\"Primary account for the Badger team to upload files.\")\n            .labels(Map.ofEntries(\n                Map.entry(\"env\", \"production\"),\n                Map.entry(\"team\", \"badger\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nconfiguration:\n  teamBadgerPassword:\n    type: string\nresources:\n  main:\n    type: hcloud:StorageBox\n  teamBadger:\n    type: hcloud:StorageBoxSubaccount\n    name: team_badger\n    properties:\n      storageBoxId: ${main.id}\n      homeDirectory: teams/badger/\n      password: ${teamBadgerPassword}\n      accessSettings:\n        reachableExternally: true\n        sambaEnabled: true\n      description: Primary account for the Badger team to upload files.\n      labels:\n        env: production\n        team: badger\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nIn Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:\n\nterraform\n\nimport {\n\n  to = hcloud_storage_box_subaccount.example\n\n  id = \"$STORAGE_BOX_ID/$STORAGE_BOX_SUBACCOUNT_ID\"\n\n}\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import hcloud:index/storageBoxSubaccount:StorageBoxSubaccount example \"$STORAGE_BOX_ID/$STORAGE_BOX_SUBACCOUNT_ID\"\n```\n\n",
+            "properties": {
+                "accessSettings": {
+                    "$ref": "#/types/hcloud:index/StorageBoxSubaccountAccessSettings:StorageBoxSubaccountAccessSettings",
+                    "description": "Access settings for the Subaccount.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Storage Box Subaccount.\n"
+                },
+                "homeDirectory": {
+                    "type": "string",
+                    "description": "Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).\n",
+                    "secret": true
+                },
+                "server": {
+                    "type": "string",
+                    "description": "FQDN of the Storage Box Subaccount.\n"
+                },
+                "storageBoxId": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Username of the Storage Box Subaccount.\n"
+                }
+            },
+            "required": [
+                "accessSettings",
+                "description",
+                "homeDirectory",
+                "labels",
+                "password",
+                "server",
+                "storageBoxId",
+                "username"
+            ],
+            "inputProperties": {
+                "accessSettings": {
+                    "$ref": "#/types/hcloud:index/StorageBoxSubaccountAccessSettings:StorageBoxSubaccountAccessSettings",
+                    "description": "Access settings for the Subaccount.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Storage Box Subaccount.\n"
+                },
+                "homeDirectory": {
+                    "type": "string",
+                    "description": "Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).\n",
+                    "secret": true
+                },
+                "storageBoxId": {
+                    "type": "integer",
+                    "description": "ID of the Storage Box.\n"
+                }
+            },
+            "requiredInputs": [
+                "homeDirectory",
+                "password",
+                "storageBoxId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering StorageBoxSubaccount resources.\n",
+                "properties": {
+                    "accessSettings": {
+                        "$ref": "#/types/hcloud:index/StorageBoxSubaccountAccessSettings:StorageBoxSubaccountAccessSettings",
+                        "description": "Access settings for the Subaccount.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the Storage Box Subaccount.\n"
+                    },
+                    "homeDirectory": {
+                        "type": "string",
+                        "description": "Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.\n"
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).\n",
+                        "secret": true
+                    },
+                    "server": {
+                        "type": "string",
+                        "description": "FQDN of the Storage Box Subaccount.\n"
+                    },
+                    "storageBoxId": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "Username of the Storage Box Subaccount.\n"
                     }
                 },
                 "type": "object"
@@ -7074,6 +8084,487 @@
                 },
                 "required": [
                     "sshKeys"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getStorageBox:getStorageBox": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byId = hcloud.getStorageBox({\n    id: 1333,\n});\nconst byName = hcloud.getStorageBox({\n    name: \"backups\",\n});\nconst byLabelSelector = hcloud.getStorageBox({\n    withSelector: \"env=production\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_id = hcloud.get_storage_box(id=1333)\nby_name = hcloud.get_storage_box(name=\"backups\")\nby_label_selector = hcloud.get_storage_box(with_selector=\"env=production\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = HCloud.GetStorageBox.Invoke(new()\n    {\n        Id = 1333,\n    });\n\n    var byName = HCloud.GetStorageBox.Invoke(new()\n    {\n        Name = \"backups\",\n    });\n\n    var byLabelSelector = HCloud.GetStorageBox.Invoke(new()\n    {\n        WithSelector = \"env=production\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.LookupStorageBox(ctx, \u0026hcloud.LookupStorageBoxArgs{\n\t\t\tId: pulumi.IntRef(1333),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupStorageBox(ctx, \u0026hcloud.LookupStorageBoxArgs{\n\t\t\tName: pulumi.StringRef(\"backups\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupStorageBox(ctx, \u0026hcloud.LookupStorageBoxArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"env=production\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetStorageBoxArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()\n            .id(1333)\n            .build());\n\n        final var byName = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()\n            .name(\"backups\")\n            .build());\n\n        final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()\n            .withSelector(\"env=production\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getStorageBox\n      arguments:\n        id: 1333\n  byName:\n    fn::invoke:\n      function: hcloud:getStorageBox\n      arguments:\n        name: backups\n  byLabelSelector:\n    fn::invoke:\n      function: hcloud:getStorageBox\n      arguments:\n        withSelector: env=production\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStorageBox.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Storage Box.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStorageBox.\n",
+                "properties": {
+                    "accessSettings": {
+                        "$ref": "#/types/hcloud:index/getStorageBoxAccessSettings:getStorageBoxAccessSettings",
+                        "description": "Access settings of the Storage Box.\n"
+                    },
+                    "deleteProtection": {
+                        "description": "Whether delete protection is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "ID of the Storage Box.\n",
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n",
+                        "type": "object"
+                    },
+                    "location": {
+                        "description": "Name of the Location.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the Storage Box.\n",
+                        "type": "string"
+                    },
+                    "server": {
+                        "description": "FQDN of the Storage Box.\n",
+                        "type": "string"
+                    },
+                    "snapshotPlan": {
+                        "$ref": "#/types/hcloud:index/getStorageBoxSnapshotPlan:getStorageBoxSnapshotPlan",
+                        "description": "Details of the active snapshot plan.\n"
+                    },
+                    "storageBoxType": {
+                        "description": "Name of the Storage Box Type.\n",
+                        "type": "string"
+                    },
+                    "system": {
+                        "description": "Host system of the Storage Box.\n",
+                        "type": "string"
+                    },
+                    "username": {
+                        "description": "Primary username of the Storage Box.\n",
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accessSettings",
+                    "deleteProtection",
+                    "labels",
+                    "location",
+                    "server",
+                    "snapshotPlan",
+                    "storageBoxType",
+                    "system",
+                    "username"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nconfiguration:\n  storageBoxId:\n    type: dynamic\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getStorageBoxSnapshot\n      arguments:\n        storageBoxId: ${storageBoxId}\n        id: 2\n  byName:\n    fn::invoke:\n      function: hcloud:getStorageBoxSnapshot\n      arguments:\n        storageBoxId: ${storageBoxId}\n        name: 2025-02-12T11-35-19\n  byLabelSelector:\n    fn::invoke:\n      function: hcloud:getStorageBox\n      arguments:\n        storageBoxId: ${storageBoxId}\n        withSelector: env=production\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStorageBoxSnapshot.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box Snapshot.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Storage Box Snapshot.\n"
+                    },
+                    "storageBoxId": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "storageBoxId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStorageBoxSnapshot.\n",
+                "properties": {
+                    "description": {
+                        "description": "Description of the Storage Box Snapshot.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of the Storage Box Snapshot.\n",
+                        "type": "integer"
+                    },
+                    "isAutomatic": {
+                        "description": "Whether the Storage Box Snapshot was created automatically.\n",
+                        "type": "boolean"
+                    },
+                    "labels": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n",
+                        "type": "object"
+                    },
+                    "name": {
+                        "description": "Name of the Storage Box Snapshot.\n",
+                        "type": "string"
+                    },
+                    "stats": {
+                        "$ref": "#/types/hcloud:index/getStorageBoxSnapshotStats:getStorageBoxSnapshotStats",
+                        "description": "Statistics of the Storage Box Snapshot.\n"
+                    },
+                    "storageBoxId": {
+                        "description": "ID of the Storage Box.\n",
+                        "type": "integer"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "id",
+                    "isAutomatic",
+                    "labels",
+                    "name",
+                    "stats",
+                    "storageBoxId"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst config = new pulumi.Config();\nconst storageBoxId = config.requireObject\u003cany\u003e(\"storageBoxId\");\nconst all = hcloud.getStorageBoxSnapshots({\n    storageBoxId: storageBoxId,\n});\nconst byLabelSelector = hcloud.getStorageBoxSnapshots({\n    storageBoxId: storageBoxId,\n    withSelector: \"env=production\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nconfig = pulumi.Config()\nstorage_box_id = config.require_object(\"storageBoxId\")\nall = hcloud.get_storage_box_snapshots(storage_box_id=storage_box_id)\nby_label_selector = hcloud.get_storage_box_snapshots(storage_box_id=storage_box_id,\n    with_selector=\"env=production\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var config = new Config();\n    var storageBoxId = config.RequireObject\u003cdynamic\u003e(\"storageBoxId\");\n    var all = HCloud.GetStorageBoxSnapshots.Invoke(new()\n    {\n        StorageBoxId = storageBoxId,\n    });\n\n    var byLabelSelector = HCloud.GetStorageBoxSnapshots.Invoke(new()\n    {\n        StorageBoxId = storageBoxId,\n        WithSelector = \"env=production\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcfg := config.New(ctx, \"\")\n\t\tstorageBoxId := cfg.RequireObject(\"storageBoxId\")\n\t\t_, err := hcloud.GetStorageBoxSnapshots(ctx, \u0026hcloud.GetStorageBoxSnapshotsArgs{\n\t\t\tStorageBoxId: storageBoxId,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetStorageBoxSnapshots(ctx, \u0026hcloud.GetStorageBoxSnapshotsArgs{\n\t\t\tStorageBoxId: storageBoxId,\n\t\t\tWithSelector: pulumi.StringRef(\"env=production\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var config = ctx.config();\n        final var storageBoxId = config.get(\"storageBoxId\");\n        final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()\n            .storageBoxId(storageBoxId)\n            .build());\n\n        final var byLabelSelector = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()\n            .storageBoxId(storageBoxId)\n            .withSelector(\"env=production\")\n            .build());\n\n    }\n}\n```\n```yaml\nconfiguration:\n  storageBoxId:\n    type: dynamic\nvariables:\n  all:\n    fn::invoke:\n      function: hcloud:getStorageBoxSnapshots\n      arguments:\n        storageBoxId: ${storageBoxId}\n  byLabelSelector:\n    fn::invoke:\n      function: hcloud:getStorageBoxSnapshots\n      arguments:\n        storageBoxId: ${storageBoxId}\n        withSelector: env=production\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStorageBoxSnapshots.\n",
+                "properties": {
+                    "storageBoxId": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "storageBoxId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStorageBoxSnapshots.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "snapshots": {
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getStorageBoxSnapshotsSnapshot:getStorageBoxSnapshotsSnapshot"
+                        },
+                        "type": "array"
+                    },
+                    "storageBoxId": {
+                        "description": "ID of the Storage Box.\n",
+                        "type": "integer"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "snapshots",
+                    "storageBoxId",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst config = new pulumi.Config();\nconst storageBoxId = config.requireObject\u003cany\u003e(\"storageBoxId\");\nconst byId = hcloud.getStorageBoxSubaccount({\n    storageBoxId: storageBoxId,\n    id: 2,\n});\nconst byUsername = hcloud.getStorageBoxSubaccount({\n    storageBoxId: storageBoxId,\n    username: \"u507137-sub1\",\n});\nconst byLabelSelector = hcloud.getStorageBoxSubaccount({\n    storageBoxId: storageBoxId,\n    withSelector: \"team=billing\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nconfig = pulumi.Config()\nstorage_box_id = config.require_object(\"storageBoxId\")\nby_id = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,\n    id=2)\nby_username = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,\n    username=\"u507137-sub1\")\nby_label_selector = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,\n    with_selector=\"team=billing\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var config = new Config();\n    var storageBoxId = config.RequireObject\u003cdynamic\u003e(\"storageBoxId\");\n    var byId = HCloud.GetStorageBoxSubaccount.Invoke(new()\n    {\n        StorageBoxId = storageBoxId,\n        Id = 2,\n    });\n\n    var byUsername = HCloud.GetStorageBoxSubaccount.Invoke(new()\n    {\n        StorageBoxId = storageBoxId,\n        Username = \"u507137-sub1\",\n    });\n\n    var byLabelSelector = HCloud.GetStorageBoxSubaccount.Invoke(new()\n    {\n        StorageBoxId = storageBoxId,\n        WithSelector = \"team=billing\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcfg := config.New(ctx, \"\")\n\t\tstorageBoxId := cfg.RequireObject(\"storageBoxId\")\n\t\t_, err := hcloud.LookupStorageBoxSubaccount(ctx, \u0026hcloud.LookupStorageBoxSubaccountArgs{\n\t\t\tStorageBoxId: storageBoxId,\n\t\t\tId:           pulumi.IntRef(2),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupStorageBoxSubaccount(ctx, \u0026hcloud.LookupStorageBoxSubaccountArgs{\n\t\t\tStorageBoxId: storageBoxId,\n\t\t\tUsername:     pulumi.StringRef(\"u507137-sub1\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.LookupStorageBoxSubaccount(ctx, \u0026hcloud.LookupStorageBoxSubaccountArgs{\n\t\t\tStorageBoxId: storageBoxId,\n\t\t\tWithSelector: pulumi.StringRef(\"team=billing\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var config = ctx.config();\n        final var storageBoxId = config.get(\"storageBoxId\");\n        final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()\n            .storageBoxId(storageBoxId)\n            .id(2)\n            .build());\n\n        final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()\n            .storageBoxId(storageBoxId)\n            .username(\"u507137-sub1\")\n            .build());\n\n        final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()\n            .storageBoxId(storageBoxId)\n            .withSelector(\"team=billing\")\n            .build());\n\n    }\n}\n```\n```yaml\nconfiguration:\n  storageBoxId:\n    type: dynamic\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getStorageBoxSubaccount\n      arguments:\n        storageBoxId: ${storageBoxId}\n        id: 2\n  byUsername:\n    fn::invoke:\n      function: hcloud:getStorageBoxSubaccount\n      arguments:\n        storageBoxId: ${storageBoxId}\n        username: u507137-sub1\n  byLabelSelector:\n    fn::invoke:\n      function: hcloud:getStorageBoxSubaccount\n      arguments:\n        storageBoxId: ${storageBoxId}\n        withSelector: team=billing\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStorageBoxSubaccount.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box Subaccount.\n"
+                    },
+                    "storageBoxId": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "Username of the Storage Box Subaccount.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "storageBoxId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStorageBoxSubaccount.\n",
+                "properties": {
+                    "accessSettings": {
+                        "$ref": "#/types/hcloud:index/getStorageBoxSubaccountAccessSettings:getStorageBoxSubaccountAccessSettings",
+                        "description": "Access settings for the Subaccount.\n"
+                    },
+                    "description": {
+                        "description": "Description of the Storage Box Subaccount.\n",
+                        "type": "string"
+                    },
+                    "homeDirectory": {
+                        "description": "Home directory of the Storage Box Subaccount.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of the Storage Box Subaccount.\n",
+                        "type": "integer"
+                    },
+                    "labels": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n",
+                        "type": "object"
+                    },
+                    "server": {
+                        "description": "FQDN of the Storage Box Subaccount.\n",
+                        "type": "string"
+                    },
+                    "storageBoxId": {
+                        "description": "ID of the Storage Box.\n",
+                        "type": "integer"
+                    },
+                    "username": {
+                        "description": "Username of the Storage Box Subaccount.\n",
+                        "type": "string"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accessSettings",
+                    "description",
+                    "homeDirectory",
+                    "id",
+                    "labels",
+                    "server",
+                    "storageBoxId",
+                    "username"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst config = new pulumi.Config();\nconst storageBoxId = config.requireObject\u003cany\u003e(\"storageBoxId\");\nconst all = hcloud.getStorageBoxSubaccounts({\n    storageBoxId: storageBoxId,\n});\nconst byLabelSelector = hcloud.getStorageBoxSubaccounts({\n    storageBoxId: storageBoxId,\n    withSelector: \"team=billing\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nconfig = pulumi.Config()\nstorage_box_id = config.require_object(\"storageBoxId\")\nall = hcloud.get_storage_box_subaccounts(storage_box_id=storage_box_id)\nby_label_selector = hcloud.get_storage_box_subaccounts(storage_box_id=storage_box_id,\n    with_selector=\"team=billing\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var config = new Config();\n    var storageBoxId = config.RequireObject\u003cdynamic\u003e(\"storageBoxId\");\n    var all = HCloud.GetStorageBoxSubaccounts.Invoke(new()\n    {\n        StorageBoxId = storageBoxId,\n    });\n\n    var byLabelSelector = HCloud.GetStorageBoxSubaccounts.Invoke(new()\n    {\n        StorageBoxId = storageBoxId,\n        WithSelector = \"team=billing\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcfg := config.New(ctx, \"\")\n\t\tstorageBoxId := cfg.RequireObject(\"storageBoxId\")\n\t\t_, err := hcloud.GetStorageBoxSubaccounts(ctx, \u0026hcloud.GetStorageBoxSubaccountsArgs{\n\t\t\tStorageBoxId: storageBoxId,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetStorageBoxSubaccounts(ctx, \u0026hcloud.GetStorageBoxSubaccountsArgs{\n\t\t\tStorageBoxId: storageBoxId,\n\t\t\tWithSelector: pulumi.StringRef(\"team=billing\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var config = ctx.config();\n        final var storageBoxId = config.get(\"storageBoxId\");\n        final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()\n            .storageBoxId(storageBoxId)\n            .build());\n\n        final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()\n            .storageBoxId(storageBoxId)\n            .withSelector(\"team=billing\")\n            .build());\n\n    }\n}\n```\n```yaml\nconfiguration:\n  storageBoxId:\n    type: dynamic\nvariables:\n  all:\n    fn::invoke:\n      function: hcloud:getStorageBoxSubaccounts\n      arguments:\n        storageBoxId: ${storageBoxId}\n  byLabelSelector:\n    fn::invoke:\n      function: hcloud:getStorageBoxSubaccounts\n      arguments:\n        storageBoxId: ${storageBoxId}\n        withSelector: team=billing\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStorageBoxSubaccounts.\n",
+                "properties": {
+                    "storageBoxId": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box.\n"
+                    },
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "storageBoxId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStorageBoxSubaccounts.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "storageBoxId": {
+                        "description": "ID of the Storage Box.\n",
+                        "type": "integer"
+                    },
+                    "subaccounts": {
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getStorageBoxSubaccountsSubaccount:getStorageBoxSubaccountsSubaccount"
+                        },
+                        "type": "array"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "storageBoxId",
+                    "subaccounts",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getStorageBoxType:getStorageBoxType": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byId = hcloud.getStorageBoxType({\n    id: 1333,\n});\nconst byName = hcloud.getStorageBoxType({\n    name: \"bx11\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_id = hcloud.get_storage_box_type(id=1333)\nby_name = hcloud.get_storage_box_type(name=\"bx11\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = HCloud.GetStorageBoxType.Invoke(new()\n    {\n        Id = 1333,\n    });\n\n    var byName = HCloud.GetStorageBoxType.Invoke(new()\n    {\n        Name = \"bx11\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetStorageBoxType(ctx, \u0026hcloud.GetStorageBoxTypeArgs{\n\t\t\tId: pulumi.IntRef(1333),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetStorageBoxType(ctx, \u0026hcloud.GetStorageBoxTypeArgs{\n\t\t\tName: pulumi.StringRef(\"bx11\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()\n            .id(1333)\n            .build());\n\n        final var byName = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()\n            .name(\"bx11\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getStorageBoxType\n      arguments:\n        id: 1333\n  byName:\n    fn::invoke:\n      function: hcloud:getStorageBoxType\n      arguments:\n        name: bx11\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStorageBoxType.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID of the Storage Box Type.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Storage Box Type.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStorageBoxType.\n",
+                "properties": {
+                    "automaticSnapshotLimit": {
+                        "description": "Maximum number of snapshots created automatically by a snapshot plan.\n",
+                        "type": "integer"
+                    },
+                    "deprecationAnnounced": {
+                        "description": "Date of the Storage Box Type deprecation announcement.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the Storage Box Type.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of the Storage Box Type.\n",
+                        "type": "integer"
+                    },
+                    "isDeprecated": {
+                        "description": "Whether the Storage Box Type is deprecated.\n",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "Name of the Storage Box Type.\n",
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "Available storage in bytes.\n",
+                        "type": "integer"
+                    },
+                    "snapshotLimit": {
+                        "description": "Maximum number of allowed manual snapshots.\n",
+                        "type": "integer"
+                    },
+                    "subaccountsLimit": {
+                        "description": "Maximum number of subaccounts.\n",
+                        "type": "integer"
+                    },
+                    "unavailableAfter": {
+                        "description": "Date of the Storage Box Type removal. After this date, the Storage Box Type cannot be used anymore.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "automaticSnapshotLimit",
+                    "deprecationAnnounced",
+                    "description",
+                    "isDeprecated",
+                    "size",
+                    "snapshotLimit",
+                    "subaccountsLimit",
+                    "unavailableAfter"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getStorageBoxTypes:getStorageBoxTypes": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst all = hcloud.getStorageBoxTypes({});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nall = hcloud.get_storage_box_types()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = HCloud.GetStorageBoxTypes.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetStorageBoxTypes(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var all = HcloudFunctions.getStorageBoxTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n    }\n}\n```\n```yaml\nvariables:\n  all:\n    fn::invoke:\n      function: hcloud:getStorageBoxTypes\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "outputs": {
+                "description": "A collection of values returned by getStorageBoxTypes.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "storageBoxTypes": {
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getStorageBoxTypesStorageBoxType:getStorageBoxTypesStorageBoxType"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "storageBoxTypes",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getStorageBoxes:getStorageBoxes": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst all = hcloud.getStorageBoxes({});\nconst byLabelSelector = hcloud.getStorageBoxes({\n    withSelector: \"env=production\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nall = hcloud.get_storage_boxes()\nby_label_selector = hcloud.get_storage_boxes(with_selector=\"env=production\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = HCloud.GetStorageBoxes.Invoke();\n\n    var byLabelSelector = HCloud.GetStorageBoxes.Invoke(new()\n    {\n        WithSelector = \"env=production\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetStorageBoxes(ctx, \u0026hcloud.GetStorageBoxesArgs{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetStorageBoxes(ctx, \u0026hcloud.GetStorageBoxesArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"env=production\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetStorageBoxesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var all = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()\n            .build());\n\n        final var byLabelSelector = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()\n            .withSelector(\"env=production\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  all:\n    fn::invoke:\n      function: hcloud:getStorageBoxes\n      arguments: {}\n  byLabelSelector:\n    fn::invoke:\n      function: hcloud:getStorageBoxes\n      arguments:\n        withSelector: env=production\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStorageBoxes.\n",
+                "properties": {
+                    "withSelector": {
+                        "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStorageBoxes.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "storageBoxes": {
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getStorageBoxesStorageBox:getStorageBoxesStorageBox"
+                        },
+                        "type": "array"
+                    },
+                    "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "storageBoxes",
+                    "id"
                 ],
                 "type": "object"
             }
