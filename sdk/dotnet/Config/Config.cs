@@ -42,6 +42,16 @@ namespace Pulumi.HCloud
             set => _endpoint.Set(value);
         }
 
+        private static readonly __Value<string?> _endpointHetzner = new __Value<string?>(() => __config.Get("endpointHetzner"));
+        /// <summary>
+        /// The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+        /// </summary>
+        public static string? EndpointHetzner
+        {
+            get => _endpointHetzner.Get();
+            set => _endpointHetzner.Set(value);
+        }
+
         private static readonly __Value<string?> _pollFunction = new __Value<string?>(() => __config.Get("pollFunction"));
         /// <summary>
         /// The type of function to be used during the polling.

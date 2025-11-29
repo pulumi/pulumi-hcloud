@@ -57,6 +57,20 @@ import com.pulumi.hcloud.inputs.GetSshKeyArgs;
 import com.pulumi.hcloud.inputs.GetSshKeyPlainArgs;
 import com.pulumi.hcloud.inputs.GetSshKeysArgs;
 import com.pulumi.hcloud.inputs.GetSshKeysPlainArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxPlainArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotPlainArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsPlainArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountPlainArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsPlainArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxTypePlainArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
+import com.pulumi.hcloud.inputs.GetStorageBoxesPlainArgs;
 import com.pulumi.hcloud.inputs.GetVolumeArgs;
 import com.pulumi.hcloud.inputs.GetVolumePlainArgs;
 import com.pulumi.hcloud.inputs.GetVolumesArgs;
@@ -97,6 +111,14 @@ import com.pulumi.hcloud.outputs.GetServerTypesResult;
 import com.pulumi.hcloud.outputs.GetServersResult;
 import com.pulumi.hcloud.outputs.GetSshKeyResult;
 import com.pulumi.hcloud.outputs.GetSshKeysResult;
+import com.pulumi.hcloud.outputs.GetStorageBoxResult;
+import com.pulumi.hcloud.outputs.GetStorageBoxSnapshotResult;
+import com.pulumi.hcloud.outputs.GetStorageBoxSnapshotsResult;
+import com.pulumi.hcloud.outputs.GetStorageBoxSubaccountResult;
+import com.pulumi.hcloud.outputs.GetStorageBoxSubaccountsResult;
+import com.pulumi.hcloud.outputs.GetStorageBoxTypeResult;
+import com.pulumi.hcloud.outputs.GetStorageBoxTypesResult;
+import com.pulumi.hcloud.outputs.GetStorageBoxesResult;
 import com.pulumi.hcloud.outputs.GetVolumeResult;
 import com.pulumi.hcloud.outputs.GetVolumesResult;
 import com.pulumi.hcloud.outputs.GetZoneResult;
@@ -9374,6 +9396,1894 @@ public final class HcloudFunctions {
      */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(GetSshKeysPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .name("backups")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxResult> getStorageBox() {
+        return getStorageBox(GetStorageBoxArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .name("backups")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxResult> getStorageBoxPlain() {
+        return getStorageBoxPlain(GetStorageBoxPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .name("backups")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxResult> getStorageBox(GetStorageBoxArgs args) {
+        return getStorageBox(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .name("backups")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxResult> getStorageBoxPlain(GetStorageBoxPlainArgs args) {
+        return getStorageBoxPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .name("backups")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxResult> getStorageBox(GetStorageBoxArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBox:getStorageBox", TypeShape.of(GetStorageBoxResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .name("backups")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxResult> getStorageBox(GetStorageBoxArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBox:getStorageBox", TypeShape.of(GetStorageBoxResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .name("backups")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxResult> getStorageBoxPlain(GetStorageBoxPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBox:getStorageBox", TypeShape.of(GetStorageBoxResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetStorageBoxSnapshotResult> getStorageBoxSnapshot(GetStorageBoxSnapshotArgs args) {
+        return getStorageBoxSnapshot(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxSnapshotResult> getStorageBoxSnapshotPlain(GetStorageBoxSnapshotPlainArgs args) {
+        return getStorageBoxSnapshotPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetStorageBoxSnapshotResult> getStorageBoxSnapshot(GetStorageBoxSnapshotArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", TypeShape.of(GetStorageBoxSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetStorageBoxSnapshotResult> getStorageBoxSnapshot(GetStorageBoxSnapshotArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", TypeShape.of(GetStorageBoxSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxSnapshotResult> getStorageBoxSnapshotPlain(GetStorageBoxSnapshotPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", TypeShape.of(GetStorageBoxSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSnapshotsResult> getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs args) {
+        return getStorageBoxSnapshots(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxSnapshotsResult> getStorageBoxSnapshotsPlain(GetStorageBoxSnapshotsPlainArgs args) {
+        return getStorageBoxSnapshotsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSnapshotsResult> getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots", TypeShape.of(GetStorageBoxSnapshotsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSnapshotsResult> getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots", TypeShape.of(GetStorageBoxSnapshotsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxSnapshotsResult> getStorageBoxSnapshotsPlain(GetStorageBoxSnapshotsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots", TypeShape.of(GetStorageBoxSnapshotsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .username("u507137-sub1")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSubaccountResult> getStorageBoxSubaccount(GetStorageBoxSubaccountArgs args) {
+        return getStorageBoxSubaccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .username("u507137-sub1")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxSubaccountResult> getStorageBoxSubaccountPlain(GetStorageBoxSubaccountPlainArgs args) {
+        return getStorageBoxSubaccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .username("u507137-sub1")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSubaccountResult> getStorageBoxSubaccount(GetStorageBoxSubaccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", TypeShape.of(GetStorageBoxSubaccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .username("u507137-sub1")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSubaccountResult> getStorageBoxSubaccount(GetStorageBoxSubaccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", TypeShape.of(GetStorageBoxSubaccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .username("u507137-sub1")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxSubaccountResult> getStorageBoxSubaccountPlain(GetStorageBoxSubaccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", TypeShape.of(GetStorageBoxSubaccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSubaccountsResult> getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs args) {
+        return getStorageBoxSubaccounts(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxSubaccountsResult> getStorageBoxSubaccountsPlain(GetStorageBoxSubaccountsPlainArgs args) {
+        return getStorageBoxSubaccountsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSubaccountsResult> getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts", TypeShape.of(GetStorageBoxSubaccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxSubaccountsResult> getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts", TypeShape.of(GetStorageBoxSubaccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("team=billing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxSubaccountsResult> getStorageBoxSubaccountsPlain(GetStorageBoxSubaccountsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts", TypeShape.of(GetStorageBoxSubaccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .name("bx11")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxTypeResult> getStorageBoxType() {
+        return getStorageBoxType(GetStorageBoxTypeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .name("bx11")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxTypeResult> getStorageBoxTypePlain() {
+        return getStorageBoxTypePlain(GetStorageBoxTypePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .name("bx11")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxTypeResult> getStorageBoxType(GetStorageBoxTypeArgs args) {
+        return getStorageBoxType(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .name("bx11")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxTypeResult> getStorageBoxTypePlain(GetStorageBoxTypePlainArgs args) {
+        return getStorageBoxTypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .name("bx11")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxTypeResult> getStorageBoxType(GetStorageBoxTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxType:getStorageBoxType", TypeShape.of(GetStorageBoxTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .name("bx11")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxTypeResult> getStorageBoxType(GetStorageBoxTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxType:getStorageBoxType", TypeShape.of(GetStorageBoxTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .id(1333)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxType(GetStorageBoxTypeArgs.builder()
+     *             .name("bx11")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxTypeResult> getStorageBoxTypePlain(GetStorageBoxTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxType:getStorageBoxType", TypeShape.of(GetStorageBoxTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxTypesResult> getStorageBoxTypes() {
+        return getStorageBoxTypes(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxTypesResult> getStorageBoxTypesPlain() {
+        return getStorageBoxTypesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxTypesResult> getStorageBoxTypes(InvokeArgs args) {
+        return getStorageBoxTypes(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxTypesResult> getStorageBoxTypesPlain(InvokeArgs args) {
+        return getStorageBoxTypesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxTypesResult> getStorageBoxTypes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxTypes:getStorageBoxTypes", TypeShape.of(GetStorageBoxTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxTypesResult> getStorageBoxTypes(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxTypes:getStorageBoxTypes", TypeShape.of(GetStorageBoxTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxTypesResult> getStorageBoxTypesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxTypes:getStorageBoxTypes", TypeShape.of(GetStorageBoxTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxesResult> getStorageBoxes() {
+        return getStorageBoxes(GetStorageBoxesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxesResult> getStorageBoxesPlain() {
+        return getStorageBoxesPlain(GetStorageBoxesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxesResult> getStorageBoxes(GetStorageBoxesArgs args) {
+        return getStorageBoxes(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxesResult> getStorageBoxesPlain(GetStorageBoxesPlainArgs args) {
+        return getStorageBoxesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxesResult> getStorageBoxes(GetStorageBoxesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxes:getStorageBoxes", TypeShape.of(GetStorageBoxesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStorageBoxesResult> getStorageBoxes(GetStorageBoxesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getStorageBoxes:getStorageBoxes", TypeShape.of(GetStorageBoxesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBoxes(GetStorageBoxesArgs.builder()
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStorageBoxesResult> getStorageBoxesPlain(GetStorageBoxesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxes:getStorageBoxes", TypeShape.of(GetStorageBoxesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

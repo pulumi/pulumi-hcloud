@@ -651,6 +651,322 @@ export interface GetSshKeysSshKey {
     publicKey: string;
 }
 
+export interface GetStorageBoxAccessSettings {
+    /**
+     * Whether access from outside the Hetzner network is allowed.
+     */
+    reachableExternally: boolean;
+    /**
+     * Whether the Samba subsystem is enabled.
+     */
+    sambaEnabled: boolean;
+    /**
+     * Whether the SSH subsystem is enabled.
+     */
+    sshEnabled: boolean;
+    /**
+     * Whether the WebDAV subsystem is enabled.
+     */
+    webdavEnabled: boolean;
+    /**
+     * Whether the ZFS snapshot folder is visible.
+     */
+    zfsEnabled: boolean;
+}
+
+export interface GetStorageBoxSnapshotPlan {
+    /**
+     * Day of the month when the Snapshot Plan is executed. Null means every day.
+     */
+    dayOfMonth: number;
+    /**
+     * Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+     */
+    dayOfWeek: number;
+    /**
+     * Hour when the Snapshot Plan is executed (UTC).
+     */
+    hour: number;
+    /**
+     * Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+     */
+    maxSnapshots: number;
+    /**
+     * Minute when the Snapshot Plan is executed (UTC).
+     */
+    minute: number;
+}
+
+export interface GetStorageBoxSnapshotStats {
+    /**
+     * Current storage requirements of the Snapshot in bytes.
+     */
+    size: number;
+    /**
+     * Size of the compressed file system contained in the Snapshot in bytes.
+     */
+    sizeFilesystem: number;
+}
+
+export interface GetStorageBoxSnapshotsSnapshot {
+    /**
+     * Description of the Storage Box Snapshot.
+     */
+    description: string;
+    /**
+     * ID of the Storage Box Snapshot.
+     */
+    id: number;
+    /**
+     * Whether the Storage Box Snapshot was created automatically.
+     */
+    isAutomatic: boolean;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     */
+    labels: {[key: string]: string};
+    /**
+     * Name of the Storage Box Snapshot.
+     */
+    name: string;
+    /**
+     * Statistics of the Storage Box Snapshot.
+     */
+    stats: outputs.GetStorageBoxSnapshotsSnapshotStats;
+    /**
+     * ID of the Storage Box.
+     */
+    storageBoxId: number;
+}
+
+export interface GetStorageBoxSnapshotsSnapshotStats {
+    /**
+     * Current storage requirements of the Snapshot in bytes.
+     */
+    size: number;
+    /**
+     * Size of the compressed file system contained in the Snapshot in bytes.
+     */
+    sizeFilesystem: number;
+}
+
+export interface GetStorageBoxSubaccountAccessSettings {
+    /**
+     * Whether access from outside the Hetzner network is allowed.
+     */
+    reachableExternally: boolean;
+    /**
+     * Whether the Subaccount is read-only.
+     */
+    readonly: boolean;
+    /**
+     * Whether the Samba subsystem is enabled.
+     */
+    sambaEnabled: boolean;
+    /**
+     * Whether the SSH subsystem is enabled.
+     */
+    sshEnabled: boolean;
+    /**
+     * Whether the WebDAV subsystem is enabled.
+     */
+    webdavEnabled: boolean;
+}
+
+export interface GetStorageBoxSubaccountsSubaccount {
+    /**
+     * Access settings for the Subaccount.
+     */
+    accessSettings: outputs.GetStorageBoxSubaccountsSubaccountAccessSettings;
+    /**
+     * Description of the Storage Box Subaccount.
+     */
+    description: string;
+    /**
+     * Home directory of the Storage Box Subaccount.
+     */
+    homeDirectory: string;
+    /**
+     * ID of the Storage Box Subaccount.
+     */
+    id: number;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     */
+    labels: {[key: string]: string};
+    /**
+     * FQDN of the Storage Box Subaccount.
+     */
+    server: string;
+    /**
+     * ID of the Storage Box.
+     */
+    storageBoxId: number;
+    /**
+     * Username of the Storage Box Subaccount.
+     */
+    username: string;
+}
+
+export interface GetStorageBoxSubaccountsSubaccountAccessSettings {
+    /**
+     * Whether access from outside the Hetzner network is allowed.
+     */
+    reachableExternally: boolean;
+    /**
+     * Whether the Subaccount is read-only.
+     */
+    readonly: boolean;
+    /**
+     * Whether the Samba subsystem is enabled.
+     */
+    sambaEnabled: boolean;
+    /**
+     * Whether the SSH subsystem is enabled.
+     */
+    sshEnabled: boolean;
+    /**
+     * Whether the WebDAV subsystem is enabled.
+     */
+    webdavEnabled: boolean;
+}
+
+export interface GetStorageBoxTypesStorageBoxType {
+    /**
+     * Maximum number of snapshots created automatically by a snapshot plan.
+     */
+    automaticSnapshotLimit: number;
+    /**
+     * Date of the Storage Box Type deprecation announcement.
+     */
+    deprecationAnnounced: string;
+    /**
+     * Description of the Storage Box Type.
+     */
+    description: string;
+    /**
+     * ID of the Storage Box Type.
+     */
+    id: number;
+    /**
+     * Whether the Storage Box Type is deprecated.
+     */
+    isDeprecated: boolean;
+    /**
+     * Name of the Storage Box Type.
+     */
+    name: string;
+    /**
+     * Available storage in bytes.
+     */
+    size: number;
+    /**
+     * Maximum number of allowed manual snapshots.
+     */
+    snapshotLimit: number;
+    /**
+     * Maximum number of subaccounts.
+     */
+    subaccountsLimit: number;
+    /**
+     * Date of the Storage Box Type removal. After this date, the Storage Box Type cannot be used anymore.
+     */
+    unavailableAfter: string;
+}
+
+export interface GetStorageBoxesStorageBox {
+    /**
+     * Access settings of the Storage Box.
+     */
+    accessSettings: outputs.GetStorageBoxesStorageBoxAccessSettings;
+    /**
+     * Whether delete protection is enabled.
+     */
+    deleteProtection: boolean;
+    /**
+     * ID of the Storage Box.
+     */
+    id: number;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     */
+    labels: {[key: string]: string};
+    /**
+     * Name of the Location.
+     */
+    location: string;
+    /**
+     * Name of the Storage Box.
+     */
+    name: string;
+    /**
+     * FQDN of the Storage Box.
+     */
+    server: string;
+    /**
+     * Details of the active snapshot plan.
+     */
+    snapshotPlan: outputs.GetStorageBoxesStorageBoxSnapshotPlan;
+    /**
+     * Name of the Storage Box Type.
+     */
+    storageBoxType: string;
+    /**
+     * Host system of the Storage Box.
+     */
+    system: string;
+    /**
+     * Primary username of the Storage Box.
+     */
+    username: string;
+}
+
+export interface GetStorageBoxesStorageBoxAccessSettings {
+    /**
+     * Whether access from outside the Hetzner network is allowed.
+     */
+    reachableExternally: boolean;
+    /**
+     * Whether the Samba subsystem is enabled.
+     */
+    sambaEnabled: boolean;
+    /**
+     * Whether the SSH subsystem is enabled.
+     */
+    sshEnabled: boolean;
+    /**
+     * Whether the WebDAV subsystem is enabled.
+     */
+    webdavEnabled: boolean;
+    /**
+     * Whether the ZFS snapshot folder is visible.
+     */
+    zfsEnabled: boolean;
+}
+
+export interface GetStorageBoxesStorageBoxSnapshotPlan {
+    /**
+     * Day of the month when the Snapshot Plan is executed. Null means every day.
+     */
+    dayOfMonth: number;
+    /**
+     * Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+     */
+    dayOfWeek: number;
+    /**
+     * Hour when the Snapshot Plan is executed (UTC).
+     */
+    hour: number;
+    /**
+     * Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+     */
+    maxSnapshots: number;
+    /**
+     * Minute when the Snapshot Plan is executed (UTC).
+     */
+    minute: number;
+}
+
 export interface GetVolumesVolume {
     deleteProtection: boolean;
     id: number;
@@ -923,6 +1239,75 @@ export interface ServerPublicNet {
     ipv4Enabled?: boolean;
     ipv6: number;
     ipv6Enabled?: boolean;
+}
+
+export interface StorageBoxAccessSettings {
+    /**
+     * Whether access from outside the Hetzner network is allowed.
+     */
+    reachableExternally: boolean;
+    /**
+     * Whether the Samba subsystem is enabled.
+     */
+    sambaEnabled: boolean;
+    /**
+     * Whether the SSH subsystem is enabled.
+     */
+    sshEnabled: boolean;
+    /**
+     * Whether the WebDAV subsystem is enabled.
+     */
+    webdavEnabled: boolean;
+    /**
+     * Whether the ZFS snapshot folder is visible.
+     */
+    zfsEnabled: boolean;
+}
+
+export interface StorageBoxSnapshotPlan {
+    /**
+     * Day of the month when the Snapshot Plan is executed. Null means every day.
+     */
+    dayOfMonth?: number;
+    /**
+     * Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+     */
+    dayOfWeek?: number;
+    /**
+     * Hour when the Snapshot Plan is executed (UTC).
+     */
+    hour: number;
+    /**
+     * Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+     */
+    maxSnapshots: number;
+    /**
+     * Minute when the Snapshot Plan is executed (UTC).
+     */
+    minute: number;
+}
+
+export interface StorageBoxSubaccountAccessSettings {
+    /**
+     * Whether access from outside the Hetzner network is allowed.
+     */
+    reachableExternally: boolean;
+    /**
+     * Whether the Subaccount is read-only.
+     */
+    readonly: boolean;
+    /**
+     * Whether the Samba subsystem is enabled.
+     */
+    sambaEnabled: boolean;
+    /**
+     * Whether the SSH subsystem is enabled.
+     */
+    sshEnabled: boolean;
+    /**
+     * Whether the WebDAV subsystem is enabled.
+     */
+    webdavEnabled: boolean;
 }
 
 export interface ZoneAuthoritativeNameservers {

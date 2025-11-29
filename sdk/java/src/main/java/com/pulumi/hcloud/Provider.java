@@ -38,6 +38,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.endpoint);
     }
     /**
+     * The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+     * 
+     */
+    @Export(name="endpointHetzner", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> endpointHetzner;
+
+    /**
+     * @return The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+     * 
+     */
+    public Output<Optional<String>> endpointHetzner() {
+        return Codegen.optional(this.endpointHetzner);
+    }
+    /**
      * The type of function to be used during the polling.
      * 
      */

@@ -167,6 +167,7 @@ The following configuration inputs are supported:
 
 - `token` - (Required, string) This is the Hetzner Cloud API Token, can also be specified with the `HCLOUD_TOKEN` environment variable.
 - `endpoint` - (Optional, string) Hetzner Cloud API endpoint, can be used to override the default API Endpoint `https://api.hetzner.cloud/v1`.
+- `endpointHetzner` - (Optional, string) Hetzner API endpoint, can be used to override the default API Endpoint `https://api.hetzner.com/v1`.
 - `pollInterval` - (Optional, string) Configures the interval in which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
 - `pollFunction` - (Optional, string) Configures the type of function to be used during the polling. Valid values are `constant` and `exponential`. Default `exponential`.
 ## Experimental features

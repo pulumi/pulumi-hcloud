@@ -31,6 +31,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+     * 
+     */
+    @Import(name="endpointHetzner")
+    private @Nullable Output<String> endpointHetzner;
+
+    /**
+     * @return The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+     * 
+     */
+    public Optional<Output<String>> endpointHetzner() {
+        return Optional.ofNullable(this.endpointHetzner);
+    }
+
+    /**
      * The type of function to be used during the polling.
      * 
      */
@@ -79,6 +94,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProviderArgs(ProviderArgs $) {
         this.endpoint = $.endpoint;
+        this.endpointHetzner = $.endpointHetzner;
         this.pollFunction = $.pollFunction;
         this.pollInterval = $.pollInterval;
         this.token = $.token;
@@ -121,6 +137,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param endpointHetzner The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointHetzner(@Nullable Output<String> endpointHetzner) {
+            $.endpointHetzner = endpointHetzner;
+            return this;
+        }
+
+        /**
+         * @param endpointHetzner The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointHetzner(String endpointHetzner) {
+            return endpointHetzner(Output.of(endpointHetzner));
         }
 
         /**

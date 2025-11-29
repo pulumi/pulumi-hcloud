@@ -25,6 +25,9 @@ __all__ = [
     'LoadBalancerTarget',
     'ServerNetwork',
     'ServerPublicNet',
+    'StorageBoxAccessSettings',
+    'StorageBoxSnapshotPlan',
+    'StorageBoxSubaccountAccessSettings',
     'ZoneAuthoritativeNameservers',
     'ZonePrimaryNameserver',
     'ZoneRrsetRecord',
@@ -62,6 +65,18 @@ __all__ = [
     'GetServersServerResult',
     'GetServersServerNetworkResult',
     'GetSshKeysSshKeyResult',
+    'GetStorageBoxAccessSettingsResult',
+    'GetStorageBoxSnapshotPlanResult',
+    'GetStorageBoxSnapshotStatsResult',
+    'GetStorageBoxSnapshotsSnapshotResult',
+    'GetStorageBoxSnapshotsSnapshotStatsResult',
+    'GetStorageBoxSubaccountAccessSettingsResult',
+    'GetStorageBoxSubaccountsSubaccountResult',
+    'GetStorageBoxSubaccountsSubaccountAccessSettingsResult',
+    'GetStorageBoxTypesStorageBoxTypeResult',
+    'GetStorageBoxesStorageBoxResult',
+    'GetStorageBoxesStorageBoxAccessSettingsResult',
+    'GetStorageBoxesStorageBoxSnapshotPlanResult',
     'GetVolumesVolumeResult',
     'GetZoneAuthoritativeNameserversResult',
     'GetZonePrimaryNameserverResult',
@@ -673,6 +688,273 @@ class ServerPublicNet(dict):
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "ipv6_enabled")
+
+
+@pulumi.output_type
+class StorageBoxAccessSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reachableExternally":
+            suggest = "reachable_externally"
+        elif key == "sambaEnabled":
+            suggest = "samba_enabled"
+        elif key == "sshEnabled":
+            suggest = "ssh_enabled"
+        elif key == "webdavEnabled":
+            suggest = "webdav_enabled"
+        elif key == "zfsEnabled":
+            suggest = "zfs_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageBoxAccessSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageBoxAccessSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageBoxAccessSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reachable_externally: Optional[_builtins.bool] = None,
+                 samba_enabled: Optional[_builtins.bool] = None,
+                 ssh_enabled: Optional[_builtins.bool] = None,
+                 webdav_enabled: Optional[_builtins.bool] = None,
+                 zfs_enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool reachable_externally: Whether access from outside the Hetzner network is allowed.
+        :param _builtins.bool samba_enabled: Whether the Samba subsystem is enabled.
+        :param _builtins.bool ssh_enabled: Whether the SSH subsystem is enabled.
+        :param _builtins.bool webdav_enabled: Whether the WebDAV subsystem is enabled.
+        :param _builtins.bool zfs_enabled: Whether the ZFS snapshot folder is visible.
+        """
+        if reachable_externally is not None:
+            pulumi.set(__self__, "reachable_externally", reachable_externally)
+        if samba_enabled is not None:
+            pulumi.set(__self__, "samba_enabled", samba_enabled)
+        if ssh_enabled is not None:
+            pulumi.set(__self__, "ssh_enabled", ssh_enabled)
+        if webdav_enabled is not None:
+            pulumi.set(__self__, "webdav_enabled", webdav_enabled)
+        if zfs_enabled is not None:
+            pulumi.set(__self__, "zfs_enabled", zfs_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="reachableExternally")
+    def reachable_externally(self) -> Optional[_builtins.bool]:
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        return pulumi.get(self, "reachable_externally")
+
+    @_builtins.property
+    @pulumi.getter(name="sambaEnabled")
+    def samba_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        return pulumi.get(self, "samba_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        return pulumi.get(self, "ssh_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="webdavEnabled")
+    def webdav_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        return pulumi.get(self, "webdav_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="zfsEnabled")
+    def zfs_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the ZFS snapshot folder is visible.
+        """
+        return pulumi.get(self, "zfs_enabled")
+
+
+@pulumi.output_type
+class StorageBoxSnapshotPlan(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSnapshots":
+            suggest = "max_snapshots"
+        elif key == "dayOfMonth":
+            suggest = "day_of_month"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageBoxSnapshotPlan. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageBoxSnapshotPlan.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageBoxSnapshotPlan.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour: _builtins.int,
+                 max_snapshots: _builtins.int,
+                 minute: _builtins.int,
+                 day_of_month: Optional[_builtins.int] = None,
+                 day_of_week: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int hour: Hour when the Snapshot Plan is executed (UTC).
+        :param _builtins.int max_snapshots: Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        :param _builtins.int minute: Minute when the Snapshot Plan is executed (UTC).
+        :param _builtins.int day_of_month: Day of the month when the Snapshot Plan is executed. Null means every day.
+        :param _builtins.int day_of_week: Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        """
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "max_snapshots", max_snapshots)
+        pulumi.set(__self__, "minute", minute)
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @_builtins.property
+    @pulumi.getter
+    def hour(self) -> _builtins.int:
+        """
+        Hour when the Snapshot Plan is executed (UTC).
+        """
+        return pulumi.get(self, "hour")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSnapshots")
+    def max_snapshots(self) -> _builtins.int:
+        """
+        Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        """
+        return pulumi.get(self, "max_snapshots")
+
+    @_builtins.property
+    @pulumi.getter
+    def minute(self) -> _builtins.int:
+        """
+        Minute when the Snapshot Plan is executed (UTC).
+        """
+        return pulumi.get(self, "minute")
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[_builtins.int]:
+        """
+        Day of the month when the Snapshot Plan is executed. Null means every day.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[_builtins.int]:
+        """
+        Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        """
+        return pulumi.get(self, "day_of_week")
+
+
+@pulumi.output_type
+class StorageBoxSubaccountAccessSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reachableExternally":
+            suggest = "reachable_externally"
+        elif key == "sambaEnabled":
+            suggest = "samba_enabled"
+        elif key == "sshEnabled":
+            suggest = "ssh_enabled"
+        elif key == "webdavEnabled":
+            suggest = "webdav_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageBoxSubaccountAccessSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageBoxSubaccountAccessSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageBoxSubaccountAccessSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reachable_externally: Optional[_builtins.bool] = None,
+                 readonly: Optional[_builtins.bool] = None,
+                 samba_enabled: Optional[_builtins.bool] = None,
+                 ssh_enabled: Optional[_builtins.bool] = None,
+                 webdav_enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool reachable_externally: Whether access from outside the Hetzner network is allowed.
+        :param _builtins.bool readonly: Whether the Subaccount is read-only.
+        :param _builtins.bool samba_enabled: Whether the Samba subsystem is enabled.
+        :param _builtins.bool ssh_enabled: Whether the SSH subsystem is enabled.
+        :param _builtins.bool webdav_enabled: Whether the WebDAV subsystem is enabled.
+        """
+        if reachable_externally is not None:
+            pulumi.set(__self__, "reachable_externally", reachable_externally)
+        if readonly is not None:
+            pulumi.set(__self__, "readonly", readonly)
+        if samba_enabled is not None:
+            pulumi.set(__self__, "samba_enabled", samba_enabled)
+        if ssh_enabled is not None:
+            pulumi.set(__self__, "ssh_enabled", ssh_enabled)
+        if webdav_enabled is not None:
+            pulumi.set(__self__, "webdav_enabled", webdav_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="reachableExternally")
+    def reachable_externally(self) -> Optional[_builtins.bool]:
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        return pulumi.get(self, "reachable_externally")
+
+    @_builtins.property
+    @pulumi.getter
+    def readonly(self) -> Optional[_builtins.bool]:
+        """
+        Whether the Subaccount is read-only.
+        """
+        return pulumi.get(self, "readonly")
+
+    @_builtins.property
+    @pulumi.getter(name="sambaEnabled")
+    def samba_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        return pulumi.get(self, "samba_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        return pulumi.get(self, "ssh_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="webdavEnabled")
+    def webdav_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        return pulumi.get(self, "webdav_enabled")
 
 
 @pulumi.output_type
@@ -2930,6 +3212,860 @@ class GetSshKeysSshKeyResult(dict):
         Public key of the SSH Key pair.
         """
         return pulumi.get(self, "public_key")
+
+
+@pulumi.output_type
+class GetStorageBoxAccessSettingsResult(dict):
+    def __init__(__self__, *,
+                 reachable_externally: _builtins.bool,
+                 samba_enabled: _builtins.bool,
+                 ssh_enabled: _builtins.bool,
+                 webdav_enabled: _builtins.bool,
+                 zfs_enabled: _builtins.bool):
+        """
+        :param _builtins.bool reachable_externally: Whether access from outside the Hetzner network is allowed.
+        :param _builtins.bool samba_enabled: Whether the Samba subsystem is enabled.
+        :param _builtins.bool ssh_enabled: Whether the SSH subsystem is enabled.
+        :param _builtins.bool webdav_enabled: Whether the WebDAV subsystem is enabled.
+        :param _builtins.bool zfs_enabled: Whether the ZFS snapshot folder is visible.
+        """
+        pulumi.set(__self__, "reachable_externally", reachable_externally)
+        pulumi.set(__self__, "samba_enabled", samba_enabled)
+        pulumi.set(__self__, "ssh_enabled", ssh_enabled)
+        pulumi.set(__self__, "webdav_enabled", webdav_enabled)
+        pulumi.set(__self__, "zfs_enabled", zfs_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="reachableExternally")
+    def reachable_externally(self) -> _builtins.bool:
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        return pulumi.get(self, "reachable_externally")
+
+    @_builtins.property
+    @pulumi.getter(name="sambaEnabled")
+    def samba_enabled(self) -> _builtins.bool:
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        return pulumi.get(self, "samba_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> _builtins.bool:
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        return pulumi.get(self, "ssh_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="webdavEnabled")
+    def webdav_enabled(self) -> _builtins.bool:
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        return pulumi.get(self, "webdav_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="zfsEnabled")
+    def zfs_enabled(self) -> _builtins.bool:
+        """
+        Whether the ZFS snapshot folder is visible.
+        """
+        return pulumi.get(self, "zfs_enabled")
+
+
+@pulumi.output_type
+class GetStorageBoxSnapshotPlanResult(dict):
+    def __init__(__self__, *,
+                 day_of_month: _builtins.int,
+                 day_of_week: _builtins.int,
+                 hour: _builtins.int,
+                 max_snapshots: _builtins.int,
+                 minute: _builtins.int):
+        """
+        :param _builtins.int day_of_month: Day of the month when the Snapshot Plan is executed. Null means every day.
+        :param _builtins.int day_of_week: Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        :param _builtins.int hour: Hour when the Snapshot Plan is executed (UTC).
+        :param _builtins.int max_snapshots: Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        :param _builtins.int minute: Minute when the Snapshot Plan is executed (UTC).
+        """
+        pulumi.set(__self__, "day_of_month", day_of_month)
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "max_snapshots", max_snapshots)
+        pulumi.set(__self__, "minute", minute)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> _builtins.int:
+        """
+        Day of the month when the Snapshot Plan is executed. Null means every day.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> _builtins.int:
+        """
+        Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @_builtins.property
+    @pulumi.getter
+    def hour(self) -> _builtins.int:
+        """
+        Hour when the Snapshot Plan is executed (UTC).
+        """
+        return pulumi.get(self, "hour")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSnapshots")
+    def max_snapshots(self) -> _builtins.int:
+        """
+        Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        """
+        return pulumi.get(self, "max_snapshots")
+
+    @_builtins.property
+    @pulumi.getter
+    def minute(self) -> _builtins.int:
+        """
+        Minute when the Snapshot Plan is executed (UTC).
+        """
+        return pulumi.get(self, "minute")
+
+
+@pulumi.output_type
+class GetStorageBoxSnapshotStatsResult(dict):
+    def __init__(__self__, *,
+                 size: _builtins.int,
+                 size_filesystem: _builtins.int):
+        """
+        :param _builtins.int size: Current storage requirements of the Snapshot in bytes.
+        :param _builtins.int size_filesystem: Size of the compressed file system contained in the Snapshot in bytes.
+        """
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "size_filesystem", size_filesystem)
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.int:
+        """
+        Current storage requirements of the Snapshot in bytes.
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="sizeFilesystem")
+    def size_filesystem(self) -> _builtins.int:
+        """
+        Size of the compressed file system contained in the Snapshot in bytes.
+        """
+        return pulumi.get(self, "size_filesystem")
+
+
+@pulumi.output_type
+class GetStorageBoxSnapshotsSnapshotResult(dict):
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 id: _builtins.int,
+                 is_automatic: _builtins.bool,
+                 labels: Mapping[str, _builtins.str],
+                 name: _builtins.str,
+                 stats: 'outputs.GetStorageBoxSnapshotsSnapshotStatsResult',
+                 storage_box_id: _builtins.int):
+        """
+        :param _builtins.str description: Description of the Storage Box Snapshot.
+        :param _builtins.int id: ID of the Storage Box Snapshot.
+        :param _builtins.bool is_automatic: Whether the Storage Box Snapshot was created automatically.
+        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param _builtins.str name: Name of the Storage Box Snapshot.
+        :param 'GetStorageBoxSnapshotsSnapshotStatsArgs' stats: Statistics of the Storage Box Snapshot.
+        :param _builtins.int storage_box_id: ID of the Storage Box.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_automatic", is_automatic)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "stats", stats)
+        pulumi.set(__self__, "storage_box_id", storage_box_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the Storage Box Snapshot.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        ID of the Storage Box Snapshot.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isAutomatic")
+    def is_automatic(self) -> _builtins.bool:
+        """
+        Whether the Storage Box Snapshot was created automatically.
+        """
+        return pulumi.get(self, "is_automatic")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        """
+        return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Storage Box Snapshot.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def stats(self) -> 'outputs.GetStorageBoxSnapshotsSnapshotStatsResult':
+        """
+        Statistics of the Storage Box Snapshot.
+        """
+        return pulumi.get(self, "stats")
+
+    @_builtins.property
+    @pulumi.getter(name="storageBoxId")
+    def storage_box_id(self) -> _builtins.int:
+        """
+        ID of the Storage Box.
+        """
+        return pulumi.get(self, "storage_box_id")
+
+
+@pulumi.output_type
+class GetStorageBoxSnapshotsSnapshotStatsResult(dict):
+    def __init__(__self__, *,
+                 size: _builtins.int,
+                 size_filesystem: _builtins.int):
+        """
+        :param _builtins.int size: Current storage requirements of the Snapshot in bytes.
+        :param _builtins.int size_filesystem: Size of the compressed file system contained in the Snapshot in bytes.
+        """
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "size_filesystem", size_filesystem)
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.int:
+        """
+        Current storage requirements of the Snapshot in bytes.
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="sizeFilesystem")
+    def size_filesystem(self) -> _builtins.int:
+        """
+        Size of the compressed file system contained in the Snapshot in bytes.
+        """
+        return pulumi.get(self, "size_filesystem")
+
+
+@pulumi.output_type
+class GetStorageBoxSubaccountAccessSettingsResult(dict):
+    def __init__(__self__, *,
+                 reachable_externally: _builtins.bool,
+                 readonly: _builtins.bool,
+                 samba_enabled: _builtins.bool,
+                 ssh_enabled: _builtins.bool,
+                 webdav_enabled: _builtins.bool):
+        """
+        :param _builtins.bool reachable_externally: Whether access from outside the Hetzner network is allowed.
+        :param _builtins.bool readonly: Whether the Subaccount is read-only.
+        :param _builtins.bool samba_enabled: Whether the Samba subsystem is enabled.
+        :param _builtins.bool ssh_enabled: Whether the SSH subsystem is enabled.
+        :param _builtins.bool webdav_enabled: Whether the WebDAV subsystem is enabled.
+        """
+        pulumi.set(__self__, "reachable_externally", reachable_externally)
+        pulumi.set(__self__, "readonly", readonly)
+        pulumi.set(__self__, "samba_enabled", samba_enabled)
+        pulumi.set(__self__, "ssh_enabled", ssh_enabled)
+        pulumi.set(__self__, "webdav_enabled", webdav_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="reachableExternally")
+    def reachable_externally(self) -> _builtins.bool:
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        return pulumi.get(self, "reachable_externally")
+
+    @_builtins.property
+    @pulumi.getter
+    def readonly(self) -> _builtins.bool:
+        """
+        Whether the Subaccount is read-only.
+        """
+        return pulumi.get(self, "readonly")
+
+    @_builtins.property
+    @pulumi.getter(name="sambaEnabled")
+    def samba_enabled(self) -> _builtins.bool:
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        return pulumi.get(self, "samba_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> _builtins.bool:
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        return pulumi.get(self, "ssh_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="webdavEnabled")
+    def webdav_enabled(self) -> _builtins.bool:
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        return pulumi.get(self, "webdav_enabled")
+
+
+@pulumi.output_type
+class GetStorageBoxSubaccountsSubaccountResult(dict):
+    def __init__(__self__, *,
+                 access_settings: 'outputs.GetStorageBoxSubaccountsSubaccountAccessSettingsResult',
+                 description: _builtins.str,
+                 home_directory: _builtins.str,
+                 id: _builtins.int,
+                 labels: Mapping[str, _builtins.str],
+                 server: _builtins.str,
+                 storage_box_id: _builtins.int,
+                 username: _builtins.str):
+        """
+        :param 'GetStorageBoxSubaccountsSubaccountAccessSettingsArgs' access_settings: Access settings for the Subaccount.
+        :param _builtins.str description: Description of the Storage Box Subaccount.
+        :param _builtins.str home_directory: Home directory of the Storage Box Subaccount.
+        :param _builtins.int id: ID of the Storage Box Subaccount.
+        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param _builtins.str server: FQDN of the Storage Box Subaccount.
+        :param _builtins.int storage_box_id: ID of the Storage Box.
+        :param _builtins.str username: Username of the Storage Box Subaccount.
+        """
+        pulumi.set(__self__, "access_settings", access_settings)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "home_directory", home_directory)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "storage_box_id", storage_box_id)
+        pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="accessSettings")
+    def access_settings(self) -> 'outputs.GetStorageBoxSubaccountsSubaccountAccessSettingsResult':
+        """
+        Access settings for the Subaccount.
+        """
+        return pulumi.get(self, "access_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the Storage Box Subaccount.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="homeDirectory")
+    def home_directory(self) -> _builtins.str:
+        """
+        Home directory of the Storage Box Subaccount.
+        """
+        return pulumi.get(self, "home_directory")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        ID of the Storage Box Subaccount.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        """
+        return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> _builtins.str:
+        """
+        FQDN of the Storage Box Subaccount.
+        """
+        return pulumi.get(self, "server")
+
+    @_builtins.property
+    @pulumi.getter(name="storageBoxId")
+    def storage_box_id(self) -> _builtins.int:
+        """
+        ID of the Storage Box.
+        """
+        return pulumi.get(self, "storage_box_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> _builtins.str:
+        """
+        Username of the Storage Box Subaccount.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetStorageBoxSubaccountsSubaccountAccessSettingsResult(dict):
+    def __init__(__self__, *,
+                 reachable_externally: _builtins.bool,
+                 readonly: _builtins.bool,
+                 samba_enabled: _builtins.bool,
+                 ssh_enabled: _builtins.bool,
+                 webdav_enabled: _builtins.bool):
+        """
+        :param _builtins.bool reachable_externally: Whether access from outside the Hetzner network is allowed.
+        :param _builtins.bool readonly: Whether the Subaccount is read-only.
+        :param _builtins.bool samba_enabled: Whether the Samba subsystem is enabled.
+        :param _builtins.bool ssh_enabled: Whether the SSH subsystem is enabled.
+        :param _builtins.bool webdav_enabled: Whether the WebDAV subsystem is enabled.
+        """
+        pulumi.set(__self__, "reachable_externally", reachable_externally)
+        pulumi.set(__self__, "readonly", readonly)
+        pulumi.set(__self__, "samba_enabled", samba_enabled)
+        pulumi.set(__self__, "ssh_enabled", ssh_enabled)
+        pulumi.set(__self__, "webdav_enabled", webdav_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="reachableExternally")
+    def reachable_externally(self) -> _builtins.bool:
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        return pulumi.get(self, "reachable_externally")
+
+    @_builtins.property
+    @pulumi.getter
+    def readonly(self) -> _builtins.bool:
+        """
+        Whether the Subaccount is read-only.
+        """
+        return pulumi.get(self, "readonly")
+
+    @_builtins.property
+    @pulumi.getter(name="sambaEnabled")
+    def samba_enabled(self) -> _builtins.bool:
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        return pulumi.get(self, "samba_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> _builtins.bool:
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        return pulumi.get(self, "ssh_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="webdavEnabled")
+    def webdav_enabled(self) -> _builtins.bool:
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        return pulumi.get(self, "webdav_enabled")
+
+
+@pulumi.output_type
+class GetStorageBoxTypesStorageBoxTypeResult(dict):
+    def __init__(__self__, *,
+                 automatic_snapshot_limit: _builtins.int,
+                 deprecation_announced: _builtins.str,
+                 description: _builtins.str,
+                 id: _builtins.int,
+                 is_deprecated: _builtins.bool,
+                 name: _builtins.str,
+                 size: _builtins.int,
+                 snapshot_limit: _builtins.int,
+                 subaccounts_limit: _builtins.int,
+                 unavailable_after: _builtins.str):
+        """
+        :param _builtins.int automatic_snapshot_limit: Maximum number of snapshots created automatically by a snapshot plan.
+        :param _builtins.str deprecation_announced: Date of the Storage Box Type deprecation announcement.
+        :param _builtins.str description: Description of the Storage Box Type.
+        :param _builtins.int id: ID of the Storage Box Type.
+        :param _builtins.bool is_deprecated: Whether the Storage Box Type is deprecated.
+        :param _builtins.str name: Name of the Storage Box Type.
+        :param _builtins.int size: Available storage in bytes.
+        :param _builtins.int snapshot_limit: Maximum number of allowed manual snapshots.
+        :param _builtins.int subaccounts_limit: Maximum number of subaccounts.
+        :param _builtins.str unavailable_after: Date of the Storage Box Type removal. After this date, the Storage Box Type cannot be used anymore.
+        """
+        pulumi.set(__self__, "automatic_snapshot_limit", automatic_snapshot_limit)
+        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "snapshot_limit", snapshot_limit)
+        pulumi.set(__self__, "subaccounts_limit", subaccounts_limit)
+        pulumi.set(__self__, "unavailable_after", unavailable_after)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticSnapshotLimit")
+    def automatic_snapshot_limit(self) -> _builtins.int:
+        """
+        Maximum number of snapshots created automatically by a snapshot plan.
+        """
+        return pulumi.get(self, "automatic_snapshot_limit")
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationAnnounced")
+    def deprecation_announced(self) -> _builtins.str:
+        """
+        Date of the Storage Box Type deprecation announcement.
+        """
+        return pulumi.get(self, "deprecation_announced")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the Storage Box Type.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        ID of the Storage Box Type.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> _builtins.bool:
+        """
+        Whether the Storage Box Type is deprecated.
+        """
+        return pulumi.get(self, "is_deprecated")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Storage Box Type.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.int:
+        """
+        Available storage in bytes.
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotLimit")
+    def snapshot_limit(self) -> _builtins.int:
+        """
+        Maximum number of allowed manual snapshots.
+        """
+        return pulumi.get(self, "snapshot_limit")
+
+    @_builtins.property
+    @pulumi.getter(name="subaccountsLimit")
+    def subaccounts_limit(self) -> _builtins.int:
+        """
+        Maximum number of subaccounts.
+        """
+        return pulumi.get(self, "subaccounts_limit")
+
+    @_builtins.property
+    @pulumi.getter(name="unavailableAfter")
+    def unavailable_after(self) -> _builtins.str:
+        """
+        Date of the Storage Box Type removal. After this date, the Storage Box Type cannot be used anymore.
+        """
+        return pulumi.get(self, "unavailable_after")
+
+
+@pulumi.output_type
+class GetStorageBoxesStorageBoxResult(dict):
+    def __init__(__self__, *,
+                 access_settings: 'outputs.GetStorageBoxesStorageBoxAccessSettingsResult',
+                 delete_protection: _builtins.bool,
+                 id: _builtins.int,
+                 labels: Mapping[str, _builtins.str],
+                 location: _builtins.str,
+                 name: _builtins.str,
+                 server: _builtins.str,
+                 snapshot_plan: 'outputs.GetStorageBoxesStorageBoxSnapshotPlanResult',
+                 storage_box_type: _builtins.str,
+                 system: _builtins.str,
+                 username: _builtins.str):
+        """
+        :param 'GetStorageBoxesStorageBoxAccessSettingsArgs' access_settings: Access settings of the Storage Box.
+        :param _builtins.bool delete_protection: Whether delete protection is enabled.
+        :param _builtins.int id: ID of the Storage Box.
+        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param _builtins.str location: Name of the Location.
+        :param _builtins.str name: Name of the Storage Box.
+        :param _builtins.str server: FQDN of the Storage Box.
+        :param 'GetStorageBoxesStorageBoxSnapshotPlanArgs' snapshot_plan: Details of the active snapshot plan.
+        :param _builtins.str storage_box_type: Name of the Storage Box Type.
+        :param _builtins.str system: Host system of the Storage Box.
+        :param _builtins.str username: Primary username of the Storage Box.
+        """
+        pulumi.set(__self__, "access_settings", access_settings)
+        pulumi.set(__self__, "delete_protection", delete_protection)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "snapshot_plan", snapshot_plan)
+        pulumi.set(__self__, "storage_box_type", storage_box_type)
+        pulumi.set(__self__, "system", system)
+        pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="accessSettings")
+    def access_settings(self) -> 'outputs.GetStorageBoxesStorageBoxAccessSettingsResult':
+        """
+        Access settings of the Storage Box.
+        """
+        return pulumi.get(self, "access_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> _builtins.bool:
+        """
+        Whether delete protection is enabled.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        ID of the Storage Box.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        """
+        return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        Name of the Location.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Storage Box.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> _builtins.str:
+        """
+        FQDN of the Storage Box.
+        """
+        return pulumi.get(self, "server")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotPlan")
+    def snapshot_plan(self) -> 'outputs.GetStorageBoxesStorageBoxSnapshotPlanResult':
+        """
+        Details of the active snapshot plan.
+        """
+        return pulumi.get(self, "snapshot_plan")
+
+    @_builtins.property
+    @pulumi.getter(name="storageBoxType")
+    def storage_box_type(self) -> _builtins.str:
+        """
+        Name of the Storage Box Type.
+        """
+        return pulumi.get(self, "storage_box_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> _builtins.str:
+        """
+        Host system of the Storage Box.
+        """
+        return pulumi.get(self, "system")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> _builtins.str:
+        """
+        Primary username of the Storage Box.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetStorageBoxesStorageBoxAccessSettingsResult(dict):
+    def __init__(__self__, *,
+                 reachable_externally: _builtins.bool,
+                 samba_enabled: _builtins.bool,
+                 ssh_enabled: _builtins.bool,
+                 webdav_enabled: _builtins.bool,
+                 zfs_enabled: _builtins.bool):
+        """
+        :param _builtins.bool reachable_externally: Whether access from outside the Hetzner network is allowed.
+        :param _builtins.bool samba_enabled: Whether the Samba subsystem is enabled.
+        :param _builtins.bool ssh_enabled: Whether the SSH subsystem is enabled.
+        :param _builtins.bool webdav_enabled: Whether the WebDAV subsystem is enabled.
+        :param _builtins.bool zfs_enabled: Whether the ZFS snapshot folder is visible.
+        """
+        pulumi.set(__self__, "reachable_externally", reachable_externally)
+        pulumi.set(__self__, "samba_enabled", samba_enabled)
+        pulumi.set(__self__, "ssh_enabled", ssh_enabled)
+        pulumi.set(__self__, "webdav_enabled", webdav_enabled)
+        pulumi.set(__self__, "zfs_enabled", zfs_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="reachableExternally")
+    def reachable_externally(self) -> _builtins.bool:
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        return pulumi.get(self, "reachable_externally")
+
+    @_builtins.property
+    @pulumi.getter(name="sambaEnabled")
+    def samba_enabled(self) -> _builtins.bool:
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        return pulumi.get(self, "samba_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> _builtins.bool:
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        return pulumi.get(self, "ssh_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="webdavEnabled")
+    def webdav_enabled(self) -> _builtins.bool:
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        return pulumi.get(self, "webdav_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="zfsEnabled")
+    def zfs_enabled(self) -> _builtins.bool:
+        """
+        Whether the ZFS snapshot folder is visible.
+        """
+        return pulumi.get(self, "zfs_enabled")
+
+
+@pulumi.output_type
+class GetStorageBoxesStorageBoxSnapshotPlanResult(dict):
+    def __init__(__self__, *,
+                 day_of_month: _builtins.int,
+                 day_of_week: _builtins.int,
+                 hour: _builtins.int,
+                 max_snapshots: _builtins.int,
+                 minute: _builtins.int):
+        """
+        :param _builtins.int day_of_month: Day of the month when the Snapshot Plan is executed. Null means every day.
+        :param _builtins.int day_of_week: Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        :param _builtins.int hour: Hour when the Snapshot Plan is executed (UTC).
+        :param _builtins.int max_snapshots: Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        :param _builtins.int minute: Minute when the Snapshot Plan is executed (UTC).
+        """
+        pulumi.set(__self__, "day_of_month", day_of_month)
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "max_snapshots", max_snapshots)
+        pulumi.set(__self__, "minute", minute)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> _builtins.int:
+        """
+        Day of the month when the Snapshot Plan is executed. Null means every day.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> _builtins.int:
+        """
+        Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @_builtins.property
+    @pulumi.getter
+    def hour(self) -> _builtins.int:
+        """
+        Hour when the Snapshot Plan is executed (UTC).
+        """
+        return pulumi.get(self, "hour")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSnapshots")
+    def max_snapshots(self) -> _builtins.int:
+        """
+        Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        """
+        return pulumi.get(self, "max_snapshots")
+
+    @_builtins.property
+    @pulumi.getter
+    def minute(self) -> _builtins.int:
+        """
+        Minute when the Snapshot Plan is executed (UTC).
+        """
+        return pulumi.get(self, "minute")
 
 
 @pulumi.output_type

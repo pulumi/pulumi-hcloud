@@ -1416,6 +1416,645 @@ func (o ServerPublicNetArrayOutput) Index(i pulumi.IntInput) ServerPublicNetOutp
 	}).(ServerPublicNetOutput)
 }
 
+type StorageBoxAccessSettings struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally *bool `pulumi:"reachableExternally"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled *bool `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled *bool `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled *bool `pulumi:"webdavEnabled"`
+	// Whether the ZFS snapshot folder is visible.
+	ZfsEnabled *bool `pulumi:"zfsEnabled"`
+}
+
+// StorageBoxAccessSettingsInput is an input type that accepts StorageBoxAccessSettingsArgs and StorageBoxAccessSettingsOutput values.
+// You can construct a concrete instance of `StorageBoxAccessSettingsInput` via:
+//
+//	StorageBoxAccessSettingsArgs{...}
+type StorageBoxAccessSettingsInput interface {
+	pulumi.Input
+
+	ToStorageBoxAccessSettingsOutput() StorageBoxAccessSettingsOutput
+	ToStorageBoxAccessSettingsOutputWithContext(context.Context) StorageBoxAccessSettingsOutput
+}
+
+type StorageBoxAccessSettingsArgs struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally pulumi.BoolPtrInput `pulumi:"reachableExternally"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled pulumi.BoolPtrInput `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled pulumi.BoolPtrInput `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled pulumi.BoolPtrInput `pulumi:"webdavEnabled"`
+	// Whether the ZFS snapshot folder is visible.
+	ZfsEnabled pulumi.BoolPtrInput `pulumi:"zfsEnabled"`
+}
+
+func (StorageBoxAccessSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBoxAccessSettings)(nil)).Elem()
+}
+
+func (i StorageBoxAccessSettingsArgs) ToStorageBoxAccessSettingsOutput() StorageBoxAccessSettingsOutput {
+	return i.ToStorageBoxAccessSettingsOutputWithContext(context.Background())
+}
+
+func (i StorageBoxAccessSettingsArgs) ToStorageBoxAccessSettingsOutputWithContext(ctx context.Context) StorageBoxAccessSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxAccessSettingsOutput)
+}
+
+func (i StorageBoxAccessSettingsArgs) ToStorageBoxAccessSettingsPtrOutput() StorageBoxAccessSettingsPtrOutput {
+	return i.ToStorageBoxAccessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageBoxAccessSettingsArgs) ToStorageBoxAccessSettingsPtrOutputWithContext(ctx context.Context) StorageBoxAccessSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxAccessSettingsOutput).ToStorageBoxAccessSettingsPtrOutputWithContext(ctx)
+}
+
+// StorageBoxAccessSettingsPtrInput is an input type that accepts StorageBoxAccessSettingsArgs, StorageBoxAccessSettingsPtr and StorageBoxAccessSettingsPtrOutput values.
+// You can construct a concrete instance of `StorageBoxAccessSettingsPtrInput` via:
+//
+//	        StorageBoxAccessSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageBoxAccessSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStorageBoxAccessSettingsPtrOutput() StorageBoxAccessSettingsPtrOutput
+	ToStorageBoxAccessSettingsPtrOutputWithContext(context.Context) StorageBoxAccessSettingsPtrOutput
+}
+
+type storageBoxAccessSettingsPtrType StorageBoxAccessSettingsArgs
+
+func StorageBoxAccessSettingsPtr(v *StorageBoxAccessSettingsArgs) StorageBoxAccessSettingsPtrInput {
+	return (*storageBoxAccessSettingsPtrType)(v)
+}
+
+func (*storageBoxAccessSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBoxAccessSettings)(nil)).Elem()
+}
+
+func (i *storageBoxAccessSettingsPtrType) ToStorageBoxAccessSettingsPtrOutput() StorageBoxAccessSettingsPtrOutput {
+	return i.ToStorageBoxAccessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageBoxAccessSettingsPtrType) ToStorageBoxAccessSettingsPtrOutputWithContext(ctx context.Context) StorageBoxAccessSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxAccessSettingsPtrOutput)
+}
+
+type StorageBoxAccessSettingsOutput struct{ *pulumi.OutputState }
+
+func (StorageBoxAccessSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBoxAccessSettings)(nil)).Elem()
+}
+
+func (o StorageBoxAccessSettingsOutput) ToStorageBoxAccessSettingsOutput() StorageBoxAccessSettingsOutput {
+	return o
+}
+
+func (o StorageBoxAccessSettingsOutput) ToStorageBoxAccessSettingsOutputWithContext(ctx context.Context) StorageBoxAccessSettingsOutput {
+	return o
+}
+
+func (o StorageBoxAccessSettingsOutput) ToStorageBoxAccessSettingsPtrOutput() StorageBoxAccessSettingsPtrOutput {
+	return o.ToStorageBoxAccessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageBoxAccessSettingsOutput) ToStorageBoxAccessSettingsPtrOutputWithContext(ctx context.Context) StorageBoxAccessSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBoxAccessSettings) *StorageBoxAccessSettings {
+		return &v
+	}).(StorageBoxAccessSettingsPtrOutput)
+}
+
+// Whether access from outside the Hetzner network is allowed.
+func (o StorageBoxAccessSettingsOutput) ReachableExternally() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxAccessSettings) *bool { return v.ReachableExternally }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the Samba subsystem is enabled.
+func (o StorageBoxAccessSettingsOutput) SambaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxAccessSettings) *bool { return v.SambaEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the SSH subsystem is enabled.
+func (o StorageBoxAccessSettingsOutput) SshEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxAccessSettings) *bool { return v.SshEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the WebDAV subsystem is enabled.
+func (o StorageBoxAccessSettingsOutput) WebdavEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxAccessSettings) *bool { return v.WebdavEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the ZFS snapshot folder is visible.
+func (o StorageBoxAccessSettingsOutput) ZfsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxAccessSettings) *bool { return v.ZfsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StorageBoxAccessSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageBoxAccessSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBoxAccessSettings)(nil)).Elem()
+}
+
+func (o StorageBoxAccessSettingsPtrOutput) ToStorageBoxAccessSettingsPtrOutput() StorageBoxAccessSettingsPtrOutput {
+	return o
+}
+
+func (o StorageBoxAccessSettingsPtrOutput) ToStorageBoxAccessSettingsPtrOutputWithContext(ctx context.Context) StorageBoxAccessSettingsPtrOutput {
+	return o
+}
+
+func (o StorageBoxAccessSettingsPtrOutput) Elem() StorageBoxAccessSettingsOutput {
+	return o.ApplyT(func(v *StorageBoxAccessSettings) StorageBoxAccessSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBoxAccessSettings
+		return ret
+	}).(StorageBoxAccessSettingsOutput)
+}
+
+// Whether access from outside the Hetzner network is allowed.
+func (o StorageBoxAccessSettingsPtrOutput) ReachableExternally() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReachableExternally
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the Samba subsystem is enabled.
+func (o StorageBoxAccessSettingsPtrOutput) SambaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SambaEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the SSH subsystem is enabled.
+func (o StorageBoxAccessSettingsPtrOutput) SshEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SshEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the WebDAV subsystem is enabled.
+func (o StorageBoxAccessSettingsPtrOutput) WebdavEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WebdavEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the ZFS snapshot folder is visible.
+func (o StorageBoxAccessSettingsPtrOutput) ZfsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ZfsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StorageBoxSnapshotPlan struct {
+	// Day of the month when the Snapshot Plan is executed. Null means every day.
+	DayOfMonth *int `pulumi:"dayOfMonth"`
+	// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// Hour when the Snapshot Plan is executed (UTC).
+	Hour int `pulumi:"hour"`
+	// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+	MaxSnapshots int `pulumi:"maxSnapshots"`
+	// Minute when the Snapshot Plan is executed (UTC).
+	Minute int `pulumi:"minute"`
+}
+
+// StorageBoxSnapshotPlanInput is an input type that accepts StorageBoxSnapshotPlanArgs and StorageBoxSnapshotPlanOutput values.
+// You can construct a concrete instance of `StorageBoxSnapshotPlanInput` via:
+//
+//	StorageBoxSnapshotPlanArgs{...}
+type StorageBoxSnapshotPlanInput interface {
+	pulumi.Input
+
+	ToStorageBoxSnapshotPlanOutput() StorageBoxSnapshotPlanOutput
+	ToStorageBoxSnapshotPlanOutputWithContext(context.Context) StorageBoxSnapshotPlanOutput
+}
+
+type StorageBoxSnapshotPlanArgs struct {
+	// Day of the month when the Snapshot Plan is executed. Null means every day.
+	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
+	// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// Hour when the Snapshot Plan is executed (UTC).
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+	MaxSnapshots pulumi.IntInput `pulumi:"maxSnapshots"`
+	// Minute when the Snapshot Plan is executed (UTC).
+	Minute pulumi.IntInput `pulumi:"minute"`
+}
+
+func (StorageBoxSnapshotPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBoxSnapshotPlan)(nil)).Elem()
+}
+
+func (i StorageBoxSnapshotPlanArgs) ToStorageBoxSnapshotPlanOutput() StorageBoxSnapshotPlanOutput {
+	return i.ToStorageBoxSnapshotPlanOutputWithContext(context.Background())
+}
+
+func (i StorageBoxSnapshotPlanArgs) ToStorageBoxSnapshotPlanOutputWithContext(ctx context.Context) StorageBoxSnapshotPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxSnapshotPlanOutput)
+}
+
+func (i StorageBoxSnapshotPlanArgs) ToStorageBoxSnapshotPlanPtrOutput() StorageBoxSnapshotPlanPtrOutput {
+	return i.ToStorageBoxSnapshotPlanPtrOutputWithContext(context.Background())
+}
+
+func (i StorageBoxSnapshotPlanArgs) ToStorageBoxSnapshotPlanPtrOutputWithContext(ctx context.Context) StorageBoxSnapshotPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxSnapshotPlanOutput).ToStorageBoxSnapshotPlanPtrOutputWithContext(ctx)
+}
+
+// StorageBoxSnapshotPlanPtrInput is an input type that accepts StorageBoxSnapshotPlanArgs, StorageBoxSnapshotPlanPtr and StorageBoxSnapshotPlanPtrOutput values.
+// You can construct a concrete instance of `StorageBoxSnapshotPlanPtrInput` via:
+//
+//	        StorageBoxSnapshotPlanArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageBoxSnapshotPlanPtrInput interface {
+	pulumi.Input
+
+	ToStorageBoxSnapshotPlanPtrOutput() StorageBoxSnapshotPlanPtrOutput
+	ToStorageBoxSnapshotPlanPtrOutputWithContext(context.Context) StorageBoxSnapshotPlanPtrOutput
+}
+
+type storageBoxSnapshotPlanPtrType StorageBoxSnapshotPlanArgs
+
+func StorageBoxSnapshotPlanPtr(v *StorageBoxSnapshotPlanArgs) StorageBoxSnapshotPlanPtrInput {
+	return (*storageBoxSnapshotPlanPtrType)(v)
+}
+
+func (*storageBoxSnapshotPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBoxSnapshotPlan)(nil)).Elem()
+}
+
+func (i *storageBoxSnapshotPlanPtrType) ToStorageBoxSnapshotPlanPtrOutput() StorageBoxSnapshotPlanPtrOutput {
+	return i.ToStorageBoxSnapshotPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *storageBoxSnapshotPlanPtrType) ToStorageBoxSnapshotPlanPtrOutputWithContext(ctx context.Context) StorageBoxSnapshotPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxSnapshotPlanPtrOutput)
+}
+
+type StorageBoxSnapshotPlanOutput struct{ *pulumi.OutputState }
+
+func (StorageBoxSnapshotPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBoxSnapshotPlan)(nil)).Elem()
+}
+
+func (o StorageBoxSnapshotPlanOutput) ToStorageBoxSnapshotPlanOutput() StorageBoxSnapshotPlanOutput {
+	return o
+}
+
+func (o StorageBoxSnapshotPlanOutput) ToStorageBoxSnapshotPlanOutputWithContext(ctx context.Context) StorageBoxSnapshotPlanOutput {
+	return o
+}
+
+func (o StorageBoxSnapshotPlanOutput) ToStorageBoxSnapshotPlanPtrOutput() StorageBoxSnapshotPlanPtrOutput {
+	return o.ToStorageBoxSnapshotPlanPtrOutputWithContext(context.Background())
+}
+
+func (o StorageBoxSnapshotPlanOutput) ToStorageBoxSnapshotPlanPtrOutputWithContext(ctx context.Context) StorageBoxSnapshotPlanPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBoxSnapshotPlan) *StorageBoxSnapshotPlan {
+		return &v
+	}).(StorageBoxSnapshotPlanPtrOutput)
+}
+
+// Day of the month when the Snapshot Plan is executed. Null means every day.
+func (o StorageBoxSnapshotPlanOutput) DayOfMonth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageBoxSnapshotPlan) *int { return v.DayOfMonth }).(pulumi.IntPtrOutput)
+}
+
+// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+func (o StorageBoxSnapshotPlanOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageBoxSnapshotPlan) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// Hour when the Snapshot Plan is executed (UTC).
+func (o StorageBoxSnapshotPlanOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v StorageBoxSnapshotPlan) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+func (o StorageBoxSnapshotPlanOutput) MaxSnapshots() pulumi.IntOutput {
+	return o.ApplyT(func(v StorageBoxSnapshotPlan) int { return v.MaxSnapshots }).(pulumi.IntOutput)
+}
+
+// Minute when the Snapshot Plan is executed (UTC).
+func (o StorageBoxSnapshotPlanOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v StorageBoxSnapshotPlan) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+type StorageBoxSnapshotPlanPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageBoxSnapshotPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBoxSnapshotPlan)(nil)).Elem()
+}
+
+func (o StorageBoxSnapshotPlanPtrOutput) ToStorageBoxSnapshotPlanPtrOutput() StorageBoxSnapshotPlanPtrOutput {
+	return o
+}
+
+func (o StorageBoxSnapshotPlanPtrOutput) ToStorageBoxSnapshotPlanPtrOutputWithContext(ctx context.Context) StorageBoxSnapshotPlanPtrOutput {
+	return o
+}
+
+func (o StorageBoxSnapshotPlanPtrOutput) Elem() StorageBoxSnapshotPlanOutput {
+	return o.ApplyT(func(v *StorageBoxSnapshotPlan) StorageBoxSnapshotPlan {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBoxSnapshotPlan
+		return ret
+	}).(StorageBoxSnapshotPlanOutput)
+}
+
+// Day of the month when the Snapshot Plan is executed. Null means every day.
+func (o StorageBoxSnapshotPlanPtrOutput) DayOfMonth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSnapshotPlan) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfMonth
+	}).(pulumi.IntPtrOutput)
+}
+
+// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+func (o StorageBoxSnapshotPlanPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSnapshotPlan) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.IntPtrOutput)
+}
+
+// Hour when the Snapshot Plan is executed (UTC).
+func (o StorageBoxSnapshotPlanPtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSnapshotPlan) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+func (o StorageBoxSnapshotPlanPtrOutput) MaxSnapshots() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSnapshotPlan) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSnapshots
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minute when the Snapshot Plan is executed (UTC).
+func (o StorageBoxSnapshotPlanPtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSnapshotPlan) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+type StorageBoxSubaccountAccessSettings struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally *bool `pulumi:"reachableExternally"`
+	// Whether the Subaccount is read-only.
+	Readonly *bool `pulumi:"readonly"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled *bool `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled *bool `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled *bool `pulumi:"webdavEnabled"`
+}
+
+// StorageBoxSubaccountAccessSettingsInput is an input type that accepts StorageBoxSubaccountAccessSettingsArgs and StorageBoxSubaccountAccessSettingsOutput values.
+// You can construct a concrete instance of `StorageBoxSubaccountAccessSettingsInput` via:
+//
+//	StorageBoxSubaccountAccessSettingsArgs{...}
+type StorageBoxSubaccountAccessSettingsInput interface {
+	pulumi.Input
+
+	ToStorageBoxSubaccountAccessSettingsOutput() StorageBoxSubaccountAccessSettingsOutput
+	ToStorageBoxSubaccountAccessSettingsOutputWithContext(context.Context) StorageBoxSubaccountAccessSettingsOutput
+}
+
+type StorageBoxSubaccountAccessSettingsArgs struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally pulumi.BoolPtrInput `pulumi:"reachableExternally"`
+	// Whether the Subaccount is read-only.
+	Readonly pulumi.BoolPtrInput `pulumi:"readonly"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled pulumi.BoolPtrInput `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled pulumi.BoolPtrInput `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled pulumi.BoolPtrInput `pulumi:"webdavEnabled"`
+}
+
+func (StorageBoxSubaccountAccessSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBoxSubaccountAccessSettings)(nil)).Elem()
+}
+
+func (i StorageBoxSubaccountAccessSettingsArgs) ToStorageBoxSubaccountAccessSettingsOutput() StorageBoxSubaccountAccessSettingsOutput {
+	return i.ToStorageBoxSubaccountAccessSettingsOutputWithContext(context.Background())
+}
+
+func (i StorageBoxSubaccountAccessSettingsArgs) ToStorageBoxSubaccountAccessSettingsOutputWithContext(ctx context.Context) StorageBoxSubaccountAccessSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxSubaccountAccessSettingsOutput)
+}
+
+func (i StorageBoxSubaccountAccessSettingsArgs) ToStorageBoxSubaccountAccessSettingsPtrOutput() StorageBoxSubaccountAccessSettingsPtrOutput {
+	return i.ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageBoxSubaccountAccessSettingsArgs) ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(ctx context.Context) StorageBoxSubaccountAccessSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxSubaccountAccessSettingsOutput).ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(ctx)
+}
+
+// StorageBoxSubaccountAccessSettingsPtrInput is an input type that accepts StorageBoxSubaccountAccessSettingsArgs, StorageBoxSubaccountAccessSettingsPtr and StorageBoxSubaccountAccessSettingsPtrOutput values.
+// You can construct a concrete instance of `StorageBoxSubaccountAccessSettingsPtrInput` via:
+//
+//	        StorageBoxSubaccountAccessSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageBoxSubaccountAccessSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStorageBoxSubaccountAccessSettingsPtrOutput() StorageBoxSubaccountAccessSettingsPtrOutput
+	ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(context.Context) StorageBoxSubaccountAccessSettingsPtrOutput
+}
+
+type storageBoxSubaccountAccessSettingsPtrType StorageBoxSubaccountAccessSettingsArgs
+
+func StorageBoxSubaccountAccessSettingsPtr(v *StorageBoxSubaccountAccessSettingsArgs) StorageBoxSubaccountAccessSettingsPtrInput {
+	return (*storageBoxSubaccountAccessSettingsPtrType)(v)
+}
+
+func (*storageBoxSubaccountAccessSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBoxSubaccountAccessSettings)(nil)).Elem()
+}
+
+func (i *storageBoxSubaccountAccessSettingsPtrType) ToStorageBoxSubaccountAccessSettingsPtrOutput() StorageBoxSubaccountAccessSettingsPtrOutput {
+	return i.ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageBoxSubaccountAccessSettingsPtrType) ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(ctx context.Context) StorageBoxSubaccountAccessSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBoxSubaccountAccessSettingsPtrOutput)
+}
+
+type StorageBoxSubaccountAccessSettingsOutput struct{ *pulumi.OutputState }
+
+func (StorageBoxSubaccountAccessSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBoxSubaccountAccessSettings)(nil)).Elem()
+}
+
+func (o StorageBoxSubaccountAccessSettingsOutput) ToStorageBoxSubaccountAccessSettingsOutput() StorageBoxSubaccountAccessSettingsOutput {
+	return o
+}
+
+func (o StorageBoxSubaccountAccessSettingsOutput) ToStorageBoxSubaccountAccessSettingsOutputWithContext(ctx context.Context) StorageBoxSubaccountAccessSettingsOutput {
+	return o
+}
+
+func (o StorageBoxSubaccountAccessSettingsOutput) ToStorageBoxSubaccountAccessSettingsPtrOutput() StorageBoxSubaccountAccessSettingsPtrOutput {
+	return o.ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageBoxSubaccountAccessSettingsOutput) ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(ctx context.Context) StorageBoxSubaccountAccessSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBoxSubaccountAccessSettings) *StorageBoxSubaccountAccessSettings {
+		return &v
+	}).(StorageBoxSubaccountAccessSettingsPtrOutput)
+}
+
+// Whether access from outside the Hetzner network is allowed.
+func (o StorageBoxSubaccountAccessSettingsOutput) ReachableExternally() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxSubaccountAccessSettings) *bool { return v.ReachableExternally }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the Subaccount is read-only.
+func (o StorageBoxSubaccountAccessSettingsOutput) Readonly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxSubaccountAccessSettings) *bool { return v.Readonly }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the Samba subsystem is enabled.
+func (o StorageBoxSubaccountAccessSettingsOutput) SambaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxSubaccountAccessSettings) *bool { return v.SambaEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the SSH subsystem is enabled.
+func (o StorageBoxSubaccountAccessSettingsOutput) SshEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxSubaccountAccessSettings) *bool { return v.SshEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the WebDAV subsystem is enabled.
+func (o StorageBoxSubaccountAccessSettingsOutput) WebdavEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageBoxSubaccountAccessSettings) *bool { return v.WebdavEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StorageBoxSubaccountAccessSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageBoxSubaccountAccessSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBoxSubaccountAccessSettings)(nil)).Elem()
+}
+
+func (o StorageBoxSubaccountAccessSettingsPtrOutput) ToStorageBoxSubaccountAccessSettingsPtrOutput() StorageBoxSubaccountAccessSettingsPtrOutput {
+	return o
+}
+
+func (o StorageBoxSubaccountAccessSettingsPtrOutput) ToStorageBoxSubaccountAccessSettingsPtrOutputWithContext(ctx context.Context) StorageBoxSubaccountAccessSettingsPtrOutput {
+	return o
+}
+
+func (o StorageBoxSubaccountAccessSettingsPtrOutput) Elem() StorageBoxSubaccountAccessSettingsOutput {
+	return o.ApplyT(func(v *StorageBoxSubaccountAccessSettings) StorageBoxSubaccountAccessSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBoxSubaccountAccessSettings
+		return ret
+	}).(StorageBoxSubaccountAccessSettingsOutput)
+}
+
+// Whether access from outside the Hetzner network is allowed.
+func (o StorageBoxSubaccountAccessSettingsPtrOutput) ReachableExternally() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSubaccountAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReachableExternally
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the Subaccount is read-only.
+func (o StorageBoxSubaccountAccessSettingsPtrOutput) Readonly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSubaccountAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Readonly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the Samba subsystem is enabled.
+func (o StorageBoxSubaccountAccessSettingsPtrOutput) SambaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSubaccountAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SambaEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the SSH subsystem is enabled.
+func (o StorageBoxSubaccountAccessSettingsPtrOutput) SshEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSubaccountAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SshEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the WebDAV subsystem is enabled.
+func (o StorageBoxSubaccountAccessSettingsPtrOutput) WebdavEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageBoxSubaccountAccessSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WebdavEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ZoneAuthoritativeNameservers struct {
 	// Authoritative Hetzner nameservers assigned to the Zone.
 	Assigneds []string `pulumi:"assigneds"`
@@ -6399,6 +7038,1334 @@ func (o GetSshKeysSshKeyArrayOutput) Index(i pulumi.IntInput) GetSshKeysSshKeyOu
 	}).(GetSshKeysSshKeyOutput)
 }
 
+type GetStorageBoxAccessSettings struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally bool `pulumi:"reachableExternally"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled bool `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled bool `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled bool `pulumi:"webdavEnabled"`
+	// Whether the ZFS snapshot folder is visible.
+	ZfsEnabled bool `pulumi:"zfsEnabled"`
+}
+
+// GetStorageBoxAccessSettingsInput is an input type that accepts GetStorageBoxAccessSettingsArgs and GetStorageBoxAccessSettingsOutput values.
+// You can construct a concrete instance of `GetStorageBoxAccessSettingsInput` via:
+//
+//	GetStorageBoxAccessSettingsArgs{...}
+type GetStorageBoxAccessSettingsInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxAccessSettingsOutput() GetStorageBoxAccessSettingsOutput
+	ToGetStorageBoxAccessSettingsOutputWithContext(context.Context) GetStorageBoxAccessSettingsOutput
+}
+
+type GetStorageBoxAccessSettingsArgs struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally pulumi.BoolInput `pulumi:"reachableExternally"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled pulumi.BoolInput `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled pulumi.BoolInput `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled pulumi.BoolInput `pulumi:"webdavEnabled"`
+	// Whether the ZFS snapshot folder is visible.
+	ZfsEnabled pulumi.BoolInput `pulumi:"zfsEnabled"`
+}
+
+func (GetStorageBoxAccessSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxAccessSettings)(nil)).Elem()
+}
+
+func (i GetStorageBoxAccessSettingsArgs) ToGetStorageBoxAccessSettingsOutput() GetStorageBoxAccessSettingsOutput {
+	return i.ToGetStorageBoxAccessSettingsOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxAccessSettingsArgs) ToGetStorageBoxAccessSettingsOutputWithContext(ctx context.Context) GetStorageBoxAccessSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxAccessSettingsOutput)
+}
+
+type GetStorageBoxAccessSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxAccessSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxAccessSettings)(nil)).Elem()
+}
+
+func (o GetStorageBoxAccessSettingsOutput) ToGetStorageBoxAccessSettingsOutput() GetStorageBoxAccessSettingsOutput {
+	return o
+}
+
+func (o GetStorageBoxAccessSettingsOutput) ToGetStorageBoxAccessSettingsOutputWithContext(ctx context.Context) GetStorageBoxAccessSettingsOutput {
+	return o
+}
+
+// Whether access from outside the Hetzner network is allowed.
+func (o GetStorageBoxAccessSettingsOutput) ReachableExternally() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxAccessSettings) bool { return v.ReachableExternally }).(pulumi.BoolOutput)
+}
+
+// Whether the Samba subsystem is enabled.
+func (o GetStorageBoxAccessSettingsOutput) SambaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxAccessSettings) bool { return v.SambaEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the SSH subsystem is enabled.
+func (o GetStorageBoxAccessSettingsOutput) SshEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxAccessSettings) bool { return v.SshEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the WebDAV subsystem is enabled.
+func (o GetStorageBoxAccessSettingsOutput) WebdavEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxAccessSettings) bool { return v.WebdavEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the ZFS snapshot folder is visible.
+func (o GetStorageBoxAccessSettingsOutput) ZfsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxAccessSettings) bool { return v.ZfsEnabled }).(pulumi.BoolOutput)
+}
+
+type GetStorageBoxSnapshotPlan struct {
+	// Day of the month when the Snapshot Plan is executed. Null means every day.
+	DayOfMonth int `pulumi:"dayOfMonth"`
+	// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+	DayOfWeek int `pulumi:"dayOfWeek"`
+	// Hour when the Snapshot Plan is executed (UTC).
+	Hour int `pulumi:"hour"`
+	// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+	MaxSnapshots int `pulumi:"maxSnapshots"`
+	// Minute when the Snapshot Plan is executed (UTC).
+	Minute int `pulumi:"minute"`
+}
+
+// GetStorageBoxSnapshotPlanInput is an input type that accepts GetStorageBoxSnapshotPlanArgs and GetStorageBoxSnapshotPlanOutput values.
+// You can construct a concrete instance of `GetStorageBoxSnapshotPlanInput` via:
+//
+//	GetStorageBoxSnapshotPlanArgs{...}
+type GetStorageBoxSnapshotPlanInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSnapshotPlanOutput() GetStorageBoxSnapshotPlanOutput
+	ToGetStorageBoxSnapshotPlanOutputWithContext(context.Context) GetStorageBoxSnapshotPlanOutput
+}
+
+type GetStorageBoxSnapshotPlanArgs struct {
+	// Day of the month when the Snapshot Plan is executed. Null means every day.
+	DayOfMonth pulumi.IntInput `pulumi:"dayOfMonth"`
+	// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+	DayOfWeek pulumi.IntInput `pulumi:"dayOfWeek"`
+	// Hour when the Snapshot Plan is executed (UTC).
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+	MaxSnapshots pulumi.IntInput `pulumi:"maxSnapshots"`
+	// Minute when the Snapshot Plan is executed (UTC).
+	Minute pulumi.IntInput `pulumi:"minute"`
+}
+
+func (GetStorageBoxSnapshotPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSnapshotPlan)(nil)).Elem()
+}
+
+func (i GetStorageBoxSnapshotPlanArgs) ToGetStorageBoxSnapshotPlanOutput() GetStorageBoxSnapshotPlanOutput {
+	return i.ToGetStorageBoxSnapshotPlanOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSnapshotPlanArgs) ToGetStorageBoxSnapshotPlanOutputWithContext(ctx context.Context) GetStorageBoxSnapshotPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSnapshotPlanOutput)
+}
+
+type GetStorageBoxSnapshotPlanOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSnapshotPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSnapshotPlan)(nil)).Elem()
+}
+
+func (o GetStorageBoxSnapshotPlanOutput) ToGetStorageBoxSnapshotPlanOutput() GetStorageBoxSnapshotPlanOutput {
+	return o
+}
+
+func (o GetStorageBoxSnapshotPlanOutput) ToGetStorageBoxSnapshotPlanOutputWithContext(ctx context.Context) GetStorageBoxSnapshotPlanOutput {
+	return o
+}
+
+// Day of the month when the Snapshot Plan is executed. Null means every day.
+func (o GetStorageBoxSnapshotPlanOutput) DayOfMonth() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotPlan) int { return v.DayOfMonth }).(pulumi.IntOutput)
+}
+
+// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+func (o GetStorageBoxSnapshotPlanOutput) DayOfWeek() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotPlan) int { return v.DayOfWeek }).(pulumi.IntOutput)
+}
+
+// Hour when the Snapshot Plan is executed (UTC).
+func (o GetStorageBoxSnapshotPlanOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotPlan) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+func (o GetStorageBoxSnapshotPlanOutput) MaxSnapshots() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotPlan) int { return v.MaxSnapshots }).(pulumi.IntOutput)
+}
+
+// Minute when the Snapshot Plan is executed (UTC).
+func (o GetStorageBoxSnapshotPlanOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotPlan) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+type GetStorageBoxSnapshotStats struct {
+	// Current storage requirements of the Snapshot in bytes.
+	Size int `pulumi:"size"`
+	// Size of the compressed file system contained in the Snapshot in bytes.
+	SizeFilesystem int `pulumi:"sizeFilesystem"`
+}
+
+// GetStorageBoxSnapshotStatsInput is an input type that accepts GetStorageBoxSnapshotStatsArgs and GetStorageBoxSnapshotStatsOutput values.
+// You can construct a concrete instance of `GetStorageBoxSnapshotStatsInput` via:
+//
+//	GetStorageBoxSnapshotStatsArgs{...}
+type GetStorageBoxSnapshotStatsInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSnapshotStatsOutput() GetStorageBoxSnapshotStatsOutput
+	ToGetStorageBoxSnapshotStatsOutputWithContext(context.Context) GetStorageBoxSnapshotStatsOutput
+}
+
+type GetStorageBoxSnapshotStatsArgs struct {
+	// Current storage requirements of the Snapshot in bytes.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Size of the compressed file system contained in the Snapshot in bytes.
+	SizeFilesystem pulumi.IntInput `pulumi:"sizeFilesystem"`
+}
+
+func (GetStorageBoxSnapshotStatsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSnapshotStats)(nil)).Elem()
+}
+
+func (i GetStorageBoxSnapshotStatsArgs) ToGetStorageBoxSnapshotStatsOutput() GetStorageBoxSnapshotStatsOutput {
+	return i.ToGetStorageBoxSnapshotStatsOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSnapshotStatsArgs) ToGetStorageBoxSnapshotStatsOutputWithContext(ctx context.Context) GetStorageBoxSnapshotStatsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSnapshotStatsOutput)
+}
+
+type GetStorageBoxSnapshotStatsOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSnapshotStatsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSnapshotStats)(nil)).Elem()
+}
+
+func (o GetStorageBoxSnapshotStatsOutput) ToGetStorageBoxSnapshotStatsOutput() GetStorageBoxSnapshotStatsOutput {
+	return o
+}
+
+func (o GetStorageBoxSnapshotStatsOutput) ToGetStorageBoxSnapshotStatsOutputWithContext(ctx context.Context) GetStorageBoxSnapshotStatsOutput {
+	return o
+}
+
+// Current storage requirements of the Snapshot in bytes.
+func (o GetStorageBoxSnapshotStatsOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotStats) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// Size of the compressed file system contained in the Snapshot in bytes.
+func (o GetStorageBoxSnapshotStatsOutput) SizeFilesystem() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotStats) int { return v.SizeFilesystem }).(pulumi.IntOutput)
+}
+
+type GetStorageBoxSnapshotsSnapshot struct {
+	// Description of the Storage Box Snapshot.
+	Description string `pulumi:"description"`
+	// ID of the Storage Box Snapshot.
+	Id int `pulumi:"id"`
+	// Whether the Storage Box Snapshot was created automatically.
+	IsAutomatic bool `pulumi:"isAutomatic"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the Storage Box Snapshot.
+	Name string `pulumi:"name"`
+	// Statistics of the Storage Box Snapshot.
+	Stats GetStorageBoxSnapshotsSnapshotStats `pulumi:"stats"`
+	// ID of the Storage Box.
+	StorageBoxId int `pulumi:"storageBoxId"`
+}
+
+// GetStorageBoxSnapshotsSnapshotInput is an input type that accepts GetStorageBoxSnapshotsSnapshotArgs and GetStorageBoxSnapshotsSnapshotOutput values.
+// You can construct a concrete instance of `GetStorageBoxSnapshotsSnapshotInput` via:
+//
+//	GetStorageBoxSnapshotsSnapshotArgs{...}
+type GetStorageBoxSnapshotsSnapshotInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSnapshotsSnapshotOutput() GetStorageBoxSnapshotsSnapshotOutput
+	ToGetStorageBoxSnapshotsSnapshotOutputWithContext(context.Context) GetStorageBoxSnapshotsSnapshotOutput
+}
+
+type GetStorageBoxSnapshotsSnapshotArgs struct {
+	// Description of the Storage Box Snapshot.
+	Description pulumi.StringInput `pulumi:"description"`
+	// ID of the Storage Box Snapshot.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Whether the Storage Box Snapshot was created automatically.
+	IsAutomatic pulumi.BoolInput `pulumi:"isAutomatic"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the Storage Box Snapshot.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Statistics of the Storage Box Snapshot.
+	Stats GetStorageBoxSnapshotsSnapshotStatsInput `pulumi:"stats"`
+	// ID of the Storage Box.
+	StorageBoxId pulumi.IntInput `pulumi:"storageBoxId"`
+}
+
+func (GetStorageBoxSnapshotsSnapshotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSnapshotsSnapshot)(nil)).Elem()
+}
+
+func (i GetStorageBoxSnapshotsSnapshotArgs) ToGetStorageBoxSnapshotsSnapshotOutput() GetStorageBoxSnapshotsSnapshotOutput {
+	return i.ToGetStorageBoxSnapshotsSnapshotOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSnapshotsSnapshotArgs) ToGetStorageBoxSnapshotsSnapshotOutputWithContext(ctx context.Context) GetStorageBoxSnapshotsSnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSnapshotsSnapshotOutput)
+}
+
+// GetStorageBoxSnapshotsSnapshotArrayInput is an input type that accepts GetStorageBoxSnapshotsSnapshotArray and GetStorageBoxSnapshotsSnapshotArrayOutput values.
+// You can construct a concrete instance of `GetStorageBoxSnapshotsSnapshotArrayInput` via:
+//
+//	GetStorageBoxSnapshotsSnapshotArray{ GetStorageBoxSnapshotsSnapshotArgs{...} }
+type GetStorageBoxSnapshotsSnapshotArrayInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSnapshotsSnapshotArrayOutput() GetStorageBoxSnapshotsSnapshotArrayOutput
+	ToGetStorageBoxSnapshotsSnapshotArrayOutputWithContext(context.Context) GetStorageBoxSnapshotsSnapshotArrayOutput
+}
+
+type GetStorageBoxSnapshotsSnapshotArray []GetStorageBoxSnapshotsSnapshotInput
+
+func (GetStorageBoxSnapshotsSnapshotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStorageBoxSnapshotsSnapshot)(nil)).Elem()
+}
+
+func (i GetStorageBoxSnapshotsSnapshotArray) ToGetStorageBoxSnapshotsSnapshotArrayOutput() GetStorageBoxSnapshotsSnapshotArrayOutput {
+	return i.ToGetStorageBoxSnapshotsSnapshotArrayOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSnapshotsSnapshotArray) ToGetStorageBoxSnapshotsSnapshotArrayOutputWithContext(ctx context.Context) GetStorageBoxSnapshotsSnapshotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSnapshotsSnapshotArrayOutput)
+}
+
+type GetStorageBoxSnapshotsSnapshotOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSnapshotsSnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSnapshotsSnapshot)(nil)).Elem()
+}
+
+func (o GetStorageBoxSnapshotsSnapshotOutput) ToGetStorageBoxSnapshotsSnapshotOutput() GetStorageBoxSnapshotsSnapshotOutput {
+	return o
+}
+
+func (o GetStorageBoxSnapshotsSnapshotOutput) ToGetStorageBoxSnapshotsSnapshotOutputWithContext(ctx context.Context) GetStorageBoxSnapshotsSnapshotOutput {
+	return o
+}
+
+// Description of the Storage Box Snapshot.
+func (o GetStorageBoxSnapshotsSnapshotOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshot) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// ID of the Storage Box Snapshot.
+func (o GetStorageBoxSnapshotsSnapshotOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshot) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Whether the Storage Box Snapshot was created automatically.
+func (o GetStorageBoxSnapshotsSnapshotOutput) IsAutomatic() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshot) bool { return v.IsAutomatic }).(pulumi.BoolOutput)
+}
+
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+func (o GetStorageBoxSnapshotsSnapshotOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshot) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Name of the Storage Box Snapshot.
+func (o GetStorageBoxSnapshotsSnapshotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshot) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Statistics of the Storage Box Snapshot.
+func (o GetStorageBoxSnapshotsSnapshotOutput) Stats() GetStorageBoxSnapshotsSnapshotStatsOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshot) GetStorageBoxSnapshotsSnapshotStats { return v.Stats }).(GetStorageBoxSnapshotsSnapshotStatsOutput)
+}
+
+// ID of the Storage Box.
+func (o GetStorageBoxSnapshotsSnapshotOutput) StorageBoxId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshot) int { return v.StorageBoxId }).(pulumi.IntOutput)
+}
+
+type GetStorageBoxSnapshotsSnapshotArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSnapshotsSnapshotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStorageBoxSnapshotsSnapshot)(nil)).Elem()
+}
+
+func (o GetStorageBoxSnapshotsSnapshotArrayOutput) ToGetStorageBoxSnapshotsSnapshotArrayOutput() GetStorageBoxSnapshotsSnapshotArrayOutput {
+	return o
+}
+
+func (o GetStorageBoxSnapshotsSnapshotArrayOutput) ToGetStorageBoxSnapshotsSnapshotArrayOutputWithContext(ctx context.Context) GetStorageBoxSnapshotsSnapshotArrayOutput {
+	return o
+}
+
+func (o GetStorageBoxSnapshotsSnapshotArrayOutput) Index(i pulumi.IntInput) GetStorageBoxSnapshotsSnapshotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStorageBoxSnapshotsSnapshot {
+		return vs[0].([]GetStorageBoxSnapshotsSnapshot)[vs[1].(int)]
+	}).(GetStorageBoxSnapshotsSnapshotOutput)
+}
+
+type GetStorageBoxSnapshotsSnapshotStats struct {
+	// Current storage requirements of the Snapshot in bytes.
+	Size int `pulumi:"size"`
+	// Size of the compressed file system contained in the Snapshot in bytes.
+	SizeFilesystem int `pulumi:"sizeFilesystem"`
+}
+
+// GetStorageBoxSnapshotsSnapshotStatsInput is an input type that accepts GetStorageBoxSnapshotsSnapshotStatsArgs and GetStorageBoxSnapshotsSnapshotStatsOutput values.
+// You can construct a concrete instance of `GetStorageBoxSnapshotsSnapshotStatsInput` via:
+//
+//	GetStorageBoxSnapshotsSnapshotStatsArgs{...}
+type GetStorageBoxSnapshotsSnapshotStatsInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSnapshotsSnapshotStatsOutput() GetStorageBoxSnapshotsSnapshotStatsOutput
+	ToGetStorageBoxSnapshotsSnapshotStatsOutputWithContext(context.Context) GetStorageBoxSnapshotsSnapshotStatsOutput
+}
+
+type GetStorageBoxSnapshotsSnapshotStatsArgs struct {
+	// Current storage requirements of the Snapshot in bytes.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Size of the compressed file system contained in the Snapshot in bytes.
+	SizeFilesystem pulumi.IntInput `pulumi:"sizeFilesystem"`
+}
+
+func (GetStorageBoxSnapshotsSnapshotStatsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSnapshotsSnapshotStats)(nil)).Elem()
+}
+
+func (i GetStorageBoxSnapshotsSnapshotStatsArgs) ToGetStorageBoxSnapshotsSnapshotStatsOutput() GetStorageBoxSnapshotsSnapshotStatsOutput {
+	return i.ToGetStorageBoxSnapshotsSnapshotStatsOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSnapshotsSnapshotStatsArgs) ToGetStorageBoxSnapshotsSnapshotStatsOutputWithContext(ctx context.Context) GetStorageBoxSnapshotsSnapshotStatsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSnapshotsSnapshotStatsOutput)
+}
+
+type GetStorageBoxSnapshotsSnapshotStatsOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSnapshotsSnapshotStatsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSnapshotsSnapshotStats)(nil)).Elem()
+}
+
+func (o GetStorageBoxSnapshotsSnapshotStatsOutput) ToGetStorageBoxSnapshotsSnapshotStatsOutput() GetStorageBoxSnapshotsSnapshotStatsOutput {
+	return o
+}
+
+func (o GetStorageBoxSnapshotsSnapshotStatsOutput) ToGetStorageBoxSnapshotsSnapshotStatsOutputWithContext(ctx context.Context) GetStorageBoxSnapshotsSnapshotStatsOutput {
+	return o
+}
+
+// Current storage requirements of the Snapshot in bytes.
+func (o GetStorageBoxSnapshotsSnapshotStatsOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshotStats) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// Size of the compressed file system contained in the Snapshot in bytes.
+func (o GetStorageBoxSnapshotsSnapshotStatsOutput) SizeFilesystem() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSnapshotsSnapshotStats) int { return v.SizeFilesystem }).(pulumi.IntOutput)
+}
+
+type GetStorageBoxSubaccountAccessSettings struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally bool `pulumi:"reachableExternally"`
+	// Whether the Subaccount is read-only.
+	Readonly bool `pulumi:"readonly"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled bool `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled bool `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled bool `pulumi:"webdavEnabled"`
+}
+
+// GetStorageBoxSubaccountAccessSettingsInput is an input type that accepts GetStorageBoxSubaccountAccessSettingsArgs and GetStorageBoxSubaccountAccessSettingsOutput values.
+// You can construct a concrete instance of `GetStorageBoxSubaccountAccessSettingsInput` via:
+//
+//	GetStorageBoxSubaccountAccessSettingsArgs{...}
+type GetStorageBoxSubaccountAccessSettingsInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSubaccountAccessSettingsOutput() GetStorageBoxSubaccountAccessSettingsOutput
+	ToGetStorageBoxSubaccountAccessSettingsOutputWithContext(context.Context) GetStorageBoxSubaccountAccessSettingsOutput
+}
+
+type GetStorageBoxSubaccountAccessSettingsArgs struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally pulumi.BoolInput `pulumi:"reachableExternally"`
+	// Whether the Subaccount is read-only.
+	Readonly pulumi.BoolInput `pulumi:"readonly"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled pulumi.BoolInput `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled pulumi.BoolInput `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled pulumi.BoolInput `pulumi:"webdavEnabled"`
+}
+
+func (GetStorageBoxSubaccountAccessSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSubaccountAccessSettings)(nil)).Elem()
+}
+
+func (i GetStorageBoxSubaccountAccessSettingsArgs) ToGetStorageBoxSubaccountAccessSettingsOutput() GetStorageBoxSubaccountAccessSettingsOutput {
+	return i.ToGetStorageBoxSubaccountAccessSettingsOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSubaccountAccessSettingsArgs) ToGetStorageBoxSubaccountAccessSettingsOutputWithContext(ctx context.Context) GetStorageBoxSubaccountAccessSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSubaccountAccessSettingsOutput)
+}
+
+type GetStorageBoxSubaccountAccessSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSubaccountAccessSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSubaccountAccessSettings)(nil)).Elem()
+}
+
+func (o GetStorageBoxSubaccountAccessSettingsOutput) ToGetStorageBoxSubaccountAccessSettingsOutput() GetStorageBoxSubaccountAccessSettingsOutput {
+	return o
+}
+
+func (o GetStorageBoxSubaccountAccessSettingsOutput) ToGetStorageBoxSubaccountAccessSettingsOutputWithContext(ctx context.Context) GetStorageBoxSubaccountAccessSettingsOutput {
+	return o
+}
+
+// Whether access from outside the Hetzner network is allowed.
+func (o GetStorageBoxSubaccountAccessSettingsOutput) ReachableExternally() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountAccessSettings) bool { return v.ReachableExternally }).(pulumi.BoolOutput)
+}
+
+// Whether the Subaccount is read-only.
+func (o GetStorageBoxSubaccountAccessSettingsOutput) Readonly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountAccessSettings) bool { return v.Readonly }).(pulumi.BoolOutput)
+}
+
+// Whether the Samba subsystem is enabled.
+func (o GetStorageBoxSubaccountAccessSettingsOutput) SambaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountAccessSettings) bool { return v.SambaEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the SSH subsystem is enabled.
+func (o GetStorageBoxSubaccountAccessSettingsOutput) SshEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountAccessSettings) bool { return v.SshEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the WebDAV subsystem is enabled.
+func (o GetStorageBoxSubaccountAccessSettingsOutput) WebdavEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountAccessSettings) bool { return v.WebdavEnabled }).(pulumi.BoolOutput)
+}
+
+type GetStorageBoxSubaccountsSubaccount struct {
+	// Access settings for the Subaccount.
+	AccessSettings GetStorageBoxSubaccountsSubaccountAccessSettings `pulumi:"accessSettings"`
+	// Description of the Storage Box Subaccount.
+	Description string `pulumi:"description"`
+	// Home directory of the Storage Box Subaccount.
+	HomeDirectory string `pulumi:"homeDirectory"`
+	// ID of the Storage Box Subaccount.
+	Id int `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// FQDN of the Storage Box Subaccount.
+	Server string `pulumi:"server"`
+	// ID of the Storage Box.
+	StorageBoxId int `pulumi:"storageBoxId"`
+	// Username of the Storage Box Subaccount.
+	Username string `pulumi:"username"`
+}
+
+// GetStorageBoxSubaccountsSubaccountInput is an input type that accepts GetStorageBoxSubaccountsSubaccountArgs and GetStorageBoxSubaccountsSubaccountOutput values.
+// You can construct a concrete instance of `GetStorageBoxSubaccountsSubaccountInput` via:
+//
+//	GetStorageBoxSubaccountsSubaccountArgs{...}
+type GetStorageBoxSubaccountsSubaccountInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSubaccountsSubaccountOutput() GetStorageBoxSubaccountsSubaccountOutput
+	ToGetStorageBoxSubaccountsSubaccountOutputWithContext(context.Context) GetStorageBoxSubaccountsSubaccountOutput
+}
+
+type GetStorageBoxSubaccountsSubaccountArgs struct {
+	// Access settings for the Subaccount.
+	AccessSettings GetStorageBoxSubaccountsSubaccountAccessSettingsInput `pulumi:"accessSettings"`
+	// Description of the Storage Box Subaccount.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Home directory of the Storage Box Subaccount.
+	HomeDirectory pulumi.StringInput `pulumi:"homeDirectory"`
+	// ID of the Storage Box Subaccount.
+	Id pulumi.IntInput `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// FQDN of the Storage Box Subaccount.
+	Server pulumi.StringInput `pulumi:"server"`
+	// ID of the Storage Box.
+	StorageBoxId pulumi.IntInput `pulumi:"storageBoxId"`
+	// Username of the Storage Box Subaccount.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetStorageBoxSubaccountsSubaccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSubaccountsSubaccount)(nil)).Elem()
+}
+
+func (i GetStorageBoxSubaccountsSubaccountArgs) ToGetStorageBoxSubaccountsSubaccountOutput() GetStorageBoxSubaccountsSubaccountOutput {
+	return i.ToGetStorageBoxSubaccountsSubaccountOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSubaccountsSubaccountArgs) ToGetStorageBoxSubaccountsSubaccountOutputWithContext(ctx context.Context) GetStorageBoxSubaccountsSubaccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSubaccountsSubaccountOutput)
+}
+
+// GetStorageBoxSubaccountsSubaccountArrayInput is an input type that accepts GetStorageBoxSubaccountsSubaccountArray and GetStorageBoxSubaccountsSubaccountArrayOutput values.
+// You can construct a concrete instance of `GetStorageBoxSubaccountsSubaccountArrayInput` via:
+//
+//	GetStorageBoxSubaccountsSubaccountArray{ GetStorageBoxSubaccountsSubaccountArgs{...} }
+type GetStorageBoxSubaccountsSubaccountArrayInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSubaccountsSubaccountArrayOutput() GetStorageBoxSubaccountsSubaccountArrayOutput
+	ToGetStorageBoxSubaccountsSubaccountArrayOutputWithContext(context.Context) GetStorageBoxSubaccountsSubaccountArrayOutput
+}
+
+type GetStorageBoxSubaccountsSubaccountArray []GetStorageBoxSubaccountsSubaccountInput
+
+func (GetStorageBoxSubaccountsSubaccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStorageBoxSubaccountsSubaccount)(nil)).Elem()
+}
+
+func (i GetStorageBoxSubaccountsSubaccountArray) ToGetStorageBoxSubaccountsSubaccountArrayOutput() GetStorageBoxSubaccountsSubaccountArrayOutput {
+	return i.ToGetStorageBoxSubaccountsSubaccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSubaccountsSubaccountArray) ToGetStorageBoxSubaccountsSubaccountArrayOutputWithContext(ctx context.Context) GetStorageBoxSubaccountsSubaccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSubaccountsSubaccountArrayOutput)
+}
+
+type GetStorageBoxSubaccountsSubaccountOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSubaccountsSubaccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSubaccountsSubaccount)(nil)).Elem()
+}
+
+func (o GetStorageBoxSubaccountsSubaccountOutput) ToGetStorageBoxSubaccountsSubaccountOutput() GetStorageBoxSubaccountsSubaccountOutput {
+	return o
+}
+
+func (o GetStorageBoxSubaccountsSubaccountOutput) ToGetStorageBoxSubaccountsSubaccountOutputWithContext(ctx context.Context) GetStorageBoxSubaccountsSubaccountOutput {
+	return o
+}
+
+// Access settings for the Subaccount.
+func (o GetStorageBoxSubaccountsSubaccountOutput) AccessSettings() GetStorageBoxSubaccountsSubaccountAccessSettingsOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) GetStorageBoxSubaccountsSubaccountAccessSettings {
+		return v.AccessSettings
+	}).(GetStorageBoxSubaccountsSubaccountAccessSettingsOutput)
+}
+
+// Description of the Storage Box Subaccount.
+func (o GetStorageBoxSubaccountsSubaccountOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Home directory of the Storage Box Subaccount.
+func (o GetStorageBoxSubaccountsSubaccountOutput) HomeDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) string { return v.HomeDirectory }).(pulumi.StringOutput)
+}
+
+// ID of the Storage Box Subaccount.
+func (o GetStorageBoxSubaccountsSubaccountOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+func (o GetStorageBoxSubaccountsSubaccountOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// FQDN of the Storage Box Subaccount.
+func (o GetStorageBoxSubaccountsSubaccountOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// ID of the Storage Box.
+func (o GetStorageBoxSubaccountsSubaccountOutput) StorageBoxId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) int { return v.StorageBoxId }).(pulumi.IntOutput)
+}
+
+// Username of the Storage Box Subaccount.
+func (o GetStorageBoxSubaccountsSubaccountOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetStorageBoxSubaccountsSubaccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSubaccountsSubaccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStorageBoxSubaccountsSubaccount)(nil)).Elem()
+}
+
+func (o GetStorageBoxSubaccountsSubaccountArrayOutput) ToGetStorageBoxSubaccountsSubaccountArrayOutput() GetStorageBoxSubaccountsSubaccountArrayOutput {
+	return o
+}
+
+func (o GetStorageBoxSubaccountsSubaccountArrayOutput) ToGetStorageBoxSubaccountsSubaccountArrayOutputWithContext(ctx context.Context) GetStorageBoxSubaccountsSubaccountArrayOutput {
+	return o
+}
+
+func (o GetStorageBoxSubaccountsSubaccountArrayOutput) Index(i pulumi.IntInput) GetStorageBoxSubaccountsSubaccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStorageBoxSubaccountsSubaccount {
+		return vs[0].([]GetStorageBoxSubaccountsSubaccount)[vs[1].(int)]
+	}).(GetStorageBoxSubaccountsSubaccountOutput)
+}
+
+type GetStorageBoxSubaccountsSubaccountAccessSettings struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally bool `pulumi:"reachableExternally"`
+	// Whether the Subaccount is read-only.
+	Readonly bool `pulumi:"readonly"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled bool `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled bool `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled bool `pulumi:"webdavEnabled"`
+}
+
+// GetStorageBoxSubaccountsSubaccountAccessSettingsInput is an input type that accepts GetStorageBoxSubaccountsSubaccountAccessSettingsArgs and GetStorageBoxSubaccountsSubaccountAccessSettingsOutput values.
+// You can construct a concrete instance of `GetStorageBoxSubaccountsSubaccountAccessSettingsInput` via:
+//
+//	GetStorageBoxSubaccountsSubaccountAccessSettingsArgs{...}
+type GetStorageBoxSubaccountsSubaccountAccessSettingsInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxSubaccountsSubaccountAccessSettingsOutput() GetStorageBoxSubaccountsSubaccountAccessSettingsOutput
+	ToGetStorageBoxSubaccountsSubaccountAccessSettingsOutputWithContext(context.Context) GetStorageBoxSubaccountsSubaccountAccessSettingsOutput
+}
+
+type GetStorageBoxSubaccountsSubaccountAccessSettingsArgs struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally pulumi.BoolInput `pulumi:"reachableExternally"`
+	// Whether the Subaccount is read-only.
+	Readonly pulumi.BoolInput `pulumi:"readonly"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled pulumi.BoolInput `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled pulumi.BoolInput `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled pulumi.BoolInput `pulumi:"webdavEnabled"`
+}
+
+func (GetStorageBoxSubaccountsSubaccountAccessSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSubaccountsSubaccountAccessSettings)(nil)).Elem()
+}
+
+func (i GetStorageBoxSubaccountsSubaccountAccessSettingsArgs) ToGetStorageBoxSubaccountsSubaccountAccessSettingsOutput() GetStorageBoxSubaccountsSubaccountAccessSettingsOutput {
+	return i.ToGetStorageBoxSubaccountsSubaccountAccessSettingsOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxSubaccountsSubaccountAccessSettingsArgs) ToGetStorageBoxSubaccountsSubaccountAccessSettingsOutputWithContext(ctx context.Context) GetStorageBoxSubaccountsSubaccountAccessSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxSubaccountsSubaccountAccessSettingsOutput)
+}
+
+type GetStorageBoxSubaccountsSubaccountAccessSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxSubaccountsSubaccountAccessSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxSubaccountsSubaccountAccessSettings)(nil)).Elem()
+}
+
+func (o GetStorageBoxSubaccountsSubaccountAccessSettingsOutput) ToGetStorageBoxSubaccountsSubaccountAccessSettingsOutput() GetStorageBoxSubaccountsSubaccountAccessSettingsOutput {
+	return o
+}
+
+func (o GetStorageBoxSubaccountsSubaccountAccessSettingsOutput) ToGetStorageBoxSubaccountsSubaccountAccessSettingsOutputWithContext(ctx context.Context) GetStorageBoxSubaccountsSubaccountAccessSettingsOutput {
+	return o
+}
+
+// Whether access from outside the Hetzner network is allowed.
+func (o GetStorageBoxSubaccountsSubaccountAccessSettingsOutput) ReachableExternally() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccountAccessSettings) bool { return v.ReachableExternally }).(pulumi.BoolOutput)
+}
+
+// Whether the Subaccount is read-only.
+func (o GetStorageBoxSubaccountsSubaccountAccessSettingsOutput) Readonly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccountAccessSettings) bool { return v.Readonly }).(pulumi.BoolOutput)
+}
+
+// Whether the Samba subsystem is enabled.
+func (o GetStorageBoxSubaccountsSubaccountAccessSettingsOutput) SambaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccountAccessSettings) bool { return v.SambaEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the SSH subsystem is enabled.
+func (o GetStorageBoxSubaccountsSubaccountAccessSettingsOutput) SshEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccountAccessSettings) bool { return v.SshEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the WebDAV subsystem is enabled.
+func (o GetStorageBoxSubaccountsSubaccountAccessSettingsOutput) WebdavEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccountAccessSettings) bool { return v.WebdavEnabled }).(pulumi.BoolOutput)
+}
+
+type GetStorageBoxTypesStorageBoxType struct {
+	// Maximum number of snapshots created automatically by a snapshot plan.
+	AutomaticSnapshotLimit int `pulumi:"automaticSnapshotLimit"`
+	// Date of the Storage Box Type deprecation announcement.
+	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
+	// Description of the Storage Box Type.
+	Description string `pulumi:"description"`
+	// ID of the Storage Box Type.
+	Id int `pulumi:"id"`
+	// Whether the Storage Box Type is deprecated.
+	IsDeprecated bool `pulumi:"isDeprecated"`
+	// Name of the Storage Box Type.
+	Name string `pulumi:"name"`
+	// Available storage in bytes.
+	Size int `pulumi:"size"`
+	// Maximum number of allowed manual snapshots.
+	SnapshotLimit int `pulumi:"snapshotLimit"`
+	// Maximum number of subaccounts.
+	SubaccountsLimit int `pulumi:"subaccountsLimit"`
+	// Date of the Storage Box Type removal. After this date, the Storage Box Type cannot be used anymore.
+	UnavailableAfter string `pulumi:"unavailableAfter"`
+}
+
+// GetStorageBoxTypesStorageBoxTypeInput is an input type that accepts GetStorageBoxTypesStorageBoxTypeArgs and GetStorageBoxTypesStorageBoxTypeOutput values.
+// You can construct a concrete instance of `GetStorageBoxTypesStorageBoxTypeInput` via:
+//
+//	GetStorageBoxTypesStorageBoxTypeArgs{...}
+type GetStorageBoxTypesStorageBoxTypeInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxTypesStorageBoxTypeOutput() GetStorageBoxTypesStorageBoxTypeOutput
+	ToGetStorageBoxTypesStorageBoxTypeOutputWithContext(context.Context) GetStorageBoxTypesStorageBoxTypeOutput
+}
+
+type GetStorageBoxTypesStorageBoxTypeArgs struct {
+	// Maximum number of snapshots created automatically by a snapshot plan.
+	AutomaticSnapshotLimit pulumi.IntInput `pulumi:"automaticSnapshotLimit"`
+	// Date of the Storage Box Type deprecation announcement.
+	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
+	// Description of the Storage Box Type.
+	Description pulumi.StringInput `pulumi:"description"`
+	// ID of the Storage Box Type.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Whether the Storage Box Type is deprecated.
+	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
+	// Name of the Storage Box Type.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Available storage in bytes.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Maximum number of allowed manual snapshots.
+	SnapshotLimit pulumi.IntInput `pulumi:"snapshotLimit"`
+	// Maximum number of subaccounts.
+	SubaccountsLimit pulumi.IntInput `pulumi:"subaccountsLimit"`
+	// Date of the Storage Box Type removal. After this date, the Storage Box Type cannot be used anymore.
+	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
+}
+
+func (GetStorageBoxTypesStorageBoxTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxTypesStorageBoxType)(nil)).Elem()
+}
+
+func (i GetStorageBoxTypesStorageBoxTypeArgs) ToGetStorageBoxTypesStorageBoxTypeOutput() GetStorageBoxTypesStorageBoxTypeOutput {
+	return i.ToGetStorageBoxTypesStorageBoxTypeOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxTypesStorageBoxTypeArgs) ToGetStorageBoxTypesStorageBoxTypeOutputWithContext(ctx context.Context) GetStorageBoxTypesStorageBoxTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxTypesStorageBoxTypeOutput)
+}
+
+// GetStorageBoxTypesStorageBoxTypeArrayInput is an input type that accepts GetStorageBoxTypesStorageBoxTypeArray and GetStorageBoxTypesStorageBoxTypeArrayOutput values.
+// You can construct a concrete instance of `GetStorageBoxTypesStorageBoxTypeArrayInput` via:
+//
+//	GetStorageBoxTypesStorageBoxTypeArray{ GetStorageBoxTypesStorageBoxTypeArgs{...} }
+type GetStorageBoxTypesStorageBoxTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxTypesStorageBoxTypeArrayOutput() GetStorageBoxTypesStorageBoxTypeArrayOutput
+	ToGetStorageBoxTypesStorageBoxTypeArrayOutputWithContext(context.Context) GetStorageBoxTypesStorageBoxTypeArrayOutput
+}
+
+type GetStorageBoxTypesStorageBoxTypeArray []GetStorageBoxTypesStorageBoxTypeInput
+
+func (GetStorageBoxTypesStorageBoxTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStorageBoxTypesStorageBoxType)(nil)).Elem()
+}
+
+func (i GetStorageBoxTypesStorageBoxTypeArray) ToGetStorageBoxTypesStorageBoxTypeArrayOutput() GetStorageBoxTypesStorageBoxTypeArrayOutput {
+	return i.ToGetStorageBoxTypesStorageBoxTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxTypesStorageBoxTypeArray) ToGetStorageBoxTypesStorageBoxTypeArrayOutputWithContext(ctx context.Context) GetStorageBoxTypesStorageBoxTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxTypesStorageBoxTypeArrayOutput)
+}
+
+type GetStorageBoxTypesStorageBoxTypeOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxTypesStorageBoxTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxTypesStorageBoxType)(nil)).Elem()
+}
+
+func (o GetStorageBoxTypesStorageBoxTypeOutput) ToGetStorageBoxTypesStorageBoxTypeOutput() GetStorageBoxTypesStorageBoxTypeOutput {
+	return o
+}
+
+func (o GetStorageBoxTypesStorageBoxTypeOutput) ToGetStorageBoxTypesStorageBoxTypeOutputWithContext(ctx context.Context) GetStorageBoxTypesStorageBoxTypeOutput {
+	return o
+}
+
+// Maximum number of snapshots created automatically by a snapshot plan.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) AutomaticSnapshotLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) int { return v.AutomaticSnapshotLimit }).(pulumi.IntOutput)
+}
+
+// Date of the Storage Box Type deprecation announcement.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) DeprecationAnnounced() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
+}
+
+// Description of the Storage Box Type.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// ID of the Storage Box Type.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Whether the Storage Box Type is deprecated.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) IsDeprecated() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
+}
+
+// Name of the Storage Box Type.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Available storage in bytes.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// Maximum number of allowed manual snapshots.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) SnapshotLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) int { return v.SnapshotLimit }).(pulumi.IntOutput)
+}
+
+// Maximum number of subaccounts.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) SubaccountsLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) int { return v.SubaccountsLimit }).(pulumi.IntOutput)
+}
+
+// Date of the Storage Box Type removal. After this date, the Storage Box Type cannot be used anymore.
+func (o GetStorageBoxTypesStorageBoxTypeOutput) UnavailableAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxTypesStorageBoxType) string { return v.UnavailableAfter }).(pulumi.StringOutput)
+}
+
+type GetStorageBoxTypesStorageBoxTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxTypesStorageBoxTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStorageBoxTypesStorageBoxType)(nil)).Elem()
+}
+
+func (o GetStorageBoxTypesStorageBoxTypeArrayOutput) ToGetStorageBoxTypesStorageBoxTypeArrayOutput() GetStorageBoxTypesStorageBoxTypeArrayOutput {
+	return o
+}
+
+func (o GetStorageBoxTypesStorageBoxTypeArrayOutput) ToGetStorageBoxTypesStorageBoxTypeArrayOutputWithContext(ctx context.Context) GetStorageBoxTypesStorageBoxTypeArrayOutput {
+	return o
+}
+
+func (o GetStorageBoxTypesStorageBoxTypeArrayOutput) Index(i pulumi.IntInput) GetStorageBoxTypesStorageBoxTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStorageBoxTypesStorageBoxType {
+		return vs[0].([]GetStorageBoxTypesStorageBoxType)[vs[1].(int)]
+	}).(GetStorageBoxTypesStorageBoxTypeOutput)
+}
+
+type GetStorageBoxesStorageBox struct {
+	// Access settings of the Storage Box.
+	AccessSettings GetStorageBoxesStorageBoxAccessSettings `pulumi:"accessSettings"`
+	// Whether delete protection is enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
+	// ID of the Storage Box.
+	Id int `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the Location.
+	Location string `pulumi:"location"`
+	// Name of the Storage Box.
+	Name string `pulumi:"name"`
+	// FQDN of the Storage Box.
+	Server string `pulumi:"server"`
+	// Details of the active snapshot plan.
+	SnapshotPlan GetStorageBoxesStorageBoxSnapshotPlan `pulumi:"snapshotPlan"`
+	// Name of the Storage Box Type.
+	StorageBoxType string `pulumi:"storageBoxType"`
+	// Host system of the Storage Box.
+	System string `pulumi:"system"`
+	// Primary username of the Storage Box.
+	Username string `pulumi:"username"`
+}
+
+// GetStorageBoxesStorageBoxInput is an input type that accepts GetStorageBoxesStorageBoxArgs and GetStorageBoxesStorageBoxOutput values.
+// You can construct a concrete instance of `GetStorageBoxesStorageBoxInput` via:
+//
+//	GetStorageBoxesStorageBoxArgs{...}
+type GetStorageBoxesStorageBoxInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxesStorageBoxOutput() GetStorageBoxesStorageBoxOutput
+	ToGetStorageBoxesStorageBoxOutputWithContext(context.Context) GetStorageBoxesStorageBoxOutput
+}
+
+type GetStorageBoxesStorageBoxArgs struct {
+	// Access settings of the Storage Box.
+	AccessSettings GetStorageBoxesStorageBoxAccessSettingsInput `pulumi:"accessSettings"`
+	// Whether delete protection is enabled.
+	DeleteProtection pulumi.BoolInput `pulumi:"deleteProtection"`
+	// ID of the Storage Box.
+	Id pulumi.IntInput `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the Location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Name of the Storage Box.
+	Name pulumi.StringInput `pulumi:"name"`
+	// FQDN of the Storage Box.
+	Server pulumi.StringInput `pulumi:"server"`
+	// Details of the active snapshot plan.
+	SnapshotPlan GetStorageBoxesStorageBoxSnapshotPlanInput `pulumi:"snapshotPlan"`
+	// Name of the Storage Box Type.
+	StorageBoxType pulumi.StringInput `pulumi:"storageBoxType"`
+	// Host system of the Storage Box.
+	System pulumi.StringInput `pulumi:"system"`
+	// Primary username of the Storage Box.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetStorageBoxesStorageBoxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxesStorageBox)(nil)).Elem()
+}
+
+func (i GetStorageBoxesStorageBoxArgs) ToGetStorageBoxesStorageBoxOutput() GetStorageBoxesStorageBoxOutput {
+	return i.ToGetStorageBoxesStorageBoxOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxesStorageBoxArgs) ToGetStorageBoxesStorageBoxOutputWithContext(ctx context.Context) GetStorageBoxesStorageBoxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxesStorageBoxOutput)
+}
+
+// GetStorageBoxesStorageBoxArrayInput is an input type that accepts GetStorageBoxesStorageBoxArray and GetStorageBoxesStorageBoxArrayOutput values.
+// You can construct a concrete instance of `GetStorageBoxesStorageBoxArrayInput` via:
+//
+//	GetStorageBoxesStorageBoxArray{ GetStorageBoxesStorageBoxArgs{...} }
+type GetStorageBoxesStorageBoxArrayInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxesStorageBoxArrayOutput() GetStorageBoxesStorageBoxArrayOutput
+	ToGetStorageBoxesStorageBoxArrayOutputWithContext(context.Context) GetStorageBoxesStorageBoxArrayOutput
+}
+
+type GetStorageBoxesStorageBoxArray []GetStorageBoxesStorageBoxInput
+
+func (GetStorageBoxesStorageBoxArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStorageBoxesStorageBox)(nil)).Elem()
+}
+
+func (i GetStorageBoxesStorageBoxArray) ToGetStorageBoxesStorageBoxArrayOutput() GetStorageBoxesStorageBoxArrayOutput {
+	return i.ToGetStorageBoxesStorageBoxArrayOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxesStorageBoxArray) ToGetStorageBoxesStorageBoxArrayOutputWithContext(ctx context.Context) GetStorageBoxesStorageBoxArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxesStorageBoxArrayOutput)
+}
+
+type GetStorageBoxesStorageBoxOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxesStorageBoxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxesStorageBox)(nil)).Elem()
+}
+
+func (o GetStorageBoxesStorageBoxOutput) ToGetStorageBoxesStorageBoxOutput() GetStorageBoxesStorageBoxOutput {
+	return o
+}
+
+func (o GetStorageBoxesStorageBoxOutput) ToGetStorageBoxesStorageBoxOutputWithContext(ctx context.Context) GetStorageBoxesStorageBoxOutput {
+	return o
+}
+
+// Access settings of the Storage Box.
+func (o GetStorageBoxesStorageBoxOutput) AccessSettings() GetStorageBoxesStorageBoxAccessSettingsOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) GetStorageBoxesStorageBoxAccessSettings { return v.AccessSettings }).(GetStorageBoxesStorageBoxAccessSettingsOutput)
+}
+
+// Whether delete protection is enabled.
+func (o GetStorageBoxesStorageBoxOutput) DeleteProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+// ID of the Storage Box.
+func (o GetStorageBoxesStorageBoxOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+func (o GetStorageBoxesStorageBoxOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Name of the Location.
+func (o GetStorageBoxesStorageBoxOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the Storage Box.
+func (o GetStorageBoxesStorageBoxOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// FQDN of the Storage Box.
+func (o GetStorageBoxesStorageBoxOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// Details of the active snapshot plan.
+func (o GetStorageBoxesStorageBoxOutput) SnapshotPlan() GetStorageBoxesStorageBoxSnapshotPlanOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) GetStorageBoxesStorageBoxSnapshotPlan { return v.SnapshotPlan }).(GetStorageBoxesStorageBoxSnapshotPlanOutput)
+}
+
+// Name of the Storage Box Type.
+func (o GetStorageBoxesStorageBoxOutput) StorageBoxType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) string { return v.StorageBoxType }).(pulumi.StringOutput)
+}
+
+// Host system of the Storage Box.
+func (o GetStorageBoxesStorageBoxOutput) System() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) string { return v.System }).(pulumi.StringOutput)
+}
+
+// Primary username of the Storage Box.
+func (o GetStorageBoxesStorageBoxOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBox) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetStorageBoxesStorageBoxArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxesStorageBoxArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStorageBoxesStorageBox)(nil)).Elem()
+}
+
+func (o GetStorageBoxesStorageBoxArrayOutput) ToGetStorageBoxesStorageBoxArrayOutput() GetStorageBoxesStorageBoxArrayOutput {
+	return o
+}
+
+func (o GetStorageBoxesStorageBoxArrayOutput) ToGetStorageBoxesStorageBoxArrayOutputWithContext(ctx context.Context) GetStorageBoxesStorageBoxArrayOutput {
+	return o
+}
+
+func (o GetStorageBoxesStorageBoxArrayOutput) Index(i pulumi.IntInput) GetStorageBoxesStorageBoxOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStorageBoxesStorageBox {
+		return vs[0].([]GetStorageBoxesStorageBox)[vs[1].(int)]
+	}).(GetStorageBoxesStorageBoxOutput)
+}
+
+type GetStorageBoxesStorageBoxAccessSettings struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally bool `pulumi:"reachableExternally"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled bool `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled bool `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled bool `pulumi:"webdavEnabled"`
+	// Whether the ZFS snapshot folder is visible.
+	ZfsEnabled bool `pulumi:"zfsEnabled"`
+}
+
+// GetStorageBoxesStorageBoxAccessSettingsInput is an input type that accepts GetStorageBoxesStorageBoxAccessSettingsArgs and GetStorageBoxesStorageBoxAccessSettingsOutput values.
+// You can construct a concrete instance of `GetStorageBoxesStorageBoxAccessSettingsInput` via:
+//
+//	GetStorageBoxesStorageBoxAccessSettingsArgs{...}
+type GetStorageBoxesStorageBoxAccessSettingsInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxesStorageBoxAccessSettingsOutput() GetStorageBoxesStorageBoxAccessSettingsOutput
+	ToGetStorageBoxesStorageBoxAccessSettingsOutputWithContext(context.Context) GetStorageBoxesStorageBoxAccessSettingsOutput
+}
+
+type GetStorageBoxesStorageBoxAccessSettingsArgs struct {
+	// Whether access from outside the Hetzner network is allowed.
+	ReachableExternally pulumi.BoolInput `pulumi:"reachableExternally"`
+	// Whether the Samba subsystem is enabled.
+	SambaEnabled pulumi.BoolInput `pulumi:"sambaEnabled"`
+	// Whether the SSH subsystem is enabled.
+	SshEnabled pulumi.BoolInput `pulumi:"sshEnabled"`
+	// Whether the WebDAV subsystem is enabled.
+	WebdavEnabled pulumi.BoolInput `pulumi:"webdavEnabled"`
+	// Whether the ZFS snapshot folder is visible.
+	ZfsEnabled pulumi.BoolInput `pulumi:"zfsEnabled"`
+}
+
+func (GetStorageBoxesStorageBoxAccessSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxesStorageBoxAccessSettings)(nil)).Elem()
+}
+
+func (i GetStorageBoxesStorageBoxAccessSettingsArgs) ToGetStorageBoxesStorageBoxAccessSettingsOutput() GetStorageBoxesStorageBoxAccessSettingsOutput {
+	return i.ToGetStorageBoxesStorageBoxAccessSettingsOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxesStorageBoxAccessSettingsArgs) ToGetStorageBoxesStorageBoxAccessSettingsOutputWithContext(ctx context.Context) GetStorageBoxesStorageBoxAccessSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxesStorageBoxAccessSettingsOutput)
+}
+
+type GetStorageBoxesStorageBoxAccessSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxesStorageBoxAccessSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxesStorageBoxAccessSettings)(nil)).Elem()
+}
+
+func (o GetStorageBoxesStorageBoxAccessSettingsOutput) ToGetStorageBoxesStorageBoxAccessSettingsOutput() GetStorageBoxesStorageBoxAccessSettingsOutput {
+	return o
+}
+
+func (o GetStorageBoxesStorageBoxAccessSettingsOutput) ToGetStorageBoxesStorageBoxAccessSettingsOutputWithContext(ctx context.Context) GetStorageBoxesStorageBoxAccessSettingsOutput {
+	return o
+}
+
+// Whether access from outside the Hetzner network is allowed.
+func (o GetStorageBoxesStorageBoxAccessSettingsOutput) ReachableExternally() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxAccessSettings) bool { return v.ReachableExternally }).(pulumi.BoolOutput)
+}
+
+// Whether the Samba subsystem is enabled.
+func (o GetStorageBoxesStorageBoxAccessSettingsOutput) SambaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxAccessSettings) bool { return v.SambaEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the SSH subsystem is enabled.
+func (o GetStorageBoxesStorageBoxAccessSettingsOutput) SshEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxAccessSettings) bool { return v.SshEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the WebDAV subsystem is enabled.
+func (o GetStorageBoxesStorageBoxAccessSettingsOutput) WebdavEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxAccessSettings) bool { return v.WebdavEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the ZFS snapshot folder is visible.
+func (o GetStorageBoxesStorageBoxAccessSettingsOutput) ZfsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxAccessSettings) bool { return v.ZfsEnabled }).(pulumi.BoolOutput)
+}
+
+type GetStorageBoxesStorageBoxSnapshotPlan struct {
+	// Day of the month when the Snapshot Plan is executed. Null means every day.
+	DayOfMonth int `pulumi:"dayOfMonth"`
+	// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+	DayOfWeek int `pulumi:"dayOfWeek"`
+	// Hour when the Snapshot Plan is executed (UTC).
+	Hour int `pulumi:"hour"`
+	// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+	MaxSnapshots int `pulumi:"maxSnapshots"`
+	// Minute when the Snapshot Plan is executed (UTC).
+	Minute int `pulumi:"minute"`
+}
+
+// GetStorageBoxesStorageBoxSnapshotPlanInput is an input type that accepts GetStorageBoxesStorageBoxSnapshotPlanArgs and GetStorageBoxesStorageBoxSnapshotPlanOutput values.
+// You can construct a concrete instance of `GetStorageBoxesStorageBoxSnapshotPlanInput` via:
+//
+//	GetStorageBoxesStorageBoxSnapshotPlanArgs{...}
+type GetStorageBoxesStorageBoxSnapshotPlanInput interface {
+	pulumi.Input
+
+	ToGetStorageBoxesStorageBoxSnapshotPlanOutput() GetStorageBoxesStorageBoxSnapshotPlanOutput
+	ToGetStorageBoxesStorageBoxSnapshotPlanOutputWithContext(context.Context) GetStorageBoxesStorageBoxSnapshotPlanOutput
+}
+
+type GetStorageBoxesStorageBoxSnapshotPlanArgs struct {
+	// Day of the month when the Snapshot Plan is executed. Null means every day.
+	DayOfMonth pulumi.IntInput `pulumi:"dayOfMonth"`
+	// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+	DayOfWeek pulumi.IntInput `pulumi:"dayOfWeek"`
+	// Hour when the Snapshot Plan is executed (UTC).
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+	MaxSnapshots pulumi.IntInput `pulumi:"maxSnapshots"`
+	// Minute when the Snapshot Plan is executed (UTC).
+	Minute pulumi.IntInput `pulumi:"minute"`
+}
+
+func (GetStorageBoxesStorageBoxSnapshotPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxesStorageBoxSnapshotPlan)(nil)).Elem()
+}
+
+func (i GetStorageBoxesStorageBoxSnapshotPlanArgs) ToGetStorageBoxesStorageBoxSnapshotPlanOutput() GetStorageBoxesStorageBoxSnapshotPlanOutput {
+	return i.ToGetStorageBoxesStorageBoxSnapshotPlanOutputWithContext(context.Background())
+}
+
+func (i GetStorageBoxesStorageBoxSnapshotPlanArgs) ToGetStorageBoxesStorageBoxSnapshotPlanOutputWithContext(ctx context.Context) GetStorageBoxesStorageBoxSnapshotPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStorageBoxesStorageBoxSnapshotPlanOutput)
+}
+
+type GetStorageBoxesStorageBoxSnapshotPlanOutput struct{ *pulumi.OutputState }
+
+func (GetStorageBoxesStorageBoxSnapshotPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageBoxesStorageBoxSnapshotPlan)(nil)).Elem()
+}
+
+func (o GetStorageBoxesStorageBoxSnapshotPlanOutput) ToGetStorageBoxesStorageBoxSnapshotPlanOutput() GetStorageBoxesStorageBoxSnapshotPlanOutput {
+	return o
+}
+
+func (o GetStorageBoxesStorageBoxSnapshotPlanOutput) ToGetStorageBoxesStorageBoxSnapshotPlanOutputWithContext(ctx context.Context) GetStorageBoxesStorageBoxSnapshotPlanOutput {
+	return o
+}
+
+// Day of the month when the Snapshot Plan is executed. Null means every day.
+func (o GetStorageBoxesStorageBoxSnapshotPlanOutput) DayOfMonth() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxSnapshotPlan) int { return v.DayOfMonth }).(pulumi.IntOutput)
+}
+
+// Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+func (o GetStorageBoxesStorageBoxSnapshotPlanOutput) DayOfWeek() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxSnapshotPlan) int { return v.DayOfWeek }).(pulumi.IntOutput)
+}
+
+// Hour when the Snapshot Plan is executed (UTC).
+func (o GetStorageBoxesStorageBoxSnapshotPlanOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxSnapshotPlan) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+func (o GetStorageBoxesStorageBoxSnapshotPlanOutput) MaxSnapshots() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxSnapshotPlan) int { return v.MaxSnapshots }).(pulumi.IntOutput)
+}
+
+// Minute when the Snapshot Plan is executed (UTC).
+func (o GetStorageBoxesStorageBoxSnapshotPlanOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStorageBoxesStorageBoxSnapshotPlan) int { return v.Minute }).(pulumi.IntOutput)
+}
+
 type GetVolumesVolume struct {
 	DeleteProtection bool              `pulumi:"deleteProtection"`
 	Id               int               `pulumi:"id"`
@@ -7447,6 +9414,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerNetworkTypeArrayInput)(nil)).Elem(), ServerNetworkTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerPublicNetInput)(nil)).Elem(), ServerPublicNetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerPublicNetArrayInput)(nil)).Elem(), ServerPublicNetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageBoxAccessSettingsInput)(nil)).Elem(), StorageBoxAccessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageBoxAccessSettingsPtrInput)(nil)).Elem(), StorageBoxAccessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageBoxSnapshotPlanInput)(nil)).Elem(), StorageBoxSnapshotPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageBoxSnapshotPlanPtrInput)(nil)).Elem(), StorageBoxSnapshotPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageBoxSubaccountAccessSettingsInput)(nil)).Elem(), StorageBoxSubaccountAccessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageBoxSubaccountAccessSettingsPtrInput)(nil)).Elem(), StorageBoxSubaccountAccessSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAuthoritativeNameserversInput)(nil)).Elem(), ZoneAuthoritativeNameserversArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAuthoritativeNameserversPtrInput)(nil)).Elem(), ZoneAuthoritativeNameserversArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZonePrimaryNameserverInput)(nil)).Elem(), ZonePrimaryNameserverArgs{})
@@ -7521,6 +9494,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServersServerNetworkArrayInput)(nil)).Elem(), GetServersServerNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSshKeysSshKeyInput)(nil)).Elem(), GetSshKeysSshKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSshKeysSshKeyArrayInput)(nil)).Elem(), GetSshKeysSshKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxAccessSettingsInput)(nil)).Elem(), GetStorageBoxAccessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSnapshotPlanInput)(nil)).Elem(), GetStorageBoxSnapshotPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSnapshotStatsInput)(nil)).Elem(), GetStorageBoxSnapshotStatsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSnapshotsSnapshotInput)(nil)).Elem(), GetStorageBoxSnapshotsSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSnapshotsSnapshotArrayInput)(nil)).Elem(), GetStorageBoxSnapshotsSnapshotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSnapshotsSnapshotStatsInput)(nil)).Elem(), GetStorageBoxSnapshotsSnapshotStatsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSubaccountAccessSettingsInput)(nil)).Elem(), GetStorageBoxSubaccountAccessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSubaccountsSubaccountInput)(nil)).Elem(), GetStorageBoxSubaccountsSubaccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSubaccountsSubaccountArrayInput)(nil)).Elem(), GetStorageBoxSubaccountsSubaccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxSubaccountsSubaccountAccessSettingsInput)(nil)).Elem(), GetStorageBoxSubaccountsSubaccountAccessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxTypesStorageBoxTypeInput)(nil)).Elem(), GetStorageBoxTypesStorageBoxTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxTypesStorageBoxTypeArrayInput)(nil)).Elem(), GetStorageBoxTypesStorageBoxTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxesStorageBoxInput)(nil)).Elem(), GetStorageBoxesStorageBoxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxesStorageBoxArrayInput)(nil)).Elem(), GetStorageBoxesStorageBoxArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxesStorageBoxAccessSettingsInput)(nil)).Elem(), GetStorageBoxesStorageBoxAccessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageBoxesStorageBoxSnapshotPlanInput)(nil)).Elem(), GetStorageBoxesStorageBoxSnapshotPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumesVolumeInput)(nil)).Elem(), GetVolumesVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumesVolumeArrayInput)(nil)).Elem(), GetVolumesVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneAuthoritativeNameserversInput)(nil)).Elem(), GetZoneAuthoritativeNameserversArgs{})
@@ -7555,6 +9544,12 @@ func init() {
 	pulumi.RegisterOutputType(ServerNetworkTypeArrayOutput{})
 	pulumi.RegisterOutputType(ServerPublicNetOutput{})
 	pulumi.RegisterOutputType(ServerPublicNetArrayOutput{})
+	pulumi.RegisterOutputType(StorageBoxAccessSettingsOutput{})
+	pulumi.RegisterOutputType(StorageBoxAccessSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StorageBoxSnapshotPlanOutput{})
+	pulumi.RegisterOutputType(StorageBoxSnapshotPlanPtrOutput{})
+	pulumi.RegisterOutputType(StorageBoxSubaccountAccessSettingsOutput{})
+	pulumi.RegisterOutputType(StorageBoxSubaccountAccessSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ZoneAuthoritativeNameserversOutput{})
 	pulumi.RegisterOutputType(ZoneAuthoritativeNameserversPtrOutput{})
 	pulumi.RegisterOutputType(ZonePrimaryNameserverOutput{})
@@ -7629,6 +9624,22 @@ func init() {
 	pulumi.RegisterOutputType(GetServersServerNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetSshKeysSshKeyOutput{})
 	pulumi.RegisterOutputType(GetSshKeysSshKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxAccessSettingsOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSnapshotPlanOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSnapshotStatsOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSnapshotsSnapshotOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSnapshotsSnapshotArrayOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSnapshotsSnapshotStatsOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSubaccountAccessSettingsOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSubaccountsSubaccountOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSubaccountsSubaccountArrayOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxSubaccountsSubaccountAccessSettingsOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxTypesStorageBoxTypeOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxTypesStorageBoxTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxesStorageBoxOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxesStorageBoxArrayOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxesStorageBoxAccessSettingsOutput{})
+	pulumi.RegisterOutputType(GetStorageBoxesStorageBoxSnapshotPlanOutput{})
 	pulumi.RegisterOutputType(GetVolumesVolumeOutput{})
 	pulumi.RegisterOutputType(GetVolumesVolumeArrayOutput{})
 	pulumi.RegisterOutputType(GetZoneAuthoritativeNameserversOutput{})

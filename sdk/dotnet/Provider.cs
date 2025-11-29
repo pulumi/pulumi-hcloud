@@ -25,6 +25,12 @@ namespace Pulumi.HCloud
         public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+        /// </summary>
+        [Output("endpointHetzner")]
+        public Output<string?> EndpointHetzner { get; private set; } = null!;
+
+        /// <summary>
         /// The type of function to be used during the polling.
         /// </summary>
         [Output("pollFunction")]
@@ -85,6 +91,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+        /// </summary>
+        [Input("endpointHetzner")]
+        public Input<string>? EndpointHetzner { get; set; }
 
         /// <summary>
         /// The type of function to be used during the polling.

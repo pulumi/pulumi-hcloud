@@ -33,6 +33,12 @@ __all__ = [
     'ServerNetworkArgsDict',
     'ServerPublicNetArgs',
     'ServerPublicNetArgsDict',
+    'StorageBoxAccessSettingsArgs',
+    'StorageBoxAccessSettingsArgsDict',
+    'StorageBoxSnapshotPlanArgs',
+    'StorageBoxSnapshotPlanArgsDict',
+    'StorageBoxSubaccountAccessSettingsArgs',
+    'StorageBoxSubaccountAccessSettingsArgsDict',
     'ZoneAuthoritativeNameserversArgs',
     'ZoneAuthoritativeNameserversArgsDict',
     'ZonePrimaryNameserverArgs',
@@ -834,6 +840,339 @@ class ServerPublicNetArgs:
     @ipv6_enabled.setter
     def ipv6_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "ipv6_enabled", value)
+
+
+if not MYPY:
+    class StorageBoxAccessSettingsArgsDict(TypedDict):
+        reachable_externally: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        samba_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        ssh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        webdav_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        zfs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the ZFS snapshot folder is visible.
+        """
+elif False:
+    StorageBoxAccessSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageBoxAccessSettingsArgs:
+    def __init__(__self__, *,
+                 reachable_externally: Optional[pulumi.Input[_builtins.bool]] = None,
+                 samba_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ssh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 webdav_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 zfs_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] reachable_externally: Whether access from outside the Hetzner network is allowed.
+        :param pulumi.Input[_builtins.bool] samba_enabled: Whether the Samba subsystem is enabled.
+        :param pulumi.Input[_builtins.bool] ssh_enabled: Whether the SSH subsystem is enabled.
+        :param pulumi.Input[_builtins.bool] webdav_enabled: Whether the WebDAV subsystem is enabled.
+        :param pulumi.Input[_builtins.bool] zfs_enabled: Whether the ZFS snapshot folder is visible.
+        """
+        if reachable_externally is not None:
+            pulumi.set(__self__, "reachable_externally", reachable_externally)
+        if samba_enabled is not None:
+            pulumi.set(__self__, "samba_enabled", samba_enabled)
+        if ssh_enabled is not None:
+            pulumi.set(__self__, "ssh_enabled", ssh_enabled)
+        if webdav_enabled is not None:
+            pulumi.set(__self__, "webdav_enabled", webdav_enabled)
+        if zfs_enabled is not None:
+            pulumi.set(__self__, "zfs_enabled", zfs_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="reachableExternally")
+    def reachable_externally(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        return pulumi.get(self, "reachable_externally")
+
+    @reachable_externally.setter
+    def reachable_externally(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "reachable_externally", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sambaEnabled")
+    def samba_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        return pulumi.get(self, "samba_enabled")
+
+    @samba_enabled.setter
+    def samba_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "samba_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        return pulumi.get(self, "ssh_enabled")
+
+    @ssh_enabled.setter
+    def ssh_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "ssh_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webdavEnabled")
+    def webdav_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        return pulumi.get(self, "webdav_enabled")
+
+    @webdav_enabled.setter
+    def webdav_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "webdav_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="zfsEnabled")
+    def zfs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the ZFS snapshot folder is visible.
+        """
+        return pulumi.get(self, "zfs_enabled")
+
+    @zfs_enabled.setter
+    def zfs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "zfs_enabled", value)
+
+
+if not MYPY:
+    class StorageBoxSnapshotPlanArgsDict(TypedDict):
+        hour: pulumi.Input[_builtins.int]
+        """
+        Hour when the Snapshot Plan is executed (UTC).
+        """
+        max_snapshots: pulumi.Input[_builtins.int]
+        """
+        Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        """
+        minute: pulumi.Input[_builtins.int]
+        """
+        Minute when the Snapshot Plan is executed (UTC).
+        """
+        day_of_month: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Day of the month when the Snapshot Plan is executed. Null means every day.
+        """
+        day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        """
+elif False:
+    StorageBoxSnapshotPlanArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageBoxSnapshotPlanArgs:
+    def __init__(__self__, *,
+                 hour: pulumi.Input[_builtins.int],
+                 max_snapshots: pulumi.Input[_builtins.int],
+                 minute: pulumi.Input[_builtins.int],
+                 day_of_month: Optional[pulumi.Input[_builtins.int]] = None,
+                 day_of_week: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] hour: Hour when the Snapshot Plan is executed (UTC).
+        :param pulumi.Input[_builtins.int] max_snapshots: Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        :param pulumi.Input[_builtins.int] minute: Minute when the Snapshot Plan is executed (UTC).
+        :param pulumi.Input[_builtins.int] day_of_month: Day of the month when the Snapshot Plan is executed. Null means every day.
+        :param pulumi.Input[_builtins.int] day_of_week: Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        """
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "max_snapshots", max_snapshots)
+        pulumi.set(__self__, "minute", minute)
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @_builtins.property
+    @pulumi.getter
+    def hour(self) -> pulumi.Input[_builtins.int]:
+        """
+        Hour when the Snapshot Plan is executed (UTC).
+        """
+        return pulumi.get(self, "hour")
+
+    @hour.setter
+    def hour(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "hour", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSnapshots")
+    def max_snapshots(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+        """
+        return pulumi.get(self, "max_snapshots")
+
+    @max_snapshots.setter
+    def max_snapshots(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_snapshots", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def minute(self) -> pulumi.Input[_builtins.int]:
+        """
+        Minute when the Snapshot Plan is executed (UTC).
+        """
+        return pulumi.get(self, "minute")
+
+    @minute.setter
+    def minute(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Day of the month when the Snapshot Plan is executed. Null means every day.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @day_of_month.setter
+    def day_of_month(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "day_of_month", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "day_of_week", value)
+
+
+if not MYPY:
+    class StorageBoxSubaccountAccessSettingsArgsDict(TypedDict):
+        reachable_externally: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        readonly: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the Subaccount is read-only.
+        """
+        samba_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        ssh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        webdav_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+elif False:
+    StorageBoxSubaccountAccessSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageBoxSubaccountAccessSettingsArgs:
+    def __init__(__self__, *,
+                 reachable_externally: Optional[pulumi.Input[_builtins.bool]] = None,
+                 readonly: Optional[pulumi.Input[_builtins.bool]] = None,
+                 samba_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ssh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 webdav_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] reachable_externally: Whether access from outside the Hetzner network is allowed.
+        :param pulumi.Input[_builtins.bool] readonly: Whether the Subaccount is read-only.
+        :param pulumi.Input[_builtins.bool] samba_enabled: Whether the Samba subsystem is enabled.
+        :param pulumi.Input[_builtins.bool] ssh_enabled: Whether the SSH subsystem is enabled.
+        :param pulumi.Input[_builtins.bool] webdav_enabled: Whether the WebDAV subsystem is enabled.
+        """
+        if reachable_externally is not None:
+            pulumi.set(__self__, "reachable_externally", reachable_externally)
+        if readonly is not None:
+            pulumi.set(__self__, "readonly", readonly)
+        if samba_enabled is not None:
+            pulumi.set(__self__, "samba_enabled", samba_enabled)
+        if ssh_enabled is not None:
+            pulumi.set(__self__, "ssh_enabled", ssh_enabled)
+        if webdav_enabled is not None:
+            pulumi.set(__self__, "webdav_enabled", webdav_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="reachableExternally")
+    def reachable_externally(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether access from outside the Hetzner network is allowed.
+        """
+        return pulumi.get(self, "reachable_externally")
+
+    @reachable_externally.setter
+    def reachable_externally(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "reachable_externally", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def readonly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the Subaccount is read-only.
+        """
+        return pulumi.get(self, "readonly")
+
+    @readonly.setter
+    def readonly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "readonly", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sambaEnabled")
+    def samba_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the Samba subsystem is enabled.
+        """
+        return pulumi.get(self, "samba_enabled")
+
+    @samba_enabled.setter
+    def samba_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "samba_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the SSH subsystem is enabled.
+        """
+        return pulumi.get(self, "ssh_enabled")
+
+    @ssh_enabled.setter
+    def ssh_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "ssh_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webdavEnabled")
+    def webdav_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the WebDAV subsystem is enabled.
+        """
+        return pulumi.get(self, "webdav_enabled")
+
+    @webdav_enabled.setter
+    def webdav_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "webdav_enabled", value)
 
 
 if not MYPY:
