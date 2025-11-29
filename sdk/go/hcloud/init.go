@@ -61,6 +61,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Snapshot{}
 	case "hcloud:index/sshKey:SshKey":
 		r = &SshKey{}
+	case "hcloud:index/storageBox:StorageBox":
+		r = &StorageBox{}
+	case "hcloud:index/storageBoxSnapshot:StorageBoxSnapshot":
+		r = &StorageBoxSnapshot{}
+	case "hcloud:index/storageBoxSubaccount:StorageBoxSubaccount":
+		r = &StorageBoxSubaccount{}
 	case "hcloud:index/uploadedCertificate:UploadedCertificate":
 		r = &UploadedCertificate{}
 	case "hcloud:index/volume:Volume":
@@ -200,6 +206,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"hcloud",
 		"index/sshKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/storageBox",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/storageBoxSnapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"hcloud",
+		"index/storageBoxSubaccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

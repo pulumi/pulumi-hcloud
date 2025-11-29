@@ -18,6 +18,13 @@ public final class Config {
         return Codegen.stringProp("endpoint").config(config).get();
     }
 /**
+ * The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+ * 
+ */
+    public Optional<String> endpointHetzner() {
+        return Codegen.stringProp("endpointHetzner").config(config).get();
+    }
+/**
  * The type of function to be used during the polling.
  * 
  */

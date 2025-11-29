@@ -16,6 +16,11 @@ func GetEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "hcloud:endpoint")
 }
 
+// The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+func GetEndpointHetzner(ctx *pulumi.Context) string {
+	return config.Get(ctx, "hcloud:endpointHetzner")
+}
+
 // The type of function to be used during the polling.
 func GetPollFunction(ctx *pulumi.Context) string {
 	return config.Get(ctx, "hcloud:pollFunction")

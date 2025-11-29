@@ -19,6 +19,17 @@ Object.defineProperty(exports, "endpoint", {
 });
 
 /**
+ * The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+ */
+export declare const endpointHetzner: string | undefined;
+Object.defineProperty(exports, "endpointHetzner", {
+    get() {
+        return __config.get("endpointHetzner");
+    },
+    enumerable: true,
+});
+
+/**
  * The type of function to be used during the polling.
  */
 export declare const pollFunction: string | undefined;

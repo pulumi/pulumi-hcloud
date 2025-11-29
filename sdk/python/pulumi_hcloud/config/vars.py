@@ -28,6 +28,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('endpoint')
 
     @_builtins.property
+    def endpoint_hetzner(self) -> Optional[str]:
+        """
+        The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+        """
+        return __config__.get('endpointHetzner')
+
+    @_builtins.property
     def poll_function(self) -> Optional[str]:
         """
         The type of function to be used during the polling.

@@ -170,6 +170,46 @@ export const getSshKeys: typeof import("./getSshKeys").getSshKeys = null as any;
 export const getSshKeysOutput: typeof import("./getSshKeys").getSshKeysOutput = null as any;
 utilities.lazyLoad(exports, ["getSshKeys","getSshKeysOutput"], () => require("./getSshKeys"));
 
+export { GetStorageBoxArgs, GetStorageBoxResult, GetStorageBoxOutputArgs } from "./getStorageBox";
+export const getStorageBox: typeof import("./getStorageBox").getStorageBox = null as any;
+export const getStorageBoxOutput: typeof import("./getStorageBox").getStorageBoxOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageBox","getStorageBoxOutput"], () => require("./getStorageBox"));
+
+export { GetStorageBoxSnapshotArgs, GetStorageBoxSnapshotResult, GetStorageBoxSnapshotOutputArgs } from "./getStorageBoxSnapshot";
+export const getStorageBoxSnapshot: typeof import("./getStorageBoxSnapshot").getStorageBoxSnapshot = null as any;
+export const getStorageBoxSnapshotOutput: typeof import("./getStorageBoxSnapshot").getStorageBoxSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageBoxSnapshot","getStorageBoxSnapshotOutput"], () => require("./getStorageBoxSnapshot"));
+
+export { GetStorageBoxSnapshotsArgs, GetStorageBoxSnapshotsResult, GetStorageBoxSnapshotsOutputArgs } from "./getStorageBoxSnapshots";
+export const getStorageBoxSnapshots: typeof import("./getStorageBoxSnapshots").getStorageBoxSnapshots = null as any;
+export const getStorageBoxSnapshotsOutput: typeof import("./getStorageBoxSnapshots").getStorageBoxSnapshotsOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageBoxSnapshots","getStorageBoxSnapshotsOutput"], () => require("./getStorageBoxSnapshots"));
+
+export { GetStorageBoxSubaccountArgs, GetStorageBoxSubaccountResult, GetStorageBoxSubaccountOutputArgs } from "./getStorageBoxSubaccount";
+export const getStorageBoxSubaccount: typeof import("./getStorageBoxSubaccount").getStorageBoxSubaccount = null as any;
+export const getStorageBoxSubaccountOutput: typeof import("./getStorageBoxSubaccount").getStorageBoxSubaccountOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageBoxSubaccount","getStorageBoxSubaccountOutput"], () => require("./getStorageBoxSubaccount"));
+
+export { GetStorageBoxSubaccountsArgs, GetStorageBoxSubaccountsResult, GetStorageBoxSubaccountsOutputArgs } from "./getStorageBoxSubaccounts";
+export const getStorageBoxSubaccounts: typeof import("./getStorageBoxSubaccounts").getStorageBoxSubaccounts = null as any;
+export const getStorageBoxSubaccountsOutput: typeof import("./getStorageBoxSubaccounts").getStorageBoxSubaccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageBoxSubaccounts","getStorageBoxSubaccountsOutput"], () => require("./getStorageBoxSubaccounts"));
+
+export { GetStorageBoxTypeArgs, GetStorageBoxTypeResult, GetStorageBoxTypeOutputArgs } from "./getStorageBoxType";
+export const getStorageBoxType: typeof import("./getStorageBoxType").getStorageBoxType = null as any;
+export const getStorageBoxTypeOutput: typeof import("./getStorageBoxType").getStorageBoxTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageBoxType","getStorageBoxTypeOutput"], () => require("./getStorageBoxType"));
+
+export { GetStorageBoxTypesResult } from "./getStorageBoxTypes";
+export const getStorageBoxTypes: typeof import("./getStorageBoxTypes").getStorageBoxTypes = null as any;
+export const getStorageBoxTypesOutput: typeof import("./getStorageBoxTypes").getStorageBoxTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageBoxTypes","getStorageBoxTypesOutput"], () => require("./getStorageBoxTypes"));
+
+export { GetStorageBoxesArgs, GetStorageBoxesResult, GetStorageBoxesOutputArgs } from "./getStorageBoxes";
+export const getStorageBoxes: typeof import("./getStorageBoxes").getStorageBoxes = null as any;
+export const getStorageBoxesOutput: typeof import("./getStorageBoxes").getStorageBoxesOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageBoxes","getStorageBoxesOutput"], () => require("./getStorageBoxes"));
+
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
@@ -278,6 +318,21 @@ export type SshKey = import("./sshKey").SshKey;
 export const SshKey: typeof import("./sshKey").SshKey = null as any;
 utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
 
+export { StorageBoxArgs, StorageBoxState } from "./storageBox";
+export type StorageBox = import("./storageBox").StorageBox;
+export const StorageBox: typeof import("./storageBox").StorageBox = null as any;
+utilities.lazyLoad(exports, ["StorageBox"], () => require("./storageBox"));
+
+export { StorageBoxSnapshotArgs, StorageBoxSnapshotState } from "./storageBoxSnapshot";
+export type StorageBoxSnapshot = import("./storageBoxSnapshot").StorageBoxSnapshot;
+export const StorageBoxSnapshot: typeof import("./storageBoxSnapshot").StorageBoxSnapshot = null as any;
+utilities.lazyLoad(exports, ["StorageBoxSnapshot"], () => require("./storageBoxSnapshot"));
+
+export { StorageBoxSubaccountArgs, StorageBoxSubaccountState } from "./storageBoxSubaccount";
+export type StorageBoxSubaccount = import("./storageBoxSubaccount").StorageBoxSubaccount;
+export const StorageBoxSubaccount: typeof import("./storageBoxSubaccount").StorageBoxSubaccount = null as any;
+utilities.lazyLoad(exports, ["StorageBoxSubaccount"], () => require("./storageBoxSubaccount"));
+
 export { UploadedCertificateArgs, UploadedCertificateState } from "./uploadedCertificate";
 export type UploadedCertificate = import("./uploadedCertificate").UploadedCertificate;
 export const UploadedCertificate: typeof import("./uploadedCertificate").UploadedCertificate = null as any;
@@ -357,6 +412,12 @@ const _module = {
                 return new Snapshot(name, <any>undefined, { urn })
             case "hcloud:index/sshKey:SshKey":
                 return new SshKey(name, <any>undefined, { urn })
+            case "hcloud:index/storageBox:StorageBox":
+                return new StorageBox(name, <any>undefined, { urn })
+            case "hcloud:index/storageBoxSnapshot:StorageBoxSnapshot":
+                return new StorageBoxSnapshot(name, <any>undefined, { urn })
+            case "hcloud:index/storageBoxSubaccount:StorageBoxSubaccount":
+                return new StorageBoxSubaccount(name, <any>undefined, { urn })
             case "hcloud:index/uploadedCertificate:UploadedCertificate":
                 return new UploadedCertificate(name, <any>undefined, { urn })
             case "hcloud:index/volume:Volume":
@@ -392,6 +453,9 @@ pulumi.runtime.registerResourceModule("hcloud", "index/server", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/serverNetwork", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/snapshot", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/sshKey", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/storageBox", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/storageBoxSnapshot", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/storageBoxSubaccount", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/uploadedCertificate", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volume", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volumeAttachment", _module)

@@ -279,6 +279,75 @@ export interface ServerPublicNet {
     ipv6Enabled?: pulumi.Input<boolean>;
 }
 
+export interface StorageBoxAccessSettings {
+    /**
+     * Whether access from outside the Hetzner network is allowed.
+     */
+    reachableExternally?: pulumi.Input<boolean>;
+    /**
+     * Whether the Samba subsystem is enabled.
+     */
+    sambaEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the SSH subsystem is enabled.
+     */
+    sshEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the WebDAV subsystem is enabled.
+     */
+    webdavEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the ZFS snapshot folder is visible.
+     */
+    zfsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface StorageBoxSnapshotPlan {
+    /**
+     * Day of the month when the Snapshot Plan is executed. Null means every day.
+     */
+    dayOfMonth?: pulumi.Input<number>;
+    /**
+     * Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+     */
+    dayOfWeek?: pulumi.Input<number>;
+    /**
+     * Hour when the Snapshot Plan is executed (UTC).
+     */
+    hour: pulumi.Input<number>;
+    /**
+     * Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+     */
+    maxSnapshots: pulumi.Input<number>;
+    /**
+     * Minute when the Snapshot Plan is executed (UTC).
+     */
+    minute: pulumi.Input<number>;
+}
+
+export interface StorageBoxSubaccountAccessSettings {
+    /**
+     * Whether access from outside the Hetzner network is allowed.
+     */
+    reachableExternally?: pulumi.Input<boolean>;
+    /**
+     * Whether the Subaccount is read-only.
+     */
+    readonly?: pulumi.Input<boolean>;
+    /**
+     * Whether the Samba subsystem is enabled.
+     */
+    sambaEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the SSH subsystem is enabled.
+     */
+    sshEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the WebDAV subsystem is enabled.
+     */
+    webdavEnabled?: pulumi.Input<boolean>;
+}
+
 export interface ZoneAuthoritativeNameservers {
     /**
      * Authoritative Hetzner nameservers assigned to the Zone.

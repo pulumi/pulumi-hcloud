@@ -39,6 +39,14 @@ from .get_server_types import *
 from .get_servers import *
 from .get_ssh_key import *
 from .get_ssh_keys import *
+from .get_storage_box import *
+from .get_storage_box_snapshot import *
+from .get_storage_box_snapshots import *
+from .get_storage_box_subaccount import *
+from .get_storage_box_subaccounts import *
+from .get_storage_box_type import *
+from .get_storage_box_types import *
+from .get_storage_boxes import *
 from .get_volume import *
 from .get_volumes import *
 from .get_zone import *
@@ -61,6 +69,9 @@ from .server import *
 from .server_network import *
 from .snapshot import *
 from .ssh_key import *
+from .storage_box import *
+from .storage_box_snapshot import *
+from .storage_box_subaccount import *
 from .uploaded_certificate import *
 from .volume import *
 from .volume_attachment import *
@@ -237,6 +248,30 @@ _utilities.register(
   "fqn": "pulumi_hcloud",
   "classes": {
    "hcloud:index/sshKey:SshKey": "SshKey"
+  }
+ },
+ {
+  "pkg": "hcloud",
+  "mod": "index/storageBox",
+  "fqn": "pulumi_hcloud",
+  "classes": {
+   "hcloud:index/storageBox:StorageBox": "StorageBox"
+  }
+ },
+ {
+  "pkg": "hcloud",
+  "mod": "index/storageBoxSnapshot",
+  "fqn": "pulumi_hcloud",
+  "classes": {
+   "hcloud:index/storageBoxSnapshot:StorageBoxSnapshot": "StorageBoxSnapshot"
+  }
+ },
+ {
+  "pkg": "hcloud",
+  "mod": "index/storageBoxSubaccount",
+  "fqn": "pulumi_hcloud",
+  "classes": {
+   "hcloud:index/storageBoxSubaccount:StorageBoxSubaccount": "StorageBoxSubaccount"
   }
  },
  {

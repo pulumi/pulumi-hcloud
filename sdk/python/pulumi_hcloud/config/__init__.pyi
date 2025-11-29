@@ -19,6 +19,11 @@ endpoint: Optional[str]
 The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
 """
 
+endpointHetzner: Optional[str]
+"""
+The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+"""
+
 pollFunction: Optional[str]
 """
 The type of function to be used during the polling.

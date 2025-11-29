@@ -30,6 +30,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
+     * The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+     */
+    declare public readonly endpointHetzner: pulumi.Output<string | undefined>;
+    /**
      * The type of function to be used during the polling.
      */
     declare public readonly pollFunction: pulumi.Output<string | undefined>;
@@ -54,6 +58,7 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["endpointHetzner"] = args?.endpointHetzner;
             resourceInputs["pollFunction"] = args?.pollFunction;
             resourceInputs["pollInterval"] = args?.pollInterval;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
@@ -82,6 +87,10 @@ export interface ProviderArgs {
      * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
+     */
+    endpointHetzner?: pulumi.Input<string>;
     /**
      * The type of function to be used during the polling.
      */
