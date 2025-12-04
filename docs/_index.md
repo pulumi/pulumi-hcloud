@@ -33,12 +33,14 @@ config:
         value: 'TODO: var.hcloud_token'
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 
 const config = new pulumi.Config();
 const hcloudToken = config.requireObject<any>("hcloudToken");
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -50,12 +52,14 @@ config:
         value: 'TODO: var.hcloud_token'
 
 ```
+
 ```python
 import pulumi
 
 config = pulumi.Config()
 hcloud_token = config.require_object("hcloudToken")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -67,6 +71,7 @@ config:
         value: 'TODO: var.hcloud_token'
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +84,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -90,6 +96,7 @@ config:
         value: 'TODO: var.hcloud_token'
 
 ```
+
 ```go
 package main
 
@@ -106,6 +113,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -117,6 +125,7 @@ config:
         value: 'TODO: var.hcloud_token'
 
 ```
+
 ```yaml
 configuration:
   # Set the variable value in *.tfvars file
@@ -124,6 +133,7 @@ configuration:
   hcloudToken:
     type: dynamic
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -135,6 +145,7 @@ config:
         value: 'TODO: var.hcloud_token'
 
 ```
+
 ```java
 package generated_program;
 
@@ -159,6 +170,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ## Configuration Reference
