@@ -17,6 +17,7 @@ namespace Pulumi.HCloud
     /// using System.Linq;
     /// using Pulumi;
     /// using HCloud = Pulumi.HCloud;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -46,6 +47,22 @@ namespace Pulumi.HCloud
     ///             DayOfWeek = 3,
     ///         },
     ///         DeleteProtection = true,
+    ///     });
+    /// 
+    ///     var sshKey = new HCloud.StorageBox("ssh_key", new()
+    ///     {
+    ///         Name = "backups",
+    ///         StorageBoxType = "bx21",
+    ///         Location = "hel1",
+    ///         Password = storageBoxPassword,
+    ///         SshKeys = new[]
+    ///         {
+    ///             myKey.PublicKey,
+    ///             Std.File.Invoke(new()
+    ///             {
+    ///                 Input = "~/.ssh/id_ed25519.pub",
+    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///         },
     ///     });
     /// 
     /// });
@@ -120,7 +137,7 @@ namespace Pulumi.HCloud
         public Output<Outputs.StorageBoxSnapshotPlan?> SnapshotPlan { get; private set; } = null!;
 
         /// <summary>
-        /// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        /// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         /// </summary>
         [Output("sshKeys")]
         public Output<ImmutableArray<string>> SshKeys { get; private set; } = null!;
@@ -252,7 +269,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _sshKeys;
 
         /// <summary>
-        /// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        /// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         /// </summary>
         public InputList<string> SshKeys
         {
@@ -339,7 +356,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _sshKeys;
 
         /// <summary>
-        /// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        /// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         /// </summary>
         public InputList<string> SshKeys
         {

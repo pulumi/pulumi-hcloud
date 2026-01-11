@@ -5795,15 +5795,17 @@ func (o GetPlacementGroupsPlacementGroupArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetPrimaryIpsPrimaryIp struct {
-	AssigneeId       int               `pulumi:"assigneeId"`
-	AssigneeType     string            `pulumi:"assigneeType"`
-	AutoDelete       bool              `pulumi:"autoDelete"`
+	AssigneeId   int    `pulumi:"assigneeId"`
+	AssigneeType string `pulumi:"assigneeType"`
+	AutoDelete   bool   `pulumi:"autoDelete"`
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter       string            `pulumi:"datacenter"`
 	DeleteProtection bool              `pulumi:"deleteProtection"`
 	Id               int               `pulumi:"id"`
 	IpAddress        string            `pulumi:"ipAddress"`
 	IpNetwork        string            `pulumi:"ipNetwork"`
 	Labels           map[string]string `pulumi:"labels"`
+	Location         string            `pulumi:"location"`
 	Name             *string           `pulumi:"name"`
 	Type             string            `pulumi:"type"`
 }
@@ -5820,15 +5822,17 @@ type GetPrimaryIpsPrimaryIpInput interface {
 }
 
 type GetPrimaryIpsPrimaryIpArgs struct {
-	AssigneeId       pulumi.IntInput       `pulumi:"assigneeId"`
-	AssigneeType     pulumi.StringInput    `pulumi:"assigneeType"`
-	AutoDelete       pulumi.BoolInput      `pulumi:"autoDelete"`
+	AssigneeId   pulumi.IntInput    `pulumi:"assigneeId"`
+	AssigneeType pulumi.StringInput `pulumi:"assigneeType"`
+	AutoDelete   pulumi.BoolInput   `pulumi:"autoDelete"`
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter       pulumi.StringInput    `pulumi:"datacenter"`
 	DeleteProtection pulumi.BoolInput      `pulumi:"deleteProtection"`
 	Id               pulumi.IntInput       `pulumi:"id"`
 	IpAddress        pulumi.StringInput    `pulumi:"ipAddress"`
 	IpNetwork        pulumi.StringInput    `pulumi:"ipNetwork"`
 	Labels           pulumi.StringMapInput `pulumi:"labels"`
+	Location         pulumi.StringInput    `pulumi:"location"`
 	Name             pulumi.StringPtrInput `pulumi:"name"`
 	Type             pulumi.StringInput    `pulumi:"type"`
 }
@@ -5896,6 +5900,7 @@ func (o GetPrimaryIpsPrimaryIpOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) bool { return v.AutoDelete }).(pulumi.BoolOutput)
 }
 
+// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 func (o GetPrimaryIpsPrimaryIpOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.Datacenter }).(pulumi.StringOutput)
 }
@@ -5918,6 +5923,10 @@ func (o GetPrimaryIpsPrimaryIpOutput) IpNetwork() pulumi.StringOutput {
 
 func (o GetPrimaryIpsPrimaryIpOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+func (o GetPrimaryIpsPrimaryIpOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o GetPrimaryIpsPrimaryIpOutput) Name() pulumi.StringPtrOutput {
@@ -6580,8 +6589,9 @@ func (o GetServerTypesServerTypeLocationArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetServersServer struct {
-	BackupWindow      string                    `pulumi:"backupWindow"`
-	Backups           bool                      `pulumi:"backups"`
+	BackupWindow string `pulumi:"backupWindow"`
+	Backups      bool   `pulumi:"backups"`
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter        string                    `pulumi:"datacenter"`
 	DeleteProtection  bool                      `pulumi:"deleteProtection"`
 	FirewallIds       []int                     `pulumi:"firewallIds"`
@@ -6615,8 +6625,9 @@ type GetServersServerInput interface {
 }
 
 type GetServersServerArgs struct {
-	BackupWindow      pulumi.StringInput                `pulumi:"backupWindow"`
-	Backups           pulumi.BoolInput                  `pulumi:"backups"`
+	BackupWindow pulumi.StringInput `pulumi:"backupWindow"`
+	Backups      pulumi.BoolInput   `pulumi:"backups"`
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter        pulumi.StringInput                `pulumi:"datacenter"`
 	DeleteProtection  pulumi.BoolInput                  `pulumi:"deleteProtection"`
 	FirewallIds       pulumi.IntArrayInput              `pulumi:"firewallIds"`
@@ -6697,6 +6708,7 @@ func (o GetServersServerOutput) Backups() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServersServer) bool { return v.Backups }).(pulumi.BoolOutput)
 }
 
+// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 func (o GetServersServerOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServersServer) string { return v.Datacenter }).(pulumi.StringOutput)
 }

@@ -69,14 +69,22 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * 
      */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     @Import(name="datacenter")
     private @Nullable Output<String> datacenter;
 
     /**
      * @return The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * 
      */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     public Optional<Output<String>> datacenter() {
         return Optional.ofNullable(this.datacenter);
     }
@@ -84,7 +92,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * Note: At least one of `datacenter` or `assigneeId` is required.
+     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
      * 
      */
     @Import(name="deleteProtection")
@@ -93,7 +101,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * Note: At least one of `datacenter` or `assigneeId` is required.
+     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -113,6 +121,21 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> labels() {
         return Optional.ofNullable(this.labels);
+    }
+
+    /**
+     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * 
+     */
+    @Import(name="location")
+    private @Nullable Output<String> location;
+
+    /**
+     * @return The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * 
+     */
+    public Optional<Output<String>> location() {
+        return Optional.ofNullable(this.location);
     }
 
     /**
@@ -154,6 +177,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         this.datacenter = $.datacenter;
         this.deleteProtection = $.deleteProtection;
         this.labels = $.labels;
+        this.location = $.location;
         this.name = $.name;
         this.type = $.type;
     }
@@ -246,7 +270,11 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+         * 
          */
+        @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
         public Builder datacenter(@Nullable Output<String> datacenter) {
             $.datacenter = datacenter;
             return this;
@@ -257,7 +285,11 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+         * 
          */
+        @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
         public Builder datacenter(String datacenter) {
             return datacenter(Output.of(datacenter));
         }
@@ -265,7 +297,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
-         * Note: At least one of `datacenter` or `assigneeId` is required.
+         * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
          * 
          * @return builder
          * 
@@ -278,7 +310,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
          * 
-         * Note: At least one of `datacenter` or `assigneeId` is required.
+         * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
          * 
          * @return builder
          * 
@@ -306,6 +338,27 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder labels(Map<String,String> labels) {
             return labels(Output.of(labels));
+        }
+
+        /**
+         * @param location The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder location(@Nullable Output<String> location) {
+            $.location = location;
+            return this;
+        }
+
+        /**
+         * @param location The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder location(String location) {
+            return location(Output.of(location));
         }
 
         /**

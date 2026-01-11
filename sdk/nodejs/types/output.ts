@@ -453,12 +453,16 @@ export interface GetPrimaryIpsPrimaryIp {
     assigneeId: number;
     assigneeType: string;
     autoDelete: boolean;
+    /**
+     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     */
     datacenter: string;
     deleteProtection: boolean;
     id: number;
     ipAddress: string;
     ipNetwork: string;
     labels: {[key: string]: string};
+    location: string;
     name?: string;
     type: string;
 }
@@ -600,6 +604,9 @@ export interface GetServerTypesServerTypeLocation {
 export interface GetServersServer {
     backupWindow: string;
     backups: boolean;
+    /**
+     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     */
     datacenter: string;
     deleteProtection: boolean;
     firewallIds: number[];

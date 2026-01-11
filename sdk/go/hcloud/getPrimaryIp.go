@@ -20,6 +20,16 @@ import (
 // If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
 // Currently, Primary IPs can be only attached to servers.
 //
+// ## Deprecations
+//
+// ### `datacenter` attribute
+//
+// The `datacenter` attribute is deprecated, use the `location` attribute instead.
+//
+// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+//
+// > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+//
 // ## Example Usage
 //
 // # Data Source: PrimaryIp
@@ -114,7 +124,9 @@ type LookupPrimaryIpResult struct {
 	AssigneeType string `pulumi:"assigneeType"`
 	// (bool) Whether auto delete is enabled.
 	AutoDelete bool `pulumi:"autoDelete"`
-	// (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	// (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter string `pulumi:"datacenter"`
 	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
@@ -126,6 +138,8 @@ type LookupPrimaryIpResult struct {
 	IpNetwork string `pulumi:"ipNetwork"`
 	// (map) User-defined labels (key-value pairs).
 	Labels map[string]string `pulumi:"labels"`
+	// (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	Location string `pulumi:"location"`
 	// (string) Name of the Primary IP.
 	Name *string `pulumi:"name"`
 	// (string) Type of the Primary IP.
@@ -190,7 +204,9 @@ func (o LookupPrimaryIpResultOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) bool { return v.AutoDelete }).(pulumi.BoolOutput)
 }
 
-// (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+// (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+//
+// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 func (o LookupPrimaryIpResultOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.Datacenter }).(pulumi.StringOutput)
 }
@@ -218,6 +234,11 @@ func (o LookupPrimaryIpResultOutput) IpNetwork() pulumi.StringOutput {
 // (map) User-defined labels (key-value pairs).
 func (o LookupPrimaryIpResultOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+func (o LookupPrimaryIpResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // (string) Name of the Primary IP.
