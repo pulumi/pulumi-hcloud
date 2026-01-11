@@ -240,7 +240,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly bool Backups;
         /// <summary>
-        /// (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        /// (string, deprecated) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         public readonly string Datacenter;
         /// <summary>

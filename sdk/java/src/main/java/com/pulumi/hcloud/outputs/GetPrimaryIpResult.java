@@ -31,9 +31,13 @@ public final class GetPrimaryIpResult {
      */
     private Boolean autoDelete;
     /**
-     * @return (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * @return (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * 
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      * 
      */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     private String datacenter;
     /**
      * @return (bool) Whether delete protection is enabled.
@@ -60,6 +64,11 @@ public final class GetPrimaryIpResult {
      * 
      */
     private Map<String,String> labels;
+    /**
+     * @return (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * 
+     */
+    private String location;
     /**
      * @return (string) Name of the Primary IP.
      * 
@@ -95,9 +104,13 @@ public final class GetPrimaryIpResult {
         return this.autoDelete;
     }
     /**
-     * @return (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * @return (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * 
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      * 
      */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     public String datacenter() {
         return this.datacenter;
     }
@@ -137,6 +150,13 @@ public final class GetPrimaryIpResult {
         return this.labels;
     }
     /**
+     * @return (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * 
+     */
+    public String location() {
+        return this.location;
+    }
+    /**
      * @return (string) Name of the Primary IP.
      * 
      */
@@ -172,6 +192,7 @@ public final class GetPrimaryIpResult {
         private String ipAddress;
         private String ipNetwork;
         private Map<String,String> labels;
+        private String location;
         private @Nullable String name;
         private String type;
         private @Nullable String withSelector;
@@ -187,6 +208,7 @@ public final class GetPrimaryIpResult {
     	      this.ipAddress = defaults.ipAddress;
     	      this.ipNetwork = defaults.ipNetwork;
     	      this.labels = defaults.labels;
+    	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.type = defaults.type;
     	      this.withSelector = defaults.withSelector;
@@ -265,6 +287,14 @@ public final class GetPrimaryIpResult {
             return this;
         }
         @CustomType.Setter
+        public Builder location(String location) {
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpResult", "location");
+            }
+            this.location = location;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
 
             this.name = name;
@@ -295,6 +325,7 @@ public final class GetPrimaryIpResult {
             _resultValue.ipAddress = ipAddress;
             _resultValue.ipNetwork = ipNetwork;
             _resultValue.labels = labels;
+            _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.type = type;
             _resultValue.withSelector = withSelector;

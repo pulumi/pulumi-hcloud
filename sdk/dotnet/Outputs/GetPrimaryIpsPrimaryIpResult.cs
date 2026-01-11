@@ -22,6 +22,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly string IpAddress;
         public readonly string IpNetwork;
         public readonly ImmutableDictionary<string, string> Labels;
+        public readonly string Location;
         public readonly string? Name;
         public readonly string Type;
 
@@ -45,6 +46,8 @@ namespace Pulumi.HCloud.Outputs
 
             ImmutableDictionary<string, string> labels,
 
+            string location,
+
             string? name,
 
             string type)
@@ -58,6 +61,7 @@ namespace Pulumi.HCloud.Outputs
             IpAddress = ipAddress;
             IpNetwork = ipNetwork;
             Labels = labels;
+            Location = location;
             Name = name;
             Type = type;
         }

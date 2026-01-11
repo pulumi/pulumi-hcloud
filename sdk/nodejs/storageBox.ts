@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
+ * import * as std from "@pulumi/std";
  *
  * const backups = new hcloud.StorageBox("backups", {
  *     name: "backups",
@@ -35,6 +36,18 @@ import * as utilities from "./utilities";
  *         dayOfWeek: 3,
  *     },
  *     deleteProtection: true,
+ * });
+ * const sshKey = new hcloud.StorageBox("ssh_key", {
+ *     name: "backups",
+ *     storageBoxType: "bx21",
+ *     location: "hel1",
+ *     password: storageBoxPassword,
+ *     sshKeys: [
+ *         myKey.publicKey,
+ *         std.file({
+ *             input: "~/.ssh/id_ed25519.pub",
+ *         }).then(invoke => invoke.result),
+ *     ],
  * });
  * ```
  *
@@ -116,7 +129,7 @@ export class StorageBox extends pulumi.CustomResource {
      */
     declare public readonly snapshotPlan: pulumi.Output<outputs.StorageBoxSnapshotPlan | undefined>;
     /**
-     * SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+     * SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      */
     declare public readonly sshKeys: pulumi.Output<string[]>;
     /**
@@ -222,7 +235,7 @@ export interface StorageBoxState {
      */
     snapshotPlan?: pulumi.Input<inputs.StorageBoxSnapshotPlan>;
     /**
-     * SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+     * SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      */
     sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -269,7 +282,7 @@ export interface StorageBoxArgs {
      */
     snapshotPlan?: pulumi.Input<inputs.StorageBoxSnapshotPlan>;
     /**
-     * SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+     * SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      */
     sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**

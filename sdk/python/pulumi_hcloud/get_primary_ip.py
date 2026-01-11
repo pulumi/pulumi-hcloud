@@ -26,7 +26,7 @@ class GetPrimaryIpResult:
     """
     A collection of values returned by getPrimaryIp.
     """
-    def __init__(__self__, assignee_id=None, assignee_type=None, auto_delete=None, datacenter=None, delete_protection=None, id=None, ip_address=None, ip_network=None, labels=None, name=None, type=None, with_selector=None):
+    def __init__(__self__, assignee_id=None, assignee_type=None, auto_delete=None, datacenter=None, delete_protection=None, id=None, ip_address=None, ip_network=None, labels=None, location=None, name=None, type=None, with_selector=None):
         if assignee_id and not isinstance(assignee_id, int):
             raise TypeError("Expected argument 'assignee_id' to be a int")
         pulumi.set(__self__, "assignee_id", assignee_id)
@@ -54,6 +54,9 @@ class GetPrimaryIpResult:
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
         pulumi.set(__self__, "labels", labels)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -90,9 +93,10 @@ class GetPrimaryIpResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> _builtins.str:
         """
-        (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
@@ -138,6 +142,14 @@ class GetPrimaryIpResult:
 
     @_builtins.property
     @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
         (string) Name of the Primary IP.
@@ -173,6 +185,7 @@ class AwaitableGetPrimaryIpResult(GetPrimaryIpResult):
             ip_address=self.ip_address,
             ip_network=self.ip_network,
             labels=self.labels,
+            location=self.location,
             name=self.name,
             type=self.type,
             with_selector=self.with_selector)
@@ -193,6 +206,16 @@ def get_primary_ip(assignee_id: Optional[_builtins.int] = None,
 
     If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
     Currently, Primary IPs can be only attached to servers.
+
+    ## Deprecations
+
+    ### `datacenter` attribute
+
+    The `datacenter` attribute is deprecated, use the `location` attribute instead.
+
+    See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+
+    > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
 
     ## Example Usage
 
@@ -250,6 +273,7 @@ def get_primary_ip(assignee_id: Optional[_builtins.int] = None,
         ip_address=pulumi.get(__ret__, 'ip_address'),
         ip_network=pulumi.get(__ret__, 'ip_network'),
         labels=pulumi.get(__ret__, 'labels'),
+        location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
@@ -268,6 +292,16 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[_builtins.
 
     If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
     Currently, Primary IPs can be only attached to servers.
+
+    ## Deprecations
+
+    ### `datacenter` attribute
+
+    The `datacenter` attribute is deprecated, use the `location` attribute instead.
+
+    See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+
+    > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
 
     ## Example Usage
 
@@ -324,6 +358,7 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[_builtins.
         ip_address=pulumi.get(__response__, 'ip_address'),
         ip_network=pulumi.get(__response__, 'ip_network'),
         labels=pulumi.get(__response__, 'labels'),
+        location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         type=pulumi.get(__response__, 'type'),
         with_selector=pulumi.get(__response__, 'with_selector')))

@@ -6614,6 +6614,16 @@ public final class HcloudFunctions {
      * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
      * Currently, Primary IPs can be only attached to servers.
      * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * # Data Source: hcloud.PrimaryIp
@@ -6690,6 +6700,16 @@ public final class HcloudFunctions {
      * 
      * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
      * Currently, Primary IPs can be only attached to servers.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
      * 
      * ## Example Usage
      * 
@@ -6768,6 +6788,16 @@ public final class HcloudFunctions {
      * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
      * Currently, Primary IPs can be only attached to servers.
      * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * # Data Source: hcloud.PrimaryIp
@@ -6844,6 +6874,16 @@ public final class HcloudFunctions {
      * 
      * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
      * Currently, Primary IPs can be only attached to servers.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
      * 
      * ## Example Usage
      * 
@@ -6922,6 +6962,16 @@ public final class HcloudFunctions {
      * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
      * Currently, Primary IPs can be only attached to servers.
      * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * # Data Source: hcloud.PrimaryIp
@@ -6999,6 +7049,16 @@ public final class HcloudFunctions {
      * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
      * Currently, Primary IPs can be only attached to servers.
      * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * # Data Source: hcloud.PrimaryIp
@@ -7075,6 +7135,16 @@ public final class HcloudFunctions {
      * 
      * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
      * Currently, Primary IPs can be only attached to servers.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
      * 
      * ## Example Usage
      * 

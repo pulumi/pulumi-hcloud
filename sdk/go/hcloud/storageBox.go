@@ -20,6 +20,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,6 +49,25 @@ import (
 //					DayOfWeek:    pulumi.Int(3),
 //				},
 //				DeleteProtection: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_ed25519.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.NewStorageBox(ctx, "ssh_key", &hcloud.StorageBoxArgs{
+//				Name:           pulumi.String("backups"),
+//				StorageBoxType: pulumi.String("bx21"),
+//				Location:       pulumi.String("hel1"),
+//				Password:       pulumi.Any(storageBoxPassword),
+//				SshKeys: pulumi.StringArray{
+//					myKey.PublicKey,
+//					pulumi.String(invokeFile.Result),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -95,7 +115,7 @@ type StorageBox struct {
 	Server pulumi.StringOutput `pulumi:"server"`
 	// Details of the active snapshot plan.
 	SnapshotPlan StorageBoxSnapshotPlanPtrOutput `pulumi:"snapshotPlan"`
-	// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+	// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
 	SshKeys pulumi.StringArrayOutput `pulumi:"sshKeys"`
 	// Name of the Storage Box Type.
 	StorageBoxType pulumi.StringOutput `pulumi:"storageBoxType"`
@@ -166,7 +186,7 @@ type storageBoxState struct {
 	Server *string `pulumi:"server"`
 	// Details of the active snapshot plan.
 	SnapshotPlan *StorageBoxSnapshotPlan `pulumi:"snapshotPlan"`
-	// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+	// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
 	SshKeys []string `pulumi:"sshKeys"`
 	// Name of the Storage Box Type.
 	StorageBoxType *string `pulumi:"storageBoxType"`
@@ -192,7 +212,7 @@ type StorageBoxState struct {
 	Server pulumi.StringPtrInput
 	// Details of the active snapshot plan.
 	SnapshotPlan StorageBoxSnapshotPlanPtrInput
-	// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+	// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
 	SshKeys pulumi.StringArrayInput
 	// Name of the Storage Box Type.
 	StorageBoxType pulumi.StringPtrInput
@@ -220,7 +240,7 @@ type storageBoxArgs struct {
 	Password string `pulumi:"password"`
 	// Details of the active snapshot plan.
 	SnapshotPlan *StorageBoxSnapshotPlan `pulumi:"snapshotPlan"`
-	// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+	// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
 	SshKeys []string `pulumi:"sshKeys"`
 	// Name of the Storage Box Type.
 	StorageBoxType string `pulumi:"storageBoxType"`
@@ -241,7 +261,7 @@ type StorageBoxArgs struct {
 	Password pulumi.StringInput
 	// Details of the active snapshot plan.
 	SnapshotPlan StorageBoxSnapshotPlanPtrInput
-	// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+	// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
 	SshKeys pulumi.StringArrayInput
 	// Name of the Storage Box Type.
 	StorageBoxType pulumi.StringInput
@@ -373,7 +393,7 @@ func (o StorageBoxOutput) SnapshotPlan() StorageBoxSnapshotPlanPtrOutput {
 	return o.ApplyT(func(v *StorageBox) StorageBoxSnapshotPlanPtrOutput { return v.SnapshotPlan }).(StorageBoxSnapshotPlanPtrOutput)
 }
 
-// SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+// SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
 func (o StorageBoxOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StorageBox) pulumi.StringArrayOutput { return v.SshKeys }).(pulumi.StringArrayOutput)
 }

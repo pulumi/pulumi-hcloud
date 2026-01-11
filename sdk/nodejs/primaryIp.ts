@@ -10,6 +10,19 @@ import * as utilities from "./utilities";
  * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
  * Currently, Primary IPs can be only attached to servers.
  *
+ * ## Deprecations
+ *
+ * ### `datacenter` attribute
+ *
+ * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ *
+ * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+ *
+ * > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+ * and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
+ * the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
+ * communicating with the API.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -92,12 +105,14 @@ export class PrimaryIp extends pulumi.CustomResource {
     declare public readonly autoDelete: pulumi.Output<boolean>;
     /**
      * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     *
+     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
     declare public readonly datacenter: pulumi.Output<string>;
     /**
      * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
      *
-     * Note: At least one of `datacenter` or `assigneeId` is required.
+     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
      */
     declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
     /**
@@ -112,6 +127,10 @@ export class PrimaryIp extends pulumi.CustomResource {
      * User-defined labels (key-value pairs).
      */
     declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     */
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Name of the Primary IP.
      */
@@ -142,6 +161,7 @@ export class PrimaryIp extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = state?.ipAddress;
             resourceInputs["ipNetwork"] = state?.ipNetwork;
             resourceInputs["labels"] = state?.labels;
+            resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["type"] = state?.type;
         } else {
@@ -161,6 +181,7 @@ export class PrimaryIp extends pulumi.CustomResource {
             resourceInputs["datacenter"] = args?.datacenter;
             resourceInputs["deleteProtection"] = args?.deleteProtection;
             resourceInputs["labels"] = args?.labels;
+            resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["type"] = args?.type;
             resourceInputs["ipAddress"] = undefined /*out*/;
@@ -190,12 +211,14 @@ export interface PrimaryIpState {
     autoDelete?: pulumi.Input<boolean>;
     /**
      * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     *
+     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
     datacenter?: pulumi.Input<string>;
     /**
      * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
      *
-     * Note: At least one of `datacenter` or `assigneeId` is required.
+     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
@@ -210,6 +233,10 @@ export interface PrimaryIpState {
      * User-defined labels (key-value pairs).
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     */
+    location?: pulumi.Input<string>;
     /**
      * Name of the Primary IP.
      */
@@ -239,18 +266,24 @@ export interface PrimaryIpArgs {
     autoDelete: pulumi.Input<boolean>;
     /**
      * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     *
+     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
     datacenter?: pulumi.Input<string>;
     /**
      * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
      *
-     * Note: At least one of `datacenter` or `assigneeId` is required.
+     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
      * User-defined labels (key-value pairs).
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     */
+    location?: pulumi.Input<string>;
     /**
      * Name of the Primary IP.
      */

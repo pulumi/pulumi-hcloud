@@ -76,6 +76,9 @@ class ServerArgs:
         if backups is not None:
             pulumi.set(__self__, "backups", backups)
         if datacenter is not None:
+            warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
+            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+        if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
             pulumi.set(__self__, "delete_protection", delete_protection)
@@ -150,6 +153,7 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -441,6 +445,9 @@ class _ServerState:
         if backups is not None:
             pulumi.set(__self__, "backups", backups)
         if datacenter is not None:
+            warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
+            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+        if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
             pulumi.set(__self__, "delete_protection", delete_protection)
@@ -528,6 +535,7 @@ class _ServerState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -848,6 +856,19 @@ class Server(pulumi.CustomResource):
         """
         Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 
+        ## Deprecations
+
+        ### `datacenter` attribute
+
+        The `datacenter` attribute is deprecated, use the `location` attribute instead.
+
+        See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+
+        > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+        and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
+        the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
+        communicating with the API.
+
         ## Example Usage
 
         ### Basic server creation
@@ -874,7 +895,7 @@ class Server(pulumi.CustomResource):
         ### Server creation with one linked primary ip (ipv4)
         primary_ip1 = hcloud.PrimaryIp("primary_ip_1",
             name="primary_ip_test",
-            datacenter="fsn1-dc14",
+            location="hel1",
             type="ipv4",
             assignee_type="server",
             auto_delete=True,
@@ -885,7 +906,7 @@ class Server(pulumi.CustomResource):
             name="test-server",
             image="ubuntu-24.04",
             server_type="cx23",
-            datacenter="fsn1-dc14",
+            location="hel1",
             labels={
                 "test": "tessst1",
             },
@@ -996,6 +1017,19 @@ class Server(pulumi.CustomResource):
         """
         Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 
+        ## Deprecations
+
+        ### `datacenter` attribute
+
+        The `datacenter` attribute is deprecated, use the `location` attribute instead.
+
+        See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+
+        > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+        and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
+        the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
+        communicating with the API.
+
         ## Example Usage
 
         ### Basic server creation
@@ -1022,7 +1056,7 @@ class Server(pulumi.CustomResource):
         ### Server creation with one linked primary ip (ipv4)
         primary_ip1 = hcloud.PrimaryIp("primary_ip_1",
             name="primary_ip_test",
-            datacenter="fsn1-dc14",
+            location="hel1",
             type="ipv4",
             assignee_type="server",
             auto_delete=True,
@@ -1033,7 +1067,7 @@ class Server(pulumi.CustomResource):
             name="test-server",
             image="ubuntu-24.04",
             server_type="cx23",
-            datacenter="fsn1-dc14",
+            location="hel1",
             labels={
                 "test": "tessst1",
             },
@@ -1317,6 +1351,7 @@ class Server(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> pulumi.Output[_builtins.str]:
         """
         The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.

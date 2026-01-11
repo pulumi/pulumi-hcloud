@@ -2547,6 +2547,7 @@ class GetPrimaryIpsPrimaryIpResult(dict):
                  ip_address: _builtins.str,
                  ip_network: _builtins.str,
                  labels: Mapping[str, _builtins.str],
+                 location: _builtins.str,
                  type: _builtins.str,
                  name: Optional[_builtins.str] = None):
         pulumi.set(__self__, "assignee_id", assignee_id)
@@ -2558,6 +2559,7 @@ class GetPrimaryIpsPrimaryIpResult(dict):
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "ip_network", ip_network)
         pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2579,6 +2581,7 @@ class GetPrimaryIpsPrimaryIpResult(dict):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> _builtins.str:
         return pulumi.get(self, "datacenter")
 
@@ -2606,6 +2609,11 @@ class GetPrimaryIpsPrimaryIpResult(dict):
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
         return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter
@@ -3025,6 +3033,7 @@ class GetServersServerResult(dict):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> _builtins.str:
         return pulumi.get(self, "datacenter")
 

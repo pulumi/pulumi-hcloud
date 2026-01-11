@@ -12,6 +12,19 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
     /// 
+    /// ## Deprecations
+    /// 
+    /// ### `Datacenter` attribute
+    /// 
+    /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+    /// 
+    /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+    /// 
+    /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+    /// and returns the `Datacenter` attribute. This version of the provider remains backward compatible by preserving
+    /// the `Datacenter` value in the state and by extracting the `Location` name from the `Datacenter` attribute when
+    /// communicating with the API.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic server creation
@@ -55,7 +68,7 @@ namespace Pulumi.HCloud
     ///     var primaryIp1 = new HCloud.PrimaryIp("primary_ip_1", new()
     ///     {
     ///         Name = "primary_ip_test",
-    ///         Datacenter = "fsn1-dc14",
+    ///         Location = "hel1",
     ///         Type = "ipv4",
     ///         AssigneeType = "server",
     ///         AutoDelete = true,
@@ -70,7 +83,7 @@ namespace Pulumi.HCloud
     ///         Name = "test-server",
     ///         Image = "ubuntu-24.04",
     ///         ServerType = "cx23",
-    ///         Datacenter = "fsn1-dc14",
+    ///         Location = "hel1",
     ///         Labels = 
     ///         {
     ///             { "test", "tessst1" },
