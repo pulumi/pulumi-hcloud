@@ -14,6 +14,16 @@ import * as utilities from "./utilities";
  * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
  * Currently, Primary IPs can be only attached to servers.
  *
+ * ## Deprecations
+ *
+ * ### `datacenter` attribute
+ *
+ * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ *
+ * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+ *
+ * > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+ *
  * ## Example Usage
  *
  * # Data Source: hcloud.PrimaryIp
@@ -106,7 +116,9 @@ export interface GetPrimaryIpResult {
      */
     readonly autoDelete: boolean;
     /**
-     * (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     *
+     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
     readonly datacenter: string;
     /**
@@ -130,6 +142,10 @@ export interface GetPrimaryIpResult {
      */
     readonly labels: {[key: string]: string};
     /**
+     * (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     */
+    readonly location: string;
+    /**
      * (string) Name of the Primary IP.
      */
     readonly name?: string;
@@ -148,6 +164,16 @@ export interface GetPrimaryIpResult {
  *
  * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
  * Currently, Primary IPs can be only attached to servers.
+ *
+ * ## Deprecations
+ *
+ * ### `datacenter` attribute
+ *
+ * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ *
+ * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+ *
+ * > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
  *
  * ## Example Usage
  *

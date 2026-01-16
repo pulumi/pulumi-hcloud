@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.StorageBoxArgs;
  * import com.pulumi.hcloud.inputs.StorageBoxAccessSettingsArgs;
  * import com.pulumi.hcloud.inputs.StorageBoxSnapshotPlanArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,6 +68,18 @@ import javax.annotation.Nullable;
  *                 .dayOfWeek(3)
  *                 .build())
  *             .deleteProtection(true)
+ *             .build());
+ * 
+ *         var sshKey = new StorageBox("sshKey", StorageBoxArgs.builder()
+ *             .name("backups")
+ *             .storageBoxType("bx21")
+ *             .location("hel1")
+ *             .password(storageBoxPassword)
+ *             .sshKeys(            
+ *                 myKey.publicKey(),
+ *                 StdFunctions.file(FileArgs.builder()
+ *                     .input("~/.ssh/id_ed25519.pub")
+ *                     .build()).result())
  *             .build());
  * 
  *     }
@@ -201,14 +215,14 @@ public class StorageBox extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapshotPlan);
     }
     /**
-     * SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+     * SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      * 
      */
     @Export(name="sshKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> sshKeys;
 
     /**
-     * @return SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+     * @return SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      * 
      */
     public Output<List<String>> sshKeys() {

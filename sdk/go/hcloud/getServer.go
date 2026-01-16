@@ -82,7 +82,9 @@ type LookupServerResult struct {
 	BackupWindow string `pulumi:"backupWindow"`
 	// (bool) Whether backups are enabled.
 	Backups bool `pulumi:"backups"`
-	// (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	// (string, deprecated) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter string `pulumi:"datacenter"`
 	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
@@ -181,7 +183,9 @@ func (o LookupServerResultOutput) Backups() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServerResult) bool { return v.Backups }).(pulumi.BoolOutput)
 }
 
-// (string) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+// (string, deprecated) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+//
+// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 func (o LookupServerResultOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Datacenter }).(pulumi.StringOutput)
 }

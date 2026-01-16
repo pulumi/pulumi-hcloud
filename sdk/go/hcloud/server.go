@@ -14,6 +14,19 @@ import (
 
 // Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
 //
+// ## Deprecations
+//
+// ### `datacenter` attribute
+//
+// The `datacenter` attribute is deprecated, use the `location` attribute instead.
+//
+// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+//
+// > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+// and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
+// the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
+// communicating with the API.
+//
 // ## Example Usage
 //
 // ### Basic server creation
@@ -66,7 +79,7 @@ import (
 //			// ## Server creation with one linked primary ip (ipv4)
 //			primaryIp1, err := hcloud.NewPrimaryIp(ctx, "primary_ip_1", &hcloud.PrimaryIpArgs{
 //				Name:         pulumi.String("primary_ip_test"),
-//				Datacenter:   pulumi.String("fsn1-dc14"),
+//				Location:     pulumi.String("hel1"),
 //				Type:         pulumi.String("ipv4"),
 //				AssigneeType: pulumi.String("server"),
 //				AutoDelete:   pulumi.Bool(true),
@@ -81,7 +94,7 @@ import (
 //				Name:       pulumi.String("test-server"),
 //				Image:      pulumi.String("ubuntu-24.04"),
 //				ServerType: pulumi.String("cx23"),
-//				Datacenter: pulumi.String("fsn1-dc14"),
+//				Location:   pulumi.String("hel1"),
 //				Labels: pulumi.StringMap{
 //					"test": pulumi.String("tessst1"),
 //				},
@@ -226,6 +239,8 @@ type Server struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
@@ -321,6 +336,8 @@ type serverState struct {
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter *string `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -384,6 +401,8 @@ type ServerState struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter pulumi.StringPtrInput
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
@@ -447,6 +466,8 @@ type serverArgs struct {
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter *string `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -497,6 +518,8 @@ type ServerArgs struct {
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter pulumi.StringPtrInput
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
@@ -645,6 +668,8 @@ func (o ServerOutput) Backups() pulumi.BoolPtrOutput {
 }
 
 // The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+//
+// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 func (o ServerOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Datacenter }).(pulumi.StringOutput)
 }

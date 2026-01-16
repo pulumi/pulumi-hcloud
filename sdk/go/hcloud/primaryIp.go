@@ -17,6 +17,19 @@ import (
 // If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
 // Currently, Primary IPs can be only attached to servers.
 //
+// ## Deprecations
+//
+// ### `datacenter` attribute
+//
+// The `datacenter` attribute is deprecated, use the `location` attribute instead.
+//
+// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+//
+// > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+// and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
+// the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
+// communicating with the API.
+//
 // ## Example Usage
 //
 // ```go
@@ -86,10 +99,12 @@ type PrimaryIp struct {
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete pulumi.BoolOutput `pulumi:"autoDelete"`
 	// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
 	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	//
-	// Note: At least one of `datacenter` or `assigneeId` is required.
+	// Note: At least one of `location`, `datacenter` or `assigneeId` is required.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// (string) IP Address of the Primary IP.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
@@ -97,6 +112,8 @@ type PrimaryIp struct {
 	IpNetwork pulumi.StringOutput `pulumi:"ipNetwork"`
 	// User-defined labels (key-value pairs).
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
+	// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the Primary IP.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -150,10 +167,12 @@ type primaryIpState struct {
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete *bool `pulumi:"autoDelete"`
 	// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter *string `pulumi:"datacenter"`
 	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	//
-	// Note: At least one of `datacenter` or `assigneeId` is required.
+	// Note: At least one of `location`, `datacenter` or `assigneeId` is required.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// (string) IP Address of the Primary IP.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -161,6 +180,8 @@ type primaryIpState struct {
 	IpNetwork *string `pulumi:"ipNetwork"`
 	// User-defined labels (key-value pairs).
 	Labels map[string]string `pulumi:"labels"`
+	// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	Location *string `pulumi:"location"`
 	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -176,10 +197,12 @@ type PrimaryIpState struct {
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete pulumi.BoolPtrInput
 	// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter pulumi.StringPtrInput
 	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	//
-	// Note: At least one of `datacenter` or `assigneeId` is required.
+	// Note: At least one of `location`, `datacenter` or `assigneeId` is required.
 	DeleteProtection pulumi.BoolPtrInput
 	// (string) IP Address of the Primary IP.
 	IpAddress pulumi.StringPtrInput
@@ -187,6 +210,8 @@ type PrimaryIpState struct {
 	IpNetwork pulumi.StringPtrInput
 	// User-defined labels (key-value pairs).
 	Labels pulumi.StringMapInput
+	// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	Location pulumi.StringPtrInput
 	// Name of the Primary IP.
 	Name pulumi.StringPtrInput
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -206,13 +231,17 @@ type primaryIpArgs struct {
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete bool `pulumi:"autoDelete"`
 	// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter *string `pulumi:"datacenter"`
 	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	//
-	// Note: At least one of `datacenter` or `assigneeId` is required.
+	// Note: At least one of `location`, `datacenter` or `assigneeId` is required.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// User-defined labels (key-value pairs).
 	Labels map[string]string `pulumi:"labels"`
+	// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	Location *string `pulumi:"location"`
 	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -229,13 +258,17 @@ type PrimaryIpArgs struct {
 	// `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
 	AutoDelete pulumi.BoolInput
 	// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	//
+	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 	Datacenter pulumi.StringPtrInput
 	// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 	//
-	// Note: At least one of `datacenter` or `assigneeId` is required.
+	// Note: At least one of `location`, `datacenter` or `assigneeId` is required.
 	DeleteProtection pulumi.BoolPtrInput
 	// User-defined labels (key-value pairs).
 	Labels pulumi.StringMapInput
+	// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	Location pulumi.StringPtrInput
 	// Name of the Primary IP.
 	Name pulumi.StringPtrInput
 	// Type of the Primary IP. `ipv4` or `ipv6`
@@ -346,13 +379,15 @@ func (o PrimaryIpOutput) AutoDelete() pulumi.BoolOutput {
 }
 
 // The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+//
+// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 func (o PrimaryIpOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.Datacenter }).(pulumi.StringOutput)
 }
 
 // Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 //
-// Note: At least one of `datacenter` or `assigneeId` is required.
+// Note: At least one of `location`, `datacenter` or `assigneeId` is required.
 func (o PrimaryIpOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
 }
@@ -370,6 +405,11 @@ func (o PrimaryIpOutput) IpNetwork() pulumi.StringOutput {
 // User-defined labels (key-value pairs).
 func (o PrimaryIpOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+func (o PrimaryIpOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
 // Name of the Primary IP.

@@ -19,6 +19,12 @@ import javax.annotation.Nullable;
 public final class GetServersServer {
     private String backupWindow;
     private Boolean backups;
+    /**
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * 
+     */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     private String datacenter;
     private Boolean deleteProtection;
     private List<Integer> firewallIds;
@@ -46,6 +52,12 @@ public final class GetServersServer {
     public Boolean backups() {
         return this.backups;
     }
+    /**
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * 
+     */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     public String datacenter() {
         return this.datacenter;
     }
