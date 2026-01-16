@@ -15,6 +15,19 @@ namespace Pulumi.HCloud
     /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
     /// Currently, Primary IPs can be only attached to servers.
     /// 
+    /// ## Deprecations
+    /// 
+    /// ### `Datacenter` attribute
+    /// 
+    /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+    /// 
+    /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+    /// 
+    /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+    /// and returns the `Datacenter` attribute. This version of the provider remains backward compatible by preserving
+    /// the `Datacenter` value in the state and by extracting the `Location` name from the `Datacenter` attribute when
+    /// communicating with the API.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -100,7 +113,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// Note: At least one of `Datacenter` or `AssigneeId` is required.
+        /// Note: At least one of `Location`, `Datacenter` or `AssigneeId` is required.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -122,6 +135,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
+
+        /// <summary>
+        /// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Primary IP.
@@ -209,7 +228,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// Note: At least one of `Datacenter` or `AssigneeId` is required.
+        /// Note: At least one of `Location`, `Datacenter` or `AssigneeId` is required.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -225,6 +244,12 @@ namespace Pulumi.HCloud
             get => _labels ?? (_labels = new InputMap<string>());
             set => _labels = value;
         }
+
+        /// <summary>
+        /// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the Primary IP.
@@ -274,7 +299,7 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
         /// 
-        /// Note: At least one of `Datacenter` or `AssigneeId` is required.
+        /// Note: At least one of `Location`, `Datacenter` or `AssigneeId` is required.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -302,6 +327,12 @@ namespace Pulumi.HCloud
             get => _labels ?? (_labels = new InputMap<string>());
             set => _labels = value;
         }
+
+        /// <summary>
+        /// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the Primary IP.

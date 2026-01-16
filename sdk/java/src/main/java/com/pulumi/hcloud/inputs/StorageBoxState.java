@@ -133,14 +133,14 @@ public final class StorageBoxState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+     * SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      * 
      */
     @Import(name="sshKeys")
     private @Nullable Output<List<String>> sshKeys;
 
     /**
-     * @return SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+     * @return SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      * 
      */
     public Optional<Output<List<String>>> sshKeys() {
@@ -384,7 +384,7 @@ public final class StorageBoxState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeys SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+         * @param sshKeys SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class StorageBoxState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeys SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+         * @param sshKeys SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class StorageBoxState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeys SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+         * @param sshKeys SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
          * 
          * @return builder
          * 

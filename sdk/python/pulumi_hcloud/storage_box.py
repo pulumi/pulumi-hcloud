@@ -39,7 +39,7 @@ class StorageBoxArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Storage Box.
         :param pulumi.Input['StorageBoxSnapshotPlanArgs'] snapshot_plan: Details of the active snapshot plan.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "password", password)
@@ -154,7 +154,7 @@ class StorageBoxArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -187,7 +187,7 @@ class _StorageBoxState:
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
         :param pulumi.Input[_builtins.str] server: FQDN of the Storage Box.
         :param pulumi.Input['StorageBoxSnapshotPlanArgs'] snapshot_plan: Details of the active snapshot plan.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         :param pulumi.Input[_builtins.str] storage_box_type: Name of the Storage Box Type.
         :param pulumi.Input[_builtins.str] system: Host system of the Storage Box.
         :param pulumi.Input[_builtins.str] username: Primary username of the Storage Box.
@@ -314,7 +314,7 @@ class _StorageBoxState:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -381,6 +381,7 @@ class StorageBox(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
+        import pulumi_std as std
 
         backups = hcloud.StorageBox("backups",
             name="backups",
@@ -404,6 +405,15 @@ class StorageBox(pulumi.CustomResource):
                 "day_of_week": 3,
             },
             delete_protection=True)
+        ssh_key = hcloud.StorageBox("ssh_key",
+            name="backups",
+            storage_box_type="bx21",
+            location="hel1",
+            password=storage_box_password,
+            ssh_keys=[
+                my_key["publicKey"],
+                std.file(input="~/.ssh/id_ed25519.pub").result,
+            ])
         ```
 
         ## Import
@@ -434,7 +444,7 @@ class StorageBox(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the Storage Box.
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
         :param pulumi.Input[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict']] snapshot_plan: Details of the active snapshot plan.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         :param pulumi.Input[_builtins.str] storage_box_type: Name of the Storage Box Type.
         """
         ...
@@ -449,6 +459,7 @@ class StorageBox(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_hcloud as hcloud
+        import pulumi_std as std
 
         backups = hcloud.StorageBox("backups",
             name="backups",
@@ -472,6 +483,15 @@ class StorageBox(pulumi.CustomResource):
                 "day_of_week": 3,
             },
             delete_protection=True)
+        ssh_key = hcloud.StorageBox("ssh_key",
+            name="backups",
+            storage_box_type="bx21",
+            location="hel1",
+            password=storage_box_password,
+            ssh_keys=[
+                my_key["publicKey"],
+                std.file(input="~/.ssh/id_ed25519.pub").result,
+            ])
         ```
 
         ## Import
@@ -583,7 +603,7 @@ class StorageBox(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
         :param pulumi.Input[_builtins.str] server: FQDN of the Storage Box.
         :param pulumi.Input[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict']] snapshot_plan: Details of the active snapshot plan.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         :param pulumi.Input[_builtins.str] storage_box_type: Name of the Storage Box Type.
         :param pulumi.Input[_builtins.str] system: Host system of the Storage Box.
         :param pulumi.Input[_builtins.str] username: Primary username of the Storage Box.
@@ -671,7 +691,7 @@ class StorageBox(pulumi.CustomResource):
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        SSH public keys in OpenSSH format to inject into the Storage Box. Any changes to this attribute are ignored, as it is not possible to update the SSH Keys through the API, please add the SSH Keys manually on the Storage Box if you need to change them.
+        SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         """
         return pulumi.get(self, "ssh_keys")
 

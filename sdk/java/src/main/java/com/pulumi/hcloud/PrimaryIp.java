@@ -23,6 +23,19 @@ import javax.annotation.Nullable;
  * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
  * Currently, Primary IPs can be only attached to servers.
  * 
+ * ## Deprecations
+ * 
+ * ### `datacenter` attribute
+ * 
+ * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ * 
+ * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+ * 
+ * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+ * and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
+ * the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
+ * communicating with the API.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -134,7 +147,11 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
      * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * 
      */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     @Export(name="datacenter", refs={String.class}, tree="[0]")
     private Output<String> datacenter;
 
@@ -148,7 +165,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
      * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * Note: At least one of `datacenter` or `assigneeId` is required.
+     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
@@ -157,7 +174,7 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
      * 
-     * Note: At least one of `datacenter` or `assigneeId` is required.
+     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {
@@ -204,6 +221,20 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> labels() {
         return Codegen.optional(this.labels);
+    }
+    /**
+     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * 
+     */
+    @Export(name="location", refs={String.class}, tree="[0]")
+    private Output<String> location;
+
+    /**
+     * @return The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * 
+     */
+    public Output<String> location() {
+        return this.location;
     }
     /**
      * Name of the Primary IP.

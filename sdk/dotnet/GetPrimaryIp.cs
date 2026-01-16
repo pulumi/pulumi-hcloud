@@ -21,6 +21,16 @@ namespace Pulumi.HCloud
         /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
         /// Currently, Primary IPs can be only attached to servers.
         /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// 
+        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+        /// 
+        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// 
         /// ## Example Usage
         /// 
         /// # Data Source: hcloud.PrimaryIp
@@ -90,6 +100,16 @@ namespace Pulumi.HCloud
         /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
         /// Currently, Primary IPs can be only attached to servers.
         /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// 
+        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+        /// 
+        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// 
         /// ## Example Usage
         /// 
         /// # Data Source: hcloud.PrimaryIp
@@ -158,6 +178,16 @@ namespace Pulumi.HCloud
         /// 
         /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
         /// Currently, Primary IPs can be only attached to servers.
+        /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// 
+        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+        /// 
+        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
         /// 
         /// ## Example Usage
         /// 
@@ -313,7 +343,7 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly bool AutoDelete;
         /// <summary>
-        /// (string) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        /// (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         public readonly string Datacenter;
         /// <summary>
@@ -336,6 +366,10 @@ namespace Pulumi.HCloud
         /// (map) User-defined labels (key-value pairs).
         /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
+        /// <summary>
+        /// (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// </summary>
+        public readonly string Location;
         /// <summary>
         /// (string) Name of the Primary IP.
         /// </summary>
@@ -366,6 +400,8 @@ namespace Pulumi.HCloud
 
             ImmutableDictionary<string, string> labels,
 
+            string location,
+
             string? name,
 
             string type,
@@ -381,6 +417,7 @@ namespace Pulumi.HCloud
             IpAddress = ipAddress;
             IpNetwork = ipNetwork;
             Labels = labels;
+            Location = location;
             Name = name;
             Type = type;
             WithSelector = withSelector;

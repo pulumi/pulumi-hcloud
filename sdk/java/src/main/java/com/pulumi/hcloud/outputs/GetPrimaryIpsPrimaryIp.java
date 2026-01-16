@@ -18,12 +18,19 @@ public final class GetPrimaryIpsPrimaryIp {
     private Integer assigneeId;
     private String assigneeType;
     private Boolean autoDelete;
+    /**
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * 
+     */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     private String datacenter;
     private Boolean deleteProtection;
     private Integer id;
     private String ipAddress;
     private String ipNetwork;
     private Map<String,String> labels;
+    private String location;
     private @Nullable String name;
     private String type;
 
@@ -37,6 +44,12 @@ public final class GetPrimaryIpsPrimaryIp {
     public Boolean autoDelete() {
         return this.autoDelete;
     }
+    /**
+     * @deprecated
+     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * 
+     */
+    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     public String datacenter() {
         return this.datacenter;
     }
@@ -54,6 +67,9 @@ public final class GetPrimaryIpsPrimaryIp {
     }
     public Map<String,String> labels() {
         return this.labels;
+    }
+    public String location() {
+        return this.location;
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -80,6 +96,7 @@ public final class GetPrimaryIpsPrimaryIp {
         private String ipAddress;
         private String ipNetwork;
         private Map<String,String> labels;
+        private String location;
         private @Nullable String name;
         private String type;
         public Builder() {}
@@ -94,6 +111,7 @@ public final class GetPrimaryIpsPrimaryIp {
     	      this.ipAddress = defaults.ipAddress;
     	      this.ipNetwork = defaults.ipNetwork;
     	      this.labels = defaults.labels;
+    	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
@@ -171,6 +189,14 @@ public final class GetPrimaryIpsPrimaryIp {
             return this;
         }
         @CustomType.Setter
+        public Builder location(String location) {
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "location");
+            }
+            this.location = location;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
 
             this.name = name;
@@ -195,6 +221,7 @@ public final class GetPrimaryIpsPrimaryIp {
             _resultValue.ipAddress = ipAddress;
             _resultValue.ipNetwork = ipNetwork;
             _resultValue.labels = labels;
+            _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.type = type;
             return _resultValue;

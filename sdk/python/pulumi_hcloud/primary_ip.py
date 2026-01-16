@@ -26,6 +26,7 @@ class PrimaryIpArgs:
                  datacenter: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrimaryIp resource.
@@ -37,8 +38,9 @@ class PrimaryIpArgs:
         :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
                
-               Note: At least one of `datacenter` or `assignee_id` is required.
+               Note: At least one of `location`, `datacenter` or `assignee_id` is required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[_builtins.str] location: The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
         """
         pulumi.set(__self__, "assignee_type", assignee_type)
@@ -47,11 +49,16 @@ class PrimaryIpArgs:
         if assignee_id is not None:
             pulumi.set(__self__, "assignee_id", assignee_id)
         if datacenter is not None:
+            warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
+            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+        if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
             pulumi.set(__self__, "delete_protection", delete_protection)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -106,6 +113,7 @@ class PrimaryIpArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -122,7 +130,7 @@ class PrimaryIpArgs:
         """
         Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 
-        Note: At least one of `datacenter` or `assignee_id` is required.
+        Note: At least one of `location`, `datacenter` or `assignee_id` is required.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -141,6 +149,18 @@ class PrimaryIpArgs:
     @labels.setter
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
@@ -166,6 +186,7 @@ class _PrimaryIpState:
                  ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_network: Optional[pulumi.Input[_builtins.str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -177,10 +198,11 @@ class _PrimaryIpState:
         :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
                
-               Note: At least one of `datacenter` or `assignee_id` is required.
+               Note: At least one of `location`, `datacenter` or `assignee_id` is required.
         :param pulumi.Input[_builtins.str] ip_address: (string) IP Address of the Primary IP.
         :param pulumi.Input[_builtins.str] ip_network: (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[_builtins.str] location: The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
         :param pulumi.Input[_builtins.str] type: Type of the Primary IP. `ipv4` or `ipv6`
         """
@@ -191,6 +213,9 @@ class _PrimaryIpState:
         if auto_delete is not None:
             pulumi.set(__self__, "auto_delete", auto_delete)
         if datacenter is not None:
+            warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
+            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+        if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
             pulumi.set(__self__, "delete_protection", delete_protection)
@@ -200,6 +225,8 @@ class _PrimaryIpState:
             pulumi.set(__self__, "ip_network", ip_network)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if type is not None:
@@ -244,6 +271,7 @@ class _PrimaryIpState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -260,7 +288,7 @@ class _PrimaryIpState:
         """
         Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 
-        Note: At least one of `datacenter` or `assignee_id` is required.
+        Note: At least one of `location`, `datacenter` or `assignee_id` is required.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -306,6 +334,18 @@ class _PrimaryIpState:
 
     @_builtins.property
     @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the Primary IP.
@@ -341,6 +381,7 @@ class PrimaryIp(pulumi.CustomResource):
                  datacenter: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -349,6 +390,19 @@ class PrimaryIp(pulumi.CustomResource):
 
         If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
         Currently, Primary IPs can be only attached to servers.
+
+        ## Deprecations
+
+        ### `datacenter` attribute
+
+        The `datacenter` attribute is deprecated, use the `location` attribute instead.
+
+        See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+
+        > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+        and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
+        the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
+        communicating with the API.
 
         ## Example Usage
 
@@ -396,8 +450,9 @@ class PrimaryIp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
                
-               Note: At least one of `datacenter` or `assignee_id` is required.
+               Note: At least one of `location`, `datacenter` or `assignee_id` is required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[_builtins.str] location: The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
         :param pulumi.Input[_builtins.str] type: Type of the Primary IP. `ipv4` or `ipv6`
         """
@@ -412,6 +467,19 @@ class PrimaryIp(pulumi.CustomResource):
 
         If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
         Currently, Primary IPs can be only attached to servers.
+
+        ## Deprecations
+
+        ### `datacenter` attribute
+
+        The `datacenter` attribute is deprecated, use the `location` attribute instead.
+
+        See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+
+        > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
+        and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
+        the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
+        communicating with the API.
 
         ## Example Usage
 
@@ -471,6 +539,7 @@ class PrimaryIp(pulumi.CustomResource):
                  datacenter: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -492,6 +561,7 @@ class PrimaryIp(pulumi.CustomResource):
             __props__.__dict__["datacenter"] = datacenter
             __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["labels"] = labels
+            __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -516,6 +586,7 @@ class PrimaryIp(pulumi.CustomResource):
             ip_address: Optional[pulumi.Input[_builtins.str]] = None,
             ip_network: Optional[pulumi.Input[_builtins.str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrimaryIp':
         """
@@ -532,10 +603,11 @@ class PrimaryIp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
                
-               Note: At least one of `datacenter` or `assignee_id` is required.
+               Note: At least one of `location`, `datacenter` or `assignee_id` is required.
         :param pulumi.Input[_builtins.str] ip_address: (string) IP Address of the Primary IP.
         :param pulumi.Input[_builtins.str] ip_network: (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs).
+        :param pulumi.Input[_builtins.str] location: The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
         :param pulumi.Input[_builtins.str] type: Type of the Primary IP. `ipv4` or `ipv6`
         """
@@ -551,6 +623,7 @@ class PrimaryIp(pulumi.CustomResource):
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["ip_network"] = ip_network
         __props__.__dict__["labels"] = labels
+        __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["type"] = type
         return PrimaryIp(resource_name, opts=opts, __props__=__props__)
@@ -582,6 +655,7 @@ class PrimaryIp(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> pulumi.Output[_builtins.str]:
         """
         The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -594,7 +668,7 @@ class PrimaryIp(pulumi.CustomResource):
         """
         Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
 
-        Note: At least one of `datacenter` or `assignee_id` is required.
+        Note: At least one of `location`, `datacenter` or `assignee_id` is required.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -621,6 +695,14 @@ class PrimaryIp(pulumi.CustomResource):
         User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[_builtins.str]:
+        """
+        The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        """
+        return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter
