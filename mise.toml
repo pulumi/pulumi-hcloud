@@ -1,3 +1,0 @@
-[tools]
-"vfox-pulumi:pulumi/pulumi-std" = "2.2.0"
-"vfox-pulumi:pulumi/pulumi-converter-terraform" = "1.2.4"
