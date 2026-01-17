@@ -10081,6 +10081,11 @@ public final class HcloudFunctions {
      *             .id(2)
      *             .build());
      * 
+     *         final var byName = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("badger")
+     *             .build());
+     * 
      *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .username("u507137-sub1")
@@ -10130,6 +10135,11 @@ public final class HcloudFunctions {
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("badger")
      *             .build());
      * 
      *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
@@ -10183,6 +10193,11 @@ public final class HcloudFunctions {
      *             .id(2)
      *             .build());
      * 
+     *         final var byName = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("badger")
+     *             .build());
+     * 
      *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .username("u507137-sub1")
@@ -10234,6 +10249,11 @@ public final class HcloudFunctions {
      *             .id(2)
      *             .build());
      * 
+     *         final var byName = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("badger")
+     *             .build());
+     * 
      *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .username("u507137-sub1")
@@ -10283,6 +10303,11 @@ public final class HcloudFunctions {
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("badger")
      *             .build());
      * 
      *         final var byUsername = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()

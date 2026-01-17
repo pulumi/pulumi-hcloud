@@ -30,6 +30,12 @@ namespace Pulumi.HCloud
         ///         Id = 2,
         ///     });
         /// 
+        ///     var byName = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Name = "badger",
+        ///     });
+        /// 
         ///     var byUsername = HCloud.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
@@ -65,6 +71,12 @@ namespace Pulumi.HCloud
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Id = 2,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Name = "badger",
         ///     });
         /// 
         ///     var byUsername = HCloud.GetStorageBoxSubaccount.Invoke(new()
@@ -104,6 +116,12 @@ namespace Pulumi.HCloud
         ///         Id = 2,
         ///     });
         /// 
+        ///     var byName = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Name = "badger",
+        ///     });
+        /// 
         ///     var byUsername = HCloud.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
@@ -131,6 +149,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("id")]
         public int? Id { get; set; }
+
+        /// <summary>
+        /// Name of the Storage Box Subaccount.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// ID of the Storage Box.
@@ -163,6 +187,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// Name of the Storage Box Subaccount.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// ID of the Storage Box.
@@ -213,6 +243,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
+        /// Name of the Storage Box Subaccount.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
         /// FQDN of the Storage Box Subaccount.
         /// </summary>
         public readonly string Server;
@@ -241,6 +275,8 @@ namespace Pulumi.HCloud
 
             ImmutableDictionary<string, string> labels,
 
+            string name,
+
             string server,
 
             int storageBoxId,
@@ -254,6 +290,7 @@ namespace Pulumi.HCloud
             HomeDirectory = homeDirectory;
             Id = id;
             Labels = labels;
+            Name = name;
             Server = server;
             StorageBoxId = storageBoxId;
             Username = username;

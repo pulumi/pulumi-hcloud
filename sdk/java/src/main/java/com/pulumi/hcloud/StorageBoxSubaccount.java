@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * 
  *         var teamBadger = new StorageBoxSubaccount("teamBadger", StorageBoxSubaccountArgs.builder()
  *             .storageBoxId(main.id())
+ *             .name("badger")
  *             .homeDirectory("teams/badger/")
  *             .password(teamBadgerPassword)
  *             .accessSettings(StorageBoxSubaccountAccessSettingsArgs.builder()
@@ -146,6 +147,20 @@ public class StorageBoxSubaccount extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> labels() {
         return this.labels;
+    }
+    /**
+     * Name of the Storage Box Subaccount.
+     * 
+     */
+    @Export(name="name", refs={String.class}, tree="[0]")
+    private Output<String> name;
+
+    /**
+     * @return Name of the Storage Box Subaccount.
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
     }
     /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).

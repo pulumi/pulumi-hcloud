@@ -27,6 +27,7 @@ namespace Pulumi.HCloud
     ///     var teamBadger = new HCloud.StorageBoxSubaccount("team_badger", new()
     ///     {
     ///         StorageBoxId = main.Id,
+    ///         Name = "badger",
     ///         HomeDirectory = "teams/badger/",
     ///         Password = teamBadgerPassword,
     ///         AccessSettings = new HCloud.Inputs.StorageBoxSubaccountAccessSettingsArgs
@@ -91,6 +92,12 @@ namespace Pulumi.HCloud
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, string>> Labels { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the Storage Box Subaccount.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
@@ -196,6 +203,12 @@ namespace Pulumi.HCloud
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Name of the Storage Box Subaccount.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
         [Input("password", required: true)]
         private Input<string>? _password;
 
@@ -255,6 +268,12 @@ namespace Pulumi.HCloud
             get => _labels ?? (_labels = new InputMap<string>());
             set => _labels = value;
         }
+
+        /// <summary>
+        /// Name of the Storage Box Subaccount.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("password")]
         private Input<string>? _password;

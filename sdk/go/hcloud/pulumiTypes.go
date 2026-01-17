@@ -7598,6 +7598,8 @@ type GetStorageBoxSubaccountsSubaccount struct {
 	Id int `pulumi:"id"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
+	// Name of the Storage Box Subaccount.
+	Name string `pulumi:"name"`
 	// FQDN of the Storage Box Subaccount.
 	Server string `pulumi:"server"`
 	// ID of the Storage Box.
@@ -7628,6 +7630,8 @@ type GetStorageBoxSubaccountsSubaccountArgs struct {
 	Id pulumi.IntInput `pulumi:"id"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the Storage Box Subaccount.
+	Name pulumi.StringInput `pulumi:"name"`
 	// FQDN of the Storage Box Subaccount.
 	Server pulumi.StringInput `pulumi:"server"`
 	// ID of the Storage Box.
@@ -7712,6 +7716,11 @@ func (o GetStorageBoxSubaccountsSubaccountOutput) Id() pulumi.IntOutput {
 // User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o GetStorageBoxSubaccountsSubaccountOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Name of the Storage Box Subaccount.
+func (o GetStorageBoxSubaccountsSubaccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageBoxSubaccountsSubaccount) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // FQDN of the Storage Box Subaccount.

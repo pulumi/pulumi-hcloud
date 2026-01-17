@@ -27,7 +27,7 @@ class GetStorageBoxSubaccountResult:
     """
     A collection of values returned by getStorageBoxSubaccount.
     """
-    def __init__(__self__, access_settings=None, description=None, home_directory=None, id=None, labels=None, server=None, storage_box_id=None, username=None, with_selector=None):
+    def __init__(__self__, access_settings=None, description=None, home_directory=None, id=None, labels=None, name=None, server=None, storage_box_id=None, username=None, with_selector=None):
         if access_settings and not isinstance(access_settings, dict):
             raise TypeError("Expected argument 'access_settings' to be a dict")
         pulumi.set(__self__, "access_settings", access_settings)
@@ -43,6 +43,9 @@ class GetStorageBoxSubaccountResult:
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
         pulumi.set(__self__, "labels", labels)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
         if server and not isinstance(server, str):
             raise TypeError("Expected argument 'server' to be a str")
         pulumi.set(__self__, "server", server)
@@ -98,6 +101,14 @@ class GetStorageBoxSubaccountResult:
 
     @_builtins.property
     @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Storage Box Subaccount.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
     def server(self) -> _builtins.str:
         """
         FQDN of the Storage Box Subaccount.
@@ -140,6 +151,7 @@ class AwaitableGetStorageBoxSubaccountResult(GetStorageBoxSubaccountResult):
             home_directory=self.home_directory,
             id=self.id,
             labels=self.labels,
+            name=self.name,
             server=self.server,
             storage_box_id=self.storage_box_id,
             username=self.username,
@@ -147,6 +159,7 @@ class AwaitableGetStorageBoxSubaccountResult(GetStorageBoxSubaccountResult):
 
 
 def get_storage_box_subaccount(id: Optional[_builtins.int] = None,
+                               name: Optional[_builtins.str] = None,
                                storage_box_id: Optional[_builtins.int] = None,
                                username: Optional[_builtins.str] = None,
                                with_selector: Optional[_builtins.str] = None,
@@ -162,6 +175,8 @@ def get_storage_box_subaccount(id: Optional[_builtins.int] = None,
     storage_box_id = config.require_object("storageBoxId")
     by_id = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
         id=2)
+    by_name = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+        name="badger")
     by_username = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
         username="u507137-sub1")
     by_label_selector = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
@@ -170,12 +185,14 @@ def get_storage_box_subaccount(id: Optional[_builtins.int] = None,
 
 
     :param _builtins.int id: ID of the Storage Box Subaccount.
+    :param _builtins.str name: Name of the Storage Box Subaccount.
     :param _builtins.int storage_box_id: ID of the Storage Box.
     :param _builtins.str username: Username of the Storage Box Subaccount.
     :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['name'] = name
     __args__['storageBoxId'] = storage_box_id
     __args__['username'] = username
     __args__['withSelector'] = with_selector
@@ -188,11 +205,13 @@ def get_storage_box_subaccount(id: Optional[_builtins.int] = None,
         home_directory=pulumi.get(__ret__, 'home_directory'),
         id=pulumi.get(__ret__, 'id'),
         labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
         server=pulumi.get(__ret__, 'server'),
         storage_box_id=pulumi.get(__ret__, 'storage_box_id'),
         username=pulumi.get(__ret__, 'username'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
 def get_storage_box_subaccount_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+                                      name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                       storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
                                       username: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                       with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -208,6 +227,8 @@ def get_storage_box_subaccount_output(id: Optional[pulumi.Input[Optional[_builti
     storage_box_id = config.require_object("storageBoxId")
     by_id = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
         id=2)
+    by_name = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+        name="badger")
     by_username = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
         username="u507137-sub1")
     by_label_selector = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
@@ -216,12 +237,14 @@ def get_storage_box_subaccount_output(id: Optional[pulumi.Input[Optional[_builti
 
 
     :param _builtins.int id: ID of the Storage Box Subaccount.
+    :param _builtins.str name: Name of the Storage Box Subaccount.
     :param _builtins.int storage_box_id: ID of the Storage Box.
     :param _builtins.str username: Username of the Storage Box Subaccount.
     :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['name'] = name
     __args__['storageBoxId'] = storage_box_id
     __args__['username'] = username
     __args__['withSelector'] = with_selector
@@ -233,6 +256,7 @@ def get_storage_box_subaccount_output(id: Optional[pulumi.Input[Optional[_builti
         home_directory=pulumi.get(__response__, 'home_directory'),
         id=pulumi.get(__response__, 'id'),
         labels=pulumi.get(__response__, 'labels'),
+        name=pulumi.get(__response__, 'name'),
         server=pulumi.get(__response__, 'server'),
         storage_box_id=pulumi.get(__response__, 'storage_box_id'),
         username=pulumi.get(__response__, 'username'),

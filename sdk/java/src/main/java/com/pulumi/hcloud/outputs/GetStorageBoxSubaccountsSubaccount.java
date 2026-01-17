@@ -39,6 +39,11 @@ public final class GetStorageBoxSubaccountsSubaccount {
      */
     private Map<String,String> labels;
     /**
+     * @return Name of the Storage Box Subaccount.
+     * 
+     */
+    private String name;
+    /**
      * @return FQDN of the Storage Box Subaccount.
      * 
      */
@@ -91,6 +96,13 @@ public final class GetStorageBoxSubaccountsSubaccount {
         return this.labels;
     }
     /**
+     * @return Name of the Storage Box Subaccount.
+     * 
+     */
+    public String name() {
+        return this.name;
+    }
+    /**
      * @return FQDN of the Storage Box Subaccount.
      * 
      */
@@ -126,6 +138,7 @@ public final class GetStorageBoxSubaccountsSubaccount {
         private String homeDirectory;
         private Integer id;
         private Map<String,String> labels;
+        private String name;
         private String server;
         private Integer storageBoxId;
         private String username;
@@ -137,6 +150,7 @@ public final class GetStorageBoxSubaccountsSubaccount {
     	      this.homeDirectory = defaults.homeDirectory;
     	      this.id = defaults.id;
     	      this.labels = defaults.labels;
+    	      this.name = defaults.name;
     	      this.server = defaults.server;
     	      this.storageBoxId = defaults.storageBoxId;
     	      this.username = defaults.username;
@@ -183,6 +197,14 @@ public final class GetStorageBoxSubaccountsSubaccount {
             return this;
         }
         @CustomType.Setter
+        public Builder name(String name) {
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetStorageBoxSubaccountsSubaccount", "name");
+            }
+            this.name = name;
+            return this;
+        }
+        @CustomType.Setter
         public Builder server(String server) {
             if (server == null) {
               throw new MissingRequiredPropertyException("GetStorageBoxSubaccountsSubaccount", "server");
@@ -213,6 +235,7 @@ public final class GetStorageBoxSubaccountsSubaccount {
             _resultValue.homeDirectory = homeDirectory;
             _resultValue.id = id;
             _resultValue.labels = labels;
+            _resultValue.name = name;
             _resultValue.server = server;
             _resultValue.storageBoxId = storageBoxId;
             _resultValue.username = username;

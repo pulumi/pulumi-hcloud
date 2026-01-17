@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * const main = new hcloud.StorageBox("main", {});
  * const teamBadger = new hcloud.StorageBoxSubaccount("team_badger", {
  *     storageBoxId: main.id,
+ *     name: "badger",
  *     homeDirectory: "teams/badger/",
  *     password: teamBadgerPassword,
  *     accessSettings: {
@@ -97,6 +98,10 @@ export class StorageBoxSubaccount extends pulumi.CustomResource {
      */
     declare public readonly labels: pulumi.Output<{[key: string]: string}>;
     /**
+     * Name of the Storage Box Subaccount.
+     */
+    declare public readonly name: pulumi.Output<string>;
+    /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
      */
     declare public readonly password: pulumi.Output<string>;
@@ -130,6 +135,7 @@ export class StorageBoxSubaccount extends pulumi.CustomResource {
             resourceInputs["description"] = state?.description;
             resourceInputs["homeDirectory"] = state?.homeDirectory;
             resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
             resourceInputs["password"] = state?.password;
             resourceInputs["server"] = state?.server;
             resourceInputs["storageBoxId"] = state?.storageBoxId;
@@ -149,6 +155,7 @@ export class StorageBoxSubaccount extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["homeDirectory"] = args?.homeDirectory;
             resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["storageBoxId"] = args?.storageBoxId;
             resourceInputs["server"] = undefined /*out*/;
@@ -181,6 +188,10 @@ export interface StorageBoxSubaccountState {
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the Storage Box Subaccount.
+     */
+    name?: pulumi.Input<string>;
     /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
      */
@@ -219,6 +230,10 @@ export interface StorageBoxSubaccountArgs {
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the Storage Box Subaccount.
+     */
+    name?: pulumi.Input<string>;
     /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
      */

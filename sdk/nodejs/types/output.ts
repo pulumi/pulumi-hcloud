@@ -802,6 +802,10 @@ export interface GetStorageBoxSubaccountsSubaccount {
      */
     labels: {[key: string]: string};
     /**
+     * Name of the Storage Box Subaccount.
+     */
+    name: string;
+    /**
      * FQDN of the Storage Box Subaccount.
      */
     server: string;
