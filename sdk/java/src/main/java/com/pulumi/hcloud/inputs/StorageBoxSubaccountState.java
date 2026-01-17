@@ -79,6 +79,21 @@ public final class StorageBoxSubaccountState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Name of the Storage Box Subaccount.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return Name of the Storage Box Subaccount.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
      * 
      */
@@ -145,6 +160,7 @@ public final class StorageBoxSubaccountState extends com.pulumi.resources.Resour
         this.description = $.description;
         this.homeDirectory = $.homeDirectory;
         this.labels = $.labels;
+        this.name = $.name;
         this.password = $.password;
         this.server = $.server;
         this.storageBoxId = $.storageBoxId;
@@ -251,6 +267,27 @@ public final class StorageBoxSubaccountState extends com.pulumi.resources.Resour
          */
         public Builder labels(Map<String,String> labels) {
             return labels(Output.of(labels));
+        }
+
+        /**
+         * @param name Name of the Storage Box Subaccount.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name Name of the Storage Box Subaccount.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**

@@ -37,6 +37,13 @@ import (
 //			}
 //			_, err = hcloud.LookupStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
 //				StorageBoxId: storageBoxId,
+//				Name:         pulumi.StringRef("badger"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.LookupStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
+//				StorageBoxId: storageBoxId,
 //				Username:     pulumi.StringRef("u507137-sub1"),
 //			}, nil)
 //			if err != nil {
@@ -68,6 +75,8 @@ func LookupStorageBoxSubaccount(ctx *pulumi.Context, args *LookupStorageBoxSubac
 type LookupStorageBoxSubaccountArgs struct {
 	// ID of the Storage Box Subaccount.
 	Id *int `pulumi:"id"`
+	// Name of the Storage Box Subaccount.
+	Name *string `pulumi:"name"`
 	// ID of the Storage Box.
 	StorageBoxId int `pulumi:"storageBoxId"`
 	// Username of the Storage Box Subaccount.
@@ -88,6 +97,8 @@ type LookupStorageBoxSubaccountResult struct {
 	Id int `pulumi:"id"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
+	// Name of the Storage Box Subaccount.
+	Name string `pulumi:"name"`
 	// FQDN of the Storage Box Subaccount.
 	Server string `pulumi:"server"`
 	// ID of the Storage Box.
@@ -111,6 +122,8 @@ func LookupStorageBoxSubaccountOutput(ctx *pulumi.Context, args LookupStorageBox
 type LookupStorageBoxSubaccountOutputArgs struct {
 	// ID of the Storage Box Subaccount.
 	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Name of the Storage Box Subaccount.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of the Storage Box.
 	StorageBoxId pulumi.IntInput `pulumi:"storageBoxId"`
 	// Username of the Storage Box Subaccount.
@@ -163,6 +176,11 @@ func (o LookupStorageBoxSubaccountResultOutput) Id() pulumi.IntOutput {
 // User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o LookupStorageBoxSubaccountResultOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStorageBoxSubaccountResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Name of the Storage Box Subaccount.
+func (o LookupStorageBoxSubaccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageBoxSubaccountResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // FQDN of the Storage Box Subaccount.

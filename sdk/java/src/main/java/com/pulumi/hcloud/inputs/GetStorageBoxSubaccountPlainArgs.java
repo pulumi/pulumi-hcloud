@@ -32,6 +32,21 @@ public final class GetStorageBoxSubaccountPlainArgs extends com.pulumi.resources
     }
 
     /**
+     * Name of the Storage Box Subaccount.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable String name;
+
+    /**
+     * @return Name of the Storage Box Subaccount.
+     * 
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * ID of the Storage Box.
      * 
      */
@@ -80,6 +95,7 @@ public final class GetStorageBoxSubaccountPlainArgs extends com.pulumi.resources
 
     private GetStorageBoxSubaccountPlainArgs(GetStorageBoxSubaccountPlainArgs $) {
         this.id = $.id;
+        this.name = $.name;
         this.storageBoxId = $.storageBoxId;
         this.username = $.username;
         this.withSelector = $.withSelector;
@@ -111,6 +127,17 @@ public final class GetStorageBoxSubaccountPlainArgs extends com.pulumi.resources
          */
         public Builder id(@Nullable Integer id) {
             $.id = id;
+            return this;
+        }
+
+        /**
+         * @param name Name of the Storage Box Subaccount.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable String name) {
+            $.name = name;
             return this;
         }
 

@@ -3559,6 +3559,7 @@ class GetStorageBoxSubaccountsSubaccountResult(dict):
                  home_directory: _builtins.str,
                  id: _builtins.int,
                  labels: Mapping[str, _builtins.str],
+                 name: _builtins.str,
                  server: _builtins.str,
                  storage_box_id: _builtins.int,
                  username: _builtins.str):
@@ -3568,6 +3569,7 @@ class GetStorageBoxSubaccountsSubaccountResult(dict):
         :param _builtins.str home_directory: Home directory of the Storage Box Subaccount.
         :param _builtins.int id: ID of the Storage Box Subaccount.
         :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param _builtins.str name: Name of the Storage Box Subaccount.
         :param _builtins.str server: FQDN of the Storage Box Subaccount.
         :param _builtins.int storage_box_id: ID of the Storage Box.
         :param _builtins.str username: Username of the Storage Box Subaccount.
@@ -3577,6 +3579,7 @@ class GetStorageBoxSubaccountsSubaccountResult(dict):
         pulumi.set(__self__, "home_directory", home_directory)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "storage_box_id", storage_box_id)
         pulumi.set(__self__, "username", username)
@@ -3620,6 +3623,14 @@ class GetStorageBoxSubaccountsSubaccountResult(dict):
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Storage Box Subaccount.
+        """
+        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter

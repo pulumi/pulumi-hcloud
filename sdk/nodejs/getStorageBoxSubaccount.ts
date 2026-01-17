@@ -19,6 +19,10 @@ import * as utilities from "./utilities";
  *     storageBoxId: storageBoxId,
  *     id: 2,
  * });
+ * const byName = hcloud.getStorageBoxSubaccount({
+ *     storageBoxId: storageBoxId,
+ *     name: "badger",
+ * });
  * const byUsername = hcloud.getStorageBoxSubaccount({
  *     storageBoxId: storageBoxId,
  *     username: "u507137-sub1",
@@ -33,6 +37,7 @@ export function getStorageBoxSubaccount(args: GetStorageBoxSubaccountArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", {
         "id": args.id,
+        "name": args.name,
         "storageBoxId": args.storageBoxId,
         "username": args.username,
         "withSelector": args.withSelector,
@@ -47,6 +52,10 @@ export interface GetStorageBoxSubaccountArgs {
      * ID of the Storage Box Subaccount.
      */
     id?: number;
+    /**
+     * Name of the Storage Box Subaccount.
+     */
+    name?: string;
     /**
      * ID of the Storage Box.
      */
@@ -86,6 +95,10 @@ export interface GetStorageBoxSubaccountResult {
      */
     readonly labels: {[key: string]: string};
     /**
+     * Name of the Storage Box Subaccount.
+     */
+    readonly name: string;
+    /**
      * FQDN of the Storage Box Subaccount.
      */
     readonly server: string;
@@ -115,6 +128,10 @@ export interface GetStorageBoxSubaccountResult {
  *     storageBoxId: storageBoxId,
  *     id: 2,
  * });
+ * const byName = hcloud.getStorageBoxSubaccount({
+ *     storageBoxId: storageBoxId,
+ *     name: "badger",
+ * });
  * const byUsername = hcloud.getStorageBoxSubaccount({
  *     storageBoxId: storageBoxId,
  *     username: "u507137-sub1",
@@ -129,6 +146,7 @@ export function getStorageBoxSubaccountOutput(args: GetStorageBoxSubaccountOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", {
         "id": args.id,
+        "name": args.name,
         "storageBoxId": args.storageBoxId,
         "username": args.username,
         "withSelector": args.withSelector,
@@ -143,6 +161,10 @@ export interface GetStorageBoxSubaccountOutputArgs {
      * ID of the Storage Box Subaccount.
      */
     id?: pulumi.Input<number>;
+    /**
+     * Name of the Storage Box Subaccount.
+     */
+    name?: pulumi.Input<string>;
     /**
      * ID of the Storage Box.
      */

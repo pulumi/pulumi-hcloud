@@ -35,6 +35,7 @@ import (
 //			}
 //			_, err = hcloud.NewStorageBoxSubaccount(ctx, "team_badger", &hcloud.StorageBoxSubaccountArgs{
 //				StorageBoxId:  main.ID(),
+//				Name:          pulumi.String("badger"),
 //				HomeDirectory: pulumi.String("teams/badger/"),
 //				Password:      pulumi.String(teamBadgerPassword),
 //				AccessSettings: &hcloud.StorageBoxSubaccountAccessSettingsArgs{
@@ -86,6 +87,8 @@ type StorageBoxSubaccount struct {
 	HomeDirectory pulumi.StringOutput `pulumi:"homeDirectory"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
+	// Name of the Storage Box Subaccount.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
 	Password pulumi.StringOutput `pulumi:"password"`
 	// FQDN of the Storage Box Subaccount.
@@ -150,6 +153,8 @@ type storageBoxSubaccountState struct {
 	HomeDirectory *string `pulumi:"homeDirectory"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
+	// Name of the Storage Box Subaccount.
+	Name *string `pulumi:"name"`
 	// Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
 	Password *string `pulumi:"password"`
 	// FQDN of the Storage Box Subaccount.
@@ -169,6 +174,8 @@ type StorageBoxSubaccountState struct {
 	HomeDirectory pulumi.StringPtrInput
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
+	// Name of the Storage Box Subaccount.
+	Name pulumi.StringPtrInput
 	// Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
 	Password pulumi.StringPtrInput
 	// FQDN of the Storage Box Subaccount.
@@ -192,6 +199,8 @@ type storageBoxSubaccountArgs struct {
 	HomeDirectory string `pulumi:"homeDirectory"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
+	// Name of the Storage Box Subaccount.
+	Name *string `pulumi:"name"`
 	// Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
 	Password string `pulumi:"password"`
 	// ID of the Storage Box.
@@ -208,6 +217,8 @@ type StorageBoxSubaccountArgs struct {
 	HomeDirectory pulumi.StringInput
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
+	// Name of the Storage Box Subaccount.
+	Name pulumi.StringPtrInput
 	// Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
 	Password pulumi.StringInput
 	// ID of the Storage Box.
@@ -319,6 +330,11 @@ func (o StorageBoxSubaccountOutput) HomeDirectory() pulumi.StringOutput {
 // User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o StorageBoxSubaccountOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StorageBoxSubaccount) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Name of the Storage Box Subaccount.
+func (o StorageBoxSubaccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageBoxSubaccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).

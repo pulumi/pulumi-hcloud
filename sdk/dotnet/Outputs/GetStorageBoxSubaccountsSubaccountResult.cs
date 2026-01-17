@@ -34,6 +34,10 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
+        /// Name of the Storage Box Subaccount.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
         /// FQDN of the Storage Box Subaccount.
         /// </summary>
         public readonly string Server;
@@ -58,6 +62,8 @@ namespace Pulumi.HCloud.Outputs
 
             ImmutableDictionary<string, string> labels,
 
+            string name,
+
             string server,
 
             int storageBoxId,
@@ -69,6 +75,7 @@ namespace Pulumi.HCloud.Outputs
             HomeDirectory = homeDirectory;
             Id = id;
             Labels = labels;
+            Name = name;
             Server = server;
             StorageBoxId = storageBoxId;
             Username = username;
