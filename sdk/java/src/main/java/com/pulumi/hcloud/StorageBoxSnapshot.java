@@ -17,6 +17,10 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a Hetzner Storage Box Snapshot resource.
+ * 
+ * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+ * 
  * ## Example Usage
  * 
  * <pre>

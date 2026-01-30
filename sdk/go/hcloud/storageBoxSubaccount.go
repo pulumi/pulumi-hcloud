@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Hetzner Storage Box Subaccount resource.
+//
+// See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+//
 // ## Example Usage
 //
 // ```go
@@ -83,7 +87,7 @@ type StorageBoxSubaccount struct {
 	AccessSettings StorageBoxSubaccountAccessSettingsOutput `pulumi:"accessSettings"`
 	// A description of the Storage Box Subaccount.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
 	HomeDirectory pulumi.StringOutput `pulumi:"homeDirectory"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
@@ -149,7 +153,7 @@ type storageBoxSubaccountState struct {
 	AccessSettings *StorageBoxSubaccountAccessSettings `pulumi:"accessSettings"`
 	// A description of the Storage Box Subaccount.
 	Description *string `pulumi:"description"`
-	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
 	HomeDirectory *string `pulumi:"homeDirectory"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
@@ -170,7 +174,7 @@ type StorageBoxSubaccountState struct {
 	AccessSettings StorageBoxSubaccountAccessSettingsPtrInput
 	// A description of the Storage Box Subaccount.
 	Description pulumi.StringPtrInput
-	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
 	HomeDirectory pulumi.StringPtrInput
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
@@ -195,7 +199,7 @@ type storageBoxSubaccountArgs struct {
 	AccessSettings *StorageBoxSubaccountAccessSettings `pulumi:"accessSettings"`
 	// A description of the Storage Box Subaccount.
 	Description *string `pulumi:"description"`
-	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
 	HomeDirectory string `pulumi:"homeDirectory"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
@@ -213,7 +217,7 @@ type StorageBoxSubaccountArgs struct {
 	AccessSettings StorageBoxSubaccountAccessSettingsPtrInput
 	// A description of the Storage Box Subaccount.
 	Description pulumi.StringPtrInput
-	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+	// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
 	HomeDirectory pulumi.StringInput
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
@@ -322,7 +326,7 @@ func (o StorageBoxSubaccountOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageBoxSubaccount) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
 func (o StorageBoxSubaccountOutput) HomeDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageBoxSubaccount) pulumi.StringOutput { return v.HomeDirectory }).(pulumi.StringOutput)
 }

@@ -12,6 +12,10 @@ namespace Pulumi.HCloud
     public static class GetStorageBoxSubaccount
     {
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Subaccount.
+        /// 
+        /// See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -55,6 +59,10 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageBoxSubaccountResult>("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", args ?? new GetStorageBoxSubaccountArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Subaccount.
+        /// 
+        /// See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -98,6 +106,10 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageBoxSubaccountResult>("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", args ?? new GetStorageBoxSubaccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Subaccount.
+        /// 
+        /// See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

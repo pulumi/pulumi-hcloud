@@ -87,6 +87,10 @@ def get_storage_box_snapshots(storage_box_id: Optional[_builtins.int] = None,
                               with_selector: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageBoxSnapshotsResult:
     """
+    Provides a list of Hetzner Storage Box Snapshots.
+
+    See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+
     ## Example Usage
 
     ```python
@@ -119,6 +123,10 @@ def get_storage_box_snapshots_output(storage_box_id: Optional[pulumi.Input[_buil
                                      with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxSnapshotsResult]:
     """
+    Provides a list of Hetzner Storage Box Snapshots.
+
+    See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+
     ## Example Usage
 
     ```python

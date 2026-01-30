@@ -12,18 +12,30 @@ namespace Pulumi.HCloud
     public static class GetStorageBoxSnapshot
     {
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Snapshot.
+        /// 
+        /// See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+        /// 
         /// ## Example Usage
         /// </summary>
         public static Task<GetStorageBoxSnapshotResult> InvokeAsync(GetStorageBoxSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageBoxSnapshotResult>("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", args ?? new GetStorageBoxSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Snapshot.
+        /// 
+        /// See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+        /// 
         /// ## Example Usage
         /// </summary>
         public static Output<GetStorageBoxSnapshotResult> Invoke(GetStorageBoxSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageBoxSnapshotResult>("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", args ?? new GetStorageBoxSnapshotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Snapshot.
+        /// 
+        /// See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+        /// 
         /// ## Example Usage
         /// </summary>
         public static Output<GetStorageBoxSnapshotResult> Invoke(GetStorageBoxSnapshotInvokeArgs args, InvokeOutputOptions options)

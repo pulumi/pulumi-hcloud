@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Provides details about a Hetzner Storage Box Type.
+ *
+ * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -88,6 +92,10 @@ export interface GetStorageBoxTypeResult {
     readonly unavailableAfter: string;
 }
 /**
+ * Provides details about a Hetzner Storage Box Type.
+ *
+ * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript

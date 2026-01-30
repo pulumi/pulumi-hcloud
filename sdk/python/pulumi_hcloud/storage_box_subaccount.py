@@ -30,7 +30,7 @@ class StorageBoxSubaccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageBoxSubaccount resource.
-        :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
         :param pulumi.Input[_builtins.int] storage_box_id: ID of the Storage Box.
         :param pulumi.Input['StorageBoxSubaccountAccessSettingsArgs'] access_settings: Access settings for the Subaccount.
@@ -54,7 +54,7 @@ class StorageBoxSubaccountArgs:
     @pulumi.getter(name="homeDirectory")
     def home_directory(self) -> pulumi.Input[_builtins.str]:
         """
-        Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         """
         return pulumi.get(self, "home_directory")
 
@@ -151,7 +151,7 @@ class _StorageBoxSubaccountState:
         Input properties used for looking up and filtering StorageBoxSubaccount resources.
         :param pulumi.Input['StorageBoxSubaccountAccessSettingsArgs'] access_settings: Access settings for the Subaccount.
         :param pulumi.Input[_builtins.str] description: A description of the Storage Box Subaccount.
-        :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Storage Box Subaccount.
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
@@ -206,7 +206,7 @@ class _StorageBoxSubaccountState:
     @pulumi.getter(name="homeDirectory")
     def home_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         """
         return pulumi.get(self, "home_directory")
 
@@ -302,6 +302,10 @@ class StorageBoxSubaccount(pulumi.CustomResource):
                  storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
+        Provides a Hetzner Storage Box Subaccount resource.
+
+        See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+
         ## Example Usage
 
         ```python
@@ -351,7 +355,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']] access_settings: Access settings for the Subaccount.
         :param pulumi.Input[_builtins.str] description: A description of the Storage Box Subaccount.
-        :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Storage Box Subaccount.
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
@@ -364,6 +368,10 @@ class StorageBoxSubaccount(pulumi.CustomResource):
                  args: StorageBoxSubaccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a Hetzner Storage Box Subaccount resource.
+
+        See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+
         ## Example Usage
 
         ```python
@@ -485,7 +493,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']] access_settings: Access settings for the Subaccount.
         :param pulumi.Input[_builtins.str] description: A description of the Storage Box Subaccount.
-        :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Storage Box Subaccount.
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
@@ -528,7 +536,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
     @pulumi.getter(name="homeDirectory")
     def home_directory(self) -> pulumi.Output[_builtins.str]:
         """
-        Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         """
         return pulumi.get(self, "home_directory")
 

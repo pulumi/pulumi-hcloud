@@ -76,6 +76,7 @@ from .uploaded_certificate import *
 from .volume import *
 from .volume_attachment import *
 from .zone import *
+from .zone_record import *
 from .zone_rrset import *
 from ._inputs import *
 from . import outputs
@@ -304,6 +305,14 @@ _utilities.register(
   "fqn": "pulumi_hcloud",
   "classes": {
    "hcloud:index/zone:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "hcloud",
+  "mod": "index/zoneRecord",
+  "fqn": "pulumi_hcloud",
+  "classes": {
+   "hcloud:index/zoneRecord:ZoneRecord": "ZoneRecord"
   }
  },
  {

@@ -165,6 +165,10 @@ def get_storage_box_subaccount(id: Optional[_builtins.int] = None,
                                with_selector: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageBoxSubaccountResult:
     """
+    Provides details about a Hetzner Storage Box Subaccount.
+
+    See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+
     ## Example Usage
 
     ```python
@@ -217,6 +221,10 @@ def get_storage_box_subaccount_output(id: Optional[pulumi.Input[Optional[_builti
                                       with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxSubaccountResult]:
     """
+    Provides details about a Hetzner Storage Box Subaccount.
+
+    See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+
     ## Example Usage
 
     ```python

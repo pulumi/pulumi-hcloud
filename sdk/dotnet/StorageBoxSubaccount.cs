@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
+    /// Provides a Hetzner Storage Box Subaccount resource.
+    /// 
+    /// See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -82,7 +86,7 @@ namespace Pulumi.HCloud
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        /// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         /// </summary>
         [Output("homeDirectory")]
         public Output<string> HomeDirectory { get; private set; } = null!;
@@ -186,7 +190,7 @@ namespace Pulumi.HCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        /// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         /// </summary>
         [Input("homeDirectory", required: true)]
         public Input<string> HomeDirectory { get; set; } = null!;
@@ -252,7 +256,7 @@ namespace Pulumi.HCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+        /// Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         /// </summary>
         [Input("homeDirectory")]
         public Input<string>? HomeDirectory { get; set; }

@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides a list of Hetzner Storage Box Types.
+ *
+ * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -33,6 +37,10 @@ export interface GetStorageBoxTypesResult {
     readonly storageBoxTypes: outputs.GetStorageBoxTypesStorageBoxType[];
 }
 /**
+ * Provides a list of Hetzner Storage Box Types.
+ *
+ * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript

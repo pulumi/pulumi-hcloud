@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides a Hetzner Storage Box Subaccount resource.
+ *
+ * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -90,7 +94,7 @@ export class StorageBoxSubaccount extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
      */
     declare public readonly homeDirectory: pulumi.Output<string>;
     /**
@@ -181,7 +185,7 @@ export interface StorageBoxSubaccountState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
      */
     homeDirectory?: pulumi.Input<string>;
     /**
@@ -223,7 +227,7 @@ export interface StorageBoxSubaccountArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet.
+     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
      */
     homeDirectory: pulumi.Input<string>;
     /**

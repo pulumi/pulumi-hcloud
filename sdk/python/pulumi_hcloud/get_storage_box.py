@@ -187,6 +187,10 @@ def get_storage_box(id: Optional[_builtins.int] = None,
                     with_selector: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageBoxResult:
     """
+    Provides details about a Hetzner Storage Box.
+
+    See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+
     ## Example Usage
 
     ```python
@@ -228,6 +232,10 @@ def get_storage_box_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] =
                            with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxResult]:
     """
+    Provides details about a Hetzner Storage Box.
+
+    See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+
     ## Example Usage
 
     ```python

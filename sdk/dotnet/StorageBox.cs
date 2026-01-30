@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
+    /// Provides a Hetzner Storage Box resource.
+    /// 
+    /// See the [Storage Box API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

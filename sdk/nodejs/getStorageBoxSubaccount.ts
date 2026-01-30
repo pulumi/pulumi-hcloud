@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides details about a Hetzner Storage Box Subaccount.
+ *
+ * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -116,6 +120,10 @@ export interface GetStorageBoxSubaccountResult {
     readonly withSelector?: string;
 }
 /**
+ * Provides details about a Hetzner Storage Box Subaccount.
+ *
+ * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript

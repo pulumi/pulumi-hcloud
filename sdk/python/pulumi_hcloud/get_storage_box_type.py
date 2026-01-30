@@ -161,6 +161,10 @@ def get_storage_box_type(id: Optional[_builtins.int] = None,
                          name: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageBoxTypeResult:
     """
+    Provides details about a Hetzner Storage Box Type.
+
+    See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+
     ## Example Usage
 
     ```python
@@ -196,6 +200,10 @@ def get_storage_box_type_output(id: Optional[pulumi.Input[Optional[_builtins.int
                                 name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxTypeResult]:
     """
+    Provides details about a Hetzner Storage Box Type.
+
+    See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+
     ## Example Usage
 
     ```python

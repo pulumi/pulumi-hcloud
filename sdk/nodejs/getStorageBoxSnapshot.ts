@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides details about a Hetzner Storage Box Snapshot.
+ *
+ * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+ *
  * ## Example Usage
  */
 export function getStorageBoxSnapshot(args: GetStorageBoxSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageBoxSnapshotResult> {
@@ -79,6 +83,10 @@ export interface GetStorageBoxSnapshotResult {
     readonly withSelector?: string;
 }
 /**
+ * Provides details about a Hetzner Storage Box Snapshot.
+ *
+ * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+ *
  * ## Example Usage
  */
 export function getStorageBoxSnapshotOutput(args: GetStorageBoxSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageBoxSnapshotResult> {
