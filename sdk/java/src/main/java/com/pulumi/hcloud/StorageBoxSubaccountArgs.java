@@ -50,14 +50,14 @@ public final class StorageBoxSubaccountArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet.
+     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet. Must not include a leading slash (`/`).
      * 
      */
     @Import(name="homeDirectory", required=true)
     private Output<String> homeDirectory;
 
     /**
-     * @return Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet.
+     * @return Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet. Must not include a leading slash (`/`).
      * 
      */
     public Output<String> homeDirectory() {
@@ -197,7 +197,7 @@ public final class StorageBoxSubaccountArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param homeDirectory Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet.
+         * @param homeDirectory Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet. Must not include a leading slash (`/`).
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class StorageBoxSubaccountArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param homeDirectory Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet.
+         * @param homeDirectory Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet. Must not include a leading slash (`/`).
          * 
          * @return builder
          * 

@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides a list of Hetzner Storage Box Snapshots.
+ *
+ * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -65,6 +69,10 @@ export interface GetStorageBoxSnapshotsResult {
     readonly withSelector?: string;
 }
 /**
+ * Provides a list of Hetzner Storage Box Snapshots.
+ *
+ * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript

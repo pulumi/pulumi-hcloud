@@ -376,6 +376,10 @@ class StorageBox(pulumi.CustomResource):
                  storage_box_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Provides a Hetzner Storage Box resource.
+
+        See the [Storage Box API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+
         ## Example Usage
 
         ```python
@@ -454,6 +458,10 @@ class StorageBox(pulumi.CustomResource):
                  args: StorageBoxArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a Hetzner Storage Box resource.
+
+        See the [Storage Box API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+
         ## Example Usage
 
         ```python

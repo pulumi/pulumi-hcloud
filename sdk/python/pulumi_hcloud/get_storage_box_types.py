@@ -61,6 +61,10 @@ class AwaitableGetStorageBoxTypesResult(GetStorageBoxTypesResult):
 
 def get_storage_box_types(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageBoxTypesResult:
     """
+    Provides a list of Hetzner Storage Box Types.
+
+    See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+
     ## Example Usage
 
     ```python
@@ -79,6 +83,10 @@ def get_storage_box_types(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
         storage_box_types=pulumi.get(__ret__, 'storage_box_types'))
 def get_storage_box_types_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxTypesResult]:
     """
+    Provides a list of Hetzner Storage Box Types.
+
+    See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+
     ## Example Usage
 
     ```python

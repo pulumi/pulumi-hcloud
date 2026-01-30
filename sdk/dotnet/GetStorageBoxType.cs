@@ -12,6 +12,10 @@ namespace Pulumi.HCloud
     public static class GetStorageBoxType
     {
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Type.
+        /// 
+        /// See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -39,6 +43,10 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageBoxTypeResult>("hcloud:index/getStorageBoxType:getStorageBoxType", args ?? new GetStorageBoxTypeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Type.
+        /// 
+        /// See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -66,6 +74,10 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageBoxTypeResult>("hcloud:index/getStorageBoxType:getStorageBoxType", args ?? new GetStorageBoxTypeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Storage Box Type.
+        /// 
+        /// See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

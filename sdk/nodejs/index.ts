@@ -353,6 +353,11 @@ export type Zone = import("./zone").Zone;
 export const Zone: typeof import("./zone").Zone = null as any;
 utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
 
+export { ZoneRecordArgs, ZoneRecordState } from "./zoneRecord";
+export type ZoneRecord = import("./zoneRecord").ZoneRecord;
+export const ZoneRecord: typeof import("./zoneRecord").ZoneRecord = null as any;
+utilities.lazyLoad(exports, ["ZoneRecord"], () => require("./zoneRecord"));
+
 export { ZoneRrsetArgs, ZoneRrsetState } from "./zoneRrset";
 export type ZoneRrset = import("./zoneRrset").ZoneRrset;
 export const ZoneRrset: typeof import("./zoneRrset").ZoneRrset = null as any;
@@ -426,6 +431,8 @@ const _module = {
                 return new VolumeAttachment(name, <any>undefined, { urn })
             case "hcloud:index/zone:Zone":
                 return new Zone(name, <any>undefined, { urn })
+            case "hcloud:index/zoneRecord:ZoneRecord":
+                return new ZoneRecord(name, <any>undefined, { urn })
             case "hcloud:index/zoneRrset:ZoneRrset":
                 return new ZoneRrset(name, <any>undefined, { urn })
             default:
@@ -460,6 +467,7 @@ pulumi.runtime.registerResourceModule("hcloud", "index/uploadedCertificate", _mo
 pulumi.runtime.registerResourceModule("hcloud", "index/volume", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/volumeAttachment", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/zone", _module)
+pulumi.runtime.registerResourceModule("hcloud", "index/zoneRecord", _module)
 pulumi.runtime.registerResourceModule("hcloud", "index/zoneRrset", _module)
 pulumi.runtime.registerResourcePackage("hcloud", {
     version: utilities.getVersion(),

@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides details about a Hetzner Storage Box.
+ *
+ * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -106,6 +110,10 @@ export interface GetStorageBoxResult {
     readonly withSelector?: string;
 }
 /**
+ * Provides details about a Hetzner Storage Box.
+ *
+ * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -18,6 +18,10 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a Hetzner Storage Box Subaccount resource.
+ * 
+ * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -121,14 +125,14 @@ public class StorageBoxSubaccount extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet.
+     * Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet. Must not include a leading slash (`/`).
      * 
      */
     @Export(name="homeDirectory", refs={String.class}, tree="[0]")
     private Output<String> homeDirectory;
 
     /**
-     * @return Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet.
+     * @return Home directory of the Storage Box Subaccount. The directory will be created if it doesn&#39;t exist yet. Must not include a leading slash (`/`).
      * 
      */
     public Output<String> homeDirectory() {

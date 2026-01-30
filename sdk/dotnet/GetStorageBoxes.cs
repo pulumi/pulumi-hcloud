@@ -12,6 +12,10 @@ namespace Pulumi.HCloud
     public static class GetStorageBoxes
     {
         /// <summary>
+        /// Provides a list of Hetzner Storage Boxes.
+        /// 
+        /// See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -36,6 +40,10 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageBoxesResult>("hcloud:index/getStorageBoxes:getStorageBoxes", args ?? new GetStorageBoxesArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides a list of Hetzner Storage Boxes.
+        /// 
+        /// See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -60,6 +68,10 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageBoxesResult>("hcloud:index/getStorageBoxes:getStorageBoxes", args ?? new GetStorageBoxesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides a list of Hetzner Storage Boxes.
+        /// 
+        /// See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

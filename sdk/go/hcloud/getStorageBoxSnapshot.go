@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a Hetzner Storage Box Snapshot.
+//
+// See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+//
 // ## Example Usage
 func LookupStorageBoxSnapshot(ctx *pulumi.Context, args *LookupStorageBoxSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupStorageBoxSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

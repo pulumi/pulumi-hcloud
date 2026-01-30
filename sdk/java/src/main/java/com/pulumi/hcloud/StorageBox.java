@@ -20,6 +20,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a Hetzner Storage Box resource.
+ * 
+ * See the [Storage Box API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+ * 
  * ## Example Usage
  * 
  * <pre>

@@ -9468,6 +9468,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9514,6 +9518,10 @@ public final class HcloudFunctions {
         return getStorageBox(GetStorageBoxArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9560,6 +9568,10 @@ public final class HcloudFunctions {
         return getStorageBoxPlain(GetStorageBoxPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9606,6 +9618,10 @@ public final class HcloudFunctions {
         return getStorageBox(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9652,6 +9668,10 @@ public final class HcloudFunctions {
         return getStorageBoxPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9698,6 +9718,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBox:getStorageBox", TypeShape.of(GetStorageBoxResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9744,6 +9768,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBox:getStorageBox", TypeShape.of(GetStorageBoxResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9790,6 +9818,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBox:getStorageBox", TypeShape.of(GetStorageBoxResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Snapshot.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      */
@@ -9797,6 +9829,10 @@ public final class HcloudFunctions {
         return getStorageBoxSnapshot(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box Snapshot.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      */
@@ -9804,6 +9840,10 @@ public final class HcloudFunctions {
         return getStorageBoxSnapshotPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box Snapshot.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      */
@@ -9811,6 +9851,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", TypeShape.of(GetStorageBoxSnapshotResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Snapshot.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      */
@@ -9818,6 +9862,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", TypeShape.of(GetStorageBoxSnapshotResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Snapshot.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      */
@@ -9825,6 +9873,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", TypeShape.of(GetStorageBoxSnapshotResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Snapshots.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9870,6 +9922,10 @@ public final class HcloudFunctions {
         return getStorageBoxSnapshots(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Box Snapshots.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9915,6 +9971,10 @@ public final class HcloudFunctions {
         return getStorageBoxSnapshotsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Box Snapshots.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9960,6 +10020,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots", TypeShape.of(GetStorageBoxSnapshotsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Snapshots.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10005,6 +10069,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots", TypeShape.of(GetStorageBoxSnapshotsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Snapshots.
+     * 
+     * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10050,6 +10118,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots", TypeShape.of(GetStorageBoxSnapshotsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Subaccount.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10106,6 +10178,10 @@ public final class HcloudFunctions {
         return getStorageBoxSubaccount(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box Subaccount.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10162,6 +10238,10 @@ public final class HcloudFunctions {
         return getStorageBoxSubaccountPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box Subaccount.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10218,6 +10298,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", TypeShape.of(GetStorageBoxSubaccountResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Subaccount.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10274,6 +10358,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", TypeShape.of(GetStorageBoxSubaccountResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Subaccount.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10330,6 +10418,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", TypeShape.of(GetStorageBoxSubaccountResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Subaccounts.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10375,6 +10467,10 @@ public final class HcloudFunctions {
         return getStorageBoxSubaccounts(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Box Subaccounts.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10420,6 +10516,10 @@ public final class HcloudFunctions {
         return getStorageBoxSubaccountsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Box Subaccounts.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10465,6 +10565,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts", TypeShape.of(GetStorageBoxSubaccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Subaccounts.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10510,6 +10614,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts", TypeShape.of(GetStorageBoxSubaccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Subaccounts.
+     * 
+     * See the [Storage Box Subaccounts API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-subaccounts) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10555,6 +10663,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts", TypeShape.of(GetStorageBoxSubaccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Type.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10597,6 +10709,10 @@ public final class HcloudFunctions {
         return getStorageBoxType(GetStorageBoxTypeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box Type.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10639,6 +10755,10 @@ public final class HcloudFunctions {
         return getStorageBoxTypePlain(GetStorageBoxTypePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box Type.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10681,6 +10801,10 @@ public final class HcloudFunctions {
         return getStorageBoxType(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box Type.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10723,6 +10847,10 @@ public final class HcloudFunctions {
         return getStorageBoxTypePlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Storage Box Type.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10765,6 +10893,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxType:getStorageBoxType", TypeShape.of(GetStorageBoxTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Type.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10807,6 +10939,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxType:getStorageBoxType", TypeShape.of(GetStorageBoxTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Storage Box Type.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10849,6 +10985,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxType:getStorageBoxType", TypeShape.of(GetStorageBoxTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Types.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10884,6 +11024,10 @@ public final class HcloudFunctions {
         return getStorageBoxTypes(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Box Types.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10919,6 +11063,10 @@ public final class HcloudFunctions {
         return getStorageBoxTypesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Box Types.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10954,6 +11102,10 @@ public final class HcloudFunctions {
         return getStorageBoxTypes(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Box Types.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -10989,6 +11141,10 @@ public final class HcloudFunctions {
         return getStorageBoxTypesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Box Types.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11024,6 +11180,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxTypes:getStorageBoxTypes", TypeShape.of(GetStorageBoxTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Types.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11059,6 +11219,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxTypes:getStorageBoxTypes", TypeShape.of(GetStorageBoxTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Box Types.
+     * 
+     * See the [Storage Box Type API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-types) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11094,6 +11258,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxTypes:getStorageBoxTypes", TypeShape.of(GetStorageBoxTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Boxes.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11135,6 +11303,10 @@ public final class HcloudFunctions {
         return getStorageBoxes(GetStorageBoxesArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Boxes.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11176,6 +11348,10 @@ public final class HcloudFunctions {
         return getStorageBoxesPlain(GetStorageBoxesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Boxes.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11217,6 +11393,10 @@ public final class HcloudFunctions {
         return getStorageBoxes(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Boxes.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11258,6 +11438,10 @@ public final class HcloudFunctions {
         return getStorageBoxesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Storage Boxes.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11299,6 +11483,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxes:getStorageBoxes", TypeShape.of(GetStorageBoxesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Boxes.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11340,6 +11528,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxes:getStorageBoxes", TypeShape.of(GetStorageBoxesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Storage Boxes.
+     * 
+     * See the [Storage Boxes API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-boxes) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>

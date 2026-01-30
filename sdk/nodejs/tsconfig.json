@@ -90,6 +90,7 @@
         "volume.ts",
         "volumeAttachment.ts",
         "zone.ts",
+        "zoneRecord.ts",
         "zoneRrset.ts"
     ]
 }
