@@ -235,6 +235,10 @@
                     }
                 }
             },
+            "hcloud_zone_record": {
+                "current": "hcloud:index/zoneRecord:ZoneRecord",
+                "majorVersion": 1
+            },
             "hcloud_zone_rrset": {
                 "current": "hcloud:index/zoneRrset:ZoneRrset",
                 "majorVersion": 1,
@@ -851,6 +855,7 @@
             "hcloud:index/volume:Volume": 0,
             "hcloud:index/volumeAttachment:VolumeAttachment": 0,
             "hcloud:index/zone:Zone": 1,
+            "hcloud:index/zoneRecord:ZoneRecord": 1,
             "hcloud:index/zoneRrset:ZoneRrset": 1
         },
         "functions": {
