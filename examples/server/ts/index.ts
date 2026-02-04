@@ -12,7 +12,7 @@ const subnet = new hcloud.NetworkSubnet("subnet", {
 });
 
 new hcloud.Server("server", {
-    serverType: "cx23",
+    serverType: "cax11",
     image: "ubuntu-24.04",
     networks: [{ networkId: network.id.apply(Number) }],
 }, {dependsOn: subnet});
