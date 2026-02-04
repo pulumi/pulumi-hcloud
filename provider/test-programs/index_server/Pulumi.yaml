@@ -12,6 +12,7 @@ resources:
     properties:
       image: ubuntu-24.04
       serverType: cax11
+      location: hel1
       sshKeys:
         - ${ssh_key.id}
     type: hcloud:index/server:Server

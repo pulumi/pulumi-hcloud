@@ -14,5 +14,6 @@ const subnet = new hcloud.NetworkSubnet("subnet", {
 new hcloud.Server("server", {
     serverType: "cax11",
     image: "ubuntu-24.04",
+    location: "nbg1",
     networks: [{ networkId: network.id.apply(Number) }],
 }, {dependsOn: subnet});
