@@ -23,7 +23,9 @@ const defaultBaselineVersion = "1.18.1"
 var programs = []string{
 	"test-programs/index_network",
 	"test-programs/index_placementgroup",
-	"test-programs/index_server",
+	//TODO: Skipping this test due to flaky server availability in Hetzner Cloud.
+	// Tracking in https://github.com/pulumi/pulumi-hcloud/issues/965
+	//"test-programs/index_server",
 }
 
 func TestUpgradeCoverage(t *testing.T) {

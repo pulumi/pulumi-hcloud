@@ -21,6 +21,7 @@ func TestNetworkTs(t *testing.T) {
 }
 
 func TestServerTs(t *testing.T) {
+	t.Skip("Skipping due to flaky server availability. See https://github.com/pulumi/pulumi-hcloud/issues/965")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "server", "ts"),
