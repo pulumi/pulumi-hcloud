@@ -93,18 +93,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
- * 
- * terraform
- * 
- * import {
- * 
- *   to = hcloud_storage_box.example
- * 
- *   id = &#34;$STORAGE_BOX_ID&#34;
- * 
- * }
- * 
  * The `pulumi import` command can be used, for example:
  * 
  * ```sh
@@ -128,9 +116,17 @@ public class StorageBox extends com.pulumi.resources.CustomResource {
     public Output<StorageBoxAccessSettings> accessSettings() {
         return this.accessSettings;
     }
+    /**
+     * Prevent the Storage Box from being accidentally deleted outside of Terraform.
+     * 
+     */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> deleteProtection;
 
+    /**
+     * @return Prevent the Storage Box from being accidentally deleted outside of Terraform.
+     * 
+     */
     public Output<Boolean> deleteProtection() {
         return this.deleteProtection;
     }

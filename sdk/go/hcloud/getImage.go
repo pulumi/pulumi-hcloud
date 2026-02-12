@@ -11,6 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a Hetzner Cloud Image.
+// This resource is useful if you want to use a non-terraform managed image.
+//
+// When relevant, it is recommended to always provide the image architecture
+// (`withArchitecture`) when fetching images.
+//
 // ## Example Usage
 //
 // ```go

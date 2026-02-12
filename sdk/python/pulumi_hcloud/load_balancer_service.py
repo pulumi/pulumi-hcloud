@@ -308,7 +308,6 @@ class LoadBalancerService(pulumi.CustomResource):
         ## Import
 
         Load Balancer Service entries can be imported using a compound ID with the following format:
-
         `<load-balancer-id>__<listen-port>`
 
         ```sh
@@ -369,7 +368,6 @@ class LoadBalancerService(pulumi.CustomResource):
         ## Import
 
         Load Balancer Service entries can be imported using a compound ID with the following format:
-
         `<load-balancer-id>__<listen-port>`
 
         ```sh

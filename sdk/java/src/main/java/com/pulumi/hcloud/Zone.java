@@ -30,18 +30,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
- * 
- * terraform
- * 
- * import {
- * 
- *   to = hcloud_zone.example_primary
- * 
- *   id = &#34;$ZONE_ID_OR_NAME&#34;
- * 
- * }
- * 
  * The `pulumi import` command can be used, for example:
  * 
  * ```sh

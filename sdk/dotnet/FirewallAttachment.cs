@@ -183,7 +183,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Firewall Attachments can be imported using the `id` of the firewall:
+    /// Firewall Attachments can be imported using the `Id` of the firewall:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example "$FIREWALL_ID"

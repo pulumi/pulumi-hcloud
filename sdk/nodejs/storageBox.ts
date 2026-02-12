@@ -57,18 +57,6 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
- *
- * terraform
- *
- * import {
- *
- *   to = hcloud_storage_box.example
- *
- *   id = "$STORAGE_BOX_ID"
- *
- * }
- *
  * The `pulumi import` command can be used, for example:
  *
  * ```sh
@@ -107,6 +95,9 @@ export class StorageBox extends pulumi.CustomResource {
      * Access settings of the Storage Box.
      */
     declare public readonly accessSettings: pulumi.Output<outputs.StorageBoxAccessSettings>;
+    /**
+     * Prevent the Storage Box from being accidentally deleted outside of Terraform.
+     */
     declare public readonly deleteProtection: pulumi.Output<boolean>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -213,6 +204,9 @@ export interface StorageBoxState {
      * Access settings of the Storage Box.
      */
     accessSettings?: pulumi.Input<inputs.StorageBoxAccessSettings>;
+    /**
+     * Prevent the Storage Box from being accidentally deleted outside of Terraform.
+     */
     deleteProtection?: pulumi.Input<boolean>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -264,6 +258,9 @@ export interface StorageBoxArgs {
      * Access settings of the Storage Box.
      */
     accessSettings?: pulumi.Input<inputs.StorageBoxAccessSettings>;
+    /**
+     * Prevent the Storage Box from being accidentally deleted outside of Terraform.
+     */
     deleteProtection?: pulumi.Input<boolean>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.

@@ -82,7 +82,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Reverse DNS entries can be imported using a compound ID with the following format:
- *
  * `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
  *
  * ```sh

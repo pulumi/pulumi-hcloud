@@ -593,6 +593,9 @@ class ServerNetwork(dict):
                  mac_address: Optional[_builtins.str] = None):
         """
         :param _builtins.int network_id: ID of the network
+        :param Sequence[_builtins.str] alias_ips: Alias IPs the server should have in the Network.
+               
+               There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `alias_ips = []` to avoid this. See #650 for details.
         :param _builtins.str ip: Specify the IP the server should get in the network
         :param _builtins.str mac_address: (Optional, string) The MAC address the private interface of the server has
         """
@@ -615,6 +618,11 @@ class ServerNetwork(dict):
     @_builtins.property
     @pulumi.getter(name="aliasIps")
     def alias_ips(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Alias IPs the server should have in the Network.
+
+        There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `alias_ips = []` to avoid this. See #650 for details.
+        """
         return pulumi.get(self, "alias_ips")
 
     @_builtins.property

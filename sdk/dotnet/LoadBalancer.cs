@@ -48,7 +48,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Load Balancers can be imported using its `id`:
+    /// Load Balancers can be imported using its `Id`:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/loadBalancer:LoadBalancer example "$LOAD_BALANCER_ID"

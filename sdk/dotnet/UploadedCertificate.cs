@@ -49,7 +49,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Uploaded certificates can be imported using their `id`:
+    /// Uploaded certificates can be imported using their `Id`:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate example "$CERTIFICATE_ID"

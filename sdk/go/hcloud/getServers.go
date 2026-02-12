@@ -11,6 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about multiple Hetzner Cloud Servers.
+// This resource is useful if you want to use non-terraform managed servers.
+//
 // ## Example Usage
 //
 // ```go

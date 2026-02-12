@@ -12,6 +12,9 @@ namespace Pulumi.HCloud
     public static class GetServers
     {
         /// <summary>
+        /// Provides details about multiple Hetzner Cloud Servers.
+        /// This resource is useful if you want to use non-terraform managed servers.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -34,6 +37,9 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about multiple Hetzner Cloud Servers.
+        /// This resource is useful if you want to use non-terraform managed servers.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,6 +62,9 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetServersResult>("hcloud:index/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about multiple Hetzner Cloud Servers.
+        /// This resource is useful if you want to use non-terraform managed servers.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

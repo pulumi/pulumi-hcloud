@@ -27,18 +27,6 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
- *
- * terraform
- *
- * import {
- *
- *   to = hcloud_storage_box_snapshot.example
- *
- *   id = "$STORAGE_BOX_ID/$STORAGE_BOX_SNAPSHOT_ID"
- *
- * }
- *
  * The `pulumi import` command can be used, for example:
  *
  * ```sh

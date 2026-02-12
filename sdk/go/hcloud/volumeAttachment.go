@@ -60,7 +60,7 @@ import (
 //
 // ## Import
 //
-// Volume Attachments can be imported using the `volume_id`:
+// Volume Attachments can be imported using the `volumeId`:
 //
 // ```sh
 // $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment example "$VOLUME_ID"

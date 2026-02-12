@@ -13,6 +13,11 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class ServerNetwork
     {
+        /// <summary>
+        /// Alias IPs the server should have in the Network.
+        /// 
+        /// There is a bug with Terraform `1.4+` which causes the network to be detached &amp; attached on every apply. Set `AliasIps = []` to avoid this. See #650 for details.
+        /// </summary>
         public readonly ImmutableArray<string> AliasIps;
         /// <summary>
         /// Specify the IP the server should get in the network

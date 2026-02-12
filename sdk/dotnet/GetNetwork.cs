@@ -12,6 +12,9 @@ namespace Pulumi.HCloud
     public static class GetNetwork
     {
         /// <summary>
+        /// Provides details about a Hetzner Cloud network.
+        /// This resource is useful if you want to use a non-terraform managed network.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -44,6 +47,9 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Cloud network.
+        /// This resource is useful if you want to use a non-terraform managed network.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -76,6 +82,9 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("hcloud:index/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Cloud network.
+        /// This resource is useful if you want to use a non-terraform managed network.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

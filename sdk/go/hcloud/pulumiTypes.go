@@ -1184,6 +1184,9 @@ func (o LoadBalancerTargetTypeArrayOutput) Index(i pulumi.IntInput) LoadBalancer
 }
 
 type ServerNetworkType struct {
+	// Alias IPs the server should have in the Network.
+	//
+	// There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `aliasIps = []` to avoid this. See #650 for details.
 	AliasIps []string `pulumi:"aliasIps"`
 	// Specify the IP the server should get in the network
 	Ip *string `pulumi:"ip"`
@@ -1205,6 +1208,9 @@ type ServerNetworkTypeInput interface {
 }
 
 type ServerNetworkTypeArgs struct {
+	// Alias IPs the server should have in the Network.
+	//
+	// There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `aliasIps = []` to avoid this. See #650 for details.
 	AliasIps pulumi.StringArrayInput `pulumi:"aliasIps"`
 	// Specify the IP the server should get in the network
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
@@ -1265,6 +1271,9 @@ func (o ServerNetworkTypeOutput) ToServerNetworkTypeOutputWithContext(ctx contex
 	return o
 }
 
+// Alias IPs the server should have in the Network.
+//
+// There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `aliasIps = []` to avoid this. See #650 for details.
 func (o ServerNetworkTypeOutput) AliasIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerNetworkType) []string { return v.AliasIps }).(pulumi.StringArrayOutput)
 }

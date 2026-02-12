@@ -45,7 +45,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Placement Groups can be imported using its `id`:
+    /// Placement Groups can be imported using its `Id`:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/placementGroup:PlacementGroup example "$PLACEMENT_GROUP_ID"

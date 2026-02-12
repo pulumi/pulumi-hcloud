@@ -42,7 +42,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Managed certificates can be imported using their `id`:
+    /// Managed certificates can be imported using their `Id`:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/managedCertificate:ManagedCertificate example "$CERTIFICATE_ID"

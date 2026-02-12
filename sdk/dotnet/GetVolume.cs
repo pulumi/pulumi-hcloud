@@ -12,6 +12,9 @@ namespace Pulumi.HCloud
     public static class GetVolume
     {
         /// <summary>
+        /// Provides details about a Hetzner Cloud volume.
+        /// This resource is useful if you want to use a non-terraform managed volume.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -44,6 +47,9 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("hcloud:index/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Cloud volume.
+        /// This resource is useful if you want to use a non-terraform managed volume.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -76,6 +82,9 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("hcloud:index/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Cloud volume.
+        /// This resource is useful if you want to use a non-terraform managed volume.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

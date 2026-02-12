@@ -33,7 +33,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Networks can be imported using its `id`:
+    /// Networks can be imported using its `Id`:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/network:Network example "$NETWORK_ID"

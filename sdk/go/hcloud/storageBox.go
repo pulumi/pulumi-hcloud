@@ -84,18 +84,6 @@ import (
 //
 // ## Import
 //
-// In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
-//
-// terraform
-//
-// import {
-//
-//	to = hcloud_storage_box.example
-//
-//	id = "$STORAGE_BOX_ID"
-//
-// }
-//
 // The `pulumi import` command can be used, for example:
 //
 // ```sh
@@ -105,8 +93,9 @@ type StorageBox struct {
 	pulumi.CustomResourceState
 
 	// Access settings of the Storage Box.
-	AccessSettings   StorageBoxAccessSettingsOutput `pulumi:"accessSettings"`
-	DeleteProtection pulumi.BoolOutput              `pulumi:"deleteProtection"`
+	AccessSettings StorageBoxAccessSettingsOutput `pulumi:"accessSettings"`
+	// Prevent the Storage Box from being accidentally deleted outside of Terraform.
+	DeleteProtection pulumi.BoolOutput `pulumi:"deleteProtection"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the Location.
@@ -176,8 +165,9 @@ func GetStorageBox(ctx *pulumi.Context,
 // Input properties used for looking up and filtering StorageBox resources.
 type storageBoxState struct {
 	// Access settings of the Storage Box.
-	AccessSettings   *StorageBoxAccessSettings `pulumi:"accessSettings"`
-	DeleteProtection *bool                     `pulumi:"deleteProtection"`
+	AccessSettings *StorageBoxAccessSettings `pulumi:"accessSettings"`
+	// Prevent the Storage Box from being accidentally deleted outside of Terraform.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the Location.
@@ -202,7 +192,8 @@ type storageBoxState struct {
 
 type StorageBoxState struct {
 	// Access settings of the Storage Box.
-	AccessSettings   StorageBoxAccessSettingsPtrInput
+	AccessSettings StorageBoxAccessSettingsPtrInput
+	// Prevent the Storage Box from being accidentally deleted outside of Terraform.
 	DeleteProtection pulumi.BoolPtrInput
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
@@ -232,8 +223,9 @@ func (StorageBoxState) ElementType() reflect.Type {
 
 type storageBoxArgs struct {
 	// Access settings of the Storage Box.
-	AccessSettings   *StorageBoxAccessSettings `pulumi:"accessSettings"`
-	DeleteProtection *bool                     `pulumi:"deleteProtection"`
+	AccessSettings *StorageBoxAccessSettings `pulumi:"accessSettings"`
+	// Prevent the Storage Box from being accidentally deleted outside of Terraform.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the Location.
@@ -253,7 +245,8 @@ type storageBoxArgs struct {
 // The set of arguments for constructing a StorageBox resource.
 type StorageBoxArgs struct {
 	// Access settings of the Storage Box.
-	AccessSettings   StorageBoxAccessSettingsPtrInput
+	AccessSettings StorageBoxAccessSettingsPtrInput
+	// Prevent the Storage Box from being accidentally deleted outside of Terraform.
 	DeleteProtection pulumi.BoolPtrInput
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput
@@ -363,6 +356,7 @@ func (o StorageBoxOutput) AccessSettings() StorageBoxAccessSettingsOutput {
 	return o.ApplyT(func(v *StorageBox) StorageBoxAccessSettingsOutput { return v.AccessSettings }).(StorageBoxAccessSettingsOutput)
 }
 
+// Prevent the Storage Box from being accidentally deleted outside of Terraform.
 func (o StorageBoxOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v *StorageBox) pulumi.BoolOutput { return v.DeleteProtection }).(pulumi.BoolOutput)
 }

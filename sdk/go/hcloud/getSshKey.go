@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific Hetzner Cloud SSH Key.
+//
+// This resource is useful if you want to use a non-terraform managed SSH Key.
+//
 // ## Example Usage
 //
 // ```go

@@ -2692,6 +2692,12 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getFloatingIps:getFloatingIps", TypeShape.of(GetFloatingIpsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud Image.
+     * This resource is useful if you want to use a non-terraform managed image.
+     * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`withArchitecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2750,6 +2756,12 @@ public final class HcloudFunctions {
         return getImage(GetImageArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud Image.
+     * This resource is useful if you want to use a non-terraform managed image.
+     * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`withArchitecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2808,6 +2820,12 @@ public final class HcloudFunctions {
         return getImagePlain(GetImagePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud Image.
+     * This resource is useful if you want to use a non-terraform managed image.
+     * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`withArchitecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2866,6 +2884,12 @@ public final class HcloudFunctions {
         return getImage(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud Image.
+     * This resource is useful if you want to use a non-terraform managed image.
+     * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`withArchitecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2924,6 +2948,12 @@ public final class HcloudFunctions {
         return getImagePlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud Image.
+     * This resource is useful if you want to use a non-terraform managed image.
+     * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`withArchitecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2982,6 +3012,12 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud Image.
+     * This resource is useful if you want to use a non-terraform managed image.
+     * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`withArchitecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -3040,6 +3076,12 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud Image.
+     * This resource is useful if you want to use a non-terraform managed image.
+     * 
+     * When relevant, it is recommended to always provide the image architecture
+     * (`withArchitecture`) when fetching images.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5387,6 +5429,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud network.
+     * This resource is useful if you want to use a non-terraform managed network.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5433,6 +5478,9 @@ public final class HcloudFunctions {
         return getNetwork(GetNetworkArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud network.
+     * This resource is useful if you want to use a non-terraform managed network.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5479,6 +5527,9 @@ public final class HcloudFunctions {
         return getNetworkPlain(GetNetworkPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud network.
+     * This resource is useful if you want to use a non-terraform managed network.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5525,6 +5576,9 @@ public final class HcloudFunctions {
         return getNetwork(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud network.
+     * This resource is useful if you want to use a non-terraform managed network.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5571,6 +5625,9 @@ public final class HcloudFunctions {
         return getNetworkPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud network.
+     * This resource is useful if you want to use a non-terraform managed network.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5617,6 +5674,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud network.
+     * This resource is useful if you want to use a non-terraform managed network.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5663,6 +5723,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud network.
+     * This resource is useful if you want to use a non-terraform managed network.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7494,6 +7557,19 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getPrimaryIps:getPrimaryIps", TypeShape.of(GetPrimaryIpsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud Server.
+     * This resource is useful if you want to use a non-terraform managed server.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7540,6 +7616,19 @@ public final class HcloudFunctions {
         return getServer(GetServerArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud Server.
+     * This resource is useful if you want to use a non-terraform managed server.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7586,6 +7675,19 @@ public final class HcloudFunctions {
         return getServerPlain(GetServerPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud Server.
+     * This resource is useful if you want to use a non-terraform managed server.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7632,6 +7734,19 @@ public final class HcloudFunctions {
         return getServer(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud Server.
+     * This resource is useful if you want to use a non-terraform managed server.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7678,6 +7793,19 @@ public final class HcloudFunctions {
         return getServerPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud Server.
+     * This resource is useful if you want to use a non-terraform managed server.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7724,6 +7852,19 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud Server.
+     * This resource is useful if you want to use a non-terraform managed server.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7770,6 +7911,19 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud Server.
+     * This resource is useful if you want to use a non-terraform managed server.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * 
+     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+     * 
+     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8460,6 +8614,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getServerTypes:getServerTypes", TypeShape.of(GetServerTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about multiple Hetzner Cloud Servers.
+     * This resource is useful if you want to use non-terraform managed servers.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8498,6 +8655,9 @@ public final class HcloudFunctions {
         return getServers(GetServersArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about multiple Hetzner Cloud Servers.
+     * This resource is useful if you want to use non-terraform managed servers.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8536,6 +8696,9 @@ public final class HcloudFunctions {
         return getServersPlain(GetServersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about multiple Hetzner Cloud Servers.
+     * This resource is useful if you want to use non-terraform managed servers.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8574,6 +8737,9 @@ public final class HcloudFunctions {
         return getServers(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about multiple Hetzner Cloud Servers.
+     * This resource is useful if you want to use non-terraform managed servers.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8612,6 +8778,9 @@ public final class HcloudFunctions {
         return getServersPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about multiple Hetzner Cloud Servers.
+     * This resource is useful if you want to use non-terraform managed servers.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8650,6 +8819,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getServers:getServers", TypeShape.of(GetServersResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about multiple Hetzner Cloud Servers.
+     * This resource is useful if you want to use non-terraform managed servers.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8688,6 +8860,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getServers:getServers", TypeShape.of(GetServersResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about multiple Hetzner Cloud Servers.
+     * This resource is useful if you want to use non-terraform managed servers.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8726,6 +8901,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getServers:getServers", TypeShape.of(GetServersResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a specific Hetzner Cloud SSH Key.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8785,6 +8964,10 @@ public final class HcloudFunctions {
         return getSshKey(GetSshKeyArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a specific Hetzner Cloud SSH Key.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8844,6 +9027,10 @@ public final class HcloudFunctions {
         return getSshKeyPlain(GetSshKeyPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a specific Hetzner Cloud SSH Key.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8903,6 +9090,10 @@ public final class HcloudFunctions {
         return getSshKey(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a specific Hetzner Cloud SSH Key.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8962,6 +9153,10 @@ public final class HcloudFunctions {
         return getSshKeyPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a specific Hetzner Cloud SSH Key.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9021,6 +9216,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getSshKey:getSshKey", TypeShape.of(GetSshKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a specific Hetzner Cloud SSH Key.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9080,6 +9279,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getSshKey:getSshKey", TypeShape.of(GetSshKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a specific Hetzner Cloud SSH Key.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9139,6 +9342,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getSshKey:getSshKey", TypeShape.of(GetSshKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Cloud SSH Keys.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9186,6 +9393,10 @@ public final class HcloudFunctions {
         return getSshKeys(GetSshKeysArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Cloud SSH Keys.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9233,6 +9444,10 @@ public final class HcloudFunctions {
         return getSshKeysPlain(GetSshKeysPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Cloud SSH Keys.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9280,6 +9495,10 @@ public final class HcloudFunctions {
         return getSshKeys(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Cloud SSH Keys.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9327,6 +9546,10 @@ public final class HcloudFunctions {
         return getSshKeysPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a list of Hetzner Cloud SSH Keys.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9374,6 +9597,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Cloud SSH Keys.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9421,6 +9648,10 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of Hetzner Cloud SSH Keys.
+     * 
+     * This resource is useful if you want to use a non-terraform managed SSH Key.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11573,6 +11804,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getStorageBoxes:getStorageBoxes", TypeShape.of(GetStorageBoxesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud volume.
+     * This resource is useful if you want to use a non-terraform managed volume.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11619,6 +11853,9 @@ public final class HcloudFunctions {
         return getVolume(GetVolumeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud volume.
+     * This resource is useful if you want to use a non-terraform managed volume.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11665,6 +11902,9 @@ public final class HcloudFunctions {
         return getVolumePlain(GetVolumePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud volume.
+     * This resource is useful if you want to use a non-terraform managed volume.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11711,6 +11951,9 @@ public final class HcloudFunctions {
         return getVolume(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud volume.
+     * This resource is useful if you want to use a non-terraform managed volume.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11757,6 +12000,9 @@ public final class HcloudFunctions {
         return getVolumePlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides details about a Hetzner Cloud volume.
+     * This resource is useful if you want to use a non-terraform managed volume.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11803,6 +12049,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud volume.
+     * This resource is useful if you want to use a non-terraform managed volume.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -11849,6 +12098,9 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about a Hetzner Cloud volume.
+     * This resource is useful if you want to use a non-terraform managed volume.
+     * 
      * ## Example Usage
      * 
      * <pre>

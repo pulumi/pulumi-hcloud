@@ -12,6 +12,12 @@ namespace Pulumi.HCloud
     public static class GetImage
     {
         /// <summary>
+        /// Provides details about a Hetzner Cloud Image.
+        /// This resource is useful if you want to use a non-terraform managed image.
+        /// 
+        /// When relevant, it is recommended to always provide the image architecture
+        /// (`WithArchitecture`) when fetching images.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,6 +62,12 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("hcloud:index/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Cloud Image.
+        /// This resource is useful if you want to use a non-terraform managed image.
+        /// 
+        /// When relevant, it is recommended to always provide the image architecture
+        /// (`WithArchitecture`) when fetching images.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -100,6 +112,12 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("hcloud:index/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Cloud Image.
+        /// This resource is useful if you want to use a non-terraform managed image.
+        /// 
+        /// When relevant, it is recommended to always provide the image architecture
+        /// (`WithArchitecture`) when fetching images.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

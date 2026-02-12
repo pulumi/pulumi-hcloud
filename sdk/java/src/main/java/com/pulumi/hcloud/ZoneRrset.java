@@ -20,37 +20,35 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
+ * Provides a Hetzner Cloud Zone Resource Record Set (RRSet) resource.
+ * 
+ * This can be used to create, modify, and delete Zone RRSets.
+ * 
+ * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
+ * 
+ * **RRSets of type TXT:**
+ * 
+ * The format of TXT records must consist of one or many quoted strings of 255 characters.
+ * 
+ * A helper function to format TXT record is available at `provider::hcloud::txt_record`.
+ * See the examples for more details.
+ * 
+ * **RRSets of type SOA:**
+ * 
+ * SOA records are created or deleted by the Hetzner Cloud API when creating or deleting
+ * the parent Zone, therefor this Terraform resource will:
+ * 
+ * - import the RRSet in the state, instead of creating it.
+ * - remove the RRSet from the state, instead of deleting it.
+ * - set the SOA record SERIAL value to 0 before saving it to the state, as this value is automatically
+ *   incremented by the API and would cause issues otherwise.
  * 
  * ## Import
- * 
- * In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
- * 
- * terraform
- * 
- * import {
- * 
- *   to = hcloud_zone_rrset.example
- * 
- *   id = &#34;$ZONE_ID_OR_NAME/$RRSET_NAME/$RRSET_TYPE&#34;
- * 
- * }
- * 
- * import {
- * 
- *   to = hcloud_zone_rrset.example
- * 
- *   id = &#34;$ZONE_ID_OR_NAME/$RRSET_ID&#34;
- * 
- * }
  * 
  * The `pulumi import` command can be used, for example:
  * 
  * ```sh
  * $ pulumi import hcloud:index/zoneRrset:ZoneRrset example &#34;$ZONE_ID_OR_NAME/$RRSET_NAME/$RRSET_TYPE&#34;
- * ```
- * 
- * ```sh
  * $ pulumi import hcloud:index/zoneRrset:ZoneRrset example &#34;$ZONE_ID_OR_NAME/$RRSET_ID&#34;
  * ```
  * 
