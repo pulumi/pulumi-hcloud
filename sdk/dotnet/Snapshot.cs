@@ -39,7 +39,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Snapshots can be imported using its image `id`:
+    /// Snapshots can be imported using its image `Id`:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/snapshot:Snapshot example "$IMAGE_ID"

@@ -123,7 +123,6 @@ namespace Pulumi.HCloud
     /// ## Import
     /// 
     /// Reverse DNS entries can be imported using a compound ID with the following format:
-    /// 
     /// `&lt;prefix (s for server/ f for floating ip / l for load balancer)&gt;-&lt;server, floating ip or load balancer ID&gt;-&lt;IP address&gt;`
     /// 
     /// ```sh

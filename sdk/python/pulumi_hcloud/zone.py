@@ -281,18 +281,6 @@ class Zone(pulumi.CustomResource):
 
         ## Import
 
-        In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
-
-        terraform
-
-        import {
-
-          to = hcloud_zone.example_primary
-
-          id = "$ZONE_ID_OR_NAME"
-
-        }
-
         The `pulumi import` command can be used, for example:
 
         ```sh
@@ -324,18 +312,6 @@ class Zone(pulumi.CustomResource):
         See the [Zones API documentation](https://docs.hetzner.cloud/reference/cloud#zones) for more details.
 
         ## Import
-
-        In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
-
-        terraform
-
-        import {
-
-          to = hcloud_zone.example_primary
-
-          id = "$ZONE_ID_OR_NAME"
-
-        }
 
         The `pulumi import` command can be used, for example:
 

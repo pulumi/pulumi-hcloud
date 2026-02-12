@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides a list of Hetzner Cloud SSH Keys.
+ *
+ * This resource is useful if you want to use a non-terraform managed SSH Key.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -58,6 +62,10 @@ export interface GetSshKeysResult {
     readonly withSelector?: string;
 }
 /**
+ * Provides a list of Hetzner Cloud SSH Keys.
+ *
+ * This resource is useful if you want to use a non-terraform managed SSH Key.
+ *
  * ## Example Usage
  *
  * ```typescript

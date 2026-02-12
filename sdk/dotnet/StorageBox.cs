@@ -74,18 +74,6 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
-    /// 
-    /// terraform
-    /// 
-    /// import {
-    /// 
-    ///   to = hcloud_storage_box.example
-    /// 
-    ///   id = "$STORAGE_BOX_ID"
-    /// 
-    /// }
-    /// 
     /// The `pulumi import` command can be used, for example:
     /// 
     /// ```sh
@@ -101,6 +89,9 @@ namespace Pulumi.HCloud
         [Output("accessSettings")]
         public Output<Outputs.StorageBoxAccessSettings> AccessSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// Prevent the Storage Box from being accidentally deleted outside of Terraform.
+        /// </summary>
         [Output("deleteProtection")]
         public Output<bool> DeleteProtection { get; private set; } = null!;
 
@@ -220,6 +211,9 @@ namespace Pulumi.HCloud
         [Input("accessSettings")]
         public Input<Inputs.StorageBoxAccessSettingsArgs>? AccessSettings { get; set; }
 
+        /// <summary>
+        /// Prevent the Storage Box from being accidentally deleted outside of Terraform.
+        /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
@@ -301,6 +295,9 @@ namespace Pulumi.HCloud
         [Input("accessSettings")]
         public Input<Inputs.StorageBoxAccessSettingsGetArgs>? AccessSettings { get; set; }
 
+        /// <summary>
+        /// Prevent the Storage Box from being accidentally deleted outside of Terraform.
+        /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 

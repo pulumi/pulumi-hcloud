@@ -36,9 +36,17 @@ public final class StorageBoxArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.accessSettings);
     }
 
+    /**
+     * Prevent the Storage Box from being accidentally deleted outside of Terraform.
+     * 
+     */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
+    /**
+     * @return Prevent the Storage Box from being accidentally deleted outside of Terraform.
+     * 
+     */
     public Optional<Output<Boolean>> deleteProtection() {
         return Optional.ofNullable(this.deleteProtection);
     }
@@ -201,11 +209,23 @@ public final class StorageBoxArgs extends com.pulumi.resources.ResourceArgs {
             return accessSettings(Output.of(accessSettings));
         }
 
+        /**
+         * @param deleteProtection Prevent the Storage Box from being accidentally deleted outside of Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteProtection(@Nullable Output<Boolean> deleteProtection) {
             $.deleteProtection = deleteProtection;
             return this;
         }
 
+        /**
+         * @param deleteProtection Prevent the Storage Box from being accidentally deleted outside of Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteProtection(Boolean deleteProtection) {
             return deleteProtection(Output.of(deleteProtection));
         }

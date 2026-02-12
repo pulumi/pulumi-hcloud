@@ -14,6 +14,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerNetwork {
+    /**
+     * @return Alias IPs the server should have in the Network.
+     * 
+     * There is a bug with Terraform `1.4+` which causes the network to be detached &amp; attached on every apply. Set `aliasIps = []` to avoid this. See #650 for details.
+     * 
+     */
     private @Nullable List<String> aliasIps;
     /**
      * @return Specify the IP the server should get in the network
@@ -32,6 +38,12 @@ public final class ServerNetwork {
     private Integer networkId;
 
     private ServerNetwork() {}
+    /**
+     * @return Alias IPs the server should have in the Network.
+     * 
+     * There is a bug with Terraform `1.4+` which causes the network to be detached &amp; attached on every apply. Set `aliasIps = []` to avoid this. See #650 for details.
+     * 
+     */
     public List<String> aliasIps() {
         return this.aliasIps == null ? List.of() : this.aliasIps;
     }

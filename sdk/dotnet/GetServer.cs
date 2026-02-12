@@ -12,6 +12,19 @@ namespace Pulumi.HCloud
     public static class GetServer
     {
         /// <summary>
+        /// Provides details about a Hetzner Cloud Server.
+        /// This resource is useful if you want to use a non-terraform managed server.
+        /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// 
+        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+        /// 
+        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -44,6 +57,19 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Cloud Server.
+        /// This resource is useful if you want to use a non-terraform managed server.
+        /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// 
+        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+        /// 
+        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -76,6 +102,19 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("hcloud:index/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides details about a Hetzner Cloud Server.
+        /// This resource is useful if you want to use a non-terraform managed server.
+        /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// 
+        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+        /// 
+        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

@@ -42,7 +42,6 @@ namespace Pulumi.HCloud
     /// ## Import
     /// 
     /// Network Subnet entries can be imported using a compound ID with the following format:
-    /// 
     /// `&lt;network-id&gt;-&lt;ip_range&gt;`
     /// 
     /// ```sh

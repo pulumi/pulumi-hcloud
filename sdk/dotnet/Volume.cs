@@ -43,7 +43,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Volumes can be imported using their `id`:
+    /// Volumes can be imported using their `Id`:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/volume:Volume example "$VOLUME_ID"

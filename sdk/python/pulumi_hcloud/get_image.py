@@ -231,6 +231,12 @@ def get_image(id: Optional[_builtins.int] = None,
               with_statuses: Optional[Sequence[_builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
+    Provides details about a Hetzner Cloud Image.
+    This resource is useful if you want to use a non-terraform managed image.
+
+    When relevant, it is recommended to always provide the image architecture
+    (`with_architecture`) when fetching images.
+
     ## Example Usage
 
     ```python
@@ -295,6 +301,12 @@ def get_image_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                      with_statuses: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
+    Provides details about a Hetzner Cloud Image.
+    This resource is useful if you want to use a non-terraform managed image.
+
+    When relevant, it is recommended to always provide the image architecture
+    (`with_architecture`) when fetching images.
+
     ## Example Usage
 
     ```python

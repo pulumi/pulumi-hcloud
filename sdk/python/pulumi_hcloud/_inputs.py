@@ -53,22 +53,17 @@ __all__ = [
     'GetServerNetworkArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class FirewallApplyToArgsDict(TypedDict):
-        label_selector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label Selector to select servers the firewall should be applied to (only one
-        of `server` and `label_selector`can be applied in one block)
-        """
-        server: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        ID of the server you want to apply the firewall to (only one of `server`
-        and `label_selector`can be applied in one block)
-        """
-elif False:
-    FirewallApplyToArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallApplyToArgsDict(TypedDict):
+    label_selector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Label Selector to select servers the firewall should be applied to (only one
+    of `server` and `label_selector`can be applied in one block)
+    """
+    server: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    ID of the server you want to apply the firewall to (only one of `server`
+    and `label_selector`can be applied in one block)
+    """
 
 @pulumi.input_type
 class FirewallApplyToArgs:
@@ -113,37 +108,34 @@ class FirewallApplyToArgs:
         pulumi.set(self, "server", value)
 
 
-if not MYPY:
-    class FirewallRuleArgsDict(TypedDict):
-        direction: pulumi.Input[_builtins.str]
-        """
-        Direction of the Firewall Rule. `in`
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the firewall rule
-        """
-        destination_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
-        is `out`)
-        """
-        port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
-        to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
-        """
-        source_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
-        is `in`)
-        """
-elif False:
-    FirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallRuleArgsDict(TypedDict):
+    direction: pulumi.Input[_builtins.str]
+    """
+    Direction of the Firewall Rule. `in`
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the firewall rule
+    """
+    destination_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+    is `out`)
+    """
+    port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
+    to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
+    """
+    source_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
+    is `in`)
+    """
 
 @pulumi.input_type
 class FirewallRuleArgs:
@@ -252,14 +244,11 @@ class FirewallRuleArgs:
         pulumi.set(self, "source_ips", value)
 
 
-if not MYPY:
-    class LoadBalancerAlgorithmArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
-        """
-elif False:
-    LoadBalancerAlgorithmArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerAlgorithmArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+    """
 
 @pulumi.input_type
 class LoadBalancerAlgorithmArgs:
@@ -284,34 +273,31 @@ class LoadBalancerAlgorithmArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class LoadBalancerServiceHealthCheckArgsDict(TypedDict):
-        interval: pulumi.Input[_builtins.int]
-        """
-        Interval how often the health check will be performed, in seconds.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol the health check uses. `http` or `tcp`
-        """
-        retries: pulumi.Input[_builtins.int]
-        """
-        Number of tries a health check will be performed until a target will be listed as `unhealthy`.
-        """
-        timeout: pulumi.Input[_builtins.int]
-        """
-        Timeout when a health check try will be canceled if there is no response, in seconds.
-        """
-        http: NotRequired[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgsDict']]
-        """
-        HTTP configuration. Required if `protocol` is `http`.
-        """
-elif False:
-    LoadBalancerServiceHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerServiceHealthCheckArgsDict(TypedDict):
+    interval: pulumi.Input[_builtins.int]
+    """
+    Interval how often the health check will be performed, in seconds.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol the health check uses. `http` or `tcp`
+    """
+    retries: pulumi.Input[_builtins.int]
+    """
+    Number of tries a health check will be performed until a target will be listed as `unhealthy`.
+    """
+    timeout: pulumi.Input[_builtins.int]
+    """
+    Timeout when a health check try will be canceled if there is no response, in seconds.
+    """
+    http: NotRequired[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgsDict']]
+    """
+    HTTP configuration. Required if `protocol` is `http`.
+    """
 
 @pulumi.input_type
 class LoadBalancerServiceHealthCheckArgs:
@@ -411,30 +397,27 @@ class LoadBalancerServiceHealthCheckArgs:
         pulumi.set(self, "http", value)
 
 
-if not MYPY:
-    class LoadBalancerServiceHealthCheckHttpArgsDict(TypedDict):
-        domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Domain we try to access when performing the Health Check.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path we try to access when performing the Health Check.
-        """
-        response: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Response we expect to be included in the Target response when a Health Check was performed.
-        """
-        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
-        """
-        tls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable TLS certificate checking.
-        """
-elif False:
-    LoadBalancerServiceHealthCheckHttpArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerServiceHealthCheckHttpArgsDict(TypedDict):
+    domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Domain we try to access when performing the Health Check.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path we try to access when performing the Health Check.
+    """
+    response: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Response we expect to be included in the Target response when a Health Check was performed.
+    """
+    status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
+    """
+    tls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable TLS certificate checking.
+    """
 
 @pulumi.input_type
 class LoadBalancerServiceHealthCheckHttpArgs:
@@ -523,30 +506,27 @@ class LoadBalancerServiceHealthCheckHttpArgs:
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class LoadBalancerServiceHttpArgsDict(TypedDict):
-        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        List of IDs from certificates which the Load Balancer has.
-        """
-        cookie_lifetime: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Lifetime of the cookie for sticky session (in seconds). Default: `300`
-        """
-        cookie_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the cookie for sticky session. Default: `HCLBSTICKY`
-        """
-        redirect_http: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
-        """
-        sticky_sessions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable sticky sessions
-        """
-elif False:
-    LoadBalancerServiceHttpArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerServiceHttpArgsDict(TypedDict):
+    certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    List of IDs from certificates which the Load Balancer has.
+    """
+    cookie_lifetime: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Lifetime of the cookie for sticky session (in seconds). Default: `300`
+    """
+    cookie_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the cookie for sticky session. Default: `HCLBSTICKY`
+    """
+    redirect_http: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
+    """
+    sticky_sessions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable sticky sessions
+    """
 
 @pulumi.input_type
 class LoadBalancerServiceHttpArgs:
@@ -635,16 +615,13 @@ class LoadBalancerServiceHttpArgs:
         pulumi.set(self, "sticky_sessions", value)
 
 
-if not MYPY:
-    class LoadBalancerTargetArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
-        """
-        server_id: NotRequired[pulumi.Input[_builtins.int]]
-        use_private_ip: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    LoadBalancerTargetArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerTargetArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
+    """
+    server_id: NotRequired[pulumi.Input[_builtins.int]]
+    use_private_ip: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class LoadBalancerTargetArgs:
@@ -696,23 +673,25 @@ class LoadBalancerTargetArgs:
         pulumi.set(self, "use_private_ip", value)
 
 
-if not MYPY:
-    class ServerNetworkArgsDict(TypedDict):
-        network_id: pulumi.Input[_builtins.int]
-        """
-        ID of the network
-        """
-        alias_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the IP the server should get in the network
-        """
-        mac_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional, string) The MAC address the private interface of the server has
-        """
-elif False:
-    ServerNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class ServerNetworkArgsDict(TypedDict):
+    network_id: pulumi.Input[_builtins.int]
+    """
+    ID of the network
+    """
+    alias_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Alias IPs the server should have in the Network.
+
+    There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `alias_ips = []` to avoid this. See #650 for details.
+    """
+    ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the IP the server should get in the network
+    """
+    mac_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional, string) The MAC address the private interface of the server has
+    """
 
 @pulumi.input_type
 class ServerNetworkArgs:
@@ -723,6 +702,9 @@ class ServerNetworkArgs:
                  mac_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] network_id: ID of the network
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_ips: Alias IPs the server should have in the Network.
+               
+               There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `alias_ips = []` to avoid this. See #650 for details.
         :param pulumi.Input[_builtins.str] ip: Specify the IP the server should get in the network
         :param pulumi.Input[_builtins.str] mac_address: (Optional, string) The MAC address the private interface of the server has
         """
@@ -749,6 +731,11 @@ class ServerNetworkArgs:
     @_builtins.property
     @pulumi.getter(name="aliasIps")
     def alias_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Alias IPs the server should have in the Network.
+
+        There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `alias_ips = []` to avoid this. See #650 for details.
+        """
         return pulumi.get(self, "alias_ips")
 
     @alias_ips.setter
@@ -780,14 +767,11 @@ class ServerNetworkArgs:
         pulumi.set(self, "mac_address", value)
 
 
-if not MYPY:
-    class ServerPublicNetArgsDict(TypedDict):
-        ipv4: NotRequired[pulumi.Input[_builtins.int]]
-        ipv4_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        ipv6: NotRequired[pulumi.Input[_builtins.int]]
-        ipv6_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ServerPublicNetArgsDict: TypeAlias = Mapping[str, Any]
+class ServerPublicNetArgsDict(TypedDict):
+    ipv4: NotRequired[pulumi.Input[_builtins.int]]
+    ipv4_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ipv6: NotRequired[pulumi.Input[_builtins.int]]
+    ipv6_enabled: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ServerPublicNetArgs:
@@ -842,30 +826,27 @@ class ServerPublicNetArgs:
         pulumi.set(self, "ipv6_enabled", value)
 
 
-if not MYPY:
-    class StorageBoxAccessSettingsArgsDict(TypedDict):
-        reachable_externally: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether access from outside the Hetzner network is allowed.
-        """
-        samba_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the Samba subsystem is enabled.
-        """
-        ssh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the SSH subsystem is enabled.
-        """
-        webdav_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the WebDAV subsystem is enabled.
-        """
-        zfs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the ZFS snapshot folder is visible.
-        """
-elif False:
-    StorageBoxAccessSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageBoxAccessSettingsArgsDict(TypedDict):
+    reachable_externally: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether access from outside the Hetzner network is allowed.
+    """
+    samba_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the Samba subsystem is enabled.
+    """
+    ssh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the SSH subsystem is enabled.
+    """
+    webdav_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the WebDAV subsystem is enabled.
+    """
+    zfs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the ZFS snapshot folder is visible.
+    """
 
 @pulumi.input_type
 class StorageBoxAccessSettingsArgs:
@@ -954,30 +935,27 @@ class StorageBoxAccessSettingsArgs:
         pulumi.set(self, "zfs_enabled", value)
 
 
-if not MYPY:
-    class StorageBoxSnapshotPlanArgsDict(TypedDict):
-        hour: pulumi.Input[_builtins.int]
-        """
-        Hour when the Snapshot Plan is executed (UTC).
-        """
-        max_snapshots: pulumi.Input[_builtins.int]
-        """
-        Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
-        """
-        minute: pulumi.Input[_builtins.int]
-        """
-        Minute when the Snapshot Plan is executed (UTC).
-        """
-        day_of_month: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Day of the month when the Snapshot Plan is executed. Null means every day.
-        """
-        day_of_week: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
-        """
-elif False:
-    StorageBoxSnapshotPlanArgsDict: TypeAlias = Mapping[str, Any]
+class StorageBoxSnapshotPlanArgsDict(TypedDict):
+    hour: pulumi.Input[_builtins.int]
+    """
+    Hour when the Snapshot Plan is executed (UTC).
+    """
+    max_snapshots: pulumi.Input[_builtins.int]
+    """
+    Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
+    """
+    minute: pulumi.Input[_builtins.int]
+    """
+    Minute when the Snapshot Plan is executed (UTC).
+    """
+    day_of_month: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Day of the month when the Snapshot Plan is executed. Null means every day.
+    """
+    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
+    """
 
 @pulumi.input_type
 class StorageBoxSnapshotPlanArgs:
@@ -1063,30 +1041,27 @@ class StorageBoxSnapshotPlanArgs:
         pulumi.set(self, "day_of_week", value)
 
 
-if not MYPY:
-    class StorageBoxSubaccountAccessSettingsArgsDict(TypedDict):
-        reachable_externally: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether access from outside the Hetzner network is allowed.
-        """
-        readonly: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the Subaccount is read-only.
-        """
-        samba_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the Samba subsystem is enabled.
-        """
-        ssh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the SSH subsystem is enabled.
-        """
-        webdav_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the WebDAV subsystem is enabled.
-        """
-elif False:
-    StorageBoxSubaccountAccessSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageBoxSubaccountAccessSettingsArgsDict(TypedDict):
+    reachable_externally: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether access from outside the Hetzner network is allowed.
+    """
+    readonly: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the Subaccount is read-only.
+    """
+    samba_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the Samba subsystem is enabled.
+    """
+    ssh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the SSH subsystem is enabled.
+    """
+    webdav_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the WebDAV subsystem is enabled.
+    """
 
 @pulumi.input_type
 class StorageBoxSubaccountAccessSettingsArgs:
@@ -1175,14 +1150,11 @@ class StorageBoxSubaccountAccessSettingsArgs:
         pulumi.set(self, "webdav_enabled", value)
 
 
-if not MYPY:
-    class ZoneAuthoritativeNameserversArgsDict(TypedDict):
-        assigneds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Authoritative Hetzner nameservers assigned to the Zone.
-        """
-elif False:
-    ZoneAuthoritativeNameserversArgsDict: TypeAlias = Mapping[str, Any]
+class ZoneAuthoritativeNameserversArgsDict(TypedDict):
+    assigneds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Authoritative Hetzner nameservers assigned to the Zone.
+    """
 
 @pulumi.input_type
 class ZoneAuthoritativeNameserversArgs:
@@ -1207,26 +1179,23 @@ class ZoneAuthoritativeNameserversArgs:
         pulumi.set(self, "assigneds", value)
 
 
-if not MYPY:
-    class ZonePrimaryNameserverArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        Public IPv4 or IPv6 address of the primary nameserver.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port of the primary nameserver.
-        """
-        tsig_algorithm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Transaction signature (TSIG) algorithm used to generate the TSIG key.
-        """
-        tsig_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Transaction signature (TSIG) key
-        """
-elif False:
-    ZonePrimaryNameserverArgsDict: TypeAlias = Mapping[str, Any]
+class ZonePrimaryNameserverArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    Public IPv4 or IPv6 address of the primary nameserver.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Port of the primary nameserver.
+    """
+    tsig_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Transaction signature (TSIG) algorithm used to generate the TSIG key.
+    """
+    tsig_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Transaction signature (TSIG) key
+    """
 
 @pulumi.input_type
 class ZonePrimaryNameserverArgs:
@@ -1298,18 +1267,15 @@ class ZonePrimaryNameserverArgs:
         pulumi.set(self, "tsig_key", value)
 
 
-if not MYPY:
-    class ZoneRrsetRecordArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of the record.
-        """
-        comment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Comment of the record.
-        """
-elif False:
-    ZoneRrsetRecordArgsDict: TypeAlias = Mapping[str, Any]
+class ZoneRrsetRecordArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of the record.
+    """
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Comment of the record.
+    """
 
 @pulumi.input_type
 class ZoneRrsetRecordArgs:
@@ -1349,19 +1315,16 @@ class ZoneRrsetRecordArgs:
         pulumi.set(self, "comment", value)
 
 
-if not MYPY:
-    class GetFirewallApplyToArgsDict(TypedDict):
-        label_selector: _builtins.str
-        """
-        (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
-        referenced
-        """
-        server: _builtins.int
-        """
-        (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
-        """
-elif False:
-    GetFirewallApplyToArgsDict: TypeAlias = Mapping[str, Any]
+class GetFirewallApplyToArgsDict(TypedDict):
+    label_selector: _builtins.str
+    """
+    (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
+    referenced
+    """
+    server: _builtins.int
+    """
+    (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
+    """
 
 @pulumi.input_type
 class GetFirewallApplyToArgs:
@@ -1402,34 +1365,31 @@ class GetFirewallApplyToArgs:
         pulumi.set(self, "server", value)
 
 
-if not MYPY:
-    class GetFirewallRuleArgsDict(TypedDict):
-        direction: _builtins.str
-        """
-        (Required, string) Direction of the Firewall Rule. `in`, `out`
-        """
-        description: NotRequired[_builtins.str]
-        """
-        (Optional, string) Description of the firewall rule
-        """
-        destination_ips: NotRequired[Sequence[_builtins.str]]
-        """
-        (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
-        """
-        port: NotRequired[_builtins.str]
-        """
-        (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
-        """
-        protocol: NotRequired[_builtins.str]
-        """
-        (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
-        """
-        source_ips: NotRequired[Sequence[_builtins.str]]
-        """
-        (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
-        """
-elif False:
-    GetFirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
+class GetFirewallRuleArgsDict(TypedDict):
+    direction: _builtins.str
+    """
+    (Required, string) Direction of the Firewall Rule. `in`, `out`
+    """
+    description: NotRequired[_builtins.str]
+    """
+    (Optional, string) Description of the firewall rule
+    """
+    destination_ips: NotRequired[Sequence[_builtins.str]]
+    """
+    (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
+    """
+    port: NotRequired[_builtins.str]
+    """
+    (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
+    """
+    protocol: NotRequired[_builtins.str]
+    """
+    (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
+    """
+    source_ips: NotRequired[Sequence[_builtins.str]]
+    """
+    (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
+    """
 
 @pulumi.input_type
 class GetFirewallRuleArgs:
@@ -1533,26 +1493,23 @@ class GetFirewallRuleArgs:
         pulumi.set(self, "source_ips", value)
 
 
-if not MYPY:
-    class GetServerNetworkArgsDict(TypedDict):
-        alias_ips: Sequence[_builtins.str]
-        """
-        (list) A list of alias IP addresses assigned to the server in the network.
-        """
-        ip: _builtins.str
-        """
-        (string) The server's IP address within the network.
-        """
-        mac_address: _builtins.str
-        """
-        (string) The MAC address associated with the server's private network interface.
-        """
-        network_id: _builtins.int
-        """
-        (int) The unique identifier for the network.
-        """
-elif False:
-    GetServerNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class GetServerNetworkArgsDict(TypedDict):
+    alias_ips: Sequence[_builtins.str]
+    """
+    (list) A list of alias IP addresses assigned to the server in the network.
+    """
+    ip: _builtins.str
+    """
+    (string) The server's IP address within the network.
+    """
+    mac_address: _builtins.str
+    """
+    (string) The MAC address associated with the server's private network interface.
+    """
+    network_id: _builtins.int
+    """
+    (int) The unique identifier for the network.
+    """
 
 @pulumi.input_type
 class GetServerNetworkArgs:

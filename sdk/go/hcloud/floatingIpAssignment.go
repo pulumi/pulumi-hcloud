@@ -59,7 +59,7 @@ import (
 //
 // ## Import
 //
-// Floating IP Assignments can be imported using the `floating_ip_id`:
+// Floating IP Assignments can be imported using the `floatingIpId`:
 //
 // ```sh
 // $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment example "$FLOATING_IP_ID"

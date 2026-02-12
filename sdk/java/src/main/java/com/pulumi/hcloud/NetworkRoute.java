@@ -62,7 +62,6 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * Network Route entries can be imported using a compound ID with the following format:
- * 
  * `&lt;network-id&gt;-&lt;destination&gt;`
  * 
  * ```sh

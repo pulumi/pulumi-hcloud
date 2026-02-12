@@ -46,7 +46,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Load Balancer Service entries can be imported using a compound ID with the following format:
- *
  * `<load-balancer-id>__<listen-port>`
  *
  * ```sh

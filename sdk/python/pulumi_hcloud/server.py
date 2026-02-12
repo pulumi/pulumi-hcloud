@@ -55,6 +55,7 @@ class ServerArgs:
                This should not be used in normal cases. See the documentation of the
                `FirewallAttachment` resource for a reason to use this
                argument.
+        :param pulumi.Input[_builtins.str] image: Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
         :param pulumi.Input[_builtins.str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[_builtins.bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
@@ -207,6 +208,9 @@ class ServerArgs:
     @_builtins.property
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -414,6 +418,7 @@ class _ServerState:
                This should not be used in normal cases. See the documentation of the
                `FirewallAttachment` resource for a reason to use this
                argument.
+        :param pulumi.Input[_builtins.str] image: Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
         :param pulumi.Input[_builtins.str] ipv4_address: (string) The IPv4 address.
         :param pulumi.Input[_builtins.str] ipv6_address: (string) The first IPv6 address of the assigned network.
         :param pulumi.Input[_builtins.str] ipv6_network: (string) The IPv6 network.
@@ -589,6 +594,9 @@ class _ServerState:
     @_builtins.property
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -992,6 +1000,7 @@ class Server(pulumi.CustomResource):
                This should not be used in normal cases. See the documentation of the
                `FirewallAttachment` resource for a reason to use this
                argument.
+        :param pulumi.Input[_builtins.str] image: Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
         :param pulumi.Input[_builtins.str] iso: ID or Name of an ISO image to mount.
         :param pulumi.Input[_builtins.bool] keep_disk: If true, do not upgrade the disk. This allows downgrading the server type later.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
@@ -1270,6 +1279,7 @@ class Server(pulumi.CustomResource):
                This should not be used in normal cases. See the documentation of the
                `FirewallAttachment` resource for a reason to use this
                argument.
+        :param pulumi.Input[_builtins.str] image: Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
         :param pulumi.Input[_builtins.str] ipv4_address: (string) The IPv4 address.
         :param pulumi.Input[_builtins.str] ipv6_address: (string) The first IPv6 address of the assigned network.
         :param pulumi.Input[_builtins.str] ipv6_network: (string) The IPv6 network.
@@ -1389,6 +1399,9 @@ class Server(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def image(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+        """
         return pulumi.get(self, "image")
 
     @_builtins.property

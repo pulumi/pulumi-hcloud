@@ -84,6 +84,9 @@ def get_servers(with_selector: Optional[_builtins.str] = None,
                 with_statuses: Optional[Sequence[_builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServersResult:
     """
+    Provides details about multiple Hetzner Cloud Servers.
+    This resource is useful if you want to use non-terraform managed servers.
+
     ## Example Usage
 
     ```python
@@ -112,6 +115,9 @@ def get_servers_output(with_selector: Optional[pulumi.Input[Optional[_builtins.s
                        with_statuses: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServersResult]:
     """
+    Provides details about multiple Hetzner Cloud Servers.
+    This resource is useful if you want to use non-terraform managed servers.
+
     ## Example Usage
 
     ```python

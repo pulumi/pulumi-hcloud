@@ -251,8 +251,9 @@ type Server struct {
 	// This should not be used in normal cases. See the documentation of the
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
-	IgnoreRemoteFirewallIds pulumi.BoolPtrOutput   `pulumi:"ignoreRemoteFirewallIds"`
-	Image                   pulumi.StringPtrOutput `pulumi:"image"`
+	IgnoreRemoteFirewallIds pulumi.BoolPtrOutput `pulumi:"ignoreRemoteFirewallIds"`
+	// Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+	Image pulumi.StringPtrOutput `pulumi:"image"`
 	// (string) The IPv4 address.
 	Ipv4Address pulumi.StringOutput `pulumi:"ipv4Address"`
 	// (string) The first IPv6 address of the assigned network.
@@ -348,8 +349,9 @@ type serverState struct {
 	// This should not be used in normal cases. See the documentation of the
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
-	IgnoreRemoteFirewallIds *bool   `pulumi:"ignoreRemoteFirewallIds"`
-	Image                   *string `pulumi:"image"`
+	IgnoreRemoteFirewallIds *bool `pulumi:"ignoreRemoteFirewallIds"`
+	// Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+	Image *string `pulumi:"image"`
 	// (string) The IPv4 address.
 	Ipv4Address *string `pulumi:"ipv4Address"`
 	// (string) The first IPv6 address of the assigned network.
@@ -414,7 +416,8 @@ type ServerState struct {
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds pulumi.BoolPtrInput
-	Image                   pulumi.StringPtrInput
+	// Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+	Image pulumi.StringPtrInput
 	// (string) The IPv4 address.
 	Ipv4Address pulumi.StringPtrInput
 	// (string) The first IPv6 address of the assigned network.
@@ -478,8 +481,9 @@ type serverArgs struct {
 	// This should not be used in normal cases. See the documentation of the
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
-	IgnoreRemoteFirewallIds *bool   `pulumi:"ignoreRemoteFirewallIds"`
-	Image                   *string `pulumi:"image"`
+	IgnoreRemoteFirewallIds *bool `pulumi:"ignoreRemoteFirewallIds"`
+	// Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+	Image *string `pulumi:"image"`
 	// ID or Name of an ISO image to mount.
 	Iso *string `pulumi:"iso"`
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
@@ -531,7 +535,8 @@ type ServerArgs struct {
 	// `FirewallAttachment` resource for a reason to use this
 	// argument.
 	IgnoreRemoteFirewallIds pulumi.BoolPtrInput
-	Image                   pulumi.StringPtrInput
+	// Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+	Image pulumi.StringPtrInput
 	// ID or Name of an ISO image to mount.
 	Iso pulumi.StringPtrInput
 	// If true, do not upgrade the disk. This allows downgrading the server type later.
@@ -693,6 +698,7 @@ func (o ServerOutput) IgnoreRemoteFirewallIds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.IgnoreRemoteFirewallIds }).(pulumi.BoolPtrOutput)
 }
 
+// Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
 func (o ServerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Image }).(pulumi.StringPtrOutput)
 }

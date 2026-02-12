@@ -207,6 +207,9 @@ export class Server extends pulumi.CustomResource {
      * argument.
      */
     declare public readonly ignoreRemoteFirewallIds: pulumi.Output<boolean | undefined>;
+    /**
+     * Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+     */
     declare public readonly image: pulumi.Output<string | undefined>;
     /**
      * (string) The IPv4 address.
@@ -404,6 +407,9 @@ export interface ServerState {
      * argument.
      */
     ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
+    /**
+     * Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+     */
     image?: pulumi.Input<string>;
     /**
      * (string) The IPv4 address.
@@ -518,6 +524,9 @@ export interface ServerArgs {
      * argument.
      */
     ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
+    /**
+     * Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+     */
     image?: pulumi.Input<string>;
     /**
      * ID or Name of an ISO image to mount.

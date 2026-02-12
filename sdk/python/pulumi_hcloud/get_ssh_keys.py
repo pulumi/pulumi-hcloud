@@ -75,6 +75,10 @@ def get_ssh_keys(id: Optional[_builtins.str] = None,
                  with_selector: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeysResult:
     """
+    Provides a list of Hetzner Cloud SSH Keys.
+
+    This resource is useful if you want to use a non-terraform managed SSH Key.
+
     ## Example Usage
 
     ```python
@@ -104,6 +108,10 @@ def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = No
                         with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSshKeysResult]:
     """
+    Provides a list of Hetzner Cloud SSH Keys.
+
+    This resource is useful if you want to use a non-terraform managed SSH Key.
+
     ## Example Usage
 
     ```python

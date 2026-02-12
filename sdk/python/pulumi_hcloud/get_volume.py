@@ -170,6 +170,9 @@ def get_volume(id: Optional[_builtins.int] = None,
                with_statuses: Optional[Sequence[_builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
+    Provides details about a Hetzner Cloud volume.
+    This resource is useful if you want to use a non-terraform managed volume.
+
     ## Example Usage
 
     ```python
@@ -221,6 +224,9 @@ def get_volume_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
+    Provides details about a Hetzner Cloud volume.
+    This resource is useful if you want to use a non-terraform managed volume.
+
     ## Example Usage
 
     ```python

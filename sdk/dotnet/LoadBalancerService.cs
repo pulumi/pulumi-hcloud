@@ -64,7 +64,6 @@ namespace Pulumi.HCloud
     /// ## Import
     /// 
     /// Load Balancer Service entries can be imported using a compound ID with the following format:
-    /// 
     /// `&lt;load-balancer-id&gt;__&lt;listen-port&gt;`
     /// 
     /// ```sh

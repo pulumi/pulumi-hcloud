@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides details about multiple Hetzner Cloud Servers.
+ * This resource is useful if you want to use non-terraform managed servers.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -57,6 +60,9 @@ export interface GetServersResult {
     readonly withStatuses?: string[];
 }
 /**
+ * Provides details about multiple Hetzner Cloud Servers.
+ * This resource is useful if you want to use non-terraform managed servers.
+ *
  * ## Example Usage
  *
  * ```typescript

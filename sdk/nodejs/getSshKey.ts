@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Provides details about a specific Hetzner Cloud SSH Key.
+ *
+ * This resource is useful if you want to use a non-terraform managed SSH Key.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -106,6 +110,10 @@ export interface GetSshKeyResult {
     readonly withSelector?: string;
 }
 /**
+ * Provides details about a specific Hetzner Cloud SSH Key.
+ *
+ * This resource is useful if you want to use a non-terraform managed SSH Key.
+ *
  * ## Example Usage
  *
  * ```typescript

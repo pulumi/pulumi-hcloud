@@ -326,6 +326,19 @@ def get_server(id: Optional[_builtins.int] = None,
                with_statuses: Optional[Sequence[_builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
+    Provides details about a Hetzner Cloud Server.
+    This resource is useful if you want to use a non-terraform managed server.
+
+    ## Deprecations
+
+    ### `datacenter` attribute
+
+    The `datacenter` attribute is deprecated, use the `location` attribute instead.
+
+    See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+
+    > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+
     ## Example Usage
 
     ```python
@@ -390,6 +403,19 @@ def get_server_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None
                       with_statuses: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
+    Provides details about a Hetzner Cloud Server.
+    This resource is useful if you want to use a non-terraform managed server.
+
+    ## Deprecations
+
+    ### `datacenter` attribute
+
+    The `datacenter` attribute is deprecated, use the `location` attribute instead.
+
+    See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
+
+    > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+
     ## Example Usage
 
     ```python

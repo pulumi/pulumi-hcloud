@@ -12,6 +12,10 @@ namespace Pulumi.HCloud
     public static class GetSshKeys
     {
         /// <summary>
+        /// Provides a list of Hetzner Cloud SSH Keys.
+        /// 
+        /// This resource is useful if you want to use a non-terraform managed SSH Key.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -41,6 +45,10 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSshKeysResult>("hcloud:index/getSshKeys:getSshKeys", args ?? new GetSshKeysArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides a list of Hetzner Cloud SSH Keys.
+        /// 
+        /// This resource is useful if you want to use a non-terraform managed SSH Key.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -70,6 +78,10 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetSshKeysResult>("hcloud:index/getSshKeys:getSshKeys", args ?? new GetSshKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Provides a list of Hetzner Cloud SSH Keys.
+        /// 
+        /// This resource is useful if you want to use a non-terraform managed SSH Key.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

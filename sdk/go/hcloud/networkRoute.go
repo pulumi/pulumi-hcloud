@@ -52,7 +52,6 @@ import (
 // ## Import
 //
 // Network Route entries can be imported using a compound ID with the following format:
-//
 // `<network-id>-<destination>`
 //
 // ```sh

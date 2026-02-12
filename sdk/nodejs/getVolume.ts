@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Provides details about a Hetzner Cloud volume.
+ * This resource is useful if you want to use a non-terraform managed volume.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -114,6 +117,9 @@ export interface GetVolumeResult {
     readonly withStatuses?: string[];
 }
 /**
+ * Provides details about a Hetzner Cloud volume.
+ * This resource is useful if you want to use a non-terraform managed volume.
+ *
  * ## Example Usage
  *
  * ```typescript

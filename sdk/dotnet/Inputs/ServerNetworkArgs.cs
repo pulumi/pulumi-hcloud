@@ -14,6 +14,12 @@ namespace Pulumi.HCloud.Inputs
     {
         [Input("aliasIps")]
         private InputList<string>? _aliasIps;
+
+        /// <summary>
+        /// Alias IPs the server should have in the Network.
+        /// 
+        /// There is a bug with Terraform `1.4+` which causes the network to be detached &amp; attached on every apply. Set `AliasIps = []` to avoid this. See #650 for details.
+        /// </summary>
         public InputList<string> AliasIps
         {
             get => _aliasIps ?? (_aliasIps = new InputList<string>());

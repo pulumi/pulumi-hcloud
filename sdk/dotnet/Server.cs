@@ -199,7 +199,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Servers can be imported using the server `id`:
+    /// Servers can be imported using the server `Id`:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/server:Server example "$SERVER_ID"
@@ -254,6 +254,9 @@ namespace Pulumi.HCloud
         [Output("ignoreRemoteFirewallIds")]
         public Output<bool?> IgnoreRemoteFirewallIds { get; private set; } = null!;
 
+        /// <summary>
+        /// Name or ID of the image the server is created from. **Note** the `Image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+        /// </summary>
         [Output("image")]
         public Output<string?> Image { get; private set; } = null!;
 
@@ -464,6 +467,9 @@ namespace Pulumi.HCloud
         [Input("ignoreRemoteFirewallIds")]
         public Input<bool>? IgnoreRemoteFirewallIds { get; set; }
 
+        /// <summary>
+        /// Name or ID of the image the server is created from. **Note** the `Image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 
@@ -636,6 +642,9 @@ namespace Pulumi.HCloud
         [Input("ignoreRemoteFirewallIds")]
         public Input<bool>? IgnoreRemoteFirewallIds { get; set; }
 
+        /// <summary>
+        /// Name or ID of the image the server is created from. **Note** the `Image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
+        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 

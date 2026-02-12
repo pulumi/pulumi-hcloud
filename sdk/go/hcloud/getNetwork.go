@@ -11,6 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a Hetzner Cloud network.
+// This resource is useful if you want to use a non-terraform managed network.
+//
 // ## Example Usage
 //
 // ```go

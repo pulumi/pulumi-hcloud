@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Provides details about a Hetzner Cloud network.
+ * This resource is useful if you want to use a non-terraform managed network.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -94,6 +97,9 @@ export interface GetNetworkResult {
     readonly withSelector?: string;
 }
 /**
+ * Provides details about a Hetzner Cloud network.
+ * This resource is useful if you want to use a non-terraform managed network.
+ *
  * ## Example Usage
  *
  * ```typescript

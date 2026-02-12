@@ -170,18 +170,6 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
-
-        terraform
-
-        import {
-
-          to = hcloud_ssh_key.main
-
-          id = "$SSH_KEY_ID"
-
-        }
-
         The `pulumi import` command can be used, for example:
 
         ```sh
@@ -216,18 +204,6 @@ class SshKey(pulumi.CustomResource):
         ```
 
         ## Import
-
-        In Terraform v1.5.0 and later, the `import` block can be used with the `id` attribute, for example:
-
-        terraform
-
-        import {
-
-          to = hcloud_ssh_key.main
-
-          id = "$SSH_KEY_ID"
-
-        }
 
         The `pulumi import` command can be used, for example:
 

@@ -11,6 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a Hetzner Cloud volume.
+// This resource is useful if you want to use a non-terraform managed volume.
+//
 // ## Example Usage
 //
 // ```go
