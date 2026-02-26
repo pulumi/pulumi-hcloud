@@ -10133,7 +10133,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10182,7 +10182,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10231,7 +10231,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10280,7 +10280,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10329,7 +10329,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10378,7 +10378,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10438,7 +10438,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10498,7 +10498,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10558,7 +10558,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10618,7 +10618,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10678,7 +10678,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10727,7 +10727,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10776,7 +10776,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10825,7 +10825,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10874,7 +10874,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.get("storageBoxId");
+     *         final var storageBoxId = config.require("storageBoxId");
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());

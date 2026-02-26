@@ -24,6 +24,7 @@ class SnapshotArgs:
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
+
         :param pulumi.Input[_builtins.int] server_id: Server to the snapshot should be created from.
         :param pulumi.Input[_builtins.str] description: Description of the snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
@@ -79,6 +80,7 @@ class _SnapshotState:
                  server_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.int] server_id: Server to the snapshot should be created from.
@@ -161,6 +163,7 @@ class Snapshot(pulumi.CustomResource):
         $ pulumi import hcloud:index/snapshot:Snapshot example "$IMAGE_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the snapshot.
@@ -196,6 +199,7 @@ class Snapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/snapshot:Snapshot example "$IMAGE_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class ZoneArgs:
                  ttl: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Zone resource.
+
         :param pulumi.Input[_builtins.str] mode: Mode of the Zone.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -134,6 +135,7 @@ class _ZoneState:
                  ttl: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
+
         :param pulumi.Input['ZoneAuthoritativeNameserversArgs'] authoritative_nameservers: Authoritative nameservers of the Zone.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -287,6 +289,7 @@ class Zone(pulumi.CustomResource):
         $ pulumi import hcloud:index/zone:Zone example "$ZONE_ID_OR_NAME"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
@@ -318,6 +321,7 @@ class Zone(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/zone:Zone example "$ZONE_ID_OR_NAME"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.

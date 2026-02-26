@@ -27,6 +27,7 @@ class FirewallArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]] apply_tos: Resources the firewall should be assigned to
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] name: Name of the Firewall.
@@ -99,6 +100,7 @@ class _FirewallState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering Firewall resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]] apply_tos: Resources the firewall should be assigned to
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] name: Name of the Firewall.
@@ -218,6 +220,7 @@ class Firewall(pulumi.CustomResource):
         $ pulumi import hcloud:index/firewall:Firewall example "$FIREWALL_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]] apply_tos: Resources the firewall should be assigned to
@@ -275,6 +278,7 @@ class Firewall(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/firewall:Firewall example "$FIREWALL_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallArgs args: The arguments to use to populate this resource's properties.

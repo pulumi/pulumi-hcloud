@@ -26,6 +26,7 @@ class ServerNetworkInitArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerNetwork resource.
+
         :param pulumi.Input[_builtins.int] server_id: ID of the Server.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_ips: Additional IPs to assign to the Server.
         :param pulumi.Input[_builtins.str] ip: IP to assign to the Server.
@@ -114,6 +115,7 @@ class _ServerNetworkState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerNetwork resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_ips: Additional IPs to assign to the Server.
         :param pulumi.Input[_builtins.str] ip: IP to assign to the Server.
         :param pulumi.Input[_builtins.str] mac_address: MAC address of the Server on the Network.
@@ -255,6 +257,7 @@ class ServerNetwork(pulumi.CustomResource):
         $ pulumi import hcloud:index/serverNetwork:ServerNetwork example "$SERVER_ID-$NETWORK_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_ips: Additional IPs to assign to the Server.
@@ -304,6 +307,7 @@ class ServerNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/serverNetwork:ServerNetwork example "$SERVER_ID-$NETWORK_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerNetworkInitArgs args: The arguments to use to populate this resource's properties.

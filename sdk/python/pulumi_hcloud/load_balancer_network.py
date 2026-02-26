@@ -26,6 +26,7 @@ class LoadBalancerNetworkArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerNetwork resource.
+
         :param pulumi.Input[_builtins.int] load_balancer_id: ID of the Load Balancer.
         :param pulumi.Input[_builtins.bool] enable_public_interface: Wether the Load Balancer public interface is enabled. Default is `true`.
         :param pulumi.Input[_builtins.str] ip: IP to assign to the Load Balancer.
@@ -113,6 +114,7 @@ class _LoadBalancerNetworkState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerNetwork resources.
+
         :param pulumi.Input[_builtins.bool] enable_public_interface: Wether the Load Balancer public interface is enabled. Default is `true`.
         :param pulumi.Input[_builtins.str] ip: IP to assign to the Load Balancer.
         :param pulumi.Input[_builtins.int] load_balancer_id: ID of the Load Balancer.
@@ -238,6 +240,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork example "$LOAD_BALANCER_ID-$NETWORK_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable_public_interface: Wether the Load Balancer public interface is enabled. Default is `true`.
@@ -286,6 +289,7 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/loadBalancerNetwork:LoadBalancerNetwork example "$LOAD_BALANCER_ID-$NETWORK_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerNetworkArgs args: The arguments to use to populate this resource's properties.

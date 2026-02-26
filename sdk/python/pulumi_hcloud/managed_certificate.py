@@ -24,6 +24,7 @@ class ManagedCertificateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedCertificate resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_names: Domain names for which a certificate
                should be obtained.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) the
@@ -89,6 +90,7 @@ class _ManagedCertificateState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate: (string) PEM encoded TLS certificate.
         :param pulumi.Input[_builtins.str] created: (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_names: Domain names for which a certificate
@@ -266,6 +268,7 @@ class ManagedCertificate(pulumi.CustomResource):
         $ pulumi import hcloud:index/managedCertificate:ManagedCertificate example "$CERTIFICATE_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_names: Domain names for which a certificate
@@ -308,6 +311,7 @@ class ManagedCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/managedCertificate:ManagedCertificate example "$CERTIFICATE_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedCertificateArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class StorageBoxSubaccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageBoxSubaccount resource.
+
         :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
         :param pulumi.Input[_builtins.int] storage_box_id: ID of the Storage Box.
@@ -149,6 +150,7 @@ class _StorageBoxSubaccountState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageBoxSubaccount resources.
+
         :param pulumi.Input['StorageBoxSubaccountAccessSettingsArgs'] access_settings: Access settings for the Subaccount.
         :param pulumi.Input[_builtins.str] description: A description of the Storage Box Subaccount.
         :param pulumi.Input[_builtins.str] home_directory: Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
@@ -339,6 +341,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
         $ pulumi import hcloud:index/storageBoxSubaccount:StorageBoxSubaccount example "$STORAGE_BOX_ID/$STORAGE_BOX_SUBACCOUNT_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']] access_settings: Access settings for the Subaccount.
@@ -392,6 +395,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/storageBoxSubaccount:StorageBoxSubaccount example "$STORAGE_BOX_ID/$STORAGE_BOX_SUBACCOUNT_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageBoxSubaccountArgs args: The arguments to use to populate this resource's properties.

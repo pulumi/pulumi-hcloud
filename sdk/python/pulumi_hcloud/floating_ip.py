@@ -28,6 +28,7 @@ class FloatingIpArgs:
                  server_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a FloatingIp resource.
+
         :param pulumi.Input[_builtins.str] type: Type of the Floating IP. `ipv4` `ipv6`
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[_builtins.str] description: Description of the Floating IP.
@@ -149,6 +150,7 @@ class _FloatingIpState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FloatingIp resources.
+
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[_builtins.str] description: Description of the Floating IP.
         :param pulumi.Input[_builtins.str] home_location: Name of home location (routing is optimized for that location). Optional if `server_id` argument is passed.
@@ -327,6 +329,7 @@ class FloatingIp(pulumi.CustomResource):
         $ pulumi import hcloud:index/floatingIp:FloatingIp example "$FLOATING_IP_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
@@ -368,6 +371,7 @@ class FloatingIp(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/floatingIp:FloatingIp example "$FLOATING_IP_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FloatingIpArgs args: The arguments to use to populate this resource's properties.

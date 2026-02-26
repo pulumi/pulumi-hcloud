@@ -26,6 +26,7 @@ class NetworkArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Network resource.
+
         :param pulumi.Input[_builtins.str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[_builtins.bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
@@ -113,6 +114,7 @@ class _NetworkState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Network resources.
+
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[_builtins.bool] expose_routes_to_vswitch: Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         :param pulumi.Input[_builtins.str] ip_range: IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
@@ -225,6 +227,7 @@ class Network(pulumi.CustomResource):
         $ pulumi import hcloud:index/network:Network example "$NETWORK_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
@@ -260,6 +263,7 @@ class Network(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/network:Network example "$NETWORK_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkArgs args: The arguments to use to populate this resource's properties.

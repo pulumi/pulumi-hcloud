@@ -26,6 +26,7 @@ class ZoneRecordArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ZoneRecord resource.
+
         :param pulumi.Input[_builtins.str] type: Type of the Zone Record.
         :param pulumi.Input[_builtins.str] value: Value of the Zone Record.
         :param pulumi.Input[_builtins.str] zone: ID or Name of the parent Zone.
@@ -111,6 +112,7 @@ class _ZoneRecordState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ZoneRecord resources.
+
         :param pulumi.Input[_builtins.str] comment: Comment of the Zone Record.
         :param pulumi.Input[_builtins.str] name: Name of the Zone Record.
         :param pulumi.Input[_builtins.str] type: Type of the Zone Record.
@@ -214,6 +216,7 @@ class ZoneRecord(pulumi.CustomResource):
 
         !> This resource must only be used, when records cannot be managed with a `ZoneRrset` resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Comment of the Zone Record.
@@ -240,6 +243,7 @@ class ZoneRecord(pulumi.CustomResource):
         See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
 
         !> This resource must only be used, when records cannot be managed with a `ZoneRrset` resource.
+
 
         :param str resource_name: The name of the resource.
         :param ZoneRecordArgs args: The arguments to use to populate this resource's properties.

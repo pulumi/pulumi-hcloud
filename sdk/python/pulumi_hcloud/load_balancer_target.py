@@ -27,6 +27,7 @@ class LoadBalancerTargetInitArgs:
                  use_private_ip: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LoadBalancerTarget resource.
+
         :param pulumi.Input[_builtins.int] load_balancer_id: ID of the Load Balancer to which
                the target gets attached.
         :param pulumi.Input[_builtins.str] type: Type of the target. Possible values
@@ -143,6 +144,7 @@ class _LoadBalancerTargetState:
                  use_private_ip: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerTarget resources.
+
         :param pulumi.Input[_builtins.str] ip: IP address for an IP Target. Required if
                `type` is `ip`.
         :param pulumi.Input[_builtins.str] label_selector: Label Selector selecting targets
@@ -303,6 +305,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
         $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget ip "${LOAD_BALANCER_ID}__ip__${IP}"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ip: IP address for an IP Target. Required if
@@ -364,6 +367,7 @@ class LoadBalancerTarget(pulumi.CustomResource):
         $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget label "${LOAD_BALANCER_ID}__label_selector__${LABEL_SELECTOR}"
         $ pulumi import hcloud:index/loadBalancerTarget:LoadBalancerTarget ip "${LOAD_BALANCER_ID}__ip__${IP}"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerTargetInitArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class SshKeyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SshKey resource.
+
         :param pulumi.Input[_builtins.str] public_key: Public key of the SSH Key pair. If this is a file, it can be read using the `file` interpolation function.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the SSH Key.
@@ -80,6 +81,7 @@ class _SshKeyState:
                  public_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SshKey resources.
+
         :param pulumi.Input[_builtins.str] fingerprint: Fingerprint of the SSH public key.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the SSH Key.
@@ -176,6 +178,7 @@ class SshKey(pulumi.CustomResource):
         $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -210,6 +213,7 @@ class SshKey(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/sshKey:SshKey example "$SSH_KEY_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SshKeyArgs args: The arguments to use to populate this resource's properties.

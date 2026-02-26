@@ -26,6 +26,7 @@ class NetworkSubnetArgs:
                  vswitch_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkSubnet resource.
+
         :param pulumi.Input[_builtins.str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
         :param pulumi.Input[_builtins.int] network_id: ID of the Network the subnet should be added to.
         :param pulumi.Input[_builtins.str] network_zone: Name of network zone.
@@ -111,6 +112,7 @@ class _NetworkSubnetState:
                  vswitch_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkSubnet resources.
+
         :param pulumi.Input[_builtins.str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
         :param pulumi.Input[_builtins.int] network_id: ID of the Network the subnet should be added to.
         :param pulumi.Input[_builtins.str] network_zone: Name of network zone.
@@ -240,6 +242,7 @@ class NetworkSubnet(pulumi.CustomResource):
         $ pulumi import hcloud:index/networkSubnet:NetworkSubnet example "$NETWORK_ID-$IP_RANGE"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ip_range: Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
@@ -281,6 +284,7 @@ class NetworkSubnet(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/networkSubnet:NetworkSubnet example "$NETWORK_ID-$IP_RANGE"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSubnetArgs args: The arguments to use to populate this resource's properties.

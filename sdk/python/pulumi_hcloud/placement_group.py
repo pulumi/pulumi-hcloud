@@ -24,6 +24,7 @@ class PlacementGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
+
         :param pulumi.Input[_builtins.str] type: Type of the Placement Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] name: Name of the Placement Group.
@@ -80,6 +81,7 @@ class _PlacementGroupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PlacementGroup resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] name: Name of the Placement Group.
         :param pulumi.Input[_builtins.str] type: Type of the Placement Group.
@@ -179,6 +181,7 @@ class PlacementGroup(pulumi.CustomResource):
         $ pulumi import hcloud:index/placementGroup:PlacementGroup example "$PLACEMENT_GROUP_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
@@ -220,6 +223,7 @@ class PlacementGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/placementGroup:PlacementGroup example "$PLACEMENT_GROUP_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlacementGroupArgs args: The arguments to use to populate this resource's properties.
