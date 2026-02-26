@@ -32,6 +32,7 @@ class StorageBoxArgs:
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageBox resource.
+
         :param pulumi.Input[_builtins.str] location: Name of the Location.
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
         :param pulumi.Input[_builtins.str] storage_box_type: Name of the Storage Box Type.
@@ -184,6 +185,7 @@ class _StorageBoxState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageBox resources.
+
         :param pulumi.Input['StorageBoxAccessSettingsArgs'] access_settings: Access settings of the Storage Box.
         :param pulumi.Input[_builtins.bool] delete_protection: Prevent the Storage Box from being accidentally deleted outside of Terraform.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -436,6 +438,7 @@ class StorageBox(pulumi.CustomResource):
         $ pulumi import hcloud:index/storageBox:StorageBox example "$STORAGE_BOX_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict']] access_settings: Access settings of the Storage Box.
@@ -506,6 +509,7 @@ class StorageBox(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/storageBox:StorageBox example "$STORAGE_BOX_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageBoxArgs args: The arguments to use to populate this resource's properties.

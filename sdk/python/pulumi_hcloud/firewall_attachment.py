@@ -24,6 +24,7 @@ class FirewallAttachmentArgs:
                  server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a FirewallAttachment resource.
+
         :param pulumi.Input[_builtins.int] firewall_id: ID of the firewall the resources
                should be attached to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] label_selectors: List of label selectors used to
@@ -85,6 +86,7 @@ class _FirewallAttachmentState:
                  server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         Input properties used for looking up and filtering FirewallAttachment resources.
+
         :param pulumi.Input[_builtins.int] firewall_id: ID of the firewall the resources
                should be attached to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] label_selectors: List of label selectors used to
@@ -248,6 +250,7 @@ class FirewallAttachment(pulumi.CustomResource):
         $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example "$FIREWALL_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] firewall_id: ID of the firewall the resources
@@ -361,6 +364,7 @@ class FirewallAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/firewallAttachment:FirewallAttachment example "$FIREWALL_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallAttachmentArgs args: The arguments to use to populate this resource's properties.

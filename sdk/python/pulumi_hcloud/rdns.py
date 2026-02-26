@@ -27,6 +27,7 @@ class RdnsArgs:
                  server_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Rdns resource.
+
         :param pulumi.Input[_builtins.str] dns_ptr: The DNS address the `ip_address` should resolve to.
         :param pulumi.Input[_builtins.str] ip_address: The IP address that should point to `dns_ptr`.
         :param pulumi.Input[_builtins.int] floating_ip_id: The Floating IP the `ip_address` belongs to.
@@ -129,6 +130,7 @@ class _RdnsState:
                  server_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Rdns resources.
+
         :param pulumi.Input[_builtins.str] dns_ptr: The DNS address the `ip_address` should resolve to.
         :param pulumi.Input[_builtins.int] floating_ip_id: The Floating IP the `ip_address` belongs to.
         :param pulumi.Input[_builtins.str] ip_address: The IP address that should point to `dns_ptr`.
@@ -335,6 +337,7 @@ class Rdns(pulumi.CustomResource):
         $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dns_ptr: The DNS address the `ip_address` should resolve to.
@@ -449,6 +452,7 @@ class Rdns(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RdnsArgs args: The arguments to use to populate this resource's properties.

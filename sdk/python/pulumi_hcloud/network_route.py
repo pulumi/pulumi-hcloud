@@ -24,6 +24,7 @@ class NetworkRouteArgs:
                  network_id: pulumi.Input[_builtins.int]):
         """
         The set of arguments for constructing a NetworkRoute resource.
+
         :param pulumi.Input[_builtins.str] destination: Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
         :param pulumi.Input[_builtins.str] gateway: Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
         :param pulumi.Input[_builtins.int] network_id: ID of the Network the route should be added to.
@@ -77,6 +78,7 @@ class _NetworkRouteState:
                  network_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkRoute resources.
+
         :param pulumi.Input[_builtins.str] destination: Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
         :param pulumi.Input[_builtins.str] gateway: Gateway for the route. Cannot be the first ip of the networks ip_range and also cannot be 172.31.1.1 as this IP is being used as a gateway for the public network interface of servers.
         :param pulumi.Input[_builtins.int] network_id: ID of the Network the route should be added to.
@@ -162,6 +164,7 @@ class NetworkRoute(pulumi.CustomResource):
         $ pulumi import hcloud:index/networkRoute:NetworkRoute example "$NETWORK_ID-$DESTINATION"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination: Destination network or host of this route. Must be a subnet of the ip_range of the Network. Must not overlap with an existing ip_range in any subnets or with any destinations in other routes or with the first ip of the networks ip_range or with 172.31.1.1.
@@ -200,6 +203,7 @@ class NetworkRoute(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/networkRoute:NetworkRoute example "$NETWORK_ID-$DESTINATION"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkRouteArgs args: The arguments to use to populate this resource's properties.

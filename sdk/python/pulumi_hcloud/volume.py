@@ -29,6 +29,7 @@ class VolumeArgs:
                  server_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Volume resource.
+
         :param pulumi.Input[_builtins.int] size: Size of the volume (in GB).
         :param pulumi.Input[_builtins.bool] automount: Automount the volume upon attaching it (server_id must be provided).
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
@@ -169,6 +170,7 @@ class _VolumeState:
                  size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
+
         :param pulumi.Input[_builtins.bool] automount: Automount the volume upon attaching it (server_id must be provided).
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
                
@@ -355,6 +357,7 @@ class Volume(pulumi.CustomResource):
         $ pulumi import hcloud:index/volume:Volume example "$VOLUME_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automount: Automount the volume upon attaching it (server_id must be provided).
@@ -402,6 +405,7 @@ class Volume(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/volume:Volume example "$VOLUME_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

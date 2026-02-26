@@ -44,6 +44,7 @@ class ServerArgs:
                  user_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Server resource.
+
         :param pulumi.Input[_builtins.str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[_builtins.bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[_builtins.bool] backups: Enable or disable backups.
@@ -407,6 +408,7 @@ class _ServerState:
                  user_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
+
         :param pulumi.Input[_builtins.bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         :param pulumi.Input[_builtins.str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[_builtins.bool] backups: Enable or disable backups.
@@ -988,6 +990,7 @@ class Server(pulumi.CustomResource):
         $ pulumi import hcloud:index/server:Server example "$SERVER_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
@@ -1149,6 +1152,7 @@ class Server(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/server:Server example "$SERVER_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class ZoneRrsetArgs:
                  ttl: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ZoneRrset resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ZoneRrsetRecordArgs']]] records: Records of the Zone RRSet.
         :param pulumi.Input[_builtins.str] type: Type of the Zone RRSet.
         :param pulumi.Input[_builtins.str] zone: ID or Name of the parent Zone.
@@ -147,6 +148,7 @@ class _ZoneRrsetState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ZoneRrset resources.
+
         :param pulumi.Input[_builtins.bool] change_protection: Whether change protection is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Zone RRSet.
@@ -302,6 +304,7 @@ class ZoneRrset(pulumi.CustomResource):
         $ pulumi import hcloud:index/zoneRrset:ZoneRrset example "$ZONE_ID_OR_NAME/$RRSET_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] change_protection: Whether change protection is enabled.
@@ -350,6 +353,7 @@ class ZoneRrset(pulumi.CustomResource):
         $ pulumi import hcloud:index/zoneRrset:ZoneRrset example "$ZONE_ID_OR_NAME/$RRSET_NAME/$RRSET_TYPE"
         $ pulumi import hcloud:index/zoneRrset:ZoneRrset example "$ZONE_ID_OR_NAME/$RRSET_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ZoneRrsetArgs args: The arguments to use to populate this resource's properties.

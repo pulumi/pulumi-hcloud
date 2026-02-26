@@ -24,6 +24,7 @@ class StorageBoxSnapshotArgs:
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageBoxSnapshot resource.
+
         :param pulumi.Input[_builtins.int] storage_box_id: ID of the Storage Box.
         :param pulumi.Input[_builtins.str] description: Description of the Storage Box Snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -81,6 +82,7 @@ class _StorageBoxSnapshotState:
                  storage_box_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering StorageBoxSnapshot resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the Storage Box Snapshot.
         :param pulumi.Input[_builtins.bool] is_automatic: Whether the Storage Box Snapshot was created automatically.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -197,6 +199,7 @@ class StorageBoxSnapshot(pulumi.CustomResource):
         $ pulumi import hcloud:index/storageBoxSnapshot:StorageBoxSnapshot example "$STORAGE_BOX_ID/$STORAGE_BOX_SNAPSHOT_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Storage Box Snapshot.
@@ -236,6 +239,7 @@ class StorageBoxSnapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/storageBoxSnapshot:StorageBoxSnapshot example "$STORAGE_BOX_ID/$STORAGE_BOX_SNAPSHOT_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageBoxSnapshotArgs args: The arguments to use to populate this resource's properties.

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var teamBadgerPassword = config.get("teamBadgerPassword");
+ *         final var teamBadgerPassword = config.require("teamBadgerPassword");
  *         var main = new StorageBox("main");
  * 
  *         var teamBadger = new StorageBoxSubaccount("teamBadger", StorageBoxSubaccountArgs.builder()

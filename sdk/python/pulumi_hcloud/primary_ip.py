@@ -30,6 +30,7 @@ class PrimaryIpArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrimaryIp resource.
+
         :param pulumi.Input[_builtins.str] assignee_type: The type of the assigned resource. Currently supported: `server`
         :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled.
                `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
@@ -191,6 +192,7 @@ class _PrimaryIpState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrimaryIp resources.
+
         :param pulumi.Input[_builtins.int] assignee_id: ID of the assigned resource.
         :param pulumi.Input[_builtins.str] assignee_type: The type of the assigned resource. Currently supported: `server`
         :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled.
@@ -441,6 +443,7 @@ class PrimaryIp(pulumi.CustomResource):
         $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] assignee_id: ID of the assigned resource.
@@ -517,6 +520,7 @@ class PrimaryIp(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrimaryIpArgs args: The arguments to use to populate this resource's properties.

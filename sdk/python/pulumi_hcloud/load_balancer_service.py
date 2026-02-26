@@ -30,6 +30,7 @@ class LoadBalancerServiceArgs:
                  proxyprotocol: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LoadBalancerService resource.
+
         :param pulumi.Input[_builtins.str] load_balancer_id: Id of the load balancer this service belongs to.
         :param pulumi.Input[_builtins.str] protocol: Protocol of the service. `http`, `https` or `tcp`
         :param pulumi.Input[_builtins.int] destination_port: Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
@@ -148,6 +149,7 @@ class _LoadBalancerServiceState:
                  proxyprotocol: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerService resources.
+
         :param pulumi.Input[_builtins.int] destination_port: Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
         :param pulumi.Input['LoadBalancerServiceHealthCheckArgs'] health_check: Health Check configuration when `protocol` is `http` or `https`.
         :param pulumi.Input['LoadBalancerServiceHttpArgs'] http: HTTP configuration when `protocol` is `http` or `https`.
@@ -314,6 +316,7 @@ class LoadBalancerService(pulumi.CustomResource):
         $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService example "${LOAD_BALANCER_ID}__${LISTEN_PORT}"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] destination_port: Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
@@ -373,6 +376,7 @@ class LoadBalancerService(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/loadBalancerService:LoadBalancerService example "${LOAD_BALANCER_ID}__${LISTEN_PORT}"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerServiceArgs args: The arguments to use to populate this resource's properties.

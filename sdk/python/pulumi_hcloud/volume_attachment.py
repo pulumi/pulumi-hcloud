@@ -24,6 +24,7 @@ class VolumeAttachmentArgs:
                  automount: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
+
         :param pulumi.Input[_builtins.int] server_id: Server to attach the Volume to.
         :param pulumi.Input[_builtins.int] volume_id: ID of the Volume.
         :param pulumi.Input[_builtins.bool] automount: Automount the volume upon attaching it.
@@ -78,6 +79,7 @@ class _VolumeAttachmentState:
                  volume_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering VolumeAttachment resources.
+
         :param pulumi.Input[_builtins.bool] automount: Automount the volume upon attaching it.
         :param pulumi.Input[_builtins.int] server_id: Server to attach the Volume to.
         :param pulumi.Input[_builtins.int] volume_id: ID of the Volume.
@@ -167,6 +169,7 @@ class VolumeAttachment(pulumi.CustomResource):
         $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment example "$VOLUME_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automount: Automount the volume upon attaching it.
@@ -209,6 +212,7 @@ class VolumeAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/volumeAttachment:VolumeAttachment example "$VOLUME_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeAttachmentArgs args: The arguments to use to populate this resource's properties.

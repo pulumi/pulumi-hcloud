@@ -25,6 +25,7 @@ class UploadedCertificateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UploadedCertificate resource.
+
         :param pulumi.Input[_builtins.str] certificate: PEM encoded TLS certificate.
         :param pulumi.Input[_builtins.str] private_key: PEM encoded private key belonging to the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) the
@@ -103,6 +104,7 @@ class _UploadedCertificateState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UploadedCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate: PEM encoded TLS certificate.
         :param pulumi.Input[_builtins.str] created: (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_names: (list) Domains and subdomains covered by the certificate.
@@ -302,6 +304,7 @@ class UploadedCertificate(pulumi.CustomResource):
         $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate example "$CERTIFICATE_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: PEM encoded TLS certificate.
@@ -352,6 +355,7 @@ class UploadedCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/uploadedCertificate:UploadedCertificate example "$CERTIFICATE_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UploadedCertificateArgs args: The arguments to use to populate this resource's properties.

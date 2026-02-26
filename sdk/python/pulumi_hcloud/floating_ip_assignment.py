@@ -23,6 +23,7 @@ class FloatingIpAssignmentArgs:
                  server_id: pulumi.Input[_builtins.int]):
         """
         The set of arguments for constructing a FloatingIpAssignment resource.
+
         :param pulumi.Input[_builtins.int] floating_ip_id: ID of the Floating IP.
         :param pulumi.Input[_builtins.int] server_id: Server to assign the Floating IP to.
         """
@@ -61,6 +62,7 @@ class _FloatingIpAssignmentState:
                  server_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FloatingIpAssignment resources.
+
         :param pulumi.Input[_builtins.int] floating_ip_id: ID of the Floating IP.
         :param pulumi.Input[_builtins.int] server_id: Server to assign the Floating IP to.
         """
@@ -133,6 +135,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
         $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment example "$FLOATING_IP_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] floating_ip_id: ID of the Floating IP.
@@ -173,6 +176,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/floatingIpAssignment:FloatingIpAssignment example "$FLOATING_IP_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FloatingIpAssignmentArgs args: The arguments to use to populate this resource's properties.

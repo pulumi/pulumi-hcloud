@@ -31,6 +31,7 @@ class LoadBalancerArgs:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
+
         :param pulumi.Input[_builtins.str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
@@ -170,6 +171,7 @@ class _LoadBalancerState:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
+
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[_builtins.str] ipv4: (string) IPv4 Address of the Load Balancer.
@@ -399,6 +401,7 @@ class LoadBalancer(pulumi.CustomResource):
         $ pulumi import hcloud:index/loadBalancer:LoadBalancer example "$LOAD_BALANCER_ID"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']] algorithm: Configuration of the algorithm the Load Balancer use.
@@ -445,6 +448,7 @@ class LoadBalancer(pulumi.CustomResource):
         ```sh
         $ pulumi import hcloud:index/loadBalancer:LoadBalancer example "$LOAD_BALANCER_ID"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.

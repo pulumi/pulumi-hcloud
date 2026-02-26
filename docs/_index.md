@@ -166,7 +166,7 @@ public class App {
 
     public static void stack(Context ctx) {
         final var config = ctx.config();
-        final var hcloudToken = config.get("hcloudToken");
+        final var hcloudToken = config.require("hcloudToken");
     }
 }
 ```
