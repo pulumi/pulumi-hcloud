@@ -55,9 +55,9 @@ import (
 //			}
 //			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
 //				SshKeys: pulumi.StringArray{
-//					pulumi.Int(byId.Id),
-//					pulumi.Int(byName.Id),
-//					pulumi.Int(byFingerprint.Id),
+//					pulumi.String(pulumi.Int(byId.Id)),
+//					pulumi.String(pulumi.Int(byName.Id)),
+//					pulumi.String(pulumi.Int(byFingerprint.Id)),
 //				},
 //			})
 //			if err != nil {
