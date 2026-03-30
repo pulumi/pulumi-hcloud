@@ -41,7 +41,7 @@ import (
 //				StorageBoxId:  main.ID(),
 //				Name:          pulumi.String("badger"),
 //				HomeDirectory: pulumi.String("teams/badger/"),
-//				Password:      pulumi.String(teamBadgerPassword),
+//				Password:      pulumi.String(pulumi.String(teamBadgerPassword)),
 //				AccessSettings: &hcloud.StorageBoxSubaccountAccessSettingsArgs{
 //					ReachableExternally: pulumi.Bool(true),
 //					SambaEnabled:        pulumi.Bool(true),

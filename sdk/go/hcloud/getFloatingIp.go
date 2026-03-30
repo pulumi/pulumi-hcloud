@@ -55,7 +55,7 @@ import (
 //				key0 := index
 //				_ := index
 //				__res, err := hcloud.NewFloatingIpAssignment(ctx, fmt.Sprintf("main-%v", key0), &hcloud.FloatingIpAssignmentArgs{
-//					FloatingIpId: pulumi.Int(ip1.Id),
+//					FloatingIpId: pulumi.Int(pulumi.Int(ip1.Id)),
 //					ServerId:     pulumi.Any(mainHcloudServer.Id),
 //				})
 //				if err != nil {

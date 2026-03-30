@@ -45,7 +45,7 @@ import (
 //				Name:       pulumi.String("my-server"),
 //				Location:   pulumi.String("fsn1"),
 //				Image:      pulumi.String("debian-12"),
-//				ServerType: pulumi.String(byName.Name),
+//				ServerType: pulumi.String(pulumi.String(byName.Name)),
 //			})
 //			if err != nil {
 //				return err
