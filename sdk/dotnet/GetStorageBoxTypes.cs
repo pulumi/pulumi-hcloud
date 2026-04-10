@@ -26,7 +26,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetStorageBoxTypes.Invoke();
+        ///     var all = HCloud.Index.GetStorageBoxTypes.Invoke();
         /// 
         /// });
         /// ```
@@ -49,7 +49,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetStorageBoxTypes.Invoke();
+        ///     var all = HCloud.Index.GetStorageBoxTypes.Invoke();
         /// 
         /// });
         /// ```
@@ -72,7 +72,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetStorageBoxTypes.Invoke();
+        ///     var all = HCloud.Index.GetStorageBoxTypes.Invoke();
         /// 
         /// });
         /// ```

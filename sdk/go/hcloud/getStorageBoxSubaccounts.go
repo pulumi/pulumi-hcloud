@@ -31,7 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			storageBoxId := cfg.RequireObject("storageBoxId")
+//			var storageBoxId interface{}
+//			cfg.RequireObject("storageBoxId", &storageBoxId)
 //			_, err := hcloud.GetStorageBoxSubaccounts(ctx, &hcloud.GetStorageBoxSubaccountsArgs{
 //				StorageBoxId: storageBoxId,
 //			}, nil)

@@ -38,19 +38,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupServer(ctx, &hcloud.LookupServerArgs{
+//			_, err := hcloud.GetServer(ctx, &hcloud.LookupServerArgs{
 //				Name: pulumi.StringRef("my-server"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupServer(ctx, &hcloud.LookupServerArgs{
+//			_, err = hcloud.GetServer(ctx, &hcloud.LookupServerArgs{
 //				Id: pulumi.IntRef(123),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupServer(ctx, &hcloud.LookupServerArgs{
+//			_, err = hcloud.GetServer(ctx, &hcloud.LookupServerArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)
 //			if err != nil {

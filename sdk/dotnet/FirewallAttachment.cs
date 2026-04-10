@@ -28,19 +28,19 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testServer = new HCloud.Server("test_server", new()
+    ///     var testServer = new HCloud.Index.Server("test_server", new()
     ///     {
     ///         Name = "test-server",
     ///         ServerType = "cx23",
     ///         Image = "ubuntu-24.04",
     ///     });
     /// 
-    ///     var basicFirewall = new HCloud.Firewall("basic_firewall", new()
+    ///     var basicFirewall = new HCloud.Index.Firewall("basic_firewall", new()
     ///     {
     ///         Name = "basic_firewall",
     ///     });
     /// 
-    ///     var fwRef = new HCloud.FirewallAttachment("fw_ref", new()
+    ///     var fwRef = new HCloud.Index.FirewallAttachment("fw_ref", new()
     ///     {
     ///         FirewallId = basicFirewall.Id,
     ///         ServerIds = new[]
@@ -62,7 +62,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testServer = new HCloud.Server("test_server", new()
+    ///     var testServer = new HCloud.Index.Server("test_server", new()
     ///     {
     ///         Name = "test-server",
     ///         ServerType = "cx23",
@@ -73,12 +73,12 @@ namespace Pulumi.HCloud
     ///         },
     ///     });
     /// 
-    ///     var basicFirewall = new HCloud.Firewall("basic_firewall", new()
+    ///     var basicFirewall = new HCloud.Index.Firewall("basic_firewall", new()
     ///     {
     ///         Name = "basic_firewall",
     ///     });
     /// 
-    ///     var fwRef = new HCloud.FirewallAttachment("fw_ref", new()
+    ///     var fwRef = new HCloud.Index.FirewallAttachment("fw_ref", new()
     ///     {
     ///         FirewallId = basicFirewall.Id,
     ///         LabelSelectors = new[]
@@ -113,12 +113,12 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var denyAll = new HCloud.Firewall("deny_all", new()
+    ///     var denyAll = new HCloud.Index.Firewall("deny_all", new()
     ///     {
     ///         Name = "deny_all",
     ///     });
     /// 
-    ///     var testServer = new HCloud.Server("test_server", new()
+    ///     var testServer = new HCloud.Index.Server("test_server", new()
     ///     {
     ///         Name = "test-server",
     ///         ServerType = "cx23",
@@ -130,7 +130,7 @@ namespace Pulumi.HCloud
     ///         },
     ///     });
     /// 
-    ///     var allowRules = new HCloud.Firewall("allow_rules", new()
+    ///     var allowRules = new HCloud.Index.Firewall("allow_rules", new()
     ///     {
     ///         Name = "allow_rules",
     ///         Rules = new[]
@@ -147,7 +147,7 @@ namespace Pulumi.HCloud
     ///                 },
     ///                 DestinationIps = new[]
     ///                 {
-    ///                     Std.Format.Invoke(new()
+    ///                     Std.Index.Format.Invoke(new()
     ///                     {
     ///                         Input = "%s/32",
     ///                         Args = new[]
@@ -160,7 +160,7 @@ namespace Pulumi.HCloud
     ///         },
     ///     });
     /// 
-    ///     var denyAllAtt = new HCloud.FirewallAttachment("deny_all_att", new()
+    ///     var denyAllAtt = new HCloud.Index.FirewallAttachment("deny_all_att", new()
     ///     {
     ///         FirewallId = denyAll.Id,
     ///         ServerIds = new[]
@@ -169,7 +169,7 @@ namespace Pulumi.HCloud
     ///         },
     ///     });
     /// 
-    ///     var allowRulesAtt = new HCloud.FirewallAttachment("allow_rules_att", new()
+    ///     var allowRulesAtt = new HCloud.Index.FirewallAttachment("allow_rules_att", new()
     ///     {
     ///         FirewallId = allowRules.Id,
     ///         ServerIds = new[]

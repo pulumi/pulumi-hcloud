@@ -28,25 +28,25 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var byId = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Id = 2,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Name = "badger",
         ///     });
         /// 
-        ///     var byUsername = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byUsername = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Username = "u507137-sub1",
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "team=billing",
@@ -75,25 +75,25 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var byId = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Id = 2,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Name = "badger",
         ///     });
         /// 
-        ///     var byUsername = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byUsername = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Username = "u507137-sub1",
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "team=billing",
@@ -122,25 +122,25 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var byId = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Id = 2,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Name = "badger",
         ///     });
         /// 
-        ///     var byUsername = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byUsername = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         Username = "u507137-sub1",
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBoxSubaccount.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSubaccount.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "team=billing",

@@ -29,25 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			byId, err := hcloud.LookupSshKey(ctx, &hcloud.LookupSshKeyArgs{
+//			byId, err := hcloud.GetSshKey(ctx, &hcloud.LookupSshKeyArgs{
 //				Id: pulumi.IntRef(24332897),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			byName, err := hcloud.LookupSshKey(ctx, &hcloud.LookupSshKeyArgs{
+//			byName, err := hcloud.GetSshKey(ctx, &hcloud.LookupSshKeyArgs{
 //				Name: pulumi.StringRef("my-ssh-key"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			byFingerprint, err := hcloud.LookupSshKey(ctx, &hcloud.LookupSshKeyArgs{
+//			byFingerprint, err := hcloud.GetSshKey(ctx, &hcloud.LookupSshKeyArgs{
 //				Fingerprint: pulumi.StringRef("55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupSshKey(ctx, &hcloud.LookupSshKeyArgs{
+//			_, err = hcloud.GetSshKey(ctx, &hcloud.LookupSshKeyArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)
 //			if err != nil {

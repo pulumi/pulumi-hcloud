@@ -26,9 +26,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetStorageBoxes.Invoke();
+        ///     var all = HCloud.Index.GetStorageBoxes.Invoke();
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBoxes.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBoxes.Invoke(new()
         ///     {
         ///         WithSelector = "env=production",
         ///     });
@@ -54,9 +54,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetStorageBoxes.Invoke();
+        ///     var all = HCloud.Index.GetStorageBoxes.Invoke();
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBoxes.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBoxes.Invoke(new()
         ///     {
         ///         WithSelector = "env=production",
         ///     });
@@ -82,9 +82,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetStorageBoxes.Invoke();
+        ///     var all = HCloud.Index.GetStorageBoxes.Invoke();
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBoxes.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBoxes.Invoke(new()
         ///     {
         ///         WithSelector = "env=production",
         ///     });

@@ -22,7 +22,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleCertificate = new HCloud.UploadedCertificate("sample_certificate", new()
+    ///     var sampleCertificate = new HCloud.Index.UploadedCertificate("sample_certificate", new()
     ///     {
     ///         Name = "test-certificate-%d",
     ///         PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----

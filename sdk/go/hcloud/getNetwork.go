@@ -28,19 +28,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupNetwork(ctx, &hcloud.LookupNetworkArgs{
+//			_, err := hcloud.GetNetwork(ctx, &hcloud.LookupNetworkArgs{
 //				Id: pulumi.IntRef(1234),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupNetwork(ctx, &hcloud.LookupNetworkArgs{
+//			_, err = hcloud.GetNetwork(ctx, &hcloud.LookupNetworkArgs{
 //				Name: pulumi.StringRef("my-network"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupNetwork(ctx, &hcloud.LookupNetworkArgs{
+//			_, err = hcloud.GetNetwork(ctx, &hcloud.LookupNetworkArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)
 //			if err != nil {

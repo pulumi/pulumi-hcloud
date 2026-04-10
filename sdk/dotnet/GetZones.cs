@@ -26,9 +26,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetZones.Invoke();
+        ///     var all = HCloud.Index.GetZones.Invoke();
         /// 
-        ///     var byLabel = HCloud.GetZones.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetZones.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -54,9 +54,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetZones.Invoke();
+        ///     var all = HCloud.Index.GetZones.Invoke();
         /// 
-        ///     var byLabel = HCloud.GetZones.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetZones.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -82,9 +82,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetZones.Invoke();
+        ///     var all = HCloud.Index.GetZones.Invoke();
         /// 
-        ///     var byLabel = HCloud.GetZones.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetZones.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

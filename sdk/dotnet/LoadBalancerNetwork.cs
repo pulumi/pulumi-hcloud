@@ -22,20 +22,20 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new HCloud.LoadBalancer("main", new()
+    ///     var main = new HCloud.Index.LoadBalancer("main", new()
     ///     {
     ///         Name = "main",
     ///         LoadBalancerType = "lb11",
     ///         NetworkZone = "eu-central",
     ///     });
     /// 
-    ///     var network = new HCloud.Network("network", new()
+    ///     var network = new HCloud.Index.Network("network", new()
     ///     {
     ///         Name = "network",
     ///         IpRange = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var subnet = new HCloud.NetworkSubnet("subnet", new()
+    ///     var subnet = new HCloud.Index.NetworkSubnet("subnet", new()
     ///     {
     ///         NetworkId = network.Id,
     ///         Type = "cloud",
@@ -43,7 +43,7 @@ namespace Pulumi.HCloud
     ///         IpRange = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var attachment = new HCloud.LoadBalancerNetwork("attachment", new()
+    ///     var attachment = new HCloud.Index.LoadBalancerNetwork("attachment", new()
     ///     {
     ///         LoadBalancerId = main.Id,
     ///         SubnetId = subnet.Id,

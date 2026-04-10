@@ -38,7 +38,7 @@ namespace Pulumi.HCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new server running debian
-    ///     var node1 = new HCloud.Server("node1", new()
+    ///     var node1 = new HCloud.Index.Server("node1", new()
     ///     {
     ///         Name = "node1",
     ///         Image = "debian-12",
@@ -65,7 +65,7 @@ namespace Pulumi.HCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //## Server creation with one linked primary ip (ipv4)
-    ///     var primaryIp1 = new HCloud.PrimaryIp("primary_ip_1", new()
+    ///     var primaryIp1 = new HCloud.Index.PrimaryIp("primary_ip_1", new()
     ///     {
     ///         Name = "primary_ip_test",
     ///         Location = "hel1",
@@ -78,7 +78,7 @@ namespace Pulumi.HCloud
     ///         },
     ///     });
     /// 
-    ///     var serverTest = new HCloud.Server("server_test", new()
+    ///     var serverTest = new HCloud.Index.Server("server_test", new()
     ///     {
     ///         Name = "test-server",
     ///         Image = "ubuntu-24.04",
@@ -112,13 +112,13 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var network = new HCloud.Network("network", new()
+    ///     var network = new HCloud.Index.Network("network", new()
     ///     {
     ///         Name = "network",
     ///         IpRange = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var network_subnet = new HCloud.NetworkSubnet("network-subnet", new()
+    ///     var network_subnet = new HCloud.Index.NetworkSubnet("network-subnet", new()
     ///     {
     ///         Type = "cloud",
     ///         NetworkId = network.Id,
@@ -126,7 +126,7 @@ namespace Pulumi.HCloud
     ///         IpRange = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var server = new HCloud.Server("server", new()
+    ///     var server = new HCloud.Index.Server("server", new()
     ///     {
     ///         Name = "server",
     ///         ServerType = "cx23",
@@ -167,14 +167,14 @@ namespace Pulumi.HCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Get image infos because we need the ID
-    ///     var packerSnapshot = HCloud.GetImage.Invoke(new()
+    ///     var packerSnapshot = HCloud.Index.GetImage.Invoke(new()
     ///     {
     ///         WithSelector = "app=foobar",
     ///         MostRecent = true,
     ///     });
     /// 
     ///     // Create a new server from the snapshot
-    ///     var fromSnapshot = new HCloud.Server("from_snapshot", new()
+    ///     var fromSnapshot = new HCloud.Index.Server("from_snapshot", new()
     ///     {
     ///         Name = "from-snapshot",
     ///         Image = packerSnapshot.Apply(getImageResult =&gt; getImageResult.Id),

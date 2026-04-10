@@ -51,19 +51,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
+//			_, err := hcloud.GetPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
 //				IpAddress: pulumi.StringRef("1.2.3.4"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
+//			_, err = hcloud.GetPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
 //				Name: pulumi.StringRef("primary_ip_1"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
+//			_, err = hcloud.GetPrimaryIp(ctx, &hcloud.LookupPrimaryIpArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)
 //			if err != nil {

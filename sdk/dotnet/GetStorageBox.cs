@@ -26,17 +26,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetStorageBox.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         Id = 1333,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBox.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         Name = "backups",
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBox.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         WithSelector = "env=production",
         ///     });
@@ -62,17 +62,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetStorageBox.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         Id = 1333,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBox.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         Name = "backups",
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBox.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         WithSelector = "env=production",
         ///     });
@@ -98,17 +98,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetStorageBox.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         Id = 1333,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBox.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         Name = "backups",
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.GetStorageBox.Invoke(new()
+        ///     var byLabelSelector = HCloud.Index.GetStorageBox.Invoke(new()
         ///     {
         ///         WithSelector = "env=production",
         ///     });

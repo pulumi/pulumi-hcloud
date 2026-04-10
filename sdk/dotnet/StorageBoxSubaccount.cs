@@ -26,9 +26,9 @@ namespace Pulumi.HCloud
     /// {
     ///     var config = new Config();
     ///     var teamBadgerPassword = config.Require("teamBadgerPassword");
-    ///     var main = new HCloud.StorageBox("main");
+    ///     var main = new HCloud.Index.StorageBox("main");
     /// 
-    ///     var teamBadger = new HCloud.StorageBoxSubaccount("team_badger", new()
+    ///     var teamBadger = new HCloud.Index.StorageBoxSubaccount("team_badger", new()
     ///     {
     ///         StorageBoxId = main.Id,
     ///         Name = "badger",

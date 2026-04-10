@@ -27,7 +27,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byArchitecture = HCloud.GetImages.Invoke(new()
+        ///     var byArchitecture = HCloud.Index.GetImages.Invoke(new()
         ///     {
         ///         WithArchitectures = new[]
         ///         {
@@ -35,7 +35,7 @@ namespace Pulumi.HCloud
         ///         },
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetImages.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetImages.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -62,7 +62,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byArchitecture = HCloud.GetImages.Invoke(new()
+        ///     var byArchitecture = HCloud.Index.GetImages.Invoke(new()
         ///     {
         ///         WithArchitectures = new[]
         ///         {
@@ -70,7 +70,7 @@ namespace Pulumi.HCloud
         ///         },
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetImages.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetImages.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -97,7 +97,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byArchitecture = HCloud.GetImages.Invoke(new()
+        ///     var byArchitecture = HCloud.Index.GetImages.Invoke(new()
         ///     {
         ///         WithArchitectures = new[]
         ///         {
@@ -105,7 +105,7 @@ namespace Pulumi.HCloud
         ///         },
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetImages.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetImages.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

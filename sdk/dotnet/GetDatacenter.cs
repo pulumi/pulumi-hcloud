@@ -26,12 +26,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetDatacenter.Invoke(new()
+        ///     var byId = HCloud.Index.GetDatacenter.Invoke(new()
         ///     {
         ///         Id = 4,
         ///     });
         /// 
-        ///     var byName = HCloud.GetDatacenter.Invoke(new()
+        ///     var byName = HCloud.Index.GetDatacenter.Invoke(new()
         ///     {
         ///         Name = "fsn1-dc14",
         ///     });
@@ -57,12 +57,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetDatacenter.Invoke(new()
+        ///     var byId = HCloud.Index.GetDatacenter.Invoke(new()
         ///     {
         ///         Id = 4,
         ///     });
         /// 
-        ///     var byName = HCloud.GetDatacenter.Invoke(new()
+        ///     var byName = HCloud.Index.GetDatacenter.Invoke(new()
         ///     {
         ///         Name = "fsn1-dc14",
         ///     });
@@ -88,12 +88,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetDatacenter.Invoke(new()
+        ///     var byId = HCloud.Index.GetDatacenter.Invoke(new()
         ///     {
         ///         Id = 4,
         ///     });
         /// 
-        ///     var byName = HCloud.GetDatacenter.Invoke(new()
+        ///     var byName = HCloud.Index.GetDatacenter.Invoke(new()
         ///     {
         ///         Name = "fsn1-dc14",
         ///     });

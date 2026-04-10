@@ -29,20 +29,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := hcloud.LookupZone(ctx, &hcloud.LookupZoneArgs{
+//			example, err := hcloud.GetZone(ctx, &hcloud.LookupZoneArgs{
 //				Name: pulumi.StringRef("example.com"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupZoneRrset(ctx, &hcloud.LookupZoneRrsetArgs{
+//			_, err = hcloud.GetZoneRrset(ctx, &hcloud.LookupZoneRrsetArgs{
 //				Zone: example.Name,
 //				Id:   pulumi.StringRef("www/A"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupZoneRrset(ctx, &hcloud.LookupZoneRrsetArgs{
+//			_, err = hcloud.GetZoneRrset(ctx, &hcloud.LookupZoneRrsetArgs{
 //				Zone: example.Name,
 //				Name: pulumi.StringRef("www"),
 //				Type: pulumi.StringRef("A"),
@@ -50,7 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupZoneRrset(ctx, &hcloud.LookupZoneRrsetArgs{
+//			_, err = hcloud.GetZoneRrset(ctx, &hcloud.LookupZoneRrsetArgs{
 //				Zone:         example.Name,
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)

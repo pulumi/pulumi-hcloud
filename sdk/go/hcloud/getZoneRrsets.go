@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := hcloud.LookupZone(ctx, &hcloud.LookupZoneArgs{
+//			example, err := hcloud.GetZone(ctx, &hcloud.LookupZoneArgs{
 //				Name: pulumi.StringRef("example.com"),
 //			}, nil)
 //			if err != nil {

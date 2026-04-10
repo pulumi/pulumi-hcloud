@@ -28,17 +28,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetZone.Invoke(new()
+        ///     var byId = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var byName = HCloud.GetZone.Invoke(new()
+        ///     var byName = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetZone.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -66,17 +66,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetZone.Invoke(new()
+        ///     var byId = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var byName = HCloud.GetZone.Invoke(new()
+        ///     var byName = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetZone.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -104,17 +104,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetZone.Invoke(new()
+        ///     var byId = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var byName = HCloud.GetZone.Invoke(new()
+        ///     var byName = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetZone.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetZone.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
