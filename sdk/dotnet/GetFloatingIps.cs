@@ -24,7 +24,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip2 = HCloud.GetFloatingIps.Invoke(new()
+        ///     var ip2 = HCloud.Index.GetFloatingIps.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip2 = HCloud.GetFloatingIps.Invoke(new()
+        ///     var ip2 = HCloud.Index.GetFloatingIps.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip2 = HCloud.GetFloatingIps.Invoke(new()
+        ///     var ip2 = HCloud.Index.GetFloatingIps.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

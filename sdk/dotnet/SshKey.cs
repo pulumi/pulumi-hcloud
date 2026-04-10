@@ -23,10 +23,10 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new HCloud.SshKey("main", new()
+    ///     var main = new HCloud.Index.SshKey("main", new()
     ///     {
     ///         Name = "my-ssh-key",
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "~/.ssh/id_ed25519.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

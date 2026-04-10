@@ -38,13 +38,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ip1, err := hcloud.LookupFloatingIp(ctx, &hcloud.LookupFloatingIpArgs{
+//			ip1, err := hcloud.GetFloatingIp(ctx, &hcloud.LookupFloatingIpArgs{
 //				IpAddress: pulumi.StringRef("1.2.3.4"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupFloatingIp(ctx, &hcloud.LookupFloatingIpArgs{
+//			_, err = hcloud.GetFloatingIp(ctx, &hcloud.LookupFloatingIpArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)
 //			if err != nil {

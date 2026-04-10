@@ -28,19 +28,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupVolume(ctx, &hcloud.LookupVolumeArgs{
+//			_, err := hcloud.GetVolume(ctx, &hcloud.LookupVolumeArgs{
 //				Id: pulumi.IntRef(1234),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupVolume(ctx, &hcloud.LookupVolumeArgs{
+//			_, err = hcloud.GetVolume(ctx, &hcloud.LookupVolumeArgs{
 //				Name: pulumi.StringRef("my-volume"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupVolume(ctx, &hcloud.LookupVolumeArgs{
+//			_, err = hcloud.GetVolume(ctx, &hcloud.LookupVolumeArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)
 //			if err != nil {

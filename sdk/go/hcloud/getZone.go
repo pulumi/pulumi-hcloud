@@ -31,19 +31,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupZone(ctx, &hcloud.LookupZoneArgs{
+//			_, err := hcloud.GetZone(ctx, &hcloud.LookupZoneArgs{
 //				Id: pulumi.IntRef(1234),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupZone(ctx, &hcloud.LookupZoneArgs{
+//			_, err = hcloud.GetZone(ctx, &hcloud.LookupZoneArgs{
 //				Name: pulumi.StringRef("example.com"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupZone(ctx, &hcloud.LookupZoneArgs{
+//			_, err = hcloud.GetZone(ctx, &hcloud.LookupZoneArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)
 //			if err != nil {

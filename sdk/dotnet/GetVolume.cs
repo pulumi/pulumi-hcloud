@@ -25,17 +25,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var volume1 = HCloud.GetVolume.Invoke(new()
+        ///     var volume1 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var volume2 = HCloud.GetVolume.Invoke(new()
+        ///     var volume2 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         Name = "my-volume",
         ///     });
         /// 
-        ///     var volume3 = HCloud.GetVolume.Invoke(new()
+        ///     var volume3 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -60,17 +60,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var volume1 = HCloud.GetVolume.Invoke(new()
+        ///     var volume1 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var volume2 = HCloud.GetVolume.Invoke(new()
+        ///     var volume2 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         Name = "my-volume",
         ///     });
         /// 
-        ///     var volume3 = HCloud.GetVolume.Invoke(new()
+        ///     var volume3 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -95,17 +95,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var volume1 = HCloud.GetVolume.Invoke(new()
+        ///     var volume1 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var volume2 = HCloud.GetVolume.Invoke(new()
+        ///     var volume2 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         Name = "my-volume",
         ///     });
         /// 
-        ///     var volume3 = HCloud.GetVolume.Invoke(new()
+        ///     var volume3 = HCloud.Index.GetVolume.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

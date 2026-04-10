@@ -31,29 +31,30 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			storageBoxId := cfg.RequireObject("storageBoxId")
-//			_, err := hcloud.LookupStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
+//			var storageBoxId interface{}
+//			cfg.RequireObject("storageBoxId", &storageBoxId)
+//			_, err := hcloud.GetStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
 //				StorageBoxId: storageBoxId,
 //				Id:           pulumi.IntRef(2),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
+//			_, err = hcloud.GetStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
 //				StorageBoxId: storageBoxId,
 //				Name:         pulumi.StringRef("badger"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
+//			_, err = hcloud.GetStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
 //				StorageBoxId: storageBoxId,
 //				Username:     pulumi.StringRef("u507137-sub1"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
+//			_, err = hcloud.GetStorageBoxSubaccount(ctx, &hcloud.LookupStorageBoxSubaccountArgs{
 //				StorageBoxId: storageBoxId,
 //				WithSelector: pulumi.StringRef("team=billing"),
 //			}, nil)

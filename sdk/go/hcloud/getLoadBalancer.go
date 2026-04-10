@@ -27,19 +27,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+//			_, err := hcloud.GetLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
 //				Name: pulumi.StringRef("my-load-balancer"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+//			_, err = hcloud.GetLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
 //				Id: pulumi.IntRef(123),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
+//			_, err = hcloud.GetLoadBalancer(ctx, &hcloud.LookupLoadBalancerArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
 //			}, nil)
 //			if err != nil {

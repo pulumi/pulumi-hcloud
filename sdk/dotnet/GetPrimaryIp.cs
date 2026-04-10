@@ -49,23 +49,23 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip1 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip1 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         IpAddress = "1.2.3.4",
         ///     });
         /// 
-        ///     var ip2 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip2 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         Name = "primary_ip_1",
         ///     });
         /// 
-        ///     var ip3 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip3 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
         ///     // Link a server to an existing primary IP
-        ///     var serverTest = new HCloud.Server("server_test", new()
+        ///     var serverTest = new HCloud.Index.Server("server_test", new()
         ///     {
         ///         Name = "test-server",
         ///         Image = "ubuntu-24.04",
@@ -128,23 +128,23 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip1 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip1 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         IpAddress = "1.2.3.4",
         ///     });
         /// 
-        ///     var ip2 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip2 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         Name = "primary_ip_1",
         ///     });
         /// 
-        ///     var ip3 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip3 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
         ///     // Link a server to an existing primary IP
-        ///     var serverTest = new HCloud.Server("server_test", new()
+        ///     var serverTest = new HCloud.Index.Server("server_test", new()
         ///     {
         ///         Name = "test-server",
         ///         Image = "ubuntu-24.04",
@@ -207,23 +207,23 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip1 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip1 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         IpAddress = "1.2.3.4",
         ///     });
         /// 
-        ///     var ip2 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip2 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         Name = "primary_ip_1",
         ///     });
         /// 
-        ///     var ip3 = HCloud.GetPrimaryIp.Invoke(new()
+        ///     var ip3 = HCloud.Index.GetPrimaryIp.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
         ///     // Link a server to an existing primary IP
-        ///     var serverTest = new HCloud.Server("server_test", new()
+        ///     var serverTest = new HCloud.Index.Server("server_test", new()
         ///     {
         ///         Name = "test-server",
         ///         Image = "ubuntu-24.04",

@@ -26,12 +26,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetStorageBoxType.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBoxType.Invoke(new()
         ///     {
         ///         Id = 1333,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBoxType.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBoxType.Invoke(new()
         ///     {
         ///         Name = "bx11",
         ///     });
@@ -57,12 +57,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetStorageBoxType.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBoxType.Invoke(new()
         ///     {
         ///         Id = 1333,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBoxType.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBoxType.Invoke(new()
         ///     {
         ///         Name = "bx11",
         ///     });
@@ -88,12 +88,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetStorageBoxType.Invoke(new()
+        ///     var byId = HCloud.Index.GetStorageBoxType.Invoke(new()
         ///     {
         ///         Id = 1333,
         ///     });
         /// 
-        ///     var byName = HCloud.GetStorageBoxType.Invoke(new()
+        ///     var byName = HCloud.Index.GetStorageBoxType.Invoke(new()
         ///     {
         ///         Name = "bx11",
         ///     });

@@ -29,19 +29,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupStorageBox(ctx, &hcloud.LookupStorageBoxArgs{
+//			_, err := hcloud.GetStorageBox(ctx, &hcloud.LookupStorageBoxArgs{
 //				Id: pulumi.IntRef(1333),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupStorageBox(ctx, &hcloud.LookupStorageBoxArgs{
+//			_, err = hcloud.GetStorageBox(ctx, &hcloud.LookupStorageBoxArgs{
 //				Name: pulumi.StringRef("backups"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupStorageBox(ctx, &hcloud.LookupStorageBoxArgs{
+//			_, err = hcloud.GetStorageBox(ctx, &hcloud.LookupStorageBoxArgs{
 //				WithSelector: pulumi.StringRef("env=production"),
 //			}, nil)
 //			if err != nil {

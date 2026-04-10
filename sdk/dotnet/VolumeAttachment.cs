@@ -22,7 +22,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var node1 = new HCloud.Server("node1", new()
+    ///     var node1 = new HCloud.Index.Server("node1", new()
     ///     {
     ///         Name = "node1",
     ///         Image = "debian-12",
@@ -30,13 +30,13 @@ namespace Pulumi.HCloud
     ///         Datacenter = "nbg1-dc3",
     ///     });
     /// 
-    ///     var master = new HCloud.Volume("master", new()
+    ///     var master = new HCloud.Index.Volume("master", new()
     ///     {
     ///         Location = "nbg1",
     ///         Size = 10,
     ///     });
     /// 
-    ///     var main = new HCloud.VolumeAttachment("main", new()
+    ///     var main = new HCloud.Index.VolumeAttachment("main", new()
     ///     {
     ///         VolumeId = master.Id,
     ///         ServerId = node1.Id,

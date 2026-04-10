@@ -25,13 +25,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupPlacementGroup(ctx, &hcloud.LookupPlacementGroupArgs{
+//			_, err := hcloud.GetPlacementGroup(ctx, &hcloud.LookupPlacementGroupArgs{
 //				Name: pulumi.StringRef("sample-placement-group-1"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupPlacementGroup(ctx, &hcloud.LookupPlacementGroupArgs{
+//			_, err = hcloud.GetPlacementGroup(ctx, &hcloud.LookupPlacementGroupArgs{
 //				Id: pulumi.IntRef(4711),
 //			}, nil)
 //			if err != nil {

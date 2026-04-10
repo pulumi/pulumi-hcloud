@@ -26,14 +26,14 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetSshKeys.Invoke();
+        ///     var all = HCloud.Index.GetSshKeys.Invoke();
         /// 
-        ///     var byLabel = HCloud.GetSshKeys.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetSshKeys.Invoke(new()
         ///     {
         ///         WithSelector = "foo=bar",
         ///     });
         /// 
-        ///     var main = new HCloud.Server("main", new()
+        ///     var main = new HCloud.Index.Server("main", new()
         ///     {
         ///         SshKeys = all.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys).Select(__item =&gt; __item.Name).ToList(),
         ///     });
@@ -59,14 +59,14 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetSshKeys.Invoke();
+        ///     var all = HCloud.Index.GetSshKeys.Invoke();
         /// 
-        ///     var byLabel = HCloud.GetSshKeys.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetSshKeys.Invoke(new()
         ///     {
         ///         WithSelector = "foo=bar",
         ///     });
         /// 
-        ///     var main = new HCloud.Server("main", new()
+        ///     var main = new HCloud.Index.Server("main", new()
         ///     {
         ///         SshKeys = all.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys).Select(__item =&gt; __item.Name).ToList(),
         ///     });
@@ -92,14 +92,14 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.GetSshKeys.Invoke();
+        ///     var all = HCloud.Index.GetSshKeys.Invoke();
         /// 
-        ///     var byLabel = HCloud.GetSshKeys.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetSshKeys.Invoke(new()
         ///     {
         ///         WithSelector = "foo=bar",
         ///     });
         /// 
-        ///     var main = new HCloud.Server("main", new()
+        ///     var main = new HCloud.Index.Server("main", new()
         ///     {
         ///         SshKeys = all.Apply(getSshKeysResult =&gt; getSshKeysResult.SshKeys).Select(__item =&gt; __item.Name).ToList(),
         ///     });

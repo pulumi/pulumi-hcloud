@@ -25,13 +25,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := hcloud.LookupCertificate(ctx, &hcloud.LookupCertificateArgs{
+//			_, err := hcloud.GetCertificate(ctx, &hcloud.LookupCertificateArgs{
 //				Name: pulumi.StringRef("sample-certificate-1"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.LookupCertificate(ctx, &hcloud.LookupCertificateArgs{
+//			_, err = hcloud.GetCertificate(ctx, &hcloud.LookupCertificateArgs{
 //				Id: pulumi.IntRef(4711),
 //			}, nil)
 //			if err != nil {

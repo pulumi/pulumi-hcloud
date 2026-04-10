@@ -26,27 +26,27 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetSshKey.Invoke(new()
+        ///     var byId = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Id = 24332897,
         ///     });
         /// 
-        ///     var byName = HCloud.GetSshKey.Invoke(new()
+        ///     var byName = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Name = "my-ssh-key",
         ///     });
         /// 
-        ///     var byFingerprint = HCloud.GetSshKey.Invoke(new()
+        ///     var byFingerprint = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Fingerprint = "55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8",
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetSshKey.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
-        ///     var main = new HCloud.Server("main", new()
+        ///     var main = new HCloud.Index.Server("main", new()
         ///     {
         ///         SshKeys = new[]
         ///         {
@@ -77,27 +77,27 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetSshKey.Invoke(new()
+        ///     var byId = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Id = 24332897,
         ///     });
         /// 
-        ///     var byName = HCloud.GetSshKey.Invoke(new()
+        ///     var byName = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Name = "my-ssh-key",
         ///     });
         /// 
-        ///     var byFingerprint = HCloud.GetSshKey.Invoke(new()
+        ///     var byFingerprint = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Fingerprint = "55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8",
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetSshKey.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
-        ///     var main = new HCloud.Server("main", new()
+        ///     var main = new HCloud.Index.Server("main", new()
         ///     {
         ///         SshKeys = new[]
         ///         {
@@ -128,27 +128,27 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.GetSshKey.Invoke(new()
+        ///     var byId = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Id = 24332897,
         ///     });
         /// 
-        ///     var byName = HCloud.GetSshKey.Invoke(new()
+        ///     var byName = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Name = "my-ssh-key",
         ///     });
         /// 
-        ///     var byFingerprint = HCloud.GetSshKey.Invoke(new()
+        ///     var byFingerprint = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         Fingerprint = "55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8",
         ///     });
         /// 
-        ///     var byLabel = HCloud.GetSshKey.Invoke(new()
+        ///     var byLabel = HCloud.Index.GetSshKey.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
-        ///     var main = new HCloud.Server("main", new()
+        ///     var main = new HCloud.Index.Server("main", new()
         ///     {
         ///         SshKeys = new[]
         ///         {

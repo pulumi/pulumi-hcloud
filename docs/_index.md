@@ -108,7 +108,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		cfg := config.New(ctx, "")
-		hcloudToken := cfg.RequireObject("hcloudToken")
+		var hcloudToken interface{}
+		cfg.RequireObject("hcloudToken", &hcloudToken)
 		return nil
 	})
 }
