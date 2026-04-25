@@ -31,17 +31,14 @@ class PrimaryIpArgs:
         """
         The set of arguments for constructing a PrimaryIp resource.
 
-        :param pulumi.Input[_builtins.str] assignee_type: The type of the assigned resource. Currently supported: `server`
-        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled.
-               `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-        :param pulumi.Input[_builtins.str] type: Type of the Primary IP. `ipv4` or `ipv6`
-        :param pulumi.Input[_builtins.int] assignee_id: ID of the assigned resource.
-        :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
-        :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-               
-               Note: At least one of `location`, `datacenter` or `assignee_id` is required.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs).
-        :param pulumi.Input[_builtins.str] location: The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        :param pulumi.Input[_builtins.str] assignee_type: Type of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        :param pulumi.Input[_builtins.str] type: Type of the Primary IP (`ipv4` or `ipv6`).
+        :param pulumi.Input[_builtins.int] assignee_id: ID of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.str] datacenter: Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param pulumi.Input[_builtins.str] location: Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
         """
         pulumi.set(__self__, "assignee_type", assignee_type)
@@ -67,7 +64,7 @@ class PrimaryIpArgs:
     @pulumi.getter(name="assigneeType")
     def assignee_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the assigned resource. Currently supported: `server`
+        Type of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_type")
 
@@ -79,8 +76,7 @@ class PrimaryIpArgs:
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> pulumi.Input[_builtins.bool]:
         """
-        Whether auto delete is enabled.
-        `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
         """
         return pulumi.get(self, "auto_delete")
 
@@ -92,7 +88,7 @@ class PrimaryIpArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of the Primary IP. `ipv4` or `ipv6`
+        Type of the Primary IP (`ipv4` or `ipv6`).
         """
         return pulumi.get(self, "type")
 
@@ -104,7 +100,7 @@ class PrimaryIpArgs:
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        ID of the assigned resource.
+        ID of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_id")
 
@@ -117,7 +113,7 @@ class PrimaryIpArgs:
     @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
@@ -129,9 +125,7 @@ class PrimaryIpArgs:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-
-        Note: At least one of `location`, `datacenter` or `assignee_id` is required.
+        Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -143,7 +137,7 @@ class PrimaryIpArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        User-defined labels (key-value pairs).
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
@@ -155,7 +149,7 @@ class PrimaryIpArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -193,20 +187,17 @@ class _PrimaryIpState:
         """
         Input properties used for looking up and filtering PrimaryIp resources.
 
-        :param pulumi.Input[_builtins.int] assignee_id: ID of the assigned resource.
-        :param pulumi.Input[_builtins.str] assignee_type: The type of the assigned resource. Currently supported: `server`
-        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled.
-               `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-        :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
-        :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-               
-               Note: At least one of `location`, `datacenter` or `assignee_id` is required.
-        :param pulumi.Input[_builtins.str] ip_address: (string) IP Address of the Primary IP.
-        :param pulumi.Input[_builtins.str] ip_network: (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs).
-        :param pulumi.Input[_builtins.str] location: The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        :param pulumi.Input[_builtins.int] assignee_id: ID of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.str] assignee_type: Type of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        :param pulumi.Input[_builtins.str] datacenter: Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
+        :param pulumi.Input[_builtins.str] ip_address: IP address of the Primary IP.
+        :param pulumi.Input[_builtins.str] ip_network: IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param pulumi.Input[_builtins.str] location: Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
-        :param pulumi.Input[_builtins.str] type: Type of the Primary IP. `ipv4` or `ipv6`
+        :param pulumi.Input[_builtins.str] type: Type of the Primary IP (`ipv4` or `ipv6`).
         """
         if assignee_id is not None:
             pulumi.set(__self__, "assignee_id", assignee_id)
@@ -238,7 +229,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        ID of the assigned resource.
+        ID of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_id")
 
@@ -250,7 +241,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="assigneeType")
     def assignee_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of the assigned resource. Currently supported: `server`
+        Type of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_type")
 
@@ -262,8 +253,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether auto delete is enabled.
-        `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
         """
         return pulumi.get(self, "auto_delete")
 
@@ -276,7 +266,7 @@ class _PrimaryIpState:
     @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
@@ -288,9 +278,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-
-        Note: At least one of `location`, `datacenter` or `assignee_id` is required.
+        Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -302,7 +290,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (string) IP Address of the Primary IP.
+        IP address of the Primary IP.
         """
         return pulumi.get(self, "ip_address")
 
@@ -314,7 +302,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="ipNetwork")
     def ip_network(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
         """
         return pulumi.get(self, "ip_network")
 
@@ -326,7 +314,7 @@ class _PrimaryIpState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        User-defined labels (key-value pairs).
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
@@ -338,7 +326,7 @@ class _PrimaryIpState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -362,7 +350,7 @@ class _PrimaryIpState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Type of the Primary IP. `ipv4` or `ipv6`
+        Type of the Primary IP (`ipv4` or `ipv6`).
         """
         return pulumi.get(self, "type")
 
@@ -388,10 +376,9 @@ class PrimaryIp(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Hetzner Cloud Primary IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
+        Provides a Hetzner Cloud Primary IP resource.
 
-        If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
-        Currently, Primary IPs can be only attached to servers.
+        See the [Primary IP API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
 
         ## Deprecations
 
@@ -414,7 +401,7 @@ class PrimaryIp(pulumi.CustomResource):
 
         main = hcloud.PrimaryIp("main",
             name="primary_ip_test",
-            datacenter="fsn1-dc14",
+            location="fsn1",
             type="ipv4",
             assignee_type="server",
             auto_delete=True,
@@ -426,7 +413,7 @@ class PrimaryIp(pulumi.CustomResource):
             name="test-server",
             image="ubuntu-24.04",
             server_type="cx23",
-            datacenter="fsn1-dc14",
+            location="fsn1",
             labels={
                 "test": "tessst1",
             },
@@ -437,7 +424,7 @@ class PrimaryIp(pulumi.CustomResource):
 
         ## Import
 
-        Primary IPs can be imported using its `id`:
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
@@ -446,18 +433,15 @@ class PrimaryIp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] assignee_id: ID of the assigned resource.
-        :param pulumi.Input[_builtins.str] assignee_type: The type of the assigned resource. Currently supported: `server`
-        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled.
-               `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-        :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
-        :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-               
-               Note: At least one of `location`, `datacenter` or `assignee_id` is required.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs).
-        :param pulumi.Input[_builtins.str] location: The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        :param pulumi.Input[_builtins.int] assignee_id: ID of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.str] assignee_type: Type of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        :param pulumi.Input[_builtins.str] datacenter: Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param pulumi.Input[_builtins.str] location: Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
-        :param pulumi.Input[_builtins.str] type: Type of the Primary IP. `ipv4` or `ipv6`
+        :param pulumi.Input[_builtins.str] type: Type of the Primary IP (`ipv4` or `ipv6`).
         """
         ...
     @overload
@@ -466,10 +450,9 @@ class PrimaryIp(pulumi.CustomResource):
                  args: PrimaryIpArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Hetzner Cloud Primary IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
+        Provides a Hetzner Cloud Primary IP resource.
 
-        If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
-        Currently, Primary IPs can be only attached to servers.
+        See the [Primary IP API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
 
         ## Deprecations
 
@@ -492,7 +475,7 @@ class PrimaryIp(pulumi.CustomResource):
 
         main = hcloud.PrimaryIp("main",
             name="primary_ip_test",
-            datacenter="fsn1-dc14",
+            location="fsn1",
             type="ipv4",
             assignee_type="server",
             auto_delete=True,
@@ -504,7 +487,7 @@ class PrimaryIp(pulumi.CustomResource):
             name="test-server",
             image="ubuntu-24.04",
             server_type="cx23",
-            datacenter="fsn1-dc14",
+            location="fsn1",
             labels={
                 "test": "tessst1",
             },
@@ -515,7 +498,7 @@ class PrimaryIp(pulumi.CustomResource):
 
         ## Import
 
-        Primary IPs can be imported using its `id`:
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
@@ -600,20 +583,17 @@ class PrimaryIp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] assignee_id: ID of the assigned resource.
-        :param pulumi.Input[_builtins.str] assignee_type: The type of the assigned resource. Currently supported: `server`
-        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled.
-               `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
-        :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
-        :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-               
-               Note: At least one of `location`, `datacenter` or `assignee_id` is required.
-        :param pulumi.Input[_builtins.str] ip_address: (string) IP Address of the Primary IP.
-        :param pulumi.Input[_builtins.str] ip_network: (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs).
-        :param pulumi.Input[_builtins.str] location: The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        :param pulumi.Input[_builtins.int] assignee_id: ID of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.str] assignee_type: Type of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        :param pulumi.Input[_builtins.str] datacenter: Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
+        :param pulumi.Input[_builtins.str] ip_address: IP address of the Primary IP.
+        :param pulumi.Input[_builtins.str] ip_network: IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param pulumi.Input[_builtins.str] location: Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
-        :param pulumi.Input[_builtins.str] type: Type of the Primary IP. `ipv4` or `ipv6`
+        :param pulumi.Input[_builtins.str] type: Type of the Primary IP (`ipv4` or `ipv6`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -636,7 +616,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> pulumi.Output[_builtins.int]:
         """
-        ID of the assigned resource.
+        ID of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_id")
 
@@ -644,7 +624,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="assigneeType")
     def assignee_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the assigned resource. Currently supported: `server`
+        Type of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_type")
 
@@ -652,8 +632,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether auto delete is enabled.
-        `Important note:`It is recommended to set `auto_delete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
         """
         return pulumi.get(self, "auto_delete")
 
@@ -662,17 +641,15 @@ class PrimaryIp(pulumi.CustomResource):
     @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> pulumi.Output[_builtins.str]:
         """
-        The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-
-        Note: At least one of `location`, `datacenter` or `assignee_id` is required.
+        Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -680,7 +657,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[_builtins.str]:
         """
-        (string) IP Address of the Primary IP.
+        IP address of the Primary IP.
         """
         return pulumi.get(self, "ip_address")
 
@@ -688,15 +665,15 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="ipNetwork")
     def ip_network(self) -> pulumi.Output[_builtins.str]:
         """
-        (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
         """
         return pulumi.get(self, "ip_network")
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+    def labels(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        User-defined labels (key-value pairs).
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
@@ -704,7 +681,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
@@ -720,7 +697,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of the Primary IP. `ipv4` or `ipv6`
+        Type of the Primary IP (`ipv4` or `ipv6`).
         """
         return pulumi.get(self, "type")
 

@@ -18,7 +18,11 @@ public final class GetDatacenterResult {
     /**
      * @return List of currently available Server Types in the Datacenter.
      * 
+     * @deprecated
+     * This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
+     * 
      */
+    @Deprecated /* This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead. */
     private List<Integer> availableServerTypeIds;
     /**
      * @return Description of the Datacenter.
@@ -43,14 +47,22 @@ public final class GetDatacenterResult {
     /**
      * @return List of supported Server Types in the Datacenter.
      * 
+     * @deprecated
+     * This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
+     * 
      */
+    @Deprecated /* This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead. */
     private List<Integer> supportedServerTypeIds;
 
     private GetDatacenterResult() {}
     /**
      * @return List of currently available Server Types in the Datacenter.
      * 
+     * @deprecated
+     * This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
+     * 
      */
+    @Deprecated /* This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead. */
     public List<Integer> availableServerTypeIds() {
         return this.availableServerTypeIds;
     }
@@ -85,7 +97,11 @@ public final class GetDatacenterResult {
     /**
      * @return List of supported Server Types in the Datacenter.
      * 
+     * @deprecated
+     * This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
+     * 
      */
+    @Deprecated /* This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead. */
     public List<Integer> supportedServerTypeIds() {
         return this.supportedServerTypeIds;
     }

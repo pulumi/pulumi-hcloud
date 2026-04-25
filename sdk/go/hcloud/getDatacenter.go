@@ -67,6 +67,8 @@ type GetDatacenterArgs struct {
 // A collection of values returned by getDatacenter.
 type GetDatacenterResult struct {
 	// List of currently available Server Types in the Datacenter.
+	//
+	// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
 	AvailableServerTypeIds []int `pulumi:"availableServerTypeIds"`
 	// Description of the Datacenter.
 	Description string `pulumi:"description"`
@@ -77,6 +79,8 @@ type GetDatacenterResult struct {
 	// Name of the Datacenter.
 	Name *string `pulumi:"name"`
 	// List of supported Server Types in the Datacenter.
+	//
+	// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
 	SupportedServerTypeIds []int `pulumi:"supportedServerTypeIds"`
 }
 
@@ -117,6 +121,8 @@ func (o GetDatacenterResultOutput) ToGetDatacenterResultOutputWithContext(ctx co
 }
 
 // List of currently available Server Types in the Datacenter.
+//
+// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
 func (o GetDatacenterResultOutput) AvailableServerTypeIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDatacenterResult) []int { return v.AvailableServerTypeIds }).(pulumi.IntArrayOutput)
 }
@@ -142,6 +148,8 @@ func (o GetDatacenterResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // List of supported Server Types in the Datacenter.
+//
+// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
 func (o GetDatacenterResultOutput) SupportedServerTypeIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDatacenterResult) []int { return v.SupportedServerTypeIds }).(pulumi.IntArrayOutput)
 }

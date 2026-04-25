@@ -67,8 +67,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			primary1, err := hcloud.NewPrimaryIp(ctx, "primary1", &hcloud.PrimaryIpArgs{
-//				Datacenter: pulumi.String("nbg1-dc3"),
-//				Type:       pulumi.String("ipv4"),
+//				Location: pulumi.String("nbg1"),
+//				Type:     pulumi.String("ipv4"),
 //			})
 //			if err != nil {
 //				return err

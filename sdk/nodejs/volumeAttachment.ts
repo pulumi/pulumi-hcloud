@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *     name: "node1",
  *     image: "debian-12",
  *     serverType: "cx23",
- *     datacenter: "nbg1-dc3",
+ *     location: "nbg1",
  * });
  * const master = new hcloud.Volume("master", {
  *     location: "nbg1",

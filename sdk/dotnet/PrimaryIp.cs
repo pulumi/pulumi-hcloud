@@ -10,10 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud Primary IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
+    /// Provides a Hetzner Cloud Primary IP resource.
     /// 
-    /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-    /// Currently, Primary IPs can be only attached to servers.
+    /// See the [Primary IP API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
     /// 
     /// ## Deprecations
     /// 
@@ -41,7 +40,7 @@ namespace Pulumi.HCloud
     ///     var main = new HCloud.Index.PrimaryIp("main", new()
     ///     {
     ///         Name = "primary_ip_test",
-    ///         Datacenter = "fsn1-dc14",
+    ///         Location = "fsn1",
     ///         Type = "ipv4",
     ///         AssigneeType = "server",
     ///         AutoDelete = true,
@@ -57,7 +56,7 @@ namespace Pulumi.HCloud
     ///         Name = "test-server",
     ///         Image = "ubuntu-24.04",
     ///         ServerType = "cx23",
-    ///         Datacenter = "fsn1-dc14",
+    ///         Location = "fsn1",
     ///         Labels = 
     ///         {
     ///             { "test", "tessst1" },
@@ -76,7 +75,7 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Primary IPs can be imported using its `Id`:
+    /// The `pulumi import` command can be used, for example:
     /// 
     /// ```sh
     /// $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
@@ -86,58 +85,55 @@ namespace Pulumi.HCloud
     public partial class PrimaryIp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the assigned resource.
+        /// ID of the resource the Primary IP should be assigned to.
         /// </summary>
         [Output("assigneeId")]
         public Output<int> AssigneeId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `Server`
+        /// Type of the resource the Primary IP should be assigned to.
         /// </summary>
         [Output("assigneeType")]
         public Output<string> AssigneeType { get; private set; } = null!;
 
         /// <summary>
-        /// Whether auto delete is enabled.
-        /// `Important note:`It is recommended to set `AutoDelete` to `False`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        /// Whether auto delete is enabled. Setting `AutoDelete` to `False` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
         /// </summary>
         [Output("autoDelete")]
         public Output<bool> AutoDelete { get; private set; } = null!;
 
         /// <summary>
-        /// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        /// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Output("datacenter")]
         public Output<string> Datacenter { get; private set; } = null!;
 
         /// <summary>
-        /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-        /// 
-        /// Note: At least one of `Location`, `Datacenter` or `AssigneeId` is required.
+        /// Whether delete protection is enabled.
         /// </summary>
         [Output("deleteProtection")]
-        public Output<bool?> DeleteProtection { get; private set; } = null!;
+        public Output<bool> DeleteProtection { get; private set; } = null!;
 
         /// <summary>
-        /// (string) IP Address of the Primary IP.
+        /// IP address of the Primary IP.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `Type` is `Ipv6`)
+        /// IP network of the Primary IP for IPv6 addresses. Only set if `Type` is `Ipv6`.
         /// </summary>
         [Output("ipNetwork")]
         public Output<string> IpNetwork { get; private set; } = null!;
 
         /// <summary>
-        /// User-defined labels (key-value pairs).
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         [Output("labels")]
-        public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -149,7 +145,7 @@ namespace Pulumi.HCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Primary IP. `Ipv4` or `Ipv6`
+        /// Type of the Primary IP (`Ipv4` or `Ipv6`).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -201,34 +197,31 @@ namespace Pulumi.HCloud
     public sealed class PrimaryIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the assigned resource.
+        /// ID of the resource the Primary IP should be assigned to.
         /// </summary>
         [Input("assigneeId")]
         public Input<int>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `Server`
+        /// Type of the resource the Primary IP should be assigned to.
         /// </summary>
         [Input("assigneeType", required: true)]
         public Input<string> AssigneeType { get; set; } = null!;
 
         /// <summary>
-        /// Whether auto delete is enabled.
-        /// `Important note:`It is recommended to set `AutoDelete` to `False`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        /// Whether auto delete is enabled. Setting `AutoDelete` to `False` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
         /// </summary>
         [Input("autoDelete", required: true)]
         public Input<bool> AutoDelete { get; set; } = null!;
 
         /// <summary>
-        /// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        /// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-        /// 
-        /// Note: At least one of `Location`, `Datacenter` or `AssigneeId` is required.
+        /// Whether delete protection is enabled.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -237,7 +230,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// User-defined labels (key-value pairs).
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         public InputMap<string> Labels
         {
@@ -246,7 +239,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -258,7 +251,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of the Primary IP. `Ipv4` or `Ipv6`
+        /// Type of the Primary IP (`Ipv4` or `Ipv6`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -272,46 +265,43 @@ namespace Pulumi.HCloud
     public sealed class PrimaryIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the assigned resource.
+        /// ID of the resource the Primary IP should be assigned to.
         /// </summary>
         [Input("assigneeId")]
         public Input<int>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The type of the assigned resource. Currently supported: `Server`
+        /// Type of the resource the Primary IP should be assigned to.
         /// </summary>
         [Input("assigneeType")]
         public Input<string>? AssigneeType { get; set; }
 
         /// <summary>
-        /// Whether auto delete is enabled.
-        /// `Important note:`It is recommended to set `AutoDelete` to `False`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+        /// Whether auto delete is enabled. Setting `AutoDelete` to `False` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
         /// </summary>
         [Input("autoDelete")]
         public Input<bool>? AutoDelete { get; set; }
 
         /// <summary>
-        /// The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        /// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-        /// 
-        /// Note: At least one of `Location`, `Datacenter` or `AssigneeId` is required.
+        /// Whether delete protection is enabled.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
         /// <summary>
-        /// (string) IP Address of the Primary IP.
+        /// IP address of the Primary IP.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `Type` is `Ipv6`)
+        /// IP network of the Primary IP for IPv6 addresses. Only set if `Type` is `Ipv6`.
         /// </summary>
         [Input("ipNetwork")]
         public Input<string>? IpNetwork { get; set; }
@@ -320,7 +310,7 @@ namespace Pulumi.HCloud
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// User-defined labels (key-value pairs).
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         public InputMap<string> Labels
         {
@@ -329,7 +319,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -341,7 +331,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of the Primary IP. `Ipv4` or `Ipv6`
+        /// Type of the Primary IP (`Ipv4` or `Ipv6`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

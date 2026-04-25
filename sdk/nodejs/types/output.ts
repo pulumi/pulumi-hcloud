@@ -64,6 +64,8 @@ export interface GetCertificatesCertificate {
 export interface GetDatacentersDatacenter {
     /**
      * List of currently available Server Types in the Datacenter.
+     *
+     * @deprecated This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
      */
     availableServerTypeIds: number[];
     /**
@@ -84,6 +86,8 @@ export interface GetDatacentersDatacenter {
     name: string;
     /**
      * List of supported Server Types in the Datacenter.
+     *
+     * @deprecated This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
      */
     supportedServerTypeIds: number[];
 }
@@ -450,20 +454,55 @@ export interface GetPlacementGroupsPlacementGroup {
 }
 
 export interface GetPrimaryIpsPrimaryIp {
+    /**
+     * ID of the resource the Primary IP is assigned to.
+     */
     assigneeId: number;
+    /**
+     * Type of the resource the Primary IP is assigned to.
+     */
     assigneeType: string;
+    /**
+     * Whether auto delete is enabled.
+     */
     autoDelete: boolean;
     /**
+     * Name of the Datacenter of the Primary IP.
+     *
      * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
     datacenter: string;
+    /**
+     * Whether delete protection is enabled.
+     */
     deleteProtection: boolean;
+    /**
+     * ID of the Primary IP.
+     */
     id: number;
+    /**
+     * IP address of the Primary IP.
+     */
     ipAddress: string;
+    /**
+     * IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+     */
     ipNetwork: string;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     */
     labels: {[key: string]: string};
+    /**
+     * Name of the Location of the Primary IP.
+     */
     location: string;
-    name?: string;
+    /**
+     * Name of the Primary IP.
+     */
+    name: string;
+    /**
+     * Type of the Primary IP (`ipv4` or `ipv6`).
+     */
     type: string;
 }
 
@@ -488,6 +527,10 @@ export interface GetServerNetwork {
 
 export interface GetServerTypeLocation {
     /**
+     * Whether the Server Type is temporarily unavailable in this Location.
+     */
+    available: boolean;
+    /**
      * Date of the Server Type deprecation announcement.
      */
     deprecationAnnounced: string;
@@ -503,6 +546,10 @@ export interface GetServerTypeLocation {
      * Name of the Location.
      */
     name: string;
+    /**
+     * Whether the Server Type is recommended in this Location.
+     */
+    recommended: boolean;
     /**
      * Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      */
@@ -580,6 +627,10 @@ export interface GetServerTypesServerType {
 
 export interface GetServerTypesServerTypeLocation {
     /**
+     * Whether the Server Type is temporarily unavailable in this Location.
+     */
+    available: boolean;
+    /**
      * Date of the Server Type deprecation announcement.
      */
     deprecationAnnounced: string;
@@ -595,6 +646,10 @@ export interface GetServerTypesServerTypeLocation {
      * Name of the Location.
      */
     name: string;
+    /**
+     * Whether the Server Type is recommended in this Location.
+     */
+    recommended: boolean;
     /**
      * Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      */

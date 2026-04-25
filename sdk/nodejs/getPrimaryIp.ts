@@ -51,7 +51,7 @@ import * as utilities from "./utilities";
  *     name: "test-server",
  *     image: "ubuntu-24.04",
  *     serverType: "cx23",
- *     datacenter: "fsn1-dc14",
+ *     location: "fsn1",
  *     labels: {
  *         test: "tessst1",
  *     },
@@ -65,7 +65,6 @@ export function getPrimaryIp(args?: GetPrimaryIpArgs, opts?: pulumi.InvokeOption
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getPrimaryIp:getPrimaryIp", {
-        "assigneeId": args.assigneeId,
         "id": args.id,
         "ipAddress": args.ipAddress,
         "name": args.name,
@@ -77,10 +76,6 @@ export function getPrimaryIp(args?: GetPrimaryIpArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getPrimaryIp.
  */
 export interface GetPrimaryIpArgs {
-    /**
-     * (int) ID of the assigned resource.
-     */
-    assigneeId?: number;
     /**
      * ID of the Primary IP.
      */
@@ -128,11 +123,11 @@ export interface GetPrimaryIpResult {
     /**
      * (int) Unique ID of the Primary IP.
      */
-    readonly id: number;
+    readonly id?: number;
     /**
      * (string) IP Address of the Primary IP.
      */
-    readonly ipAddress: string;
+    readonly ipAddress?: string;
     /**
      * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
      */
@@ -202,7 +197,7 @@ export interface GetPrimaryIpResult {
  *     name: "test-server",
  *     image: "ubuntu-24.04",
  *     serverType: "cx23",
- *     datacenter: "fsn1-dc14",
+ *     location: "fsn1",
  *     labels: {
  *         test: "tessst1",
  *     },
@@ -216,7 +211,6 @@ export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getPrimaryIp:getPrimaryIp", {
-        "assigneeId": args.assigneeId,
         "id": args.id,
         "ipAddress": args.ipAddress,
         "name": args.name,
@@ -228,10 +222,6 @@ export function getPrimaryIpOutput(args?: GetPrimaryIpOutputArgs, opts?: pulumi.
  * A collection of arguments for invoking getPrimaryIp.
  */
 export interface GetPrimaryIpOutputArgs {
-    /**
-     * (int) ID of the assigned resource.
-     */
-    assigneeId?: pulumi.Input<number>;
     /**
      * ID of the Primary IP.
      */

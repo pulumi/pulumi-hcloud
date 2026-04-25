@@ -19,14 +19,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     public static final PrimaryIpState Empty = new PrimaryIpState();
 
     /**
-     * ID of the assigned resource.
+     * ID of the resource the Primary IP should be assigned to.
      * 
      */
     @Import(name="assigneeId")
     private @Nullable Output<Integer> assigneeId;
 
     /**
-     * @return ID of the assigned resource.
+     * @return ID of the resource the Primary IP should be assigned to.
      * 
      */
     public Optional<Output<Integer>> assigneeId() {
@@ -34,14 +34,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the assigned resource. Currently supported: `server`
+     * Type of the resource the Primary IP should be assigned to.
      * 
      */
     @Import(name="assigneeType")
     private @Nullable Output<String> assigneeType;
 
     /**
-     * @return The type of the assigned resource. Currently supported: `server`
+     * @return Type of the resource the Primary IP should be assigned to.
      * 
      */
     public Optional<Output<String>> assigneeType() {
@@ -49,16 +49,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
      * 
      */
     @Import(name="autoDelete")
     private @Nullable Output<Boolean> autoDelete;
 
     /**
-     * @return Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * @return Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
      * 
      */
     public Optional<Output<Boolean>> autoDelete() {
@@ -66,7 +64,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      * @deprecated
      * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
@@ -77,7 +75,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> datacenter;
 
     /**
-     * @return The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * @return Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      * @deprecated
      * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
@@ -89,18 +87,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
-     * 
-     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+     * Whether delete protection is enabled.
      * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
-     * 
-     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+     * @return Whether delete protection is enabled.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -108,14 +102,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (string) IP Address of the Primary IP.
+     * IP address of the Primary IP.
      * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
-     * @return (string) IP Address of the Primary IP.
+     * @return IP address of the Primary IP.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -123,14 +117,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      * 
      */
     @Import(name="ipNetwork")
     private @Nullable Output<String> ipNetwork;
 
     /**
-     * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * @return IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      * 
      */
     public Optional<Output<String>> ipNetwork() {
@@ -138,14 +132,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User-defined labels (key-value pairs).
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     @Import(name="labels")
     private @Nullable Output<Map<String,String>> labels;
 
     /**
-     * @return User-defined labels (key-value pairs).
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> labels() {
@@ -153,14 +147,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * @return Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Optional<Output<String>> location() {
@@ -183,14 +177,14 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the Primary IP. `ipv4` or `ipv6`
+     * Type of the Primary IP (`ipv4` or `ipv6`).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the Primary IP. `ipv4` or `ipv6`
+     * @return Type of the Primary IP (`ipv4` or `ipv6`).
      * 
      */
     public Optional<Output<String>> type() {
@@ -232,7 +226,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeId ID of the assigned resource.
+         * @param assigneeId ID of the resource the Primary IP should be assigned to.
          * 
          * @return builder
          * 
@@ -243,7 +237,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeId ID of the assigned resource.
+         * @param assigneeId ID of the resource the Primary IP should be assigned to.
          * 
          * @return builder
          * 
@@ -253,7 +247,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeType The type of the assigned resource. Currently supported: `server`
+         * @param assigneeType Type of the resource the Primary IP should be assigned to.
          * 
          * @return builder
          * 
@@ -264,7 +258,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assigneeType The type of the assigned resource. Currently supported: `server`
+         * @param assigneeType Type of the resource the Primary IP should be assigned to.
          * 
          * @return builder
          * 
@@ -274,8 +268,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDelete Whether auto delete is enabled.
-         * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+         * @param autoDelete Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
          * 
          * @return builder
          * 
@@ -286,8 +279,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDelete Whether auto delete is enabled.
-         * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+         * @param autoDelete Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
          * 
          * @return builder
          * 
@@ -297,7 +289,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datacenter The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+         * @param datacenter Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
          * 
          * @return builder
          * 
@@ -312,7 +304,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datacenter The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+         * @param datacenter Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
          * 
          * @return builder
          * 
@@ -326,9 +318,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
-         * 
-         * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+         * @param deleteProtection Whether delete protection is enabled.
          * 
          * @return builder
          * 
@@ -339,9 +329,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
-         * 
-         * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+         * @param deleteProtection Whether delete protection is enabled.
          * 
          * @return builder
          * 
@@ -351,7 +339,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress (string) IP Address of the Primary IP.
+         * @param ipAddress IP address of the Primary IP.
          * 
          * @return builder
          * 
@@ -362,7 +350,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress (string) IP Address of the Primary IP.
+         * @param ipAddress IP address of the Primary IP.
          * 
          * @return builder
          * 
@@ -372,7 +360,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipNetwork (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+         * @param ipNetwork IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
          * 
          * @return builder
          * 
@@ -383,7 +371,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipNetwork (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+         * @param ipNetwork IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
          * 
          * @return builder
          * 
@@ -393,7 +381,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels User-defined labels (key-value pairs).
+         * @param labels User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
          * 
          * @return builder
          * 
@@ -404,7 +392,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels User-defined labels (key-value pairs).
+         * @param labels User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
          * 
          * @return builder
          * 
@@ -414,7 +402,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+         * @param location Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
          * 
          * @return builder
          * 
@@ -425,7 +413,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+         * @param location Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
          * 
          * @return builder
          * 
@@ -456,7 +444,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Primary IP. `ipv4` or `ipv6`
+         * @param type Type of the Primary IP (`ipv4` or `ipv6`).
          * 
          * @return builder
          * 
@@ -467,7 +455,7 @@ public final class PrimaryIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Primary IP. `ipv4` or `ipv6`
+         * @param type Type of the Primary IP (`ipv4` or `ipv6`).
          * 
          * @return builder
          * 

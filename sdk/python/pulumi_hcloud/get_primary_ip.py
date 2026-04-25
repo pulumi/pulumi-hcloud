@@ -110,7 +110,7 @@ class GetPrimaryIpResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.int:
+    def id(self) -> Optional[_builtins.int]:
         """
         (int) Unique ID of the Primary IP.
         """
@@ -118,7 +118,7 @@ class GetPrimaryIpResult:
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> _builtins.str:
+    def ip_address(self) -> Optional[_builtins.str]:
         """
         (string) IP Address of the Primary IP.
         """
@@ -191,8 +191,7 @@ class AwaitableGetPrimaryIpResult(GetPrimaryIpResult):
             with_selector=self.with_selector)
 
 
-def get_primary_ip(assignee_id: Optional[_builtins.int] = None,
-                   id: Optional[_builtins.int] = None,
+def get_primary_ip(id: Optional[_builtins.int] = None,
                    ip_address: Optional[_builtins.str] = None,
                    name: Optional[_builtins.str] = None,
                    with_selector: Optional[_builtins.str] = None,
@@ -238,7 +237,7 @@ def get_primary_ip(assignee_id: Optional[_builtins.int] = None,
         name="test-server",
         image="ubuntu-24.04",
         server_type="cx23",
-        datacenter="fsn1-dc14",
+        location="fsn1",
         labels={
             "test": "tessst1",
         },
@@ -248,14 +247,12 @@ def get_primary_ip(assignee_id: Optional[_builtins.int] = None,
     ```
 
 
-    :param _builtins.int assignee_id: (int) ID of the assigned resource.
     :param _builtins.int id: ID of the Primary IP.
     :param _builtins.str ip_address: IP address of the Primary IP.
     :param _builtins.str name: Name of the Primary IP.
     :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
-    __args__['assigneeId'] = assignee_id
     __args__['id'] = id
     __args__['ipAddress'] = ip_address
     __args__['name'] = name
@@ -277,8 +274,7 @@ def get_primary_ip(assignee_id: Optional[_builtins.int] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                          id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def get_primary_ip_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                           ip_address: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -324,7 +320,7 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[_builtins.
         name="test-server",
         image="ubuntu-24.04",
         server_type="cx23",
-        datacenter="fsn1-dc14",
+        location="fsn1",
         labels={
             "test": "tessst1",
         },
@@ -334,14 +330,12 @@ def get_primary_ip_output(assignee_id: Optional[pulumi.Input[Optional[_builtins.
     ```
 
 
-    :param _builtins.int assignee_id: (int) ID of the assigned resource.
     :param _builtins.int id: ID of the Primary IP.
     :param _builtins.str ip_address: IP address of the Primary IP.
     :param _builtins.str name: Name of the Primary IP.
     :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
-    __args__['assigneeId'] = assignee_id
     __args__['id'] = id
     __args__['ipAddress'] = ip_address
     __args__['name'] = name

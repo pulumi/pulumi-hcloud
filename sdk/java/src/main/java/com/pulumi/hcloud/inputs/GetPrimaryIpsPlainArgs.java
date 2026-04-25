@@ -14,6 +14,13 @@ public final class GetPrimaryIpsPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetPrimaryIpsPlainArgs Empty = new GetPrimaryIpsPlainArgs();
 
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
@@ -32,6 +39,7 @@ public final class GetPrimaryIpsPlainArgs extends com.pulumi.resources.InvokeArg
     private GetPrimaryIpsPlainArgs() {}
 
     private GetPrimaryIpsPlainArgs(GetPrimaryIpsPlainArgs $) {
+        this.id = $.id;
         this.withSelector = $.withSelector;
     }
 
@@ -51,6 +59,11 @@ public final class GetPrimaryIpsPlainArgs extends com.pulumi.resources.InvokeArg
 
         public Builder(GetPrimaryIpsPlainArgs defaults) {
             $ = new GetPrimaryIpsPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
         }
 
         /**

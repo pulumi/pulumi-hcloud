@@ -53,7 +53,7 @@ namespace Pulumi.HCloud
     /// {
     ///     var primary1 = new HCloud.Index.PrimaryIp("primary1", new()
     ///     {
-    ///         Datacenter = "nbg1-dc3",
+    ///         Location = "nbg1",
     ///         Type = "ipv4",
     ///     });
     /// 

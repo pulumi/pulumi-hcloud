@@ -118,7 +118,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23",
-            datacenter="fsn1-dc8")
+            location="fsn1")
         master = hcloud.FloatingIp("master",
             type="ipv4",
             home_location="nbg1")
@@ -160,7 +160,7 @@ class FloatingIpAssignment(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23",
-            datacenter="fsn1-dc8")
+            location="fsn1")
         master = hcloud.FloatingIp("master",
             type="ipv4",
             home_location="nbg1")

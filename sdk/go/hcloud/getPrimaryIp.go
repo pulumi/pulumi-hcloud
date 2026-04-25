@@ -74,7 +74,7 @@ import (
 //				Name:       pulumi.String("test-server"),
 //				Image:      pulumi.String("ubuntu-24.04"),
 //				ServerType: pulumi.String("cx23"),
-//				Datacenter: pulumi.String("fsn1-dc14"),
+//				Location:   pulumi.String("fsn1"),
 //				Labels: pulumi.StringMap{
 //					"test": pulumi.String("tessst1"),
 //				},
@@ -104,8 +104,6 @@ func LookupPrimaryIp(ctx *pulumi.Context, args *LookupPrimaryIpArgs, opts ...pul
 
 // A collection of arguments for invoking getPrimaryIp.
 type LookupPrimaryIpArgs struct {
-	// (int) ID of the assigned resource.
-	AssigneeId *int `pulumi:"assigneeId"`
 	// ID of the Primary IP.
 	Id *int `pulumi:"id"`
 	// IP address of the Primary IP.
@@ -131,9 +129,9 @@ type LookupPrimaryIpResult struct {
 	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// (int) Unique ID of the Primary IP.
-	Id int `pulumi:"id"`
+	Id *int `pulumi:"id"`
 	// (string) IP Address of the Primary IP.
-	IpAddress string `pulumi:"ipAddress"`
+	IpAddress *string `pulumi:"ipAddress"`
 	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
 	IpNetwork string `pulumi:"ipNetwork"`
 	// (map) User-defined labels (key-value pairs).
@@ -158,8 +156,6 @@ func LookupPrimaryIpOutput(ctx *pulumi.Context, args LookupPrimaryIpOutputArgs, 
 
 // A collection of arguments for invoking getPrimaryIp.
 type LookupPrimaryIpOutputArgs struct {
-	// (int) ID of the assigned resource.
-	AssigneeId pulumi.IntPtrInput `pulumi:"assigneeId"`
 	// ID of the Primary IP.
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// IP address of the Primary IP.
@@ -217,13 +213,13 @@ func (o LookupPrimaryIpResultOutput) DeleteProtection() pulumi.BoolOutput {
 }
 
 // (int) Unique ID of the Primary IP.
-func (o LookupPrimaryIpResultOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupPrimaryIpResult) int { return v.Id }).(pulumi.IntOutput)
+func (o LookupPrimaryIpResultOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupPrimaryIpResult) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
 // (string) IP Address of the Primary IP.
-func (o LookupPrimaryIpResultOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.IpAddress }).(pulumi.StringOutput)
+func (o LookupPrimaryIpResultOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrimaryIpResult) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)

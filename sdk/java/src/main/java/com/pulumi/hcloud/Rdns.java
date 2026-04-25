@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary1 = new PrimaryIp("primary1", PrimaryIpArgs.builder()
- *             .datacenter("nbg1-dc3")
+ *             .location("nbg1")
  *             .type("ipv4")
  *             .build());
  * 

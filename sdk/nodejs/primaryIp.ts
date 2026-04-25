@@ -5,10 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud Primary IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
+ * Provides a Hetzner Cloud Primary IP resource.
  *
- * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
- * Currently, Primary IPs can be only attached to servers.
+ * See the [Primary IP API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
  *
  * ## Deprecations
  *
@@ -31,7 +30,7 @@ import * as utilities from "./utilities";
  *
  * const main = new hcloud.PrimaryIp("main", {
  *     name: "primary_ip_test",
- *     datacenter: "fsn1-dc14",
+ *     location: "fsn1",
  *     type: "ipv4",
  *     assigneeType: "server",
  *     autoDelete: true,
@@ -44,7 +43,7 @@ import * as utilities from "./utilities";
  *     name: "test-server",
  *     image: "ubuntu-24.04",
  *     serverType: "cx23",
- *     datacenter: "fsn1-dc14",
+ *     location: "fsn1",
  *     labels: {
  *         test: "tessst1",
  *     },
@@ -56,7 +55,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Primary IPs can be imported using its `id`:
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
  * $ pulumi import hcloud:index/primaryIp:PrimaryIp example "$PRIMARY_IP_ID"
@@ -91,44 +90,41 @@ export class PrimaryIp extends pulumi.CustomResource {
     }
 
     /**
-     * ID of the assigned resource.
+     * ID of the resource the Primary IP should be assigned to.
      */
     declare public readonly assigneeId: pulumi.Output<number>;
     /**
-     * The type of the assigned resource. Currently supported: `server`
+     * Type of the resource the Primary IP should be assigned to.
      */
     declare public readonly assigneeType: pulumi.Output<string>;
     /**
-     * Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
      */
     declare public readonly autoDelete: pulumi.Output<boolean>;
     /**
-     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
      * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
     declare public readonly datacenter: pulumi.Output<string>;
     /**
-     * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-     *
-     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+     * Whether delete protection is enabled.
      */
-    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteProtection: pulumi.Output<boolean>;
     /**
-     * (string) IP Address of the Primary IP.
+     * IP address of the Primary IP.
      */
     declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
-     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      */
     declare public /*out*/ readonly ipNetwork: pulumi.Output<string>;
     /**
-     * User-defined labels (key-value pairs).
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string}>;
     /**
-     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     declare public readonly location: pulumi.Output<string>;
     /**
@@ -136,7 +132,7 @@ export class PrimaryIp extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Type of the Primary IP. `ipv4` or `ipv6`
+     * Type of the Primary IP (`ipv4` or `ipv6`).
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -197,44 +193,41 @@ export class PrimaryIp extends pulumi.CustomResource {
  */
 export interface PrimaryIpState {
     /**
-     * ID of the assigned resource.
+     * ID of the resource the Primary IP should be assigned to.
      */
     assigneeId?: pulumi.Input<number>;
     /**
-     * The type of the assigned resource. Currently supported: `server`
+     * Type of the resource the Primary IP should be assigned to.
      */
     assigneeType?: pulumi.Input<string>;
     /**
-     * Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
      */
     autoDelete?: pulumi.Input<boolean>;
     /**
-     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
      * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
     datacenter?: pulumi.Input<string>;
     /**
-     * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-     *
-     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+     * Whether delete protection is enabled.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
-     * (string) IP Address of the Primary IP.
+     * IP address of the Primary IP.
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      */
     ipNetwork?: pulumi.Input<string>;
     /**
-     * User-defined labels (key-value pairs).
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**
@@ -242,7 +235,7 @@ export interface PrimaryIpState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Type of the Primary IP. `ipv4` or `ipv6`
+     * Type of the Primary IP (`ipv4` or `ipv6`).
      */
     type?: pulumi.Input<string>;
 }
@@ -252,36 +245,33 @@ export interface PrimaryIpState {
  */
 export interface PrimaryIpArgs {
     /**
-     * ID of the assigned resource.
+     * ID of the resource the Primary IP should be assigned to.
      */
     assigneeId?: pulumi.Input<number>;
     /**
-     * The type of the assigned resource. Currently supported: `server`
+     * Type of the resource the Primary IP should be assigned to.
      */
     assigneeType: pulumi.Input<string>;
     /**
-     * Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
      */
     autoDelete: pulumi.Input<boolean>;
     /**
-     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
      * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
     datacenter?: pulumi.Input<string>;
     /**
-     * Whether delete protection is enabled. See "Delete Protection" in the Provider Docs for details.
-     *
-     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+     * Whether delete protection is enabled.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
-     * User-defined labels (key-value pairs).
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
     location?: pulumi.Input<string>;
     /**
@@ -289,7 +279,7 @@ export interface PrimaryIpArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Type of the Primary IP. `ipv4` or `ipv6`
+     * Type of the Primary IP (`ipv4` or `ipv6`).
      */
     type: pulumi.Input<string>;
 }

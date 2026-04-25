@@ -13,17 +13,53 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetPrimaryIpsPrimaryIpResult
     {
+        /// <summary>
+        /// ID of the resource the Primary IP is assigned to.
+        /// </summary>
         public readonly int AssigneeId;
+        /// <summary>
+        /// Type of the resource the Primary IP is assigned to.
+        /// </summary>
         public readonly string AssigneeType;
+        /// <summary>
+        /// Whether auto delete is enabled.
+        /// </summary>
         public readonly bool AutoDelete;
+        /// <summary>
+        /// Name of the Datacenter of the Primary IP.
+        /// </summary>
         public readonly string Datacenter;
+        /// <summary>
+        /// Whether delete protection is enabled.
+        /// </summary>
         public readonly bool DeleteProtection;
+        /// <summary>
+        /// ID of the Primary IP.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// IP address of the Primary IP.
+        /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// IP network of the Primary IP for IPv6 addresses. Only set if `Type` is `Ipv6`.
+        /// </summary>
         public readonly string IpNetwork;
+        /// <summary>
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
+        /// <summary>
+        /// Name of the Location of the Primary IP.
+        /// </summary>
         public readonly string Location;
-        public readonly string? Name;
+        /// <summary>
+        /// Name of the Primary IP.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Type of the Primary IP (`Ipv4` or `Ipv6`).
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -48,7 +84,7 @@ namespace Pulumi.HCloud.Outputs
 
             string location,
 
-            string? name,
+            string name,
 
             string type)
         {

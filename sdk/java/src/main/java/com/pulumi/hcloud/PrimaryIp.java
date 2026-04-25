@@ -14,14 +14,12 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Hetzner Cloud Primary IP to represent a publicly-accessible static IP address that can be mapped to one of your servers.
+ * Provides a Hetzner Cloud Primary IP resource.
  * 
- * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
- * Currently, Primary IPs can be only attached to servers.
+ * See the [Primary IP API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
  * 
  * ## Deprecations
  * 
@@ -65,7 +63,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var main = new PrimaryIp("main", PrimaryIpArgs.builder()
  *             .name("primary_ip_test")
- *             .datacenter("fsn1-dc14")
+ *             .location("fsn1")
  *             .type("ipv4")
  *             .assigneeType("server")
  *             .autoDelete(true)
@@ -77,7 +75,7 @@ import javax.annotation.Nullable;
  *             .name("test-server")
  *             .image("ubuntu-24.04")
  *             .serverType("cx23")
- *             .datacenter("fsn1-dc14")
+ *             .location("fsn1")
  *             .labels(Map.of("test", "tessst1"))
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4(main.id())
@@ -91,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Primary IPs can be imported using its `id`:
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
  * $ pulumi import hcloud:index/primaryIp:PrimaryIp example &#34;$PRIMARY_IP_ID&#34;
@@ -101,51 +99,49 @@ import javax.annotation.Nullable;
 @ResourceType(type="hcloud:index/primaryIp:PrimaryIp")
 public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
-     * ID of the assigned resource.
+     * ID of the resource the Primary IP should be assigned to.
      * 
      */
     @Export(name="assigneeId", refs={Integer.class}, tree="[0]")
     private Output<Integer> assigneeId;
 
     /**
-     * @return ID of the assigned resource.
+     * @return ID of the resource the Primary IP should be assigned to.
      * 
      */
     public Output<Integer> assigneeId() {
         return this.assigneeId;
     }
     /**
-     * The type of the assigned resource. Currently supported: `server`
+     * Type of the resource the Primary IP should be assigned to.
      * 
      */
     @Export(name="assigneeType", refs={String.class}, tree="[0]")
     private Output<String> assigneeType;
 
     /**
-     * @return The type of the assigned resource. Currently supported: `server`
+     * @return Type of the resource the Primary IP should be assigned to.
      * 
      */
     public Output<String> assigneeType() {
         return this.assigneeType;
     }
     /**
-     * Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
      * 
      */
     @Export(name="autoDelete", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoDelete;
 
     /**
-     * @return Whether auto delete is enabled.
-     * `Important note:`It is recommended to set `autoDelete` to `false`, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the TF state.
+     * @return Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
      * 
      */
     public Output<Boolean> autoDelete() {
         return this.autoDelete;
     }
     /**
-     * The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      * @deprecated
      * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
@@ -156,81 +152,77 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     private Output<String> datacenter;
 
     /**
-     * @return The datacenter name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * @return Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      */
     public Output<String> datacenter() {
         return this.datacenter;
     }
     /**
-     * Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
-     * 
-     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+     * Whether delete protection is enabled.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> deleteProtection;
+    private Output<Boolean> deleteProtection;
 
     /**
-     * @return Whether delete protection is enabled. See &#34;Delete Protection&#34; in the Provider Docs for details.
-     * 
-     * Note: At least one of `location`, `datacenter` or `assigneeId` is required.
+     * @return Whether delete protection is enabled.
      * 
      */
-    public Output<Optional<Boolean>> deleteProtection() {
-        return Codegen.optional(this.deleteProtection);
+    public Output<Boolean> deleteProtection() {
+        return this.deleteProtection;
     }
     /**
-     * (string) IP Address of the Primary IP.
+     * IP address of the Primary IP.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
-     * @return (string) IP Address of the Primary IP.
+     * @return IP address of the Primary IP.
      * 
      */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
     /**
-     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      * 
      */
     @Export(name="ipNetwork", refs={String.class}, tree="[0]")
     private Output<String> ipNetwork;
 
     /**
-     * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * @return IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      * 
      */
     public Output<String> ipNetwork() {
         return this.ipNetwork;
     }
     /**
-     * User-defined labels (key-value pairs).
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> labels;
+    private Output<Map<String,String>> labels;
 
     /**
-     * @return User-defined labels (key-value pairs).
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
-    public Output<Optional<Map<String,String>>> labels() {
-        return Codegen.optional(this.labels);
+    public Output<Map<String,String>> labels() {
+        return this.labels;
     }
     /**
-     * The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The location name to create the resource in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * @return Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      * 
      */
     public Output<String> location() {
@@ -251,14 +243,14 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Type of the Primary IP. `ipv4` or `ipv6`
+     * Type of the Primary IP (`ipv4` or `ipv6`).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Primary IP. `ipv4` or `ipv6`
+     * @return Type of the Primary IP (`ipv4` or `ipv6`).
      * 
      */
     public Output<String> type() {

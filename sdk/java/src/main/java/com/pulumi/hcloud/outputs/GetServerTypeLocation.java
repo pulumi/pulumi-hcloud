@@ -13,6 +13,11 @@ import java.util.Objects;
 @CustomType
 public final class GetServerTypeLocation {
     /**
+     * @return Whether the Server Type is temporarily unavailable in this Location.
+     * 
+     */
+    private Boolean available;
+    /**
      * @return Date of the Server Type deprecation announcement.
      * 
      */
@@ -33,12 +38,24 @@ public final class GetServerTypeLocation {
      */
     private String name;
     /**
+     * @return Whether the Server Type is recommended in this Location.
+     * 
+     */
+    private Boolean recommended;
+    /**
      * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      * 
      */
     private String unavailableAfter;
 
     private GetServerTypeLocation() {}
+    /**
+     * @return Whether the Server Type is temporarily unavailable in this Location.
+     * 
+     */
+    public Boolean available() {
+        return this.available;
+    }
     /**
      * @return Date of the Server Type deprecation announcement.
      * 
@@ -68,6 +85,13 @@ public final class GetServerTypeLocation {
         return this.name;
     }
     /**
+     * @return Whether the Server Type is recommended in this Location.
+     * 
+     */
+    public Boolean recommended() {
+        return this.recommended;
+    }
+    /**
      * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      * 
      */
@@ -84,21 +108,33 @@ public final class GetServerTypeLocation {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean available;
         private String deprecationAnnounced;
         private Integer id;
         private Boolean isDeprecated;
         private String name;
+        private Boolean recommended;
         private String unavailableAfter;
         public Builder() {}
         public Builder(GetServerTypeLocation defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.available = defaults.available;
     	      this.deprecationAnnounced = defaults.deprecationAnnounced;
     	      this.id = defaults.id;
     	      this.isDeprecated = defaults.isDeprecated;
     	      this.name = defaults.name;
+    	      this.recommended = defaults.recommended;
     	      this.unavailableAfter = defaults.unavailableAfter;
         }
 
+        @CustomType.Setter
+        public Builder available(Boolean available) {
+            if (available == null) {
+              throw new MissingRequiredPropertyException("GetServerTypeLocation", "available");
+            }
+            this.available = available;
+            return this;
+        }
         @CustomType.Setter
         public Builder deprecationAnnounced(String deprecationAnnounced) {
             if (deprecationAnnounced == null) {
@@ -132,6 +168,14 @@ public final class GetServerTypeLocation {
             return this;
         }
         @CustomType.Setter
+        public Builder recommended(Boolean recommended) {
+            if (recommended == null) {
+              throw new MissingRequiredPropertyException("GetServerTypeLocation", "recommended");
+            }
+            this.recommended = recommended;
+            return this;
+        }
+        @CustomType.Setter
         public Builder unavailableAfter(String unavailableAfter) {
             if (unavailableAfter == null) {
               throw new MissingRequiredPropertyException("GetServerTypeLocation", "unavailableAfter");
@@ -141,10 +185,12 @@ public final class GetServerTypeLocation {
         }
         public GetServerTypeLocation build() {
             final var _resultValue = new GetServerTypeLocation();
+            _resultValue.available = available;
             _resultValue.deprecationAnnounced = deprecationAnnounced;
             _resultValue.id = id;
             _resultValue.isDeprecated = isDeprecated;
             _resultValue.name = name;
+            _resultValue.recommended = recommended;
             _resultValue.unavailableAfter = unavailableAfter;
             return _resultValue;
         }

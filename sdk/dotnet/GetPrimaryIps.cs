@@ -87,6 +87,9 @@ namespace Pulumi.HCloud
 
     public sealed class GetPrimaryIpsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public string? Id { get; set; }
+
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
         /// </summary>
@@ -101,6 +104,9 @@ namespace Pulumi.HCloud
 
     public sealed class GetPrimaryIpsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         /// <summary>
         /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
         /// </summary>
@@ -117,9 +123,6 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetPrimaryIpsResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         /// <summary>
         /// (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.

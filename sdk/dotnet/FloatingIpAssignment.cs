@@ -27,7 +27,7 @@ namespace Pulumi.HCloud
     ///         Name = "node1",
     ///         Image = "debian-12",
     ///         ServerType = "cx23",
-    ///         Datacenter = "fsn1-dc8",
+    ///         Location = "fsn1",
     ///     });
     /// 
     ///     var master = new HCloud.Index.FloatingIp("master", new()

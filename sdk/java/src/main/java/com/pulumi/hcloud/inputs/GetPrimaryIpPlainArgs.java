@@ -16,21 +16,6 @@ public final class GetPrimaryIpPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetPrimaryIpPlainArgs Empty = new GetPrimaryIpPlainArgs();
 
     /**
-     * (int) ID of the assigned resource.
-     * 
-     */
-    @Import(name="assigneeId")
-    private @Nullable Integer assigneeId;
-
-    /**
-     * @return (int) ID of the assigned resource.
-     * 
-     */
-    public Optional<Integer> assigneeId() {
-        return Optional.ofNullable(this.assigneeId);
-    }
-
-    /**
      * ID of the Primary IP.
      * 
      */
@@ -93,7 +78,6 @@ public final class GetPrimaryIpPlainArgs extends com.pulumi.resources.InvokeArgs
     private GetPrimaryIpPlainArgs() {}
 
     private GetPrimaryIpPlainArgs(GetPrimaryIpPlainArgs $) {
-        this.assigneeId = $.assigneeId;
         this.id = $.id;
         this.ipAddress = $.ipAddress;
         this.name = $.name;
@@ -116,17 +100,6 @@ public final class GetPrimaryIpPlainArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetPrimaryIpPlainArgs defaults) {
             $ = new GetPrimaryIpPlainArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param assigneeId (int) ID of the assigned resource.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder assigneeId(@Nullable Integer assigneeId) {
-            $.assigneeId = assigneeId;
-            return this;
         }
 
         /**

@@ -10,41 +10,99 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPrimaryIpsPrimaryIp {
+    /**
+     * @return ID of the resource the Primary IP is assigned to.
+     * 
+     */
     private Integer assigneeId;
+    /**
+     * @return Type of the resource the Primary IP is assigned to.
+     * 
+     */
     private String assigneeType;
+    /**
+     * @return Whether auto delete is enabled.
+     * 
+     */
     private Boolean autoDelete;
     /**
+     * @return Name of the Datacenter of the Primary IP.
+     * 
      * @deprecated
      * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      * 
      */
     @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
     private String datacenter;
+    /**
+     * @return Whether delete protection is enabled.
+     * 
+     */
     private Boolean deleteProtection;
+    /**
+     * @return ID of the Primary IP.
+     * 
+     */
     private Integer id;
+    /**
+     * @return IP address of the Primary IP.
+     * 
+     */
     private String ipAddress;
+    /**
+     * @return IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+     * 
+     */
     private String ipNetwork;
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     * 
+     */
     private Map<String,String> labels;
+    /**
+     * @return Name of the Location of the Primary IP.
+     * 
+     */
     private String location;
-    private @Nullable String name;
+    /**
+     * @return Name of the Primary IP.
+     * 
+     */
+    private String name;
+    /**
+     * @return Type of the Primary IP (`ipv4` or `ipv6`).
+     * 
+     */
     private String type;
 
     private GetPrimaryIpsPrimaryIp() {}
+    /**
+     * @return ID of the resource the Primary IP is assigned to.
+     * 
+     */
     public Integer assigneeId() {
         return this.assigneeId;
     }
+    /**
+     * @return Type of the resource the Primary IP is assigned to.
+     * 
+     */
     public String assigneeType() {
         return this.assigneeType;
     }
+    /**
+     * @return Whether auto delete is enabled.
+     * 
+     */
     public Boolean autoDelete() {
         return this.autoDelete;
     }
     /**
+     * @return Name of the Datacenter of the Primary IP.
+     * 
      * @deprecated
      * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      * 
@@ -53,27 +111,59 @@ public final class GetPrimaryIpsPrimaryIp {
     public String datacenter() {
         return this.datacenter;
     }
+    /**
+     * @return Whether delete protection is enabled.
+     * 
+     */
     public Boolean deleteProtection() {
         return this.deleteProtection;
     }
+    /**
+     * @return ID of the Primary IP.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return IP address of the Primary IP.
+     * 
+     */
     public String ipAddress() {
         return this.ipAddress;
     }
+    /**
+     * @return IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+     * 
+     */
     public String ipNetwork() {
         return this.ipNetwork;
     }
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     * 
+     */
     public Map<String,String> labels() {
         return this.labels;
     }
+    /**
+     * @return Name of the Location of the Primary IP.
+     * 
+     */
     public String location() {
         return this.location;
     }
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    /**
+     * @return Name of the Primary IP.
+     * 
+     */
+    public String name() {
+        return this.name;
     }
+    /**
+     * @return Type of the Primary IP (`ipv4` or `ipv6`).
+     * 
+     */
     public String type() {
         return this.type;
     }
@@ -97,7 +187,7 @@ public final class GetPrimaryIpsPrimaryIp {
         private String ipNetwork;
         private Map<String,String> labels;
         private String location;
-        private @Nullable String name;
+        private String name;
         private String type;
         public Builder() {}
         public Builder(GetPrimaryIpsPrimaryIp defaults) {
@@ -197,8 +287,10 @@ public final class GetPrimaryIpsPrimaryIp {
             return this;
         }
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-
+        public Builder name(String name) {
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPrimaryIpsPrimaryIp", "name");
+            }
             this.name = name;
             return this;
         }
