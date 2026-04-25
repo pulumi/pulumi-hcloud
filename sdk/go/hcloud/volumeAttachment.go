@@ -32,7 +32,7 @@ import (
 //				Name:       pulumi.String("node1"),
 //				Image:      pulumi.String("debian-12"),
 //				ServerType: pulumi.String("cx23"),
-//				Datacenter: pulumi.String("nbg1-dc3"),
+//				Location:   pulumi.String("nbg1"),
 //			})
 //			if err != nil {
 //				return err

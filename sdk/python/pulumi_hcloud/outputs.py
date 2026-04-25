@@ -1189,6 +1189,7 @@ class GetDatacentersDatacenterResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="availableServerTypeIds")
+    @_utilities.deprecated("""This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.""")
     def available_server_type_ids(self) -> Sequence[_builtins.int]:
         """
         List of currently available Server Types in the Datacenter.
@@ -1229,6 +1230,7 @@ class GetDatacentersDatacenterResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="supportedServerTypeIds")
+    @_utilities.deprecated("""This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.""")
     def supported_server_type_ids(self) -> Sequence[_builtins.int]:
         """
         List of supported Server Types in the Datacenter.
@@ -2556,8 +2558,22 @@ class GetPrimaryIpsPrimaryIpResult(dict):
                  ip_network: _builtins.str,
                  labels: Mapping[str, _builtins.str],
                  location: _builtins.str,
-                 type: _builtins.str,
-                 name: Optional[_builtins.str] = None):
+                 name: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.int assignee_id: ID of the resource the Primary IP is assigned to.
+        :param _builtins.str assignee_type: Type of the resource the Primary IP is assigned to.
+        :param _builtins.bool auto_delete: Whether auto delete is enabled.
+        :param _builtins.str datacenter: Name of the Datacenter of the Primary IP.
+        :param _builtins.bool delete_protection: Whether delete protection is enabled.
+        :param _builtins.int id: ID of the Primary IP.
+        :param _builtins.str ip_address: IP address of the Primary IP.
+        :param _builtins.str ip_network: IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param _builtins.str location: Name of the Location of the Primary IP.
+        :param _builtins.str name: Name of the Primary IP.
+        :param _builtins.str type: Type of the Primary IP (`ipv4` or `ipv6`).
+        """
         pulumi.set(__self__, "assignee_id", assignee_id)
         pulumi.set(__self__, "assignee_type", assignee_type)
         pulumi.set(__self__, "auto_delete", auto_delete)
@@ -2568,70 +2584,105 @@ class GetPrimaryIpsPrimaryIpResult(dict):
         pulumi.set(__self__, "ip_network", ip_network)
         pulumi.set(__self__, "labels", labels)
         pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> _builtins.int:
+        """
+        ID of the resource the Primary IP is assigned to.
+        """
         return pulumi.get(self, "assignee_id")
 
     @_builtins.property
     @pulumi.getter(name="assigneeType")
     def assignee_type(self) -> _builtins.str:
+        """
+        Type of the resource the Primary IP is assigned to.
+        """
         return pulumi.get(self, "assignee_type")
 
     @_builtins.property
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> _builtins.bool:
+        """
+        Whether auto delete is enabled.
+        """
         return pulumi.get(self, "auto_delete")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
     def datacenter(self) -> _builtins.str:
+        """
+        Name of the Datacenter of the Primary IP.
+        """
         return pulumi.get(self, "datacenter")
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> _builtins.bool:
+        """
+        Whether delete protection is enabled.
+        """
         return pulumi.get(self, "delete_protection")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.int:
+        """
+        ID of the Primary IP.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> _builtins.str:
+        """
+        IP address of the Primary IP.
+        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter(name="ipNetwork")
     def ip_network(self) -> _builtins.str:
+        """
+        IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+        """
         return pulumi.get(self, "ip_network")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter
     def location(self) -> _builtins.str:
+        """
+        Name of the Location of the Primary IP.
+        """
         return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> _builtins.str:
-        return pulumi.get(self, "type")
+    def name(self) -> _builtins.str:
+        """
+        Name of the Primary IP.
+        """
+        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "name")
+    def type(self) -> _builtins.str:
+        """
+        Type of the Primary IP (`ipv4` or `ipv6`).
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2688,23 +2739,37 @@ class GetServerNetworkResult(dict):
 @pulumi.output_type
 class GetServerTypeLocationResult(dict):
     def __init__(__self__, *,
+                 available: _builtins.bool,
                  deprecation_announced: _builtins.str,
                  id: _builtins.int,
                  is_deprecated: _builtins.bool,
                  name: _builtins.str,
+                 recommended: _builtins.bool,
                  unavailable_after: _builtins.str):
         """
+        :param _builtins.bool available: Whether the Server Type is temporarily unavailable in this Location.
         :param _builtins.str deprecation_announced: Date of the Server Type deprecation announcement.
         :param _builtins.int id: ID of the Location.
         :param _builtins.bool is_deprecated: Whether the Server Type is deprecated.
         :param _builtins.str name: Name of the Location.
+        :param _builtins.bool recommended: Whether the Server Type is recommended in this Location.
         :param _builtins.str unavailable_after: Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
         """
+        pulumi.set(__self__, "available", available)
         pulumi.set(__self__, "deprecation_announced", deprecation_announced)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_deprecated", is_deprecated)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "recommended", recommended)
         pulumi.set(__self__, "unavailable_after", unavailable_after)
+
+    @_builtins.property
+    @pulumi.getter
+    def available(self) -> _builtins.bool:
+        """
+        Whether the Server Type is temporarily unavailable in this Location.
+        """
+        return pulumi.get(self, "available")
 
     @_builtins.property
     @pulumi.getter(name="deprecationAnnounced")
@@ -2737,6 +2802,14 @@ class GetServerTypeLocationResult(dict):
         Name of the Location.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def recommended(self) -> _builtins.bool:
+        """
+        Whether the Server Type is recommended in this Location.
+        """
+        return pulumi.get(self, "recommended")
 
     @_builtins.property
     @pulumi.getter(name="unavailableAfter")
@@ -2922,23 +2995,37 @@ class GetServerTypesServerTypeResult(dict):
 @pulumi.output_type
 class GetServerTypesServerTypeLocationResult(dict):
     def __init__(__self__, *,
+                 available: _builtins.bool,
                  deprecation_announced: _builtins.str,
                  id: _builtins.int,
                  is_deprecated: _builtins.bool,
                  name: _builtins.str,
+                 recommended: _builtins.bool,
                  unavailable_after: _builtins.str):
         """
+        :param _builtins.bool available: Whether the Server Type is temporarily unavailable in this Location.
         :param _builtins.str deprecation_announced: Date of the Server Type deprecation announcement.
         :param _builtins.int id: ID of the Location.
         :param _builtins.bool is_deprecated: Whether the Server Type is deprecated.
         :param _builtins.str name: Name of the Location.
+        :param _builtins.bool recommended: Whether the Server Type is recommended in this Location.
         :param _builtins.str unavailable_after: Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
         """
+        pulumi.set(__self__, "available", available)
         pulumi.set(__self__, "deprecation_announced", deprecation_announced)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_deprecated", is_deprecated)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "recommended", recommended)
         pulumi.set(__self__, "unavailable_after", unavailable_after)
+
+    @_builtins.property
+    @pulumi.getter
+    def available(self) -> _builtins.bool:
+        """
+        Whether the Server Type is temporarily unavailable in this Location.
+        """
+        return pulumi.get(self, "available")
 
     @_builtins.property
     @pulumi.getter(name="deprecationAnnounced")
@@ -2971,6 +3058,14 @@ class GetServerTypesServerTypeLocationResult(dict):
         Name of the Location.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def recommended(self) -> _builtins.bool:
+        """
+        Whether the Server Type is recommended in this Location.
+        """
+        return pulumi.get(self, "recommended")
 
     @_builtins.property
     @pulumi.getter(name="unavailableAfter")

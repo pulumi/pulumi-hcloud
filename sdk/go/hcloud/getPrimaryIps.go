@@ -50,13 +50,13 @@ func GetPrimaryIps(ctx *pulumi.Context, args *GetPrimaryIpsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getPrimaryIps.
 type GetPrimaryIpsArgs struct {
+	Id *string `pulumi:"id"`
 	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
 }
 
 // A collection of values returned by getPrimaryIps.
 type GetPrimaryIpsResult struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.
 	PrimaryIps   []GetPrimaryIpsPrimaryIp `pulumi:"primaryIps"`
@@ -74,6 +74,7 @@ func GetPrimaryIpsOutput(ctx *pulumi.Context, args GetPrimaryIpsOutputArgs, opts
 
 // A collection of arguments for invoking getPrimaryIps.
 type GetPrimaryIpsOutputArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
@@ -97,7 +98,6 @@ func (o GetPrimaryIpsResultOutput) ToGetPrimaryIpsResultOutputWithContext(ctx co
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o GetPrimaryIpsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsResult) string { return v.Id }).(pulumi.StringOutput)
 }

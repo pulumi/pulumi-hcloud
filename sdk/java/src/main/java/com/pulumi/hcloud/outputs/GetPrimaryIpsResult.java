@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPrimaryIpsResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
     /**
      * @return (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.
@@ -27,10 +23,6 @@ public final class GetPrimaryIpsResult {
     private @Nullable String withSelector;
 
     private GetPrimaryIpsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

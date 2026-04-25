@@ -52,6 +52,8 @@ export interface GetDatacenterArgs {
 export interface GetDatacenterResult {
     /**
      * List of currently available Server Types in the Datacenter.
+     *
+     * @deprecated This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
      */
     readonly availableServerTypeIds: number[];
     /**
@@ -72,6 +74,8 @@ export interface GetDatacenterResult {
     readonly name?: string;
     /**
      * List of supported Server Types in the Datacenter.
+     *
+     * @deprecated This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
      */
     readonly supportedServerTypeIds: number[];
 }

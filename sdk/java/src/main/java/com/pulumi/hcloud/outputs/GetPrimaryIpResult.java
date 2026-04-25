@@ -48,12 +48,12 @@ public final class GetPrimaryIpResult {
      * @return (int) Unique ID of the Primary IP.
      * 
      */
-    private Integer id;
+    private @Nullable Integer id;
     /**
      * @return (string) IP Address of the Primary IP.
      * 
      */
-    private String ipAddress;
+    private @Nullable String ipAddress;
     /**
      * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
      * 
@@ -125,15 +125,15 @@ public final class GetPrimaryIpResult {
      * @return (int) Unique ID of the Primary IP.
      * 
      */
-    public Integer id() {
-        return this.id;
+    public Optional<Integer> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return (string) IP Address of the Primary IP.
      * 
      */
-    public String ipAddress() {
-        return this.ipAddress;
+    public Optional<String> ipAddress() {
+        return Optional.ofNullable(this.ipAddress);
     }
     /**
      * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
@@ -188,8 +188,8 @@ public final class GetPrimaryIpResult {
         private Boolean autoDelete;
         private String datacenter;
         private Boolean deleteProtection;
-        private Integer id;
-        private String ipAddress;
+        private @Nullable Integer id;
+        private @Nullable String ipAddress;
         private String ipNetwork;
         private Map<String,String> labels;
         private String location;
@@ -255,18 +255,14 @@ public final class GetPrimaryIpResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(Integer id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetPrimaryIpResult", "id");
-            }
+        public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddress(String ipAddress) {
-            if (ipAddress == null) {
-              throw new MissingRequiredPropertyException("GetPrimaryIpResult", "ipAddress");
-            }
+        public Builder ipAddress(@Nullable String ipAddress) {
+
             this.ipAddress = ipAddress;
             return this;
         }

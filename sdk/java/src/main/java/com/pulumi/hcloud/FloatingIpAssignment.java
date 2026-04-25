@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .name("node1")
  *             .image("debian-12")
  *             .serverType("cx23")
- *             .datacenter("fsn1-dc8")
+ *             .location("fsn1")
  *             .build());
  * 
  *         var master = new FloatingIp("master", FloatingIpArgs.builder()

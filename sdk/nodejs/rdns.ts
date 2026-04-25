@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const primary1 = new hcloud.PrimaryIp("primary1", {
- *     datacenter: "nbg1-dc3",
+ *     location: "nbg1",
  *     type: "ipv4",
  * });
  * const primary1Rdns = new hcloud.Rdns("primary1", {

@@ -14,6 +14,10 @@ namespace Pulumi.HCloud.Outputs
     public sealed class GetServerTypesServerTypeLocationResult
     {
         /// <summary>
+        /// Whether the Server Type is temporarily unavailable in this Location.
+        /// </summary>
+        public readonly bool Available;
+        /// <summary>
         /// Date of the Server Type deprecation announcement.
         /// </summary>
         public readonly string DeprecationAnnounced;
@@ -30,12 +34,18 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Whether the Server Type is recommended in this Location.
+        /// </summary>
+        public readonly bool Recommended;
+        /// <summary>
         /// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
         /// </summary>
         public readonly string UnavailableAfter;
 
         [OutputConstructor]
         private GetServerTypesServerTypeLocationResult(
+            bool available,
+
             string deprecationAnnounced,
 
             int id,
@@ -44,12 +54,16 @@ namespace Pulumi.HCloud.Outputs
 
             string name,
 
+            bool recommended,
+
             string unavailableAfter)
         {
+            Available = available;
             DeprecationAnnounced = deprecationAnnounced;
             Id = id;
             IsDeprecated = isDeprecated;
             Name = name;
+            Recommended = recommended;
             UnavailableAfter = unavailableAfter;
         }
     }

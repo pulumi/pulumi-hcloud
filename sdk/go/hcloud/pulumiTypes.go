@@ -2581,6 +2581,8 @@ func (o GetCertificatesCertificateArrayOutput) Index(i pulumi.IntInput) GetCerti
 
 type GetDatacentersDatacenter struct {
 	// List of currently available Server Types in the Datacenter.
+	//
+	// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
 	AvailableServerTypeIds []int `pulumi:"availableServerTypeIds"`
 	// Description of the Datacenter.
 	Description string `pulumi:"description"`
@@ -2591,6 +2593,8 @@ type GetDatacentersDatacenter struct {
 	// Name of the Datacenter.
 	Name string `pulumi:"name"`
 	// List of supported Server Types in the Datacenter.
+	//
+	// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
 	SupportedServerTypeIds []int `pulumi:"supportedServerTypeIds"`
 }
 
@@ -2607,6 +2611,8 @@ type GetDatacentersDatacenterInput interface {
 
 type GetDatacentersDatacenterArgs struct {
 	// List of currently available Server Types in the Datacenter.
+	//
+	// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
 	AvailableServerTypeIds pulumi.IntArrayInput `pulumi:"availableServerTypeIds"`
 	// Description of the Datacenter.
 	Description pulumi.StringInput `pulumi:"description"`
@@ -2617,6 +2623,8 @@ type GetDatacentersDatacenterArgs struct {
 	// Name of the Datacenter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// List of supported Server Types in the Datacenter.
+	//
+	// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
 	SupportedServerTypeIds pulumi.IntArrayInput `pulumi:"supportedServerTypeIds"`
 }
 
@@ -2672,6 +2680,8 @@ func (o GetDatacentersDatacenterOutput) ToGetDatacentersDatacenterOutputWithCont
 }
 
 // List of currently available Server Types in the Datacenter.
+//
+// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
 func (o GetDatacentersDatacenterOutput) AvailableServerTypeIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDatacentersDatacenter) []int { return v.AvailableServerTypeIds }).(pulumi.IntArrayOutput)
 }
@@ -2697,6 +2707,8 @@ func (o GetDatacentersDatacenterOutput) Name() pulumi.StringOutput {
 }
 
 // List of supported Server Types in the Datacenter.
+//
+// Deprecated: This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
 func (o GetDatacentersDatacenterOutput) SupportedServerTypeIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDatacentersDatacenter) []int { return v.SupportedServerTypeIds }).(pulumi.IntArrayOutput)
 }
@@ -5804,19 +5816,32 @@ func (o GetPlacementGroupsPlacementGroupArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetPrimaryIpsPrimaryIp struct {
-	AssigneeId   int    `pulumi:"assigneeId"`
+	// ID of the resource the Primary IP is assigned to.
+	AssigneeId int `pulumi:"assigneeId"`
+	// Type of the resource the Primary IP is assigned to.
 	AssigneeType string `pulumi:"assigneeType"`
-	AutoDelete   bool   `pulumi:"autoDelete"`
+	// Whether auto delete is enabled.
+	AutoDelete bool `pulumi:"autoDelete"`
+	// Name of the Datacenter of the Primary IP.
+	//
 	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
-	Datacenter       string            `pulumi:"datacenter"`
-	DeleteProtection bool              `pulumi:"deleteProtection"`
-	Id               int               `pulumi:"id"`
-	IpAddress        string            `pulumi:"ipAddress"`
-	IpNetwork        string            `pulumi:"ipNetwork"`
-	Labels           map[string]string `pulumi:"labels"`
-	Location         string            `pulumi:"location"`
-	Name             *string           `pulumi:"name"`
-	Type             string            `pulumi:"type"`
+	Datacenter string `pulumi:"datacenter"`
+	// Whether delete protection is enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
+	// ID of the Primary IP.
+	Id int `pulumi:"id"`
+	// IP address of the Primary IP.
+	IpAddress string `pulumi:"ipAddress"`
+	// IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+	IpNetwork string `pulumi:"ipNetwork"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the Location of the Primary IP.
+	Location string `pulumi:"location"`
+	// Name of the Primary IP.
+	Name string `pulumi:"name"`
+	// Type of the Primary IP (`ipv4` or `ipv6`).
+	Type string `pulumi:"type"`
 }
 
 // GetPrimaryIpsPrimaryIpInput is an input type that accepts GetPrimaryIpsPrimaryIpArgs and GetPrimaryIpsPrimaryIpOutput values.
@@ -5831,19 +5856,32 @@ type GetPrimaryIpsPrimaryIpInput interface {
 }
 
 type GetPrimaryIpsPrimaryIpArgs struct {
-	AssigneeId   pulumi.IntInput    `pulumi:"assigneeId"`
+	// ID of the resource the Primary IP is assigned to.
+	AssigneeId pulumi.IntInput `pulumi:"assigneeId"`
+	// Type of the resource the Primary IP is assigned to.
 	AssigneeType pulumi.StringInput `pulumi:"assigneeType"`
-	AutoDelete   pulumi.BoolInput   `pulumi:"autoDelete"`
+	// Whether auto delete is enabled.
+	AutoDelete pulumi.BoolInput `pulumi:"autoDelete"`
+	// Name of the Datacenter of the Primary IP.
+	//
 	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
-	Datacenter       pulumi.StringInput    `pulumi:"datacenter"`
-	DeleteProtection pulumi.BoolInput      `pulumi:"deleteProtection"`
-	Id               pulumi.IntInput       `pulumi:"id"`
-	IpAddress        pulumi.StringInput    `pulumi:"ipAddress"`
-	IpNetwork        pulumi.StringInput    `pulumi:"ipNetwork"`
-	Labels           pulumi.StringMapInput `pulumi:"labels"`
-	Location         pulumi.StringInput    `pulumi:"location"`
-	Name             pulumi.StringPtrInput `pulumi:"name"`
-	Type             pulumi.StringInput    `pulumi:"type"`
+	Datacenter pulumi.StringInput `pulumi:"datacenter"`
+	// Whether delete protection is enabled.
+	DeleteProtection pulumi.BoolInput `pulumi:"deleteProtection"`
+	// ID of the Primary IP.
+	Id pulumi.IntInput `pulumi:"id"`
+	// IP address of the Primary IP.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
+	IpNetwork pulumi.StringInput `pulumi:"ipNetwork"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the Location of the Primary IP.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Name of the Primary IP.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the Primary IP (`ipv4` or `ipv6`).
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetPrimaryIpsPrimaryIpArgs) ElementType() reflect.Type {
@@ -5897,51 +5935,64 @@ func (o GetPrimaryIpsPrimaryIpOutput) ToGetPrimaryIpsPrimaryIpOutputWithContext(
 	return o
 }
 
+// ID of the resource the Primary IP is assigned to.
 func (o GetPrimaryIpsPrimaryIpOutput) AssigneeId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) int { return v.AssigneeId }).(pulumi.IntOutput)
 }
 
+// Type of the resource the Primary IP is assigned to.
 func (o GetPrimaryIpsPrimaryIpOutput) AssigneeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.AssigneeType }).(pulumi.StringOutput)
 }
 
+// Whether auto delete is enabled.
 func (o GetPrimaryIpsPrimaryIpOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) bool { return v.AutoDelete }).(pulumi.BoolOutput)
 }
 
+// Name of the Datacenter of the Primary IP.
+//
 // Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
 func (o GetPrimaryIpsPrimaryIpOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.Datacenter }).(pulumi.StringOutput)
 }
 
+// Whether delete protection is enabled.
 func (o GetPrimaryIpsPrimaryIpOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }
 
+// ID of the Primary IP.
 func (o GetPrimaryIpsPrimaryIpOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// IP address of the Primary IP.
 func (o GetPrimaryIpsPrimaryIpOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
 func (o GetPrimaryIpsPrimaryIpOutput) IpNetwork() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.IpNetwork }).(pulumi.StringOutput)
 }
 
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o GetPrimaryIpsPrimaryIpOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
+// Name of the Location of the Primary IP.
 func (o GetPrimaryIpsPrimaryIpOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.Location }).(pulumi.StringOutput)
 }
 
-func (o GetPrimaryIpsPrimaryIpOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) *string { return v.Name }).(pulumi.StringPtrOutput)
+// Name of the Primary IP.
+func (o GetPrimaryIpsPrimaryIpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Type of the Primary IP (`ipv4` or `ipv6`).
 func (o GetPrimaryIpsPrimaryIpOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrimaryIpsPrimaryIp) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6091,6 +6142,8 @@ func (o GetServerNetworkTypeArrayOutput) Index(i pulumi.IntInput) GetServerNetwo
 }
 
 type GetServerTypeLocation struct {
+	// Whether the Server Type is temporarily unavailable in this Location.
+	Available bool `pulumi:"available"`
 	// Date of the Server Type deprecation announcement.
 	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
 	// ID of the Location.
@@ -6099,6 +6152,8 @@ type GetServerTypeLocation struct {
 	IsDeprecated bool `pulumi:"isDeprecated"`
 	// Name of the Location.
 	Name string `pulumi:"name"`
+	// Whether the Server Type is recommended in this Location.
+	Recommended bool `pulumi:"recommended"`
 	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
 	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
@@ -6115,6 +6170,8 @@ type GetServerTypeLocationInput interface {
 }
 
 type GetServerTypeLocationArgs struct {
+	// Whether the Server Type is temporarily unavailable in this Location.
+	Available pulumi.BoolInput `pulumi:"available"`
 	// Date of the Server Type deprecation announcement.
 	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
 	// ID of the Location.
@@ -6123,6 +6180,8 @@ type GetServerTypeLocationArgs struct {
 	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
 	// Name of the Location.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Whether the Server Type is recommended in this Location.
+	Recommended pulumi.BoolInput `pulumi:"recommended"`
 	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
 	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
 }
@@ -6178,6 +6237,11 @@ func (o GetServerTypeLocationOutput) ToGetServerTypeLocationOutputWithContext(ct
 	return o
 }
 
+// Whether the Server Type is temporarily unavailable in this Location.
+func (o GetServerTypeLocationOutput) Available() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerTypeLocation) bool { return v.Available }).(pulumi.BoolOutput)
+}
+
 // Date of the Server Type deprecation announcement.
 func (o GetServerTypeLocationOutput) DeprecationAnnounced() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeLocation) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
@@ -6196,6 +6260,11 @@ func (o GetServerTypeLocationOutput) IsDeprecated() pulumi.BoolOutput {
 // Name of the Location.
 func (o GetServerTypeLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypeLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the Server Type is recommended in this Location.
+func (o GetServerTypeLocationOutput) Recommended() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerTypeLocation) bool { return v.Recommended }).(pulumi.BoolOutput)
 }
 
 // Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
@@ -6465,6 +6534,8 @@ func (o GetServerTypesServerTypeArrayOutput) Index(i pulumi.IntInput) GetServerT
 }
 
 type GetServerTypesServerTypeLocation struct {
+	// Whether the Server Type is temporarily unavailable in this Location.
+	Available bool `pulumi:"available"`
 	// Date of the Server Type deprecation announcement.
 	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
 	// ID of the Location.
@@ -6473,6 +6544,8 @@ type GetServerTypesServerTypeLocation struct {
 	IsDeprecated bool `pulumi:"isDeprecated"`
 	// Name of the Location.
 	Name string `pulumi:"name"`
+	// Whether the Server Type is recommended in this Location.
+	Recommended bool `pulumi:"recommended"`
 	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
 	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
@@ -6489,6 +6562,8 @@ type GetServerTypesServerTypeLocationInput interface {
 }
 
 type GetServerTypesServerTypeLocationArgs struct {
+	// Whether the Server Type is temporarily unavailable in this Location.
+	Available pulumi.BoolInput `pulumi:"available"`
 	// Date of the Server Type deprecation announcement.
 	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
 	// ID of the Location.
@@ -6497,6 +6572,8 @@ type GetServerTypesServerTypeLocationArgs struct {
 	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
 	// Name of the Location.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Whether the Server Type is recommended in this Location.
+	Recommended pulumi.BoolInput `pulumi:"recommended"`
 	// Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
 	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
 }
@@ -6552,6 +6629,11 @@ func (o GetServerTypesServerTypeLocationOutput) ToGetServerTypesServerTypeLocati
 	return o
 }
 
+// Whether the Server Type is temporarily unavailable in this Location.
+func (o GetServerTypesServerTypeLocationOutput) Available() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerTypesServerTypeLocation) bool { return v.Available }).(pulumi.BoolOutput)
+}
+
 // Date of the Server Type deprecation announcement.
 func (o GetServerTypesServerTypeLocationOutput) DeprecationAnnounced() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerTypeLocation) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
@@ -6570,6 +6652,11 @@ func (o GetServerTypesServerTypeLocationOutput) IsDeprecated() pulumi.BoolOutput
 // Name of the Location.
 func (o GetServerTypesServerTypeLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerTypesServerTypeLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the Server Type is recommended in this Location.
+func (o GetServerTypesServerTypeLocationOutput) Recommended() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerTypesServerTypeLocation) bool { return v.Recommended }).(pulumi.BoolOutput)
 }
 
 // Date of the Server Type removal. After this date, the Server Type cannot be used anymore.

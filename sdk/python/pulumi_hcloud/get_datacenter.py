@@ -48,6 +48,7 @@ class GetDatacenterResult:
 
     @_builtins.property
     @pulumi.getter(name="availableServerTypeIds")
+    @_utilities.deprecated("""This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.""")
     def available_server_type_ids(self) -> Sequence[_builtins.int]:
         """
         List of currently available Server Types in the Datacenter.
@@ -88,6 +89,7 @@ class GetDatacenterResult:
 
     @_builtins.property
     @pulumi.getter(name="supportedServerTypeIds")
+    @_utilities.deprecated("""This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.""")
     def supported_server_type_ids(self) -> Sequence[_builtins.int]:
         """
         List of supported Server Types in the Datacenter.

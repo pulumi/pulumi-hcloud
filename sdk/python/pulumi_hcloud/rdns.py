@@ -265,7 +265,7 @@ class Rdns(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         primary1 = hcloud.PrimaryIp("primary1",
-            datacenter="nbg1-dc3",
+            location="nbg1",
             type="ipv4")
         primary1_rdns = hcloud.Rdns("primary1",
             primary_ip_id=primary1.id,
@@ -381,7 +381,7 @@ class Rdns(pulumi.CustomResource):
         import pulumi_hcloud as hcloud
 
         primary1 = hcloud.PrimaryIp("primary1",
-            datacenter="nbg1-dc3",
+            location="nbg1",
             type="ipv4")
         primary1_rdns = hcloud.Rdns("primary1",
             primary_ip_id=primary1.id,

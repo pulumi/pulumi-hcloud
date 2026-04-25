@@ -24,6 +24,7 @@ export function getPrimaryIps(args?: GetPrimaryIpsArgs, opts?: pulumi.InvokeOpti
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("hcloud:index/getPrimaryIps:getPrimaryIps", {
+        "id": args.id,
         "withSelector": args.withSelector,
     }, opts);
 }
@@ -32,6 +33,7 @@ export function getPrimaryIps(args?: GetPrimaryIpsArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getPrimaryIps.
  */
 export interface GetPrimaryIpsArgs {
+    id?: string;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
@@ -42,9 +44,6 @@ export interface GetPrimaryIpsArgs {
  * A collection of values returned by getPrimaryIps.
  */
 export interface GetPrimaryIpsResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id: string;
     /**
      * (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.
@@ -70,6 +69,7 @@ export function getPrimaryIpsOutput(args?: GetPrimaryIpsOutputArgs, opts?: pulum
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("hcloud:index/getPrimaryIps:getPrimaryIps", {
+        "id": args.id,
         "withSelector": args.withSelector,
     }, opts);
 }
@@ -78,6 +78,7 @@ export function getPrimaryIpsOutput(args?: GetPrimaryIpsOutputArgs, opts?: pulum
  * A collection of arguments for invoking getPrimaryIps.
  */
 export interface GetPrimaryIpsOutputArgs {
+    id?: pulumi.Input<string>;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */

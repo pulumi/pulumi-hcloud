@@ -70,7 +70,7 @@ namespace Pulumi.HCloud
         ///         Name = "test-server",
         ///         Image = "ubuntu-24.04",
         ///         ServerType = "cx23",
-        ///         Datacenter = "fsn1-dc14",
+        ///         Location = "fsn1",
         ///         Labels = 
         ///         {
         ///             { "test", "tessst1" },
@@ -149,7 +149,7 @@ namespace Pulumi.HCloud
         ///         Name = "test-server",
         ///         Image = "ubuntu-24.04",
         ///         ServerType = "cx23",
-        ///         Datacenter = "fsn1-dc14",
+        ///         Location = "fsn1",
         ///         Labels = 
         ///         {
         ///             { "test", "tessst1" },
@@ -228,7 +228,7 @@ namespace Pulumi.HCloud
         ///         Name = "test-server",
         ///         Image = "ubuntu-24.04",
         ///         ServerType = "cx23",
-        ///         Datacenter = "fsn1-dc14",
+        ///         Location = "fsn1",
         ///         Labels = 
         ///         {
         ///             { "test", "tessst1" },
@@ -252,12 +252,6 @@ namespace Pulumi.HCloud
 
     public sealed class GetPrimaryIpArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// (int) ID of the assigned resource.
-        /// </summary>
-        [Input("assigneeId")]
-        public int? AssigneeId { get; set; }
-
         /// <summary>
         /// ID of the Primary IP.
         /// </summary>
@@ -290,12 +284,6 @@ namespace Pulumi.HCloud
 
     public sealed class GetPrimaryIpInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// (int) ID of the assigned resource.
-        /// </summary>
-        [Input("assigneeId")]
-        public Input<int>? AssigneeId { get; set; }
-
         /// <summary>
         /// ID of the Primary IP.
         /// </summary>
@@ -353,11 +341,11 @@ namespace Pulumi.HCloud
         /// <summary>
         /// (int) Unique ID of the Primary IP.
         /// </summary>
-        public readonly int Id;
+        public readonly int? Id;
         /// <summary>
         /// (string) IP Address of the Primary IP.
         /// </summary>
-        public readonly string IpAddress;
+        public readonly string? IpAddress;
         /// <summary>
         /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `Type` is `Ipv6`)
         /// </summary>
@@ -392,9 +380,9 @@ namespace Pulumi.HCloud
 
             bool deleteProtection,
 
-            int id,
+            int? id,
 
-            string ipAddress,
+            string? ipAddress,
 
             string ipNetwork,
 
