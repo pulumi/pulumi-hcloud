@@ -29,24 +29,20 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const main = new hcloud.PrimaryIp("main", {
- *     name: "primary_ip_test",
+ *     name: "primary-ip",
  *     location: "fsn1",
  *     type: "ipv4",
- *     assigneeType: "server",
- *     autoDelete: true,
+ *     autoDelete: false,
  *     labels: {
- *         hallo: "welt",
+ *         key: "value",
  *     },
  * });
  * // Link a server to a primary IP
- * const serverTest = new hcloud.Server("server_test", {
- *     name: "test-server",
+ * const mainServer = new hcloud.Server("main", {
+ *     name: "server",
  *     image: "ubuntu-24.04",
  *     serverType: "cx23",
  *     location: "fsn1",
- *     labels: {
- *         test: "tessst1",
- *     },
  *     publicNets: [{
  *         ipv4: main.id,
  *     }],
@@ -162,9 +158,6 @@ export class PrimaryIp extends pulumi.CustomResource {
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as PrimaryIpArgs | undefined;
-            if (args?.assigneeType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'assigneeType'");
-            }
             if (args?.autoDelete === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoDelete'");
             }
@@ -251,7 +244,7 @@ export interface PrimaryIpArgs {
     /**
      * Type of the resource the Primary IP should be assigned to.
      */
-    assigneeType: pulumi.Input<string>;
+    assigneeType?: pulumi.Input<string>;
     /**
      * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
      */

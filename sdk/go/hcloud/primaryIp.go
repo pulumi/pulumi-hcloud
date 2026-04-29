@@ -44,27 +44,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			main, err := hcloud.NewPrimaryIp(ctx, "main", &hcloud.PrimaryIpArgs{
-//				Name:         pulumi.String("primary_ip_test"),
-//				Location:     pulumi.String("fsn1"),
-//				Type:         pulumi.String("ipv4"),
-//				AssigneeType: pulumi.String("server"),
-//				AutoDelete:   pulumi.Bool(true),
+//				Name:       pulumi.String("primary-ip"),
+//				Location:   pulumi.String("fsn1"),
+//				Type:       pulumi.String("ipv4"),
+//				AutoDelete: pulumi.Bool(false),
 //				Labels: pulumi.StringMap{
-//					"hallo": pulumi.String("welt"),
+//					"key": pulumi.String("value"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Link a server to a primary IP
-//			_, err = hcloud.NewServer(ctx, "server_test", &hcloud.ServerArgs{
-//				Name:       pulumi.String("test-server"),
+//			_, err = hcloud.NewServer(ctx, "main", &hcloud.ServerArgs{
+//				Name:       pulumi.String("server"),
 //				Image:      pulumi.String("ubuntu-24.04"),
 //				ServerType: pulumi.String("cx23"),
 //				Location:   pulumi.String("fsn1"),
-//				Labels: pulumi.StringMap{
-//					"test": pulumi.String("tessst1"),
-//				},
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
 //						Ipv4: main.ID(),
@@ -123,9 +119,6 @@ func NewPrimaryIp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssigneeType == nil {
-		return nil, errors.New("invalid value for required argument 'AssigneeType'")
-	}
 	if args.AutoDelete == nil {
 		return nil, errors.New("invalid value for required argument 'AutoDelete'")
 	}
@@ -216,7 +209,7 @@ type primaryIpArgs struct {
 	// ID of the resource the Primary IP should be assigned to.
 	AssigneeId *int `pulumi:"assigneeId"`
 	// Type of the resource the Primary IP should be assigned to.
-	AssigneeType string `pulumi:"assigneeType"`
+	AssigneeType *string `pulumi:"assigneeType"`
 	// Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
 	AutoDelete bool `pulumi:"autoDelete"`
 	// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -240,7 +233,7 @@ type PrimaryIpArgs struct {
 	// ID of the resource the Primary IP should be assigned to.
 	AssigneeId pulumi.IntPtrInput
 	// Type of the resource the Primary IP should be assigned to.
-	AssigneeType pulumi.StringInput
+	AssigneeType pulumi.StringPtrInput
 	// Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
 	AutoDelete pulumi.BoolInput
 	// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.

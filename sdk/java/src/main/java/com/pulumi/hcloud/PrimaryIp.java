@@ -62,21 +62,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new PrimaryIp("main", PrimaryIpArgs.builder()
- *             .name("primary_ip_test")
+ *             .name("primary-ip")
  *             .location("fsn1")
  *             .type("ipv4")
- *             .assigneeType("server")
- *             .autoDelete(true)
- *             .labels(Map.of("hallo", "welt"))
+ *             .autoDelete(false)
+ *             .labels(Map.of("key", "value"))
  *             .build());
  * 
  *         // Link a server to a primary IP
- *         var serverTest = new Server("serverTest", ServerArgs.builder()
- *             .name("test-server")
+ *         var mainServer = new Server("mainServer", ServerArgs.builder()
+ *             .name("server")
  *             .image("ubuntu-24.04")
  *             .serverType("cx23")
  *             .location("fsn1")
- *             .labels(Map.of("test", "tessst1"))
  *             .publicNets(ServerPublicNetArgs.builder()
  *                 .ipv4(main.id())
  *                 .build())
