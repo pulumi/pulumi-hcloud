@@ -38,15 +38,15 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
      * Type of the resource the Primary IP should be assigned to.
      * 
      */
-    @Import(name="assigneeType", required=true)
-    private Output<String> assigneeType;
+    @Import(name="assigneeType")
+    private @Nullable Output<String> assigneeType;
 
     /**
      * @return Type of the resource the Primary IP should be assigned to.
      * 
      */
-    public Output<String> assigneeType() {
-        return this.assigneeType;
+    public Optional<Output<String>> assigneeType() {
+        return Optional.ofNullable(this.assigneeType);
     }
 
     /**
@@ -221,7 +221,7 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder assigneeType(Output<String> assigneeType) {
+        public Builder assigneeType(@Nullable Output<String> assigneeType) {
             $.assigneeType = assigneeType;
             return this;
         }
@@ -392,9 +392,6 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PrimaryIpArgs build() {
-            if ($.assigneeType == null) {
-                throw new MissingRequiredPropertyException("PrimaryIpArgs", "assigneeType");
-            }
             if ($.autoDelete == null) {
                 throw new MissingRequiredPropertyException("PrimaryIpArgs", "autoDelete");
             }

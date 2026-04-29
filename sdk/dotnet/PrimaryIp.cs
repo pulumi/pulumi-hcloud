@@ -39,28 +39,23 @@ namespace Pulumi.HCloud
     /// {
     ///     var main = new HCloud.Index.PrimaryIp("main", new()
     ///     {
-    ///         Name = "primary_ip_test",
+    ///         Name = "primary-ip",
     ///         Location = "fsn1",
     ///         Type = "ipv4",
-    ///         AssigneeType = "server",
-    ///         AutoDelete = true,
+    ///         AutoDelete = false,
     ///         Labels = 
     ///         {
-    ///             { "hallo", "welt" },
+    ///             { "key", "value" },
     ///         },
     ///     });
     /// 
     ///     // Link a server to a primary IP
-    ///     var serverTest = new HCloud.Index.Server("server_test", new()
+    ///     var mainServer = new HCloud.Index.Server("main", new()
     ///     {
-    ///         Name = "test-server",
+    ///         Name = "server",
     ///         Image = "ubuntu-24.04",
     ///         ServerType = "cx23",
     ///         Location = "fsn1",
-    ///         Labels = 
-    ///         {
-    ///             { "test", "tessst1" },
-    ///         },
     ///         PublicNets = new[]
     ///         {
     ///             new HCloud.Inputs.ServerPublicNetArgs
@@ -205,8 +200,8 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Type of the resource the Primary IP should be assigned to.
         /// </summary>
-        [Input("assigneeType", required: true)]
-        public Input<string> AssigneeType { get; set; } = null!;
+        [Input("assigneeType")]
+        public Input<string>? AssigneeType { get; set; }
 
         /// <summary>
         /// Whether auto delete is enabled. Setting `AutoDelete` to `False` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
