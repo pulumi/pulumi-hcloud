@@ -10,7 +10,7 @@ replace (
 require (
 	github.com/hetznercloud/terraform-provider-hcloud v1.62.0
 	github.com/pulumi/providertest v0.6.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.127.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.128.0
 	github.com/pulumi/pulumi/sdk/v3 v3.228.0
 	github.com/stretchr/testify v1.11.1
 )
