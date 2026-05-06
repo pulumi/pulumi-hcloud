@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * const master = new hcloud.Volume("master", {
  *     name: "volume1",
  *     size: 50,
- *     serverId: node1.id,
+ *     serverId: node1.id.apply(x =>Number(x)),
  *     automount: true,
  *     format: "ext4",
  * });

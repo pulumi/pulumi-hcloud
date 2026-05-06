@@ -26,18 +26,18 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.Index.GetLocations.Invoke();
+        ///     var all = HCloud.GetLocations.Invoke();
         /// 
-        ///     var workers = new List&lt;HCloud.Index.Server&gt;();
+        ///     var workers = new List&lt;HCloud.Server&gt;();
         ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         workers.Add(new HCloud.Index.Server($"workers-{range.Value}", new()
+        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
         ///         {
         ///             Name = $"node{range.Value}",
         ///             Image = "debian-12",
         ///             ServerType = "cx23",
-        ///             Location = all.Apply(getLocationsResult =&gt; getLocationsResult.Locations)[range.Value].Apply(locations =&gt; locations.Name),
+        ///             Location = all.Apply(getLocationsResult =&gt; getLocationsResult.Locations)[range.Value].Name,
         ///         }));
         ///     }
         /// });
@@ -61,18 +61,18 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.Index.GetLocations.Invoke();
+        ///     var all = HCloud.GetLocations.Invoke();
         /// 
-        ///     var workers = new List&lt;HCloud.Index.Server&gt;();
+        ///     var workers = new List&lt;HCloud.Server&gt;();
         ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         workers.Add(new HCloud.Index.Server($"workers-{range.Value}", new()
+        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
         ///         {
         ///             Name = $"node{range.Value}",
         ///             Image = "debian-12",
         ///             ServerType = "cx23",
-        ///             Location = all.Apply(getLocationsResult =&gt; getLocationsResult.Locations)[range.Value].Apply(locations =&gt; locations.Name),
+        ///             Location = all.Apply(getLocationsResult =&gt; getLocationsResult.Locations)[range.Value].Name,
         ///         }));
         ///     }
         /// });
@@ -96,18 +96,18 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.Index.GetLocations.Invoke();
+        ///     var all = HCloud.GetLocations.Invoke();
         /// 
-        ///     var workers = new List&lt;HCloud.Index.Server&gt;();
+        ///     var workers = new List&lt;HCloud.Server&gt;();
         ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         workers.Add(new HCloud.Index.Server($"workers-{range.Value}", new()
+        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
         ///         {
         ///             Name = $"node{range.Value}",
         ///             Image = "debian-12",
         ///             ServerType = "cx23",
-        ///             Location = all.Apply(getLocationsResult =&gt; getLocationsResult.Locations)[range.Value].Apply(locations =&gt; locations.Name),
+        ///             Location = all.Apply(getLocationsResult =&gt; getLocationsResult.Locations)[range.Value].Name,
         ///         }));
         ///     }
         /// });

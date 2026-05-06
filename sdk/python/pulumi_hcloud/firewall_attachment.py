@@ -172,8 +172,8 @@ class FirewallAttachment(pulumi.CustomResource):
             image="ubuntu-24.04")
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
-            firewall_id=basic_firewall.id,
-            server_ids=[test_server.id])
+            firewall_id=basic_firewall.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         ```
 
         ### Attach Label Selectors
@@ -191,7 +191,7 @@ class FirewallAttachment(pulumi.CustomResource):
             })
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
-            firewall_id=basic_firewall.id,
+            firewall_id=basic_firewall.id.apply(lambda x: int(x)),
             label_selectors=["firewall-attachment=test-server"])
         ```
 
@@ -220,7 +220,7 @@ class FirewallAttachment(pulumi.CustomResource):
             server_type="cx23",
             image="ubuntu-24.04",
             ignore_remote_firewall_ids=True,
-            firewall_ids=[deny_all.id])
+            firewall_ids=[deny_all.id.apply(lambda x: int(x))])
         allow_rules = hcloud.Firewall("allow_rules",
             name="allow_rules",
             rules=[{
@@ -235,11 +235,11 @@ class FirewallAttachment(pulumi.CustomResource):
                     args=[test_server.ipv4_address]).result],
             }])
         deny_all_att = hcloud.FirewallAttachment("deny_all_att",
-            firewall_id=deny_all.id,
-            server_ids=[test_server.id])
+            firewall_id=deny_all.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         allow_rules_att = hcloud.FirewallAttachment("allow_rules_att",
-            firewall_id=allow_rules.id,
-            server_ids=[test_server.id])
+            firewall_id=allow_rules.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         ```
 
         ## Import
@@ -287,8 +287,8 @@ class FirewallAttachment(pulumi.CustomResource):
             image="ubuntu-24.04")
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
-            firewall_id=basic_firewall.id,
-            server_ids=[test_server.id])
+            firewall_id=basic_firewall.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         ```
 
         ### Attach Label Selectors
@@ -306,7 +306,7 @@ class FirewallAttachment(pulumi.CustomResource):
             })
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
-            firewall_id=basic_firewall.id,
+            firewall_id=basic_firewall.id.apply(lambda x: int(x)),
             label_selectors=["firewall-attachment=test-server"])
         ```
 
@@ -335,7 +335,7 @@ class FirewallAttachment(pulumi.CustomResource):
             server_type="cx23",
             image="ubuntu-24.04",
             ignore_remote_firewall_ids=True,
-            firewall_ids=[deny_all.id])
+            firewall_ids=[deny_all.id.apply(lambda x: int(x))])
         allow_rules = hcloud.Firewall("allow_rules",
             name="allow_rules",
             rules=[{
@@ -350,11 +350,11 @@ class FirewallAttachment(pulumi.CustomResource):
                     args=[test_server.ipv4_address]).result],
             }])
         deny_all_att = hcloud.FirewallAttachment("deny_all_att",
-            firewall_id=deny_all.id,
-            server_ids=[test_server.id])
+            firewall_id=deny_all.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         allow_rules_att = hcloud.FirewallAttachment("allow_rules_att",
-            firewall_id=allow_rules.id,
-            server_ids=[test_server.id])
+            firewall_id=allow_rules.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         ```
 
         ## Import

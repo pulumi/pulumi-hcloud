@@ -22,7 +22,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var managedCert = new HCloud.Index.ManagedCertificate("managed_cert", new()
+    ///     var managedCert = new HCloud.ManagedCertificate("managed_cert", new()
     ///     {
     ///         Name = "managed_cert",
     ///         DomainNames = new[]

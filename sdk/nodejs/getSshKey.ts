@@ -28,9 +28,9 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * const main = new hcloud.Server("main", {sshKeys: [
- *     byId.then(byId => byId.id),
- *     byName.then(byName => byName.id),
- *     byFingerprint.then(byFingerprint => byFingerprint.id),
+ *     output(byId.then(byId => byId.id)).apply(x =>String(x)),
+ *     output(byName.then(byName => byName.id)).apply(x =>String(x)),
+ *     output(byFingerprint.then(byFingerprint => byFingerprint.id)).apply(x =>String(x)),
  * ]});
  * ```
  */
@@ -133,9 +133,9 @@ export interface GetSshKeyResult {
  *     withSelector: "key=value",
  * });
  * const main = new hcloud.Server("main", {sshKeys: [
- *     byId.then(byId => byId.id),
- *     byName.then(byName => byName.id),
- *     byFingerprint.then(byFingerprint => byFingerprint.id),
+ *     output(byId.then(byId => byId.id)).apply(x =>String(x)),
+ *     output(byName.then(byName => byName.id)).apply(x =>String(x)),
+ *     output(byFingerprint.then(byFingerprint => byFingerprint.id)).apply(x =>String(x)),
  * ]});
  * ```
  */

@@ -35,17 +35,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s1 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s1 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         Name = "my-server",
         ///     });
         /// 
-        ///     var s2 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s2 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         Id = 123,
         ///     });
         /// 
-        ///     var s3 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s3 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -80,17 +80,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s1 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s1 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         Name = "my-server",
         ///     });
         /// 
-        ///     var s2 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s2 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         Id = 123,
         ///     });
         /// 
-        ///     var s3 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s3 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -125,17 +125,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s1 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s1 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         Name = "my-server",
         ///     });
         /// 
-        ///     var s2 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s2 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         Id = 123,
         ///     });
         /// 
-        ///     var s3 = HCloud.Index.GetServer.Invoke(new()
+        ///     var s3 = HCloud.GetServer.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

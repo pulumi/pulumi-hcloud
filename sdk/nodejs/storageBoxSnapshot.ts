@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const main = new hcloud.StorageBox("main", {});
  * const backup = new hcloud.StorageBoxSnapshot("backup", {
- *     storageBoxId: main.id,
+ *     storageBoxId: main.id.apply(x =>Number(x)),
  *     description: "Before Tool XYZ Migration",
  *     labels: {
  *         env: "production",

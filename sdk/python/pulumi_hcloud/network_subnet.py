@@ -227,7 +227,7 @@ class NetworkSubnet(pulumi.CustomResource):
             name="my-net",
             ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
-            network_id=mynet.id,
+            network_id=mynet.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
@@ -270,7 +270,7 @@ class NetworkSubnet(pulumi.CustomResource):
             name="my-net",
             ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
-            network_id=mynet.id,
+            network_id=mynet.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")

@@ -24,7 +24,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleFirewall1 = HCloud.Index.GetFirewalls.Invoke(new()
+        ///     var sampleFirewall1 = HCloud.GetFirewalls.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleFirewall1 = HCloud.Index.GetFirewalls.Invoke(new()
+        ///     var sampleFirewall1 = HCloud.GetFirewalls.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleFirewall1 = HCloud.Index.GetFirewalls.Invoke(new()
+        ///     var sampleFirewall1 = HCloud.GetFirewalls.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

@@ -222,12 +222,12 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             name="network",
             ip_range="10.0.0.0/16")
         subnet = hcloud.NetworkSubnet("subnet",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         attachment = hcloud.LoadBalancerNetwork("attachment",
-            load_balancer_id=main.id,
+            load_balancer_id=main.id.apply(lambda x: int(x)),
             subnet_id=subnet.id,
             ip="10.0.1.5")
         ```
@@ -272,12 +272,12 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             name="network",
             ip_range="10.0.0.0/16")
         subnet = hcloud.NetworkSubnet("subnet",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         attachment = hcloud.LoadBalancerNetwork("attachment",
-            load_balancer_id=main.id,
+            load_balancer_id=main.id.apply(lambda x: int(x)),
             subnet_id=subnet.id,
             ip="10.0.1.5")
         ```

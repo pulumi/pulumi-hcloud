@@ -20,10 +20,10 @@ import * as utilities from "./utilities";
  * const config = new pulumi.Config();
  * const storageBoxId = config.requireObject<any>("storageBoxId");
  * const all = hcloud.getStorageBoxSubaccounts({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  * });
  * const byLabelSelector = hcloud.getStorageBoxSubaccounts({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     withSelector: "team=billing",
  * });
  * ```
@@ -82,10 +82,10 @@ export interface GetStorageBoxSubaccountsResult {
  * const config = new pulumi.Config();
  * const storageBoxId = config.requireObject<any>("storageBoxId");
  * const all = hcloud.getStorageBoxSubaccounts({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  * });
  * const byLabelSelector = hcloud.getStorageBoxSubaccounts({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     withSelector: "team=billing",
  * });
  * ```

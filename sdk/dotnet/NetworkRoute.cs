@@ -22,13 +22,13 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mynet = new HCloud.Index.Network("mynet", new()
+    ///     var mynet = new HCloud.Network("mynet", new()
     ///     {
     ///         Name = "my-net",
     ///         IpRange = "10.0.0.0/8",
     ///     });
     /// 
-    ///     var privNet = new HCloud.Index.NetworkRoute("privNet", new()
+    ///     var privNet = new HCloud.NetworkRoute("privNet", new()
     ///     {
     ///         NetworkId = mynet.Id,
     ///         Destination = "10.100.1.0/24",

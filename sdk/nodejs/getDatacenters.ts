@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *         name: `node${range.value}`,
  *         image: "debian-12",
  *         serverType: "cx23",
- *         datacenter: all.then(all => all.datacenters[range.value]).then(datacenters => datacenters.name),
+ *         datacenter: all.then(all => all.datacenters)[range.value].name,
  *     }));
  * }
  * ```
@@ -75,7 +75,7 @@ export interface GetDatacentersResult {
  *         name: `node${range.value}`,
  *         image: "debian-12",
  *         serverType: "cx23",
- *         datacenter: all.then(all => all.datacenters[range.value]).then(datacenters => datacenters.name),
+ *         datacenter: all.then(all => all.datacenters)[range.value].name,
  *     }));
  * }
  * ```

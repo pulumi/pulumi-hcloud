@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.0.0/8",
  * });
  * const privNet = new hcloud.NetworkRoute("privNet", {
- *     networkId: mynet.id,
+ *     networkId: mynet.id.apply(x =>Number(x)),
  *     destination: "10.100.1.0/24",
  *     gateway: "10.0.1.1",
  * });

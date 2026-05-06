@@ -922,7 +922,7 @@ class Server(pulumi.CustomResource):
             },
             public_nets=[{
                 "ipv4_enabled": True,
-                "ipv4": primary_ip1.id,
+                "ipv4": primary_ip1.id.apply(lambda x: int(x)),
                 "ipv6_enabled": False,
             }])
         ```
@@ -938,7 +938,7 @@ class Server(pulumi.CustomResource):
             ip_range="10.0.0.0/16")
         network_subnet = hcloud.NetworkSubnet("network-subnet",
             type="cloud",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         server = hcloud.Server("server",
@@ -947,7 +947,7 @@ class Server(pulumi.CustomResource):
             image="ubuntu-24.04",
             location="nbg1",
             networks=[{
-                "network_id": network.id,
+                "network_id": network.id.apply(lambda x: int(x)),
                 "ip": "10.0.1.5",
                 "alias_ips": [
                     "10.0.1.6",
@@ -969,7 +969,7 @@ class Server(pulumi.CustomResource):
         # Create a new server from the snapshot
         from_snapshot = hcloud.Server("from_snapshot",
             name="from-snapshot",
-            image=packer_snapshot.id,
+            image=output(packer_snapshot.id).apply(lambda x: str(x)),
             server_type="cx23",
             public_nets=[{
                 "ipv4_enabled": True,
@@ -1085,7 +1085,7 @@ class Server(pulumi.CustomResource):
             },
             public_nets=[{
                 "ipv4_enabled": True,
-                "ipv4": primary_ip1.id,
+                "ipv4": primary_ip1.id.apply(lambda x: int(x)),
                 "ipv6_enabled": False,
             }])
         ```
@@ -1101,7 +1101,7 @@ class Server(pulumi.CustomResource):
             ip_range="10.0.0.0/16")
         network_subnet = hcloud.NetworkSubnet("network-subnet",
             type="cloud",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         server = hcloud.Server("server",
@@ -1110,7 +1110,7 @@ class Server(pulumi.CustomResource):
             image="ubuntu-24.04",
             location="nbg1",
             networks=[{
-                "network_id": network.id,
+                "network_id": network.id.apply(lambda x: int(x)),
                 "ip": "10.0.1.5",
                 "alias_ips": [
                     "10.0.1.6",
@@ -1132,7 +1132,7 @@ class Server(pulumi.CustomResource):
         # Create a new server from the snapshot
         from_snapshot = hcloud.Server("from_snapshot",
             name="from-snapshot",
-            image=packer_snapshot.id,
+            image=output(packer_snapshot.id).apply(lambda x: str(x)),
             server_type="cx23",
             public_nets=[{
                 "ipv4_enabled": True,

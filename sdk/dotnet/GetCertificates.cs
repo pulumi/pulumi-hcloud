@@ -24,7 +24,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleCertificate1 = HCloud.Index.GetCertificates.Invoke(new()
+        ///     var sampleCertificate1 = HCloud.GetCertificates.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleCertificate1 = HCloud.Index.GetCertificates.Invoke(new()
+        ///     var sampleCertificate1 = HCloud.GetCertificates.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleCertificate1 = HCloud.Index.GetCertificates.Invoke(new()
+        ///     var sampleCertificate1 = HCloud.GetCertificates.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

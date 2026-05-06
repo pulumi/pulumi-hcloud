@@ -209,7 +209,7 @@ class Firewall(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23",
-            firewall_ids=[myfirewall.id])
+            firewall_ids=[myfirewall.id.apply(lambda x: int(x))])
         ```
 
         ## Import
@@ -268,7 +268,7 @@ class Firewall(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23",
-            firewall_ids=[myfirewall.id])
+            firewall_ids=[myfirewall.id.apply(lambda x: int(x))])
         ```
 
         ## Import

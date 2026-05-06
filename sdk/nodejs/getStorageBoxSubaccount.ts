@@ -20,19 +20,19 @@ import * as utilities from "./utilities";
  * const config = new pulumi.Config();
  * const storageBoxId = config.requireObject<any>("storageBoxId");
  * const byId = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     id: 2,
  * });
  * const byName = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     name: "badger",
  * });
  * const byUsername = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     username: "u507137-sub1",
  * });
  * const byLabelSelector = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     withSelector: "team=billing",
  * });
  * ```
@@ -133,19 +133,19 @@ export interface GetStorageBoxSubaccountResult {
  * const config = new pulumi.Config();
  * const storageBoxId = config.requireObject<any>("storageBoxId");
  * const byId = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     id: 2,
  * });
  * const byName = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     name: "badger",
  * });
  * const byUsername = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     username: "u507137-sub1",
  * });
  * const byLabelSelector = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     withSelector: "team=billing",
  * });
  * ```

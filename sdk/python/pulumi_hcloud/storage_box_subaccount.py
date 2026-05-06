@@ -318,7 +318,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
         team_badger_password = config.require("teamBadgerPassword")
         main = hcloud.StorageBox("main")
         team_badger = hcloud.StorageBoxSubaccount("team_badger",
-            storage_box_id=main.id,
+            storage_box_id=main.id.apply(lambda x: int(x)),
             name="badger",
             home_directory="teams/badger/",
             password=team_badger_password,
@@ -373,7 +373,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
         team_badger_password = config.require("teamBadgerPassword")
         main = hcloud.StorageBox("main")
         team_badger = hcloud.StorageBoxSubaccount("team_badger",
-            storage_box_id=main.id,
+            storage_box_id=main.id.apply(lambda x: int(x)),
             name="badger",
             home_directory="teams/badger/",
             password=team_badger_password,

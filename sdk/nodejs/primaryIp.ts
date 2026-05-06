@@ -44,7 +44,7 @@ import * as utilities from "./utilities";
  *     serverType: "cx23",
  *     location: "fsn1",
  *     publicNets: [{
- *         ipv4: main.id,
+ *         ipv4: main.id.apply(x =>Number(x)),
  *     }],
  * });
  * ```

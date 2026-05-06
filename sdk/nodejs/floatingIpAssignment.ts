@@ -24,8 +24,8 @@ import * as utilities from "./utilities";
  *     homeLocation: "nbg1",
  * });
  * const main = new hcloud.FloatingIpAssignment("main", {
- *     floatingIpId: master.id,
- *     serverId: node1.id,
+ *     floatingIpId: master.id.apply(x =>Number(x)),
+ *     serverId: node1.id.apply(x =>Number(x)),
  * });
  * ```
  *

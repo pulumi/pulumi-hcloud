@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.0.0/8",
  * });
  * const foonet = new hcloud.NetworkSubnet("foonet", {
- *     networkId: mynet.id,
+ *     networkId: mynet.id.apply(x =>Number(x)),
  *     type: "cloud",
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",

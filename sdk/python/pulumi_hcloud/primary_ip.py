@@ -415,7 +415,7 @@ class PrimaryIp(pulumi.CustomResource):
             server_type="cx23",
             location="fsn1",
             public_nets=[{
-                "ipv4": main.id,
+                "ipv4": main.id.apply(lambda x: int(x)),
             }])
         ```
 
@@ -485,7 +485,7 @@ class PrimaryIp(pulumi.CustomResource):
             server_type="cx23",
             location="fsn1",
             public_nets=[{
-                "ipv4": main.id,
+                "ipv4": main.id.apply(lambda x: int(x)),
             }])
         ```
 

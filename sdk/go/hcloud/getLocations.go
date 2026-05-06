@@ -16,6 +16,45 @@ import (
 // This resource may be useful to create highly available infrastructure, distributed across several locations.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			all, err := hcloud.GetLocations(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var workers []*hcloud.Server
+//			for index := 0; index < 5; index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := hcloud.NewServer(ctx, fmt.Sprintf("workers-%v", key0), &hcloud.ServerArgs{
+//					Name:       pulumi.Sprintf("node%v", val0),
+//					Image:      pulumi.String("debian-12"),
+//					ServerType: pulumi.String("cx23"),
+//					Location:   all.Locations[val0].Name,
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				workers = append(workers, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationsResult

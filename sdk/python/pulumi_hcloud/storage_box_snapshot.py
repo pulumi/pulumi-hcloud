@@ -184,7 +184,7 @@ class StorageBoxSnapshot(pulumi.CustomResource):
 
         main = hcloud.StorageBox("main")
         backup = hcloud.StorageBoxSnapshot("backup",
-            storage_box_id=main.id,
+            storage_box_id=main.id.apply(lambda x: int(x)),
             description="Before Tool XYZ Migration",
             labels={
                 "env": "production",
@@ -225,7 +225,7 @@ class StorageBoxSnapshot(pulumi.CustomResource):
 
         main = hcloud.StorageBox("main")
         backup = hcloud.StorageBoxSnapshot("backup",
-            storage_box_id=main.id,
+            storage_box_id=main.id.apply(lambda x: int(x)),
             description="Before Tool XYZ Migration",
             labels={
                 "env": "production",

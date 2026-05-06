@@ -34,21 +34,21 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip1 = HCloud.Index.GetFloatingIp.Invoke(new()
+        ///     var ip1 = HCloud.GetFloatingIp.Invoke(new()
         ///     {
         ///         IpAddress = "1.2.3.4",
         ///     });
         /// 
-        ///     var ip2 = HCloud.Index.GetFloatingIp.Invoke(new()
+        ///     var ip2 = HCloud.GetFloatingIp.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
-        ///     var main = new List&lt;HCloud.Index.FloatingIpAssignment&gt;();
+        ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
         ///     for (var rangeIndex = 0; rangeIndex &lt; counter; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         main.Add(new HCloud.Index.FloatingIpAssignment($"main-{range.Value}", new()
+        ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
         ///         {
         ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
         ///             ServerId = mainHcloudServer.Id,
@@ -83,21 +83,21 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip1 = HCloud.Index.GetFloatingIp.Invoke(new()
+        ///     var ip1 = HCloud.GetFloatingIp.Invoke(new()
         ///     {
         ///         IpAddress = "1.2.3.4",
         ///     });
         /// 
-        ///     var ip2 = HCloud.Index.GetFloatingIp.Invoke(new()
+        ///     var ip2 = HCloud.GetFloatingIp.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
-        ///     var main = new List&lt;HCloud.Index.FloatingIpAssignment&gt;();
+        ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
         ///     for (var rangeIndex = 0; rangeIndex &lt; counter; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         main.Add(new HCloud.Index.FloatingIpAssignment($"main-{range.Value}", new()
+        ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
         ///         {
         ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
         ///             ServerId = mainHcloudServer.Id,
@@ -132,21 +132,21 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ip1 = HCloud.Index.GetFloatingIp.Invoke(new()
+        ///     var ip1 = HCloud.GetFloatingIp.Invoke(new()
         ///     {
         ///         IpAddress = "1.2.3.4",
         ///     });
         /// 
-        ///     var ip2 = HCloud.Index.GetFloatingIp.Invoke(new()
+        ///     var ip2 = HCloud.GetFloatingIp.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
         /// 
-        ///     var main = new List&lt;HCloud.Index.FloatingIpAssignment&gt;();
+        ///     var main = new List&lt;HCloud.FloatingIpAssignment&gt;();
         ///     for (var rangeIndex = 0; rangeIndex &lt; counter; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         main.Add(new HCloud.Index.FloatingIpAssignment($"main-{range.Value}", new()
+        ///         main.Add(new HCloud.FloatingIpAssignment($"main-{range.Value}", new()
         ///         {
         ///             FloatingIpId = ip1.Apply(getFloatingIpResult =&gt; getFloatingIpResult.Id),
         ///             ServerId = mainHcloudServer.Id,

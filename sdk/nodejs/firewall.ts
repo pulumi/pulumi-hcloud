@@ -41,7 +41,7 @@ import * as utilities from "./utilities";
  *     name: "node1",
  *     image: "debian-12",
  *     serverType: "cx23",
- *     firewallIds: [myfirewall.id],
+ *     firewallIds: [myfirewall.id.apply(x =>Number(x))],
  * });
  * ```
  *

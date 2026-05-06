@@ -344,7 +344,7 @@ class Volume(pulumi.CustomResource):
         master = hcloud.Volume("master",
             name="volume1",
             size=50,
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             automount=True,
             format="ext4")
         ```
@@ -393,7 +393,7 @@ class Volume(pulumi.CustomResource):
         master = hcloud.Volume("master",
             name="volume1",
             size=50,
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             automount=True,
             format="ext4")
         ```

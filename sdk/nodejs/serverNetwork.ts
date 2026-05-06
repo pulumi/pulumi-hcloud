@@ -23,13 +23,13 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.0.0/16",
  * });
  * const subnet1 = new hcloud.NetworkSubnet("subnet1", {
- *     networkId: network.id,
+ *     networkId: network.id.apply(x =>Number(x)),
  *     type: "cloud",
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
  * });
  * const node1Subnet1 = new hcloud.ServerNetwork("node1_subnet1", {
- *     serverId: node1.id,
+ *     serverId: node1.id.apply(x =>Number(x)),
  *     subnetId: subnet1.id,
  *     ip: "10.0.1.5",
  *     aliasIps: ["10.0.1.10"],

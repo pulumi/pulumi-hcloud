@@ -150,7 +150,7 @@ class NetworkRoute(pulumi.CustomResource):
             name="my-net",
             ip_range="10.0.0.0/8")
         priv_net = hcloud.NetworkRoute("privNet",
-            network_id=mynet.id,
+            network_id=mynet.id.apply(lambda x: int(x)),
             destination="10.100.1.0/24",
             gateway="10.0.1.1")
         ```
@@ -190,7 +190,7 @@ class NetworkRoute(pulumi.CustomResource):
             name="my-net",
             ip_range="10.0.0.0/8")
         priv_net = hcloud.NetworkRoute("privNet",
-            network_id=mynet.id,
+            network_id=mynet.id.apply(lambda x: int(x)),
             destination="10.100.1.0/24",
             gateway="10.0.1.1")
         ```

@@ -177,13 +177,13 @@ def get_storage_box_subaccount(id: Optional[_builtins.int] = None,
 
     config = pulumi.Config()
     storage_box_id = config.require_object("storageBoxId")
-    by_id = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+    by_id = hcloud.get_storage_box_subaccount(storage_box_id=int(storage_box_id),
         id=2)
-    by_name = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+    by_name = hcloud.get_storage_box_subaccount(storage_box_id=int(storage_box_id),
         name="badger")
-    by_username = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+    by_username = hcloud.get_storage_box_subaccount(storage_box_id=int(storage_box_id),
         username="u507137-sub1")
-    by_label_selector = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+    by_label_selector = hcloud.get_storage_box_subaccount(storage_box_id=int(storage_box_id),
         with_selector="team=billing")
     ```
 
@@ -233,13 +233,13 @@ def get_storage_box_subaccount_output(id: Optional[pulumi.Input[Optional[_builti
 
     config = pulumi.Config()
     storage_box_id = config.require_object("storageBoxId")
-    by_id = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+    by_id = hcloud.get_storage_box_subaccount(storage_box_id=int(storage_box_id),
         id=2)
-    by_name = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+    by_name = hcloud.get_storage_box_subaccount(storage_box_id=int(storage_box_id),
         name="badger")
-    by_username = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+    by_username = hcloud.get_storage_box_subaccount(storage_box_id=int(storage_box_id),
         username="u507137-sub1")
-    by_label_selector = hcloud.get_storage_box_subaccount(storage_box_id=storage_box_id,
+    by_label_selector = hcloud.get_storage_box_subaccount(storage_box_id=int(storage_box_id),
         with_selector="team=billing")
     ```
 

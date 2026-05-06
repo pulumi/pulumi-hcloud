@@ -24,8 +24,8 @@ import * as utilities from "./utilities";
  *     size: 10,
  * });
  * const main = new hcloud.VolumeAttachment("main", {
- *     volumeId: master.id,
- *     serverId: node1.id,
+ *     volumeId: master.id.apply(x =>Number(x)),
+ *     serverId: node1.id.apply(x =>Number(x)),
  *     automount: true,
  * });
  * ```

@@ -23,13 +23,13 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.0.0/16",
  * });
  * const subnet = new hcloud.NetworkSubnet("subnet", {
- *     networkId: network.id,
+ *     networkId: network.id.apply(x =>Number(x)),
  *     type: "cloud",
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
  * });
  * const attachment = new hcloud.LoadBalancerNetwork("attachment", {
- *     loadBalancerId: main.id,
+ *     loadBalancerId: main.id.apply(x =>Number(x)),
  *     subnetId: subnet.id,
  *     ip: "10.0.1.5",
  * });

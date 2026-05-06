@@ -152,7 +152,7 @@ class Snapshot(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23")
-        my_snapshot = hcloud.Snapshot("my-snapshot", server_id=node1.id)
+        my_snapshot = hcloud.Snapshot("my-snapshot", server_id=node1.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -189,7 +189,7 @@ class Snapshot(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23")
-        my_snapshot = hcloud.Snapshot("my-snapshot", server_id=node1.id)
+        my_snapshot = hcloud.Snapshot("my-snapshot", server_id=node1.id.apply(lambda x: int(x)))
         ```
 
         ## Import

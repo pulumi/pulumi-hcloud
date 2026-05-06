@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *     serverType: "cx23",
  * });
  * const master = new hcloud.Rdns("master", {
- *     serverId: node1.id,
+ *     serverId: node1.id.apply(x =>Number(x)),
  *     ipAddress: node1.ipv4Address,
  *     dnsPtr: "example.com",
  * });
@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  *     type: "ipv4",
  * });
  * const primary1Rdns = new hcloud.Rdns("primary1", {
- *     primaryIpId: primary1.id,
+ *     primaryIpId: primary1.id.apply(x =>Number(x)),
  *     ipAddress: primary1.ipAddress,
  *     dnsPtr: "example.com",
  * });
@@ -55,7 +55,7 @@ import * as utilities from "./utilities";
  *     type: "ipv4",
  * });
  * const floatingMaster = new hcloud.Rdns("floating_master", {
- *     floatingIpId: floating1.id,
+ *     floatingIpId: floating1.id.apply(x =>Number(x)),
  *     ipAddress: floating1.ipAddress,
  *     dnsPtr: "example.com",
  * });
@@ -73,7 +73,7 @@ import * as utilities from "./utilities";
  *     location: "fsn1",
  * });
  * const loadBalancerMaster = new hcloud.Rdns("load_balancer_master", {
- *     loadBalancerId: loadBalancer1.id,
+ *     loadBalancerId: loadBalancer1.id.apply(x =>Number(x)),
  *     ipAddress: loadBalancer1.ipv4,
  *     dnsPtr: "example.com",
  * });

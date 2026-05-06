@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * const teamBadgerPassword = config.require("teamBadgerPassword");
  * const main = new hcloud.StorageBox("main", {});
  * const teamBadger = new hcloud.StorageBoxSubaccount("team_badger", {
- *     storageBoxId: main.id,
+ *     storageBoxId: main.id.apply(x =>Number(x)),
  *     name: "badger",
  *     homeDirectory: "teams/badger/",
  *     password: teamBadgerPassword,

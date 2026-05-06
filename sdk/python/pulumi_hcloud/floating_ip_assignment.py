@@ -123,8 +123,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
             type="ipv4",
             home_location="nbg1")
         main = hcloud.FloatingIpAssignment("main",
-            floating_ip_id=master.id,
-            server_id=node1.id)
+            floating_ip_id=master.id.apply(lambda x: int(x)),
+            server_id=node1.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -165,8 +165,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
             type="ipv4",
             home_location="nbg1")
         main = hcloud.FloatingIpAssignment("main",
-            floating_ip_id=master.id,
-            server_id=node1.id)
+            floating_ip_id=master.id.apply(lambda x: int(x)),
+            server_id=node1.id.apply(lambda x: int(x)))
         ```
 
         ## Import

@@ -67,7 +67,7 @@ import * as utilities from "./utilities";
  *     },
  *     publicNets: [{
  *         ipv4Enabled: true,
- *         ipv4: primaryIp1.id,
+ *         ipv4: primaryIp1.id.apply(x =>Number(x)),
  *         ipv6Enabled: false,
  *     }],
  * });
@@ -85,7 +85,7 @@ import * as utilities from "./utilities";
  * });
  * const network_subnet = new hcloud.NetworkSubnet("network-subnet", {
  *     type: "cloud",
- *     networkId: network.id,
+ *     networkId: network.id.apply(x =>Number(x)),
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
  * });
@@ -95,7 +95,7 @@ import * as utilities from "./utilities";
  *     image: "ubuntu-24.04",
  *     location: "nbg1",
  *     networks: [{
- *         networkId: network.id,
+ *         networkId: network.id.apply(x =>Number(x)),
  *         ip: "10.0.1.5",
  *         aliasIps: [
  *             "10.0.1.6",
@@ -121,7 +121,7 @@ import * as utilities from "./utilities";
  * // Create a new server from the snapshot
  * const fromSnapshot = new hcloud.Server("from_snapshot", {
  *     name: "from-snapshot",
- *     image: packerSnapshot.then(packerSnapshot => packerSnapshot.id),
+ *     image: output(packerSnapshot.then(packerSnapshot => packerSnapshot.id)).apply(x =>String(x)),
  *     serverType: "cx23",
  *     publicNets: [{
  *         ipv4Enabled: true,

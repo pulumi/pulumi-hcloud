@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * });
  * const master = new hcloud.FloatingIp("master", {
  *     type: "ipv4",
- *     serverId: node1.id,
+ *     serverId: node1.id.apply(x =>Number(x)),
  * });
  * ```
  *

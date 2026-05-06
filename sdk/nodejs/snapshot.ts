@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     image: "debian-12",
  *     serverType: "cx23",
  * });
- * const my_snapshot = new hcloud.Snapshot("my-snapshot", {serverId: node1.id});
+ * const my_snapshot = new hcloud.Snapshot("my-snapshot", {serverId: node1.id.apply(x =>Number(x))});
  * ```
  *
  * ## Import

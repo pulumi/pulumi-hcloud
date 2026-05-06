@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *         name: `node${range.value}`,
  *         image: "debian-12",
  *         serverType: "cx23",
- *         location: all.then(all => all.locations[range.value]).then(locations => locations.name),
+ *         location: all.then(all => all.locations)[range.value].name,
  *     }));
  * }
  * ```
@@ -75,7 +75,7 @@ export interface GetLocationsResult {
  *         name: `node${range.value}`,
  *         image: "debian-12",
  *         serverType: "cx23",
- *         location: all.then(all => all.locations[range.value]).then(locations => locations.name),
+ *         location: all.then(all => all.locations)[range.value].name,
  *     }));
  * }
  * ```

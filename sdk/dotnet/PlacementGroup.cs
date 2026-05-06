@@ -22,7 +22,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_placement_group = new HCloud.Index.PlacementGroup("my-placement-group", new()
+    ///     var my_placement_group = new HCloud.PlacementGroup("my-placement-group", new()
     ///     {
     ///         Name = "my-placement-group",
     ///         Type = "spread",
@@ -32,7 +32,7 @@ namespace Pulumi.HCloud
     ///         },
     ///     });
     /// 
-    ///     var node1 = new HCloud.Index.Server("node1", new()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
     ///         Name = "node1",
     ///         Image = "debian-12",

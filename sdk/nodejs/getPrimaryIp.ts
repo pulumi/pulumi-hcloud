@@ -56,7 +56,7 @@ import * as utilities from "./utilities";
  *         test: "tessst1",
  *     },
  *     publicNets: [{
- *         ipv4: ip1HcloudPrimaryIp.id,
+ *         ipv4: Number(ip1HcloudPrimaryIp.id),
  *     }],
  * });
  * ```
@@ -202,7 +202,7 @@ export interface GetPrimaryIpResult {
  *         test: "tessst1",
  *     },
  *     publicNets: [{
- *         ipv4: ip1HcloudPrimaryIp.id,
+ *         ipv4: Number(ip1HcloudPrimaryIp.id),
  *     }],
  * });
  * ```

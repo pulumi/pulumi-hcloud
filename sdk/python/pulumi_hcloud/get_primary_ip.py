@@ -242,7 +242,7 @@ def get_primary_ip(id: Optional[_builtins.int] = None,
             "test": "tessst1",
         },
         public_nets=[{
-            "ipv4": ip1_hcloud_primary_ip["id"],
+            "ipv4": int(ip1_hcloud_primary_ip["id"]),
         }])
     ```
 
@@ -325,7 +325,7 @@ def get_primary_ip_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = 
             "test": "tessst1",
         },
         public_nets=[{
-            "ipv4": ip1_hcloud_primary_ip["id"],
+            "ipv4": int(ip1_hcloud_primary_ip["id"]),
         }])
     ```
 

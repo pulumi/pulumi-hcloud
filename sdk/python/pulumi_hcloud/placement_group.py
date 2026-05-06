@@ -170,7 +170,7 @@ class PlacementGroup(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23",
-            placement_group_id=my_placement_group.id)
+            placement_group_id=my_placement_group.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -213,7 +213,7 @@ class PlacementGroup(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23",
-            placement_group_id=my_placement_group.id)
+            placement_group_id=my_placement_group.id.apply(lambda x: int(x)))
         ```
 
         ## Import

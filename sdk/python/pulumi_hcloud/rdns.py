@@ -253,7 +253,7 @@ class Rdns(pulumi.CustomResource):
             image="debian-12",
             server_type="cx23")
         master = hcloud.Rdns("master",
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             ip_address=node1.ipv4_address,
             dns_ptr="example.com")
         ```
@@ -268,7 +268,7 @@ class Rdns(pulumi.CustomResource):
             location="nbg1",
             type="ipv4")
         primary1_rdns = hcloud.Rdns("primary1",
-            primary_ip_id=primary1.id,
+            primary_ip_id=primary1.id.apply(lambda x: int(x)),
             ip_address=primary1.ip_address,
             dns_ptr="example.com")
         ```
@@ -283,7 +283,7 @@ class Rdns(pulumi.CustomResource):
             home_location="nbg1",
             type="ipv4")
         floating_master = hcloud.Rdns("floating_master",
-            floating_ip_id=floating1.id,
+            floating_ip_id=floating1.id.apply(lambda x: int(x)),
             ip_address=floating1.ip_address,
             dns_ptr="example.com")
         ```
@@ -299,7 +299,7 @@ class Rdns(pulumi.CustomResource):
             load_balancer_type="lb11",
             location="fsn1")
         load_balancer_master = hcloud.Rdns("load_balancer_master",
-            load_balancer_id=load_balancer1.id,
+            load_balancer_id=load_balancer1.id.apply(lambda x: int(x)),
             ip_address=load_balancer1.ipv4,
             dns_ptr="example.com")
         ```
@@ -369,7 +369,7 @@ class Rdns(pulumi.CustomResource):
             image="debian-12",
             server_type="cx23")
         master = hcloud.Rdns("master",
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             ip_address=node1.ipv4_address,
             dns_ptr="example.com")
         ```
@@ -384,7 +384,7 @@ class Rdns(pulumi.CustomResource):
             location="nbg1",
             type="ipv4")
         primary1_rdns = hcloud.Rdns("primary1",
-            primary_ip_id=primary1.id,
+            primary_ip_id=primary1.id.apply(lambda x: int(x)),
             ip_address=primary1.ip_address,
             dns_ptr="example.com")
         ```
@@ -399,7 +399,7 @@ class Rdns(pulumi.CustomResource):
             home_location="nbg1",
             type="ipv4")
         floating_master = hcloud.Rdns("floating_master",
-            floating_ip_id=floating1.id,
+            floating_ip_id=floating1.id.apply(lambda x: int(x)),
             ip_address=floating1.ip_address,
             dns_ptr="example.com")
         ```
@@ -415,7 +415,7 @@ class Rdns(pulumi.CustomResource):
             load_balancer_type="lb11",
             location="fsn1")
         load_balancer_master = hcloud.Rdns("load_balancer_master",
-            load_balancer_id=load_balancer1.id,
+            load_balancer_id=load_balancer1.id.apply(lambda x: int(x)),
             ip_address=load_balancer1.ipv4,
             dns_ptr="example.com")
         ```

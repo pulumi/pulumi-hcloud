@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * for (const range = {value: 0}; range.value < counter; range.value++) {
  *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
- *         serverId: mainHcloudServer.id,
+ *         serverId: Number(mainHcloudServer.id),
  *     }));
  * }
  * ```
@@ -153,7 +153,7 @@ export interface GetFloatingIpResult {
  * for (const range = {value: 0}; range.value < counter; range.value++) {
  *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
- *         serverId: mainHcloudServer.id,
+ *         serverId: Number(mainHcloudServer.id),
  *     }));
  * }
  * ```

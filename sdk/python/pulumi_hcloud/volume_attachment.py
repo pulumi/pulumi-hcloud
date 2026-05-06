@@ -156,8 +156,8 @@ class VolumeAttachment(pulumi.CustomResource):
             location="nbg1",
             size=10)
         main = hcloud.VolumeAttachment("main",
-            volume_id=master.id,
-            server_id=node1.id,
+            volume_id=master.id.apply(lambda x: int(x)),
+            server_id=node1.id.apply(lambda x: int(x)),
             automount=True)
         ```
 
@@ -200,8 +200,8 @@ class VolumeAttachment(pulumi.CustomResource):
             location="nbg1",
             size=10)
         main = hcloud.VolumeAttachment("main",
-            volume_id=master.id,
-            server_id=node1.id,
+            volume_id=master.id.apply(lambda x: int(x)),
+            server_id=node1.id.apply(lambda x: int(x)),
             automount=True)
         ```
 

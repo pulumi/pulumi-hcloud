@@ -318,7 +318,7 @@ class FloatingIp(pulumi.CustomResource):
             server_type="cx23")
         master = hcloud.FloatingIp("master",
             type="ipv4",
-            server_id=node1.id)
+            server_id=node1.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -361,7 +361,7 @@ class FloatingIp(pulumi.CustomResource):
             server_type="cx23")
         master = hcloud.FloatingIp("master",
             type="ipv4",
-            server_id=node1.id)
+            server_id=node1.id.apply(lambda x: int(x)))
         ```
 
         ## Import

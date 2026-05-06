@@ -26,17 +26,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = HCloud.Index.GetZone.Invoke(new()
+        ///     var example = HCloud.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var all = HCloud.Index.GetZoneRrsets.Invoke(new()
+        ///     var all = HCloud.GetZoneRrsets.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///     });
         /// 
-        ///     var byLabel = HCloud.Index.GetZoneRrsets.Invoke(new()
+        ///     var byLabel = HCloud.GetZoneRrsets.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         WithSelector = "key=value",
@@ -63,17 +63,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = HCloud.Index.GetZone.Invoke(new()
+        ///     var example = HCloud.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var all = HCloud.Index.GetZoneRrsets.Invoke(new()
+        ///     var all = HCloud.GetZoneRrsets.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///     });
         /// 
-        ///     var byLabel = HCloud.Index.GetZoneRrsets.Invoke(new()
+        ///     var byLabel = HCloud.GetZoneRrsets.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         WithSelector = "key=value",
@@ -100,17 +100,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = HCloud.Index.GetZone.Invoke(new()
+        ///     var example = HCloud.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var all = HCloud.Index.GetZoneRrsets.Invoke(new()
+        ///     var all = HCloud.GetZoneRrsets.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///     });
         /// 
-        ///     var byLabel = HCloud.Index.GetZoneRrsets.Invoke(new()
+        ///     var byLabel = HCloud.GetZoneRrsets.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         WithSelector = "key=value",

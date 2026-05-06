@@ -284,8 +284,8 @@ class LoadBalancerTarget(pulumi.CustomResource):
             location="nbg1")
         load_balancer_target = hcloud.LoadBalancerTarget("load_balancer_target",
             type="server",
-            load_balancer_id=load_balancer.id,
-            server_id=my_server.id)
+            load_balancer_id=load_balancer.id.apply(lambda x: int(x)),
+            server_id=my_server.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -347,8 +347,8 @@ class LoadBalancerTarget(pulumi.CustomResource):
             location="nbg1")
         load_balancer_target = hcloud.LoadBalancerTarget("load_balancer_target",
             type="server",
-            load_balancer_id=load_balancer.id,
-            server_id=my_server.id)
+            load_balancer_id=load_balancer.id.apply(lambda x: int(x)),
+            server_id=my_server.id.apply(lambda x: int(x)))
         ```
 
         ## Import

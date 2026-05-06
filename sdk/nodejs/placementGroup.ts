@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     name: "node1",
  *     image: "debian-12",
  *     serverType: "cx23",
- *     placementGroupId: my_placement_group.id,
+ *     placementGroupId: my_placement_group.id.apply(x =>Number(x)),
  * });
  * ```
  *
