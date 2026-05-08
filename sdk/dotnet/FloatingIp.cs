@@ -22,14 +22,14 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var node1 = new HCloud.Index.Server("node1", new()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
     ///         Name = "node1",
     ///         Image = "debian-12",
     ///         ServerType = "cx23",
     ///     });
     /// 
-    ///     var master = new HCloud.Index.FloatingIp("master", new()
+    ///     var master = new HCloud.FloatingIp("master", new()
     ///     {
     ///         Type = "ipv4",
     ///         ServerId = node1.Id,

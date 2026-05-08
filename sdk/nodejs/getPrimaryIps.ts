@@ -78,9 +78,9 @@ export function getPrimaryIpsOutput(args?: GetPrimaryIpsOutputArgs, opts?: pulum
  * A collection of arguments for invoking getPrimaryIps.
  */
 export interface GetPrimaryIpsOutputArgs {
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

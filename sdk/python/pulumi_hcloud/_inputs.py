@@ -54,12 +54,12 @@ __all__ = [
 ]
 
 class FirewallApplyToArgsDict(TypedDict):
-    label_selector: NotRequired[pulumi.Input[_builtins.str]]
+    label_selector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Label Selector to select servers the firewall should be applied to (only one
     of `server` and `label_selector`can be applied in one block)
     """
-    server: NotRequired[pulumi.Input[_builtins.int]]
+    server: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     ID of the server you want to apply the firewall to (only one of `server`
     and `label_selector`can be applied in one block)
@@ -68,8 +68,8 @@ class FirewallApplyToArgsDict(TypedDict):
 @pulumi.input_type
 class FirewallApplyToArgs:
     def __init__(__self__, *,
-                 label_selector: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[_builtins.int]] = None):
+                 label_selector: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] label_selector: Label Selector to select servers the firewall should be applied to (only one
                of `server` and `label_selector`can be applied in one block)
@@ -83,7 +83,7 @@ class FirewallApplyToArgs:
 
     @_builtins.property
     @pulumi.getter(name="labelSelector")
-    def label_selector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label_selector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label Selector to select servers the firewall should be applied to (only one
         of `server` and `label_selector`can be applied in one block)
@@ -91,12 +91,12 @@ class FirewallApplyToArgs:
         return pulumi.get(self, "label_selector")
 
     @label_selector.setter
-    def label_selector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label_selector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label_selector", value)
 
     @_builtins.property
     @pulumi.getter
-    def server(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the server you want to apply the firewall to (only one of `server`
         and `label_selector`can be applied in one block)
@@ -104,7 +104,7 @@ class FirewallApplyToArgs:
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server", value)
 
 
@@ -117,21 +117,21 @@ class FirewallRuleArgsDict(TypedDict):
     """
     Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the firewall rule
     """
-    destination_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
     is `out`)
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
     to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
     """
-    source_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
     is `in`)
@@ -142,10 +142,10 @@ class FirewallRuleArgs:
     def __init__(__self__, *,
                  direction: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] direction: Direction of the Firewall Rule. `in`
         :param pulumi.Input[_builtins.str] protocol: Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
@@ -194,19 +194,19 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the firewall rule
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationIps")
-    def destination_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
         is `out`)
@@ -214,12 +214,12 @@ class FirewallRuleArgs:
         return pulumi.get(self, "destination_ips")
 
     @destination_ips.setter
-    def destination_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_ips", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
         to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
@@ -227,12 +227,12 @@ class FirewallRuleArgs:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIps")
-    def source_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
         is `in`)
@@ -240,12 +240,12 @@ class FirewallRuleArgs:
         return pulumi.get(self, "source_ips")
 
     @source_ips.setter
-    def source_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ips", value)
 
 
 class LoadBalancerAlgorithmArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
     """
@@ -253,7 +253,7 @@ class LoadBalancerAlgorithmArgsDict(TypedDict):
 @pulumi.input_type
 class LoadBalancerAlgorithmArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
@@ -262,14 +262,14 @@ class LoadBalancerAlgorithmArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -294,7 +294,7 @@ class LoadBalancerServiceHealthCheckArgsDict(TypedDict):
     """
     Timeout when a health check try will be canceled if there is no response, in seconds.
     """
-    http: NotRequired[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgsDict']]
+    http: NotRequired[pulumi.Input[Optional['LoadBalancerServiceHealthCheckHttpArgs']]]
     """
     HTTP configuration. Required if `protocol` is `http`.
     """
@@ -307,7 +307,7 @@ class LoadBalancerServiceHealthCheckArgs:
                  protocol: pulumi.Input[_builtins.str],
                  retries: pulumi.Input[_builtins.int],
                  timeout: pulumi.Input[_builtins.int],
-                 http: Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']] = None):
+                 http: pulumi.Input[Optional['LoadBalancerServiceHealthCheckHttpArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] interval: Interval how often the health check will be performed, in seconds.
         :param pulumi.Input[_builtins.int] port: Port the health check tries to connect to, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
@@ -386,35 +386,35 @@ class LoadBalancerServiceHealthCheckArgs:
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']]:
+    def http(self) -> pulumi.Input[Optional['LoadBalancerServiceHealthCheckHttpArgs']]:
         """
         HTTP configuration. Required if `protocol` is `http`.
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['LoadBalancerServiceHealthCheckHttpArgs']]):
+    def http(self, value: pulumi.Input[Optional['LoadBalancerServiceHealthCheckHttpArgs']]):
         pulumi.set(self, "http", value)
 
 
 class LoadBalancerServiceHealthCheckHttpArgsDict(TypedDict):
-    domain: NotRequired[pulumi.Input[_builtins.str]]
+    domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Domain we try to access when performing the Health Check.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path we try to access when performing the Health Check.
     """
-    response: NotRequired[pulumi.Input[_builtins.str]]
+    response: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Response we expect to be included in the Target response when a Health Check was performed.
     """
-    status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
     """
-    tls: NotRequired[pulumi.Input[_builtins.bool]]
+    tls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable TLS certificate checking.
     """
@@ -422,11 +422,11 @@ class LoadBalancerServiceHealthCheckHttpArgsDict(TypedDict):
 @pulumi.input_type
 class LoadBalancerServiceHealthCheckHttpArgs:
     def __init__(__self__, *,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 response: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tls: Optional[pulumi.Input[_builtins.bool]] = None):
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 response: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tls: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] domain: Domain we try to access when performing the Health Check.
         :param pulumi.Input[_builtins.str] path: Path we try to access when performing the Health Check.
@@ -447,83 +447,83 @@ class LoadBalancerServiceHealthCheckHttpArgs:
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain we try to access when performing the Health Check.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path we try to access when performing the Health Check.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Response we expect to be included in the Target response when a Health Check was performed.
         """
         return pulumi.get(self, "response")
 
     @response.setter
-    def response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def status_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def status_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "status_codes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable TLS certificate checking.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls", value)
 
 
 class LoadBalancerServiceHttpArgsDict(TypedDict):
-    certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     List of IDs from certificates which the Load Balancer has.
     """
-    cookie_lifetime: NotRequired[pulumi.Input[_builtins.int]]
+    cookie_lifetime: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Lifetime of the cookie for sticky session (in seconds). Default: `300`
     """
-    cookie_name: NotRequired[pulumi.Input[_builtins.str]]
+    cookie_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the cookie for sticky session. Default: `HCLBSTICKY`
     """
-    redirect_http: NotRequired[pulumi.Input[_builtins.bool]]
+    redirect_http: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
     """
-    sticky_sessions: NotRequired[pulumi.Input[_builtins.bool]]
+    sticky_sessions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable sticky sessions
     """
@@ -531,11 +531,11 @@ class LoadBalancerServiceHttpArgsDict(TypedDict):
 @pulumi.input_type
 class LoadBalancerServiceHttpArgs:
     def __init__(__self__, *,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 cookie_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 cookie_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_http: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sticky_sessions: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 cookie_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_http: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sticky_sessions: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] certificates: List of IDs from certificates which the Load Balancer has.
         :param pulumi.Input[_builtins.int] cookie_lifetime: Lifetime of the cookie for sticky session (in seconds). Default: `300`
@@ -556,62 +556,62 @@ class LoadBalancerServiceHttpArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         List of IDs from certificates which the Load Balancer has.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieLifetime")
-    def cookie_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cookie_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Lifetime of the cookie for sticky session (in seconds). Default: `300`
         """
         return pulumi.get(self, "cookie_lifetime")
 
     @cookie_lifetime.setter
-    def cookie_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cookie_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cookie_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieName")
-    def cookie_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cookie_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the cookie for sticky session. Default: `HCLBSTICKY`
         """
         return pulumi.get(self, "cookie_name")
 
     @cookie_name.setter
-    def cookie_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cookie_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cookie_name", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectHttp")
-    def redirect_http(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def redirect_http(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
         """
         return pulumi.get(self, "redirect_http")
 
     @redirect_http.setter
-    def redirect_http(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def redirect_http(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "redirect_http", value)
 
     @_builtins.property
     @pulumi.getter(name="stickySessions")
-    def sticky_sessions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sticky_sessions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable sticky sessions
         """
         return pulumi.get(self, "sticky_sessions")
 
     @sticky_sessions.setter
-    def sticky_sessions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sticky_sessions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sticky_sessions", value)
 
 
@@ -620,15 +620,15 @@ class LoadBalancerTargetArgsDict(TypedDict):
     """
     (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
     """
-    server_id: NotRequired[pulumi.Input[_builtins.int]]
-    use_private_ip: NotRequired[pulumi.Input[_builtins.bool]]
+    server_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    use_private_ip: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class LoadBalancerTargetArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 use_private_ip: Optional[pulumi.Input[_builtins.bool]] = None):
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_private_ip: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] type: (string) Type of the Load Balancer Algorithm. `round_robin` or `least_connections`
         """
@@ -655,21 +655,21 @@ class LoadBalancerTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="usePrivateIp")
     @_utilities.deprecated("""Does not work. Use the LoadBalancerTarget resource instead.""")
-    def use_private_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_private_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "use_private_ip")
 
     @use_private_ip.setter
-    def use_private_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_private_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_private_ip", value)
 
 
@@ -678,17 +678,17 @@ class ServerNetworkArgsDict(TypedDict):
     """
     ID of the network
     """
-    alias_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    alias_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Alias IPs the server should have in the Network.
 
     There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `alias_ips = []` to avoid this. See #650 for details.
     """
-    ip: NotRequired[pulumi.Input[_builtins.str]]
+    ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify the IP the server should get in the network
     """
-    mac_address: NotRequired[pulumi.Input[_builtins.str]]
+    mac_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional, string) The MAC address the private interface of the server has
     """
@@ -697,9 +697,9 @@ class ServerNetworkArgsDict(TypedDict):
 class ServerNetworkArgs:
     def __init__(__self__, *,
                  network_id: pulumi.Input[_builtins.int],
-                 alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] network_id: ID of the network
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_ips: Alias IPs the server should have in the Network.
@@ -730,7 +730,7 @@ class ServerNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="aliasIps")
-    def alias_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alias_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Alias IPs the server should have in the Network.
 
@@ -739,47 +739,47 @@ class ServerNetworkArgs:
         return pulumi.get(self, "alias_ips")
 
     @alias_ips.setter
-    def alias_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alias_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alias_ips", value)
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the IP the server should get in the network
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional, string) The MAC address the private interface of the server has
         """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
 
 class ServerPublicNetArgsDict(TypedDict):
-    ipv4: NotRequired[pulumi.Input[_builtins.int]]
-    ipv4_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    ipv6: NotRequired[pulumi.Input[_builtins.int]]
-    ipv6_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ipv4: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    ipv4_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ipv6: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    ipv6_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class ServerPublicNetArgs:
     def __init__(__self__, *,
-                 ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv4_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv4_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         if ipv4 is not None:
             pulumi.set(__self__, "ipv4", ipv4)
         if ipv4_enabled is not None:
@@ -791,59 +791,59 @@ class ServerPublicNetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ipv4(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "ipv4")
 
     @ipv4.setter
-    def ipv4(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv4", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4Enabled")
-    def ipv4_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv4_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ipv4_enabled")
 
     @ipv4_enabled.setter
-    def ipv4_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv4_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv4_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipv6(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "ipv6")
 
     @ipv6.setter
-    def ipv6(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Enabled")
-    def ipv6_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ipv6_enabled")
 
     @ipv6_enabled.setter
-    def ipv6_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_enabled", value)
 
 
 class StorageBoxAccessSettingsArgsDict(TypedDict):
-    reachable_externally: NotRequired[pulumi.Input[_builtins.bool]]
+    reachable_externally: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether access from outside the Hetzner network is allowed.
     """
-    samba_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    samba_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the Samba subsystem is enabled.
     """
-    ssh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ssh_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the SSH subsystem is enabled.
     """
-    webdav_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    webdav_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the WebDAV subsystem is enabled.
     """
-    zfs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    zfs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the ZFS snapshot folder is visible.
     """
@@ -851,11 +851,11 @@ class StorageBoxAccessSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class StorageBoxAccessSettingsArgs:
     def __init__(__self__, *,
-                 reachable_externally: Optional[pulumi.Input[_builtins.bool]] = None,
-                 samba_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 webdav_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zfs_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 reachable_externally: pulumi.Input[Optional[_builtins.bool]] = None,
+                 samba_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 webdav_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zfs_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] reachable_externally: Whether access from outside the Hetzner network is allowed.
         :param pulumi.Input[_builtins.bool] samba_enabled: Whether the Samba subsystem is enabled.
@@ -876,62 +876,62 @@ class StorageBoxAccessSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="reachableExternally")
-    def reachable_externally(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reachable_externally(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether access from outside the Hetzner network is allowed.
         """
         return pulumi.get(self, "reachable_externally")
 
     @reachable_externally.setter
-    def reachable_externally(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reachable_externally(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reachable_externally", value)
 
     @_builtins.property
     @pulumi.getter(name="sambaEnabled")
-    def samba_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def samba_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Samba subsystem is enabled.
         """
         return pulumi.get(self, "samba_enabled")
 
     @samba_enabled.setter
-    def samba_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def samba_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "samba_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sshEnabled")
-    def ssh_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssh_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the SSH subsystem is enabled.
         """
         return pulumi.get(self, "ssh_enabled")
 
     @ssh_enabled.setter
-    def ssh_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssh_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssh_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="webdavEnabled")
-    def webdav_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def webdav_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the WebDAV subsystem is enabled.
         """
         return pulumi.get(self, "webdav_enabled")
 
     @webdav_enabled.setter
-    def webdav_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def webdav_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "webdav_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zfsEnabled")
-    def zfs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zfs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the ZFS snapshot folder is visible.
         """
         return pulumi.get(self, "zfs_enabled")
 
     @zfs_enabled.setter
-    def zfs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zfs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zfs_enabled", value)
 
 
@@ -948,11 +948,11 @@ class StorageBoxSnapshotPlanArgsDict(TypedDict):
     """
     Minute when the Snapshot Plan is executed (UTC).
     """
-    day_of_month: NotRequired[pulumi.Input[_builtins.int]]
+    day_of_month: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Day of the month when the Snapshot Plan is executed. Null means every day.
     """
-    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    day_of_week: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
     """
@@ -963,8 +963,8 @@ class StorageBoxSnapshotPlanArgs:
                  hour: pulumi.Input[_builtins.int],
                  max_snapshots: pulumi.Input[_builtins.int],
                  minute: pulumi.Input[_builtins.int],
-                 day_of_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 day_of_week: Optional[pulumi.Input[_builtins.int]] = None):
+                 day_of_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 day_of_week: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] hour: Hour when the Snapshot Plan is executed (UTC).
         :param pulumi.Input[_builtins.int] max_snapshots: Maximum amount of Snapshots that will be created by this Snapshot Plan. Older Snapshots will be deleted.
@@ -1018,47 +1018,47 @@ class StorageBoxSnapshotPlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="dayOfMonth")
-    def day_of_month(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def day_of_month(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Day of the month when the Snapshot Plan is executed. Null means every day.
         """
         return pulumi.get(self, "day_of_month")
 
     @day_of_month.setter
-    def day_of_month(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def day_of_month(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "day_of_month", value)
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def day_of_week(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def day_of_week(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "day_of_week", value)
 
 
 class StorageBoxSubaccountAccessSettingsArgsDict(TypedDict):
-    reachable_externally: NotRequired[pulumi.Input[_builtins.bool]]
+    reachable_externally: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether access from outside the Hetzner network is allowed.
     """
-    readonly: NotRequired[pulumi.Input[_builtins.bool]]
+    readonly: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the Subaccount is read-only.
     """
-    samba_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    samba_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the Samba subsystem is enabled.
     """
-    ssh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ssh_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the SSH subsystem is enabled.
     """
-    webdav_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    webdav_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the WebDAV subsystem is enabled.
     """
@@ -1066,11 +1066,11 @@ class StorageBoxSubaccountAccessSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class StorageBoxSubaccountAccessSettingsArgs:
     def __init__(__self__, *,
-                 reachable_externally: Optional[pulumi.Input[_builtins.bool]] = None,
-                 readonly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 samba_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 webdav_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 reachable_externally: pulumi.Input[Optional[_builtins.bool]] = None,
+                 readonly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 samba_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 webdav_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] reachable_externally: Whether access from outside the Hetzner network is allowed.
         :param pulumi.Input[_builtins.bool] readonly: Whether the Subaccount is read-only.
@@ -1091,67 +1091,67 @@ class StorageBoxSubaccountAccessSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="reachableExternally")
-    def reachable_externally(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reachable_externally(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether access from outside the Hetzner network is allowed.
         """
         return pulumi.get(self, "reachable_externally")
 
     @reachable_externally.setter
-    def reachable_externally(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reachable_externally(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reachable_externally", value)
 
     @_builtins.property
     @pulumi.getter
-    def readonly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def readonly(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Subaccount is read-only.
         """
         return pulumi.get(self, "readonly")
 
     @readonly.setter
-    def readonly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def readonly(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "readonly", value)
 
     @_builtins.property
     @pulumi.getter(name="sambaEnabled")
-    def samba_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def samba_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Samba subsystem is enabled.
         """
         return pulumi.get(self, "samba_enabled")
 
     @samba_enabled.setter
-    def samba_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def samba_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "samba_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sshEnabled")
-    def ssh_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssh_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the SSH subsystem is enabled.
         """
         return pulumi.get(self, "ssh_enabled")
 
     @ssh_enabled.setter
-    def ssh_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssh_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssh_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="webdavEnabled")
-    def webdav_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def webdav_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the WebDAV subsystem is enabled.
         """
         return pulumi.get(self, "webdav_enabled")
 
     @webdav_enabled.setter
-    def webdav_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def webdav_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "webdav_enabled", value)
 
 
 class ZoneAuthoritativeNameserversArgsDict(TypedDict):
-    assigneds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    assigneds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Authoritative Hetzner nameservers assigned to the Zone.
     """
@@ -1159,7 +1159,7 @@ class ZoneAuthoritativeNameserversArgsDict(TypedDict):
 @pulumi.input_type
 class ZoneAuthoritativeNameserversArgs:
     def __init__(__self__, *,
-                 assigneds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 assigneds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assigneds: Authoritative Hetzner nameservers assigned to the Zone.
         """
@@ -1168,14 +1168,14 @@ class ZoneAuthoritativeNameserversArgs:
 
     @_builtins.property
     @pulumi.getter
-    def assigneds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def assigneds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Authoritative Hetzner nameservers assigned to the Zone.
         """
         return pulumi.get(self, "assigneds")
 
     @assigneds.setter
-    def assigneds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def assigneds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "assigneds", value)
 
 
@@ -1184,15 +1184,15 @@ class ZonePrimaryNameserverArgsDict(TypedDict):
     """
     Public IPv4 or IPv6 address of the primary nameserver.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port of the primary nameserver.
     """
-    tsig_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    tsig_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Transaction signature (TSIG) algorithm used to generate the TSIG key.
     """
-    tsig_key: NotRequired[pulumi.Input[_builtins.str]]
+    tsig_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Transaction signature (TSIG) key
     """
@@ -1201,9 +1201,9 @@ class ZonePrimaryNameserverArgsDict(TypedDict):
 class ZonePrimaryNameserverArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[_builtins.str],
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 tsig_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 tsig_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 tsig_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 tsig_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address: Public IPv4 or IPv6 address of the primary nameserver.
         :param pulumi.Input[_builtins.int] port: Port of the primary nameserver.
@@ -1232,38 +1232,38 @@ class ZonePrimaryNameserverArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port of the primary nameserver.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="tsigAlgorithm")
-    def tsig_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tsig_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Transaction signature (TSIG) algorithm used to generate the TSIG key.
         """
         return pulumi.get(self, "tsig_algorithm")
 
     @tsig_algorithm.setter
-    def tsig_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tsig_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tsig_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="tsigKey")
-    def tsig_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tsig_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Transaction signature (TSIG) key
         """
         return pulumi.get(self, "tsig_key")
 
     @tsig_key.setter
-    def tsig_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tsig_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tsig_key", value)
 
 
@@ -1272,7 +1272,7 @@ class ZoneRrsetRecordArgsDict(TypedDict):
     """
     Value of the record.
     """
-    comment: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Comment of the record.
     """
@@ -1281,7 +1281,7 @@ class ZoneRrsetRecordArgsDict(TypedDict):
 class ZoneRrsetRecordArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] value: Value of the record.
         :param pulumi.Input[_builtins.str] comment: Comment of the record.
@@ -1304,14 +1304,14 @@ class ZoneRrsetRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comment of the record.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
 

@@ -98,7 +98,7 @@ def get_networks(with_selector: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_networks_output(with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_networks_output(with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworksResult]:
     """
     Provides details about multiple Hetzner Cloud Networks.

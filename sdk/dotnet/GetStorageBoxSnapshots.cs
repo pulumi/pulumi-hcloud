@@ -28,12 +28,12 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var all = HCloud.Index.GetStorageBoxSnapshots.Invoke(new()
+        ///     var all = HCloud.GetStorageBoxSnapshots.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSnapshots.Invoke(new()
+        ///     var byLabelSelector = HCloud.GetStorageBoxSnapshots.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "env=production",
@@ -62,12 +62,12 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var all = HCloud.Index.GetStorageBoxSnapshots.Invoke(new()
+        ///     var all = HCloud.GetStorageBoxSnapshots.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSnapshots.Invoke(new()
+        ///     var byLabelSelector = HCloud.GetStorageBoxSnapshots.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "env=production",
@@ -96,12 +96,12 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var all = HCloud.Index.GetStorageBoxSnapshots.Invoke(new()
+        ///     var all = HCloud.GetStorageBoxSnapshots.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSnapshots.Invoke(new()
+        ///     var byLabelSelector = HCloud.GetStorageBoxSnapshots.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "env=production",

@@ -121,21 +121,21 @@ export interface GetImagesOutputArgs {
     /**
      * Also list images that are marked as deprecated.
      */
-    includeDeprecated?: pulumi.Input<boolean>;
+    includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
      * Sorts list by date.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * List only images with this architecture, could contain `x86` or `arm`.
      */
-    withArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
+    withArchitectures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
     /**
      * List only images with the specified status, could contain `creating` or `available`.
      */
-    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
+    withStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

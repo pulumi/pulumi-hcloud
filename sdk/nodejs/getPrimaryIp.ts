@@ -56,7 +56,7 @@ import * as utilities from "./utilities";
  *         test: "tessst1",
  *     },
  *     publicNets: [{
- *         ipv4: ip1HcloudPrimaryIp.id,
+ *         ipv4: Number(ip1HcloudPrimaryIp.id),
  *     }],
  * });
  * ```
@@ -202,7 +202,7 @@ export interface GetPrimaryIpResult {
  *         test: "tessst1",
  *     },
  *     publicNets: [{
- *         ipv4: ip1HcloudPrimaryIp.id,
+ *         ipv4: Number(ip1HcloudPrimaryIp.id),
  *     }],
  * });
  * ```
@@ -225,17 +225,17 @@ export interface GetPrimaryIpOutputArgs {
     /**
      * ID of the Primary IP.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * IP address of the Primary IP.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * Name of the Primary IP.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

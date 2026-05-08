@@ -23,7 +23,7 @@ class NetworkSubnetArgs:
                  network_id: pulumi.Input[_builtins.int],
                  network_zone: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 vswitch_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 vswitch_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkSubnet resource.
 
@@ -90,26 +90,26 @@ class NetworkSubnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="vswitchId")
-    def vswitch_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vswitch_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the vswitch, Required if type is `vswitch`
         """
         return pulumi.get(self, "vswitch_id")
 
     @vswitch_id.setter
-    def vswitch_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vswitch_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vswitch_id", value)
 
 
 @pulumi.input_type
 class _NetworkSubnetState:
     def __init__(__self__, *,
-                 gateway: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vswitch_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 gateway: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vswitch_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkSubnet resources.
 
@@ -134,71 +134,71 @@ class _NetworkSubnetState:
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRange")
-    def ip_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Range to allocate IPs from. Must be a subnet of the ip_range of the Network and must not overlap with any other subnets or with any destinations in routes.
         """
         return pulumi.get(self, "ip_range")
 
     @ip_range.setter
-    def ip_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_range", value)
 
     @_builtins.property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def network_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Network the subnet should be added to.
         """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
-    def network_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def network_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkZone")
-    def network_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of network zone.
         """
         return pulumi.get(self, "network_zone")
 
     @network_zone.setter
-    def network_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of subnet. `server`, `cloud` or `vswitch`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="vswitchId")
-    def vswitch_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vswitch_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the vswitch, Required if type is `vswitch`
         """
         return pulumi.get(self, "vswitch_id")
 
     @vswitch_id.setter
-    def vswitch_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vswitch_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vswitch_id", value)
 
 
@@ -208,11 +208,11 @@ class NetworkSubnet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vswitch_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vswitch_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Network Subnet to represent a Subnet in the Hetzner Cloud.
@@ -227,7 +227,7 @@ class NetworkSubnet(pulumi.CustomResource):
             name="my-net",
             ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
-            network_id=mynet.id,
+            network_id=mynet.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
@@ -270,7 +270,7 @@ class NetworkSubnet(pulumi.CustomResource):
             name="my-net",
             ip_range="10.0.0.0/8")
         foonet = hcloud.NetworkSubnet("foonet",
-            network_id=mynet.id,
+            network_id=mynet.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
@@ -301,11 +301,11 @@ class NetworkSubnet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vswitch_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vswitch_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -339,12 +339,12 @@ class NetworkSubnet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            gateway: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-            network_id: Optional[pulumi.Input[_builtins.int]] = None,
-            network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            vswitch_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'NetworkSubnet':
+            gateway: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+            network_id: pulumi.Input[Optional[_builtins.int]] = None,
+            network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vswitch_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'NetworkSubnet':
         """
         Get an existing NetworkSubnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

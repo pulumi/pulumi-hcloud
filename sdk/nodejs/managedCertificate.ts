@@ -147,38 +147,38 @@ export interface ManagedCertificateState {
     /**
      * (string) PEM encoded TLS certificate.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * (string) Point in time when the Certificate was created at Hetzner Cloud (in ISO-8601 format).
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Domain names for which a certificate
      * should be obtained.
      */
-    domainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    domainNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (string) Fingerprint of the certificate.
      */
-    fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs) the
      * certificate should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Certificate.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (string) Point in time when the Certificate stops being valid (in ISO-8601 format).
      */
-    notValidAfter?: pulumi.Input<string>;
+    notValidAfter?: pulumi.Input<string | undefined>;
     /**
      * (string) Point in time when the Certificate becomes valid (in ISO-8601 format).
      */
-    notValidBefore?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    notValidBefore?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,9 +194,9 @@ export interface ManagedCertificateArgs {
      * User-defined labels (key-value pairs) the
      * certificate should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Certificate.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

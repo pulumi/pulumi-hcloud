@@ -194,33 +194,33 @@ export interface GetImageOutputArgs {
     /**
      * ID of the Image.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Also return the image if it is marked as deprecated.
      */
-    includeDeprecated?: pulumi.Input<boolean>;
+    includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
      * If more than one result is returned, use the most recent Image.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Image.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated Please use the withSelector property instead.
      */
-    selector?: pulumi.Input<string>;
+    selector?: pulumi.Input<string | undefined>;
     /**
      * Select only images with this architecture, could be `x86` (default) or `arm`.
      */
-    withArchitecture?: pulumi.Input<string>;
+    withArchitecture?: pulumi.Input<string | undefined>;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
     /**
      * Select only images with the specified status, could contain `creating` or `available`.
      */
-    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
+    withStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

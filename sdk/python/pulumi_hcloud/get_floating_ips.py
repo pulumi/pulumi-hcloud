@@ -97,7 +97,7 @@ def get_floating_ips(with_selector: Optional[_builtins.str] = None,
         floating_ips=pulumi.get(__ret__, 'floating_ips'),
         id=pulumi.get(__ret__, 'id'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_floating_ips_output(with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_floating_ips_output(with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFloatingIpsResult]:
     """
     Provides details about multiple Hetzner Cloud Floating IPs.

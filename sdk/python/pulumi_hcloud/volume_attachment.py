@@ -21,7 +21,7 @@ class VolumeAttachmentArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[_builtins.int],
                  volume_id: pulumi.Input[_builtins.int],
-                 automount: Optional[pulumi.Input[_builtins.bool]] = None):
+                 automount: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
 
@@ -60,23 +60,23 @@ class VolumeAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def automount(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automount(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automount the volume upon attaching it.
         """
         return pulumi.get(self, "automount")
 
     @automount.setter
-    def automount(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automount(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automount", value)
 
 
 @pulumi.input_type
 class _VolumeAttachmentState:
     def __init__(__self__, *,
-                 automount: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 automount: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering VolumeAttachment resources.
 
@@ -93,38 +93,38 @@ class _VolumeAttachmentState:
 
     @_builtins.property
     @pulumi.getter
-    def automount(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automount(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automount the volume upon attaching it.
         """
         return pulumi.get(self, "automount")
 
     @automount.setter
-    def automount(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automount(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automount", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Server to attach the Volume to.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Volume.
         """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
-    def volume_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_id", value)
 
 
@@ -134,9 +134,9 @@ class VolumeAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automount: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 automount: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Volume attachment to attach a Volume to a Hetzner Cloud Server. Deleting a Volume Attachment will detach the Volume from the Server.
@@ -156,8 +156,8 @@ class VolumeAttachment(pulumi.CustomResource):
             location="nbg1",
             size=10)
         main = hcloud.VolumeAttachment("main",
-            volume_id=master.id,
-            server_id=node1.id,
+            volume_id=master.id.apply(lambda x: int(x)),
+            server_id=node1.id.apply(lambda x: int(x)),
             automount=True)
         ```
 
@@ -200,8 +200,8 @@ class VolumeAttachment(pulumi.CustomResource):
             location="nbg1",
             size=10)
         main = hcloud.VolumeAttachment("main",
-            volume_id=master.id,
-            server_id=node1.id,
+            volume_id=master.id.apply(lambda x: int(x)),
+            server_id=node1.id.apply(lambda x: int(x)),
             automount=True)
         ```
 
@@ -229,9 +229,9 @@ class VolumeAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automount: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 automount: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -258,9 +258,9 @@ class VolumeAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automount: Optional[pulumi.Input[_builtins.bool]] = None,
-            server_id: Optional[pulumi.Input[_builtins.int]] = None,
-            volume_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'VolumeAttachment':
+            automount: pulumi.Input[Optional[_builtins.bool]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'VolumeAttachment':
         """
         Get an existing VolumeAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

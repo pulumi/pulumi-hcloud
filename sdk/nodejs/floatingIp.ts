@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * });
  * const master = new hcloud.FloatingIp("master", {
  *     type: "ipv4",
- *     serverId: node1.id,
+ *     serverId: node1.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -146,39 +146,39 @@ export interface FloatingIpState {
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Description of the Floating IP.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      */
-    homeLocation?: pulumi.Input<string>;
+    homeLocation?: pulumi.Input<string | undefined>;
     /**
      * (string) IP Address of the Floating IP.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * (string) IPv6 subnet. (Only set if `type` is `ipv6`)
      */
-    ipNetwork?: pulumi.Input<string>;
+    ipNetwork?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Floating IP.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * Type of the Floating IP. `ipv4` `ipv6`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,27 +188,27 @@ export interface FloatingIpArgs {
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Description of the Floating IP.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of home location (routing is optimized for that location). Optional if `serverId` argument is passed.
      */
-    homeLocation?: pulumi.Input<string>;
+    homeLocation?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Floating IP.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Server to assign the Floating IP to. Optional if `homeLocation` argument is passed.
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * Type of the Floating IP. `ipv4` `ipv6`
      */

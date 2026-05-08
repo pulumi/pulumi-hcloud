@@ -160,19 +160,19 @@ export interface GetZoneRrsetOutputArgs {
     /**
      * ID of the Zone RRSet.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the Zone RRSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Type of the Zone RRSet.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
     /**
      * ID or Name of the parent Zone.
      */

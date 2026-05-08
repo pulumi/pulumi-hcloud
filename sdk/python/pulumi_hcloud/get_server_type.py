@@ -268,8 +268,8 @@ def get_server_type(id: Optional[_builtins.int] = None,
         name=pulumi.get(__ret__, 'name'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         unavailable_after=pulumi.get(__ret__, 'unavailable_after'))
-def get_server_type_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                           name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_server_type_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerTypeResult]:
     """
     Provides details about a specific Hetzner Cloud Server Type.

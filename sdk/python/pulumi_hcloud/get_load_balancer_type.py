@@ -161,8 +161,8 @@ def get_load_balancer_type(id: Optional[_builtins.int] = None,
         max_services=pulumi.get(__ret__, 'max_services'),
         max_targets=pulumi.get(__ret__, 'max_targets'),
         name=pulumi.get(__ret__, 'name'))
-def get_load_balancer_type_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                  name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_load_balancer_type_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                  name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerTypeResult]:
     """
     Provides details about a specific Hetzner Cloud Load Balancer Type.

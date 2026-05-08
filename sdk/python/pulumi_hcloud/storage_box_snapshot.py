@@ -20,8 +20,8 @@ __all__ = ['StorageBoxSnapshotArgs', 'StorageBoxSnapshot']
 class StorageBoxSnapshotArgs:
     def __init__(__self__, *,
                  storage_box_id: pulumi.Input[_builtins.int],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageBoxSnapshot resource.
 
@@ -49,37 +49,37 @@ class StorageBoxSnapshotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Storage Box Snapshot.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
 
 @pulumi.input_type
 class _StorageBoxSnapshotState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_automatic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_box_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_box_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering StorageBoxSnapshot resources.
 
@@ -102,62 +102,62 @@ class _StorageBoxSnapshotState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Storage Box Snapshot.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isAutomatic")
-    def is_automatic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_automatic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Storage Box Snapshot was created automatically.
         """
         return pulumi.get(self, "is_automatic")
 
     @is_automatic.setter
-    def is_automatic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_automatic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_automatic", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Storage Box Snapshot.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageBoxId")
-    def storage_box_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_box_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Storage Box.
         """
         return pulumi.get(self, "storage_box_id")
 
     @storage_box_id.setter
-    def storage_box_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_box_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_box_id", value)
 
 
@@ -167,9 +167,9 @@ class StorageBoxSnapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 storage_box_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Hetzner Storage Box Snapshot resource.
@@ -184,7 +184,7 @@ class StorageBoxSnapshot(pulumi.CustomResource):
 
         main = hcloud.StorageBox("main")
         backup = hcloud.StorageBoxSnapshot("backup",
-            storage_box_id=main.id,
+            storage_box_id=main.id.apply(lambda x: int(x)),
             description="Before Tool XYZ Migration",
             labels={
                 "env": "production",
@@ -225,7 +225,7 @@ class StorageBoxSnapshot(pulumi.CustomResource):
 
         main = hcloud.StorageBox("main")
         backup = hcloud.StorageBoxSnapshot("backup",
-            storage_box_id=main.id,
+            storage_box_id=main.id.apply(lambda x: int(x)),
             description="Before Tool XYZ Migration",
             labels={
                 "env": "production",
@@ -256,9 +256,9 @@ class StorageBoxSnapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 storage_box_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -285,11 +285,11 @@ class StorageBoxSnapshot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            is_automatic: Optional[pulumi.Input[_builtins.bool]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_box_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'StorageBoxSnapshot':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_box_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'StorageBoxSnapshot':
         """
         Get an existing StorageBoxSnapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

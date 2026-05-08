@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     image: "debian-12",
  *     serverType: "cx23",
  * });
- * const my_snapshot = new hcloud.Snapshot("my-snapshot", {serverId: node1.id});
+ * const my_snapshot = new hcloud.Snapshot("my-snapshot", {serverId: node1.id.apply(x =>Number(x))});
  * ```
  *
  * ## Import
@@ -107,15 +107,15 @@ export interface SnapshotState {
     /**
      * Description of the snapshot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Server to the snapshot should be created from.
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -125,11 +125,11 @@ export interface SnapshotArgs {
     /**
      * Description of the snapshot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Server to the snapshot should be created from.
      */

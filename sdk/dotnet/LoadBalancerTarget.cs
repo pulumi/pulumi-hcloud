@@ -22,21 +22,21 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myServer = new HCloud.Index.Server("my_server", new()
+    ///     var myServer = new HCloud.Server("my_server", new()
     ///     {
     ///         Name = "my-server",
     ///         ServerType = "cx23",
     ///         Image = "ubuntu-24.04",
     ///     });
     /// 
-    ///     var loadBalancer = new HCloud.Index.LoadBalancer("load_balancer", new()
+    ///     var loadBalancer = new HCloud.LoadBalancer("load_balancer", new()
     ///     {
     ///         Name = "my-load-balancer",
     ///         LoadBalancerType = "lb11",
     ///         Location = "nbg1",
     ///     });
     /// 
-    ///     var loadBalancerTarget = new HCloud.Index.LoadBalancerTarget("load_balancer_target", new()
+    ///     var loadBalancerTarget = new HCloud.LoadBalancerTarget("load_balancer_target", new()
     ///     {
     ///         Type = "server",
     ///         LoadBalancerId = loadBalancer.Id,

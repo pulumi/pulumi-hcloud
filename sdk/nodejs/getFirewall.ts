@@ -132,29 +132,29 @@ export interface GetFirewallOutputArgs {
     /**
      * Configuration of the Applied Resources
      */
-    applyTos?: pulumi.Input<pulumi.Input<inputs.GetFirewallApplyToArgs>[]>;
+    applyTos?: pulumi.Input<pulumi.Input<inputs.GetFirewallApplyToArgs>[] | undefined>;
     /**
      * ID of the firewall.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * (map) User-defined labels (key-value pairs)
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Return most recent firewall if multiple are found.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the firewall.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (string) Configuration of a Rule from this Firewall.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.GetFirewallRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.GetFirewallRuleArgs>[] | undefined>;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

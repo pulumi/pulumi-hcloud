@@ -26,8 +26,8 @@ import * as utilities from "./utilities";
  * });
  * const basicFirewall = new hcloud.Firewall("basic_firewall", {name: "basic_firewall"});
  * const fwRef = new hcloud.FirewallAttachment("fw_ref", {
- *     firewallId: basicFirewall.id,
- *     serverIds: [testServer.id],
+ *     firewallId: basicFirewall.id.apply(x =>Number(x)),
+ *     serverIds: [testServer.id.apply(x =>Number(x))],
  * });
  * ```
  *
@@ -47,7 +47,7 @@ import * as utilities from "./utilities";
  * });
  * const basicFirewall = new hcloud.Firewall("basic_firewall", {name: "basic_firewall"});
  * const fwRef = new hcloud.FirewallAttachment("fw_ref", {
- *     firewallId: basicFirewall.id,
+ *     firewallId: basicFirewall.id.apply(x =>Number(x)),
  *     labelSelectors: ["firewall-attachment=test-server"],
  * });
  * ```
@@ -77,7 +77,7 @@ import * as utilities from "./utilities";
  *     serverType: "cx23",
  *     image: "ubuntu-24.04",
  *     ignoreRemoteFirewallIds: true,
- *     firewallIds: [denyAll.id],
+ *     firewallIds: [denyAll.id.apply(x =>Number(x))],
  * });
  * const allowRules = new hcloud.Firewall("allow_rules", {
  *     name: "allow_rules",
@@ -96,12 +96,12 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * const denyAllAtt = new hcloud.FirewallAttachment("deny_all_att", {
- *     firewallId: denyAll.id,
- *     serverIds: [testServer.id],
+ *     firewallId: denyAll.id.apply(x =>Number(x)),
+ *     serverIds: [testServer.id.apply(x =>Number(x))],
  * });
  * const allowRulesAtt = new hcloud.FirewallAttachment("allow_rules_att", {
- *     firewallId: allowRules.id,
- *     serverIds: [testServer.id],
+ *     firewallId: allowRules.id.apply(x =>Number(x)),
+ *     serverIds: [testServer.id.apply(x =>Number(x))],
  * });
  * ```
  *
@@ -195,17 +195,17 @@ export interface FirewallAttachmentState {
      * ID of the firewall the resources
      * should be attached to.
      */
-    firewallId?: pulumi.Input<number>;
+    firewallId?: pulumi.Input<number | undefined>;
     /**
      * List of label selectors used to
      * select resources to attach to the firewall.
      */
-    labelSelectors?: pulumi.Input<pulumi.Input<string>[]>;
+    labelSelectors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Server IDs to attach to the
      * firewall.
      */
-    serverIds?: pulumi.Input<pulumi.Input<number>[]>;
+    serverIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }
 
 /**
@@ -221,10 +221,10 @@ export interface FirewallAttachmentArgs {
      * List of label selectors used to
      * select resources to attach to the firewall.
      */
-    labelSelectors?: pulumi.Input<pulumi.Input<string>[]>;
+    labelSelectors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Server IDs to attach to the
      * firewall.
      */
-    serverIds?: pulumi.Input<pulumi.Input<number>[]>;
+    serverIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }

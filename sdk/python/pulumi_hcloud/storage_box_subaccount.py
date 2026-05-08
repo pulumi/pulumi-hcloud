@@ -24,10 +24,10 @@ class StorageBoxSubaccountArgs:
                  home_directory: pulumi.Input[_builtins.str],
                  password: pulumi.Input[_builtins.str],
                  storage_box_id: pulumi.Input[_builtins.int],
-                 access_settings: Optional[pulumi.Input['StorageBoxSubaccountAccessSettingsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_settings: pulumi.Input[Optional['StorageBoxSubaccountAccessSettingsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageBoxSubaccount resource.
 
@@ -89,65 +89,65 @@ class StorageBoxSubaccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessSettings")
-    def access_settings(self) -> Optional[pulumi.Input['StorageBoxSubaccountAccessSettingsArgs']]:
+    def access_settings(self) -> pulumi.Input[Optional['StorageBoxSubaccountAccessSettingsArgs']]:
         """
         Access settings for the Subaccount.
         """
         return pulumi.get(self, "access_settings")
 
     @access_settings.setter
-    def access_settings(self, value: Optional[pulumi.Input['StorageBoxSubaccountAccessSettingsArgs']]):
+    def access_settings(self, value: pulumi.Input[Optional['StorageBoxSubaccountAccessSettingsArgs']]):
         pulumi.set(self, "access_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Storage Box Subaccount.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Storage Box Subaccount.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _StorageBoxSubaccountState:
     def __init__(__self__, *,
-                 access_settings: Optional[pulumi.Input['StorageBoxSubaccountAccessSettingsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_settings: pulumi.Input[Optional['StorageBoxSubaccountAccessSettingsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_box_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageBoxSubaccount resources.
 
@@ -182,110 +182,110 @@ class _StorageBoxSubaccountState:
 
     @_builtins.property
     @pulumi.getter(name="accessSettings")
-    def access_settings(self) -> Optional[pulumi.Input['StorageBoxSubaccountAccessSettingsArgs']]:
+    def access_settings(self) -> pulumi.Input[Optional['StorageBoxSubaccountAccessSettingsArgs']]:
         """
         Access settings for the Subaccount.
         """
         return pulumi.get(self, "access_settings")
 
     @access_settings.setter
-    def access_settings(self, value: Optional[pulumi.Input['StorageBoxSubaccountAccessSettingsArgs']]):
+    def access_settings(self, value: pulumi.Input[Optional['StorageBoxSubaccountAccessSettingsArgs']]):
         pulumi.set(self, "access_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Storage Box Subaccount.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="homeDirectory")
-    def home_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
         """
         return pulumi.get(self, "home_directory")
 
     @home_directory.setter
-    def home_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Storage Box Subaccount.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         FQDN of the Storage Box Subaccount.
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server", value)
 
     @_builtins.property
     @pulumi.getter(name="storageBoxId")
-    def storage_box_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_box_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Storage Box.
         """
         return pulumi.get(self, "storage_box_id")
 
     @storage_box_id.setter
-    def storage_box_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_box_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_box_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username of the Storage Box Subaccount.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -295,13 +295,13 @@ class StorageBoxSubaccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_settings: Optional[pulumi.Input[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 access_settings: pulumi.Input[Optional[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_box_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Hetzner Storage Box Subaccount resource.
@@ -318,7 +318,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
         team_badger_password = config.require("teamBadgerPassword")
         main = hcloud.StorageBox("main")
         team_badger = hcloud.StorageBoxSubaccount("team_badger",
-            storage_box_id=main.id,
+            storage_box_id=main.id.apply(lambda x: int(x)),
             name="badger",
             home_directory="teams/badger/",
             password=team_badger_password,
@@ -373,7 +373,7 @@ class StorageBoxSubaccount(pulumi.CustomResource):
         team_badger_password = config.require("teamBadgerPassword")
         main = hcloud.StorageBox("main")
         team_badger = hcloud.StorageBoxSubaccount("team_badger",
-            storage_box_id=main.id,
+            storage_box_id=main.id.apply(lambda x: int(x)),
             name="badger",
             home_directory="teams/badger/",
             password=team_badger_password,
@@ -412,13 +412,13 @@ class StorageBoxSubaccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_settings: Optional[pulumi.Input[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 access_settings: pulumi.Input[Optional[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_box_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -455,15 +455,15 @@ class StorageBoxSubaccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_settings: Optional[pulumi.Input[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            server: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'StorageBoxSubaccount':
+            access_settings: pulumi.Input[Optional[Union['StorageBoxSubaccountAccessSettingsArgs', 'StorageBoxSubaccountAccessSettingsArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            server: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_box_id: pulumi.Input[Optional[_builtins.int]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'StorageBoxSubaccount':
         """
         Get an existing StorageBoxSubaccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

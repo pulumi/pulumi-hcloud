@@ -24,8 +24,8 @@ import * as utilities from "./utilities";
  *     homeLocation: "nbg1",
  * });
  * const main = new hcloud.FloatingIpAssignment("main", {
- *     floatingIpId: master.id,
- *     serverId: node1.id,
+ *     floatingIpId: master.id.apply(x =>Number(x)),
+ *     serverId: node1.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -112,11 +112,11 @@ export interface FloatingIpAssignmentState {
     /**
      * ID of the Floating IP.
      */
-    floatingIpId?: pulumi.Input<number>;
+    floatingIpId?: pulumi.Input<number | undefined>;
     /**
      * Server to assign the Floating IP to.
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
 }
 
 /**

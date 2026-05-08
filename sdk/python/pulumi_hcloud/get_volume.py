@@ -215,13 +215,13 @@ def get_volume(id: Optional[_builtins.int] = None,
         size=pulumi.get(__ret__, 'size'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-def get_volume_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                      location: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      server_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                      with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      with_statuses: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_volume_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                      location: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      server_id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                      with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      with_statuses: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Provides details about a Hetzner Cloud volume.

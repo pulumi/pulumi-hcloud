@@ -24,9 +24,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var network2 = HCloud.Index.GetNetwork.Invoke();
+        ///     var network2 = HCloud.GetNetwork.Invoke();
         /// 
-        ///     var network3 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -50,9 +50,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var network2 = HCloud.Index.GetNetwork.Invoke();
+        ///     var network2 = HCloud.GetNetwork.Invoke();
         /// 
-        ///     var network3 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -76,9 +76,9 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var network2 = HCloud.Index.GetNetwork.Invoke();
+        ///     var network2 = HCloud.GetNetwork.Invoke();
         /// 
-        ///     var network3 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

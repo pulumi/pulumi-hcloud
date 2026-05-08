@@ -20,8 +20,8 @@ __all__ = ['FirewallAttachmentArgs', 'FirewallAttachment']
 class FirewallAttachmentArgs:
     def __init__(__self__, *,
                  firewall_id: pulumi.Input[_builtins.int],
-                 label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 label_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a FirewallAttachment resource.
 
@@ -53,7 +53,7 @@ class FirewallAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="labelSelectors")
-    def label_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def label_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of label selectors used to
         select resources to attach to the firewall.
@@ -61,12 +61,12 @@ class FirewallAttachmentArgs:
         return pulumi.get(self, "label_selectors")
 
     @label_selectors.setter
-    def label_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def label_selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "label_selectors", value)
 
     @_builtins.property
     @pulumi.getter(name="serverIds")
-    def server_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def server_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         List of Server IDs to attach to the
         firewall.
@@ -74,16 +74,16 @@ class FirewallAttachmentArgs:
         return pulumi.get(self, "server_ids")
 
     @server_ids.setter
-    def server_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def server_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "server_ids", value)
 
 
 @pulumi.input_type
 class _FirewallAttachmentState:
     def __init__(__self__, *,
-                 firewall_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 firewall_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 label_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         Input properties used for looking up and filtering FirewallAttachment resources.
 
@@ -103,7 +103,7 @@ class _FirewallAttachmentState:
 
     @_builtins.property
     @pulumi.getter(name="firewallId")
-    def firewall_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def firewall_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the firewall the resources
         should be attached to.
@@ -111,12 +111,12 @@ class _FirewallAttachmentState:
         return pulumi.get(self, "firewall_id")
 
     @firewall_id.setter
-    def firewall_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def firewall_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "firewall_id", value)
 
     @_builtins.property
     @pulumi.getter(name="labelSelectors")
-    def label_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def label_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of label selectors used to
         select resources to attach to the firewall.
@@ -124,12 +124,12 @@ class _FirewallAttachmentState:
         return pulumi.get(self, "label_selectors")
 
     @label_selectors.setter
-    def label_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def label_selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "label_selectors", value)
 
     @_builtins.property
     @pulumi.getter(name="serverIds")
-    def server_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def server_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         List of Server IDs to attach to the
         firewall.
@@ -137,7 +137,7 @@ class _FirewallAttachmentState:
         return pulumi.get(self, "server_ids")
 
     @server_ids.setter
-    def server_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def server_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "server_ids", value)
 
 
@@ -147,9 +147,9 @@ class FirewallAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 firewall_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 label_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         """
         Attaches resource to a Hetzner Cloud Firewall.
@@ -172,8 +172,8 @@ class FirewallAttachment(pulumi.CustomResource):
             image="ubuntu-24.04")
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
-            firewall_id=basic_firewall.id,
-            server_ids=[test_server.id])
+            firewall_id=basic_firewall.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         ```
 
         ### Attach Label Selectors
@@ -191,7 +191,7 @@ class FirewallAttachment(pulumi.CustomResource):
             })
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
-            firewall_id=basic_firewall.id,
+            firewall_id=basic_firewall.id.apply(lambda x: int(x)),
             label_selectors=["firewall-attachment=test-server"])
         ```
 
@@ -220,7 +220,7 @@ class FirewallAttachment(pulumi.CustomResource):
             server_type="cx23",
             image="ubuntu-24.04",
             ignore_remote_firewall_ids=True,
-            firewall_ids=[deny_all.id])
+            firewall_ids=[deny_all.id.apply(lambda x: int(x))])
         allow_rules = hcloud.Firewall("allow_rules",
             name="allow_rules",
             rules=[{
@@ -235,11 +235,11 @@ class FirewallAttachment(pulumi.CustomResource):
                     args=[test_server.ipv4_address]).result],
             }])
         deny_all_att = hcloud.FirewallAttachment("deny_all_att",
-            firewall_id=deny_all.id,
-            server_ids=[test_server.id])
+            firewall_id=deny_all.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         allow_rules_att = hcloud.FirewallAttachment("allow_rules_att",
-            firewall_id=allow_rules.id,
-            server_ids=[test_server.id])
+            firewall_id=allow_rules.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         ```
 
         ## Import
@@ -287,8 +287,8 @@ class FirewallAttachment(pulumi.CustomResource):
             image="ubuntu-24.04")
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
-            firewall_id=basic_firewall.id,
-            server_ids=[test_server.id])
+            firewall_id=basic_firewall.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         ```
 
         ### Attach Label Selectors
@@ -306,7 +306,7 @@ class FirewallAttachment(pulumi.CustomResource):
             })
         basic_firewall = hcloud.Firewall("basic_firewall", name="basic_firewall")
         fw_ref = hcloud.FirewallAttachment("fw_ref",
-            firewall_id=basic_firewall.id,
+            firewall_id=basic_firewall.id.apply(lambda x: int(x)),
             label_selectors=["firewall-attachment=test-server"])
         ```
 
@@ -335,7 +335,7 @@ class FirewallAttachment(pulumi.CustomResource):
             server_type="cx23",
             image="ubuntu-24.04",
             ignore_remote_firewall_ids=True,
-            firewall_ids=[deny_all.id])
+            firewall_ids=[deny_all.id.apply(lambda x: int(x))])
         allow_rules = hcloud.Firewall("allow_rules",
             name="allow_rules",
             rules=[{
@@ -350,11 +350,11 @@ class FirewallAttachment(pulumi.CustomResource):
                     args=[test_server.ipv4_address]).result],
             }])
         deny_all_att = hcloud.FirewallAttachment("deny_all_att",
-            firewall_id=deny_all.id,
-            server_ids=[test_server.id])
+            firewall_id=deny_all.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         allow_rules_att = hcloud.FirewallAttachment("allow_rules_att",
-            firewall_id=allow_rules.id,
-            server_ids=[test_server.id])
+            firewall_id=allow_rules.id.apply(lambda x: int(x)),
+            server_ids=[test_server.id.apply(lambda x: int(x))])
         ```
 
         ## Import
@@ -381,9 +381,9 @@ class FirewallAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 firewall_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 label_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -408,9 +408,9 @@ class FirewallAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            firewall_id: Optional[pulumi.Input[_builtins.int]] = None,
-            label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            server_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None) -> 'FirewallAttachment':
+            firewall_id: pulumi.Input[Optional[_builtins.int]] = None,
+            label_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            server_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None) -> 'FirewallAttachment':
         """
         Get an existing FirewallAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

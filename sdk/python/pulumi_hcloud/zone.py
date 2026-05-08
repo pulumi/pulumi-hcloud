@@ -22,11 +22,11 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_nameservers: Optional[pulumi.Input[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None):
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Zone resource.
 
@@ -63,76 +63,76 @@ class ZoneArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Zone.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryNameservers")
-    def primary_nameservers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]]:
+    def primary_nameservers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]]:
         """
         Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.
         """
         return pulumi.get(self, "primary_nameservers")
 
     @primary_nameservers.setter
-    def primary_nameservers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]]):
+    def primary_nameservers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]]):
         pulumi.set(self, "primary_nameservers", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Default Time To Live (TTL) of the Zone.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
 
 @pulumi.input_type
 class _ZoneState:
     def __init__(__self__, *,
-                 authoritative_nameservers: Optional[pulumi.Input['ZoneAuthoritativeNameserversArgs']] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_nameservers: Optional[pulumi.Input[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]] = None,
-                 registrar: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None):
+                 authoritative_nameservers: pulumi.Input[Optional['ZoneAuthoritativeNameserversArgs']] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]] = None,
+                 registrar: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
 
@@ -164,98 +164,98 @@ class _ZoneState:
 
     @_builtins.property
     @pulumi.getter(name="authoritativeNameservers")
-    def authoritative_nameservers(self) -> Optional[pulumi.Input['ZoneAuthoritativeNameserversArgs']]:
+    def authoritative_nameservers(self) -> pulumi.Input[Optional['ZoneAuthoritativeNameserversArgs']]:
         """
         Authoritative nameservers of the Zone.
         """
         return pulumi.get(self, "authoritative_nameservers")
 
     @authoritative_nameservers.setter
-    def authoritative_nameservers(self, value: Optional[pulumi.Input['ZoneAuthoritativeNameserversArgs']]):
+    def authoritative_nameservers(self, value: pulumi.Input[Optional['ZoneAuthoritativeNameserversArgs']]):
         pulumi.set(self, "authoritative_nameservers", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mode of the Zone.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Zone.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryNameservers")
-    def primary_nameservers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]]:
+    def primary_nameservers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]]:
         """
         Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.
         """
         return pulumi.get(self, "primary_nameservers")
 
     @primary_nameservers.setter
-    def primary_nameservers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]]):
+    def primary_nameservers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZonePrimaryNameserverArgs']]]]):
         pulumi.set(self, "primary_nameservers", value)
 
     @_builtins.property
     @pulumi.getter
-    def registrar(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registrar(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Registrar of the Zone.
         """
         return pulumi.get(self, "registrar")
 
     @registrar.setter
-    def registrar(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registrar(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registrar", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Default Time To Live (TTL) of the Zone.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
 
@@ -265,12 +265,12 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_nameservers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Zone resource.
@@ -338,12 +338,12 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_nameservers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -373,14 +373,14 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authoritative_nameservers: Optional[pulumi.Input[Union['ZoneAuthoritativeNameserversArgs', 'ZoneAuthoritativeNameserversArgsDict']]] = None,
-            delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_nameservers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
-            registrar: Optional[pulumi.Input[_builtins.str]] = None,
-            ttl: Optional[pulumi.Input[_builtins.int]] = None) -> 'Zone':
+            authoritative_nameservers: pulumi.Input[Optional[Union['ZoneAuthoritativeNameserversArgs', 'ZoneAuthoritativeNameserversArgsDict']]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
+            registrar: pulumi.Input[Optional[_builtins.str]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

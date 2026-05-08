@@ -58,8 +58,8 @@ class FloatingIpAssignmentArgs:
 @pulumi.input_type
 class _FloatingIpAssignmentState:
     def __init__(__self__, *,
-                 floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FloatingIpAssignment resources.
 
@@ -73,26 +73,26 @@ class _FloatingIpAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="floatingIpId")
-    def floating_ip_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def floating_ip_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Floating IP.
         """
         return pulumi.get(self, "floating_ip_id")
 
     @floating_ip_id.setter
-    def floating_ip_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def floating_ip_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "floating_ip_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Server to assign the Floating IP to.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_id", value)
 
 
@@ -102,8 +102,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Floating IP Assignment to assign a Floating IP to a Hetzner Cloud Server. Deleting a Floating IP Assignment will unassign the Floating IP from the Server.
@@ -123,8 +123,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
             type="ipv4",
             home_location="nbg1")
         main = hcloud.FloatingIpAssignment("main",
-            floating_ip_id=master.id,
-            server_id=node1.id)
+            floating_ip_id=master.id.apply(lambda x: int(x)),
+            server_id=node1.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -165,8 +165,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
             type="ipv4",
             home_location="nbg1")
         main = hcloud.FloatingIpAssignment("main",
-            floating_ip_id=master.id,
-            server_id=node1.id)
+            floating_ip_id=master.id.apply(lambda x: int(x)),
+            server_id=node1.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -193,8 +193,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,8 +220,8 @@ class FloatingIpAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-            server_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'FloatingIpAssignment':
+            floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'FloatingIpAssignment':
         """
         Get an existing FloatingIpAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const main = new hcloud.StorageBox("main", {});
  * const backup = new hcloud.StorageBoxSnapshot("backup", {
- *     storageBoxId: main.id,
+ *     storageBoxId: main.id.apply(x =>Number(x)),
  *     description: "Before Tool XYZ Migration",
  *     labels: {
  *         env: "production",
@@ -123,23 +123,23 @@ export interface StorageBoxSnapshotState {
     /**
      * Description of the Storage Box Snapshot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the Storage Box Snapshot was created automatically.
      */
-    isAutomatic?: pulumi.Input<boolean>;
+    isAutomatic?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Storage Box Snapshot.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Storage Box.
      */
-    storageBoxId?: pulumi.Input<number>;
+    storageBoxId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -149,11 +149,11 @@ export interface StorageBoxSnapshotArgs {
     /**
      * Description of the Storage Box Snapshot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ID of the Storage Box.
      */

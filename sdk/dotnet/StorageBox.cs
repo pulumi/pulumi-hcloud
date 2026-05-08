@@ -25,7 +25,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var backups = new HCloud.Index.StorageBox("backups", new()
+    ///     var backups = new HCloud.StorageBox("backups", new()
     ///     {
     ///         Name = "backups",
     ///         StorageBoxType = "bx21",
@@ -53,7 +53,7 @@ namespace Pulumi.HCloud
     ///         DeleteProtection = true,
     ///     });
     /// 
-    ///     var sshKey = new HCloud.Index.StorageBox("ssh_key", new()
+    ///     var sshKey = new HCloud.StorageBox("ssh_key", new()
     ///     {
     ///         Name = "backups",
     ///         StorageBoxType = "bx21",
@@ -62,7 +62,7 @@ namespace Pulumi.HCloud
     ///         SshKeys = new[]
     ///         {
     ///             myKey.PublicKey,
-    ///             Std.Index.File.Invoke(new()
+    ///             Std.File.Invoke(new()
     ///             {
     ///                 Input = "~/.ssh/id_ed25519.pub",
     ///             }).Apply(invoke =&gt; invoke.Result),

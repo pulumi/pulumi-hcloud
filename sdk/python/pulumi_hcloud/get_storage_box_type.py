@@ -196,8 +196,8 @@ def get_storage_box_type(id: Optional[_builtins.int] = None,
         snapshot_limit=pulumi.get(__ret__, 'snapshot_limit'),
         subaccounts_limit=pulumi.get(__ret__, 'subaccounts_limit'),
         unavailable_after=pulumi.get(__ret__, 'unavailable_after'))
-def get_storage_box_type_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_storage_box_type_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxTypeResult]:
     """
     Provides details about a Hetzner Storage Box Type.

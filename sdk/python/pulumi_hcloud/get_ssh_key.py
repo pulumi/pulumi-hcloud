@@ -144,9 +144,9 @@ def get_ssh_key(fingerprint: Optional[_builtins.str] = None,
     by_fingerprint = hcloud.get_ssh_key(fingerprint="55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
     by_label = hcloud.get_ssh_key(with_selector="key=value")
     main = hcloud.Server("main", ssh_keys=[
-        by_id.id,
-        by_name.id,
-        by_fingerprint.id,
+        output(by_id.id).apply(lambda x: str(x)),
+        output(by_name.id).apply(lambda x: str(x)),
+        output(by_fingerprint.id).apply(lambda x: str(x)),
     ])
     ```
 
@@ -174,11 +174,11 @@ def get_ssh_key(fingerprint: Optional[_builtins.str] = None,
         public_key=pulumi.get(__ret__, 'public_key'),
         selector=pulumi.get(__ret__, 'selector'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                       name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_ssh_key_output(fingerprint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                       name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSshKeyResult]:
     """
     Provides details about a specific Hetzner Cloud SSH Key.
@@ -196,9 +196,9 @@ def get_ssh_key_output(fingerprint: Optional[pulumi.Input[Optional[_builtins.str
     by_fingerprint = hcloud.get_ssh_key(fingerprint="55:58:dc:bd:61:6e:7d:24:07:a7:7d:9b:be:99:83:a8")
     by_label = hcloud.get_ssh_key(with_selector="key=value")
     main = hcloud.Server("main", ssh_keys=[
-        by_id.id,
-        by_name.id,
-        by_fingerprint.id,
+        output(by_id.id).apply(lambda x: str(x)),
+        output(by_name.id).apply(lambda x: str(x)),
+        output(by_fingerprint.id).apply(lambda x: str(x)),
     ])
     ```
 

@@ -26,17 +26,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.Index.GetLoadBalancerType.Invoke(new()
+        ///     var byId = HCloud.GetLoadBalancerType.Invoke(new()
         ///     {
         ///         Id = 1,
         ///     });
         /// 
-        ///     var byName = HCloud.Index.GetLoadBalancerType.Invoke(new()
+        ///     var byName = HCloud.GetLoadBalancerType.Invoke(new()
         ///     {
         ///         Name = "lb11",
         ///     });
         /// 
-        ///     var main = new HCloud.Index.LoadBalancer("main", new()
+        ///     var main = new HCloud.LoadBalancer("main", new()
         ///     {
         ///         Name = "my-load-balancer",
         ///         LoadBalancerType = name,
@@ -64,17 +64,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.Index.GetLoadBalancerType.Invoke(new()
+        ///     var byId = HCloud.GetLoadBalancerType.Invoke(new()
         ///     {
         ///         Id = 1,
         ///     });
         /// 
-        ///     var byName = HCloud.Index.GetLoadBalancerType.Invoke(new()
+        ///     var byName = HCloud.GetLoadBalancerType.Invoke(new()
         ///     {
         ///         Name = "lb11",
         ///     });
         /// 
-        ///     var main = new HCloud.Index.LoadBalancer("main", new()
+        ///     var main = new HCloud.LoadBalancer("main", new()
         ///     {
         ///         Name = "my-load-balancer",
         ///         LoadBalancerType = name,
@@ -102,17 +102,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.Index.GetLoadBalancerType.Invoke(new()
+        ///     var byId = HCloud.GetLoadBalancerType.Invoke(new()
         ///     {
         ///         Id = 1,
         ///     });
         /// 
-        ///     var byName = HCloud.Index.GetLoadBalancerType.Invoke(new()
+        ///     var byName = HCloud.GetLoadBalancerType.Invoke(new()
         ///     {
         ///         Name = "lb11",
         ///     });
         /// 
-        ///     var main = new HCloud.Index.LoadBalancer("main", new()
+        ///     var main = new HCloud.LoadBalancer("main", new()
         ///     {
         ///         Name = "my-load-balancer",
         ///         LoadBalancerType = name,

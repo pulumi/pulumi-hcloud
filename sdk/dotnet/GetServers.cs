@@ -25,7 +25,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = HCloud.Index.GetServers.Invoke(new()
+        ///     var s3 = HCloud.GetServers.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -50,7 +50,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = HCloud.Index.GetServers.Invoke(new()
+        ///     var s3 = HCloud.GetServers.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -75,7 +75,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = HCloud.Index.GetServers.Invoke(new()
+        ///     var s3 = HCloud.GetServers.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

@@ -24,14 +24,14 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var node1 = new HCloud.Index.Server("node1", new()
+    ///     var node1 = new HCloud.Server("node1", new()
     ///     {
     ///         Name = "node1",
     ///         Image = "debian-12",
     ///         ServerType = "cx23",
     ///     });
     /// 
-    ///     var master = new HCloud.Index.Rdns("master", new()
+    ///     var master = new HCloud.Rdns("master", new()
     ///     {
     ///         ServerId = node1.Id,
     ///         IpAddress = node1.Ipv4Address,
@@ -51,13 +51,13 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary1 = new HCloud.Index.PrimaryIp("primary1", new()
+    ///     var primary1 = new HCloud.PrimaryIp("primary1", new()
     ///     {
     ///         Location = "nbg1",
     ///         Type = "ipv4",
     ///     });
     /// 
-    ///     var primary1Rdns = new HCloud.Index.Rdns("primary1", new()
+    ///     var primary1Rdns = new HCloud.Rdns("primary1", new()
     ///     {
     ///         PrimaryIpId = primary1.Id,
     ///         IpAddress = primary1.IpAddress,
@@ -77,13 +77,13 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var floating1 = new HCloud.Index.FloatingIp("floating1", new()
+    ///     var floating1 = new HCloud.FloatingIp("floating1", new()
     ///     {
     ///         HomeLocation = "nbg1",
     ///         Type = "ipv4",
     ///     });
     /// 
-    ///     var floatingMaster = new HCloud.Index.Rdns("floating_master", new()
+    ///     var floatingMaster = new HCloud.Rdns("floating_master", new()
     ///     {
     ///         FloatingIpId = floating1.Id,
     ///         IpAddress = floating1.IpAddress,
@@ -103,14 +103,14 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var loadBalancer1 = new HCloud.Index.LoadBalancer("load_balancer1", new()
+    ///     var loadBalancer1 = new HCloud.LoadBalancer("load_balancer1", new()
     ///     {
     ///         Name = "load_balancer1",
     ///         LoadBalancerType = "lb11",
     ///         Location = "fsn1",
     ///     });
     /// 
-    ///     var loadBalancerMaster = new HCloud.Index.Rdns("load_balancer_master", new()
+    ///     var loadBalancerMaster = new HCloud.Rdns("load_balancer_master", new()
     ///     {
     ///         LoadBalancerId = loadBalancer1.Id,
     ///         IpAddress = loadBalancer1.Ipv4,

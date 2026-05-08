@@ -90,9 +90,9 @@ export interface GetServersOutputArgs {
     /**
      * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
     /**
      * List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
      */
-    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
+    withStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

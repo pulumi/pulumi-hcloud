@@ -99,8 +99,8 @@ def get_storage_box_snapshots(storage_box_id: Optional[_builtins.int] = None,
 
     config = pulumi.Config()
     storage_box_id = config.require_object("storageBoxId")
-    all = hcloud.get_storage_box_snapshots(storage_box_id=storage_box_id)
-    by_label_selector = hcloud.get_storage_box_snapshots(storage_box_id=storage_box_id,
+    all = hcloud.get_storage_box_snapshots(storage_box_id=int(storage_box_id))
+    by_label_selector = hcloud.get_storage_box_snapshots(storage_box_id=int(storage_box_id),
         with_selector="env=production")
     ```
 
@@ -119,8 +119,8 @@ def get_storage_box_snapshots(storage_box_id: Optional[_builtins.int] = None,
         snapshots=pulumi.get(__ret__, 'snapshots'),
         storage_box_id=pulumi.get(__ret__, 'storage_box_id'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_storage_box_snapshots_output(storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
-                                     with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_storage_box_snapshots_output(storage_box_id: pulumi.Input[Optional[_builtins.int]] = None,
+                                     with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxSnapshotsResult]:
     """
     Provides a list of Hetzner Storage Box Snapshots.
@@ -135,8 +135,8 @@ def get_storage_box_snapshots_output(storage_box_id: Optional[pulumi.Input[_buil
 
     config = pulumi.Config()
     storage_box_id = config.require_object("storageBoxId")
-    all = hcloud.get_storage_box_snapshots(storage_box_id=storage_box_id)
-    by_label_selector = hcloud.get_storage_box_snapshots(storage_box_id=storage_box_id,
+    all = hcloud.get_storage_box_snapshots(storage_box_id=int(storage_box_id))
+    by_label_selector = hcloud.get_storage_box_snapshots(storage_box_id=int(storage_box_id),
         with_selector="env=production")
     ```
 

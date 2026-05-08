@@ -166,9 +166,9 @@ export interface GetServerTypeOutputArgs {
     /**
      * ID of the Server Type.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the Server Type.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

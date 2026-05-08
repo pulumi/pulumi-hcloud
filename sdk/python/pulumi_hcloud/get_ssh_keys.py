@@ -104,8 +104,8 @@ def get_ssh_keys(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_ssh_keys_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_ssh_keys_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSshKeysResult]:
     """
     Provides a list of Hetzner Cloud SSH Keys.

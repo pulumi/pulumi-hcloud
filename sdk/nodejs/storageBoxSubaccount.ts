@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * const teamBadgerPassword = config.require("teamBadgerPassword");
  * const main = new hcloud.StorageBox("main", {});
  * const teamBadger = new hcloud.StorageBoxSubaccount("team_badger", {
- *     storageBoxId: main.id,
+ *     storageBoxId: main.id.apply(x =>Number(x)),
  *     name: "badger",
  *     homeDirectory: "teams/badger/",
  *     password: teamBadgerPassword,
@@ -167,39 +167,39 @@ export interface StorageBoxSubaccountState {
     /**
      * Access settings for the Subaccount.
      */
-    accessSettings?: pulumi.Input<inputs.StorageBoxSubaccountAccessSettings>;
+    accessSettings?: pulumi.Input<inputs.StorageBoxSubaccountAccessSettings | undefined>;
     /**
      * A description of the Storage Box Subaccount.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
      */
-    homeDirectory?: pulumi.Input<string>;
+    homeDirectory?: pulumi.Input<string | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Storage Box Subaccount.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * FQDN of the Storage Box Subaccount.
      */
-    server?: pulumi.Input<string>;
+    server?: pulumi.Input<string | undefined>;
     /**
      * ID of the Storage Box.
      */
-    storageBoxId?: pulumi.Input<number>;
+    storageBoxId?: pulumi.Input<number | undefined>;
     /**
      * Username of the Storage Box Subaccount.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,11 +209,11 @@ export interface StorageBoxSubaccountArgs {
     /**
      * Access settings for the Subaccount.
      */
-    accessSettings?: pulumi.Input<inputs.StorageBoxSubaccountAccessSettings>;
+    accessSettings?: pulumi.Input<inputs.StorageBoxSubaccountAccessSettings | undefined>;
     /**
      * A description of the Storage Box Subaccount.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Home directory of the Storage Box Subaccount. The directory will be created if it doesn't exist yet. Must not include a leading slash (`/`).
      */
@@ -221,11 +221,11 @@ export interface StorageBoxSubaccountArgs {
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Storage Box Subaccount.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
      */

@@ -22,12 +22,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleCertificate1 = HCloud.Index.GetCertificate.Invoke(new()
+        ///     var sampleCertificate1 = HCloud.GetCertificate.Invoke(new()
         ///     {
         ///         Name = "sample-certificate-1",
         ///     });
         /// 
-        ///     var sampleCertificate2 = HCloud.Index.GetCertificate.Invoke(new()
+        ///     var sampleCertificate2 = HCloud.GetCertificate.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });
@@ -49,12 +49,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleCertificate1 = HCloud.Index.GetCertificate.Invoke(new()
+        ///     var sampleCertificate1 = HCloud.GetCertificate.Invoke(new()
         ///     {
         ///         Name = "sample-certificate-1",
         ///     });
         /// 
-        ///     var sampleCertificate2 = HCloud.Index.GetCertificate.Invoke(new()
+        ///     var sampleCertificate2 = HCloud.GetCertificate.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });
@@ -76,12 +76,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleCertificate1 = HCloud.Index.GetCertificate.Invoke(new()
+        ///     var sampleCertificate1 = HCloud.GetCertificate.Invoke(new()
         ///     {
         ///         Name = "sample-certificate-1",
         ///     });
         /// 
-        ///     var sampleCertificate2 = HCloud.Index.GetCertificate.Invoke(new()
+        ///     var sampleCertificate2 = HCloud.GetCertificate.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });

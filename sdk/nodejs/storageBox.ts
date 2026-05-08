@@ -203,51 +203,51 @@ export interface StorageBoxState {
     /**
      * Access settings of the Storage Box.
      */
-    accessSettings?: pulumi.Input<inputs.StorageBoxAccessSettings>;
+    accessSettings?: pulumi.Input<inputs.StorageBoxAccessSettings | undefined>;
     /**
      * Prevent the Storage Box from being accidentally deleted outside of Terraform.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the Storage Box.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * FQDN of the Storage Box.
      */
-    server?: pulumi.Input<string>;
+    server?: pulumi.Input<string | undefined>;
     /**
      * Details of the active snapshot plan.
      */
-    snapshotPlan?: pulumi.Input<inputs.StorageBoxSnapshotPlan>;
+    snapshotPlan?: pulumi.Input<inputs.StorageBoxSnapshotPlan | undefined>;
     /**
      * SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      */
-    sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    sshKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the Storage Box Type.
      */
-    storageBoxType?: pulumi.Input<string>;
+    storageBoxType?: pulumi.Input<string | undefined>;
     /**
      * Host system of the Storage Box.
      */
-    system?: pulumi.Input<string>;
+    system?: pulumi.Input<string | undefined>;
     /**
      * Primary username of the Storage Box.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -257,15 +257,15 @@ export interface StorageBoxArgs {
     /**
      * Access settings of the Storage Box.
      */
-    accessSettings?: pulumi.Input<inputs.StorageBoxAccessSettings>;
+    accessSettings?: pulumi.Input<inputs.StorageBoxAccessSettings | undefined>;
     /**
      * Prevent the Storage Box from being accidentally deleted outside of Terraform.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Location.
      */
@@ -273,7 +273,7 @@ export interface StorageBoxArgs {
     /**
      * Name of the Storage Box.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
      */
@@ -281,11 +281,11 @@ export interface StorageBoxArgs {
     /**
      * Details of the active snapshot plan.
      */
-    snapshotPlan?: pulumi.Input<inputs.StorageBoxSnapshotPlan>;
+    snapshotPlan?: pulumi.Input<inputs.StorageBoxSnapshotPlan | undefined>;
     /**
      * SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
      */
-    sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    sshKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the Storage Box Type.
      */

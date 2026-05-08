@@ -231,29 +231,29 @@ export interface GetServerOutputArgs {
     /**
      * ID of the server.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the server.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (map) Private Network the server is attached to.
      */
-    networks?: pulumi.Input<pulumi.Input<inputs.GetServerNetworkArgs>[]>;
+    networks?: pulumi.Input<pulumi.Input<inputs.GetServerNetworkArgs>[] | undefined>;
     /**
      * (Optional, string) Placement Group ID the server is assigned to.
      */
-    placementGroupId?: pulumi.Input<number>;
+    placementGroupId?: pulumi.Input<number | undefined>;
     /**
      * @deprecated Please use the withSelector property instead.
      */
-    selector?: pulumi.Input<string>;
+    selector?: pulumi.Input<string | undefined>;
     /**
      * Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
     /**
      * List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
      */
-    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
+    withStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -22,7 +22,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var privNet = new HCloud.Index.Network("privNet", new()
+    ///     var privNet = new HCloud.Network("privNet", new()
     ///     {
     ///         Name = "my-net",
     ///         IpRange = "10.0.1.0/24",

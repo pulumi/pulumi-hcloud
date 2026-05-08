@@ -28,9 +28,9 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * const main = new hcloud.Server("main", {sshKeys: [
- *     byId.then(byId => byId.id),
- *     byName.then(byName => byName.id),
- *     byFingerprint.then(byFingerprint => byFingerprint.id),
+ *     output(byId.then(byId => byId.id)).apply(x =>String(x)),
+ *     output(byName.then(byName => byName.id)).apply(x =>String(x)),
+ *     output(byFingerprint.then(byFingerprint => byFingerprint.id)).apply(x =>String(x)),
  * ]});
  * ```
  */
@@ -133,9 +133,9 @@ export interface GetSshKeyResult {
  *     withSelector: "key=value",
  * });
  * const main = new hcloud.Server("main", {sshKeys: [
- *     byId.then(byId => byId.id),
- *     byName.then(byName => byName.id),
- *     byFingerprint.then(byFingerprint => byFingerprint.id),
+ *     output(byId.then(byId => byId.id)).apply(x =>String(x)),
+ *     output(byName.then(byName => byName.id)).apply(x =>String(x)),
+ *     output(byFingerprint.then(byFingerprint => byFingerprint.id)).apply(x =>String(x)),
  * ]});
  * ```
  */
@@ -158,23 +158,23 @@ export interface GetSshKeyOutputArgs {
     /**
      * Fingerprint of the SSH Key.
      */
-    fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string | undefined>;
     /**
      * ID of the SSH Key.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the SSH Key.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      *
      * @deprecated Please use the withSelector property instead.
      */
-    selector?: pulumi.Input<string>;
+    selector?: pulumi.Input<string | undefined>;
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

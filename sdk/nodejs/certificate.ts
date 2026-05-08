@@ -100,16 +100,16 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
-    certificate?: pulumi.Input<string>;
-    created?: pulumi.Input<string>;
-    domainNames?: pulumi.Input<pulumi.Input<string>[]>;
-    fingerprint?: pulumi.Input<string>;
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    name?: pulumi.Input<string>;
-    notValidAfter?: pulumi.Input<string>;
-    notValidBefore?: pulumi.Input<string>;
-    privateKey?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
+    created?: pulumi.Input<string | undefined>;
+    domainNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    fingerprint?: pulumi.Input<string | undefined>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    notValidAfter?: pulumi.Input<string | undefined>;
+    notValidBefore?: pulumi.Input<string | undefined>;
+    privateKey?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -117,7 +117,7 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     certificate: pulumi.Input<string>;
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    name?: pulumi.Input<string>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    name?: pulumi.Input<string | undefined>;
     privateKey: pulumi.Input<string>;
 }

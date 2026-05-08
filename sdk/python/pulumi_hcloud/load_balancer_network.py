@@ -20,10 +20,10 @@ __all__ = ['LoadBalancerNetworkArgs', 'LoadBalancerNetwork']
 class LoadBalancerNetworkArgs:
     def __init__(__self__, *,
                  load_balancer_id: pulumi.Input[_builtins.int],
-                 enable_public_interface: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_public_interface: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerNetwork resource.
 
@@ -57,61 +57,61 @@ class LoadBalancerNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="enablePublicInterface")
-    def enable_public_interface(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_public_interface(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Wether the Load Balancer public interface is enabled. Default is `true`.
         """
         return pulumi.get(self, "enable_public_interface")
 
     @enable_public_interface.setter
-    def enable_public_interface(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_public_interface(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_public_interface", value)
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP to assign to the Load Balancer.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def network_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Network to attach the Load Balancer to. Using `subnet_id` is preferred. Required if `subnet_id` is not set. If `subnet_id` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ip_range`).
         """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
-    def network_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def network_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Subnet to attach the Load Balancer to. Required if `network_id` is not set.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
 @pulumi.input_type
 class _LoadBalancerNetworkState:
     def __init__(__self__, *,
-                 enable_public_interface: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_public_interface: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerNetwork resources.
 
@@ -134,62 +134,62 @@ class _LoadBalancerNetworkState:
 
     @_builtins.property
     @pulumi.getter(name="enablePublicInterface")
-    def enable_public_interface(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_public_interface(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Wether the Load Balancer public interface is enabled. Default is `true`.
         """
         return pulumi.get(self, "enable_public_interface")
 
     @enable_public_interface.setter
-    def enable_public_interface(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_public_interface(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_public_interface", value)
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP to assign to the Load Balancer.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerId")
-    def load_balancer_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def load_balancer_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Load Balancer.
         """
         return pulumi.get(self, "load_balancer_id")
 
     @load_balancer_id.setter
-    def load_balancer_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def load_balancer_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "load_balancer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def network_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Network to attach the Load Balancer to. Using `subnet_id` is preferred. Required if `subnet_id` is not set. If `subnet_id` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ip_range`).
         """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
-    def network_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def network_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Subnet to attach the Load Balancer to. Required if `network_id` is not set.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -199,11 +199,11 @@ class LoadBalancerNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_public_interface: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_public_interface: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manage the attachment of a Load Balancer in a Network in the Hetzner Cloud.
@@ -222,12 +222,12 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             name="network",
             ip_range="10.0.0.0/16")
         subnet = hcloud.NetworkSubnet("subnet",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         attachment = hcloud.LoadBalancerNetwork("attachment",
-            load_balancer_id=main.id,
+            load_balancer_id=main.id.apply(lambda x: int(x)),
             subnet_id=subnet.id,
             ip="10.0.1.5")
         ```
@@ -272,12 +272,12 @@ class LoadBalancerNetwork(pulumi.CustomResource):
             name="network",
             ip_range="10.0.0.0/16")
         subnet = hcloud.NetworkSubnet("subnet",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         attachment = hcloud.LoadBalancerNetwork("attachment",
-            load_balancer_id=main.id,
+            load_balancer_id=main.id.apply(lambda x: int(x)),
             subnet_id=subnet.id,
             ip="10.0.1.5")
         ```
@@ -306,11 +306,11 @@ class LoadBalancerNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_public_interface: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_public_interface: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,11 +337,11 @@ class LoadBalancerNetwork(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enable_public_interface: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-            network_id: Optional[pulumi.Input[_builtins.int]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LoadBalancerNetwork':
+            enable_public_interface: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+            network_id: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LoadBalancerNetwork':
         """
         Get an existing LoadBalancerNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,10 +21,10 @@ class RdnsArgs:
     def __init__(__self__, *,
                  dns_ptr: pulumi.Input[_builtins.str],
                  ip_address: pulumi.Input[_builtins.str],
-                 floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Rdns resource.
 
@@ -72,62 +72,62 @@ class RdnsArgs:
 
     @_builtins.property
     @pulumi.getter(name="floatingIpId")
-    def floating_ip_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def floating_ip_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Floating IP the `ip_address` belongs to.
         """
         return pulumi.get(self, "floating_ip_id")
 
     @floating_ip_id.setter
-    def floating_ip_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def floating_ip_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "floating_ip_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerId")
-    def load_balancer_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def load_balancer_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Load Balancer the `ip_address` belongs to.
         """
         return pulumi.get(self, "load_balancer_id")
 
     @load_balancer_id.setter
-    def load_balancer_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def load_balancer_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "load_balancer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryIpId")
-    def primary_ip_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_ip_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Primary IP the `ip_address` belongs to.
         """
         return pulumi.get(self, "primary_ip_id")
 
     @primary_ip_id.setter
-    def primary_ip_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_ip_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_ip_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The server the `ip_address` belongs to.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_id", value)
 
 
 @pulumi.input_type
 class _RdnsState:
     def __init__(__self__, *,
-                 dns_ptr: Optional[pulumi.Input[_builtins.str]] = None,
-                 floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 dns_ptr: pulumi.Input[Optional[_builtins.str]] = None,
+                 floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Rdns resources.
 
@@ -153,74 +153,74 @@ class _RdnsState:
 
     @_builtins.property
     @pulumi.getter(name="dnsPtr")
-    def dns_ptr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_ptr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS address the `ip_address` should resolve to.
         """
         return pulumi.get(self, "dns_ptr")
 
     @dns_ptr.setter
-    def dns_ptr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_ptr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_ptr", value)
 
     @_builtins.property
     @pulumi.getter(name="floatingIpId")
-    def floating_ip_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def floating_ip_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Floating IP the `ip_address` belongs to.
         """
         return pulumi.get(self, "floating_ip_id")
 
     @floating_ip_id.setter
-    def floating_ip_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def floating_ip_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "floating_ip_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address that should point to `dns_ptr`.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerId")
-    def load_balancer_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def load_balancer_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Load Balancer the `ip_address` belongs to.
         """
         return pulumi.get(self, "load_balancer_id")
 
     @load_balancer_id.setter
-    def load_balancer_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def load_balancer_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "load_balancer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryIpId")
-    def primary_ip_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_ip_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Primary IP the `ip_address` belongs to.
         """
         return pulumi.get(self, "primary_ip_id")
 
     @primary_ip_id.setter
-    def primary_ip_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_ip_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_ip_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The server the `ip_address` belongs to.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_id", value)
 
 
@@ -230,12 +230,12 @@ class Rdns(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_ptr: Optional[pulumi.Input[_builtins.str]] = None,
-                 floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 dns_ptr: pulumi.Input[Optional[_builtins.str]] = None,
+                 floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
@@ -253,7 +253,7 @@ class Rdns(pulumi.CustomResource):
             image="debian-12",
             server_type="cx23")
         master = hcloud.Rdns("master",
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             ip_address=node1.ipv4_address,
             dns_ptr="example.com")
         ```
@@ -268,7 +268,7 @@ class Rdns(pulumi.CustomResource):
             location="nbg1",
             type="ipv4")
         primary1_rdns = hcloud.Rdns("primary1",
-            primary_ip_id=primary1.id,
+            primary_ip_id=primary1.id.apply(lambda x: int(x)),
             ip_address=primary1.ip_address,
             dns_ptr="example.com")
         ```
@@ -283,7 +283,7 @@ class Rdns(pulumi.CustomResource):
             home_location="nbg1",
             type="ipv4")
         floating_master = hcloud.Rdns("floating_master",
-            floating_ip_id=floating1.id,
+            floating_ip_id=floating1.id.apply(lambda x: int(x)),
             ip_address=floating1.ip_address,
             dns_ptr="example.com")
         ```
@@ -299,7 +299,7 @@ class Rdns(pulumi.CustomResource):
             load_balancer_type="lb11",
             location="fsn1")
         load_balancer_master = hcloud.Rdns("load_balancer_master",
-            load_balancer_id=load_balancer1.id,
+            load_balancer_id=load_balancer1.id.apply(lambda x: int(x)),
             ip_address=load_balancer1.ipv4,
             dns_ptr="example.com")
         ```
@@ -369,7 +369,7 @@ class Rdns(pulumi.CustomResource):
             image="debian-12",
             server_type="cx23")
         master = hcloud.Rdns("master",
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             ip_address=node1.ipv4_address,
             dns_ptr="example.com")
         ```
@@ -384,7 +384,7 @@ class Rdns(pulumi.CustomResource):
             location="nbg1",
             type="ipv4")
         primary1_rdns = hcloud.Rdns("primary1",
-            primary_ip_id=primary1.id,
+            primary_ip_id=primary1.id.apply(lambda x: int(x)),
             ip_address=primary1.ip_address,
             dns_ptr="example.com")
         ```
@@ -399,7 +399,7 @@ class Rdns(pulumi.CustomResource):
             home_location="nbg1",
             type="ipv4")
         floating_master = hcloud.Rdns("floating_master",
-            floating_ip_id=floating1.id,
+            floating_ip_id=floating1.id.apply(lambda x: int(x)),
             ip_address=floating1.ip_address,
             dns_ptr="example.com")
         ```
@@ -415,7 +415,7 @@ class Rdns(pulumi.CustomResource):
             load_balancer_type="lb11",
             location="fsn1")
         load_balancer_master = hcloud.Rdns("load_balancer_master",
-            load_balancer_id=load_balancer1.id,
+            load_balancer_id=load_balancer1.id.apply(lambda x: int(x)),
             ip_address=load_balancer1.ipv4,
             dns_ptr="example.com")
         ```
@@ -469,12 +469,12 @@ class Rdns(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_ptr: Optional[pulumi.Input[_builtins.str]] = None,
-                 floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 dns_ptr: pulumi.Input[Optional[_builtins.str]] = None,
+                 floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -504,12 +504,12 @@ class Rdns(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_ptr: Optional[pulumi.Input[_builtins.str]] = None,
-            floating_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-            ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancer_id: Optional[pulumi.Input[_builtins.int]] = None,
-            primary_ip_id: Optional[pulumi.Input[_builtins.int]] = None,
-            server_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'Rdns':
+            dns_ptr: pulumi.Input[Optional[_builtins.str]] = None,
+            floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'Rdns':
         """
         Get an existing Rdns resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

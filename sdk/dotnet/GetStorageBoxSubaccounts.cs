@@ -28,12 +28,12 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var all = HCloud.Index.GetStorageBoxSubaccounts.Invoke(new()
+        ///     var all = HCloud.GetStorageBoxSubaccounts.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSubaccounts.Invoke(new()
+        ///     var byLabelSelector = HCloud.GetStorageBoxSubaccounts.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "team=billing",
@@ -62,12 +62,12 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var all = HCloud.Index.GetStorageBoxSubaccounts.Invoke(new()
+        ///     var all = HCloud.GetStorageBoxSubaccounts.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSubaccounts.Invoke(new()
+        ///     var byLabelSelector = HCloud.GetStorageBoxSubaccounts.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "team=billing",
@@ -96,12 +96,12 @@ namespace Pulumi.HCloud
         /// {
         ///     var config = new Config();
         ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
-        ///     var all = HCloud.Index.GetStorageBoxSubaccounts.Invoke(new()
+        ///     var all = HCloud.GetStorageBoxSubaccounts.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///     });
         /// 
-        ///     var byLabelSelector = HCloud.Index.GetStorageBoxSubaccounts.Invoke(new()
+        ///     var byLabelSelector = HCloud.GetStorageBoxSubaccounts.Invoke(new()
         ///     {
         ///         StorageBoxId = storageBoxId,
         ///         WithSelector = "team=billing",

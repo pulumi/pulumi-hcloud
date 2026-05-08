@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * for (const range = {value: 0}; range.value < counter; range.value++) {
  *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
- *         serverId: mainHcloudServer.id,
+ *         serverId: Number(mainHcloudServer.id),
  *     }));
  * }
  * ```
@@ -153,7 +153,7 @@ export interface GetFloatingIpResult {
  * for (const range = {value: 0}; range.value < counter; range.value++) {
  *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
- *         serverId: mainHcloudServer.id,
+ *         serverId: Number(mainHcloudServer.id),
  *     }));
  * }
  * ```
@@ -177,21 +177,21 @@ export interface GetFloatingIpOutputArgs {
     /**
      * ID of the Floating IP.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * IP address of the Floating IP.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * Name of the Floating IP.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated Please use the withSelector property instead.
      */
-    selector?: pulumi.Input<string>;
+    selector?: pulumi.Input<string | undefined>;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

@@ -117,23 +117,23 @@ export interface NetworkState {
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
      */
-    exposeRoutesToVswitch?: pulumi.Input<boolean>;
+    exposeRoutesToVswitch?: pulumi.Input<boolean | undefined>;
     /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */
-    ipRange?: pulumi.Input<string>;
+    ipRange?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Network to create (must be unique per project).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -143,11 +143,11 @@ export interface NetworkArgs {
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
      */
-    exposeRoutesToVswitch?: pulumi.Input<boolean>;
+    exposeRoutesToVswitch?: pulumi.Input<boolean | undefined>;
     /**
      * IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
      */
@@ -155,9 +155,9 @@ export interface NetworkArgs {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Network to create (must be unique per project).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

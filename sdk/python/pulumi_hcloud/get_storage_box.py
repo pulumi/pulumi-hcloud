@@ -227,9 +227,9 @@ def get_storage_box(id: Optional[_builtins.int] = None,
         system=pulumi.get(__ret__, 'system'),
         username=pulumi.get(__ret__, 'username'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_storage_box_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                           name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_storage_box_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxResult]:
     """
     Provides details about a Hetzner Storage Box.

@@ -22,12 +22,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleFirewall1 = HCloud.Index.GetFirewall.Invoke(new()
+        ///     var sampleFirewall1 = HCloud.GetFirewall.Invoke(new()
         ///     {
         ///         Name = "sample-firewall-1",
         ///     });
         /// 
-        ///     var sampleFirewall2 = HCloud.Index.GetFirewall.Invoke(new()
+        ///     var sampleFirewall2 = HCloud.GetFirewall.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });
@@ -49,12 +49,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleFirewall1 = HCloud.Index.GetFirewall.Invoke(new()
+        ///     var sampleFirewall1 = HCloud.GetFirewall.Invoke(new()
         ///     {
         ///         Name = "sample-firewall-1",
         ///     });
         /// 
-        ///     var sampleFirewall2 = HCloud.Index.GetFirewall.Invoke(new()
+        ///     var sampleFirewall2 = HCloud.GetFirewall.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });
@@ -76,12 +76,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sampleFirewall1 = HCloud.Index.GetFirewall.Invoke(new()
+        ///     var sampleFirewall1 = HCloud.GetFirewall.Invoke(new()
         ///     {
         ///         Name = "sample-firewall-1",
         ///     });
         /// 
-        ///     var sampleFirewall2 = HCloud.Index.GetFirewall.Invoke(new()
+        ///     var sampleFirewall2 = HCloud.GetFirewall.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });

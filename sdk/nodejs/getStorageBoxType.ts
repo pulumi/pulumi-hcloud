@@ -126,9 +126,9 @@ export interface GetStorageBoxTypeOutputArgs {
     /**
      * ID of the Storage Box Type.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the Storage Box Type.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

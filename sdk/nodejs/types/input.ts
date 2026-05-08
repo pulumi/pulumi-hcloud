@@ -10,24 +10,24 @@ export interface FirewallApplyTo {
      * Label Selector to select servers the firewall should be applied to (only one
      * of `server` and `labelSelector`can be applied in one block)
      */
-    labelSelector?: pulumi.Input<string>;
+    labelSelector?: pulumi.Input<string | undefined>;
     /**
      * ID of the server you want to apply the firewall to (only one of `server`
      * and `labelSelector`can be applied in one block)
      */
-    server?: pulumi.Input<number>;
+    server?: pulumi.Input<number | undefined>;
 }
 
 export interface FirewallRule {
     /**
      * Description of the firewall rule
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
      * is `out`)
      */
-    destinationIps?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Direction of the Firewall Rule. `in`
      */
@@ -36,7 +36,7 @@ export interface FirewallRule {
      * Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`. You can use `any`
      * to allow all ports for the specific protocol. Port ranges are also possible: `80-85` allows all ports between 80 and 85.
      */
-    port?: pulumi.Input<string>;
+    port?: pulumi.Input<string | undefined>;
     /**
      * Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
      */
@@ -45,7 +45,7 @@ export interface FirewallRule {
      * List of IPs or CIDRs that are allowed within this Firewall Rule (when `direction`
      * is `in`)
      */
-    sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetFirewallApplyTo {
@@ -65,11 +65,11 @@ export interface GetFirewallApplyToArgs {
      * (string) Label Selector to select servers the firewall is applied to. Empty if a server is directly
      * referenced
      */
-    labelSelector?: pulumi.Input<string>;
+    labelSelector?: pulumi.Input<string | undefined>;
     /**
      * (int) ID of a server where the firewall is applied to. `0` if applied to a label_selector
      */
-    server?: pulumi.Input<number>;
+    server?: pulumi.Input<number | undefined>;
 }
 
 export interface GetFirewallRule {
@@ -103,11 +103,11 @@ export interface GetFirewallRuleArgs {
     /**
      * (Optional, string) Description of the firewall rule
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `out`)
      */
-    destinationIps?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required, string) Direction of the Firewall Rule. `in`, `out`
      */
@@ -115,15 +115,15 @@ export interface GetFirewallRuleArgs {
     /**
      * (Required, string) Port of the Firewall Rule. Required when `protocol` is `tcp` or `udp`
      */
-    port?: pulumi.Input<string>;
+    port?: pulumi.Input<string | undefined>;
     /**
      * (Required, string) Protocol of the Firewall Rule. `tcp`, `icmp`, `udp`, `gre`, `esp`
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * (Required, List) List of CIDRs that are allowed within this Firewall Rule (when `direction` is `in`)
      */
-    sourceIps?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetServerNetwork {
@@ -149,33 +149,33 @@ export interface GetServerNetworkArgs {
     /**
      * (list) A list of alias IP addresses assigned to the server in the network.
      */
-    aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    aliasIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (string) The server's IP address within the network.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * (string) The MAC address associated with the server's private network interface.
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * (int) The unique identifier for the network.
      */
-    networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number | undefined>;
 }
 
 export interface LoadBalancerAlgorithm {
     /**
      * Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface LoadBalancerServiceHealthCheck {
     /**
      * HTTP configuration. Required if `protocol` is `http`.
      */
-    http?: pulumi.Input<inputs.LoadBalancerServiceHealthCheckHttp>;
+    http?: pulumi.Input<inputs.LoadBalancerServiceHealthCheckHttp | undefined>;
     /**
      * Interval how often the health check will be performed, in seconds.
      */
@@ -202,50 +202,50 @@ export interface LoadBalancerServiceHealthCheckHttp {
     /**
      * Domain we try to access when performing the Health Check.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Path we try to access when performing the Health Check.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Response we expect to be included in the Target response when a Health Check was performed.
      */
-    response?: pulumi.Input<string>;
+    response?: pulumi.Input<string | undefined>;
     /**
      * We expect that the target answers with these status codes. If not the target is marked as `unhealthy`.
      */
-    statusCodes?: pulumi.Input<pulumi.Input<string>[]>;
+    statusCodes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Enable TLS certificate checking.
      */
-    tls?: pulumi.Input<boolean>;
+    tls?: pulumi.Input<boolean | undefined>;
 }
 
 export interface LoadBalancerServiceHttp {
     /**
      * List of IDs from certificates which the Load Balancer has.
      */
-    certificates?: pulumi.Input<pulumi.Input<number>[]>;
+    certificates?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Lifetime of the cookie for sticky session (in seconds). Default: `300`
      */
-    cookieLifetime?: pulumi.Input<number>;
+    cookieLifetime?: pulumi.Input<number | undefined>;
     /**
      * Name of the cookie for sticky session. Default: `HCLBSTICKY`
      */
-    cookieName?: pulumi.Input<string>;
+    cookieName?: pulumi.Input<string | undefined>;
     /**
      * Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
      */
-    redirectHttp?: pulumi.Input<boolean>;
+    redirectHttp?: pulumi.Input<boolean | undefined>;
     /**
      * Enable sticky sessions
      */
-    stickySessions?: pulumi.Input<boolean>;
+    stickySessions?: pulumi.Input<boolean | undefined>;
 }
 
 export interface LoadBalancerTarget {
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * (string) Type of the Load Balancer Algorithm. `roundRobin` or `leastConnections`
      */
@@ -253,7 +253,7 @@ export interface LoadBalancerTarget {
     /**
      * @deprecated Does not work. Use the hcloud.LoadBalancerTarget resource instead.
      */
-    usePrivateIp?: pulumi.Input<boolean>;
+    usePrivateIp?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ServerNetwork {
@@ -262,15 +262,15 @@ export interface ServerNetwork {
      *
      * There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `aliasIps = []` to avoid this. See #650 for details.
      */
-    aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    aliasIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specify the IP the server should get in the network
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * (Optional, string) The MAC address the private interface of the server has
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * ID of the network
      */
@@ -278,44 +278,44 @@ export interface ServerNetwork {
 }
 
 export interface ServerPublicNet {
-    ipv4?: pulumi.Input<number>;
-    ipv4Enabled?: pulumi.Input<boolean>;
-    ipv6?: pulumi.Input<number>;
-    ipv6Enabled?: pulumi.Input<boolean>;
+    ipv4?: pulumi.Input<number | undefined>;
+    ipv4Enabled?: pulumi.Input<boolean | undefined>;
+    ipv6?: pulumi.Input<number | undefined>;
+    ipv6Enabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StorageBoxAccessSettings {
     /**
      * Whether access from outside the Hetzner network is allowed.
      */
-    reachableExternally?: pulumi.Input<boolean>;
+    reachableExternally?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the Samba subsystem is enabled.
      */
-    sambaEnabled?: pulumi.Input<boolean>;
+    sambaEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the SSH subsystem is enabled.
      */
-    sshEnabled?: pulumi.Input<boolean>;
+    sshEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the WebDAV subsystem is enabled.
      */
-    webdavEnabled?: pulumi.Input<boolean>;
+    webdavEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the ZFS snapshot folder is visible.
      */
-    zfsEnabled?: pulumi.Input<boolean>;
+    zfsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StorageBoxSnapshotPlan {
     /**
      * Day of the month when the Snapshot Plan is executed. Null means every day.
      */
-    dayOfMonth?: pulumi.Input<number>;
+    dayOfMonth?: pulumi.Input<number | undefined>;
     /**
      * Day of the week when the Snapshot Plan is executed. Starts at 0 for Sunday til 6 for Saturday. Note that this differs from the API, which uses 1 (Monday) through 7 (Sunday). Null means every day.
      */
-    dayOfWeek?: pulumi.Input<number>;
+    dayOfWeek?: pulumi.Input<number | undefined>;
     /**
      * Hour when the Snapshot Plan is executed (UTC).
      */
@@ -334,30 +334,30 @@ export interface StorageBoxSubaccountAccessSettings {
     /**
      * Whether access from outside the Hetzner network is allowed.
      */
-    reachableExternally?: pulumi.Input<boolean>;
+    reachableExternally?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the Subaccount is read-only.
      */
-    readonly?: pulumi.Input<boolean>;
+    readonly?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the Samba subsystem is enabled.
      */
-    sambaEnabled?: pulumi.Input<boolean>;
+    sambaEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the SSH subsystem is enabled.
      */
-    sshEnabled?: pulumi.Input<boolean>;
+    sshEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the WebDAV subsystem is enabled.
      */
-    webdavEnabled?: pulumi.Input<boolean>;
+    webdavEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ZoneAuthoritativeNameservers {
     /**
      * Authoritative Hetzner nameservers assigned to the Zone.
      */
-    assigneds?: pulumi.Input<pulumi.Input<string>[]>;
+    assigneds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ZonePrimaryNameserver {
@@ -368,22 +368,22 @@ export interface ZonePrimaryNameserver {
     /**
      * Port of the primary nameserver.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Transaction signature (TSIG) algorithm used to generate the TSIG key.
      */
-    tsigAlgorithm?: pulumi.Input<string>;
+    tsigAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Transaction signature (TSIG) key
      */
-    tsigKey?: pulumi.Input<string>;
+    tsigKey?: pulumi.Input<string | undefined>;
 }
 
 export interface ZoneRrsetRecord {
     /**
      * Comment of the record.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Value of the record.
      */

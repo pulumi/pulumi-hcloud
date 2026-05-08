@@ -118,9 +118,9 @@ export interface GetLocationOutputArgs {
     /**
      * ID of the Location.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the Location.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

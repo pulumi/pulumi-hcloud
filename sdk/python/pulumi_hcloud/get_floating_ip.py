@@ -198,15 +198,16 @@ def get_floating_ip(id: Optional[_builtins.int] = None,
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_hcloud as hcloud
 
     ip1 = hcloud.get_floating_ip(ip_address="1.2.3.4")
     ip2 = hcloud.get_floating_ip(with_selector="key=value")
-    main = []
+    main: list[Any] = []
     for range in [{"value": i} for i in range(0, counter)]:
         main.append(hcloud.FloatingIpAssignment(f"main-{range['value']}",
             floating_ip_id=ip1.id,
-            server_id=main_hcloud_server["id"]))
+            server_id=int(main_hcloud_server["id"])))
     ```
 
 
@@ -237,11 +238,11 @@ def get_floating_ip(id: Optional[_builtins.int] = None,
         server_id=pulumi.get(__ret__, 'server_id'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_floating_ip_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                           ip_address: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_floating_ip_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                           ip_address: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFloatingIpResult]:
     """
     Provides details about a Hetzner Cloud Floating IP.
@@ -259,15 +260,16 @@ def get_floating_ip_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] =
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_hcloud as hcloud
 
     ip1 = hcloud.get_floating_ip(ip_address="1.2.3.4")
     ip2 = hcloud.get_floating_ip(with_selector="key=value")
-    main = []
+    main: list[Any] = []
     for range in [{"value": i} for i in range(0, counter)]:
         main.append(hcloud.FloatingIpAssignment(f"main-{range['value']}",
             floating_ip_id=ip1.id,
-            server_id=main_hcloud_server["id"]))
+            server_id=int(main_hcloud_server["id"])))
     ```
 
 

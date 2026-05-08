@@ -67,7 +67,7 @@ import * as utilities from "./utilities";
  *     },
  *     publicNets: [{
  *         ipv4Enabled: true,
- *         ipv4: primaryIp1.id,
+ *         ipv4: primaryIp1.id.apply(x =>Number(x)),
  *         ipv6Enabled: false,
  *     }],
  * });
@@ -85,7 +85,7 @@ import * as utilities from "./utilities";
  * });
  * const network_subnet = new hcloud.NetworkSubnet("network-subnet", {
  *     type: "cloud",
- *     networkId: network.id,
+ *     networkId: network.id.apply(x =>Number(x)),
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
  * });
@@ -95,7 +95,7 @@ import * as utilities from "./utilities";
  *     image: "ubuntu-24.04",
  *     location: "nbg1",
  *     networks: [{
- *         networkId: network.id,
+ *         networkId: network.id.apply(x =>Number(x)),
  *         ip: "10.0.1.5",
  *         aliasIps: [
  *             "10.0.1.6",
@@ -121,7 +121,7 @@ import * as utilities from "./utilities";
  * // Create a new server from the snapshot
  * const fromSnapshot = new hcloud.Server("from_snapshot", {
  *     name: "from-snapshot",
- *     image: packerSnapshot.then(packerSnapshot => packerSnapshot.id),
+ *     image: output(packerSnapshot.then(packerSnapshot => packerSnapshot.id)).apply(x =>String(x)),
  *     serverType: "cx23",
  *     publicNets: [{
  *         ipv4Enabled: true,
@@ -374,31 +374,31 @@ export interface ServerState {
     /**
      * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
      */
-    allowDeprecatedImages?: pulumi.Input<boolean>;
+    allowDeprecatedImages?: pulumi.Input<boolean | undefined>;
     /**
      * (string) The backup window of the server, if enabled.
      *
      * @deprecated You should remove this property from your terraform configuration.
      */
-    backupWindow?: pulumi.Input<string>;
+    backupWindow?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable backups.
      */
-    backups?: pulumi.Input<boolean>;
+    backups?: pulumi.Input<boolean | undefined>;
     /**
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
      * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
-    datacenter?: pulumi.Input<string>;
+    datacenter?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Firewall IDs the server should be attached to on creation.
      */
-    firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
+    firewallIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Ignores any updates
      * to the `firewallIds` argument which were received from the server.
@@ -406,88 +406,88 @@ export interface ServerState {
      * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
      */
-    ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
+    ignoreRemoteFirewallIds?: pulumi.Input<boolean | undefined>;
     /**
      * Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
      */
-    image?: pulumi.Input<string>;
+    image?: pulumi.Input<string | undefined>;
     /**
      * (string) The IPv4 address.
      */
-    ipv4Address?: pulumi.Input<string>;
+    ipv4Address?: pulumi.Input<string | undefined>;
     /**
      * (string) The first IPv6 address of the assigned network.
      */
-    ipv6Address?: pulumi.Input<string>;
+    ipv6Address?: pulumi.Input<string | undefined>;
     /**
      * (string) The IPv6 network.
      */
-    ipv6Network?: pulumi.Input<string>;
+    ipv6Network?: pulumi.Input<string | undefined>;
     /**
      * ID or Name of an ISO image to mount.
      */
-    iso?: pulumi.Input<string>;
+    iso?: pulumi.Input<string | undefined>;
     /**
      * If true, do not upgrade the disk. This allows downgrading the server type later.
      */
-    keepDisk?: pulumi.Input<boolean>;
+    keepDisk?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network the server should be attached to on creation. (Can be specified multiple times)
      */
-    networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
+    networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[] | undefined>;
     /**
      * Placement Group ID the server added to on creation.
      */
-    placementGroupId?: pulumi.Input<number>;
+    placementGroupId?: pulumi.Input<number | undefined>;
     /**
      * (int) The size of the primary disk in GB.
      */
-    primaryDiskSize?: pulumi.Input<number>;
+    primaryDiskSize?: pulumi.Input<number | undefined>;
     /**
      * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
-    publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[]>;
+    publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[] | undefined>;
     /**
      * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      */
-    rebuildProtection?: pulumi.Input<boolean>;
+    rebuildProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      */
-    rescue?: pulumi.Input<string>;
+    rescue?: pulumi.Input<string | undefined>;
     /**
      * Name of the server type this server should be created with.
      */
-    serverType?: pulumi.Input<string>;
+    serverType?: pulumi.Input<string | undefined>;
     /**
      * Whether to try shutting the server down gracefully before deleting it.
      */
-    shutdownBeforeDeletion?: pulumi.Input<boolean>;
+    shutdownBeforeDeletion?: pulumi.Input<boolean | undefined>;
     /**
      * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
      */
-    sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    sshKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (string) The status of the server.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Cloud-Init user data to use during server creation
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -497,25 +497,25 @@ export interface ServerArgs {
     /**
      * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
      */
-    allowDeprecatedImages?: pulumi.Input<boolean>;
+    allowDeprecatedImages?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable backups.
      */
-    backups?: pulumi.Input<boolean>;
+    backups?: pulumi.Input<boolean | undefined>;
     /**
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
      * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
      */
-    datacenter?: pulumi.Input<string>;
+    datacenter?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Firewall IDs the server should be attached to on creation.
      */
-    firewallIds?: pulumi.Input<pulumi.Input<number>[]>;
+    firewallIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Ignores any updates
      * to the `firewallIds` argument which were received from the server.
@@ -523,52 +523,52 @@ export interface ServerArgs {
      * `hcloud.FirewallAttachment` resource for a reason to use this
      * argument.
      */
-    ignoreRemoteFirewallIds?: pulumi.Input<boolean>;
+    ignoreRemoteFirewallIds?: pulumi.Input<boolean | undefined>;
     /**
      * Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
      */
-    image?: pulumi.Input<string>;
+    image?: pulumi.Input<string | undefined>;
     /**
      * ID or Name of an ISO image to mount.
      */
-    iso?: pulumi.Input<string>;
+    iso?: pulumi.Input<string | undefined>;
     /**
      * If true, do not upgrade the disk. This allows downgrading the server type later.
      */
-    keepDisk?: pulumi.Input<boolean>;
+    keepDisk?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network the server should be attached to on creation. (Can be specified multiple times)
      */
-    networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[]>;
+    networks?: pulumi.Input<pulumi.Input<inputs.ServerNetwork>[] | undefined>;
     /**
      * Placement Group ID the server added to on creation.
      */
-    placementGroupId?: pulumi.Input<number>;
+    placementGroupId?: pulumi.Input<number | undefined>;
     /**
      * In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
      * If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
      */
-    publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[]>;
+    publicNets?: pulumi.Input<pulumi.Input<inputs.ServerPublicNet>[] | undefined>;
     /**
      * Enable or disable rebuild protection (Needs to be the same as `deleteProtection`).
      */
-    rebuildProtection?: pulumi.Input<boolean>;
+    rebuildProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
      */
-    rescue?: pulumi.Input<string>;
+    rescue?: pulumi.Input<string | undefined>;
     /**
      * Name of the server type this server should be created with.
      */
@@ -576,13 +576,13 @@ export interface ServerArgs {
     /**
      * Whether to try shutting the server down gracefully before deleting it.
      */
-    shutdownBeforeDeletion?: pulumi.Input<boolean>;
+    shutdownBeforeDeletion?: pulumi.Input<boolean | undefined>;
     /**
      * SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
      */
-    sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    sshKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Cloud-Init user data to use during server creation
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
 }

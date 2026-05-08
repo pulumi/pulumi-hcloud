@@ -27,8 +27,8 @@ import * as utilities from "./utilities";
  * });
  * const loadBalancerTarget = new hcloud.LoadBalancerTarget("load_balancer_target", {
  *     type: "server",
- *     loadBalancerId: loadBalancer.id,
- *     serverId: myServer.id,
+ *     loadBalancerId: loadBalancer.id.apply(x =>Number(x)),
+ *     serverId: myServer.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -172,51 +172,51 @@ export interface LoadBalancerState {
     /**
      * Configuration of the algorithm the Load Balancer use.
      */
-    algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm>;
+    algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm | undefined>;
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * (string) IPv4 Address of the Load Balancer.
      */
-    ipv4?: pulumi.Input<string>;
+    ipv4?: pulumi.Input<string | undefined>;
     /**
      * (string) IPv6 Address of the Load Balancer.
      */
-    ipv6?: pulumi.Input<string>;
+    ipv6?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the Load Balancer.
      */
-    loadBalancerType?: pulumi.Input<string>;
+    loadBalancerType?: pulumi.Input<string | undefined>;
     /**
      * The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the Load Balancer.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (int) ID of the first private network that this Load Balancer is connected to.
      */
-    networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number | undefined>;
     /**
      * (string) IP of the Load Balancer in the first private network that it is connected to.
      */
-    networkIp?: pulumi.Input<string>;
+    networkIp?: pulumi.Input<string | undefined>;
     /**
      * The Network Zone of the Load Balancer. Require when no location is set.
      */
-    networkZone?: pulumi.Input<string>;
+    networkZone?: pulumi.Input<string | undefined>;
     /**
      * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[] | undefined>;
 }
 
 /**
@@ -226,15 +226,15 @@ export interface LoadBalancerArgs {
     /**
      * Configuration of the algorithm the Load Balancer use.
      */
-    algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm>;
+    algorithm?: pulumi.Input<inputs.LoadBalancerAlgorithm | undefined>;
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the Load Balancer.
      */
@@ -242,17 +242,17 @@ export interface LoadBalancerArgs {
     /**
      * The location name of the Load Balancer. Require when no networkZone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the Load Balancer.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Network Zone of the Load Balancer. Require when no location is set.
      */
-    networkZone?: pulumi.Input<string>;
+    networkZone?: pulumi.Input<string | undefined>;
     /**
      * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.LoadBalancerTarget>[] | undefined>;
 }

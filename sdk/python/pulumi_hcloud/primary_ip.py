@@ -21,13 +21,13 @@ class PrimaryIpArgs:
     def __init__(__self__, *,
                  auto_delete: pulumi.Input[_builtins.bool],
                  type: pulumi.Input[_builtins.str],
-                 assignee_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 assignee_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 assignee_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 assignee_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrimaryIp resource.
 
@@ -87,104 +87,104 @@ class PrimaryIpArgs:
 
     @_builtins.property
     @pulumi.getter(name="assigneeId")
-    def assignee_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def assignee_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_id")
 
     @assignee_id.setter
-    def assignee_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def assignee_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "assignee_id", value)
 
     @_builtins.property
     @pulumi.getter(name="assigneeType")
-    def assignee_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignee_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_type")
 
     @assignee_type.setter
-    def assignee_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignee_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignee_type", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
-    def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
     @datacenter.setter
-    def datacenter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datacenter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datacenter", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Primary IP.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _PrimaryIpState:
     def __init__(__self__, *,
-                 assignee_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 assignee_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_network: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 assignee_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 assignee_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_network: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrimaryIp resources.
 
@@ -228,135 +228,135 @@ class _PrimaryIpState:
 
     @_builtins.property
     @pulumi.getter(name="assigneeId")
-    def assignee_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def assignee_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_id")
 
     @assignee_id.setter
-    def assignee_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def assignee_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "assignee_id", value)
 
     @_builtins.property
     @pulumi.getter(name="assigneeType")
-    def assignee_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignee_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the resource the Primary IP should be assigned to.
         """
         return pulumi.get(self, "assignee_type")
 
     @assignee_type.setter
-    def assignee_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignee_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignee_type", value)
 
     @_builtins.property
     @pulumi.getter(name="autoDelete")
-    def auto_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
         """
         return pulumi.get(self, "auto_delete")
 
     @auto_delete.setter
-    def auto_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_delete", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
-    def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
     @datacenter.setter
-    def datacenter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datacenter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datacenter", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address of the Primary IP.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="ipNetwork")
-    def ip_network(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_network(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
         """
         return pulumi.get(self, "ip_network")
 
     @ip_network.setter
-    def ip_network(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_network(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_network", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Primary IP.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Primary IP (`ipv4` or `ipv6`).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -366,15 +366,15 @@ class PrimaryIp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignee_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 assignee_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignee_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 assignee_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Primary IP resource.
@@ -415,7 +415,7 @@ class PrimaryIp(pulumi.CustomResource):
             server_type="cx23",
             location="fsn1",
             public_nets=[{
-                "ipv4": main.id,
+                "ipv4": main.id.apply(lambda x: int(x)),
             }])
         ```
 
@@ -485,7 +485,7 @@ class PrimaryIp(pulumi.CustomResource):
             server_type="cx23",
             location="fsn1",
             public_nets=[{
-                "ipv4": main.id,
+                "ipv4": main.id.apply(lambda x: int(x)),
             }])
         ```
 
@@ -513,15 +513,15 @@ class PrimaryIp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignee_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 assignee_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignee_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 assignee_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -556,17 +556,17 @@ class PrimaryIp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assignee_id: Optional[pulumi.Input[_builtins.int]] = None,
-            assignee_type: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_network: Optional[pulumi.Input[_builtins.str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrimaryIp':
+            assignee_id: pulumi.Input[Optional[_builtins.int]] = None,
+            assignee_type: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_network: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrimaryIp':
         """
         Get an existing PrimaryIp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
