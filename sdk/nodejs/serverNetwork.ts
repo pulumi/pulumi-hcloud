@@ -23,13 +23,13 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.0.0/16",
  * });
  * const subnet1 = new hcloud.NetworkSubnet("subnet1", {
- *     networkId: network.id,
+ *     networkId: network.id.apply(x =>Number(x)),
  *     type: "cloud",
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
  * });
  * const node1Subnet1 = new hcloud.ServerNetwork("node1_subnet1", {
- *     serverId: node1.id,
+ *     serverId: node1.id.apply(x =>Number(x)),
  *     subnetId: subnet1.id,
  *     ip: "10.0.1.5",
  *     aliasIps: ["10.0.1.10"],
@@ -140,27 +140,27 @@ export interface ServerNetworkState {
     /**
      * Additional IPs to assign to the Server.
      */
-    aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    aliasIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IP to assign to the Server.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * MAC address of the Server on the Network.
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      */
-    networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number | undefined>;
     /**
      * ID of the Server.
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,15 +170,15 @@ export interface ServerNetworkArgs {
     /**
      * Additional IPs to assign to the Server.
      */
-    aliasIps?: pulumi.Input<pulumi.Input<string>[]>;
+    aliasIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IP to assign to the Server.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * ID of the Network to attach the Server to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ipRange`).
      */
-    networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number | undefined>;
     /**
      * ID of the Server.
      */
@@ -186,5 +186,5 @@ export interface ServerNetworkArgs {
     /**
      * ID of the Subnet to attach the Server to. Required if `networkId` is not set.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }

@@ -23,13 +23,13 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.0.0/16",
  * });
  * const subnet = new hcloud.NetworkSubnet("subnet", {
- *     networkId: network.id,
+ *     networkId: network.id.apply(x =>Number(x)),
  *     type: "cloud",
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
  * });
  * const attachment = new hcloud.LoadBalancerNetwork("attachment", {
- *     loadBalancerId: main.id,
+ *     loadBalancerId: main.id.apply(x =>Number(x)),
  *     subnetId: subnet.id,
  *     ip: "10.0.1.5",
  * });
@@ -133,23 +133,23 @@ export interface LoadBalancerNetworkState {
     /**
      * Wether the Load Balancer public interface is enabled. Default is `true`.
      */
-    enablePublicInterface?: pulumi.Input<boolean>;
+    enablePublicInterface?: pulumi.Input<boolean | undefined>;
     /**
      * IP to assign to the Load Balancer.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * ID of the Load Balancer.
      */
-    loadBalancerId?: pulumi.Input<number>;
+    loadBalancerId?: pulumi.Input<number | undefined>;
     /**
      * ID of the Network to attach the Load Balancer to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ipRange`).
      */
-    networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number | undefined>;
     /**
      * ID of the Subnet to attach the Load Balancer to. Required if `networkId` is not set.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,11 +159,11 @@ export interface LoadBalancerNetworkArgs {
     /**
      * Wether the Load Balancer public interface is enabled. Default is `true`.
      */
-    enablePublicInterface?: pulumi.Input<boolean>;
+    enablePublicInterface?: pulumi.Input<boolean | undefined>;
     /**
      * IP to assign to the Load Balancer.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * ID of the Load Balancer.
      */
@@ -171,9 +171,9 @@ export interface LoadBalancerNetworkArgs {
     /**
      * ID of the Network to attach the Load Balancer to. Using `subnetId` is preferred. Required if `subnetId` is not set. If `subnetId` or `ip` are not set, the Load Balancer will be attached to the last subnet (ordered by `ipRange`).
      */
-    networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number | undefined>;
     /**
      * ID of the Subnet to attach the Load Balancer to. Required if `networkId` is not set.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }

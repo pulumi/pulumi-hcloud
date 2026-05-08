@@ -19,11 +19,11 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_hetzner: Optional[pulumi.Input[_builtins.str]] = None,
-                 poll_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 poll_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_hetzner: pulumi.Input[Optional[_builtins.str]] = None,
+                 poll_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 poll_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -46,62 +46,62 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointHetzner")
-    def endpoint_hetzner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_hetzner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
         """
         return pulumi.get(self, "endpoint_hetzner")
 
     @endpoint_hetzner.setter
-    def endpoint_hetzner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_hetzner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_hetzner", value)
 
     @_builtins.property
     @pulumi.getter(name="pollFunction")
-    def poll_function(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def poll_function(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of function to be used during the polling.
         """
         return pulumi.get(self, "poll_function")
 
     @poll_function.setter
-    def poll_function(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def poll_function(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "poll_function", value)
 
     @_builtins.property
     @pulumi.getter(name="pollInterval")
-    def poll_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def poll_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
         """
         return pulumi.get(self, "poll_interval")
 
     @poll_interval.setter
-    def poll_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def poll_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "poll_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
 
@@ -111,11 +111,11 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_hetzner: Optional[pulumi.Input[_builtins.str]] = None,
-                 poll_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 poll_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_hetzner: pulumi.Input[Optional[_builtins.str]] = None,
+                 poll_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 poll_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the hcloud package. By default, resources use package-wide configuration
@@ -160,11 +160,11 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_hetzner: Optional[pulumi.Input[_builtins.str]] = None,
-                 poll_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 poll_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_hetzner: pulumi.Input[Optional[_builtins.str]] = None,
+                 poll_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 poll_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

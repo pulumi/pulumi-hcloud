@@ -22,12 +22,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var samplePlacementGroup1 = HCloud.Index.GetPlacementGroup.Invoke(new()
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroup.Invoke(new()
         ///     {
         ///         Name = "sample-placement-group-1",
         ///     });
         /// 
-        ///     var samplePlacementGroup2 = HCloud.Index.GetPlacementGroup.Invoke(new()
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroup.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });
@@ -49,12 +49,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var samplePlacementGroup1 = HCloud.Index.GetPlacementGroup.Invoke(new()
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroup.Invoke(new()
         ///     {
         ///         Name = "sample-placement-group-1",
         ///     });
         /// 
-        ///     var samplePlacementGroup2 = HCloud.Index.GetPlacementGroup.Invoke(new()
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroup.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });
@@ -76,12 +76,12 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var samplePlacementGroup1 = HCloud.Index.GetPlacementGroup.Invoke(new()
+        ///     var samplePlacementGroup1 = HCloud.GetPlacementGroup.Invoke(new()
         ///     {
         ///         Name = "sample-placement-group-1",
         ///     });
         /// 
-        ///     var samplePlacementGroup2 = HCloud.Index.GetPlacementGroup.Invoke(new()
+        ///     var samplePlacementGroup2 = HCloud.GetPlacementGroup.Invoke(new()
         ///     {
         ///         Id = 4711,
         ///     });

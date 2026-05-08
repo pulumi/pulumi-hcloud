@@ -23,11 +23,11 @@ class LoadBalancerServiceArgs:
     def __init__(__self__, *,
                  load_balancer_id: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check: Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']] = None,
-                 http: Optional[pulumi.Input['LoadBalancerServiceHttpArgs']] = None,
-                 listen_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 proxyprotocol: Optional[pulumi.Input[_builtins.bool]] = None):
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check: pulumi.Input[Optional['LoadBalancerServiceHealthCheckArgs']] = None,
+                 http: pulumi.Input[Optional['LoadBalancerServiceHttpArgs']] = None,
+                 listen_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 proxyprotocol: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LoadBalancerService resource.
 
@@ -78,75 +78,75 @@ class LoadBalancerServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def destination_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def destination_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "destination_port", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']]:
+    def health_check(self) -> pulumi.Input[Optional['LoadBalancerServiceHealthCheckArgs']]:
         """
         Health Check configuration when `protocol` is `http` or `https`.
         """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
-    def health_check(self, value: Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']]):
+    def health_check(self, value: pulumi.Input[Optional['LoadBalancerServiceHealthCheckArgs']]):
         pulumi.set(self, "health_check", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['LoadBalancerServiceHttpArgs']]:
+    def http(self) -> pulumi.Input[Optional['LoadBalancerServiceHttpArgs']]:
         """
         HTTP configuration when `protocol` is `http` or `https`.
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['LoadBalancerServiceHttpArgs']]):
+    def http(self, value: pulumi.Input[Optional['LoadBalancerServiceHttpArgs']]):
         pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter(name="listenPort")
-    def listen_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def listen_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         """
         return pulumi.get(self, "listen_port")
 
     @listen_port.setter
-    def listen_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def listen_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "listen_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxyprotocol(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def proxyprotocol(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable proxyprotocol.
         """
         return pulumi.get(self, "proxyprotocol")
 
     @proxyprotocol.setter
-    def proxyprotocol(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def proxyprotocol(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "proxyprotocol", value)
 
 
 @pulumi.input_type
 class _LoadBalancerServiceState:
     def __init__(__self__, *,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check: Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']] = None,
-                 http: Optional[pulumi.Input['LoadBalancerServiceHttpArgs']] = None,
-                 listen_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyprotocol: Optional[pulumi.Input[_builtins.bool]] = None):
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check: pulumi.Input[Optional['LoadBalancerServiceHealthCheckArgs']] = None,
+                 http: pulumi.Input[Optional['LoadBalancerServiceHttpArgs']] = None,
+                 listen_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyprotocol: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerService resources.
 
@@ -175,86 +175,86 @@ class _LoadBalancerServiceState:
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def destination_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def destination_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "destination_port", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']]:
+    def health_check(self) -> pulumi.Input[Optional['LoadBalancerServiceHealthCheckArgs']]:
         """
         Health Check configuration when `protocol` is `http` or `https`.
         """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
-    def health_check(self, value: Optional[pulumi.Input['LoadBalancerServiceHealthCheckArgs']]):
+    def health_check(self, value: pulumi.Input[Optional['LoadBalancerServiceHealthCheckArgs']]):
         pulumi.set(self, "health_check", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['LoadBalancerServiceHttpArgs']]:
+    def http(self) -> pulumi.Input[Optional['LoadBalancerServiceHttpArgs']]:
         """
         HTTP configuration when `protocol` is `http` or `https`.
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['LoadBalancerServiceHttpArgs']]):
+    def http(self, value: pulumi.Input[Optional['LoadBalancerServiceHttpArgs']]):
         pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter(name="listenPort")
-    def listen_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def listen_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         """
         return pulumi.get(self, "listen_port")
 
     @listen_port.setter
-    def listen_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def listen_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "listen_port", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerId")
-    def load_balancer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the load balancer this service belongs to.
         """
         return pulumi.get(self, "load_balancer_id")
 
     @load_balancer_id.setter
-    def load_balancer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol of the service. `http`, `https` or `tcp`
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxyprotocol(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def proxyprotocol(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable proxyprotocol.
         """
         return pulumi.get(self, "proxyprotocol")
 
     @proxyprotocol.setter
-    def proxyprotocol(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def proxyprotocol(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "proxyprotocol", value)
 
 
@@ -264,13 +264,13 @@ class LoadBalancerService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check: Optional[pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
-                 http: Optional[pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
-                 listen_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyprotocol: Optional[pulumi.Input[_builtins.bool]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
+                 http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
+                 listen_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyprotocol: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Define services for Hetzner Cloud Load Balancers.
@@ -393,13 +393,13 @@ class LoadBalancerService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check: Optional[pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
-                 http: Optional[pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
-                 listen_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyprotocol: Optional[pulumi.Input[_builtins.bool]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
+                 http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
+                 listen_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyprotocol: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -430,13 +430,13 @@ class LoadBalancerService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-            health_check: Optional[pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
-            http: Optional[pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
-            listen_port: Optional[pulumi.Input[_builtins.int]] = None,
-            load_balancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            proxyprotocol: Optional[pulumi.Input[_builtins.bool]] = None) -> 'LoadBalancerService':
+            destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+            health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
+            http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
+            listen_port: pulumi.Input[Optional[_builtins.int]] = None,
+            load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            proxyprotocol: pulumi.Input[Optional[_builtins.bool]] = None) -> 'LoadBalancerService':
         """
         Get an existing LoadBalancerService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

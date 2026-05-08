@@ -26,25 +26,25 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = HCloud.Index.GetZone.Invoke(new()
+        ///     var example = HCloud.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var byId = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byId = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         Id = "www/A",
         ///     });
         /// 
-        ///     var byNameAndType = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byNameAndType = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         Name = "www",
         ///         Type = "A",
         ///     });
         /// 
-        ///     var byLabel = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byLabel = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         WithSelector = "key=value",
@@ -71,25 +71,25 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = HCloud.Index.GetZone.Invoke(new()
+        ///     var example = HCloud.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var byId = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byId = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         Id = "www/A",
         ///     });
         /// 
-        ///     var byNameAndType = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byNameAndType = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         Name = "www",
         ///         Type = "A",
         ///     });
         /// 
-        ///     var byLabel = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byLabel = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         WithSelector = "key=value",
@@ -116,25 +116,25 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = HCloud.Index.GetZone.Invoke(new()
+        ///     var example = HCloud.GetZone.Invoke(new()
         ///     {
         ///         Name = "example.com",
         ///     });
         /// 
-        ///     var byId = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byId = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         Id = "www/A",
         ///     });
         /// 
-        ///     var byNameAndType = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byNameAndType = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         Name = "www",
         ///         Type = "A",
         ///     });
         /// 
-        ///     var byLabel = HCloud.Index.GetZoneRrset.Invoke(new()
+        ///     var byLabel = HCloud.GetZoneRrset.Invoke(new()
         ///     {
         ///         Zone = example.Apply(getZoneResult =&gt; getZoneResult.Name),
         ///         WithSelector = "key=value",

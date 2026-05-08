@@ -21,10 +21,10 @@ __all__ = ['FirewallArgs', 'Firewall']
 @pulumi.input_type
 class FirewallArgs:
     def __init__(__self__, *,
-                 apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
+                 apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplyToArgs']]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
 
@@ -44,60 +44,60 @@ class FirewallArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyTos")
-    def apply_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]]:
+    def apply_tos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplyToArgs']]]]:
         """
         Resources the firewall should be assigned to
         """
         return pulumi.get(self, "apply_tos")
 
     @apply_tos.setter
-    def apply_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]]):
+    def apply_tos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplyToArgs']]]]):
         pulumi.set(self, "apply_tos", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Firewall.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallRuleArgs']]]]:
         """
         Configuration of a Rule from this Firewall.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
 class _FirewallState:
     def __init__(__self__, *,
-                 apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
+                 apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplyToArgs']]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering Firewall resources.
 
@@ -117,50 +117,50 @@ class _FirewallState:
 
     @_builtins.property
     @pulumi.getter(name="applyTos")
-    def apply_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]]:
+    def apply_tos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplyToArgs']]]]:
         """
         Resources the firewall should be assigned to
         """
         return pulumi.get(self, "apply_tos")
 
     @apply_tos.setter
-    def apply_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplyToArgs']]]]):
+    def apply_tos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplyToArgs']]]]):
         pulumi.set(self, "apply_tos", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Firewall.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallRuleArgs']]]]:
         """
         Configuration of a Rule from this Firewall.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -170,10 +170,10 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
+                 apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
@@ -209,7 +209,7 @@ class Firewall(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23",
-            firewall_ids=[myfirewall.id])
+            firewall_ids=[myfirewall.id.apply(lambda x: int(x))])
         ```
 
         ## Import
@@ -268,7 +268,7 @@ class Firewall(pulumi.CustomResource):
             name="node1",
             image="debian-12",
             server_type="cx23",
-            firewall_ids=[myfirewall.id])
+            firewall_ids=[myfirewall.id.apply(lambda x: int(x))])
         ```
 
         ## Import
@@ -295,10 +295,10 @@ class Firewall(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
+                 apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,10 +322,10 @@ class Firewall(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apply_tos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None) -> 'Firewall':
+            apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None) -> 'Firewall':
         """
         Get an existing Firewall resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

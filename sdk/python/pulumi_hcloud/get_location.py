@@ -170,8 +170,8 @@ def get_location(id: Optional[_builtins.int] = None,
         longitude=pulumi.get(__ret__, 'longitude'),
         name=pulumi.get(__ret__, 'name'),
         network_zone=pulumi.get(__ret__, 'network_zone'))
-def get_location_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                        name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_location_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                        name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
     Provides details about a specific Hetzner Cloud Location.

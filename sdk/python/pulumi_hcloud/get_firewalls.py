@@ -110,8 +110,8 @@ def get_firewalls(most_recent: Optional[_builtins.bool] = None,
         id=pulumi.get(__ret__, 'id'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_firewalls_output(most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                         with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_firewalls_output(most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                         with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallsResult]:
     """
     Provides details about multiple Hetzner Cloud Firewall.

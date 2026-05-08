@@ -106,11 +106,11 @@ export interface GetStorageBoxSnapshotOutputArgs {
     /**
      * ID of the Storage Box Snapshot.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the Storage Box Snapshot.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Storage Box.
      */
@@ -118,5 +118,5 @@ export interface GetStorageBoxSnapshotOutputArgs {
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

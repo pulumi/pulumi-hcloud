@@ -118,8 +118,8 @@ def get_zone_rrsets(with_selector: Optional[_builtins.str] = None,
         rrsets=pulumi.get(__ret__, 'rrsets'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         zone=pulumi.get(__ret__, 'zone'))
-def get_zone_rrsets_output(with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           zone: Optional[pulumi.Input[_builtins.str]] = None,
+def get_zone_rrsets_output(with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           zone: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneRrsetsResult]:
     """
     Provides a list of Hetzner Cloud Zone Resource Record Set (RRSet).

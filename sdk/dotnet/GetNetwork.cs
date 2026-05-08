@@ -25,17 +25,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var network1 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network1 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var network2 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network2 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "my-network",
         ///     });
         /// 
-        ///     var network3 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -60,17 +60,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var network1 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network1 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var network2 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network2 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "my-network",
         ///     });
         /// 
-        ///     var network3 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -95,17 +95,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var network1 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network1 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         Id = 1234,
         ///     });
         /// 
-        ///     var network2 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network2 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "my-network",
         ///     });
         /// 
-        ///     var network3 = HCloud.Index.GetNetwork.Invoke(new()
+        ///     var network3 = HCloud.GetNetwork.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

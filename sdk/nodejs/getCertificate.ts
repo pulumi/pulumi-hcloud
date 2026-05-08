@@ -122,13 +122,13 @@ export interface GetCertificateOutputArgs {
     /**
      * ID of the certificate.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the certificate.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

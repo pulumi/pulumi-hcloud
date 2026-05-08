@@ -20,13 +20,13 @@ __all__ = ['VolumeArgs', 'Volume']
 class VolumeArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[_builtins.int],
-                 automount: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 automount: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Volume resource.
 
@@ -71,19 +71,19 @@ class VolumeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def automount(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automount(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automount the volume upon attaching it (server_id must be provided).
         """
         return pulumi.get(self, "automount")
 
     @automount.setter
-    def automount(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automount(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automount", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 
@@ -92,82 +92,82 @@ class VolumeArgs:
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Format volume after creation. `xfs` or `ext4`
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the volume to create (must be unique per project).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Server to attach the Volume to, not allowed if location argument is passed.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_id", value)
 
 
 @pulumi.input_type
 class _VolumeState:
     def __init__(__self__, *,
-                 automount: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 linux_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 size: Optional[pulumi.Input[_builtins.int]] = None):
+                 automount: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 linux_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
 
@@ -204,19 +204,19 @@ class _VolumeState:
 
     @_builtins.property
     @pulumi.getter
-    def automount(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automount(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automount the volume upon attaching it (server_id must be provided).
         """
         return pulumi.get(self, "automount")
 
     @automount.setter
-    def automount(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automount(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automount", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 
@@ -225,91 +225,91 @@ class _VolumeState:
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Format volume after creation. `xfs` or `ext4`
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs).
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxDevice")
-    def linux_device(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linux_device(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) Device path on the file system for the Volume.
         """
         return pulumi.get(self, "linux_device")
 
     @linux_device.setter
-    def linux_device(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linux_device(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linux_device", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location name of the volume to create, not allowed if server_id argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the volume to create (must be unique per project).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Server to attach the Volume to, not allowed if location argument is passed.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of the volume (in GB).
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size", value)
 
 
@@ -319,14 +319,14 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automount: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 size: Optional[pulumi.Input[_builtins.int]] = None,
+                 automount: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 size: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud volume resource to manage volumes.
@@ -344,7 +344,7 @@ class Volume(pulumi.CustomResource):
         master = hcloud.Volume("master",
             name="volume1",
             size=50,
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             automount=True,
             format="ext4")
         ```
@@ -393,7 +393,7 @@ class Volume(pulumi.CustomResource):
         master = hcloud.Volume("master",
             name="volume1",
             size=50,
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             automount=True,
             format="ext4")
         ```
@@ -422,14 +422,14 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automount: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 size: Optional[pulumi.Input[_builtins.int]] = None,
+                 automount: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 size: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -460,15 +460,15 @@ class Volume(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automount: Optional[pulumi.Input[_builtins.bool]] = None,
-            delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            format: Optional[pulumi.Input[_builtins.str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            linux_device: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            server_id: Optional[pulumi.Input[_builtins.int]] = None,
-            size: Optional[pulumi.Input[_builtins.int]] = None) -> 'Volume':
+            automount: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            format: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            linux_device: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None,
+            size: pulumi.Input[Optional[_builtins.int]] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

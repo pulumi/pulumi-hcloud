@@ -24,9 +24,9 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new HCloud.Index.StorageBox("main");
+    ///     var main = new HCloud.StorageBox("main");
     /// 
-    ///     var backup = new HCloud.Index.StorageBoxSnapshot("backup", new()
+    ///     var backup = new HCloud.StorageBoxSnapshot("backup", new()
     ///     {
     ///         StorageBoxId = main.Id,
     ///         Description = "Before Tool XYZ Migration",

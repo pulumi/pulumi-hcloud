@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     ipRange: "10.0.0.0/8",
  * });
  * const foonet = new hcloud.NetworkSubnet("foonet", {
- *     networkId: mynet.id,
+ *     networkId: mynet.id.apply(x =>Number(x)),
  *     type: "cloud",
  *     networkZone: "eu-central",
  *     ipRange: "10.0.1.0/24",
@@ -133,27 +133,27 @@ export class NetworkSubnet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkSubnet resources.
  */
 export interface NetworkSubnetState {
-    gateway?: pulumi.Input<string>;
+    gateway?: pulumi.Input<string | undefined>;
     /**
      * Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
      */
-    ipRange?: pulumi.Input<string>;
+    ipRange?: pulumi.Input<string | undefined>;
     /**
      * ID of the Network the subnet should be added to.
      */
-    networkId?: pulumi.Input<number>;
+    networkId?: pulumi.Input<number | undefined>;
     /**
      * Name of network zone.
      */
-    networkZone?: pulumi.Input<string>;
+    networkZone?: pulumi.Input<string | undefined>;
     /**
      * Type of subnet. `server`, `cloud` or `vswitch`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * ID of the vswitch, Required if type is `vswitch`
      */
-    vswitchId?: pulumi.Input<number>;
+    vswitchId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -179,5 +179,5 @@ export interface NetworkSubnetArgs {
     /**
      * ID of the vswitch, Required if type is `vswitch`
      */
-    vswitchId?: pulumi.Input<number>;
+    vswitchId?: pulumi.Input<number | undefined>;
 }

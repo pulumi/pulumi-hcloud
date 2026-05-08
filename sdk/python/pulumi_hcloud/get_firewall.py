@@ -164,13 +164,13 @@ def get_firewall(apply_tos: Optional[Sequence[Union['GetFirewallApplyToArgs', 'G
         name=pulumi.get(__ret__, 'name'),
         rules=pulumi.get(__ret__, 'rules'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_firewall_output(apply_tos: Optional[pulumi.Input[Optional[Sequence[Union['GetFirewallApplyToArgs', 'GetFirewallApplyToArgsDict']]]]] = None,
-                        id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                        labels: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                        most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                        name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        rules: Optional[pulumi.Input[Optional[Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']]]]] = None,
-                        with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_firewall_output(apply_tos: pulumi.Input[Optional[Optional[Sequence[Union['GetFirewallApplyToArgs', 'GetFirewallApplyToArgsDict']]]]] = None,
+                        id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                        labels: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                        most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        rules: pulumi.Input[Optional[Optional[Sequence[Union['GetFirewallRuleArgs', 'GetFirewallRuleArgsDict']]]]] = None,
+                        with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Provides details about a specific Hetzner Cloud Firewall.

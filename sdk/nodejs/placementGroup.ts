@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     name: "node1",
  *     image: "debian-12",
  *     serverType: "cx23",
- *     placementGroupId: my_placement_group.id,
+ *     placementGroupId: my_placement_group.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -117,16 +117,16 @@ export interface PlacementGroupState {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Placement Group.
      */
-    name?: pulumi.Input<string>;
-    servers?: pulumi.Input<pulumi.Input<number>[]>;
+    name?: pulumi.Input<string | undefined>;
+    servers?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Type of the Placement Group.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,11 +136,11 @@ export interface PlacementGroupArgs {
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Placement Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Type of the Placement Group.
      */

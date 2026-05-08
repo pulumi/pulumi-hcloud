@@ -148,13 +148,13 @@ export interface GetStorageBoxOutputArgs {
     /**
      * ID of the Storage Box.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the Storage Box.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

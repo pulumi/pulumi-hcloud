@@ -20,10 +20,10 @@ __all__ = ['NetworkArgs', 'Network']
 class NetworkArgs:
     def __init__(__self__, *,
                  ip_range: pulumi.Input[_builtins.str],
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expose_routes_to_vswitch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expose_routes_to_vswitch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Network resource.
 
@@ -57,61 +57,61 @@ class NetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="exposeRoutesToVswitch")
-    def expose_routes_to_vswitch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expose_routes_to_vswitch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         """
         return pulumi.get(self, "expose_routes_to_vswitch")
 
     @expose_routes_to_vswitch.setter
-    def expose_routes_to_vswitch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expose_routes_to_vswitch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expose_routes_to_vswitch", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network to create (must be unique per project).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkState:
     def __init__(__self__, *,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expose_routes_to_vswitch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expose_routes_to_vswitch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Network resources.
 
@@ -134,62 +134,62 @@ class _NetworkState:
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="exposeRoutesToVswitch")
-    def expose_routes_to_vswitch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expose_routes_to_vswitch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable exposing the routes to the vSwitch connection. The exposing only takes effect if a vSwitch connection is active.
         """
         return pulumi.get(self, "expose_routes_to_vswitch")
 
     @expose_routes_to_vswitch.setter
-    def expose_routes_to_vswitch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expose_routes_to_vswitch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expose_routes_to_vswitch", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRange")
-    def ip_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Range of the whole Network which must span all included subnets and route destinations. Must be one of the private ipv4 ranges of RFC1918.
         """
         return pulumi.get(self, "ip_range")
 
     @ip_range.setter
-    def ip_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network to create (must be unique per project).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -199,11 +199,11 @@ class Network(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expose_routes_to_vswitch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expose_routes_to_vswitch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Network to represent a Network in the Hetzner Cloud.
@@ -280,11 +280,11 @@ class Network(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expose_routes_to_vswitch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expose_routes_to_vswitch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,11 +311,11 @@ class Network(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            expose_routes_to_vswitch: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Network':
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            expose_routes_to_vswitch: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Network':
         """
         Get an existing Network resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

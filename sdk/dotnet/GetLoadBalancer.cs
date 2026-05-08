@@ -24,17 +24,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var lb1 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb1 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Name = "my-load-balancer",
         ///     });
         /// 
-        ///     var lb2 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb2 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Id = 123,
         ///     });
         /// 
-        ///     var lb3 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb3 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -58,17 +58,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var lb1 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb1 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Name = "my-load-balancer",
         ///     });
         /// 
-        ///     var lb2 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb2 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Id = 123,
         ///     });
         /// 
-        ///     var lb3 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb3 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });
@@ -92,17 +92,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var lb1 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb1 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Name = "my-load-balancer",
         ///     });
         /// 
-        ///     var lb2 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb2 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Id = 123,
         ///     });
         /// 
-        ///     var lb3 = HCloud.Index.GetLoadBalancer.Invoke(new()
+        ///     var lb3 = HCloud.GetLoadBalancer.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
         ///     });

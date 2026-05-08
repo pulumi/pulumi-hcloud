@@ -146,8 +146,8 @@ def get_datacenter(id: Optional[_builtins.int] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         supported_server_type_ids=pulumi.get(__ret__, 'supported_server_type_ids'))
-def get_datacenter_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                          name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_datacenter_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                          name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatacenterResult]:
     """
     Provides details about a specific Hetzner Cloud Datacenter.

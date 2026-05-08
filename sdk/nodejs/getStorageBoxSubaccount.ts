@@ -20,19 +20,19 @@ import * as utilities from "./utilities";
  * const config = new pulumi.Config();
  * const storageBoxId = config.requireObject<any>("storageBoxId");
  * const byId = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     id: 2,
  * });
  * const byName = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     name: "badger",
  * });
  * const byUsername = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     username: "u507137-sub1",
  * });
  * const byLabelSelector = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     withSelector: "team=billing",
  * });
  * ```
@@ -133,19 +133,19 @@ export interface GetStorageBoxSubaccountResult {
  * const config = new pulumi.Config();
  * const storageBoxId = config.requireObject<any>("storageBoxId");
  * const byId = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     id: 2,
  * });
  * const byName = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     name: "badger",
  * });
  * const byUsername = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     username: "u507137-sub1",
  * });
  * const byLabelSelector = hcloud.getStorageBoxSubaccount({
- *     storageBoxId: storageBoxId,
+ *     storageBoxId: Number(storageBoxId),
  *     withSelector: "team=billing",
  * });
  * ```
@@ -168,11 +168,11 @@ export interface GetStorageBoxSubaccountOutputArgs {
     /**
      * ID of the Storage Box Subaccount.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the Storage Box Subaccount.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Storage Box.
      */
@@ -180,9 +180,9 @@ export interface GetStorageBoxSubaccountOutputArgs {
     /**
      * Username of the Storage Box Subaccount.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

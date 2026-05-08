@@ -147,31 +147,31 @@ export interface ZoneRrsetState {
     /**
      * Whether change protection is enabled.
      */
-    changeProtection?: pulumi.Input<boolean>;
+    changeProtection?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Zone RRSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Records of the Zone RRSet.
      */
-    records?: pulumi.Input<pulumi.Input<inputs.ZoneRrsetRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.ZoneRrsetRecord>[] | undefined>;
     /**
      * Time To Live (TTL) of the Zone RRSet.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Type of the Zone RRSet.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * ID or Name of the parent Zone.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,15 +181,15 @@ export interface ZoneRrsetArgs {
     /**
      * Whether change protection is enabled.
      */
-    changeProtection?: pulumi.Input<boolean>;
+    changeProtection?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Zone RRSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Records of the Zone RRSet.
      */
@@ -197,7 +197,7 @@ export interface ZoneRrsetArgs {
     /**
      * Time To Live (TTL) of the Zone RRSet.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Type of the Zone RRSet.
      */

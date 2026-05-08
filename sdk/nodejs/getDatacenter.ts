@@ -114,9 +114,9 @@ export interface GetDatacenterOutputArgs {
     /**
      * ID of the Datacenter.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     /**
      * Name of the Datacenter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

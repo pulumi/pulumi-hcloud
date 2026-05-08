@@ -394,13 +394,13 @@ def get_server(id: Optional[_builtins.int] = None,
         status=pulumi.get(__ret__, 'status'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-def get_server_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                      name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      networks: Optional[pulumi.Input[Optional[Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']]]]] = None,
-                      placement_group_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                      selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      with_statuses: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_server_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                      name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      networks: pulumi.Input[Optional[Optional[Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']]]]] = None,
+                      placement_group_id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                      selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      with_statuses: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Provides details about a Hetzner Cloud Server.

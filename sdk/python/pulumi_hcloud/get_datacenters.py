@@ -99,10 +99,11 @@ def get_datacenters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGet
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_hcloud as hcloud
 
     all = hcloud.get_datacenters()
-    workers = []
+    workers: list[Any] = []
     for range in [{"value": i} for i in range(0, 5)]:
         workers.append(hcloud.Server(f"workers-{range['value']}",
             name=f"node{range['value']}",
@@ -131,10 +132,11 @@ def get_datacenters_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Inv
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_hcloud as hcloud
 
     all = hcloud.get_datacenters()
-    workers = []
+    workers: list[Any] = []
     for range in [{"value": i} for i in range(0, 5)]:
         workers.append(hcloud.Server(f"workers-{range['value']}",
             name=f"node{range['value']}",

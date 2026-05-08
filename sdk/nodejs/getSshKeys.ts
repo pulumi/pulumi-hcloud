@@ -95,9 +95,9 @@ export interface GetSshKeysOutputArgs {
     /**
      * The ID of this resource.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
 }

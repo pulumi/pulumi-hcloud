@@ -37,7 +37,7 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new HCloud.Index.PrimaryIp("main", new()
+    ///     var main = new HCloud.PrimaryIp("main", new()
     ///     {
     ///         Name = "primary-ip",
     ///         Location = "fsn1",
@@ -50,7 +50,7 @@ namespace Pulumi.HCloud
     ///     });
     /// 
     ///     // Link a server to a primary IP
-    ///     var mainServer = new HCloud.Index.Server("main", new()
+    ///     var mainServer = new HCloud.Server("main", new()
     ///     {
     ///         Name = "server",
     ///         Image = "ubuntu-24.04",

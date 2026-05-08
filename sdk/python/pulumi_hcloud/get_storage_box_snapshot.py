@@ -169,10 +169,10 @@ def get_storage_box_snapshot(id: Optional[_builtins.int] = None,
         stats=pulumi.get(__ret__, 'stats'),
         storage_box_id=pulumi.get(__ret__, 'storage_box_id'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_storage_box_snapshot_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    storage_box_id: Optional[pulumi.Input[_builtins.int]] = None,
-                                    with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_storage_box_snapshot_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    storage_box_id: pulumi.Input[Optional[_builtins.int]] = None,
+                                    with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxSnapshotResult]:
     """
     Provides details about a Hetzner Storage Box Snapshot.

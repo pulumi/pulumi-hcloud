@@ -111,8 +111,8 @@ def get_volumes(with_selector: Optional[_builtins.str] = None,
         volumes=pulumi.get(__ret__, 'volumes'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
-def get_volumes_output(with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       with_statuses: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_volumes_output(with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       with_statuses: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumesResult]:
     """
     Provides details about multiple Hetzner Cloud Volumes.

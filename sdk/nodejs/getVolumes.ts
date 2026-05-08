@@ -90,9 +90,9 @@ export interface GetVolumesOutputArgs {
     /**
      * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
-    withSelector?: pulumi.Input<string>;
+    withSelector?: pulumi.Input<string | undefined>;
     /**
      * List only volumes with the specified status, could contain `creating` or `available`.
      */
-    withStatuses?: pulumi.Input<pulumi.Input<string>[]>;
+    withStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

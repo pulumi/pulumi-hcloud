@@ -242,7 +242,7 @@ def get_primary_ip(id: Optional[_builtins.int] = None,
             "test": "tessst1",
         },
         public_nets=[{
-            "ipv4": ip1_hcloud_primary_ip["id"],
+            "ipv4": int(ip1_hcloud_primary_ip["id"]),
         }])
     ```
 
@@ -274,10 +274,10 @@ def get_primary_ip(id: Optional[_builtins.int] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_primary_ip_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                          ip_address: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_primary_ip_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                          ip_address: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrimaryIpResult]:
     """
     Provides details about a Hetzner Cloud Primary IP.
@@ -325,7 +325,7 @@ def get_primary_ip_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = 
             "test": "tessst1",
         },
         public_nets=[{
-            "ipv4": ip1_hcloud_primary_ip["id"],
+            "ipv4": int(ip1_hcloud_primary_ip["id"]),
         }])
     ```
 

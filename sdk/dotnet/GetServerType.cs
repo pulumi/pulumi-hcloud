@@ -26,17 +26,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.Index.GetServerType.Invoke(new()
+        ///     var byId = HCloud.GetServerType.Invoke(new()
         ///     {
         ///         Id = 22,
         ///     });
         /// 
-        ///     var byName = HCloud.Index.GetServerType.Invoke(new()
+        ///     var byName = HCloud.GetServerType.Invoke(new()
         ///     {
         ///         Name = "cx23",
         ///     });
         /// 
-        ///     var main = new HCloud.Index.Server("main", new()
+        ///     var main = new HCloud.Server("main", new()
         ///     {
         ///         Name = "my-server",
         ///         Location = "fsn1",
@@ -65,17 +65,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.Index.GetServerType.Invoke(new()
+        ///     var byId = HCloud.GetServerType.Invoke(new()
         ///     {
         ///         Id = 22,
         ///     });
         /// 
-        ///     var byName = HCloud.Index.GetServerType.Invoke(new()
+        ///     var byName = HCloud.GetServerType.Invoke(new()
         ///     {
         ///         Name = "cx23",
         ///     });
         /// 
-        ///     var main = new HCloud.Index.Server("main", new()
+        ///     var main = new HCloud.Server("main", new()
         ///     {
         ///         Name = "my-server",
         ///         Location = "fsn1",
@@ -104,17 +104,17 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = HCloud.Index.GetServerType.Invoke(new()
+        ///     var byId = HCloud.GetServerType.Invoke(new()
         ///     {
         ///         Id = 22,
         ///     });
         /// 
-        ///     var byName = HCloud.Index.GetServerType.Invoke(new()
+        ///     var byName = HCloud.GetServerType.Invoke(new()
         ///     {
         ///         Name = "cx23",
         ///     });
         /// 
-        ///     var main = new HCloud.Index.Server("main", new()
+        ///     var main = new HCloud.Server("main", new()
         ///     {
         ///         Name = "my-server",
         ///         Location = "fsn1",

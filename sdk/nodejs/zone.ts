@@ -131,35 +131,35 @@ export interface ZoneState {
     /**
      * Authoritative nameservers of the Zone.
      */
-    authoritativeNameservers?: pulumi.Input<inputs.ZoneAuthoritativeNameservers>;
+    authoritativeNameservers?: pulumi.Input<inputs.ZoneAuthoritativeNameservers | undefined>;
     /**
      * Whether delete protection is enabled.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Mode of the Zone.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Name of the Zone.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.
      */
-    primaryNameservers?: pulumi.Input<pulumi.Input<inputs.ZonePrimaryNameserver>[]>;
+    primaryNameservers?: pulumi.Input<pulumi.Input<inputs.ZonePrimaryNameserver>[] | undefined>;
     /**
      * Registrar of the Zone.
      */
-    registrar?: pulumi.Input<string>;
+    registrar?: pulumi.Input<string | undefined>;
     /**
      * Default Time To Live (TTL) of the Zone.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -169,11 +169,11 @@ export interface ZoneArgs {
     /**
      * Whether delete protection is enabled.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Mode of the Zone.
      */
@@ -181,13 +181,13 @@ export interface ZoneArgs {
     /**
      * Name of the Zone.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.
      */
-    primaryNameservers?: pulumi.Input<pulumi.Input<inputs.ZonePrimaryNameserver>[]>;
+    primaryNameservers?: pulumi.Input<pulumi.Input<inputs.ZonePrimaryNameserver>[] | undefined>;
     /**
      * Default Time To Live (TTL) of the Zone.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
 }

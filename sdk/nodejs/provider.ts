@@ -86,23 +86,23 @@ export interface ProviderArgs {
     /**
      * The Hetzner Cloud API endpoint, can be used to override the default API Endpoint https://api.hetzner.cloud/v1.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * The Hetzner API endpoint, can be used to override the default API Endpoint https://api.hetzner.com/v1.
      */
-    endpointHetzner?: pulumi.Input<string>;
+    endpointHetzner?: pulumi.Input<string | undefined>;
     /**
      * The type of function to be used during the polling.
      */
-    pollFunction?: pulumi.Input<string>;
+    pollFunction?: pulumi.Input<string | undefined>;
     /**
      * The interval at which actions are polled by the client. Default `500ms`. Increase this interval if you run into rate limiting errors.
      */
-    pollInterval?: pulumi.Input<string>;
+    pollInterval?: pulumi.Input<string | undefined>;
     /**
      * The Hetzner Cloud API token, can also be specified with the HCLOUD_TOKEN environment variable.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {

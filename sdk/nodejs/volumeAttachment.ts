@@ -24,8 +24,8 @@ import * as utilities from "./utilities";
  *     size: 10,
  * });
  * const main = new hcloud.VolumeAttachment("main", {
- *     volumeId: master.id,
- *     serverId: node1.id,
+ *     volumeId: master.id.apply(x =>Number(x)),
+ *     serverId: node1.id.apply(x =>Number(x)),
  *     automount: true,
  * });
  * ```
@@ -119,15 +119,15 @@ export interface VolumeAttachmentState {
     /**
      * Automount the volume upon attaching it.
      */
-    automount?: pulumi.Input<boolean>;
+    automount?: pulumi.Input<boolean | undefined>;
     /**
      * Server to attach the Volume to.
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * ID of the Volume.
      */
-    volumeId?: pulumi.Input<number>;
+    volumeId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -137,7 +137,7 @@ export interface VolumeAttachmentArgs {
     /**
      * Automount the volume upon attaching it.
      */
-    automount?: pulumi.Input<boolean>;
+    automount?: pulumi.Input<boolean | undefined>;
     /**
      * Server to attach the Volume to.
      */

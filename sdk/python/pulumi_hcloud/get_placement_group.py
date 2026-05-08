@@ -156,12 +156,12 @@ def get_placement_group(id: Optional[_builtins.int] = None,
         servers=pulumi.get(__ret__, 'servers'),
         type=pulumi.get(__ret__, 'type'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_placement_group_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                               labels: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                               most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                               name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_placement_group_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                               labels: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                               most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                               name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlacementGroupResult]:
     """
     Provides details about a specific Hetzner Cloud Placement Group.

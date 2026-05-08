@@ -100,7 +100,7 @@ def get_storage_boxes(with_selector: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         storage_boxes=pulumi.get(__ret__, 'storage_boxes'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_storage_boxes_output(with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_storage_boxes_output(with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxesResult]:
     """
     Provides a list of Hetzner Storage Boxes.

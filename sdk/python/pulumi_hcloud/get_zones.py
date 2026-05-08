@@ -100,7 +100,7 @@ def get_zones(with_selector: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_zones_output(with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_zones_output(with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZonesResult]:
     """
     Provides a list of Hetzner Cloud Zone.

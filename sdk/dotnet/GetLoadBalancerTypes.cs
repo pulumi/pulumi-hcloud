@@ -24,7 +24,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.Index.GetLoadBalancerTypes.Invoke();
+        ///     var all = HCloud.GetLoadBalancerTypes.Invoke();
         /// 
         /// });
         /// ```
@@ -45,7 +45,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.Index.GetLoadBalancerTypes.Invoke();
+        ///     var all = HCloud.GetLoadBalancerTypes.Invoke();
         /// 
         /// });
         /// ```
@@ -66,7 +66,7 @@ namespace Pulumi.HCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = HCloud.Index.GetLoadBalancerTypes.Invoke();
+        ///     var all = HCloud.GetLoadBalancerTypes.Invoke();
         /// 
         /// });
         /// ```

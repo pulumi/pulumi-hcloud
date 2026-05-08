@@ -41,7 +41,7 @@ import * as utilities from "./utilities";
  *     name: "node1",
  *     image: "debian-12",
  *     serverType: "cx23",
- *     firewallIds: [myfirewall.id],
+ *     firewallIds: [myfirewall.id.apply(x =>Number(x))],
  * });
  * ```
  *
@@ -134,19 +134,19 @@ export interface FirewallState {
     /**
      * Resources the firewall should be assigned to
      */
-    applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[]>;
+    applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[] | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Firewall.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration of a Rule from this Firewall.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.FirewallRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.FirewallRule>[] | undefined>;
 }
 
 /**
@@ -156,17 +156,17 @@ export interface FirewallArgs {
     /**
      * Resources the firewall should be assigned to
      */
-    applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[]>;
+    applyTos?: pulumi.Input<pulumi.Input<inputs.FirewallApplyTo>[] | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the Firewall.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration of a Rule from this Firewall.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.FirewallRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.FirewallRule>[] | undefined>;
 }

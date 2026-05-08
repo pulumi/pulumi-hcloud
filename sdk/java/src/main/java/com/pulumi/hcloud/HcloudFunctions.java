@@ -141,8 +141,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -183,8 +183,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -225,8 +225,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -267,8 +267,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -309,8 +309,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -351,8 +351,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -393,8 +393,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -437,8 +437,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -477,8 +477,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -517,8 +517,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -557,8 +557,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -597,8 +597,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -637,8 +637,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -677,8 +677,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetCertificatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -719,8 +719,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -765,8 +765,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -811,8 +811,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -857,8 +857,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -903,8 +903,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -949,8 +949,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -995,8 +995,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetDatacenterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1043,8 +1043,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1095,8 +1095,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1147,8 +1147,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1199,8 +1199,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1251,8 +1251,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1303,8 +1303,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1355,8 +1355,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1401,8 +1401,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1443,8 +1443,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1485,8 +1485,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1527,8 +1527,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1569,8 +1569,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1611,8 +1611,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1653,8 +1653,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1697,8 +1697,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1737,8 +1737,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1777,8 +1777,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1817,8 +1817,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1857,8 +1857,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1897,8 +1897,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1937,8 +1937,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFirewallsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1989,8 +1989,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.FloatingIpAssignment;
      * import com.pulumi.hcloud.FloatingIpAssignmentArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2053,8 +2053,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.FloatingIpAssignment;
      * import com.pulumi.hcloud.FloatingIpAssignmentArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2117,8 +2117,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.FloatingIpAssignment;
      * import com.pulumi.hcloud.FloatingIpAssignmentArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2181,8 +2181,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.FloatingIpAssignment;
      * import com.pulumi.hcloud.FloatingIpAssignmentArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2245,8 +2245,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.FloatingIpAssignment;
      * import com.pulumi.hcloud.FloatingIpAssignmentArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2309,8 +2309,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.FloatingIpAssignment;
      * import com.pulumi.hcloud.FloatingIpAssignmentArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2373,8 +2373,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.FloatingIpAssignment;
      * import com.pulumi.hcloud.FloatingIpAssignmentArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2425,8 +2425,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFloatingIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2465,8 +2465,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFloatingIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2505,8 +2505,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFloatingIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2545,8 +2545,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFloatingIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2585,8 +2585,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFloatingIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2625,8 +2625,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFloatingIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2665,8 +2665,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetFloatingIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2711,8 +2711,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetImageArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2775,8 +2775,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetImageArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2839,8 +2839,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetImageArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2903,8 +2903,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetImageArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2967,8 +2967,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetImageArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3031,8 +3031,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetImageArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3095,8 +3095,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetImageArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3156,8 +3156,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetImagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3203,8 +3203,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetImagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3250,8 +3250,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetImagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3297,8 +3297,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetImagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3344,8 +3344,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetImagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3391,8 +3391,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetImagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3438,8 +3438,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetImagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3482,8 +3482,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3530,8 +3530,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3578,8 +3578,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3626,8 +3626,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3674,8 +3674,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3722,8 +3722,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3770,8 +3770,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3822,8 +3822,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
      * import com.pulumi.hcloud.LoadBalancer;
      * import com.pulumi.hcloud.LoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3876,8 +3876,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
      * import com.pulumi.hcloud.LoadBalancer;
      * import com.pulumi.hcloud.LoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3930,8 +3930,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
      * import com.pulumi.hcloud.LoadBalancer;
      * import com.pulumi.hcloud.LoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3984,8 +3984,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
      * import com.pulumi.hcloud.LoadBalancer;
      * import com.pulumi.hcloud.LoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4038,8 +4038,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
      * import com.pulumi.hcloud.LoadBalancer;
      * import com.pulumi.hcloud.LoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4092,8 +4092,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
      * import com.pulumi.hcloud.LoadBalancer;
      * import com.pulumi.hcloud.LoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4146,8 +4146,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetLoadBalancerTypeArgs;
      * import com.pulumi.hcloud.LoadBalancer;
      * import com.pulumi.hcloud.LoadBalancerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4195,8 +4195,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4232,8 +4232,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4269,8 +4269,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4306,8 +4306,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4343,8 +4343,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4380,8 +4380,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4417,8 +4417,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4455,8 +4455,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4498,8 +4498,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4541,8 +4541,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4584,8 +4584,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4627,8 +4627,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4670,8 +4670,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4713,8 +4713,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLoadBalancersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4758,8 +4758,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4804,8 +4804,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4850,8 +4850,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4896,8 +4896,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4942,8 +4942,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4988,8 +4988,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5034,8 +5034,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5082,8 +5082,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5134,8 +5134,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5186,8 +5186,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5238,8 +5238,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5290,8 +5290,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5342,8 +5342,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5394,8 +5394,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5443,8 +5443,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5492,8 +5492,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5541,8 +5541,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5590,8 +5590,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5639,8 +5639,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5688,8 +5688,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5737,8 +5737,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5785,8 +5785,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5828,8 +5828,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5871,8 +5871,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5914,8 +5914,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5957,8 +5957,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6000,8 +6000,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6043,8 +6043,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6084,8 +6084,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6126,8 +6126,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6168,8 +6168,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6210,8 +6210,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6252,8 +6252,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6294,8 +6294,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6336,8 +6336,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6380,8 +6380,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6423,8 +6423,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6466,8 +6466,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6509,8 +6509,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6552,8 +6552,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6595,8 +6595,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6638,8 +6638,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPlacementGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6708,8 +6708,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6795,8 +6795,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6882,8 +6882,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6969,8 +6969,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7056,8 +7056,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7143,8 +7143,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7230,8 +7230,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
      * import com.pulumi.hcloud.inputs.ServerPublicNetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7290,8 +7290,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPrimaryIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7330,8 +7330,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPrimaryIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7370,8 +7370,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPrimaryIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7410,8 +7410,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPrimaryIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7450,8 +7450,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPrimaryIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7490,8 +7490,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPrimaryIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7530,8 +7530,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetPrimaryIpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7581,8 +7581,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7640,8 +7640,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7699,8 +7699,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7758,8 +7758,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7817,8 +7817,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7876,8 +7876,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7935,8 +7935,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7987,8 +7987,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8042,8 +8042,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8097,8 +8097,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8152,8 +8152,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8207,8 +8207,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8262,8 +8262,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8317,8 +8317,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetServerTypeArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8367,8 +8367,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8404,8 +8404,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8441,8 +8441,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8478,8 +8478,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8515,8 +8515,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8552,8 +8552,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8589,8 +8589,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8628,8 +8628,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8669,8 +8669,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8710,8 +8710,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8751,8 +8751,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8792,8 +8792,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8833,8 +8833,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8874,8 +8874,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8918,8 +8918,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeyArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8981,8 +8981,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeyArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9044,8 +9044,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeyArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9107,8 +9107,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeyArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9170,8 +9170,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeyArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9233,8 +9233,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeyArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9296,8 +9296,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeyArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9359,8 +9359,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9410,8 +9410,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9461,8 +9461,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9512,8 +9512,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9563,8 +9563,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9614,8 +9614,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9665,8 +9665,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.inputs.GetSshKeysArgs;
      * import com.pulumi.hcloud.Server;
      * import com.pulumi.hcloud.ServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9714,8 +9714,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9764,8 +9764,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9814,8 +9814,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9864,8 +9864,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9914,8 +9914,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9964,8 +9964,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10014,8 +10014,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10119,8 +10119,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10168,8 +10168,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10217,8 +10217,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10266,8 +10266,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10315,8 +10315,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10364,8 +10364,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10424,8 +10424,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10484,8 +10484,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10544,8 +10544,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10604,8 +10604,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10664,8 +10664,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10713,8 +10713,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10762,8 +10762,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10811,8 +10811,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10860,8 +10860,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxSubaccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10909,8 +10909,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10955,8 +10955,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11001,8 +11001,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11047,8 +11047,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11093,8 +11093,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11139,8 +11139,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11185,8 +11185,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11230,8 +11230,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11269,8 +11269,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11308,8 +11308,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11347,8 +11347,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11386,8 +11386,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11425,8 +11425,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11464,8 +11464,8 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11504,8 +11504,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11549,8 +11549,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11594,8 +11594,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11639,8 +11639,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11684,8 +11684,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11729,8 +11729,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11774,8 +11774,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetStorageBoxesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11818,8 +11818,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11867,8 +11867,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11916,8 +11916,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11965,8 +11965,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12014,8 +12014,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12063,8 +12063,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12112,8 +12112,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12160,8 +12160,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12203,8 +12203,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12246,8 +12246,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12289,8 +12289,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12332,8 +12332,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12375,8 +12375,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12418,8 +12418,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12465,8 +12465,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12517,8 +12517,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12569,8 +12569,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12621,8 +12621,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12673,8 +12673,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12725,8 +12725,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12777,8 +12777,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12828,8 +12828,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12887,8 +12887,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12946,8 +12946,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13005,8 +13005,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13064,8 +13064,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13123,8 +13123,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13175,8 +13175,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13227,8 +13227,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13279,8 +13279,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13331,8 +13331,8 @@ public final class HcloudFunctions {
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZoneArgs;
      * import com.pulumi.hcloud.inputs.GetZoneRrsetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13382,8 +13382,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13427,8 +13427,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13472,8 +13472,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13517,8 +13517,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13562,8 +13562,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13607,8 +13607,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13652,8 +13652,8 @@ public final class HcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
      * import com.pulumi.hcloud.inputs.GetZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * const master = new hcloud.Volume("master", {
  *     name: "volume1",
  *     size: 50,
- *     serverId: node1.id,
+ *     serverId: node1.id.apply(x =>Number(x)),
  *     automount: true,
  *     format: "ext4",
  * });
@@ -151,41 +151,41 @@ export interface VolumeState {
     /**
      * Automount the volume upon attaching it (server_id must be provided).
      */
-    automount?: pulumi.Input<boolean>;
+    automount?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      *
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Format volume after creation. `xfs` or `ext4`
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs).
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (string) Device path on the file system for the Volume.
      */
-    linuxDevice?: pulumi.Input<string>;
+    linuxDevice?: pulumi.Input<string | undefined>;
     /**
      * The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the volume to create (must be unique per project).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Server to attach the Volume to, not allowed if location argument is passed.
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * Size of the volume (in GB).
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -195,33 +195,33 @@ export interface VolumeArgs {
     /**
      * Automount the volume upon attaching it (server_id must be provided).
      */
-    automount?: pulumi.Input<boolean>;
+    automount?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      *
      * **Note:** When you want to attach multiple volumes to a server, please use the `hcloud.VolumeAttachment` resource and the `location` argument instead of the `serverId` argument.
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Format volume after creation. `xfs` or `ext4`
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * User-defined labels (key-value pairs).
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The location name of the volume to create, not allowed if serverId argument is passed. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the volume to create (must be unique per project).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Server to attach the Volume to, not allowed if location argument is passed.
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * Size of the volume (in GB).
      */

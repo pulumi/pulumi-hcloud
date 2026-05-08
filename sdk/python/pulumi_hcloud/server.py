@@ -22,26 +22,26 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  server_type: pulumi.Input[_builtins.str],
-                 allow_deprecated_images: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 ignore_remote_firewall_ids: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 iso: Optional[pulumi.Input[_builtins.str]] = None,
-                 keep_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
-                 placement_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
-                 rebuild_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rescue: Optional[pulumi.Input[_builtins.str]] = None,
-                 shutdown_before_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_deprecated_images: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 ignore_remote_firewall_ids: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 iso: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
+                 placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_nets: pulumi.Input[Optional[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
+                 rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rescue: pulumi.Input[Optional[_builtins.str]] = None,
+                 shutdown_before_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Server resource.
 
@@ -131,68 +131,68 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowDeprecatedImages")
-    def allow_deprecated_images(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_deprecated_images(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         """
         return pulumi.get(self, "allow_deprecated_images")
 
     @allow_deprecated_images.setter
-    def allow_deprecated_images(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_deprecated_images(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_deprecated_images", value)
 
     @_builtins.property
     @pulumi.getter
-    def backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable backups.
         """
         return pulumi.get(self, "backups")
 
     @backups.setter
-    def backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backups", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
-    def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
     @datacenter.setter
-    def datacenter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datacenter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datacenter", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallIds")
-    def firewall_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def firewall_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Firewall IDs the server should be attached to on creation.
         """
         return pulumi.get(self, "firewall_ids")
 
     @firewall_ids.setter
-    def firewall_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def firewall_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "firewall_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreRemoteFirewallIds")
-    def ignore_remote_firewall_ids(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_remote_firewall_ids(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Ignores any updates
         to the `firewall_ids` argument which were received from the server.
@@ -203,108 +203,108 @@ class ServerArgs:
         return pulumi.get(self, "ignore_remote_firewall_ids")
 
     @ignore_remote_firewall_ids.setter
-    def ignore_remote_firewall_ids(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_remote_firewall_ids(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_remote_firewall_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter
-    def iso(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iso(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID or Name of an ISO image to mount.
         """
         return pulumi.get(self, "iso")
 
     @iso.setter
-    def iso(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iso(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iso", value)
 
     @_builtins.property
     @pulumi.getter(name="keepDisk")
-    def keep_disk(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def keep_disk(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, do not upgrade the disk. This allows downgrading the server type later.
         """
         return pulumi.get(self, "keep_disk")
 
     @keep_disk.setter
-    def keep_disk(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def keep_disk(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "keep_disk", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]]:
+    def networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerNetworkArgs']]]]:
         """
         Network the server should be attached to on creation. (Can be specified multiple times)
         """
         return pulumi.get(self, "networks")
 
     @networks.setter
-    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]]):
+    def networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerNetworkArgs']]]]):
         pulumi.set(self, "networks", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroupId")
-    def placement_group_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def placement_group_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Placement Group ID the server added to on creation.
         """
         return pulumi.get(self, "placement_group_id")
 
     @placement_group_id.setter
-    def placement_group_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def placement_group_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNets")
-    def public_nets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]:
+    def public_nets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerPublicNetArgs']]]]:
         """
         In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
         If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
@@ -312,100 +312,100 @@ class ServerArgs:
         return pulumi.get(self, "public_nets")
 
     @public_nets.setter
-    def public_nets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]):
+    def public_nets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerPublicNetArgs']]]]):
         pulumi.set(self, "public_nets", value)
 
     @_builtins.property
     @pulumi.getter(name="rebuildProtection")
-    def rebuild_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rebuild_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         """
         return pulumi.get(self, "rebuild_protection")
 
     @rebuild_protection.setter
-    def rebuild_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rebuild_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rebuild_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def rescue(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rescue(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         """
         return pulumi.get(self, "rescue")
 
     @rescue.setter
-    def rescue(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rescue(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rescue", value)
 
     @_builtins.property
     @pulumi.getter(name="shutdownBeforeDeletion")
-    def shutdown_before_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def shutdown_before_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to try shutting the server down gracefully before deleting it.
         """
         return pulumi.get(self, "shutdown_before_deletion")
 
     @shutdown_before_deletion.setter
-    def shutdown_before_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def shutdown_before_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "shutdown_before_deletion", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cloud-Init user data to use during server creation
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
 
 @pulumi.input_type
 class _ServerState:
     def __init__(__self__, *,
-                 allow_deprecated_images: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 ignore_remote_firewall_ids: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_network: Optional[pulumi.Input[_builtins.str]] = None,
-                 iso: Optional[pulumi.Input[_builtins.str]] = None,
-                 keep_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
-                 placement_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_disk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
-                 rebuild_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rescue: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 shutdown_before_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_deprecated_images: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 ignore_remote_firewall_ids: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_network: pulumi.Input[Optional[_builtins.str]] = None,
+                 iso: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input['ServerNetworkArgs']]]] = None,
+                 placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_nets: pulumi.Input[Optional[Sequence[pulumi.Input['ServerPublicNetArgs']]]] = None,
+                 rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rescue: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 shutdown_before_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
 
@@ -505,81 +505,81 @@ class _ServerState:
 
     @_builtins.property
     @pulumi.getter(name="allowDeprecatedImages")
-    def allow_deprecated_images(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_deprecated_images(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
         """
         return pulumi.get(self, "allow_deprecated_images")
 
     @allow_deprecated_images.setter
-    def allow_deprecated_images(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_deprecated_images(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_deprecated_images", value)
 
     @_builtins.property
     @pulumi.getter(name="backupWindow")
     @_utilities.deprecated("""You should remove this property from your terraform configuration.""")
-    def backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) The backup window of the server, if enabled.
         """
         return pulumi.get(self, "backup_window")
 
     @backup_window.setter
-    def backup_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_window", value)
 
     @_builtins.property
     @pulumi.getter
-    def backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable backups.
         """
         return pulumi.get(self, "backups")
 
     @backups.setter
-    def backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backups", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
-    def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         """
         return pulumi.get(self, "datacenter")
 
     @datacenter.setter
-    def datacenter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datacenter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datacenter", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallIds")
-    def firewall_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def firewall_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Firewall IDs the server should be attached to on creation.
         """
         return pulumi.get(self, "firewall_ids")
 
     @firewall_ids.setter
-    def firewall_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def firewall_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "firewall_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreRemoteFirewallIds")
-    def ignore_remote_firewall_ids(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_remote_firewall_ids(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Ignores any updates
         to the `firewall_ids` argument which were received from the server.
@@ -590,156 +590,156 @@ class _ServerState:
         return pulumi.get(self, "ignore_remote_firewall_ids")
 
     @ignore_remote_firewall_ids.setter
-    def ignore_remote_firewall_ids(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_remote_firewall_ids(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_remote_firewall_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4Address")
-    def ipv4_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) The IPv4 address.
         """
         return pulumi.get(self, "ipv4_address")
 
     @ipv4_address.setter
-    def ipv4_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_address", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Address")
-    def ipv6_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) The first IPv6 address of the assigned network.
         """
         return pulumi.get(self, "ipv6_address")
 
     @ipv6_address.setter
-    def ipv6_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_address", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Network")
-    def ipv6_network(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_network(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) The IPv6 network.
         """
         return pulumi.get(self, "ipv6_network")
 
     @ipv6_network.setter
-    def ipv6_network(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_network(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_network", value)
 
     @_builtins.property
     @pulumi.getter
-    def iso(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iso(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID or Name of an ISO image to mount.
         """
         return pulumi.get(self, "iso")
 
     @iso.setter
-    def iso(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iso(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iso", value)
 
     @_builtins.property
     @pulumi.getter(name="keepDisk")
-    def keep_disk(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def keep_disk(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, do not upgrade the disk. This allows downgrading the server type later.
         """
         return pulumi.get(self, "keep_disk")
 
     @keep_disk.setter
-    def keep_disk(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def keep_disk(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "keep_disk", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]]:
+    def networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerNetworkArgs']]]]:
         """
         Network the server should be attached to on creation. (Can be specified multiple times)
         """
         return pulumi.get(self, "networks")
 
     @networks.setter
-    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerNetworkArgs']]]]):
+    def networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerNetworkArgs']]]]):
         pulumi.set(self, "networks", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroupId")
-    def placement_group_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def placement_group_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Placement Group ID the server added to on creation.
         """
         return pulumi.get(self, "placement_group_id")
 
     @placement_group_id.setter
-    def placement_group_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def placement_group_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDiskSize")
-    def primary_disk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_disk_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (int) The size of the primary disk in GB.
         """
         return pulumi.get(self, "primary_disk_size")
 
     @primary_disk_size.setter
-    def primary_disk_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_disk_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_disk_size", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNets")
-    def public_nets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]:
+    def public_nets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerPublicNetArgs']]]]:
         """
         In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
         If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
@@ -747,91 +747,91 @@ class _ServerState:
         return pulumi.get(self, "public_nets")
 
     @public_nets.setter
-    def public_nets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerPublicNetArgs']]]]):
+    def public_nets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerPublicNetArgs']]]]):
         pulumi.set(self, "public_nets", value)
 
     @_builtins.property
     @pulumi.getter(name="rebuildProtection")
-    def rebuild_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rebuild_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         """
         return pulumi.get(self, "rebuild_protection")
 
     @rebuild_protection.setter
-    def rebuild_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rebuild_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rebuild_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def rescue(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rescue(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         """
         return pulumi.get(self, "rescue")
 
     @rescue.setter
-    def rescue(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rescue(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rescue", value)
 
     @_builtins.property
     @pulumi.getter(name="serverType")
-    def server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the server type this server should be created with.
         """
         return pulumi.get(self, "server_type")
 
     @server_type.setter
-    def server_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_type", value)
 
     @_builtins.property
     @pulumi.getter(name="shutdownBeforeDeletion")
-    def shutdown_before_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def shutdown_before_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to try shutting the server down gracefully before deleting it.
         """
         return pulumi.get(self, "shutdown_before_deletion")
 
     @shutdown_before_deletion.setter
-    def shutdown_before_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def shutdown_before_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "shutdown_before_deletion", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) The status of the server.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cloud-Init user data to use during server creation
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
 
@@ -841,27 +841,27 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_deprecated_images: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 ignore_remote_firewall_ids: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 iso: Optional[pulumi.Input[_builtins.str]] = None,
-                 keep_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
-                 placement_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
-                 rebuild_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rescue: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 shutdown_before_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_deprecated_images: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 ignore_remote_firewall_ids: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 iso: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
+                 placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
+                 rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rescue: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 shutdown_before_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Hetzner Cloud server resource. This can be used to create, modify, and delete servers. Servers also support provisioning.
@@ -922,7 +922,7 @@ class Server(pulumi.CustomResource):
             },
             public_nets=[{
                 "ipv4_enabled": True,
-                "ipv4": primary_ip1.id,
+                "ipv4": primary_ip1.id.apply(lambda x: int(x)),
                 "ipv6_enabled": False,
             }])
         ```
@@ -938,7 +938,7 @@ class Server(pulumi.CustomResource):
             ip_range="10.0.0.0/16")
         network_subnet = hcloud.NetworkSubnet("network-subnet",
             type="cloud",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         server = hcloud.Server("server",
@@ -947,7 +947,7 @@ class Server(pulumi.CustomResource):
             image="ubuntu-24.04",
             location="nbg1",
             networks=[{
-                "network_id": network.id,
+                "network_id": network.id.apply(lambda x: int(x)),
                 "ip": "10.0.1.5",
                 "alias_ips": [
                     "10.0.1.6",
@@ -969,7 +969,7 @@ class Server(pulumi.CustomResource):
         # Create a new server from the snapshot
         from_snapshot = hcloud.Server("from_snapshot",
             name="from-snapshot",
-            image=packer_snapshot.id,
+            image=output(packer_snapshot.id).apply(lambda x: str(x)),
             server_type="cx23",
             public_nets=[{
                 "ipv4_enabled": True,
@@ -1085,7 +1085,7 @@ class Server(pulumi.CustomResource):
             },
             public_nets=[{
                 "ipv4_enabled": True,
-                "ipv4": primary_ip1.id,
+                "ipv4": primary_ip1.id.apply(lambda x: int(x)),
                 "ipv6_enabled": False,
             }])
         ```
@@ -1101,7 +1101,7 @@ class Server(pulumi.CustomResource):
             ip_range="10.0.0.0/16")
         network_subnet = hcloud.NetworkSubnet("network-subnet",
             type="cloud",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         server = hcloud.Server("server",
@@ -1110,7 +1110,7 @@ class Server(pulumi.CustomResource):
             image="ubuntu-24.04",
             location="nbg1",
             networks=[{
-                "network_id": network.id,
+                "network_id": network.id.apply(lambda x: int(x)),
                 "ip": "10.0.1.5",
                 "alias_ips": [
                     "10.0.1.6",
@@ -1132,7 +1132,7 @@ class Server(pulumi.CustomResource):
         # Create a new server from the snapshot
         from_snapshot = hcloud.Server("from_snapshot",
             name="from-snapshot",
-            image=packer_snapshot.id,
+            image=output(packer_snapshot.id).apply(lambda x: str(x)),
             server_type="cx23",
             public_nets=[{
                 "ipv4_enabled": True,
@@ -1169,27 +1169,27 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_deprecated_images: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 ignore_remote_firewall_ids: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 iso: Optional[pulumi.Input[_builtins.str]] = None,
-                 keep_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
-                 placement_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
-                 rebuild_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rescue: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 shutdown_before_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_deprecated_images: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 ignore_remote_firewall_ids: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 iso: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
+                 placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
+                 rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rescue: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 shutdown_before_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1238,33 +1238,33 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_deprecated_images: Optional[pulumi.Input[_builtins.bool]] = None,
-            backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-            backups: Optional[pulumi.Input[_builtins.bool]] = None,
-            datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            ignore_remote_firewall_ids: Optional[pulumi.Input[_builtins.bool]] = None,
-            image: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv4_address: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv6_address: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv6_network: Optional[pulumi.Input[_builtins.str]] = None,
-            iso: Optional[pulumi.Input[_builtins.str]] = None,
-            keep_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
-            placement_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-            primary_disk_size: Optional[pulumi.Input[_builtins.int]] = None,
-            public_nets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
-            rebuild_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            rescue: Optional[pulumi.Input[_builtins.str]] = None,
-            server_type: Optional[pulumi.Input[_builtins.str]] = None,
-            shutdown_before_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-            ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            user_data: Optional[pulumi.Input[_builtins.str]] = None) -> 'Server':
+            allow_deprecated_images: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+            backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            firewall_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            ignore_remote_firewall_ids: pulumi.Input[Optional[_builtins.bool]] = None,
+            image: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_network: pulumi.Input[Optional[_builtins.str]] = None,
+            iso: pulumi.Input[Optional[_builtins.str]] = None,
+            keep_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
+            placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+            public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
+            rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            rescue: pulumi.Input[Optional[_builtins.str]] = None,
+            server_type: pulumi.Input[Optional[_builtins.str]] = None,
+            shutdown_before_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

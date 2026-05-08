@@ -22,13 +22,13 @@ __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 class LoadBalancerArgs:
     def __init__(__self__, *,
                  load_balancer_type: pulumi.Input[_builtins.str],
-                 algorithm: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None):
+                 algorithm: pulumi.Input[Optional['LoadBalancerAlgorithmArgs']] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
 
@@ -73,102 +73,102 @@ class LoadBalancerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input['LoadBalancerAlgorithmArgs']]:
+    def algorithm(self) -> pulumi.Input[Optional['LoadBalancerAlgorithmArgs']]:
         """
         Configuration of the algorithm the Load Balancer use.
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']]):
+    def algorithm(self, value: pulumi.Input[Optional['LoadBalancerAlgorithmArgs']]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Load Balancer.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkZone")
-    def network_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Network Zone of the Load Balancer. Require when no location is set.
         """
         return pulumi.get(self, "network_zone")
 
     @network_zone.setter
-    def network_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_zone", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""")
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]):
         pulumi.set(self, "targets", value)
 
 
 @pulumi.input_type
 class _LoadBalancerState:
     def __init__(__self__, *,
-                 algorithm: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None):
+                 algorithm: pulumi.Input[Optional['LoadBalancerAlgorithmArgs']] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
 
@@ -214,144 +214,144 @@ class _LoadBalancerState:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input['LoadBalancerAlgorithmArgs']]:
+    def algorithm(self) -> pulumi.Input[Optional['LoadBalancerAlgorithmArgs']]:
         """
         Configuration of the algorithm the Load Balancer use.
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input['LoadBalancerAlgorithmArgs']]):
+    def algorithm(self, value: pulumi.Input[Optional['LoadBalancerAlgorithmArgs']]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipv4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) IPv4 Address of the Load Balancer.
         """
         return pulumi.get(self, "ipv4")
 
     @ipv4.setter
-    def ipv4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) IPv6 Address of the Load Balancer.
         """
         return pulumi.get(self, "ipv6")
 
     @ipv6.setter
-    def ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined labels (key-value pairs) should be created with.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Load Balancer.
         """
         return pulumi.get(self, "load_balancer_type")
 
     @load_balancer_type.setter
-    def load_balancer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Load Balancer.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def network_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (int) ID of the first private network that this Load Balancer is connected to.
         """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
-    def network_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def network_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIp")
-    def network_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (string) IP of the Load Balancer in the first private network that it is connected to.
         """
         return pulumi.get(self, "network_ip")
 
     @network_ip.setter
-    def network_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="networkZone")
-    def network_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Network Zone of the Load Balancer. Require when no location is set.
         """
         return pulumi.get(self, "network_zone")
 
     @network_zone.setter
-    def network_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_zone", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use LoadBalancerTarget resource instead. This allows the full control over the selected targets.""")
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]:
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerTargetArgs']]]]):
         pulumi.set(self, "targets", value)
 
 
@@ -361,14 +361,14 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm: Optional[pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerTargetArgs', 'LoadBalancerTargetArgsDict']]]]] = None,
+                 algorithm: pulumi.Input[Optional[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerTargetArgs', 'LoadBalancerTargetArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Load Balancer to represent a Load Balancer in the Hetzner Cloud.
@@ -389,8 +389,8 @@ class LoadBalancer(pulumi.CustomResource):
             location="nbg1")
         load_balancer_target = hcloud.LoadBalancerTarget("load_balancer_target",
             type="server",
-            load_balancer_id=load_balancer.id,
-            server_id=my_server.id)
+            load_balancer_id=load_balancer.id.apply(lambda x: int(x)),
+            server_id=my_server.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -437,8 +437,8 @@ class LoadBalancer(pulumi.CustomResource):
             location="nbg1")
         load_balancer_target = hcloud.LoadBalancerTarget("load_balancer_target",
             type="server",
-            load_balancer_id=load_balancer.id,
-            server_id=my_server.id)
+            load_balancer_id=load_balancer.id.apply(lambda x: int(x)),
+            server_id=my_server.id.apply(lambda x: int(x)))
         ```
 
         ## Import
@@ -465,14 +465,14 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm: Optional[pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerTargetArgs', 'LoadBalancerTargetArgsDict']]]]] = None,
+                 algorithm: pulumi.Input[Optional[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerTargetArgs', 'LoadBalancerTargetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -506,18 +506,18 @@ class LoadBalancer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            algorithm: Optional[pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']]] = None,
-            delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_id: Optional[pulumi.Input[_builtins.int]] = None,
-            network_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            network_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerTargetArgs', 'LoadBalancerTargetArgsDict']]]]] = None) -> 'LoadBalancer':
+            algorithm: pulumi.Input[Optional[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict']]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_id: pulumi.Input[Optional[_builtins.int]] = None,
+            network_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerTargetArgs', 'LoadBalancerTargetArgsDict']]]]] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

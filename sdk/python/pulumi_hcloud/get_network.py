@@ -172,12 +172,12 @@ def get_network(id: Optional[_builtins.int] = None,
         most_recent=pulumi.get(__ret__, 'most_recent'),
         name=pulumi.get(__ret__, 'name'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
-def get_network_output(id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                       ip_range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       labels: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                       most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                       name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       with_selector: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_network_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                       ip_range: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       labels: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                       most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                       name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
     Provides details about a Hetzner Cloud network.

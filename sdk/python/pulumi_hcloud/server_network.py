@@ -20,10 +20,10 @@ __all__ = ['ServerNetworkInitArgs', 'ServerNetwork']
 class ServerNetworkInitArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[_builtins.int],
-                 alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerNetwork resource.
 
@@ -57,62 +57,62 @@ class ServerNetworkInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="aliasIps")
-    def alias_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alias_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Additional IPs to assign to the Server.
         """
         return pulumi.get(self, "alias_ips")
 
     @alias_ips.setter
-    def alias_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alias_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alias_ips", value)
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP to assign to the Server.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def network_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Network to attach the Server to. Using `subnet_id` is preferred. Required if `subnet_id` is not set. If `subnet_id` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ip_range`).
         """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
-    def network_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def network_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Subnet to attach the Server to. Required if `network_id` is not set.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
 @pulumi.input_type
 class _ServerNetworkState:
     def __init__(__self__, *,
-                 alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerNetwork resources.
 
@@ -138,74 +138,74 @@ class _ServerNetworkState:
 
     @_builtins.property
     @pulumi.getter(name="aliasIps")
-    def alias_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alias_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Additional IPs to assign to the Server.
         """
         return pulumi.get(self, "alias_ips")
 
     @alias_ips.setter
-    def alias_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alias_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alias_ips", value)
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP to assign to the Server.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MAC address of the Server on the Network.
         """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
     @_builtins.property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def network_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Network to attach the Server to. Using `subnet_id` is preferred. Required if `subnet_id` is not set. If `subnet_id` or `ip` are not set, the Server will be attached to the last subnet (ordered by `ip_range`).
         """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
-    def network_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def network_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the Server.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Subnet to attach the Server to. Required if `network_id` is not set.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -215,11 +215,11 @@ class ServerNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manage the attachment of a Server in a Network in the Hetzner Cloud.
@@ -238,12 +238,12 @@ class ServerNetwork(pulumi.CustomResource):
             name="network",
             ip_range="10.0.0.0/16")
         subnet1 = hcloud.NetworkSubnet("subnet1",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         node1_subnet1 = hcloud.ServerNetwork("node1_subnet1",
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             subnet_id=subnet1.id,
             ip="10.0.1.5",
             alias_ips=["10.0.1.10"])
@@ -289,12 +289,12 @@ class ServerNetwork(pulumi.CustomResource):
             name="network",
             ip_range="10.0.0.0/16")
         subnet1 = hcloud.NetworkSubnet("subnet1",
-            network_id=network.id,
+            network_id=network.id.apply(lambda x: int(x)),
             type="cloud",
             network_zone="eu-central",
             ip_range="10.0.1.0/24")
         node1_subnet1 = hcloud.ServerNetwork("node1_subnet1",
-            server_id=node1.id,
+            server_id=node1.id.apply(lambda x: int(x)),
             subnet_id=subnet1.id,
             ip="10.0.1.5",
             alias_ips=["10.0.1.10"])
@@ -324,11 +324,11 @@ class ServerNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -356,12 +356,12 @@ class ServerNetwork(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ip: Optional[pulumi.Input[_builtins.str]] = None,
-            mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-            network_id: Optional[pulumi.Input[_builtins.int]] = None,
-            server_id: Optional[pulumi.Input[_builtins.int]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerNetwork':
+            alias_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ip: pulumi.Input[Optional[_builtins.str]] = None,
+            mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+            network_id: pulumi.Input[Optional[_builtins.int]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerNetwork':
         """
         Get an existing ServerNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

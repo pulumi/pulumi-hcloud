@@ -25,8 +25,8 @@ import * as utilities from "./utilities";
  * });
  * const loadBalancerTarget = new hcloud.LoadBalancerTarget("load_balancer_target", {
  *     type: "server",
- *     loadBalancerId: loadBalancer.id,
- *     serverId: myServer.id,
+ *     loadBalancerId: loadBalancer.id.apply(x =>Number(x)),
+ *     serverId: myServer.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -154,33 +154,33 @@ export interface LoadBalancerTargetState {
      * IP address for an IP Target. Required if
      * `type` is `ip`.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * Label Selector selecting targets
      * for this Load Balancer. Required if `type` is `labelSelector`.
      */
-    labelSelector?: pulumi.Input<string>;
+    labelSelector?: pulumi.Input<string | undefined>;
     /**
      * ID of the Load Balancer to which
      * the target gets attached.
      */
-    loadBalancerId?: pulumi.Input<number>;
+    loadBalancerId?: pulumi.Input<number | undefined>;
     /**
      * ID of the server which should be a
      * target for this Load Balancer. Required if `type` is `server`
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * Type of the target. Possible values
      * `server`, `labelSelector`, `ip`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * use the private IP to connect to
      * Load Balancer targets. Only allowed if type is `server` or
      * `labelSelector`.
      */
-    usePrivateIp?: pulumi.Input<boolean>;
+    usePrivateIp?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -191,12 +191,12 @@ export interface LoadBalancerTargetArgs {
      * IP address for an IP Target. Required if
      * `type` is `ip`.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * Label Selector selecting targets
      * for this Load Balancer. Required if `type` is `labelSelector`.
      */
-    labelSelector?: pulumi.Input<string>;
+    labelSelector?: pulumi.Input<string | undefined>;
     /**
      * ID of the Load Balancer to which
      * the target gets attached.
@@ -206,7 +206,7 @@ export interface LoadBalancerTargetArgs {
      * ID of the server which should be a
      * target for this Load Balancer. Required if `type` is `server`
      */
-    serverId?: pulumi.Input<number>;
+    serverId?: pulumi.Input<number | undefined>;
     /**
      * Type of the target. Possible values
      * `server`, `labelSelector`, `ip`.
@@ -217,5 +217,5 @@ export interface LoadBalancerTargetArgs {
      * Load Balancer targets. Only allowed if type is `server` or
      * `labelSelector`.
      */
-    usePrivateIp?: pulumi.Input<boolean>;
+    usePrivateIp?: pulumi.Input<boolean | undefined>;
 }
