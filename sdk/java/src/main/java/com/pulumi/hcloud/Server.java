@@ -148,7 +148,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.Server;
  * import com.pulumi.hcloud.ServerArgs;
  * import com.pulumi.hcloud.inputs.ServerNetworkArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -167,7 +166,7 @@ import javax.annotation.Nullable;
  *             .ipRange("10.0.0.0/16")
  *             .build());
  * 
- *         var network_subnet = new NetworkSubnet("network-subnet", NetworkSubnetArgs.builder()
+ *         var networkSubnet = new NetworkSubnet("networkSubnet", NetworkSubnetArgs.builder()
  *             .type("cloud")
  *             .networkId(network.id())
  *             .networkZone("eu-central")
@@ -180,15 +179,13 @@ import javax.annotation.Nullable;
  *             .image("ubuntu-24.04")
  *             .location("nbg1")
  *             .networks(ServerNetworkArgs.builder()
- *                 .networkId(network.id())
+ *                 .subnetId(networkSubnet.id())
  *                 .ip("10.0.1.5")
  *                 .aliasIps(                
  *                     "10.0.1.6",
  *                     "10.0.1.7")
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(network_subnet)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

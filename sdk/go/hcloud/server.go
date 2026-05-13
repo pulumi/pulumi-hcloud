@@ -136,7 +136,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			network_subnet, err := hcloud.NewNetworkSubnet(ctx, "network-subnet", &hcloud.NetworkSubnetArgs{
+//			networkSubnet, err := hcloud.NewNetworkSubnet(ctx, "network_subnet", &hcloud.NetworkSubnetArgs{
 //				Type:        pulumi.String("cloud"),
 //				NetworkId:   network.ID(),
 //				NetworkZone: pulumi.String("eu-central"),
@@ -152,17 +152,15 @@ import (
 //				Location:   pulumi.String("nbg1"),
 //				Networks: hcloud.ServerNetworkTypeArray{
 //					&hcloud.ServerNetworkTypeArgs{
-//						NetworkId: network.ID(),
-//						Ip:        pulumi.String("10.0.1.5"),
+//						SubnetId: networkSubnet.ID(),
+//						Ip:       pulumi.String("10.0.1.5"),
 //						AliasIps: pulumi.StringArray{
 //							pulumi.String("10.0.1.6"),
 //							pulumi.String("10.0.1.7"),
 //						},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				network_subnet,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

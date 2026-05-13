@@ -1300,9 +1300,13 @@ export interface ServerNetwork {
      */
     macAddress: string;
     /**
-     * ID of the network
+     * ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
      */
     networkId: number;
+    /**
+     * ID of the network subnet to attach the server to.
+     */
+    subnetId: string;
 }
 
 export interface ServerPublicNet {

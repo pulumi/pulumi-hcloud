@@ -936,7 +936,7 @@ class Server(pulumi.CustomResource):
         network = hcloud.Network("network",
             name="network",
             ip_range="10.0.0.0/16")
-        network_subnet = hcloud.NetworkSubnet("network-subnet",
+        network_subnet = hcloud.NetworkSubnet("network_subnet",
             type="cloud",
             network_id=network.id.apply(lambda x: int(x)),
             network_zone="eu-central",
@@ -947,14 +947,13 @@ class Server(pulumi.CustomResource):
             image="ubuntu-24.04",
             location="nbg1",
             networks=[{
-                "network_id": network.id.apply(lambda x: int(x)),
+                "subnet_id": network_subnet.id,
                 "ip": "10.0.1.5",
                 "alias_ips": [
                     "10.0.1.6",
                     "10.0.1.7",
                 ],
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[network_subnet]))
+            }])
         ```
 
         ### Server creation from snapshot
@@ -1099,7 +1098,7 @@ class Server(pulumi.CustomResource):
         network = hcloud.Network("network",
             name="network",
             ip_range="10.0.0.0/16")
-        network_subnet = hcloud.NetworkSubnet("network-subnet",
+        network_subnet = hcloud.NetworkSubnet("network_subnet",
             type="cloud",
             network_id=network.id.apply(lambda x: int(x)),
             network_zone="eu-central",
@@ -1110,14 +1109,13 @@ class Server(pulumi.CustomResource):
             image="ubuntu-24.04",
             location="nbg1",
             networks=[{
-                "network_id": network.id.apply(lambda x: int(x)),
+                "subnet_id": network_subnet.id,
                 "ip": "10.0.1.5",
                 "alias_ips": [
                     "10.0.1.6",
                     "10.0.1.7",
                 ],
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[network_subnet]))
+            }])
         ```
 
         ### Server creation from snapshot

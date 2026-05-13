@@ -568,12 +568,14 @@ class ServerNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "networkId":
-            suggest = "network_id"
-        elif key == "aliasIps":
+        if key == "aliasIps":
             suggest = "alias_ips"
         elif key == "macAddress":
             suggest = "mac_address"
+        elif key == "networkId":
+            suggest = "network_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServerNetwork. Access the value via the '{suggest}' property getter instead.")
@@ -587,33 +589,30 @@ class ServerNetwork(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 network_id: _builtins.int,
                  alias_ips: Optional[Sequence[_builtins.str]] = None,
                  ip: Optional[_builtins.str] = None,
-                 mac_address: Optional[_builtins.str] = None):
+                 mac_address: Optional[_builtins.str] = None,
+                 network_id: Optional[_builtins.int] = None,
+                 subnet_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.int network_id: ID of the network
         :param Sequence[_builtins.str] alias_ips: Alias IPs the server should have in the Network.
                
                There is a bug with Terraform `1.4+` which causes the network to be detached & attached on every apply. Set `alias_ips = []` to avoid this. See #650 for details.
         :param _builtins.str ip: Specify the IP the server should get in the network
         :param _builtins.str mac_address: (Optional, string) The MAC address the private interface of the server has
+        :param _builtins.int network_id: ID of the network to attach the server to. Using `subnet_id` is preferred. When used alone without `subnet_id`, the server will be attached to the last subnet (ordered by `ip_range`), which may be unpredictable.
+        :param _builtins.str subnet_id: ID of the network subnet to attach the server to.
         """
-        pulumi.set(__self__, "network_id", network_id)
         if alias_ips is not None:
             pulumi.set(__self__, "alias_ips", alias_ips)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
         if mac_address is not None:
             pulumi.set(__self__, "mac_address", mac_address)
-
-    @_builtins.property
-    @pulumi.getter(name="networkId")
-    def network_id(self) -> _builtins.int:
-        """
-        ID of the network
-        """
-        return pulumi.get(self, "network_id")
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @_builtins.property
     @pulumi.getter(name="aliasIps")
@@ -640,6 +639,22 @@ class ServerNetwork(dict):
         (Optional, string) The MAC address the private interface of the server has
         """
         return pulumi.get(self, "mac_address")
+
+    @_builtins.property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[_builtins.int]:
+        """
+        ID of the network to attach the server to. Using `subnet_id` is preferred. When used alone without `subnet_id`, the server will be attached to the last subnet (ordered by `ip_range`), which may be unpredictable.
+        """
+        return pulumi.get(self, "network_id")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the network subnet to attach the server to.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

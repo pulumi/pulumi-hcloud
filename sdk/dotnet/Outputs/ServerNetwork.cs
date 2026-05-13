@@ -28,9 +28,13 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string? MacAddress;
         /// <summary>
-        /// ID of the network
+        /// ID of the network to attach the server to. Using `SubnetId` is preferred. When used alone without `SubnetId`, the server will be attached to the last subnet (ordered by `IpRange`), which may be unpredictable.
         /// </summary>
-        public readonly int NetworkId;
+        public readonly int? NetworkId;
+        /// <summary>
+        /// ID of the network subnet to attach the server to.
+        /// </summary>
+        public readonly string? SubnetId;
 
         [OutputConstructor]
         private ServerNetwork(
@@ -40,12 +44,15 @@ namespace Pulumi.HCloud.Outputs
 
             string? macAddress,
 
-            int networkId)
+            int? networkId,
+
+            string? subnetId)
         {
             AliasIps = aliasIps;
             Ip = ip;
             MacAddress = macAddress;
             NetworkId = networkId;
+            SubnetId = subnetId;
         }
     }
 }

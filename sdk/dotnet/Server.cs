@@ -118,7 +118,7 @@ namespace Pulumi.HCloud
     ///         IpRange = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var network_subnet = new HCloud.NetworkSubnet("network-subnet", new()
+    ///     var networkSubnet = new HCloud.NetworkSubnet("network_subnet", new()
     ///     {
     ///         Type = "cloud",
     ///         NetworkId = network.Id,
@@ -136,7 +136,7 @@ namespace Pulumi.HCloud
     ///         {
     ///             new HCloud.Inputs.ServerNetworkArgs
     ///             {
-    ///                 NetworkId = network.Id,
+    ///                 SubnetId = networkSubnet.Id,
     ///                 Ip = "10.0.1.5",
     ///                 AliasIps = new[]
     ///                 {
@@ -144,12 +144,6 @@ namespace Pulumi.HCloud
     ///                     "10.0.1.7",
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             network_subnet,
     ///         },
     ///     });
     /// 

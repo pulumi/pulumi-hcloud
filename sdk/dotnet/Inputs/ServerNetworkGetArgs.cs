@@ -39,10 +39,16 @@ namespace Pulumi.HCloud.Inputs
         public Input<string>? MacAddress { get; set; }
 
         /// <summary>
-        /// ID of the network
+        /// ID of the network to attach the server to. Using `SubnetId` is preferred. When used alone without `SubnetId`, the server will be attached to the last subnet (ordered by `IpRange`), which may be unpredictable.
         /// </summary>
-        [Input("networkId", required: true)]
-        public Input<int> NetworkId { get; set; } = null!;
+        [Input("networkId")]
+        public Input<int>? NetworkId { get; set; }
+
+        /// <summary>
+        /// ID of the network subnet to attach the server to.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         public ServerNetworkGetArgs()
         {

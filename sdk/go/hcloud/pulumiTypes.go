@@ -1192,8 +1192,10 @@ type ServerNetworkType struct {
 	Ip *string `pulumi:"ip"`
 	// (Optional, string) The MAC address the private interface of the server has
 	MacAddress *string `pulumi:"macAddress"`
-	// ID of the network
-	NetworkId int `pulumi:"networkId"`
+	// ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
+	NetworkId *int `pulumi:"networkId"`
+	// ID of the network subnet to attach the server to.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // ServerNetworkTypeInput is an input type that accepts ServerNetworkTypeArgs and ServerNetworkTypeOutput values.
@@ -1216,8 +1218,10 @@ type ServerNetworkTypeArgs struct {
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
 	// (Optional, string) The MAC address the private interface of the server has
 	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
-	// ID of the network
-	NetworkId pulumi.IntInput `pulumi:"networkId"`
+	// ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
+	NetworkId pulumi.IntPtrInput `pulumi:"networkId"`
+	// ID of the network subnet to attach the server to.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (ServerNetworkTypeArgs) ElementType() reflect.Type {
@@ -1288,9 +1292,14 @@ func (o ServerNetworkTypeOutput) MacAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerNetworkType) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
-// ID of the network
-func (o ServerNetworkTypeOutput) NetworkId() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerNetworkType) int { return v.NetworkId }).(pulumi.IntOutput)
+// ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
+func (o ServerNetworkTypeOutput) NetworkId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerNetworkType) *int { return v.NetworkId }).(pulumi.IntPtrOutput)
+}
+
+// ID of the network subnet to attach the server to.
+func (o ServerNetworkTypeOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerNetworkType) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 type ServerNetworkTypeArrayOutput struct{ *pulumi.OutputState }
