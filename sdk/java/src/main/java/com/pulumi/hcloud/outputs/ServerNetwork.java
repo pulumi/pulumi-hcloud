@@ -4,7 +4,6 @@
 package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -32,10 +31,15 @@ public final class ServerNetwork {
      */
     private @Nullable String macAddress;
     /**
-     * @return ID of the network
+     * @return ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
      * 
      */
-    private Integer networkId;
+    private @Nullable Integer networkId;
+    /**
+     * @return ID of the network subnet to attach the server to.
+     * 
+     */
+    private @Nullable String subnetId;
 
     private ServerNetwork() {}
     /**
@@ -62,11 +66,18 @@ public final class ServerNetwork {
         return Optional.ofNullable(this.macAddress);
     }
     /**
-     * @return ID of the network
+     * @return ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
      * 
      */
-    public Integer networkId() {
-        return this.networkId;
+    public Optional<Integer> networkId() {
+        return Optional.ofNullable(this.networkId);
+    }
+    /**
+     * @return ID of the network subnet to attach the server to.
+     * 
+     */
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     public static Builder builder() {
@@ -81,7 +92,8 @@ public final class ServerNetwork {
         private @Nullable List<String> aliasIps;
         private @Nullable String ip;
         private @Nullable String macAddress;
-        private Integer networkId;
+        private @Nullable Integer networkId;
+        private @Nullable String subnetId;
         public Builder() {}
         public Builder(ServerNetwork defaults) {
     	      Objects.requireNonNull(defaults);
@@ -89,6 +101,7 @@ public final class ServerNetwork {
     	      this.ip = defaults.ip;
     	      this.macAddress = defaults.macAddress;
     	      this.networkId = defaults.networkId;
+    	      this.subnetId = defaults.subnetId;
         }
 
         @CustomType.Setter
@@ -113,11 +126,15 @@ public final class ServerNetwork {
             return this;
         }
         @CustomType.Setter
-        public Builder networkId(Integer networkId) {
-            if (networkId == null) {
-              throw new MissingRequiredPropertyException("ServerNetwork", "networkId");
-            }
+        public Builder networkId(@Nullable Integer networkId) {
+
             this.networkId = networkId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder subnetId(@Nullable String subnetId) {
+
+            this.subnetId = subnetId;
             return this;
         }
         public ServerNetwork build() {
@@ -126,6 +143,7 @@ public final class ServerNetwork {
             _resultValue.ip = ip;
             _resultValue.macAddress = macAddress;
             _resultValue.networkId = networkId;
+            _resultValue.subnetId = subnetId;
             return _resultValue;
         }
     }

@@ -272,9 +272,13 @@ export interface ServerNetwork {
      */
     macAddress?: pulumi.Input<string | undefined>;
     /**
-     * ID of the network
+     * ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
      */
-    networkId: pulumi.Input<number>;
+    networkId?: pulumi.Input<number | undefined>;
+    /**
+     * ID of the network subnet to attach the server to.
+     */
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServerPublicNet {

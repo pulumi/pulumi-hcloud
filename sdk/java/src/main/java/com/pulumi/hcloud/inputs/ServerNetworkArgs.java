@@ -5,7 +5,6 @@ package com.pulumi.hcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -68,18 +67,33 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the network
+     * ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
      * 
      */
-    @Import(name="networkId", required=true)
-    private Output<Integer> networkId;
+    @Import(name="networkId")
+    private @Nullable Output<Integer> networkId;
 
     /**
-     * @return ID of the network
+     * @return ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
      * 
      */
-    public Output<Integer> networkId() {
-        return this.networkId;
+    public Optional<Output<Integer>> networkId() {
+        return Optional.ofNullable(this.networkId);
+    }
+
+    /**
+     * ID of the network subnet to attach the server to.
+     * 
+     */
+    @Import(name="subnetId")
+    private @Nullable Output<String> subnetId;
+
+    /**
+     * @return ID of the network subnet to attach the server to.
+     * 
+     */
+    public Optional<Output<String>> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     private ServerNetworkArgs() {}
@@ -89,6 +103,7 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
         this.ip = $.ip;
         this.macAddress = $.macAddress;
         this.networkId = $.networkId;
+        this.subnetId = $.subnetId;
     }
 
     public static Builder builder() {
@@ -189,18 +204,18 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkId ID of the network
+         * @param networkId ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
          * 
          * @return builder
          * 
          */
-        public Builder networkId(Output<Integer> networkId) {
+        public Builder networkId(@Nullable Output<Integer> networkId) {
             $.networkId = networkId;
             return this;
         }
 
         /**
-         * @param networkId ID of the network
+         * @param networkId ID of the network to attach the server to. Using `subnetId` is preferred. When used alone without `subnetId`, the server will be attached to the last subnet (ordered by `ipRange`), which may be unpredictable.
          * 
          * @return builder
          * 
@@ -209,10 +224,28 @@ public final class ServerNetworkArgs extends com.pulumi.resources.ResourceArgs {
             return networkId(Output.of(networkId));
         }
 
+        /**
+         * @param subnetId ID of the network subnet to attach the server to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetId(@Nullable Output<String> subnetId) {
+            $.subnetId = subnetId;
+            return this;
+        }
+
+        /**
+         * @param subnetId ID of the network subnet to attach the server to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetId(String subnetId) {
+            return subnetId(Output.of(subnetId));
+        }
+
         public ServerNetworkArgs build() {
-            if ($.networkId == null) {
-                throw new MissingRequiredPropertyException("ServerNetworkArgs", "networkId");
-            }
             return $;
         }
     }

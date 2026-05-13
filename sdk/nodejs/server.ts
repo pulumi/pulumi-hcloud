@@ -83,7 +83,7 @@ import * as utilities from "./utilities";
  *     name: "network",
  *     ipRange: "10.0.0.0/16",
  * });
- * const network_subnet = new hcloud.NetworkSubnet("network-subnet", {
+ * const networkSubnet = new hcloud.NetworkSubnet("network_subnet", {
  *     type: "cloud",
  *     networkId: network.id.apply(x =>Number(x)),
  *     networkZone: "eu-central",
@@ -95,15 +95,13 @@ import * as utilities from "./utilities";
  *     image: "ubuntu-24.04",
  *     location: "nbg1",
  *     networks: [{
- *         networkId: network.id.apply(x =>Number(x)),
+ *         subnetId: networkSubnet.id,
  *         ip: "10.0.1.5",
  *         aliasIps: [
  *             "10.0.1.6",
  *             "10.0.1.7",
  *         ],
  *     }],
- * }, {
- *     dependsOn: [network_subnet],
  * });
  * ```
  *
