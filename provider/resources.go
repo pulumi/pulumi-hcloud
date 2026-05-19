@@ -46,6 +46,10 @@ var metadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
+	return provider(version.Version)
+}
+
+func provider(providerVersion string) tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P: pfbridge.MuxShimWithPF(context.Background(),
 			shimv2.NewProvider(hcloud.Provider()),
@@ -58,7 +62,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:   "https://github.com/pulumi/pulumi-hcloud",
 		GitHubOrg:    "hetznercloud",
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
-		Version:      version.Version,
+		Version:      providerVersion,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"hcloud_certificate": {
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -114,7 +118,7 @@ func Provider() tfbridge.ProviderInfo {
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: path.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
-				tfbridge.GetModuleMajorVersion(version.Version),
+				tfbridge.GetModuleMajorVersion(providerVersion),
 				"go",
 				mainPkg,
 			),
@@ -133,13 +137,13 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	prov.MustComputeTokens(tks.SingleModule("hcloud_",
-		mainMod, tks.MakeStandard(mainPkg)))
-	prov.MustApplyAutoAliases()
-
 	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
 		if id, ok := value.Schema().GetOk("id"); ok && id.Type() != shim.TypeString {
 			r := prov.Resources[key]
+			if r == nil {
+				r = &tfbridge.ResourceInfo{}
+				prov.Resources[key] = r
+			}
 			if r.Fields == nil {
 				r.Fields = make(map[string]*tfbridge.SchemaInfo, 1)
 			}
@@ -147,6 +151,10 @@ func Provider() tfbridge.ProviderInfo {
 		}
 		return true
 	})
+
+	prov.MustComputeTokens(tks.SingleModule("hcloud_",
+		mainMod, tks.MakeStandard(mainPkg)))
+	prov.MustApplyAutoAliases()
 
 	prov.SetAutonaming(255, "-")
 
