@@ -294,7 +294,7 @@ class LoadBalancerServiceHealthCheckArgsDict(TypedDict):
     """
     Timeout when a health check try will be canceled if there is no response, in seconds.
     """
-    http: NotRequired[pulumi.Input[Optional['LoadBalancerServiceHealthCheckHttpArgs']]]
+    http: NotRequired[pulumi.Input[Optional['LoadBalancerServiceHealthCheckHttpArgsDict']]]
     """
     HTTP configuration. Required if `protocol` is `http`.
     """
