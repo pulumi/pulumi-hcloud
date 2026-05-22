@@ -22,7 +22,7 @@ The Hetzner Cloud (hcloud) provider is used to interact with the resources suppo
 Use the navigation to the left to read about the available resources.
 ## Example Usage
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -169,6 +169,15 @@ public class App {
         final var config = ctx.config();
         final var hcloudToken = config.require("hcloudToken");
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+# Set the variable value in *.tfvars file
+# or using the -var="hcloud_token=..." CLI option
+variable "hcloudToken" {
 }
 ```
 
