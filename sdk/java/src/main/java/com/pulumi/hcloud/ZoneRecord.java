@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
  * 
- * !&gt; This resource must only be used, when records cannot be managed with a `hcloud.ZoneRrset` resource.
+ * &gt; This resource must only be used, when records cannot be managed with a `hcloud.ZoneRrset` resource.
  * 
  */
 @ResourceType(type="hcloud:index/zoneRecord:ZoneRecord")
