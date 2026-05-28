@@ -214,7 +214,7 @@ class ZoneRecord(pulumi.CustomResource):
 
         See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
 
-        !> This resource must only be used, when records cannot be managed with a `ZoneRrset` resource.
+        > This resource must only be used, when records cannot be managed with a `ZoneRrset` resource.
 
 
         :param str resource_name: The name of the resource.
@@ -242,7 +242,7 @@ class ZoneRecord(pulumi.CustomResource):
 
         See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
 
-        !> This resource must only be used, when records cannot be managed with a `ZoneRrset` resource.
+        > This resource must only be used, when records cannot be managed with a `ZoneRrset` resource.
 
 
         :param str resource_name: The name of the resource.

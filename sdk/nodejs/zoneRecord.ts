@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * See the [Zone RRSets API documentation](https://docs.hetzner.cloud/reference/cloud#zone-rrsets) for more details.
  *
- * !> This resource must only be used, when records cannot be managed with a `hcloud.ZoneRrset` resource.
+ * > This resource must only be used, when records cannot be managed with a `hcloud.ZoneRrset` resource.
  */
 export class ZoneRecord extends pulumi.CustomResource {
     /**
