@@ -843,7 +843,7 @@
             "hcloud:index/networkSubnet:NetworkSubnet": 0,
             "hcloud:index/placementGroup:PlacementGroup": 0,
             "hcloud:index/primaryIp:PrimaryIp": 1,
-            "hcloud:index/rdns:Rdns": 0,
+            "hcloud:index/rdns:Rdns": 1,
             "hcloud:index/server:Server": 0,
             "hcloud:index/serverNetwork:ServerNetwork": 1,
             "hcloud:index/snapshot:Snapshot": 0,
