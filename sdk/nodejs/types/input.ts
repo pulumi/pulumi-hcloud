@@ -242,6 +242,10 @@ export interface LoadBalancerServiceHttp {
      * Enable sticky sessions
      */
     stickySessions?: pulumi.Input<boolean | undefined>;
+    /**
+     * Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+     */
+    timeoutIdle?: pulumi.Input<number | undefined>;
 }
 
 export interface LoadBalancerTarget {

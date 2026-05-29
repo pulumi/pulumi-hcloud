@@ -527,6 +527,10 @@ class LoadBalancerServiceHttpArgsDict(TypedDict):
     """
     Enable sticky sessions
     """
+    timeout_idle: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+    """
 
 @pulumi.input_type
 class LoadBalancerServiceHttpArgs:
@@ -535,13 +539,15 @@ class LoadBalancerServiceHttpArgs:
                  cookie_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
                  cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_http: pulumi.Input[Optional[_builtins.bool]] = None,
-                 sticky_sessions: pulumi.Input[Optional[_builtins.bool]] = None):
+                 sticky_sessions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 timeout_idle: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] certificates: List of IDs from certificates which the Load Balancer has.
         :param pulumi.Input[_builtins.int] cookie_lifetime: Lifetime of the cookie for sticky session (in seconds). Default: `300`
         :param pulumi.Input[_builtins.str] cookie_name: Name of the cookie for sticky session. Default: `HCLBSTICKY`
         :param pulumi.Input[_builtins.bool] redirect_http: Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
         :param pulumi.Input[_builtins.bool] sticky_sessions: Enable sticky sessions
+        :param pulumi.Input[_builtins.int] timeout_idle: Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -553,6 +559,8 @@ class LoadBalancerServiceHttpArgs:
             pulumi.set(__self__, "redirect_http", redirect_http)
         if sticky_sessions is not None:
             pulumi.set(__self__, "sticky_sessions", sticky_sessions)
+        if timeout_idle is not None:
+            pulumi.set(__self__, "timeout_idle", timeout_idle)
 
     @_builtins.property
     @pulumi.getter
@@ -613,6 +621,18 @@ class LoadBalancerServiceHttpArgs:
     @sticky_sessions.setter
     def sticky_sessions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sticky_sessions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutIdle")
+    def timeout_idle(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+        """
+        return pulumi.get(self, "timeout_idle")
+
+    @timeout_idle.setter
+    def timeout_idle(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_idle", value)
 
 
 class LoadBalancerTargetArgsDict(TypedDict):

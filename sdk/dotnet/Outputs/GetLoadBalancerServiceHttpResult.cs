@@ -33,6 +33,7 @@ namespace Pulumi.HCloud.Outputs
         /// (string) Determine if sticky sessions are enabled or not.
         /// </summary>
         public readonly bool StickySessions;
+        public readonly int TimeoutIdle;
 
         [OutputConstructor]
         private GetLoadBalancerServiceHttpResult(
@@ -44,13 +45,16 @@ namespace Pulumi.HCloud.Outputs
 
             bool redirectHttp,
 
-            bool stickySessions)
+            bool stickySessions,
+
+            int timeoutIdle)
         {
             Certificates = certificates;
             CookieLifetime = cookieLifetime;
             CookieName = cookieName;
             RedirectHttp = redirectHttp;
             StickySessions = stickySessions;
+            TimeoutIdle = timeoutIdle;
         }
     }
 }

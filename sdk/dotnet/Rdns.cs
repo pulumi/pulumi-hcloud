@@ -10,12 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.HCloud
 {
     /// <summary>
-    /// Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
+    /// Provides Hetzner Cloud reverse DNS (rDNS) entries for Servers, Primary IPs, Floating IPs or Load Balancers.
     /// 
     /// ## Example Usage
     /// 
-    /// For servers:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,93 +22,54 @@ namespace Pulumi.HCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var node1 = new HCloud.Server("node1", new()
+    ///     // For Servers
+    ///     var server1 = new HCloud.Server("server1", new()
     ///     {
-    ///         Name = "node1",
-    ///         Image = "debian-12",
-    ///         ServerType = "cx23",
+    ///         Name = "server1",
     ///     });
     /// 
-    ///     var master = new HCloud.Rdns("master", new()
+    ///     var server1Rdns = new HCloud.Rdns("server1", new()
     ///     {
-    ///         ServerId = node1.Id,
-    ///         IpAddress = node1.Ipv4Address,
+    ///         ServerId = server1.Id,
+    ///         IpAddress = server1.Ipv4Address,
     ///         DnsPtr = "example.com",
     ///     });
     /// 
-    /// });
-    /// ```
-    /// 
-    /// For Primary IPs:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary1 = new HCloud.PrimaryIp("primary1", new()
+    ///     // For Primary IPs
+    ///     var primaryIp1 = new HCloud.PrimaryIp("primary_ip1", new()
     ///     {
-    ///         Location = "nbg1",
+    ///         Name = "primary_ip1",
     ///         Type = "ipv4",
     ///     });
     /// 
-    ///     var primary1Rdns = new HCloud.Rdns("primary1", new()
+    ///     var primaryIp1Rdns = new HCloud.Rdns("primary_ip1", new()
     ///     {
-    ///         PrimaryIpId = primary1.Id,
-    ///         IpAddress = primary1.IpAddress,
+    ///         PrimaryIpId = primaryIp1.Id,
+    ///         IpAddress = primaryIp1.IpAddress,
     ///         DnsPtr = "example.com",
     ///     });
     /// 
-    /// });
-    /// ```
-    /// 
-    /// For Floating IPs:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var floating1 = new HCloud.FloatingIp("floating1", new()
+    ///     // For Floating IPs
+    ///     var floatingIp1 = new HCloud.FloatingIp("floating_ip1", new()
     ///     {
-    ///         HomeLocation = "nbg1",
+    ///         Name = "floating_ip1",
     ///         Type = "ipv4",
     ///     });
     /// 
-    ///     var floatingMaster = new HCloud.Rdns("floating_master", new()
+    ///     var floatingIp1Rdns = new HCloud.Rdns("floating_ip1", new()
     ///     {
-    ///         FloatingIpId = floating1.Id,
-    ///         IpAddress = floating1.IpAddress,
+    ///         FloatingIpId = floatingIp1.Id,
+    ///         IpAddress = floatingIp1.IpAddress,
     ///         DnsPtr = "example.com",
     ///     });
     /// 
-    /// });
-    /// ```
-    /// 
-    /// For Load Balancers:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
+    ///     // For Load Balancers
     ///     var loadBalancer1 = new HCloud.LoadBalancer("load_balancer1", new()
     ///     {
     ///         Name = "load_balancer1",
-    ///         LoadBalancerType = "lb11",
-    ///         Location = "fsn1",
     ///     });
     /// 
-    ///     var loadBalancerMaster = new HCloud.Rdns("load_balancer_master", new()
+    ///     var loadBalancer1Rdns = new HCloud.Rdns("load_balancer1", new()
     ///     {
     ///         LoadBalancerId = loadBalancer1.Id,
     ///         IpAddress = loadBalancer1.Ipv4,
@@ -122,72 +81,71 @@ namespace Pulumi.HCloud
     /// 
     /// ## Import
     /// 
-    /// Reverse DNS entries can be imported using a compound ID with the following format:
-    /// `&lt;prefix (s for server/ f for floating ip / l for load balancer)&gt;-&lt;server, floating ip or load balancer ID&gt;-&lt;IP address&gt;`
+    /// The `pulumi import` command can be used, for example:
     /// 
     /// ```sh
-    /// $ pulumi import hcloud:index/rdns:Rdns example "$PREFIX-$ID-$IP"
+    /// $ pulumi import hcloud:index/rdns:Rdns example "$RESOURCE_PREFIX-$ID-$IP"
     /// ```
     /// 
-    /// import reverse dns entry on server with id 123, ip 192.168.100.1
+    /// A Server with id 132022102 and ip 203.0.113.10
     /// 
     /// ```sh
-    /// $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+    /// $ pulumi import hcloud:index/rdns:Rdns server1 "s-132022102-203.0.113.10"
     /// ```
     /// 
-    /// import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+    /// A Primary IP with id 582026301 and ip 2001:db8::1
     /// 
     /// ```sh
-    /// $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
+    /// $ pulumi import hcloud:index/rdns:Rdns primary_ip1 "p-582026301-2001:db8::1"
     /// ```
     /// 
-    /// import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+    /// A Floating IP with id 912300308 and ip 2001:db8::1
     /// 
     /// ```sh
-    /// $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+    /// $ pulumi import hcloud:index/rdns:Rdns floating_ip1 "f-912300308-2001:db8::1"
     /// ```
     /// 
-    /// import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+    /// A Load Balancer with id 747590326 and ip 203.0.113.25
     /// 
     /// ```sh
-    /// $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
+    /// $ pulumi import hcloud:index/rdns:Rdns load_balancer1 "l-747590326-203.0.113.25"
     /// ```
     /// </summary>
     [HCloudResourceType("hcloud:index/rdns:Rdns")]
     public partial class Rdns : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The DNS address the `IpAddress` should resolve to.
+        /// Domain name `IpAddress` should point to.
         /// </summary>
         [Output("dnsPtr")]
         public Output<string> DnsPtr { get; private set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `IpAddress` belongs to.
+        /// ID of the Floating IP the `IpAddress` belongs to.
         /// </summary>
         [Output("floatingIpId")]
         public Output<int?> FloatingIpId { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address that should point to `DnsPtr`.
+        /// IP address that should point to `DnsPtr`.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The Load Balancer the `IpAddress` belongs to.
+        /// ID of the Load Balancer the `IpAddress` belongs to.
         /// </summary>
         [Output("loadBalancerId")]
         public Output<int?> LoadBalancerId { get; private set; } = null!;
 
         /// <summary>
-        /// The Primary IP the `IpAddress` belongs to.
+        /// ID of the Primary IP the `IpAddress` belongs to.
         /// </summary>
         [Output("primaryIpId")]
         public Output<int?> PrimaryIpId { get; private set; } = null!;
 
         /// <summary>
-        /// The server the `IpAddress` belongs to.
+        /// ID of the Server the `IpAddress` belongs to.
         /// </summary>
         [Output("serverId")]
         public Output<int?> ServerId { get; private set; } = null!;
@@ -239,37 +197,37 @@ namespace Pulumi.HCloud
     public sealed class RdnsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS address the `IpAddress` should resolve to.
+        /// Domain name `IpAddress` should point to.
         /// </summary>
         [Input("dnsPtr", required: true)]
         public Input<string> DnsPtr { get; set; } = null!;
 
         /// <summary>
-        /// The Floating IP the `IpAddress` belongs to.
+        /// ID of the Floating IP the `IpAddress` belongs to.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
 
         /// <summary>
-        /// The IP address that should point to `DnsPtr`.
+        /// IP address that should point to `DnsPtr`.
         /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// The Load Balancer the `IpAddress` belongs to.
+        /// ID of the Load Balancer the `IpAddress` belongs to.
         /// </summary>
         [Input("loadBalancerId")]
         public Input<int>? LoadBalancerId { get; set; }
 
         /// <summary>
-        /// The Primary IP the `IpAddress` belongs to.
+        /// ID of the Primary IP the `IpAddress` belongs to.
         /// </summary>
         [Input("primaryIpId")]
         public Input<int>? PrimaryIpId { get; set; }
 
         /// <summary>
-        /// The server the `IpAddress` belongs to.
+        /// ID of the Server the `IpAddress` belongs to.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }
@@ -283,37 +241,37 @@ namespace Pulumi.HCloud
     public sealed class RdnsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS address the `IpAddress` should resolve to.
+        /// Domain name `IpAddress` should point to.
         /// </summary>
         [Input("dnsPtr")]
         public Input<string>? DnsPtr { get; set; }
 
         /// <summary>
-        /// The Floating IP the `IpAddress` belongs to.
+        /// ID of the Floating IP the `IpAddress` belongs to.
         /// </summary>
         [Input("floatingIpId")]
         public Input<int>? FloatingIpId { get; set; }
 
         /// <summary>
-        /// The IP address that should point to `DnsPtr`.
+        /// IP address that should point to `DnsPtr`.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The Load Balancer the `IpAddress` belongs to.
+        /// ID of the Load Balancer the `IpAddress` belongs to.
         /// </summary>
         [Input("loadBalancerId")]
         public Input<int>? LoadBalancerId { get; set; }
 
         /// <summary>
-        /// The Primary IP the `IpAddress` belongs to.
+        /// ID of the Primary IP the `IpAddress` belongs to.
         /// </summary>
         [Input("primaryIpId")]
         public Input<int>? PrimaryIpId { get; set; }
 
         /// <summary>
-        /// The server the `IpAddress` belongs to.
+        /// ID of the Server the `IpAddress` belongs to.
         /// </summary>
         [Input("serverId")]
         public Input<int>? ServerId { get; set; }

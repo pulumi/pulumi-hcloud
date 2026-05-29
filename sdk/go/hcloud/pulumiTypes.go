@@ -869,6 +869,8 @@ type LoadBalancerServiceHttp struct {
 	RedirectHttp *bool `pulumi:"redirectHttp"`
 	// Enable sticky sessions
 	StickySessions *bool `pulumi:"stickySessions"`
+	// Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+	TimeoutIdle *int `pulumi:"timeoutIdle"`
 }
 
 // LoadBalancerServiceHttpInput is an input type that accepts LoadBalancerServiceHttpArgs and LoadBalancerServiceHttpOutput values.
@@ -893,6 +895,8 @@ type LoadBalancerServiceHttpArgs struct {
 	RedirectHttp pulumi.BoolPtrInput `pulumi:"redirectHttp"`
 	// Enable sticky sessions
 	StickySessions pulumi.BoolPtrInput `pulumi:"stickySessions"`
+	// Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+	TimeoutIdle pulumi.IntPtrInput `pulumi:"timeoutIdle"`
 }
 
 func (LoadBalancerServiceHttpArgs) ElementType() reflect.Type {
@@ -997,6 +1001,11 @@ func (o LoadBalancerServiceHttpOutput) StickySessions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerServiceHttp) *bool { return v.StickySessions }).(pulumi.BoolPtrOutput)
 }
 
+// Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+func (o LoadBalancerServiceHttpOutput) TimeoutIdle() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancerServiceHttp) *int { return v.TimeoutIdle }).(pulumi.IntPtrOutput)
+}
+
 type LoadBalancerServiceHttpPtrOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerServiceHttpPtrOutput) ElementType() reflect.Type {
@@ -1069,6 +1078,16 @@ func (o LoadBalancerServiceHttpPtrOutput) StickySessions() pulumi.BoolPtrOutput 
 		}
 		return v.StickySessions
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+func (o LoadBalancerServiceHttpPtrOutput) TimeoutIdle() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerServiceHttp) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutIdle
+	}).(pulumi.IntPtrOutput)
 }
 
 type LoadBalancerTargetType struct {
@@ -4171,6 +4190,7 @@ type GetLoadBalancerServiceHttp struct {
 	RedirectHttp bool `pulumi:"redirectHttp"`
 	// (string) Determine if sticky sessions are enabled or not.
 	StickySessions bool `pulumi:"stickySessions"`
+	TimeoutIdle    int  `pulumi:"timeoutIdle"`
 }
 
 // GetLoadBalancerServiceHttpInput is an input type that accepts GetLoadBalancerServiceHttpArgs and GetLoadBalancerServiceHttpOutput values.
@@ -4195,6 +4215,7 @@ type GetLoadBalancerServiceHttpArgs struct {
 	RedirectHttp pulumi.BoolInput `pulumi:"redirectHttp"`
 	// (string) Determine if sticky sessions are enabled or not.
 	StickySessions pulumi.BoolInput `pulumi:"stickySessions"`
+	TimeoutIdle    pulumi.IntInput  `pulumi:"timeoutIdle"`
 }
 
 func (GetLoadBalancerServiceHttpArgs) ElementType() reflect.Type {
@@ -4271,6 +4292,10 @@ func (o GetLoadBalancerServiceHttpOutput) RedirectHttp() pulumi.BoolOutput {
 // (string) Determine if sticky sessions are enabled or not.
 func (o GetLoadBalancerServiceHttpOutput) StickySessions() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancerServiceHttp) bool { return v.StickySessions }).(pulumi.BoolOutput)
+}
+
+func (o GetLoadBalancerServiceHttpOutput) TimeoutIdle() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerServiceHttp) int { return v.TimeoutIdle }).(pulumi.IntOutput)
 }
 
 type GetLoadBalancerServiceHttpArrayOutput struct{ *pulumi.OutputState }
@@ -5201,6 +5226,7 @@ type GetLoadBalancersLoadBalancerServiceHttp struct {
 	CookieName     string   `pulumi:"cookieName"`
 	RedirectHttp   bool     `pulumi:"redirectHttp"`
 	StickySessions bool     `pulumi:"stickySessions"`
+	TimeoutIdle    int      `pulumi:"timeoutIdle"`
 }
 
 // GetLoadBalancersLoadBalancerServiceHttpInput is an input type that accepts GetLoadBalancersLoadBalancerServiceHttpArgs and GetLoadBalancersLoadBalancerServiceHttpOutput values.
@@ -5220,6 +5246,7 @@ type GetLoadBalancersLoadBalancerServiceHttpArgs struct {
 	CookieName     pulumi.StringInput      `pulumi:"cookieName"`
 	RedirectHttp   pulumi.BoolInput        `pulumi:"redirectHttp"`
 	StickySessions pulumi.BoolInput        `pulumi:"stickySessions"`
+	TimeoutIdle    pulumi.IntInput         `pulumi:"timeoutIdle"`
 }
 
 func (GetLoadBalancersLoadBalancerServiceHttpArgs) ElementType() reflect.Type {
@@ -5291,6 +5318,10 @@ func (o GetLoadBalancersLoadBalancerServiceHttpOutput) RedirectHttp() pulumi.Boo
 
 func (o GetLoadBalancersLoadBalancerServiceHttpOutput) StickySessions() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancersLoadBalancerServiceHttp) bool { return v.StickySessions }).(pulumi.BoolOutput)
+}
+
+func (o GetLoadBalancersLoadBalancerServiceHttpOutput) TimeoutIdle() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancersLoadBalancerServiceHttp) int { return v.TimeoutIdle }).(pulumi.IntOutput)
 }
 
 type GetLoadBalancersLoadBalancerServiceHttpArrayOutput struct{ *pulumi.OutputState }

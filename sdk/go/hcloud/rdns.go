@@ -12,11 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
+// Provides Hetzner Cloud reverse DNS (rDNS) entries for Servers, Primary IPs, Floating IPs or Load Balancers.
 //
 // ## Example Usage
-//
-// For servers:
 //
 // ```go
 // package main
@@ -30,121 +28,61 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			node1, err := hcloud.NewServer(ctx, "node1", &hcloud.ServerArgs{
-//				Name:       pulumi.String("node1"),
-//				Image:      pulumi.String("debian-12"),
-//				ServerType: pulumi.String("cx23"),
+//			// For Servers
+//			server1, err := hcloud.NewServer(ctx, "server1", &hcloud.ServerArgs{
+//				Name: pulumi.String("server1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewRdns(ctx, "master", &hcloud.RdnsArgs{
-//				ServerId:  node1.ID(),
-//				IpAddress: node1.Ipv4Address,
+//			_, err = hcloud.NewRdns(ctx, "server1", &hcloud.RdnsArgs{
+//				ServerId:  server1.ID(),
+//				IpAddress: server1.Ipv4Address,
 //				DnsPtr:    pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// For Primary IPs:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary1, err := hcloud.NewPrimaryIp(ctx, "primary1", &hcloud.PrimaryIpArgs{
-//				Location: pulumi.String("nbg1"),
-//				Type:     pulumi.String("ipv4"),
+//			// For Primary IPs
+//			primaryIp1, err := hcloud.NewPrimaryIp(ctx, "primary_ip1", &hcloud.PrimaryIpArgs{
+//				Name: pulumi.String("primary_ip1"),
+//				Type: pulumi.String("ipv4"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewRdns(ctx, "primary1", &hcloud.RdnsArgs{
-//				PrimaryIpId: primary1.ID(),
-//				IpAddress:   primary1.IpAddress,
+//			_, err = hcloud.NewRdns(ctx, "primary_ip1", &hcloud.RdnsArgs{
+//				PrimaryIpId: primaryIp1.ID(),
+//				IpAddress:   primaryIp1.IpAddress,
 //				DnsPtr:      pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// For Floating IPs:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			floating1, err := hcloud.NewFloatingIp(ctx, "floating1", &hcloud.FloatingIpArgs{
-//				HomeLocation: pulumi.String("nbg1"),
-//				Type:         pulumi.String("ipv4"),
+//			// For Floating IPs
+//			floatingIp1, err := hcloud.NewFloatingIp(ctx, "floating_ip1", &hcloud.FloatingIpArgs{
+//				Name: pulumi.String("floating_ip1"),
+//				Type: pulumi.String("ipv4"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewRdns(ctx, "floating_master", &hcloud.RdnsArgs{
-//				FloatingIpId: floating1.ID(),
-//				IpAddress:    floating1.IpAddress,
+//			_, err = hcloud.NewRdns(ctx, "floating_ip1", &hcloud.RdnsArgs{
+//				FloatingIpId: floatingIp1.ID(),
+//				IpAddress:    floatingIp1.IpAddress,
 //				DnsPtr:       pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// For Load Balancers:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// For Load Balancers
 //			loadBalancer1, err := hcloud.NewLoadBalancer(ctx, "load_balancer1", &hcloud.LoadBalancerArgs{
-//				Name:             pulumi.String("load_balancer1"),
-//				LoadBalancerType: pulumi.String("lb11"),
-//				Location:         pulumi.String("fsn1"),
+//				Name: pulumi.String("load_balancer1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hcloud.NewRdns(ctx, "load_balancer_master", &hcloud.RdnsArgs{
+//			_, err = hcloud.NewRdns(ctx, "load_balancer1", &hcloud.RdnsArgs{
 //				LoadBalancerId: loadBalancer1.ID(),
 //				IpAddress:      loadBalancer1.Ipv4,
 //				DnsPtr:         pulumi.String("example.com"),
@@ -160,50 +98,49 @@ import (
 //
 // ## Import
 //
-// Reverse DNS entries can be imported using a compound ID with the following format:
-// `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
+// The `pulumi import` command can be used, for example:
 //
 // ```sh
-// $ pulumi import hcloud:index/rdns:Rdns example "$PREFIX-$ID-$IP"
+// $ pulumi import hcloud:index/rdns:Rdns example "$RESOURCE_PREFIX-$ID-$IP"
 // ```
 //
-// import reverse dns entry on server with id 123, ip 192.168.100.1
+// # A Server with id 132022102 and ip 203.0.113.10
 //
 // ```sh
-// $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+// $ pulumi import hcloud:index/rdns:Rdns server1 "s-132022102-203.0.113.10"
 // ```
 //
-// import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+// A Primary IP with id 582026301 and ip 2001:db8::1
 //
 // ```sh
-// $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
+// $ pulumi import hcloud:index/rdns:Rdns primary_ip1 "p-582026301-2001:db8::1"
 // ```
 //
-// import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+// A Floating IP with id 912300308 and ip 2001:db8::1
 //
 // ```sh
-// $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+// $ pulumi import hcloud:index/rdns:Rdns floating_ip1 "f-912300308-2001:db8::1"
 // ```
 //
-// import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+// # A Load Balancer with id 747590326 and ip 203.0.113.25
 //
 // ```sh
-// $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
+// $ pulumi import hcloud:index/rdns:Rdns load_balancer1 "l-747590326-203.0.113.25"
 // ```
 type Rdns struct {
 	pulumi.CustomResourceState
 
-	// The DNS address the `ipAddress` should resolve to.
+	// Domain name `ipAddress` should point to.
 	DnsPtr pulumi.StringOutput `pulumi:"dnsPtr"`
-	// The Floating IP the `ipAddress` belongs to.
+	// ID of the Floating IP the `ipAddress` belongs to.
 	FloatingIpId pulumi.IntPtrOutput `pulumi:"floatingIpId"`
-	// The IP address that should point to `dnsPtr`.
+	// IP address that should point to `dnsPtr`.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// The Load Balancer the `ipAddress` belongs to.
+	// ID of the Load Balancer the `ipAddress` belongs to.
 	LoadBalancerId pulumi.IntPtrOutput `pulumi:"loadBalancerId"`
-	// The Primary IP the `ipAddress` belongs to.
+	// ID of the Primary IP the `ipAddress` belongs to.
 	PrimaryIpId pulumi.IntPtrOutput `pulumi:"primaryIpId"`
-	// The server the `ipAddress` belongs to.
+	// ID of the Server the `ipAddress` belongs to.
 	ServerId pulumi.IntPtrOutput `pulumi:"serverId"`
 }
 
@@ -243,32 +180,32 @@ func GetRdns(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rdns resources.
 type rdnsState struct {
-	// The DNS address the `ipAddress` should resolve to.
+	// Domain name `ipAddress` should point to.
 	DnsPtr *string `pulumi:"dnsPtr"`
-	// The Floating IP the `ipAddress` belongs to.
+	// ID of the Floating IP the `ipAddress` belongs to.
 	FloatingIpId *int `pulumi:"floatingIpId"`
-	// The IP address that should point to `dnsPtr`.
+	// IP address that should point to `dnsPtr`.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The Load Balancer the `ipAddress` belongs to.
+	// ID of the Load Balancer the `ipAddress` belongs to.
 	LoadBalancerId *int `pulumi:"loadBalancerId"`
-	// The Primary IP the `ipAddress` belongs to.
+	// ID of the Primary IP the `ipAddress` belongs to.
 	PrimaryIpId *int `pulumi:"primaryIpId"`
-	// The server the `ipAddress` belongs to.
+	// ID of the Server the `ipAddress` belongs to.
 	ServerId *int `pulumi:"serverId"`
 }
 
 type RdnsState struct {
-	// The DNS address the `ipAddress` should resolve to.
+	// Domain name `ipAddress` should point to.
 	DnsPtr pulumi.StringPtrInput
-	// The Floating IP the `ipAddress` belongs to.
+	// ID of the Floating IP the `ipAddress` belongs to.
 	FloatingIpId pulumi.IntPtrInput
-	// The IP address that should point to `dnsPtr`.
+	// IP address that should point to `dnsPtr`.
 	IpAddress pulumi.StringPtrInput
-	// The Load Balancer the `ipAddress` belongs to.
+	// ID of the Load Balancer the `ipAddress` belongs to.
 	LoadBalancerId pulumi.IntPtrInput
-	// The Primary IP the `ipAddress` belongs to.
+	// ID of the Primary IP the `ipAddress` belongs to.
 	PrimaryIpId pulumi.IntPtrInput
-	// The server the `ipAddress` belongs to.
+	// ID of the Server the `ipAddress` belongs to.
 	ServerId pulumi.IntPtrInput
 }
 
@@ -277,33 +214,33 @@ func (RdnsState) ElementType() reflect.Type {
 }
 
 type rdnsArgs struct {
-	// The DNS address the `ipAddress` should resolve to.
+	// Domain name `ipAddress` should point to.
 	DnsPtr string `pulumi:"dnsPtr"`
-	// The Floating IP the `ipAddress` belongs to.
+	// ID of the Floating IP the `ipAddress` belongs to.
 	FloatingIpId *int `pulumi:"floatingIpId"`
-	// The IP address that should point to `dnsPtr`.
+	// IP address that should point to `dnsPtr`.
 	IpAddress string `pulumi:"ipAddress"`
-	// The Load Balancer the `ipAddress` belongs to.
+	// ID of the Load Balancer the `ipAddress` belongs to.
 	LoadBalancerId *int `pulumi:"loadBalancerId"`
-	// The Primary IP the `ipAddress` belongs to.
+	// ID of the Primary IP the `ipAddress` belongs to.
 	PrimaryIpId *int `pulumi:"primaryIpId"`
-	// The server the `ipAddress` belongs to.
+	// ID of the Server the `ipAddress` belongs to.
 	ServerId *int `pulumi:"serverId"`
 }
 
 // The set of arguments for constructing a Rdns resource.
 type RdnsArgs struct {
-	// The DNS address the `ipAddress` should resolve to.
+	// Domain name `ipAddress` should point to.
 	DnsPtr pulumi.StringInput
-	// The Floating IP the `ipAddress` belongs to.
+	// ID of the Floating IP the `ipAddress` belongs to.
 	FloatingIpId pulumi.IntPtrInput
-	// The IP address that should point to `dnsPtr`.
+	// IP address that should point to `dnsPtr`.
 	IpAddress pulumi.StringInput
-	// The Load Balancer the `ipAddress` belongs to.
+	// ID of the Load Balancer the `ipAddress` belongs to.
 	LoadBalancerId pulumi.IntPtrInput
-	// The Primary IP the `ipAddress` belongs to.
+	// ID of the Primary IP the `ipAddress` belongs to.
 	PrimaryIpId pulumi.IntPtrInput
-	// The server the `ipAddress` belongs to.
+	// ID of the Server the `ipAddress` belongs to.
 	ServerId pulumi.IntPtrInput
 }
 
@@ -394,32 +331,32 @@ func (o RdnsOutput) ToRdnsOutputWithContext(ctx context.Context) RdnsOutput {
 	return o
 }
 
-// The DNS address the `ipAddress` should resolve to.
+// Domain name `ipAddress` should point to.
 func (o RdnsOutput) DnsPtr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rdns) pulumi.StringOutput { return v.DnsPtr }).(pulumi.StringOutput)
 }
 
-// The Floating IP the `ipAddress` belongs to.
+// ID of the Floating IP the `ipAddress` belongs to.
 func (o RdnsOutput) FloatingIpId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Rdns) pulumi.IntPtrOutput { return v.FloatingIpId }).(pulumi.IntPtrOutput)
 }
 
-// The IP address that should point to `dnsPtr`.
+// IP address that should point to `dnsPtr`.
 func (o RdnsOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rdns) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// The Load Balancer the `ipAddress` belongs to.
+// ID of the Load Balancer the `ipAddress` belongs to.
 func (o RdnsOutput) LoadBalancerId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Rdns) pulumi.IntPtrOutput { return v.LoadBalancerId }).(pulumi.IntPtrOutput)
 }
 
-// The Primary IP the `ipAddress` belongs to.
+// ID of the Primary IP the `ipAddress` belongs to.
 func (o RdnsOutput) PrimaryIpId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Rdns) pulumi.IntPtrOutput { return v.PrimaryIpId }).(pulumi.IntPtrOutput)
 }
 
-// The server the `ipAddress` belongs to.
+// ID of the Server the `ipAddress` belongs to.
 func (o RdnsOutput) ServerId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Rdns) pulumi.IntPtrOutput { return v.ServerId }).(pulumi.IntPtrOutput)
 }

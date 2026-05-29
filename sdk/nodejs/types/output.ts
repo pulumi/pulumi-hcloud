@@ -289,6 +289,7 @@ export interface GetLoadBalancerServiceHttp {
      * (string) Determine if sticky sessions are enabled or not.
      */
     stickySessions: boolean;
+    timeoutIdle: number;
 }
 
 export interface GetLoadBalancerTarget {
@@ -390,6 +391,7 @@ export interface GetLoadBalancersLoadBalancerServiceHttp {
     cookieName: string;
     redirectHttp: boolean;
     stickySessions: boolean;
+    timeoutIdle: number;
 }
 
 export interface GetLoadBalancersLoadBalancerTarget {
@@ -1270,6 +1272,10 @@ export interface LoadBalancerServiceHttp {
      * Enable sticky sessions
      */
     stickySessions: boolean;
+    /**
+     * Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+     */
+    timeoutIdle: number;
 }
 
 export interface LoadBalancerTarget {
